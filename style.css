@@ -826,6 +826,10 @@ footer .footer-logo {
         padding: 1rem 20px;
     }
 
+    nav a {
+        white-space: nowrap;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
     }
@@ -883,5 +887,89 @@ footer .footer-logo {
     footer {
         padding-bottom: 100px;
         /* 追従ボタンの高さ分の余白を空ける */
+    }
+}
+
+/* 追加の改善スタイル */
+.hero-badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+}
+
+.hero-motto {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    line-height: 1.6;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-stats {
+    background: white;
+    padding: 3rem 5%;
+    border-bottom: 1px solid #eee;
+}
+
+.stats-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stats-title {
+    display: block;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.stat-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.stat-desc {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero-motto {
+        font-size: 1.1rem;
+    }
+
+    .stat-grid {
+        gap: 1.5rem;
+    }
+
+    .stat-value {
+        font-size: 2rem;
     }
 }
