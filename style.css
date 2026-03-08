@@ -790,6 +790,36 @@ footer .footer-logo {
     transform: scale(1.05);
 }
 
+/* 新しいLP改善用のスタイル */
+.price-lead {
+    text-align: center;
+    max-width: 700px;
+    margin: -1.5rem auto 3rem;
+    font-size: 1.15rem;
+    opacity: 0.95;
+    line-height: 1.8;
+}
+
+.cta-points {
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem auto;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-points li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
 /* スマホ対応（レスポンシブ） */
 @media (max-width: 768px) {
     nav {
@@ -799,6 +829,19 @@ footer .footer-logo {
     .hero h1 {
         font-size: 2.2rem;
     }
+
+    .cta-points {
+        flex-direction: column;
+        align-items: center;
+        width: fit-content;
+    }
+
+    .price-lead {
+        margin-top: -1rem;
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
 
     .nav-links {
         display: flex;
