@@ -1,10 +1,17 @@
+/* ===========================================
+   リズムスピーカー LP - style.css (Clean Version)
+   =========================================== */
+
 /* ベース設定 */
 :root {
     --primary-color: #1a1a1a;
-    --accent-color: #e63946;
-    /* タップの情熱を表すアクセントレッド */
+    --accent-color: #ef3340;
     --bg-color: #fafafa;
     --text-color: #333;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -16,98 +23,94 @@ body {
     line-height: 1.6;
 }
 
-/* ナビゲーション */
+/* =========================================
+   ナビゲーション
+   ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
+    padding: 0.8rem 5%;
+    background: rgba(255, 255, 255, 0.97);
     position: fixed;
-    width: 100%;
     top: 0;
-    box-sizing: border-box;
+    left: 0;
+    right: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .logo-img {
-    height: 40px;
+    height: 36px;
     width: auto;
 }
 
 .logo-text {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 900;
     letter-spacing: -0.01em;
     color: var(--primary-color);
+    white-space: nowrap;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--primary-color);
     font-weight: 700;
+    font-size: 0.9rem;
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
 }
 
-.btn-member {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    border: 1px solid #ddd;
-    padding: 5px 15px;
-    border-radius: 20px;
-}
-
-.btn-member:hover {
-    opacity: 1;
-    background: #f0f0f0;
-}
-
-/* ボタン共通設定 */
+/* =========================================
+   ボタン共通
+   ========================================= */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 60px;
-    padding: 0 32px;
+    padding: 0.85rem 1.6rem;
     border-radius: 999px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     text-align: center;
+    cursor: pointer;
+    border: none;
+    white-space: nowrap;
 }
 
 .btn-primary {
-    background: #ef3340;
-    /* 予約を促す力強いレッド */
+    background: var(--accent-color);
     color: #fff;
-    box-shadow: 0 10px 24px rgba(239, 51, 64, 0.28);
+    box-shadow: 0 8px 20px rgba(239, 51, 64, 0.28);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    opacity: 0.95;
-    box-shadow: 0 12px 30px rgba(239, 51, 64, 0.35);
+    box-shadow: 0 12px 28px rgba(239, 51, 64, 0.35);
 }
 
 .btn-glass,
@@ -115,10 +118,25 @@ nav {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.8);
-    color: white;
+    color: #fff;
 }
 
-/* ヒーローセクション（トップ画面） */
+.btn-glass:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ナビCTAボタン */
+.cta-nav {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.1rem;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   ヒーローセクション
+   ========================================= */
 .hero {
     height: 100vh;
     position: relative;
@@ -126,134 +144,72 @@ nav {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('hero.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.65)), url('hero.jpg');
     background-size: cover;
     background-position: center 30%;
-    /* ポーズが綺麗に見える位置に微調整 */
     background-attachment: fixed;
-    filter: contrast(1.1) brightness(0.9);
-}
-
-@media (max-width: 768px) {
-    .hero {
-        background-attachment: scroll;
-    }
 }
 
 .hero-content {
     text-align: center;
     color: white;
-    padding: 0 20px;
+    padding: 0 24px;
+    max-width: 700px;
+    width: 100%;
 }
 
 .hero h1 {
     font-size: 2.8rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero-btns {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-/* 特徴セクション（はじめての方へ） */
-.features {
-    padding: 5rem 5%;
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: white;
-}
-
-.feature-card {
-    flex: 1;
-    min-width: 250px;
-    padding: 2.5rem;
-    border-radius: 15px;
-    background: var(--bg-color);
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-}
-
-.feature-card h3 {
-    margin-bottom: 1rem;
-    color: var(--accent-color);
-}
-
-/* 流れ・FAQ・準備セクションの追加スタイル */
-.steps,
-.faq {
-    padding: 6rem 5%;
-    background: white;
-}
-
-.steps-container {
-    display: flex;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.step-item {
-    flex: 1;
-    position: relative;
-    padding-top: 3rem;
-}
-
-.step-num {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 3rem;
+    margin: 0 0 1.2rem;
+    line-height: 1.25;
     font-weight: 900;
-    color: rgba(0, 0, 0, 0.05);
-    font-family: 'Outfit', sans-serif;
 }
 
-.step-item h4 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    position: relative;
-    text-align: center;
+.hero-subcopy {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 1.5rem;
+    color: rgba(255, 255, 255, 0.92);
 }
 
-.preparation {
-    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
-    color: white;
-    padding: 6rem 5%;
-    text-align: center;
-}
-
-.prep-grid {
+/* 安心材料バッジ */
+.hero-proof {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 2rem;
 }
 
-.prep-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem 2.5rem;
-    border-radius: 15px;
+.proof-item {
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+}
+
+/* ヒーローボタングループ */
+.hero-buttons {
     display: flex;
+    flex-direction: column;
+    gap: 14px;
     align-items: center;
-    gap: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* こんな方におすすめ */
+.hero-buttons .btn {
+    width: 100%;
+    max-width: 380px;
+    min-height: 58px;
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   こんな方におすすめ
+   ========================================= */
 .recommend {
     padding: 5rem 5%;
     background: #fff;
@@ -283,32 +239,134 @@ nav {
 
 .recommend-card p {
     margin: 0;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.7;
 }
 
-@media (max-width: 1024px) {
-    .recommend-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* =========================================
+   特徴セクション
+   ========================================= */
+.features {
+    padding: 5rem 5%;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: white;
 }
 
-@media (max-width: 768px) {
-    .recommend-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .recommend-card {
-        text-align: center;
-    }
+.feature-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 340px;
+    padding: 2.5rem;
+    border-radius: 15px;
+    background: var(--bg-color);
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
 }
 
-.trial-excl {
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
     color: var(--accent-color);
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-top: -1rem;
-    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   セクション共通ヘッダー
+   ========================================= */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* =========================================
+   体験の流れ
+   ========================================= */
+.steps {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.steps-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step-item {
+    flex: 1;
+    position: relative;
+    padding-top: 3rem;
+    text-align: center;
+}
+
+.step-num {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.05);
+    font-family: 'Outfit', sans-serif;
+}
+
+.step-item h4 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+/* =========================================
+   準備セクション
+   ========================================= */
+.preparation {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    color: white;
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.prep-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.prep-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 2.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   FAQ
+   ========================================= */
+.faq {
+    padding: 6rem 5%;
+    background: white;
 }
 
 .faq-container {
@@ -341,9 +399,10 @@ nav {
     line-height: 1.8;
 }
 
-/* 受講生の声・講師紹介のスタイル */
-.testimonials,
-.instructors {
+/* =========================================
+   受講生の声
+   ========================================= */
+.testimonials {
     padding: 6rem 5%;
     background: #fdfdfd;
 }
@@ -367,14 +426,15 @@ nav {
 }
 
 .user-info {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .user-name {
     display: block;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--primary-color);
+    margin-bottom: 0.4rem;
 }
 
 .user-tag {
@@ -383,6 +443,14 @@ nav {
     background: #fff0f0;
     padding: 2px 10px;
     border-radius: 50px;
+}
+
+/* =========================================
+   講師紹介
+   ========================================= */
+.instructors {
+    padding: 6rem 5%;
+    background: #fdfdfd;
 }
 
 .instructor-container {
@@ -430,8 +498,8 @@ nav {
 }
 
 .instructor-info p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.85;
 }
 
 .instructor-badges {
@@ -443,51 +511,37 @@ nav {
 
 .instructor-badges span {
     display: inline-block;
-    padding: 0.45rem 0.8rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 999px;
     background: #f4f4f4;
     color: #222;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
-    .instructor-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .instructor-photo img {
-        width: 220px;
-    }
-
-    .instructor-badges {
-        justify-content: center;
-    }
-
-    .steps-container {
-        flex-direction: column;
-    }
-
-    .step-item {
-        text-align: center;
-    }
-}
-
-/* 料金・システムセクション */
+/* =========================================
+   料金表
+   ========================================= */
 .price-system {
     padding: 5rem 5%;
     background-color: var(--primary-color);
     color: white;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
+.price-system .section-header h2 {
+    color: white;
 }
 
-/* 価格セクションの再編 */
+.price-lead {
+    max-width: 680px;
+    margin: -2rem auto 3rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0 20px;
+}
+
 .price-container {
     display: flex;
     gap: 2rem;
@@ -526,6 +580,7 @@ nav {
     border-radius: 50px;
     font-size: 0.9rem;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .price-amount {
@@ -533,6 +588,13 @@ nav {
     font-weight: 900;
     color: var(--accent-color);
     margin: 1.5rem 0;
+}
+
+.trial-excl {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: -0.5rem 0 1.5rem;
 }
 
 .plan-features {
@@ -544,7 +606,7 @@ nav {
 }
 
 .plan-features li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.9rem;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -553,23 +615,39 @@ nav {
 
 .plan-features svg {
     color: #4CAF50;
+    flex-shrink: 0;
 }
 
-.standard-plan {
-    opacity: 0.9;
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.price-table td {
+    padding: 0.8rem 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95rem;
+}
+
+.price-table td:last-child {
+    font-weight: 700;
+    text-align: right;
 }
 
 .price-note {
     margin-top: auto;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: #888;
     padding-top: 1.5rem;
 }
 
-/* 最終CTA */
+/* =========================================
+   最終CTA
+   ========================================= */
 .final-cta {
     padding: 8rem 5%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('hero.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -577,96 +655,58 @@ nav {
     color: white;
 }
 
-.cta-inner h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.3;
+.cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
 }
 
-.cta-inner p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 3rem auto;
+.cta-inner h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.35;
+}
+
+.cta-inner>p {
+    font-size: 1.05rem;
+    margin: 0 0 2.5rem;
     opacity: 0.9;
+    line-height: 1.8;
+}
+
+/* 最終安心材料バッジ */
+.final-reassurance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 2.5rem;
+}
+
+.final-reassurance div {
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
 }
 
 .btn-large {
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    min-height: 64px;
+    padding: 0 2.5rem;
+    font-size: 1.15rem;
+    gap: 10px;
 }
 
-/* フッターナビ */
-.footer-nav {
-    margin-bottom: 2rem;
-}
-
-.footer-nav a {
-    color: white;
-    text-decoration: none;
-    opacity: 0.6;
-    font-size: 0.9rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 5px 15px;
-    border-radius: 20px;
-    transition: all 0.3s;
-}
-
-.footer-nav a:hover {
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-    .price-container {
-        flex-direction: column;
-        gap: 3rem;
-    }
-
-    .trial-plan {
-        transform: none;
-    }
-
-    .final-cta {
-        background-attachment: scroll;
-        padding: 5rem 5%;
-    }
-
-    .cta-inner h2 {
-        font-size: 1.8rem;
-    }
-}
-
-.line-best-price {
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 2rem;
-}
-
-.badge-red {
-    background: var(--accent-color);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    vertical-align: middle;
-    margin-right: 5px;
-}
-
-.system-note {
-    text-align: center;
-    margin-top: 4rem;
-    font-size: 0.95rem;
-    color: #aaa;
-}
-
-.system-note strong {
-    color: white;
-}
-
-/* Access Section */
+/* =========================================
+   アクセス
+   ========================================= */
 #access {
     background: var(--primary-color);
     color: white;
@@ -688,7 +728,7 @@ nav {
 .access-info h3 {
     color: var(--accent-color);
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .access-btns {
@@ -700,13 +740,45 @@ nav {
 
 .access-map {
     flex: 1.2;
-    height: 450px;
+    height: 420px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Footer & Social Links */
+/* =========================================
+   追従LINEボタン
+   ========================================= */
+.floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+}
+
+.floating-cta a {
+    background-color: #06C755;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-cta a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 28px rgba(6, 199, 85, 0.5);
+}
+
+/* =========================================
+   フッター
+   ========================================= */
 footer {
     padding: 5rem 5%;
     text-align: center;
@@ -714,33 +786,53 @@ footer {
     border-top: 1px solid #222;
 }
 
-footer .footer-logo {
+.footer-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 3rem;
+    gap: 12px;
+    margin-bottom: 2.5rem;
 }
 
 .footer-logo-img {
-    height: 70px;
+    height: 60px;
     filter: brightness(0) invert(1);
 }
 
 .footer-logo-text {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     font-weight: 900;
     color: white;
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
+.footer-nav {
+    margin-bottom: 2rem;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.6;
+    font-size: 0.88rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .social-links {
     display: flex;
     justify-content: center;
     gap: 2.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     flex-wrap: wrap;
 }
 
@@ -755,140 +847,121 @@ footer .footer-logo {
 }
 
 .social-links a svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     stroke-width: 2;
 }
 
 .social-links a:hover {
     opacity: 1;
     color: var(--accent-color);
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 }
 
 .copyright {
-    opacity: 0.4;
-    font-size: 0.9rem;
+    opacity: 0.35;
+    font-size: 0.85rem;
     color: white;
 }
 
-/* 追従するLINE予約ボタン */
-.floating-cta {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-}
-
-.floating-cta a {
-    background-color: #06C755;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.3s;
-}
-
-.floating-cta a:hover {
-    transform: scale(1.05);
-}
-
-/* --- LP改善 決定版スタイル --- */
-
-/* ヘッダーの縦崩れを鉄壁ガード */
-header nav a,
-.nav-links a,
-nav a {
-    white-space: nowrap;
-}
-
-/* ヒーロー文言の強化 */
-.hero-subcopy {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-top: 1rem;
-    margin-bottom: 1.25rem;
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.hero-proof {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 1.5rem 0 2rem;
-}
-
-.proof-item {
-    padding: 0.5rem 0.9rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.14);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    color: #fff;
-    font-size: 0.92rem;
-    font-weight: 700;
-    backdrop-filter: blur(4px);
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 1.5rem;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 料金表リード文 */
-.price-lead {
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: #444;
-    padding: 0 20px;
-}
-
-/* 最終CTA前の安心材料 */
-.final-reassurance {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin: 0 auto 2rem;
-    max-width: 600px;
-}
-
-.final-reassurance div {
-    padding: 0.55rem 0.95rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 0.92rem;
-    font-weight: 700;
-}
-
+/* =========================================
+   レスポンシブ（スマホ）
+   ========================================= */
 @media (max-width: 768px) {
-    .hero-subcopy {
-        font-size: 1rem;
-        margin-top: 0.8rem;
+
+    /* ナビ */
+    nav {
+        padding: 0.7rem 16px;
     }
 
-    .proof-item,
-    .final-reassurance div {
-        font-size: 0.85rem;
+    .logo-text {
+        font-size: 1rem;
     }
 
-    .btn {
-        min-height: 56px;
-        font-size: 1rem;
+    /* スマホではナビリンクを「アクセス」だけ残して非表示 */
+    .nav-links li:not(:last-child) {
+        display: none;
+    }
+
+    /* ヒーロー */
+    .hero {
+        background-attachment: scroll;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons .btn {
+        max-width: 100%;
+    }
+
+    /* こんな方におすすめ */
+    .recommend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recommend-card {
+        text-align: center;
+    }
+
+    /* 体験の流れ */
+    .steps-container {
+        flex-direction: column;
+    }
+
+    /* 講師 */
+    .instructor-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .instructor-photo img {
+        width: 200px;
+    }
+
+    .instructor-badges {
+        justify-content: center;
+    }
+
+    /* 料金 */
+    .price-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .trial-plan {
+        transform: none;
+    }
+
+    .price-lead {
+        margin-top: -1rem;
+    }
+
+    /* 最終CTA */
+    .final-cta {
+        background-attachment: scroll;
+        padding: 5rem 5%;
+    }
+
+    .cta-inner h2 {
+        font-size: 1.8rem;
+    }
+
+    /* アクセス */
+    .access-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .access-map {
+        height: 280px;
+        width: 100%;
+    }
+
+    /* フッター */
+    footer {
+        padding-bottom: 100px;
     }
 }
