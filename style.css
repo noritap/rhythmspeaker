@@ -613,34 +613,303 @@ nav {
     font-weight: 500;
 }
 
+
 .plan-features svg {
     color: #4CAF50;
     flex-shrink: 0;
 }
 
-.price-table {
+/* =========================================
+   Rhythm Speaker v0.2 追加レイアウトスタイル
+   ========================================= */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
     width: 100%;
-    border-collapse: collapse;
-    text-align: left;
 }
 
-.price-table td {
-    padding: 0.8rem 0.5rem;
-    border-bottom: 1px solid #f0f0f0;
+.web-system {
+    padding: 6rem 5%;
+    background: #f5f5f7;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.system-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.system-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(239, 51, 64, 0.1);
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.system-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.system-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.system-card p {
+    margin: 0;
     font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
 }
 
-.price-table td:last-child {
+.trial-intro {
+    padding: 6rem 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)), url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.trial-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trial-intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.trial-intro p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.class-overview {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.class-card {
+    background: var(--bg-color);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+.class-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.class-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    color: var(--primary-color);
+}
+
+.class-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.wallet-desc-box {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bullet-list-desc {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.bullet-list-desc div {
+    display: flex;
+    align-items: center;
+}
+
+.btn-secondary-dark {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.85rem 1.6rem;
+    text-decoration: none;
     font-weight: 700;
-    text-align: right;
+    border-radius: 999px;
+    text-align: center;
+    display: inline-block;
 }
 
-.price-note {
-    margin-top: auto;
-    font-size: 0.82rem;
-    color: #888;
-    padding-top: 1.5rem;
+.btn-secondary-dark:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
+
+.wallet-intro {
+    padding: 6rem 5%;
+    background: #0f0f11;
+    color: white;
+}
+
+.wallet-intro .section-header h2 {
+    color: white;
+}
+
+.wallet-intro .section-header p {
+    color: #aaa;
+}
+
+.wallet-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.wallet-text-col h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.wallet-text-col p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.wallet-assurance-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+}
+
+.wallet-assurance-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.wallet-assurance-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.wallet-comparison-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.comparison-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.role-badge.green {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.role-badge.red {
+    background: rgba(239, 51, 64, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(239, 51, 64, 0.3);
+}
+
+.comparison-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comparison-card li {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.comparison-card li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+
 
 /* =========================================
    最終CTA
@@ -878,18 +1147,21 @@ footer {
         font-size: 1rem;
     }
 
-    /* スマホではナビリンクを「アクセス」だけ残して非表示 */
-    .nav-links li:not(:last-child) {
+
+    /* スマホではナビリンクを非表示 */
+    .nav-links {
         display: none;
     }
 
     /* ヒーロー */
     .hero {
         background-attachment: scroll;
+        height: auto;
+        padding: 6rem 5% 4rem;
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .hero-buttons .btn {
@@ -923,6 +1195,39 @@ footer {
 
     .instructor-badges {
         justify-content: center;
+    }
+
+
+    /* 特徴 */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* WEB連動 */
+    .system-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* クラス紹介 */
+    .class-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* RS Wallet */
+    .wallet-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .wallet-text-col {
+        text-align: center;
+    }
+
+    .wallet-assurance-card {
+        text-align: left;
+        border-left: 4px solid var(--accent-color);
     }
 
     /* 料金 */
