@@ -28,10 +28,11 @@
 
 <body>
     <nav>
-        <div class="logo">
+        <a href="https://rhythmspeaker.stores.jp/" class="logo logo-home-link"
+            aria-label="Rhythm Speaker メインHPへ">
             <img src="logo.png" alt="" class="logo-img">
             <span class="logo-text">Rhythm Speaker</span>
-        </div>
+        </a>
         <ul class="nav-links">
             <li><a href="#about">特徴</a></li>
             <li><a href="#system">WEB連動とは</a></li>
@@ -417,6 +418,11 @@
         </div>
     </section>
 
+    <button type="button" class="back-to-top" id="backToTop"
+        aria-label="ページ上部へ戻る" title="ページ上部へ戻る">
+        <i data-lucide="arrow-up"></i>
+    </button>
+
     <div class="floating-cta">
         <a href="https://line.me/R/oaMessage/@ypk3334t">
             <span>LINEで体験予約・相談</span>
@@ -445,6 +451,26 @@
     </footer>
 
     <script>
+        // ページ上部へ戻るボタン
+        const backToTop = document.getElementById('backToTop');
+
+        const updateBackToTopVisibility = () => {
+            backToTop.classList.toggle('is-visible', window.scrollY > 500);
+        };
+
+        window.addEventListener('scroll', updateBackToTopVisibility, {
+            passive: true
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        updateBackToTopVisibility();
+
         // アイコンの初期化
         lucide.createIcons();
     </script>
