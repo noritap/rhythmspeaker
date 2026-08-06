@@ -415,163 +415,858 @@ nav {
     flex-wrap: wrap;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 最終安心材料バッジ */
-
-
-
-
-
+.testimonial-card {
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.user-info {
+    margin-bottom: 1.2rem;
+}
+
+.user-name {
+    display: block;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.user-tag {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    background: #fff0f0;
+    padding: 2px 10px;
+    border-radius: 50px;
+}
+
+/* =========================================
+   講師紹介
+   ========================================= */
+.instructors {
+    padding: 6rem 5%;
+    background: #fdfdfd;
+}
+
+.instructor-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.instructor-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.instructor-photo {
+    flex-shrink: 0;
+}
+
+.instructor-photo img {
+    width: 260px;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.instructor-info {
+    flex: 1;
+}
+
+.instructor-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.instructor-title {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.instructor-info p {
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.instructor-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.instructor-badges span {
+    display: inline-block;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    background: #f4f4f4;
+    color: #222;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   料金表
+   ========================================= */
+.price-system {
+    padding: 5rem 5%;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.price-system .section-header h2 {
+    color: white;
+}
+
+.price-lead {
+    max-width: 680px;
+    margin: -2rem auto 3rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0 20px;
+}
+
+.price-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.price-block {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    color: var(--primary-color);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.trial-plan {
+    position: relative;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 20px 40px rgba(230, 57, 70, 0.2);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.plan-label {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.price-amount {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin: 1.5rem 0;
+}
+
+.trial-excl {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: -0.5rem 0 1.5rem;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.plan-features li {
+    margin-bottom: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+
+.plan-features svg {
+    color: #4CAF50;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   Rhythm Speaker v0.2 追加レイアウトスタイル
+   ========================================= */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.web-system {
+    padding: 6rem 5%;
+    background: #f5f5f7;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.system-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.system-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(239, 51, 64, 0.1);
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.system-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.system-card h3 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.system-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+.trial-intro {
+    padding: 6rem 5%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.75)), url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.trial-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trial-intro h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.trial-intro p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.class-overview {
+    padding: 6rem 5%;
+    background: white;
+}
+
+.class-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.class-card {
+    background: var(--bg-color);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    border: 1px solid #eee;
+}
+
+.class-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.class-card h3 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    color: var(--primary-color);
+}
+
+.class-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.wallet-desc-box {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bullet-list-desc {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+.bullet-list-desc div {
+    display: flex;
+    align-items: center;
+}
+
+.btn-secondary-dark {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.85rem 1.6rem;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-secondary-dark:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.wallet-intro {
+    padding: 6rem 5%;
+    background: #0f0f11;
+    color: white;
+}
+
+.wallet-intro .section-header h2 {
+    color: white;
+}
+
+.wallet-intro .section-header p {
+    color: #aaa;
+}
+
+.wallet-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.wallet-text-col h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.wallet-text-col p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.wallet-assurance-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 2rem;
+}
+
+.wallet-assurance-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.wallet-assurance-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.wallet-comparison-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+}
+
+.comparison-card h4 {
+    margin: 0 0 1rem;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.role-badge.green {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.role-badge.red {
+    background: rgba(239, 51, 64, 0.15);
+    color: var(--accent-color);
+    border: 1px solid rgba(239, 51, 64, 0.3);
+}
+
+.comparison-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comparison-card li {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.comparison-card li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
 
 
 
 /* =========================================
+   最終CTA
+   ========================================= */
+.final-cta {
+    padding: 8rem 5%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.78)), url('hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    color: white;
+}
+
+.cta-inner {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.cta-inner h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.35;
+}
+
+.cta-inner>p {
+    font-size: 1.05rem;
+    margin: 0 0 2.5rem;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+/* 最終安心材料バッジ */
+.final-reassurance {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 2.5rem;
+}
+
+.final-reassurance div {
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.cta-btns {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-large {
+    min-height: 64px;
+    padding: 0 2.5rem;
+    font-size: 1.15rem;
+    gap: 10px;
+}
+
+/* =========================================
    アクセス
    ========================================= */
+#access {
+    background: var(--primary-color);
+    color: white;
+    padding: 6rem 5%;
+}
+
+.access-container {
+    display: flex;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.access-info {
+    flex: 1;
+}
+
+.access-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.access-btns {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.access-map {
+    flex: 1.2;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   追従LINEボタン
+   ========================================= */
+.floating-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+}
+
+.floating-cta a {
+    background-color: #06C755;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.floating-cta a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 28px rgba(6, 199, 85, 0.5);
+}
+
+/* =========================================
+   フッター
+   ========================================= */
+footer {
+    padding: 5rem 5%;
+    text-align: center;
+    background: #000;
+    border-top: 1px solid #222;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2.5rem;
+}
+
+.footer-logo-img {
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.footer-nav {
+    margin-bottom: 2rem;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.6;
+    font-size: 0.88rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.footer-nav a:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.6;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    transform: translateY(-4px);
+}
+
+.copyright {
+    opacity: 0.35;
+    font-size: 0.85rem;
+    color: white;
+}
+
+/* =========================================
+   レスポンシブ（スマホ）
+   ========================================= */
+@media (max-width: 768px) {
+
+    /* ナビ */
+    nav {
+        padding: 0.7rem 16px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
 
 
+    /* スマホではナビリンクを非表示 */
+    .nav-links {
+        display: none;
+    }
+
+    /* ヒーロー */
+    .hero {
+        background-attachment: scroll;
+        height: auto;
+        padding: 6rem 5% 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons .btn {
+        max-width: 100%;
+    }
+
+    /* こんな方におすすめ */
+    .recommend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .recommend-card {
+        text-align: center;
+    }
+
+    /* 体験の流れ */
+    .steps-container {
+        flex-direction: column;
+    }
+
+    /* 講師 */
+    .instructor-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .instructor-photo img {
+        width: 200px;
+    }
+
+    .instructor-badges {
+        justify-content: center;
+    }
 
 
+    /* 特徴 */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 
+    /* WEB連動 */
+    .system-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
+    /* クラス紹介 */
+    .class-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
 
+    /* RS Wallet */
+    .wallet-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
 
+    .wallet-text-col {
+        text-align: center;
+    }
 
+    .wallet-assurance-card {
+        text-align: left;
+        border-left: 4px solid var(--accent-color);
+    }
 
+    /* 料金 */
+    .price-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
 
+    .trial-plan {
+        transform: none;
+    }
 
+    .price-lead {
+        margin-top: -1rem;
+    }
 
+    /* 最終CTA */
+    .final-cta {
+        background-attachment: scroll;
+        padding: 5rem 5%;
+    }
 
+    .cta-inner h2 {
+        font-size: 1.8rem;
+    }
 
+    /* アクセス */
+    .access-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
 
+    .access-map {
+        height: 280px;
+        width: 100%;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /* フッター */
+    footer {
+        padding-bottom: 100px;
+    }
+}
