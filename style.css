@@ -1382,3 +1382,129 @@ footer {
 .site-footer-nav .site-footer-external {
     color: #f0bd61;
 }
+
+
+/* =========================================
+   モバイルサイトメニュー
+   ========================================= */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid rgba(26, 26, 26, 0.18);
+    border-radius: 999px;
+    background: #fff;
+}
+
+.mobile-nav summary::-webkit-details-marker {
+    display: none;
+}
+
+.mobile-nav summary::before {
+    content: "☰";
+    margin-right: 0.4rem;
+}
+
+.mobile-nav[open] summary::before {
+    content: "×";
+}
+
+.mobile-nav summary:focus-visible {
+    outline: 3px solid rgba(239, 51, 64, 0.3);
+    outline-offset: 2px;
+}
+
+.mobile-nav-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 5%;
+    width: min(360px, calc(100vw - 2rem));
+    margin: 0;
+    padding: 0.6rem;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.99);
+    border: 1px solid rgba(26, 26, 26, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.mobile-nav-panel a {
+    display: block;
+    padding: 0.8rem 0.9rem;
+    border-radius: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.mobile-nav-panel a:hover,
+.mobile-nav-panel a:focus-visible,
+.mobile-nav-panel a[aria-current="page"] {
+    color: var(--accent-color);
+    background: rgba(239, 51, 64, 0.07);
+}
+
+.mobile-nav-panel .nav-external {
+    color: #8c5b12;
+    border-top: 1px solid rgba(26, 26, 26, 0.1);
+    margin-top: 0.35rem;
+    padding-top: 0.95rem;
+}
+
+@media (max-width: 1100px) {
+    .mobile-nav {
+        display: block;
+        margin-left: auto;
+        margin-right: 0.75rem;
+    }
+}
+
+@media (max-width: 560px) {
+    nav {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    nav .logo-text {
+        display: none;
+    }
+
+    .mobile-nav {
+        margin-right: 0.4rem;
+    }
+
+    .mobile-nav summary {
+        padding: 0.5rem 0.65rem;
+        font-size: 0.78rem;
+    }
+
+    .cta-nav {
+        padding: 0.55rem 0.75rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .mobile-nav summary {
+        font-size: 0;
+        width: 42px;
+        height: 42px;
+        padding: 0;
+        display: grid;
+        place-items: center;
+    }
+
+    .mobile-nav summary::before {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}

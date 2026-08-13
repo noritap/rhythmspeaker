@@ -2,7 +2,7 @@
 
 【WEB連動型】タップダンス教室 リズムスピーカーの公式Webリポジトリです。
 
-現在の `main` は、初心者向けLPを中心とした静的サイトを GitHub Pages で公開しています。
+現在の `main` は、初心者向けLPとPhase 1の5ページを統合した静的サイトを GitHub Pages で公開しています。
 
 ## 1. Project identity
 
@@ -40,7 +40,7 @@
 - 体験導線
 - メディア資産化
 
-現在は初心者向けLPが中心です。
+初心者向けLPを入口に、体験・クラス・アクセス・教室紹介・FAQへ役割分担しています。
 
 ### STORES
 
@@ -104,26 +104,19 @@ Secondary CTA:
 
 ## 5. Current repository structure
 
+主要な公開ページ:
+
 ```text
-rhythmspeaker/
-├── .gitattributes
-├── README.md
-├── hero.jpg
-├── index.html
-├── instructor-action.jpg
-├── instructor-main.jpg
-├── logo.png
-├── style.css
-└── tap-dance-instructor-furusho-noritaka.jpg
+/
+/trial/
+/classes/
+/access/
+/about/
+/faq/
 ```
 
-主要ファイル:
-
-- `index.html`: 現行初心者LP本体
-- `style.css`: LP全体スタイル / レスポンシブ
-- `hero.jpg`: HEROおよび背景素材
-- `logo.png`: Rhythm Speakerロゴ
-- `tap-dance-instructor-furusho-noritaka.jpg`: 現行講師写真
+共通のヘッダーでは、教室内ページ・STORES・Official LINEへ案内します。
+PCでは横並びナビ、SP / Tabletでは展開式メニューを使用します。
 
 ## 6. Current design / UX policy
 
@@ -395,12 +388,12 @@ GitHub Actionsの表示だけで公開成否を断定しません。
 ## 16. Current status
 
 ```text
-Beginner LP v0.2            LIVE
-Navigation utilities v0.1   LIVE
-Back-to-top                 LIVE
-STORES logo link            LIVE
-GitHub Pages                LIVE
-README v0.1                 READY
+Beginner LP                     LIVE
+Phase 1 five-page set           LIVE
+PC / mobile common navigation  LIVE
+Back-to-top                     LIVE
+Explicit STORES links           LIVE
+GitHub Pages                    LIVE
 ```
 
 このREADMEは、Rhythm Speaker Webを人間・AI・Antigravityが安全に継続開発するための入口ファイルとして管理します。
