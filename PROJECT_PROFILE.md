@@ -1,6 +1,6 @@
 # PROJECT_PROFILE
 
-Version: 3.0
+Version: 3.1
 Status: ACTIVE
 Project: Rhythm Speaker Web
 
@@ -397,14 +397,14 @@ Priority Rule:
 ━━━━━━━━━━━━━━━━━━━━
 
 Current Development Phase:
-Production + Multi-page Version Upgrade
+Production + Phase 1 Optimization
 
 Current Goal:
-現在の初心者向け1ページLPを壊さず、
-Rhythm Speaker公式Webを段階的にMulti-page化する。
+公開済みのPhase 1ページ群と既存初心者LPを維持しながら、
+モバイル導線、実画面品質、検索資産、運用性を継続的に最適化する。
 
 Current Milestone:
-Official HP Phase 1
+Official HP Phase 1 Stabilization
 
 Phase 1 Production / Planned Page Set:
 
@@ -433,21 +433,22 @@ Do Not:
 
 Current Production:
 - Beginner LP
-- Navigation utilities
-- Back-to-top
-- STORES logo link
-- GitHub Pages
-- README
-- Official HP Phase 1 Plan
 - /trial/
-
-Current Development:
 - /classes/
-
-Future Phase 1:
 - /access/
 - /about/
 - /faq/
+- Common PC / mobile navigation
+- Back-to-top
+- Explicit STORES navigation / footer links
+- GitHub Pages
+- README
+- Official HP Phase 1 Plan
+
+Current Development:
+- Phase 1 production optimization
+- Mobile UX validation
+- SEO / measurement design
 
 Future Scope / Not Phase 1:
 - /beginner/
@@ -565,7 +566,6 @@ External WRITE:
 
 - 独自ドメイン導入時期
 - GitHub Pagesを長期Production Hostingとして維持するか
-- Multi-page化後も左上ロゴのSTORESリンクを維持するか
 - /schedule/ の正本データSource
 - クラス情報の長期管理方法
 - Instructor情報の長期正本
