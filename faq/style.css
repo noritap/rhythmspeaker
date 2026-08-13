@@ -1,0 +1,51 @@
+.faq-page { background:#f6f2eb; color:#171717; }
+.faq-hero { min-height:560px; display:flex; align-items:center; padding:9rem 8% 6rem; color:#fff; background:linear-gradient(90deg,rgba(8,8,8,.94),rgba(8,8,8,.67)),url('../hero.jpg') center 58%/cover; }
+.faq-hero-inner { max-width:800px; }
+.faq-eyebrow,.faq-kicker { margin:0 0 .8rem; color:#b9822b; font-family:'Outfit',sans-serif; font-weight:900; letter-spacing:.14em; font-size:.82rem; }
+.faq-hero .faq-eyebrow,.faq-section:not(.faq-section-light) .faq-kicker { color:#f0bd61; }
+.faq-intro .faq-kicker,.faq-section-light .faq-kicker,.faq-contact .faq-kicker { color:#7a4c0b; }
+.faq-hero h1 { margin:0; font-size:clamp(2.3rem,5.8vw,4.9rem); line-height:1.08; letter-spacing:-.035em; }
+.faq-hero-copy { max-width:680px; margin:1.5rem 0 0; color:#eee; font-size:1.1rem; line-height:1.9; }
+.faq-hero-actions { display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2rem; }
+.faq-hero .btn-secondary { color:#fff; border-color:rgba(255,255,255,.65); background:rgba(255,255,255,.08); }
+.faq-intro,.faq-contact { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.85fr); gap:3rem; align-items:center; max-width:1120px; margin:0 auto; padding:5rem 5%; }
+.faq-intro h2,.faq-contact h2 { margin:0; font-size:clamp(1.75rem,3.5vw,2.75rem); line-height:1.35; }
+.faq-intro>p,.faq-contact p { margin:0; line-height:2; color:#555; }
+.faq-section { padding:5.5rem 5%; background:#111; color:#fff; }
+.faq-section-light { background:#f6f2eb; color:#171717; }
+.faq-section .section-header,.faq-list { max-width:920px; margin-left:auto; margin-right:auto; }
+.faq-section .section-header { margin-bottom:2rem; }
+.faq-section .section-header h2 { margin:0; font-size:clamp(1.8rem,3.5vw,2.8rem); }
+.faq-list { display:grid; gap:1rem; }
+.faq-list details { overflow:hidden; border:1px solid rgba(255,255,255,.18); border-radius:18px; background:#1b1b1b; }
+.faq-section-light .faq-list details { border-color:#ddd2c1; background:#fff; }
+.faq-list summary { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.35rem 1.5rem; cursor:pointer; list-style:none; font-weight:700; font-size:1.04rem; line-height:1.6; }
+.faq-list summary::-webkit-details-marker { display:none; }
+.faq-list summary i[data-lucide="plus"] { flex:0 0 22px; width:22px; color:#8c5b12; font-style:normal; font-size:1.5rem; line-height:1; text-align:center; }
+.faq-list summary i[data-lucide="plus"]::before { content:"+"; }
+.faq-list details[open] summary i[data-lucide="plus"] { transform:rotate(45deg); }
+.faq-list summary svg { flex:0 0 22px; width:22px; height:22px; color:#e0a642; transition:transform .2s ease; }
+.faq-list details[open] summary svg { transform:rotate(45deg); }
+.faq-list summary:focus-visible { outline:3px solid #e0a642; outline-offset:-3px; }
+.faq-answer { padding:0 1.5rem 1.5rem; border-top:1px solid rgba(255,255,255,.12); color:#ddd; }
+.faq-section-light .faq-answer { border-color:#ece4d8; color:#4b4b4b; }
+.faq-answer p { margin:1.25rem 0 0; line-height:1.95; }
+.faq-answer a { display:inline-block; margin-top:1rem; color:#f0bd61; font-weight:700; }
+.faq-section-light .faq-answer a { color:#8c5b12; }
+.faq-contact { max-width:1120px; }
+.faq-contact-actions { display:flex; flex-direction:column; gap:.9rem; align-items:stretch; }
+.faq-contact-actions .btn { text-align:center; justify-content:center; }
+.faq-contact-actions .btn-secondary { color:#171717; border-color:#8c5b12; background:#fff; }
+.faq-contact-actions .btn-secondary:hover { background:#f0e5d4; }
+.faq-footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem 1.5rem; margin:1.4rem 0; }
+.faq-footer-nav a { color:#fff; text-decoration:underline; text-underline-offset:4px; }
+@media (max-width:768px) {
+  .faq-hero { min-height:auto; padding:7rem 1.25rem 4rem; background-position:62% center; }
+  .faq-hero-actions { flex-direction:column; align-items:stretch; }
+  .faq-hero-actions .btn { width:100%; white-space:normal; text-align:center; justify-content:center; }
+  .faq-intro,.faq-contact { grid-template-columns:1fr; gap:1.4rem; padding:4rem 1.25rem; }
+  .faq-section { padding:4rem 1.25rem; }
+  .faq-list summary { padding:1.15rem; font-size:1rem; }
+  .faq-answer { padding:0 1.15rem 1.25rem; }
+  .faq-contact-actions .btn { width:100%; white-space:normal; }
+}
