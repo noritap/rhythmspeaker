@@ -1372,3 +1372,13 @@ footer {
         display: none;
     }
 }
+
+.nav-links .nav-external {
+    color: #8c5b12;
+}
+
+.nav-links .nav-external:hover,
+.nav-links .nav-external:focus-visible,
+.site-footer-nav .site-footer-external {
+    color: #f0bd61;
+}
