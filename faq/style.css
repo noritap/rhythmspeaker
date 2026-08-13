@@ -2,7 +2,8 @@
 .faq-hero { min-height:560px; display:flex; align-items:center; padding:9rem 8% 6rem; color:#fff; background:linear-gradient(90deg,rgba(8,8,8,.94),rgba(8,8,8,.67)),url('../hero.jpg') center 58%/cover; }
 .faq-hero-inner { max-width:800px; }
 .faq-eyebrow,.faq-kicker { margin:0 0 .8rem; color:#b9822b; font-family:'Outfit',sans-serif; font-weight:900; letter-spacing:.14em; font-size:.82rem; }
-.faq-hero .faq-eyebrow { color:#f0bd61; }
+.faq-hero .faq-eyebrow,.faq-section:not(.faq-section-light) .faq-kicker { color:#f0bd61; }
+.faq-intro .faq-kicker,.faq-section-light .faq-kicker,.faq-contact .faq-kicker { color:#7a4c0b; }
 .faq-hero h1 { margin:0; font-size:clamp(2.3rem,5.8vw,4.9rem); line-height:1.08; letter-spacing:-.035em; }
 .faq-hero-copy { max-width:680px; margin:1.5rem 0 0; color:#eee; font-size:1.1rem; line-height:1.9; }
 .faq-hero-actions { display:flex; flex-wrap:wrap; gap:.9rem; margin-top:2rem; }
@@ -20,6 +21,9 @@
 .faq-section-light .faq-list details { border-color:#ddd2c1; background:#fff; }
 .faq-list summary { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.35rem 1.5rem; cursor:pointer; list-style:none; font-weight:700; font-size:1.04rem; line-height:1.6; }
 .faq-list summary::-webkit-details-marker { display:none; }
+.faq-list summary i[data-lucide="plus"] { flex:0 0 22px; width:22px; color:#8c5b12; font-style:normal; font-size:1.5rem; line-height:1; text-align:center; }
+.faq-list summary i[data-lucide="plus"]::before { content:"+"; }
+.faq-list details[open] summary i[data-lucide="plus"] { transform:rotate(45deg); }
 .faq-list summary svg { flex:0 0 22px; width:22px; height:22px; color:#e0a642; transition:transform .2s ease; }
 .faq-list details[open] summary svg { transform:rotate(45deg); }
 .faq-list summary:focus-visible { outline:3px solid #e0a642; outline-offset:-3px; }
@@ -31,6 +35,8 @@
 .faq-contact { max-width:1120px; }
 .faq-contact-actions { display:flex; flex-direction:column; gap:.9rem; align-items:stretch; }
 .faq-contact-actions .btn { text-align:center; justify-content:center; }
+.faq-contact-actions .btn-secondary { color:#171717; border-color:#8c5b12; background:#fff; }
+.faq-contact-actions .btn-secondary:hover { background:#f0e5d4; }
 .faq-footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem 1.5rem; margin:1.4rem 0; }
 .faq-footer-nav a { color:#fff; text-decoration:underline; text-underline-offset:4px; }
 @media (max-width:768px) {
