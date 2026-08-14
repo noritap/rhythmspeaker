@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noritap.github.io/rhythmspeaker/sitemap.xml
