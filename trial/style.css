@@ -222,6 +222,32 @@
     background: rgba(255, 255, 255, 0.055);
 }
 
+.included-item:nth-child(2),
+.included-item:nth-child(3) {
+    position: relative;
+    overflow: hidden;
+    padding-top: 13rem;
+}
+
+.included-item:nth-child(2)::before,
+.included-item:nth-child(3)::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 11.5rem;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.included-item:nth-child(2)::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.16)), url('../assets/images/trial/rental-tap-shoes.webp');
+}
+
+.included-item:nth-child(3)::before {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.16)), url('../assets/images/trial/rental-wear.webp');
+}
+
 .included-item > span {
     font-family: 'Outfit', sans-serif;
     font-size: 0.82rem;
