@@ -15,11 +15,57 @@
     <meta property="og:title" content="Rhythm Speaker Show｜動画で参加できるタップダンス発表会">
     <meta property="og:description" content="今のリズムを動画として残し、未来へつなげるデジタル発表会。スマホ撮影、短い動画、練習途中でも参加できます。">
     <meta property="og:url" content="https://noritap.github.io/rhythmspeaker/rss/">
+    <meta property="og:image" content="https://noritap.github.io/rhythmspeaker/assets/images/rss/rss-hero.svg">
     <meta name="twitter:card" content="summary_large_image">
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .rss-hero {
+            position: relative;
+            min-height: 78vh;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(10, 12, 18, 0.92) 0%, rgba(10, 12, 18, 0.72) 38%, rgba(10, 12, 18, 0.18) 72%),
+                url('../assets/images/rss/rss-hero.svg') center / cover no-repeat;
+        }
+
+        .rss-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.34) 100%);
+            pointer-events: none;
+        }
+
+        .rss-hero .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            color: #fff;
+        }
+
+        .rss-hero .hero-subcopy {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .rss-hero .proof-item {
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(8px);
+        }
+
+        @media (max-width: 768px) {
+            .rss-hero {
+                min-height: 82vh;
+                background:
+                    linear-gradient(180deg, rgba(10, 12, 18, 0.92) 0%, rgba(10, 12, 18, 0.72) 58%, rgba(10, 12, 18, 0.28) 100%),
+                    url('../assets/images/rss/rss-hero.svg') 68% center / cover no-repeat;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -54,7 +100,7 @@
         <a href="https://lin.ee/zC5YLe7" class="btn btn-primary cta-nav">RSS参加相談</a>
     </nav>
 
-    <section class="hero">
+    <section class="hero rss-hero">
         <div class="hero-content">
             <h1>今のリズムを、<br>未来へ残そう。</h1>
             <p class="hero-subcopy">
@@ -69,7 +115,7 @@
             </div>
             <div class="hero-buttons">
                 <a href="https://lin.ee/zC5YLe7" class="btn btn-primary">公式LINEで参加相談する</a>
-                <a href="https://youtube.com/live/sd5RFMvj5jM" target="_blank" rel="noopener" class="btn btn-secondary">RSS#013を見る</a>
+                <a href="https://www.youtube.com/live/H89OV-0boVc" target="_blank" rel="noopener" class="btn btn-secondary">RSS#013を見る</a>
             </div>
         </div>
     </section>
@@ -129,7 +175,7 @@
                 <div class="recommend-card">
                     <h3>RSS#013</h3>
                     <p>“今のリズムを未来へ残す” デジタル発表会。YouTubeで配信・アーカイブされています。</p>
-                    <p><a href="https://youtube.com/live/sd5RFMvj5jM" target="_blank" rel="noopener">RSS#013をYouTubeで見る</a></p>
+                    <p><a href="https://www.youtube.com/live/H89OV-0boVc" target="_blank" rel="noopener">RSS#013をYouTubeで見る</a></p>
                 </div>
             </div>
         </section>
