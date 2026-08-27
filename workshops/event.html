@@ -1,10 +1,118 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Workshop | Rhythm Speaker</title><link rel="stylesheet" href="./assets/workshops.css"></head><body>
-<div id="modebar" class="modebar demo">DEMO MODE｜この端末内だけに保存されます</div><header class="topbar"><div class="shell"><a class="brand" href="./"><span class="brandmark">RS</span><span><strong>WORKSHOPS</strong><small>Rhythm Speaker</small></span></a><a class="btn subtle" href="./">一覧へ</a></div></header>
-<main><section class="hero"><div class="shell" id="hero"><div class="empty">読み込み中...</div></div></section><section class="section"><div class="shell"><div class="grid2"><div><h2 class="section-title">クラス</h2><div id="sessions" class="sessions"></div></div><div><h2 class="section-title">予約</h2><form id="reserveForm" class="panel"><label>参加クラス<select id="sessionId" required><option value="">選択してください</option></select></label><div class="grid2"><label>お名前<input id="name" required autocomplete="name"></label><label>電話番号<input id="phone" required autocomplete="tel"></label></div><label>メール<input id="email" required type="email" autocomplete="email"></label><div class="grid2"><label>タップ経験<select id="experience"><option>未経験</option><option>1年未満</option><option>1〜3年</option><option>3年以上</option></select></label><label>シューズ<select id="shoes"><option>持参する</option><option>レンタル希望</option></select></label></div><label id="shoeWrap" class="hidden">シューズサイズ<input id="shoeSize" placeholder="24.5cm"></label><label>備考<textarea id="note" rows="3"></textarea></label><label class="checkline"><input id="agree" type="checkbox" required><span>参加条件・キャンセルポリシーに同意します。</span></label><div class="divider"></div><div class="row"><span>参加費</span><strong id="fee">—</strong></div><div class="row"><span>残席</span><strong id="remaining">—</strong></div><button class="btn full" type="submit" style="margin-top:16px">予約を確定する</button></form></div></div></div></section></main><footer class="footer">Rhythm Speaker Workshop Manager</footer><div id="toast" class="toast"></div><dialog id="done" class="modal"><div class="modalin"><p class="eyebrow">RESERVED</p><h2>予約を受け付けました</h2><div id="doneBody"></div><button class="btn full" onclick="done.close()">閉じる</button></div></dialog>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./config.js"></script><script src="./assets/store.js"></script><script>
-const q=new URLSearchParams(location.search),slug=q.get('slug');const yen=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(n);const toast=m=>{const t=document.querySelector('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};let eventData,store;
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Workshop | Rhythm Speaker</title>
+  <link rel="stylesheet" href="./assets/workshops.css">
+</head>
+<body class="event-page">
+<div id="modebar" class="modebar demo">DEMO MODE｜この端末内だけに保存されます</div>
+<header class="topbar">
+  <div class="shell">
+    <a class="brand" href="./"><span class="brandmark">RS</span><span><strong>WORKSHOPS</strong><small>Rhythm Speaker</small></span></a>
+    <a class="btn subtle" href="./">一覧へ</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero event-detail-hero">
+    <div class="shell" id="hero"><div class="empty">読み込み中...</div></div>
+  </section>
+
+  <section class="section event-booking-section">
+    <div class="shell">
+      <div class="grid2 booking-grid">
+        <div>
+          <h2 class="section-title">クラスを選ぶ</h2>
+          <div id="sessions" class="sessions"></div>
+        </div>
+        <div id="reserve">
+          <h2 class="section-title">予約する</h2>
+          <form id="reserveForm" class="panel reservation-panel">
+            <label>参加クラス<select id="sessionId" required><option value="">選択してください</option></select></label>
+            <div class="grid2">
+              <label>お名前<input id="name" required autocomplete="name"></label>
+              <label>電話番号<input id="phone" required autocomplete="tel"></label>
+            </div>
+            <label>メール<input id="email" required type="email" autocomplete="email"></label>
+            <div class="grid2">
+              <label>タップ経験<select id="experience"><option>未経験</option><option>1年未満</option><option>1〜3年</option><option>3年以上</option></select></label>
+              <label>シューズ<select id="shoes"><option>持参する</option><option>レンタル希望</option></select></label>
+            </div>
+            <label id="shoeWrap" class="hidden">シューズサイズ<input id="shoeSize" placeholder="24.5cm"></label>
+            <label>備考<textarea id="note" rows="3"></textarea></label>
+            <label class="checkline"><input id="agree" type="checkbox" required><span>参加条件・キャンセルポリシーに同意します。</span></label>
+            <div class="divider"></div>
+            <div class="row"><span>参加費</span><strong id="fee">—</strong></div>
+            <div class="row"><span>残席</span><strong id="remaining">—</strong></div>
+            <button class="btn full" type="submit" style="margin-top:16px">予約を確定する</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">Rhythm Speaker Workshop Manager</footer>
+<div id="toast" class="toast"></div>
+
+<div class="mobile-reserve-bar" id="mobileReserveBar" hidden>
+  <div><small>NAOYUKI WORKSHOP</small><strong>10.16 FRI</strong></div>
+  <a class="btn gold" href="#reserve">予約する</a>
+</div>
+
+<dialog id="posterModal" class="poster-modal">
+  <button class="poster-modal-close" type="button" aria-label="閉じる">×</button>
+  <img id="posterModalImage" alt="ワークショップフライヤー拡大表示">
+</dialog>
+
+<dialog id="done" class="modal">
+  <div class="modalin">
+    <p class="eyebrow">RESERVED</p>
+    <h2>予約を受け付けました</h2>
+    <div id="doneBody"></div>
+    <button class="btn full" type="button" onclick="document.getElementById('done').close()">閉じる</button>
+  </div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./config.js"></script>
+<script src="./assets/store.js"></script>
+<script>
+const q=new URLSearchParams(location.search),slug=q.get('slug');
+const yen=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(n);
+const toast=m=>{const t=document.querySelector('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};
+let eventData,store;
 function fmtDate(s){return new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'}).format(new Date(s+'T00:00:00'))}
 async function refreshRemaining(){const id=document.querySelector('#sessionId').value;if(!id){fee.textContent='—';remaining.textContent='—';return}const s=eventData.sessions.find(x=>x.id===id);fee.textContent=yen(s.price);remaining.textContent=(await store.remaining(eventData.id,id))+'席';}
-(async()=>{store=await RSStore.get();if(store.mode==='live'){modebar.classList.remove('demo');modebar.textContent='LIVE｜オンライン予約システム'}eventData=await store.getEventBySlug(slug);if(!eventData){hero.innerHTML='<div class="empty">イベントが見つかりません。</div>';return}document.title=eventData.title+' | Rhythm Speaker';hero.innerHTML=`${eventData.cover?`<div class="event-cover" style="max-width:650px;margin-bottom:22px"><img src="${eventData.cover}" alt=""></div>`:''}<p class="eyebrow">${fmtDate(eventData.date)}</p><h1>${eventData.title}</h1><p><strong>${eventData.instructor||''}</strong><br>${eventData.venue||''}<br>${eventData.address||''}</p><p>${eventData.description||eventData.summary||''}</p>`;sessions.innerHTML=eventData.sessions.map(s=>`<article class="session-card"><div class="row"><div><h3>${s.name}</h3><div class="meta">${s.start}–${s.end} / ${s.minutes||''}分<br>${s.level||''}</div></div><div class="price">${yen(s.price)}</div></div><div class="row" style="margin-top:12px"><span class="badge" data-seat="${s.id}">残席確認中</span><button class="smallbtn" data-choose="${s.id}">選択</button></div></article>`).join('');sessionId.innerHTML='<option value="">選択してください</option>'+eventData.sessions.map(s=>`<option value="${s.id}">${s.name}｜${yen(s.price)}</option>`).join('');for(const s of eventData.sessions){document.querySelector(`[data-seat="${s.id}"]`).textContent='残席 '+await store.remaining(eventData.id,s.id)}document.querySelectorAll('[data-choose]').forEach(b=>b.onclick=()=>{sessionId.value=b.dataset.choose;refreshRemaining();reserveForm.scrollIntoView({behavior:'smooth'})});})();
-sessionId.onchange=refreshRemaining;shoes.onchange=()=>{const x=shoes.value==='レンタル希望';shoeWrap.classList.toggle('hidden',!x);shoeSize.required=x};reserveForm.onsubmit=async e=>{e.preventDefault();try{const r=await store.reserve({eventSlug:slug,sessionId:sessionId.value,name:name.value.trim(),phone:phone.value.trim(),email:email.value.trim(),experience:experience.value,shoes:shoes.value,shoeSize:shoeSize.value.trim(),note:note.value.trim()});const s=eventData.sessions.find(x=>x.id===sessionId.value);doneBody.innerHTML=`<div class="panel" style="box-shadow:none;margin:15px 0"><div class="row"><span>予約番号</span><strong>${r.id}</strong></div><div class="row"><span>クラス</span><strong>${s.name}</strong></div><div class="row"><span>参加費</span><strong>${yen(s.price)}</strong></div></div>${s.paymentUrl?`<a class="btn gold full" href="${s.paymentUrl}" target="_blank" rel="noopener">オンライン支払いへ進む</a>`:'<p class="help">支払い方法は運営案内に従ってください。</p>'}`;done.showModal();reserveForm.reset();shoeWrap.classList.add('hidden');await refreshRemaining();}catch(err){toast(err.message||'予約できませんでした')}};
-</script></body></html>
+function openPoster(src){posterModalImage.src=src;posterModal.showModal();}
+posterModal.querySelector('.poster-modal-close').onclick=()=>posterModal.close();
+posterModal.onclick=e=>{if(e.target===posterModal)posterModal.close();};
+
+(async()=>{
+  store=await RSStore.get();
+  if(store.mode==='live'){modebar.classList.remove('demo');modebar.textContent='LIVE｜オンライン予約システム'}
+  eventData=await store.getEventBySlug(slug);
+  if(!eventData){hero.innerHTML='<div class="empty">イベントが見つかりません。</div>';return}
+  document.title=eventData.title+' | Rhythm Speaker';
+  const poster=eventData.cover?`<button class="event-poster-card" type="button" aria-label="フライヤーを大きく見る"><img class="event-poster-img" src="${eventData.cover}" alt="${eventData.title} フライヤー" width="1024" height="1536"><span class="poster-zoom-label">タップして大きく見る</span></button>`:'';
+  hero.innerHTML=`<div class="event-hero-grid">${poster}<div class="event-hero-copy"><p class="eyebrow">${fmtDate(eventData.date)}</p><h1>${eventData.title}</h1><p class="event-lead">${eventData.summary||''}</p><div class="event-facts"><div><small>INSTRUCTOR</small><strong>${eventData.instructor||''}</strong></div><div><small>VENUE</small><strong>${eventData.venue||''}</strong><span>${eventData.address||''}</span></div></div><p class="event-description">${eventData.description||eventData.summary||''}</p><div class="hero-actions"><a class="btn gold" href="#reserve">このワークショップを予約する</a>${eventData.cover?'<button id="openPosterBtn" class="btn subtle" type="button">フライヤーを大きく見る</button>':''}</div></div></div>`;
+  if(eventData.cover){
+    hero.querySelector('.event-poster-card').onclick=()=>openPoster(eventData.cover);
+    openPosterBtn.onclick=()=>openPoster(eventData.cover);
+  }
+  mobileReserveBar.hidden=false;
+
+  sessions.innerHTML=eventData.sessions.map(s=>`<article class="session-card"><div class="row"><div><h3>${s.name}</h3><div class="meta">${s.start}–${s.end} / ${s.minutes||''}分<br>${s.level||''}</div></div><div class="price">${yen(s.price)}</div></div><div class="row" style="margin-top:12px"><span class="badge" data-seat="${s.id}">残席確認中</span><button class="smallbtn" data-choose="${s.id}">選択</button></div></article>`).join('');
+  sessionId.innerHTML='<option value="">選択してください</option>'+eventData.sessions.map(s=>`<option value="${s.id}">${s.name}｜${yen(s.price)}</option>`).join('');
+  for(const s of eventData.sessions){document.querySelector(`[data-seat="${s.id}"]`).textContent='残席 '+await store.remaining(eventData.id,s.id)}
+  document.querySelectorAll('[data-choose]').forEach(b=>b.onclick=()=>{sessionId.value=b.dataset.choose;refreshRemaining();reserveForm.scrollIntoView({behavior:'smooth',block:'start'})});
+})();
+
+sessionId.onchange=refreshRemaining;
+shoes.onchange=()=>{const x=shoes.value==='レンタル希望';shoeWrap.classList.toggle('hidden',!x);shoeSize.required=x};
+reserveForm.onsubmit=async e=>{e.preventDefault();try{const r=await store.reserve({eventSlug:slug,sessionId:sessionId.value,name:name.value.trim(),phone:phone.value.trim(),email:email.value.trim(),experience:experience.value,shoes:shoes.value,shoeSize:shoeSize.value.trim(),note:note.value.trim()});const s=eventData.sessions.find(x=>x.id===sessionId.value);doneBody.innerHTML=`<div class="panel" style="box-shadow:none;margin:15px 0"><div class="row"><span>予約番号</span><strong>${r.id}</strong></div><div class="row"><span>クラス</span><strong>${s.name}</strong></div><div class="row"><span>参加費</span><strong>${yen(s.price)}</strong></div></div>${s.paymentUrl?`<a class="btn gold full" href="${s.paymentUrl}" target="_blank" rel="noopener">オンライン支払いへ進む</a>`:'<p class="help">支払い方法は運営案内に従ってください。</p>'}`;done.showModal();reserveForm.reset();shoeWrap.classList.add('hidden');await refreshRemaining();}catch(err){toast(err.message||'予約できませんでした')}};
+</script>
+</body>
+</html>
