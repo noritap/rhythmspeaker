@@ -21,7 +21,7 @@
     if(!events.length){write(KEYS.events,[seedEvent]);return;}
     let changed=false;
     const next=events.map(e=>{
-      if((e.id===NAOYUKI_SLUG||e.slug===NAOYUKI_SLUG)&&!e.cover){changed=true;return {...e,cover:NAOYUKI_COVER};}
+      if((e.id===NAOYUKI_SLUG||e.slug===NAOYUKI_SLUG)&&(!e.cover||String(e.cover).includes("naoyuki-workshop-flyer.svg"))){changed=true;return {...e,cover:NAOYUKI_COVER};}
       return e;
     });
     if(changed)write(KEYS.events,next);
