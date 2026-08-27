@@ -2,7 +2,7 @@
   const CFG = window.RS_WORKSHOP_CONFIG || {mode:"demo"};
   const KEYS = {events:"rswm_events_v1", reservations:"rswm_reservations_v1", admin:"rswm_admin_v1"};
   const NAOYUKI_SLUG = "naoyuki-2026-10-16";
-  const NAOYUKI_COVER = "https://noritap.github.io/rhythmspeaker/workshops/assets/naoyuki-workshop-flyer.svg";
+  const NAOYUKI_COVER = "https://noritap.github.io/rhythmspeaker/workshops/assets/naoyuki-workshop-flyer.jpg";
   const seedEvent = {
     id:NAOYUKI_SLUG, slug:NAOYUKI_SLUG, title:"NAOYUKI TAP DANCE WORKSHOP", instructor:"NAOYUKI",
     date:"2026-10-16", venue:"池袋 リズムスピーカー", address:"東京都豊島区西池袋3-22-10 大晃第7ビル B1",
