@@ -1,0 +1,1 @@
+NAOYUKI flyer v3 is rendered as a 3x3 set of SVG tiles to avoid broken binary image delivery in GitHub Pages. The nine tiles reconstruct the supplied flyer without cropping or redesign. Public pages compose the tiles into one seamless poster.
