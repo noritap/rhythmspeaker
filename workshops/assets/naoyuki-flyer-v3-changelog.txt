@@ -1,0 +1,1 @@
+2026-08-29: switched public NAOYUKI flyer rendering from broken JPEG delivery to nine SVG tiles composed in the browser.
