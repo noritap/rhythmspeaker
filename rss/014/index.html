@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rhythm Speaker Show #014｜2026年8月29日｜今のリズムを未来へ残すデジタル発表会</title>
-    <meta name="description" content="Rhythm Speaker Show #014は、2026年8月29日開催の動画参加型タップダンス発表会です。スマホ撮影、短い動画、練習途中でも参加できる、今のリズムを未来へ残すデジタル発表会です。">
+    <title>Rhythm Speaker Show #014｜2026年8月29日｜Archive Theater</title>
+    <meta name="description" content="Rhythm Speaker Show #014は、2026年8月29日開催の動画参加型タップダンス発表会です。今のリズムを未来へ残す文化アーカイブとして、プログラム・配信情報・参加導線をまとめます。">
     <link rel="canonical" href="https://noritap.github.io/rhythmspeaker/rss/014/">
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
 
@@ -13,21 +13,46 @@
     <meta property="og:site_name" content="Rhythm Speaker">
     <meta property="og:locale" content="ja_JP">
     <meta property="og:title" content="Rhythm Speaker Show #014｜2026年8月29日">
-    <meta property="og:description" content="今のリズムを動画として残し、未来へつなげるデジタル発表会。RSS#014の案内ページです。">
+    <meta property="og:description" content="今のリズムを動画として残し、未来へつなげるデジタル発表会。RSS#014公式ページです。">
     <meta property="og:url" content="https://noritap.github.io/rhythmspeaker/rss/014/">
     <meta property="og:image" content="https://noritap.github.io/rhythmspeaker/assets/images/rss/rss-hero.svg">
     <meta name="twitter:card" content="summary_large_image">
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --rss-bg: #08090d;
+            --rss-panel: rgba(255, 255, 255, 0.075);
+            --rss-panel-strong: rgba(255, 255, 255, 0.12);
+            --rss-border: rgba(255, 255, 255, 0.16);
+            --rss-text: #f8f5ee;
+            --rss-muted: rgba(248, 245, 238, 0.72);
+            --rss-gold: #f7b84b;
+            --rss-red: #ef3340;
+            --rss-blue: #2b8cff;
+        }
+
+        body {
+            background: #0b0d12;
+        }
+
+        .rss-page {
+            background:
+                radial-gradient(circle at 75% 6%, rgba(239, 51, 64, 0.25), transparent 34%),
+                radial-gradient(circle at 12% 18%, rgba(247, 184, 75, 0.2), transparent 30%),
+                linear-gradient(180deg, #090a0f 0%, #11131a 42%, #f8f5ee 42%, #f8f5ee 100%);
+        }
+
         .rss-hero {
             position: relative;
-            min-height: 78vh;
+            min-height: 86vh;
             overflow: hidden;
+            display: flex;
+            align-items: center;
             background:
-                linear-gradient(90deg, rgba(10, 12, 18, 0.94) 0%, rgba(10, 12, 18, 0.75) 42%, rgba(10, 12, 18, 0.2) 76%),
+                linear-gradient(90deg, rgba(7, 8, 13, 0.96) 0%, rgba(7, 8, 13, 0.78) 42%, rgba(7, 8, 13, 0.22) 78%),
                 url('../../assets/images/rss/rss-hero.svg') center / cover no-repeat;
         }
 
@@ -35,67 +60,363 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.34) 100%);
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.6) 100%),
+                radial-gradient(circle at 78% 44%, rgba(247, 184, 75, 0.18), transparent 38%);
             pointer-events: none;
         }
 
         .rss-hero .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 780px;
-            color: #fff;
+            max-width: 860px;
+            color: var(--rss-text);
         }
 
-        .rss-hero .hero-subcopy {
-            color: rgba(255, 255, 255, 0.92);
+        .rss-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 1rem;
+            padding: 0.48rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(239, 51, 64, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            font-weight: 900;
+            letter-spacing: 0.08em;
         }
 
-        .rss-hero .proof-item {
-            background: rgba(255, 255, 255, 0.14);
+        .rss-hero h1 {
+            font-size: clamp(3rem, 9vw, 7.5rem);
+            line-height: 0.92;
+            letter-spacing: -0.06em;
+            margin-bottom: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .rss-hero h1 .small {
+            display: block;
+            font-size: clamp(1.15rem, 2vw, 1.75rem);
+            letter-spacing: 0.08em;
+            margin-top: 1rem;
+        }
+
+        .hero-subcopy {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 720px;
+        }
+
+        .rss-chip-row,
+        .rss-action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .rss-chip {
+            padding: 0.7rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.13);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            font-weight: 800;
             backdrop-filter: blur(8px);
         }
 
-        .rss-status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
+        .rss-action-note {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.92rem;
+            margin-top: 0.85rem;
+        }
+
+        .rss-dark-section {
+            color: var(--rss-text);
+            padding: clamp(3rem, 7vw, 6rem) min(6vw, 5rem);
+        }
+
+        .rss-section-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .rss-section-label {
+            color: var(--rss-gold);
+            font-family: Outfit, sans-serif;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 0.65rem;
+        }
+
+        .rss-section-title {
+            font-size: clamp(2rem, 5vw, 4.4rem);
+            line-height: 1;
+            letter-spacing: -0.05em;
             margin-bottom: 1rem;
-            padding: 0.45rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(239, 51, 64, 0.14);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.22);
-            font-weight: 700;
         }
 
-        .rss-meta-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .rss-lead {
+            color: var(--rss-muted);
+            max-width: 820px;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+
+        .rss-dashboard {
             display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .rss-stat {
+            min-height: 136px;
+            padding: 1.2rem;
+            border-radius: 24px;
+            background: var(--rss-panel);
+            border: 1px solid var(--rss-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .rss-stat b {
+            display: block;
+            color: #fff;
+            font-size: 1.35rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .rss-stat span {
+            color: var(--rss-muted);
+            font-size: 0.94rem;
+            line-height: 1.7;
+        }
+
+        .program-shelf {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            border-radius: 26px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.03)),
+                #151821;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #fff;
+            padding: 1.15rem;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(247, 184, 75, 0.55);
+            background:
+                radial-gradient(circle at 76% 20%, rgba(247, 184, 75, 0.2), transparent 36%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.04)),
+                #171a23;
+        }
+
+        .program-number {
+            font-family: Outfit, sans-serif;
+            font-weight: 900;
+            font-size: 4.6rem;
+            line-height: 0.85;
+            letter-spacing: -0.08em;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .program-label {
+            display: inline-flex;
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(239, 51, 64, 0.2);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            margin: 0.8rem 0;
+        }
+
+        .program-card h3 {
+            color: #fff;
+            font-size: 1.35rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .program-card p {
+            color: rgba(255, 255, 255, 0.74);
+            line-height: 1.75;
+            font-size: 0.94rem;
+        }
+
+        .program-card .program-meta {
+            position: absolute;
+            left: 1.15rem;
+            right: 1.15rem;
+            bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
             gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.64);
+            font-size: 0.82rem;
         }
 
-        .rss-meta-list li {
-            padding: 0.9rem 1rem;
-            border-radius: 14px;
+        .rss-light-section {
+            background: #f8f5ee;
+            color: #151515;
+            padding: clamp(3rem, 7vw, 6rem) min(6vw, 5rem);
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(1.4rem, 4vw, 3rem);
+            align-items: stretch;
+            margin-top: 2rem;
+        }
+
+        .editorial-panel {
+            border-radius: 30px;
+            padding: clamp(1.5rem, 4vw, 3rem);
+            background: #fff;
+            box-shadow: 0 22px 70px rgba(0, 0, 0, 0.08);
+        }
+
+        .editorial-panel.dark {
+            background: #101219;
+            color: #fff;
+            background-image: radial-gradient(circle at 80% 0%, rgba(239, 51, 64, 0.22), transparent 40%);
+        }
+
+        .timeline-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.4rem 0 0;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-list li {
+            padding: 1rem 1.1rem;
+            border-radius: 18px;
             background: rgba(0, 0, 0, 0.04);
+            line-height: 1.75;
         }
 
-        @media (max-width: 768px) {
+        .editorial-panel.dark .timeline-list li {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .archive-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .archive-card {
+            min-height: 210px;
+            border-radius: 24px;
+            padding: 1.3rem;
+            background: #11131a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .archive-card.featured {
+            background:
+                linear-gradient(135deg, rgba(239, 51, 64, 0.92), rgba(247, 184, 75, 0.88)),
+                #11131a;
+        }
+
+        .archive-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .archive-card p {
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        .quick-nav {
+            position: sticky;
+            top: 74px;
+            z-index: 10;
+            background: rgba(8, 9, 13, 0.82);
+            backdrop-filter: blur(14px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .quick-nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.8rem min(6vw, 5rem);
+        }
+
+        .quick-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 980px) {
+            .rss-dashboard,
+            .program-shelf {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .editorial-grid,
+            .archive-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
             .rss-hero {
-                min-height: 82vh;
+                min-height: 88vh;
                 background:
-                    linear-gradient(180deg, rgba(10, 12, 18, 0.94) 0%, rgba(10, 12, 18, 0.74) 58%, rgba(10, 12, 18, 0.3) 100%),
+                    linear-gradient(180deg, rgba(7, 8, 13, 0.96) 0%, rgba(7, 8, 13, 0.78) 58%, rgba(7, 8, 13, 0.38) 100%),
                     url('../../assets/images/rss/rss-hero.svg') 68% center / cover no-repeat;
+            }
+
+            .program-shelf,
+            .rss-dashboard {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+            }
+
+            .program-card,
+            .rss-stat {
+                min-width: 78vw;
+                scroll-snap-align: start;
+            }
+
+            .program-card {
+                min-height: 270px;
             }
         }
     </style>
 </head>
 
-<body>
+<body class="rss-page">
     <nav>
         <a href="../../" class="logo logo-home-link" aria-label="Rhythm Speaker 教室トップへ">
             <img src="../../logo.png" alt="" class="logo-img">
@@ -127,106 +448,178 @@
         <a href="https://lin.ee/zC5YLe7" class="btn btn-primary cta-nav">RSS参加相談</a>
     </nav>
 
-    <section class="hero rss-hero">
+    <section class="hero rss-hero" id="top">
         <div class="hero-content">
-            <div class="rss-status">RSS#014｜2026年8月29日</div>
-            <h1>今のリズムを、<br>今日の記録として残そう。</h1>
+            <div class="rss-kicker">LIVE ARCHIVE｜RSS#014｜2026.08.29</div>
+            <h1>RSS<br>#014<span class="small">Rhythm Speaker Show Archive Theater</span></h1>
             <p class="hero-subcopy">
-                Rhythm Speaker Show #014は、動画で参加できるタップダンスのデジタル発表会です。<br>
-                上手さよりも、撮ったこと・残したこと・次につながることを大切にします。
+                動画で参加できるタップダンス発表会。上手さよりも、撮ったこと・残したこと・次につながることを大切にする、リズムスピーカーのデジタル文化アーカイブです。
             </p>
-            <div class="hero-proof">
-                <div class="proof-item">第14回</div>
-                <div class="proof-item">2026.08.29</div>
-                <div class="proof-item">動画参加型</div>
-                <div class="proof-item">初心者歓迎</div>
+            <div class="rss-chip-row">
+                <span class="rss-chip">第14回</span>
+                <span class="rss-chip">本日開催</span>
+                <span class="rss-chip">動画参加型</span>
+                <span class="rss-chip">Program準備中</span>
             </div>
-            <div class="hero-buttons">
-                <a href="https://lin.ee/zC5YLe7" class="btn btn-primary">公式LINEで参加相談する</a>
-                <a href="../" class="btn btn-secondary">RSSとは</a>
+            <div class="rss-action-row hero-buttons">
+                <a href="#program" class="btn btn-primary">プログラムを見る</a>
+                <a href="#watch" class="btn btn-secondary">視聴情報を見る</a>
+                <a href="https://lin.ee/zC5YLe7" class="btn btn-secondary">参加相談</a>
             </div>
+            <p class="rss-action-note">配信URL・作品情報は確定後にこのページへ反映します。未確認情報は断定しません。</p>
         </div>
     </section>
 
+    <div class="quick-nav" aria-label="RSS#014 page navigation">
+        <div class="quick-nav-inner">
+            <a href="#watch">視聴情報</a>
+            <a href="#program">Program</a>
+            <a href="#details">参加方法</a>
+            <a href="#archive">Archive</a>
+            <a href="#contact">相談</a>
+        </div>
+    </div>
+
     <main>
-        <section class="recommend" id="overview">
-            <div class="section-header">
-                <h2>Rhythm Speaker Show #014</h2>
-                <p>2026年8月29日開催回。現在、Program・配信URL・提出作品情報は整理中です。</p>
-            </div>
-            <div class="recommend-grid">
-                <div class="recommend-card">
-                    <h3>開催日</h3>
-                    <p>2026年8月29日</p>
-                </div>
-                <div class="recommend-card">
-                    <h3>回数</h3>
-                    <p>Rhythm Speaker Show #014</p>
-                </div>
-                <div class="recommend-card">
-                    <h3>テーマ</h3>
-                    <p>今のリズムを未来へ残すデジタル発表会</p>
+        <section class="rss-dark-section" id="watch">
+            <div class="rss-section-inner">
+                <div class="rss-section-label">At a glance</div>
+                <h2 class="rss-section-title">10秒でわかる<br>RSS#014</h2>
+                <p class="rss-lead">
+                    本番前の最終準備ページです。配信URL、Program、タイムスタンプ、提出作品はここへ集約します。ページ構造は動画配信サービスのように「見たい場所へすぐ行ける」形へ整理しています。
+                </p>
+                <div class="rss-dashboard">
+                    <div class="rss-stat"><b>2026.08.29</b><span>Rhythm Speaker Show #014 開催日</span></div>
+                    <div class="rss-stat"><b>URL確認中</b><span>配信URLは確定後、最上部CTAへ反映</span></div>
+                    <div class="rss-stat"><b>Program</b><span>提出作品を確認し、カードへ差し込み予定</span></div>
+                    <div class="rss-stat"><b>Archive</b><span>配信後はタイムスタンプと作品別リンクを追加</span></div>
                 </div>
             </div>
         </section>
 
-        <section class="recommend" id="status">
-            <div class="section-header">
-                <h2>現在の確認状況</h2>
-                <p>未確認情報を断定せず、準備中として管理します。</p>
-            </div>
-            <div class="recommend-grid">
-                <div class="recommend-card">
-                    <h3>配信URL</h3>
-                    <p>未確認</p>
-                </div>
-                <div class="recommend-card">
-                    <h3>Program</h3>
-                    <p>提出作品整理中</p>
-                </div>
-                <div class="recommend-card">
-                    <h3>権利・公開確認</h3>
-                    <p>各作品ごとに確認予定</p>
+        <section class="rss-dark-section" id="program">
+            <div class="rss-section-inner">
+                <div class="rss-section-label">Program shelf</div>
+                <h2 class="rss-section-title">見る順番が<br>すぐわかる棚。</h2>
+                <p class="rss-lead">
+                    旧ニュース記事の縦長パンフレット形式を、番組カード型へ変換します。作品情報が確定したら、各カードに「作品名・出演者・コメント・動画URL・権利確認」を入れます。
+                </p>
+                <div class="program-shelf">
+                    <article class="program-card">
+                        <div class="program-number">01</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Opening / First Work</h3>
+                        <p>1本目の作品情報をここに掲載。スマホでもカード単位で見やすくします。</p>
+                        <div class="program-meta"><span>動画URL未確認</span><span>詳細準備中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">02</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Program Slot</h3>
+                        <p>作品コメントは提出文を尊重し、AIが勝手に創作しない運用にします。</p>
+                        <div class="program-meta"><span>出演者未確認</span><span>権利確認予定</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">03</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Program Slot</h3>
+                        <p>確定した動画は再生ボタン・詳細・コメント欄へ分離して表示します。</p>
+                        <div class="program-meta"><span>動画URL未確認</span><span>詳細準備中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">04</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Program Slot</h3>
+                        <p>グループ作品、ソロ作品、練習動画、即興作品などを同じ型で整理します。</p>
+                        <div class="program-meta"><span>作品名未確認</span><span>確認中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">05</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Program Slot</h3>
+                        <p>後から差し替えしやすいよう、最初からカードUIで作っています。</p>
+                        <div class="program-meta"><span>出演者未確認</span><span>確認中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">06</div>
+                        <span class="program-label">READY SLOT</span>
+                        <h3>Program Slot</h3>
+                        <p>作品数が増えても横スクロール / グリッドで破綻しにくい設計です。</p>
+                        <div class="program-meta"><span>動画URL未確認</span><span>詳細準備中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">07</div>
+                        <span class="program-label">OPTIONAL</span>
+                        <h3>Bonus / Guest</h3>
+                        <p>ゲスト・協力店舗・特別枠があればここを使用します。</p>
+                        <div class="program-meta"><span>任意枠</span><span>準備中</span></div>
+                    </article>
+                    <article class="program-card">
+                        <div class="program-number">08</div>
+                        <span class="program-label">OPTIONAL</span>
+                        <h3>Ending / Next</h3>
+                        <p>次回予告、参加募集、アーカイブ導線を入れる締め枠です。</p>
+                        <div class="program-meta"><span>次回導線</span><span>準備中</span></div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="recommend" id="participation">
-            <div class="section-header">
-                <h2>参加・提出について</h2>
-                <p>スマホ撮影、短い動画、練習途中でも相談できます。</p>
-            </div>
-            <ul class="rss-meta-list">
-                <li>作品名、出演者名、チーム名、コメント、動画URLをまとめます。</li>
-                <li>公開可否、SNS掲載可否、クレジット表記、権利確認は公開前に確認します。</li>
-                <li>提出しただけで公開確定とはせず、必要項目を確認しながら進めます。</li>
-            </ul>
-            <div class="hero-buttons">
-                <a href="https://lin.ee/zC5YLe7" class="btn btn-primary">公式LINEでRSS参加相談する</a>
+        <section class="rss-light-section" id="details">
+            <div class="rss-section-inner">
+                <div class="rss-section-label">Editorial guide</div>
+                <h2 class="rss-section-title">雑誌の読み心地と、<br>配信サービスの使いやすさ。</h2>
+                <div class="editorial-grid">
+                    <div class="editorial-panel">
+                        <h3>本番前に確定するもの</h3>
+                        <ul class="timeline-list">
+                            <li>配信URL：確定後、ヒーローのCTAと視聴情報に反映</li>
+                            <li>Program：提出作品をNo.順に整理</li>
+                            <li>各作品情報：作品名 / チーム名 / 出演者 / コメント / 動画URL</li>
+                            <li>権利・公開確認：未確認のまま断定しない</li>
+                            <li>配信後：タイムスタンプとアーカイブURLを追加</li>
+                        </ul>
+                    </div>
+                    <div class="editorial-panel dark">
+                        <h3>RSSの基本思想</h3>
+                        <ul class="timeline-list">
+                            <li>上手さより、撮ったこと。</li>
+                            <li>完成度より、残したこと。</li>
+                            <li>一回の発表より、続いていく文化。</li>
+                            <li>スマホ撮影・短い動画・練習途中でも参加可能。</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="recommend" id="archive">
-            <div class="section-header">
-                <h2>Archive</h2>
-                <p>RSS#014の配信・Program・タイムスタンプは、確認でき次第このページへ反映します。</p>
-            </div>
-            <div class="recommend-grid">
-                <div class="recommend-card">
-                    <h3>RSS#013</h3>
-                    <p>前回アーカイブ。</p>
-                    <p><a href="https://www.youtube.com/live/H89OV-0boVc" target="_blank" rel="noopener">RSS#013をYouTubeで見る</a></p>
-                </div>
-                <div class="recommend-card">
-                    <h3>RSS#014</h3>
-                    <p>配信URL・Programは未確認。確認後に反映します。</p>
+        <section class="rss-light-section" id="archive">
+            <div class="rss-section-inner">
+                <div class="rss-section-label">Archive</div>
+                <h2 class="rss-section-title">シリーズとして、<br>見返せる形へ。</h2>
+                <p class="rss-lead" style="color:#555;">RSSは単発告知ではなく、YouTube資産・参加導線・文化アーカイブとして積み上げます。</p>
+                <div class="archive-row">
+                    <article class="archive-card featured">
+                        <div>
+                            <h3>RSS#014</h3>
+                            <p>本日開催。Program・配信URLを順次反映。</p>
+                        </div>
+                        <a class="btn btn-secondary" href="#program">Programを見る</a>
+                    </article>
+                    <article class="archive-card">
+                        <div>
+                            <h3>RSS#013</h3>
+                            <p>前回アーカイブ。</p>
+                        </div>
+                        <a class="btn btn-secondary" href="https://www.youtube.com/live/H89OV-0boVc" target="_blank" rel="noopener">YouTubeで見る</a>
+                    </article>
                 </div>
             </div>
         </section>
 
         <section class="final-cta" id="contact">
-            <h2>RSS#014に向けて、今のリズムを残そう。</h2>
-            <p>参加相談、提出方法、公開可否の確認は公式LINEから。</p>
+            <h2>本番までに、ここを完成版Programへ。</h2>
+            <p>作品情報、配信URL、タイムスタンプが確定したら、このページへ即反映します。</p>
             <a href="https://lin.ee/zC5YLe7" class="btn btn-primary">公式LINEでRSS参加相談する</a>
         </section>
     </main>
