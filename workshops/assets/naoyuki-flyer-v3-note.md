@@ -1,0 +1,1 @@
+The supplied NAOYUKI flyer is rendered from nine SVG tiles in the public workshop UI. This bypasses the previously broken JPEG while preserving the supplied design without cropping.
