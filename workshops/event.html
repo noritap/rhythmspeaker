@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Workshop | Rhythm Speaker</title>
-  <link rel="stylesheet" href="./assets/workshops.css">
+  <link rel="stylesheet" href="./assets/workshops.css?v=20260829-1">
+  <link rel="stylesheet" href="./assets/naoyuki-poster-fix.css?v=20260829-1">
 </head>
 <body class="event-page">
 <div id="modebar" class="modebar demo">DEMO MODE｜この端末内だけに保存されます</div>
@@ -67,23 +68,32 @@
 
 <div class="mobile-reserve-bar" id="mobileReserveBar" hidden><div><small>NAOYUKI TAP DANCE WORKSHOP</small><strong>クラスを選んで予約できます</strong></div><a class="btn gold" href="#reserve">予約する</a></div>
 
-<dialog id="posterModal" class="poster-modal"><button class="poster-modal-close" type="button" aria-label="閉じる">×</button><img id="posterModalImage" alt="ワークショップフライヤー拡大表示"></dialog>
+<dialog id="posterModal" class="poster-modal"><button class="poster-modal-close" type="button" aria-label="閉じる">×</button><div id="posterModalCanvas" class="poster-modal-canvas"></div></dialog>
 <dialog id="done" class="modal"><div class="modalin"><p class="eyebrow">RESERVED</p><h2>予約を受け付けました</h2><div id="doneBody"></div><button class="btn full" type="button" onclick="document.getElementById('done').close()">閉じる</button></div></dialog>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./config.js"></script>
-<script src="./assets/store.js?v=20260828-2"></script>
+<script src="./assets/store.js?v=20260829-1"></script>
 <script>
 const q=new URLSearchParams(location.search),slug=q.get('slug');
-const FALLBACK_POSTER='./assets/naoyuki-workshop-flyer-v2.jpg?v=20260828-2';
+const NAOYUKI_SLUG='naoyuki-2026-10-16';
+const TILE_VERSION='20260829-1';
 const yen=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(n);
 const toast=m=>{const t=document.querySelector('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};
 let eventData,store;
 function fmtDate(s){return new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'}).format(new Date(s+'T00:00:00'))}
-function posterSrc(){return eventData?.cover||FALLBACK_POSTER}
-function installImageFallback(img){img.addEventListener('error',()=>{if(img.dataset.fallback==='1')return;img.dataset.fallback='1';img.src=FALLBACK_POSTER;});}
+function posterTilesMarkup(extraClass=''){
+  const tiles=[];
+  for(let r=0;r<3;r++) for(let c=0;c<3;c++) tiles.push(`<img src="./assets/naoyuki-flyer-v3-r${r}c${c}.svg?v=${TILE_VERSION}" alt="" aria-hidden="true" loading="eager">`);
+  return `<div class="poster-tile-grid ${extraClass}" role="img" aria-label="NAOYUKI TAP DANCE WORKSHOP フライヤー">${tiles.join('')}</div>`;
+}
+function posterMarkup(eventData,extraClass=''){
+  if(eventData?.slug===NAOYUKI_SLUG||slug===NAOYUKI_SLUG) return posterTilesMarkup(extraClass);
+  if(eventData?.cover) return `<img class="event-poster-img ${extraClass}" src="${eventData.cover}" alt="${eventData.title||'Workshop'} フライヤー">`;
+  return `<div class="poster-placeholder ${extraClass}">RHYTHM SPEAKER</div>`;
+}
 async function refreshRemaining(){const id=document.querySelector('#sessionId').value;if(!id){fee.textContent='—';remaining.textContent='—';return}const s=eventData.sessions.find(x=>x.id===id);fee.textContent=yen(s.price);remaining.textContent=(await store.remaining(eventData.id,id))+'席';}
-function openPoster(src){posterModalImage.src=src||FALLBACK_POSTER;installImageFallback(posterModalImage);posterModal.showModal();}
+function openPoster(){posterModalCanvas.innerHTML=posterMarkup(eventData,'poster-tile-grid--modal');posterModal.showModal();}
 posterModal.querySelector('.poster-modal-close').onclick=()=>posterModal.close();
 posterModal.onclick=e=>{if(e.target===posterModal)posterModal.close();};
 
@@ -93,11 +103,9 @@ posterModal.onclick=e=>{if(e.target===posterModal)posterModal.close();};
   eventData=await store.getEventBySlug(slug);
   if(!eventData){hero.innerHTML='<div class="empty">イベントが見つかりません。</div>';return}
   document.title=eventData.title+' | Rhythm Speaker';
-  const cover=posterSrc();
-  hero.innerHTML=`<div class="event-hero-grid"><button class="event-poster-card" type="button" aria-label="フライヤーを大きく見る"><img id="eventPosterImage" class="event-poster-img" src="${cover}" alt="${eventData.title} フライヤー"><span class="poster-zoom-label">タップして大きく見る</span></button><div class="event-hero-copy"><p class="eyebrow">${fmtDate(eventData.date)}</p><h1>${eventData.title}</h1><p class="event-lead">${eventData.summary||''}</p><div class="event-facts"><div><small>INSTRUCTOR</small><strong>${eventData.instructor||''}</strong></div><div><small>VENUE</small><strong>${eventData.venue||''}</strong><span>${eventData.address||''}</span></div></div><p class="event-description">${eventData.description||eventData.summary||''}</p><div class="hero-actions"><a class="btn gold" href="#sessions">クラスを選んで予約する</a><button id="openPosterBtn" class="btn subtle" type="button">フライヤーを大きく見る</button></div></div></div>`;
-  const posterImg=document.getElementById('eventPosterImage');installImageFallback(posterImg);
-  hero.querySelector('.event-poster-card').onclick=()=>openPoster(posterImg.src);
-  openPosterBtn.onclick=()=>openPoster(posterImg.src);
+  hero.innerHTML=`<div class="event-hero-grid"><button class="event-poster-card" type="button" aria-label="フライヤーを大きく見る">${posterMarkup(eventData,'poster-tile-grid--hero')}<span class="poster-zoom-label">タップして大きく見る</span></button><div class="event-hero-copy"><p class="eyebrow">${fmtDate(eventData.date)}</p><h1>${eventData.title}</h1><p class="event-lead">${eventData.summary||''}</p><div class="event-facts"><div><small>INSTRUCTOR</small><strong>${eventData.instructor||''}</strong></div><div><small>VENUE</small><strong>${eventData.venue||''}</strong><span>${eventData.address||''}</span></div></div><p class="event-description">${eventData.description||eventData.summary||''}</p><div class="hero-actions"><a class="btn gold" href="#sessions">クラスを選んで予約する</a><button id="openPosterBtn" class="btn subtle" type="button">フライヤーを大きく見る</button></div></div></div>`;
+  hero.querySelector('.event-poster-card').onclick=openPoster;
+  openPosterBtn.onclick=openPoster;
   mobileReserveBar.hidden=false;
 
   sessions.innerHTML=eventData.sessions.map((s,i)=>`<article class="session-card session-card-enhanced"><div class="session-card-head"><div><p class="session-eyebrow">CLASS ${String(i+1).padStart(2,'0')}</p><h3>${s.name}</h3><div class="meta">${s.start}–${s.end} / ${s.minutes||''}分</div></div><div class="price">${yen(s.price)}</div></div><div class="session-detail-grid"><div class="session-detail-block"><span class="detail-label">レベル</span><strong>${s.level||'どなたでも参加OK'}</strong></div><div class="session-detail-block"><span class="detail-label">空き状況</span><strong class="badge-seat" data-seat="${s.id}">確認中</strong></div></div><div class="session-cta-row"><button class="btn subtle choose-btn" data-choose="${s.id}">このクラスを選ぶ</button></div></article>`).join('');
