@@ -1,5 +1,6 @@
 (() => {
-  const THRESHOLD = 3;
+  const configured = Number(window.RS_WORKSHOP_CONFIG?.publicSeatThreshold);
+  const THRESHOLD = Number.isFinite(configured) && configured >= 0 ? configured : 3;
   if (!document.getElementById('reserveForm')) return;
 
   const publicSeatLabel = remaining => {
@@ -15,7 +16,10 @@
     const text = String(node.textContent || '').trim();
     const match = text.match(/^(?:残席\s*)?(\d+)(?:席)?$/);
     if (!match) return;
-    const next = publicSeatLabel(match[1]);
+    const count = Number(match[1]);
+    node.dataset.remaining = String(count);
+    node.dataset.publicSeatState = count <= 0 ? 'full' : count <= THRESHOLD ? 'low' : 'open';
+    const next = publicSeatLabel(count);
     if (next && text !== next) node.textContent = next;
   };
 
