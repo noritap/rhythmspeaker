@@ -70,6 +70,14 @@
         const m=new Map(copy.sessions.map(s=>[s.id,crypto.randomUUID()]));copy.sessions=copy.sessions.map(s=>({...s,id:m.get(s.id),consumes:(s.consumes||[]).map(x=>m.get(x)).filter(Boolean)}));
         return this.saveEvent(copy);
       },
+      async getInstructorToken(eventId){
+        const {data,error}=await client.rpc('get_or_create_workshop_instructor_link',{p_event_id:eventId});
+        if(error) throw error; return data;
+      },
+      async rotateInstructorToken(eventId){
+        const {data,error}=await client.rpc('rotate_workshop_instructor_link',{p_event_id:eventId});
+        if(error) throw error; return data;
+      },
       async signUp(email,password){const {data,error}=await client.auth.signUp({email,password});if(error)throw error;return data.user;},
       async uploadImage(file,folder='events'){
         if(!file) throw new Error('画像を選択してください');
