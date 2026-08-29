@@ -8,6 +8,6 @@ window.RS_WORKSHOP_CONFIG = {
 
 if (document.getElementById("reserveForm")) {
   const seatDisplayScript = document.createElement("script");
-  seatDisplayScript.src = "./assets/public-seat-display.js?v=20260830-1";
+  seatDisplayScript.src = "./assets/public-seat-display.js?v=20260830-3";
   document.head.appendChild(seatDisplayScript);
 }
