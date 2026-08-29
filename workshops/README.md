@@ -5,29 +5,41 @@ Rhythm Speakerの全ワークショップをスマートフォンから作成・
 ## Status / Boundary
 
 Current Status:
-`ISOLATED DEMO / PREVIEW`
+`LIVE SUPABASE RUNTIME / ISOLATED WORKSHOP SUBTREE`
 
-この`/workshops/` subtreeは、Rhythm Speaker Official Web本体と同一Repositoryに存在するが、
-現時点では本番の予約DB・認証・決済基盤として扱わない。
+この`/workshops/` subtreeは、Rhythm Speaker Official Web本体と同一Repositoryに存在するが、Official WebのPrimary LINE体験予約Funnelとは分離して扱う。
 
-- `config.js` の `mode` は `demo`
-- demoではブラウザ `localStorage` を使用
-- データは端末間共有されない
-- Supabase live DB / Auth / Storageは未接続
-- Stripe Checkout / Webhook等の決済自動化は未接続
-- 本番の個人情報をdemoへ保存しない
+Current verified runtime:
 
-`mode: "live"` への切替、Supabase本番接続、予約者個人データ保存、Auth、決済自動化は、
-Official Webの通常改善とは別のArchitecture / Security Gateとする。
-live化前に、専用App / Repository分離を含めて再評価する。
+- `config.js` の `mode` は `live`
+- Workshop専用Supabase URL / Publishable Keyを使用
+- `workshop-media` Storage bucketを使用
+- Supabase Authを管理画面で使用
+- Workshop event / session / reservation dataをSupabaseで共有
+- `/workshops/instructor/` にtoken-gated read-only instructor viewあり
+- Stripe Checkout / Webhookによる自動入金反映は未導入
+- Service Role Key / SecretsをRepositoryへ保存しない
 
-Canonical boundaryは `/PROJECT_PROFILE.md` を参照する。
+Publishable Keyはブラウザ利用を前提とする公開クライアントキーであり、AuthorizationはRLS / RPC / Authで担保する。Service Role Key等のSecretsとは分離する。
+
+本番予約者情報を扱うため、以後の変更では以下をHigh-Risk Gateとして扱う。
+
+- RLS / Authorization変更
+- Auth / 管理者権限変更
+- reservation schema変更
+- 個人情報の取得項目追加
+- Payment自動化
+- destructive migration / delete
+- Service Role Key / Secret取扱い
+
+Canonical boundaryは `/PROJECT_PROFILE.md` を参照する。PROJECT_PROFILEとruntimeが競合する場合はGitHub mainの実装をCurrent Realityとして確認し、Profile driftを解消する。
 
 ## URL構成
 
 - `/workshops/` 公開イベント一覧
 - `/workshops/event.html?slug=...` イベント詳細・予約
 - `/workshops/admin/` スマホ管理画面
+- `/workshops/instructor/?token=...` 講師向けread-only確認画面
 
 ## 管理機能
 
@@ -44,36 +56,39 @@ Canonical boundaryは `/PROJECT_PROFILE.md` を参照する。
 - 当日チェックイン
 - キャンセル
 - 売上見込 / 入金済集計
+- 講師専用共有URL発行 / 再発行
+- 講師向けクラス定員・予約・売上・参加者確認
 
-## 現在のモード
+## Current live architecture
 
-`config.js` は `demo`。
+`config.js` は `live`。
 
-デモモードではブラウザ localStorage を使用し、スマホUI・作成フローを確認できる。データは端末間共有されない。
+ブラウザUIはSupabase clientを使用してオンライン共有DBへ接続する。公開画面と管理画面で同じWorkshop data sourceを参照する。
 
-Supabaseプロジェクト作成後、`config.js` にURLとPublishable Keyを設定し `mode: "live"` に変更すると、オンライン共有DBへ切り替える設計。
-ただし、このlive切替は自動的な次工程ではない。Production運用条件・Privacy・Auth・Payment・Hosting・Repository Boundaryを確認してから行う。
+live runtimeをOfficial Web本体の標準機能へ拡張しない。Workshopは独立した価値ストリームとして管理し、Primary LINE CTAや初心者向け教室Funnelを壊さない。
 
 ## Supabase
 
-`supabase/001_workshop_manager.sql` を新規専用Supabaseプロジェクトへ適用する設計。
+Workshop専用Supabase projectを使用する。
 
-設計上、既存の kashima-house-os データベースとは混在させない。
+設計上、既存の他Project databaseとは混在させない。
 
 ### セキュリティ
 
 - 公開ユーザーは公開イベント / クラスのみ閲覧可能
 - 予約者一覧は管理者だけ閲覧可能
-- 公開予約は直接INSERTせず、`create_workshop_reservation` RPC経由
-- RPC内で対象セッションをロックして定員超過を防止
-- 管理権限はSupabase Authのメールと `workshop_admin_emails` の一致で判定
-- 画像Storageの書込 / 更新 / 削除は管理者だけ
+- 公開予約はRPC経由で処理
+- RPC内で定員整合性を保つ
+- 管理権限はSupabase Auth / database policyで制御
+- 画像Storageのwrite操作は管理者権限で制御
+- 講師viewはevent単位tokenでread-only共有
+- token再発行で旧講師URLを無効化可能
 - Service Role Key / SecretsをRepositoryへ保存しない
 
 ## 決済 v1
 
-設計上、各クラスに外部決済URLを設定できる方式。
-予約後にStripe Payment Link / STORES等へ送客し、管理画面で入金状態を管理する想定。
+各クラスに外部決済URLを設定できる方式。
+予約後にStripe Payment Link / STORES等へ送客し、管理画面で入金状態を管理する。
 
 Stripe Checkout + WebhookをSupabase Edge Functionへ統合し、決済成功時の自動入金反映を行う案はFuture Scope。
 本番導入前に別途Security / Privacy / Payment Reviewを行う。
