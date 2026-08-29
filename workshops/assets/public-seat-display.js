@@ -1,7 +1,8 @@
 (() => {
   const configured = Number(window.RS_WORKSHOP_CONFIG?.publicSeatThreshold);
   const THRESHOLD = Number.isFinite(configured) && configured >= 0 ? configured : 3;
-  if (!document.getElementById('reserveForm')) return;
+  const reserveForm = document.getElementById('reserveForm');
+  if (!reserveForm) return;
 
   const publicSeatLabel = remaining => {
     const n = Number(remaining);
@@ -22,6 +23,7 @@
     const card = node.closest('.class-card');
     const isFull = count <= 0;
 
+    node.setAttribute('aria-live', count <= THRESHOLD ? 'polite' : 'off');
     if (chooseButton) {
       chooseButton.dataset.openLabel ||= chooseButton.textContent.trim() || 'このクラスを選ぶ';
       chooseButton.disabled = isFull;
@@ -51,6 +53,7 @@
   const updateStaticLabels = () => {
     const remaining = document.getElementById('remaining');
     const label = remaining?.previousElementSibling;
+    if (remaining) remaining.setAttribute('aria-live', 'polite');
     if (label && label.textContent.trim() === '残席') label.textContent = '空き状況';
 
     const flowHelp = document.querySelector('.flow-step small');
@@ -63,6 +66,21 @@
     updateStaticLabels();
     document.querySelectorAll('.seat, #remaining').forEach(normalizeSeatNode);
   };
+
+  const sessionSelect = document.getElementById('sessionId');
+  sessionSelect?.addEventListener('change', () => sessionSelect.setCustomValidity(''));
+  reserveForm.addEventListener('submit', event => {
+    const sessionId = sessionSelect?.value;
+    if (!sessionId) return;
+    const seatNode = document.querySelector(`.seat[data-seat="${sessionId}"]`);
+    const knownRemaining = Number(seatNode?.dataset.remaining);
+    if (Number.isFinite(knownRemaining) && knownRemaining <= 0) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      sessionSelect.setCustomValidity('このクラスは満席です。別のクラスを選択してください。');
+      sessionSelect.reportValidity();
+    }
+  }, true);
 
   const observer = new MutationObserver(scan);
   observer.observe(document.body, { childList: true, subtree: true, characterData: true });
