@@ -11,6 +11,30 @@
     return '受付中';
   };
 
+  const applyClassAvailability = (node, count) => {
+    if (!node.classList.contains('seat')) return;
+    const sessionId = node.dataset.seat;
+    if (!sessionId) return;
+
+    const chooseButton = document.querySelector(`[data-choose="${sessionId}"]`);
+    const sessionSelect = document.getElementById('sessionId');
+    const option = sessionSelect ? Array.from(sessionSelect.options).find(item => item.value === sessionId) : null;
+    const card = node.closest('.class-card');
+    const isFull = count <= 0;
+
+    if (chooseButton) {
+      chooseButton.dataset.openLabel ||= chooseButton.textContent.trim() || 'このクラスを選ぶ';
+      chooseButton.disabled = isFull;
+      chooseButton.setAttribute('aria-disabled', String(isFull));
+      chooseButton.textContent = isFull ? '満席' : chooseButton.dataset.openLabel;
+    }
+    if (option) option.disabled = isFull;
+    if (card) {
+      card.dataset.availability = isFull ? 'full' : count <= THRESHOLD ? 'low' : 'open';
+      card.setAttribute('aria-label', `${card.querySelector('h3')?.textContent || 'クラス'} ${publicSeatLabel(count)}`);
+    }
+  };
+
   const normalizeSeatNode = node => {
     if (!node) return;
     const text = String(node.textContent || '').trim();
@@ -19,6 +43,7 @@
     const count = Number(match[1]);
     node.dataset.remaining = String(count);
     node.dataset.publicSeatState = count <= 0 ? 'full' : count <= THRESHOLD ? 'low' : 'open';
+    applyClassAvailability(node, count);
     const next = publicSeatLabel(count);
     if (next && text !== next) node.textContent = next;
   };
