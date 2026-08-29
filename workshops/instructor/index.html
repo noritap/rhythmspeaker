@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <title>Instructor View | Rhythm Speaker</title>
+  <link rel="stylesheet" href="../assets/workshop-os-v2.css?v=20260829-4">
+  <style>
+    .instructor-hero{padding:42px 0 20px}.instructor-note{margin:14px 0 0;color:var(--muted);font-size:13px;line-height:1.7}.refresh-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.updated-at{font-size:12px;color:var(--muted)}.class-status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.class-status-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px}.class-status-card h3{margin:6px 0 14px;font-size:22px}.class-status-card .metric{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px solid var(--line)}.class-status-card .metric:first-of-type{border-top:0}.class-status-card .metric span{color:var(--muted);font-size:12px}.class-status-card .metric strong{font-size:14px}.instructor-warning{padding:14px 16px;border-radius:16px;background:#fff7e4;border:1px solid #ead7a9;color:#6e4d0a;font-size:13px;line-height:1.7;margin:18px 0}.participant-name{font-weight:850}.source-badge{display:inline-flex;padding:4px 8px;border-radius:999px;background:#f0ede6;font-size:11px;font-weight:800;text-transform:uppercase}.pay-paid{color:var(--green);font-weight:850}.pay-unpaid{color:#9a6700;font-weight:850}@media(max-width:820px){.class-status-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.site-header__inner{height:auto;min-height:68px;padding:10px 0}.header-actions{width:auto}}@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:21px}.page-title{font-size:40px}.tablewrap table{min-width:620px}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <div class="brand"><span class="brand__mark">RS</span><span class="brand__text"><strong>INSTRUCTOR VIEW</strong><small>Rhythm Speaker</small></span></div>
+    <div class="header-actions"><button id="refreshBtn" class="btn btn--ghost btn--small" type="button">最新情報に更新</button></div>
+  </div>
+</header>
+
+<main id="app">
+  <section class="instructor-hero"><div class="shell"><p class="kicker">INSTRUCTOR ONLY</p><h1 id="eventTitle" class="page-title">読み込み中...</h1><p id="eventMeta" class="page-lead"></p><div class="refresh-row"><span id="updatedAt" class="updated-at"></span></div><p class="instructor-note">講師共有用の閲覧ページです。予約者のメールアドレス・電話番号は表示しません。</p></div></section>
+
+  <section class="section section--tight"><div class="shell"><div id="errorBox" class="instructor-warning hidden"></div><div id="stats" class="stats"></div></div></section>
+
+  <section class="section section--tight"><div class="shell"><div class="section-head"><div><p class="kicker">CLASSES</p><h2>クラス別の予約状況</h2><p>定員・予約席・残席・売上見込を確認できます。</p></div></div><div id="classGrid" class="class-status-grid"></div></div></section>
+
+  <section class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・参加クラス・支払状況・予約経路のみ表示します。</p></div></div><div class="tablewrap"><table><thead><tr><th>氏名</th><th>クラス</th><th>金額</th><th>支払</th><th>予約経路</th></tr></thead><tbody id="participantRows"><tr><td colspan="5">読み込み中...</td></tr></tbody></table></div></div></section>
+</main>
+
+<footer class="site-footer"><div class="shell">Rhythm Speaker</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../config.js"></script>
+<script>
+const token=new URLSearchParams(location.search).get('token');
+const cfg=window.RS_WORKSHOP_CONFIG||{};
+const yen=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(Number(n||0));
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const fmtDate=s=>new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'long',day:'numeric',weekday:'short'}).format(new Date(s+'T00:00:00'));
+const fmtTime=s=>String(s||'').slice(0,5);
+const fmtUpdated=s=>new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date(s));
+let client;
+
+function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';participantRows.innerHTML='<tr><td colspan="5">表示できません。</td></tr>';}
+function render(data){
+  const e=data.event||{},t=data.totals||{},sessions=data.sessions||[],people=data.participants||[];
+  document.title=`${e.title||'Instructor View'} | Rhythm Speaker`;
+  eventTitle.textContent=e.title||'Workshop';
+  eventMeta.textContent=[e.date?fmtDate(e.date):'',e.venue||'',e.instructor?`講師：${e.instructor}`:''].filter(Boolean).join(' / ');
+  updatedAt.textContent=`最終更新 ${fmtUpdated(data.generatedAt||new Date().toISOString())}`;
+  stats.innerHTML=`
+    <div class="stat"><span>予約人数</span><strong>${Number(t.reservations||0)}名</strong></div>
+    <div class="stat"><span>売上見込</span><strong>${yen(t.bookedRevenue)}</strong></div>
+    <div class="stat"><span>入金済</span><strong>${yen(t.paidRevenue)}</strong></div>
+    <div class="stat"><span>未収</span><strong>${yen(t.unpaidRevenue)}</strong></div>`;
+  classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>料金</span><strong>${yen(s.price)}</strong></div><div class="metric"><span>予約席</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>残席</span><strong>${Number(s.remaining||0)}席</strong></div><div class="metric"><span>売上見込</span><strong>${yen(s.bookedRevenue)}</strong></div><div class="metric"><span>入金済</span><strong>${yen(s.paidRevenue)}</strong></div></article>`).join(''):'<p>クラス情報がありません。</p>';
+  participantRows.innerHTML=people.length?people.map(p=>`<tr><td class="participant-name">${esc(p.name)}</td><td>${esc(p.sessionName||'')}</td><td>${yen(p.amount)}</td><td class="${p.paymentStatus==='paid'?'pay-paid':'pay-unpaid'}">${p.paymentStatus==='paid'?'入金済':'未入金'}</td><td><span class="source-badge">${esc(p.source||'web')}</span></td></tr>`).join(''):'<tr><td colspan="5">現在、予約はありません。</td></tr>';
+}
+
+async function load(){
+  try{
+    errorBox.classList.add('hidden');
+    if(!token) throw new Error('講師共有URLが正しくありません。');
+    if(!window.supabase||!cfg.supabaseUrl||!cfg.supabasePublishableKey) throw new Error('データ接続設定を読み込めません。');
+    client=client||window.supabase.createClient(cfg.supabaseUrl,cfg.supabasePublishableKey);
+    const {data,error}=await client.rpc('get_workshop_instructor_dashboard',{p_token:token});
+    if(error) throw error;
+    render(data);
+  }catch(err){showError(err.message==='invalid_or_disabled_link'?'この講師共有リンクは無効です。運営に新しいURLを確認してください。':(err.message||'読み込みに失敗しました。'));}
+}
+refreshBtn.onclick=load;
+load();
+setInterval(load,60000);
+</script>
+</body>
+</html>
