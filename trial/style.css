@@ -220,32 +220,24 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.055);
-}
-
-.included-item:nth-child(2),
-.included-item:nth-child(3) {
-    position: relative;
     overflow: hidden;
-    padding-top: 13rem;
 }
 
-.included-item:nth-child(2)::before,
-.included-item:nth-child(3)::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto;
-    height: 11.5rem;
-    background-position: center;
-    background-size: cover;
+.included-item--photo {
+    padding: 0 1.4rem 1.4rem;
+}
+
+.included-photo {
+    grid-column: 1 / -1;
+    display: block;
+    width: calc(100% + 2.8rem);
+    max-width: none;
+    height: 14rem;
+    margin: 0 -1.4rem 0.4rem;
+    object-fit: cover;
+    object-position: center;
+    background: #242424;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.included-item:nth-child(2)::before {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.16)), url('../assets/images/trial/rental-tap-shoes.webp');
-}
-
-.included-item:nth-child(3)::before {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.16)), url('../assets/images/trial/rental-wear.webp');
 }
 
 .included-item > span {
@@ -506,6 +498,10 @@
 
     .trial-final-cta {
         padding: 5rem 1.25rem 7rem;
+    }
+
+    .included-photo {
+        height: 12rem;
     }
 
     .trial-map {
