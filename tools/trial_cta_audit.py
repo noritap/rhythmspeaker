@@ -28,16 +28,30 @@ TRIAL_LABEL_PATTERNS = (
 
 ANCHOR_RE = re.compile(r'<a\b([^>]*)href="([^"]+)"([^>]*)>(.*?)</a>', re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
+CLASS_RE = re.compile(r'class="([^"]*)"', re.I)
 
 
 def visible_text(html: str) -> str:
     return re.sub(r"\s+", " ", TAG_RE.sub("", html)).strip()
 
 
+def class_tokens(attrs: str) -> set[str]:
+    match = CLASS_RE.search(attrs)
+    if not match:
+        return set()
+    return set(match.group(1).split())
+
+
 def is_trial_conversion_anchor(attrs: str, body: str) -> bool:
+    classes = class_tokens(attrs)
     text = visible_text(body)
-    if "cta-nav" in attrs:
-        return True
+
+    # Navigation links such as "初回体験" correctly route to /trial/ and are
+    # not direct LINE conversion anchors. Only button/CTA surfaces are governed
+    # by the canonical prefilled LINE URL contract.
+    is_cta_surface = "cta-nav" in classes or "btn" in classes
+    if not is_cta_surface:
+        return False
     return any(pattern in text for pattern in TRIAL_LABEL_PATTERNS)
 
 
@@ -84,7 +98,7 @@ def main() -> int:
         if label == "FILE_MISSING":
             print(f"- {page}: file missing")
         elif label == "TRIAL_CTA_MISSING":
-            print(f"- {page}: no trial conversion CTA detected")
+            print(f"- {page}: no direct trial conversion CTA detected")
         else:
             print(f"- {page}: {label!r} -> {href}")
     print(f"drift_records={len(problems)}")
