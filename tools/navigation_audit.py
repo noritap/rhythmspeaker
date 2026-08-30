@@ -17,7 +17,7 @@ PAGES = [
 ]
 
 REQUIRED_LABELS = ["教室トップ", "初回体験", "クラス", "教室紹介", "サービス一覧", "FAQ", "アクセス", "RSS"]
-SHOP_MARKERS = ["メインHP・SHOP", ">SHOP<"]
+LEGACY_SHOP_LABEL = "メインHP・SHOP"
 
 
 def extract_desktop_nav(text: str) -> str:
@@ -32,8 +32,10 @@ def extract_mobile_nav(text: str) -> str:
 
 def missing_items(nav: str) -> list[str]:
     missing = [label for label in REQUIRED_LABELS if label not in nav]
-    if not any(marker in nav for marker in SHOP_MARKERS):
+    if ">SHOP<" not in nav:
         missing.append("SHOP")
+    if LEGACY_SHOP_LABEL in nav:
+        missing.append("LEGACY_MAIN_HP_SHOP_LABEL")
     return missing
 
 
