@@ -20,12 +20,6 @@ PAGES = [
     Path("access/index.html"),
 ]
 
-TRIAL_LABEL_PATTERNS = (
-    "初回体験",
-    "体験予約",
-    "体験日時",
-)
-
 ANCHOR_RE = re.compile(r'<a\b([^>]*)href="([^"]+)"([^>]*)>(.*?)</a>', re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
 CLASS_RE = re.compile(r'class="([^"]*)"', re.I)
@@ -46,13 +40,18 @@ def is_trial_conversion_anchor(attrs: str, body: str) -> bool:
     classes = class_tokens(attrs)
     text = visible_text(body)
 
-    # Navigation links such as "初回体験" correctly route to /trial/ and are
-    # not direct LINE conversion anchors. Only button/CTA surfaces are governed
-    # by the canonical prefilled LINE URL contract.
-    is_cta_surface = "cta-nav" in classes or "btn" in classes
-    if not is_cta_surface:
+    # Internal discovery links such as "初回体験" / "初回体験を見る" correctly
+    # route to /trial/. The direct LINE contract applies only to explicit
+    # booking/consultation CTAs and the navigation conversion button.
+    if "cta-nav" in classes:
+        return True
+    if "btn" not in classes:
         return False
-    return any(pattern in text for pattern in TRIAL_LABEL_PATTERNS)
+    return (
+        "体験予約" in text
+        or "体験日時" in text
+        or ("LINE" in text and "体験" in text)
+    )
 
 
 def audit(root: Path) -> list[tuple[str, str, str]]:
