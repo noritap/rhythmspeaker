@@ -19,5 +19,5 @@ jobs:
           python-version: "3.12"
       - name: Compile audit utility
         run: python -m py_compile tools/navigation_audit.py
-      - name: Report navigation drift baseline
-        run: python tools/navigation_audit.py
+      - name: Enforce navigation contract
+        run: python tools/navigation_audit.py --strict
