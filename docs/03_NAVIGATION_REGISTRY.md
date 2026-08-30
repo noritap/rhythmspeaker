@@ -1,6 +1,6 @@
 # Rhythm Speaker Web｜NAVIGATION_REGISTRY
 
-Version: 1.1
+Version: 1.2
 Status: ACTIVE
 Canonical Base URL: https://noritap.github.io/rhythmspeaker/
 
@@ -10,7 +10,7 @@ Rhythm Speaker公式WebのDesktop / Mobile Navigationを1つの正本として�
 
 ## Navigation Contract
 
-NAV_VERSION: RS-NAV-1
+NAV_VERSION: RS-NAV-2
 
 Order:
 1. 教室トップ — /rhythmspeaker/
@@ -21,7 +21,7 @@ Order:
 6. FAQ — /rhythmspeaker/faq/
 7. アクセス — /rhythmspeaker/access/
 8. RSS — /rhythmspeaker/rss/
-9. メインHP・SHOP — https://rhythmspeaker.stores.jp/
+9. SHOP — https://rhythmspeaker.stores.jp/
 
 Brand / Home:
 - Rhythm Speaker logo → /rhythmspeaker/
@@ -31,7 +31,22 @@ Primary CTA:
 
 Supporting Surfaces:
 - RS Walletは新規客のPrimary CTAにしない
-- STORESは外部SHOP導線として維持
+- STORESはRhythm Speaker Official Shopとして扱う
+- STORESをMain HPとは呼ばない
+
+## Public Business Grouping
+
+今後の公開情報設計は、内部事業10部門をそのまま表示せず、以下の7カテゴリへ圧縮する。
+
+- STUDIO — Lesson / Rental / Facility
+- WATCH — YouTube / Rhythm Speaker Show / Broadcast
+- MUSIC — Rhythm Speaker Music
+- EVENTS — Event / Workshop / Collaboration
+- LEARN — Education / Materials / Methods
+- SHOP — STORES
+- ABOUT — Brand / Access / FAQ / Contact
+
+現行Global Navigationは既存CVとページ資産を維持しつつ段階移行する。新規ページ追加時は上記7カテゴリのどこに属するか必ず判定する。
 
 ## Scope
 
@@ -47,11 +62,6 @@ Primary Pages:
 
 RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return Routeを失わない。
 
-## Relation to Previous Decision
-
-`docs/02_NAVIGATION_ROLE_DECISION.md` の基本原則（ロゴ=教室トップ、LINE=Primary CTA、STORES=外部SHOP）は継承する。
-本Registryが現在のGlobal Navigation項目・順序のCanonical Sourceとする。
-
 ## Drift Definition
 
 以下はNavigation Drift:
@@ -59,6 +69,7 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 - RSSが一部ページだけに存在
 - DesktopとMobileの項目差
 - SHOP表記・hrefの不一致
+- STORESを「メインHP」と表記する旧ラベル
 - 項目順の不一致
 - Parent / Home導線欠落
 
@@ -72,20 +83,21 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 
 ## Current Baseline
 
-2026-08-30 remediationでTop / Trial / Classes / About / Ecosystem / FAQ / Access / RSSを `RS-NAV-1` へ同期済み。
-Navigation sync後のstrict auditはPASS。
-以後、Navigation Driftは既知の許容差分ではなくCI failureとして扱う。
+2026-08-31 business architecture reviewで、GitHub Pages Official WebをMain HP、STORESをOfficial Shopとする役割分担を確定。
+`RS-NAV-2` では旧「メインHP・SHOP」ラベルを `SHOP` へ変更する。
 
 ## Automation
 
 - `tools/navigation_sync.py` = Canonical NavigationをPrimary HTMLへ生成・同期
-- `tools/navigation_audit.py --strict` = Desktop / Mobileの必須項目欠落をFAIL
+- `tools/navigation_audit.py --strict` = Desktop / Mobileの必須項目欠落・SHOP role driftをFAIL
 - `.github/workflows/navigation-sync.yml` = PR上で生成結果との差分を検査
 - `.github/workflows/navigation-audit.yml` = PR / mainでstrict auditを実行
 
 ## DONE CONDITION
 
 - Primary PagesのDesktop / Mobile NavigationがContractに一致
+- STORES表示がSHOPで統一
+- Official WebがMain HPとして扱われる
 - Footer対象ページも主要Directoryへの導線を保持
 - Navigation Audit strict PASS
 - Navigation Sync Checkで未コミット差分が0
