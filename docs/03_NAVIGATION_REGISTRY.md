@@ -1,6 +1,6 @@
 # Rhythm Speaker Web｜NAVIGATION_REGISTRY
 
-Version: 1.0
+Version: 1.1
 Status: ACTIVE
 Canonical Base URL: https://noritap.github.io/rhythmspeaker/
 
@@ -65,17 +65,28 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 ## Change Rule
 
 1. 本Registry更新
-2. Desktop / Mobile / Footer対象を同期
-3. Navigation Audit
-4. strict PASS後merge
+2. `tools/navigation_sync.py` でDesktop / Mobile Navigationを同期
+3. `tools/navigation_audit.py --strict` を実行
+4. Navigation Contract Sync Checkで生成差分が0であることを確認
+5. PASS後merge
 
 ## Current Baseline
 
-2026-08-30 auditで、About / Ecosystemは新構造へ進んでいる一方、Trial / Classes / FAQ / Access / RSS / Topに未同期項目があることを確認。Baseline remediation完了までは Drift Known 状態。
+2026-08-30 remediationでTop / Trial / Classes / About / Ecosystem / FAQ / Access / RSSを `RS-NAV-1` へ同期済み。
+Navigation sync後のstrict auditはPASS。
+以後、Navigation Driftは既知の許容差分ではなくCI failureとして扱う。
+
+## Automation
+
+- `tools/navigation_sync.py` = Canonical NavigationをPrimary HTMLへ生成・同期
+- `tools/navigation_audit.py --strict` = Desktop / Mobileの必須項目欠落をFAIL
+- `.github/workflows/navigation-sync.yml` = PR上で生成結果との差分を検査
+- `.github/workflows/navigation-audit.yml` = PR / mainでstrict auditを実行
 
 ## DONE CONDITION
 
 - Primary PagesのDesktop / Mobile NavigationがContractに一致
 - Footer対象ページも主要Directoryへの導線を保持
 - Navigation Audit strict PASS
+- Navigation Sync Checkで未コミット差分が0
 - 新規Primary PageはRegistry Scopeへ登録
