@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ayako-ukawa",
+    "name": "宇川彩子",
+    "name_en": "Ayako Ukawa",
+    "role": "Jazz Tap Dancer / Host",
+    "episode_ids": ["ayako-000"]
+  },
+  {
+    "id": "noritaka-furusho",
+    "name": "古庄里好",
+    "name_en": "Noritaka Furusho",
+    "role": "Tap Dancer / Assistant / Guest",
+    "episode_ids": ["ayako-000"]
+  }
+]

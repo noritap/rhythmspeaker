@@ -1,0 +1,11 @@
+[
+  {
+    "id": "ayako-no-heya",
+    "name": "あやこの部屋",
+    "tagline": "タップと人を語る",
+    "status": "VALIDATION",
+    "host_ids": ["ayako-ukawa"],
+    "assistant_ids": ["noritaka-furusho"],
+    "latest_episode_id": "ayako-000"
+  }
+]
