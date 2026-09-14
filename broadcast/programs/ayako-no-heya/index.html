@@ -18,6 +18,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <script src="../../app.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWorkSeries",
+    "name": "あやこの部屋",
+    "description": "宇川彩子がゲストを迎え、トークとタップからその人を知るトーク＆セッション番組。",
+    "url": "https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/",
+    "image": "https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg",
+    "inLanguage": "ja",
+    "creator": {
+      "@type": "Person",
+      "name": "宇川彩子"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ移動</a>
@@ -95,6 +110,29 @@
       </div>
     </section>
 
+    <section class="section" id="people" aria-labelledby="people-heading">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">PEOPLE</p>
+            <h2 class="section-title" id="people-heading">この部屋の人たち。</h2>
+          </div>
+        </div>
+        <div class="card-grid" data-rsb-people="ayako-no-heya">
+          <article class="card">
+            <small>Jazz Tap Dancer / Host</small>
+            <h3>宇川彩子</h3>
+            <p>Ayako Ukawa</p>
+          </article>
+          <article class="card">
+            <small>Tap Dancer / Assistant / Guest</small>
+            <h3>古庄里好</h3>
+            <p>Noritaka Furusho</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="corners" aria-labelledby="corners-heading">
       <div class="container">
         <div class="section-head">
@@ -138,7 +176,7 @@
             <h2 class="section-title" id="archive-heading">これまでの部屋。</h2>
           </div>
         </div>
-        <div class="card-grid">
+        <div class="card-grid" data-rsb-episode-archive="ayako-no-heya">
           <a class="card" href="../../episodes/ayako-000/" data-rsb-event="program_episode_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="archive" data-destination-type="episode">
             <small>EP.00</small>
             <h3>古庄里好</h3>

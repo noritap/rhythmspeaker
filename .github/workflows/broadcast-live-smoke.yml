@@ -1,0 +1,50 @@
+name: Broadcast Live Smoke
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "broadcast/**"
+      - "ecosystem/index.html"
+      - ".github/workflows/broadcast-live-smoke.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  live-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Wait for GitHub Pages propagation and verify public pages
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          check_page() {
+            local url="$1"
+            local marker="$2"
+            local file="$3"
+            echo "Checking ${url}"
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --location \
+              --retry 20 \
+              --retry-delay 15 \
+              --retry-all-errors \
+              --header "Cache-Control: no-cache" \
+              "${url}?smoke=${GITHUB_SHA}" \
+              --output "${file}"
+            grep -Fq "${marker}" "${file}"
+          }
+
+          check_page "https://noritap.github.io/rhythmspeaker/broadcast/" "RS BROADCAST NETWORK" network.html
+          check_page "https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/" "あやこの部屋" program.html
+          check_page "https://noritap.github.io/rhythmspeaker/broadcast/episodes/ayako-000/" "古庄里好" episode.html
+
+          echo "BROADCAST LIVE SMOKE: PASS"
