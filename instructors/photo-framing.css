@@ -1,0 +1,17 @@
+/* Approved instructor-photo framing layer.
+   Identity must not be altered. Only crop/position/light/contrast/saturation are tuned. */
+.person-photo,.profile-photo,.tap-style-photo{background-repeat:no-repeat;transform:translateZ(0)}
+.person-photo--homma,.profile-photo--homma,.tap-style-photo--homma{background-position:50% 18%!important;filter:brightness(1.04) contrast(1.04) saturate(.98)}
+.person-photo--sasasa,.profile-photo--sasasa,.tap-style-photo--sasasa{background-position:50% 14%!important;filter:brightness(1.08) contrast(1.04) saturate(.96)}
+.person-photo--niu,.profile-photo--niu,.tap-style-photo--niu{background-position:50% 18%!important;filter:brightness(1.05) contrast(1.03) saturate(.98)}
+.person-photo--okudaira,.profile-photo--okudaira,.tap-style-photo--okudaira{background-position:50% 16%!important;filter:brightness(1.04) contrast(1.03) saturate(.98)}
+.person-photo--furusho,.profile-photo--furusho,.tap-style-photo--furusho{background-position:50% 18%!important;filter:brightness(1.03) contrast(1.03) saturate(.98)}
+/* MiFa-san is currently sourced from the approved Stretch visual sheet. Keep its sprite quadrant and lift visibility slightly. */
+.person-photo--mifa,.profile-photo--mifa,.tap-style-photo--mifa{background-position:100% 100%!important;filter:brightness(1.08) contrast(1.03) saturate(.98)}
+@media(max-width:768px){
+  .person-photo--homma,.profile-photo--homma,.tap-style-photo--homma{background-position:50% 15%!important}
+  .person-photo--sasasa,.profile-photo--sasasa,.tap-style-photo--sasasa{background-position:50% 11%!important}
+  .person-photo--niu,.profile-photo--niu,.tap-style-photo--niu{background-position:50% 15%!important}
+  .person-photo--okudaira,.profile-photo--okudaira,.tap-style-photo--okudaira{background-position:50% 13%!important}
+  .person-photo--furusho,.profile-photo--furusho,.tap-style-photo--furusho{background-position:50% 15%!important}
+}
