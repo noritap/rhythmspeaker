@@ -76,7 +76,8 @@ a:focus-visible,
 button:focus-visible,
 .release-card:focus-visible,
 .btn:focus-visible,
-.track-action:focus-visible {
+.track-action:focus-visible,
+.release-listen:focus-visible {
   outline: 3px solid #f1c66d;
   outline-offset: 4px;
   border-radius: 8px;
@@ -159,6 +160,39 @@ button:focus-visible,
   opacity: 1;
 }
 
+/* VC3: album discovery and listening are distinct actions */
+.release-unit {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.release-unit .release-card {
+  flex: 1 1 auto;
+}
+.release-listen {
+  margin-top: .7rem;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .72rem 1rem;
+  border: 1px solid rgba(217,168,78,.28);
+  border-radius: 999px;
+  color: var(--gold);
+  background: rgba(217,168,78,.055);
+  text-decoration: none;
+  font: 700 .78rem 'Outfit',sans-serif;
+  letter-spacing: .06em;
+  transition: background .18s ease,border-color .18s ease,transform .18s ease;
+}
+.release-listen:hover,
+.release-listen:focus-visible {
+  background: rgba(217,168,78,.13);
+  border-color: rgba(217,168,78,.62);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 560px) {
   .footer-inner > div:first-child {
     padding-left: 52px;
@@ -169,6 +203,9 @@ button:focus-visible,
   }
   .quick-card--link {
     min-height: 132px;
+  }
+  .release-listen {
+    min-height: 48px;
   }
 }
 
@@ -183,7 +220,9 @@ button:focus-visible,
   .release-card:focus-visible,
   .btn:hover,
   .quick-card--link:hover,
-  .quick-card--link:focus-visible {
+  .quick-card--link:focus-visible,
+  .release-listen:hover,
+  .release-listen:focus-visible {
     transform: none;
   }
 }
