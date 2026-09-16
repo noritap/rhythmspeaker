@@ -18,6 +18,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
   <script src="../../app.js" defer></script>
+  <style>
+    .episode-player{margin-top:2rem;overflow:hidden;border-radius:22px;background:#000;box-shadow:var(--shadow);border:1px solid var(--rsb-line)}
+    .episode-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+    .chapter-list--interactive{display:grid;gap:.75rem;border-top:0}
+    .chapter-list--interactive li{display:block;padding:0;border-bottom:0}
+    .chapter-jump{width:100%;display:grid;grid-template-columns:72px 1fr;gap:1rem;align-items:center;text-align:left;padding:1rem 1.15rem;border:1px solid var(--rsb-line);border-radius:14px;background:var(--rsb-surface);color:var(--rsb-text);font:inherit;cursor:pointer}
+    .chapter-jump:hover,.chapter-jump[aria-current="true"]{border-color:var(--ayako-gold);background:#242017}
+    .chapter-jump time{font-family:"Outfit",sans-serif;color:var(--ayako-gold);font-weight:800}
+    .chapter-jump span{color:var(--rsb-text)}
+    @media (max-width:640px){.chapter-jump{grid-template-columns:58px 1fr;gap:.75rem;padding:.9rem}}
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,22 +65,31 @@
         <h1 class="section-title">古庄里好と語る<br>タップダンス</h1>
         <p class="section-copy">タップダンサー宇川彩子がお届けするトーク＆セッション番組「あやこの部屋」。記念すべき第0回は、アシスタントの古庄里好を迎えて、2人の出会いやスタジオ経営の歴史、ジャズの即興セッション講座、そして身体論に迫る「俺のシャッフル」までお届けします。</p>
 
-        <div class="feature-card" style="margin-top:2rem">
-          <div class="feature-media">
-            <img src="https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg" alt="あやこの部屋 第0回 古庄里好ゲスト回のYouTubeサムネイル" loading="eager">
-          </div>
-          <div class="feature-body">
-            <p class="eyebrow">WATCH</p>
-            <h2>YouTubeで本編を見る</h2>
-            <p>32分23秒。タップの楽しさ、深さ、そしてダンサーの人間性まで語り合います。</p>
-            <div class="feature-meta">
-              <span class="chip">TALK</span>
-              <span class="chip">SESSION</span>
-              <span class="chip">SHUFFLE</span>
-            </div>
-            <a class="btn btn--gold" href="https://youtu.be/hf-70tPlpLo" target="_blank" rel="noopener noreferrer" data-rsb-event="episode_watch_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="episode-hero" data-destination-type="youtube">再生する</a>
+        <div class="episode-player" aria-label="あやこの部屋 EP.00 動画プレイヤー">
+          <iframe id="episode-player" src="https://www.youtube.com/embed/hf-70tPlpLo?rel=0" title="あやこの部屋 EP.00 古庄里好と語るタップダンス" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn--gold" href="https://youtu.be/hf-70tPlpLo" target="_blank" rel="noopener noreferrer" data-rsb-event="episode_watch_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="episode-player" data-destination-type="youtube">YouTubeで開く</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chapters-heading">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">CHAPTERS</p>
+            <h2 class="section-title" id="chapters-heading">見たいところへ。</h2>
           </div>
         </div>
+        <ol class="chapter-list chapter-list--interactive">
+          <li><button class="chapter-jump" type="button" data-seconds="0" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-00-00" data-destination-type="youtube_player"><time>00:00</time><span>オープニング（「あやこの部屋」スタート！）</span></button></li>
+          <li><button class="chapter-jump" type="button" data-seconds="66" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-01-06" data-destination-type="youtube_player"><time>01:06</time><span>2人の出会いとスタジオ運営の歴史</span></button></li>
+          <li><button class="chapter-jump" type="button" data-seconds="421" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-07-01" data-destination-type="youtube_player"><time>07:01</time><span>あやこのインプロ講座（On the Sunny Side of the Street / AABA構成）</span></button></li>
+          <li><button class="chapter-jump" type="button" data-seconds="859" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-14-19" data-destination-type="youtube_player"><time>14:19</time><span>世代論と現代の予約・ライフスタイル</span></button></li>
+          <li><button class="chapter-jump" type="button" data-seconds="1334" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-22-14" data-destination-type="youtube_player"><time>22:14</time><span>俺のシャッフル（足首・膝・股関節の使い方＆点打ち vs 面打ち）</span></button></li>
+          <li><button class="chapter-jump" type="button" data-seconds="1696" data-rsb-event="episode_chapter_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="chapter-28-16" data-destination-type="youtube_player"><time>28:16</time><span>ライブ・ワークショップ告知＆エンディング</span></button></li>
+        </ol>
       </div>
     </section>
 
@@ -98,25 +118,6 @@
             <p>2人の関係とスタジオ運営の歴史から、タップカルチャーの現在へ。</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="chapters-heading">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">CHAPTERS</p>
-            <h2 class="section-title" id="chapters-heading">目次。</h2>
-          </div>
-        </div>
-        <ol class="chapter-list">
-          <li><time>00:00</time><span>オープニング（「あやこの部屋」スタート！）</span></li>
-          <li><time>01:06</time><span>2人の出会いとスタジオ運営の歴史</span></li>
-          <li><time>07:01</time><span>あやこのインプロ講座（On the Sunny Side of the Street / AABA構成）</span></li>
-          <li><time>14:19</time><span>世代論と現代の予約・ライフスタイル</span></li>
-          <li><time>22:14</time><span>俺のシャッフル（足首・膝・股関節の使い方＆点打ち vs 面打ち）</span></li>
-          <li><time>28:16</time><span>ライブ・ワークショップ告知＆エンディング</span></li>
-        </ol>
       </div>
     </section>
 
@@ -165,5 +166,23 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const player = document.getElementById('episode-player');
+      const buttons = [...document.querySelectorAll('.chapter-jump')];
+      if (!player || !buttons.length) return;
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const seconds = Number(button.dataset.seconds || 0);
+          player.src = `https://www.youtube.com/embed/hf-70tPlpLo?start=${seconds}&autoplay=1&rel=0`;
+          buttons.forEach((item) => item.removeAttribute('aria-current'));
+          button.setAttribute('aria-current', 'true');
+          player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
