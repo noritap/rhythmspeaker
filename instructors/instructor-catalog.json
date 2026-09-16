@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "purpose": "Public instructor/profile/TAP-style content registry for Rhythm Speaker.",
+  "rules": {
+    "officialInquiry": "https://lin.ee/zC5YLe7",
+    "doNotInvent": ["biography", "career history", "schedule", "photo", "class assignment", "TAP style"],
+    "photoPolicy": "Use only Rhythm Speaker-approved or repository-owned instructor imagery. Fall back to initials when no approved image is available.",
+    "beginnerGuidance": "For first-time users, STEP remains the primary entry point; instructor style is supplementary guidance."
+  },
+  "instructors": [
+    {
+      "id": "furusho",
+      "name": "古庄里好",
+      "role": "代表 / Founder / Architect / Instructor",
+      "classes": ["STEP", "TAP", "STRETCH", "ISOLATION", "BAR METHOD", "HIIT"],
+      "tapStyle": "身体物理タップ",
+      "teachingStyle": "身体構造・重心・リズムの仕組みを整理して伝える構造型",
+      "photo": {"status": "approved", "asset": "/tap-dance-instructor-furusho-noritaka.jpg"}
+    },
+    {
+      "id": "sasasa",
+      "name": "さささ",
+      "classes": ["STEP", "TAP"],
+      "tapStyle": "構造的アートタップ",
+      "teachingStyle": "構造的・分析的。姿勢、重心、動きの整理を重視",
+      "photo": {"status": "pending"}
+    },
+    {
+      "id": "homma",
+      "name": "本間茂樹",
+      "classes": ["STEP", "TAP"],
+      "tapStyle": "共感型ストーリータップ",
+      "teachingStyle": "共感型・丁寧型。生徒のペースや気持ちに寄り添う",
+      "photo": {"status": "pending"}
+    },
+    {
+      "id": "mifa",
+      "name": "MiFa-san",
+      "classes": ["STEP", "TAP", "STRETCH"],
+      "tapStyle": "ナラティブタップ",
+      "teachingStyle": "やさしく細やか。小さな成長の実感を積み重ねる",
+      "photo": {"status": "approved-crop", "asset": "/classes/stretch/assets/stretch-visual-sheet.webp", "position": "bottom-right"}
+    },
+    {
+      "id": "niu",
+      "name": "丹生良彬",
+      "classes": ["STEP", "TAP", "HIIT"],
+      "tapStyle": "自由系即興タップ",
+      "teachingStyle": "自由・感覚・即興型。個性や表現を重視",
+      "photo": {"status": "pending"}
+    },
+    {
+      "id": "okudaira",
+      "name": "奥平崇史",
+      "classes": ["STEP", "TAP"],
+      "tapStyle": "旅するタップ",
+      "teachingStyle": "柔軟・自由・イベント型。不定期イベント・WSでも活動",
+      "photo": {"status": "pending"}
+    }
+  ]
+}
