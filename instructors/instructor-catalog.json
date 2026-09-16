@@ -1,10 +1,10 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "purpose": "Public instructor/profile/TAP-style content registry for Rhythm Speaker.",
   "rules": {
     "officialInquiry": "https://lin.ee/zC5YLe7",
     "doNotInvent": ["biography", "career history", "schedule", "photo", "class assignment", "TAP style"],
-    "photoPolicy": "Use only Rhythm Speaker-approved or repository-owned instructor imagery. Fall back to initials when no approved image is available.",
+    "photoPolicy": "Use only Rhythm Speaker-approved, current-official-site, or repository-owned instructor imagery. Never fabricate instructor likenesses.",
     "beginnerGuidance": "For first-time users, STEP remains the primary entry point; instructor style is supplementary guidance."
   },
   "instructors": [
@@ -15,7 +15,7 @@
       "classes": ["STEP", "TAP", "STRETCH", "ISOLATION", "BAR METHOD", "HIIT"],
       "tapStyle": "身体物理タップ",
       "teachingStyle": "身体構造・重心・リズムの仕組みを整理して伝える構造型",
-      "photo": {"status": "approved", "asset": "/tap-dance-instructor-furusho-noritaka.jpg"}
+      "photo": {"status": "approved", "source": "repository", "asset": "/tap-dance-instructor-furusho-noritaka.jpg"}
     },
     {
       "id": "sasasa",
@@ -23,7 +23,7 @@
       "classes": ["STEP", "TAP"],
       "tapStyle": "構造的アートタップ",
       "teachingStyle": "構造的・分析的。姿勢、重心、動きの整理を重視",
-      "photo": {"status": "pending"}
+      "photo": {"status": "approved", "source": "current_official_hp", "asset": "https://static.wixstatic.com/media/027732_738e2d4c6aa149b3ad17f843a8969e75~mv2.jpg", "approvedOn": "2026-09-17"}
     },
     {
       "id": "homma",
@@ -31,7 +31,7 @@
       "classes": ["STEP", "TAP"],
       "tapStyle": "共感型ストーリータップ",
       "teachingStyle": "共感型・丁寧型。生徒のペースや気持ちに寄り添う",
-      "photo": {"status": "pending"}
+      "photo": {"status": "approved", "source": "current_official_hp", "asset": "https://static.wixstatic.com/media/3a06bb_634c56b99f8d4004a206fe8d391f83e8~mv2.jpeg", "approvedOn": "2026-09-17"}
     },
     {
       "id": "mifa",
@@ -39,7 +39,7 @@
       "classes": ["STEP", "TAP", "STRETCH"],
       "tapStyle": "ナラティブタップ",
       "teachingStyle": "やさしく細やか。小さな成長の実感を積み重ねる",
-      "photo": {"status": "approved-crop", "asset": "/classes/stretch/assets/stretch-visual-sheet.webp", "position": "bottom-right"}
+      "photo": {"status": "approved-crop", "source": "repository", "asset": "/classes/stretch/assets/stretch-visual-sheet.webp", "position": "bottom-right"}
     },
     {
       "id": "niu",
@@ -47,7 +47,7 @@
       "classes": ["STEP", "TAP", "HIIT"],
       "tapStyle": "自由系即興タップ",
       "teachingStyle": "自由・感覚・即興型。個性や表現を重視",
-      "photo": {"status": "pending"}
+      "photo": {"status": "approved", "source": "current_official_hp", "asset": "https://static.wixstatic.com/media/a17646_b111650765de4898ac393179e0586b8d~mv2.jpg", "approvedOn": "2026-09-17"}
     },
     {
       "id": "okudaira",
@@ -55,7 +55,7 @@
       "classes": ["STEP", "TAP"],
       "tapStyle": "旅するタップ",
       "teachingStyle": "柔軟・自由・イベント型。不定期イベント・WSでも活動",
-      "photo": {"status": "pending"}
+      "photo": {"status": "approved", "source": "current_official_hp", "asset": "https://static.wixstatic.com/media/50d576_f50380a887c64d8fb30b74c77077218a~mv2.jpeg", "approvedOn": "2026-09-17"}
     }
   ]
 }
