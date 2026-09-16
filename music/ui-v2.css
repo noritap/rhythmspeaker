@@ -102,6 +102,42 @@ button:focus-visible,
   color: var(--gold);
 }
 
+/* VC4: close every page with the same RSM identity used in the header */
+.footer-inner > div:first-child {
+  position: relative;
+  min-height: 48px;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-inner > div:first-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+  background: url("./assets/brand/RSM_monogram_white_on_black.png") center/contain no-repeat;
+  border-radius: 7px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.footer-inner strong {
+  font-family: 'Outfit',sans-serif;
+  letter-spacing: .08em;
+}
+
+@media (max-width: 560px) {
+  .footer-inner > div:first-child {
+    padding-left: 52px;
+  }
+  .footer-inner > div:first-child::before {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
