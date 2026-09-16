@@ -70,3 +70,48 @@
     font-size: .52rem;
   }
 }
+
+/* VC3: interaction, keyboard and motion quality */
+a:focus-visible,
+button:focus-visible,
+.release-card:focus-visible,
+.btn:focus-visible,
+.track-action:focus-visible {
+  outline: 3px solid #f1c66d;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.brand--rsm:focus-visible,
+.nav a:focus-visible {
+  outline-offset: 3px;
+}
+
+.release-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(217,168,78,.65);
+}
+
+.footer a {
+  text-underline-offset: .2em;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .release-card:hover,
+  .release-card:focus-visible,
+  .btn:hover {
+    transform: none;
+  }
+}
