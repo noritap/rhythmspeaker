@@ -7,3 +7,12 @@
 .brand--rsm .brand-copy>span{margin-top:.28rem;font-size:.62rem;letter-spacing:.13em;color:var(--muted);white-space:nowrap}
 @media(max-width:800px){.brand--rsm .brand-logo{width:44px;height:44px}.brand--rsm .brand-copy strong{font-size:.88rem}.brand--rsm .brand-copy>span{display:none}}
 @media(max-width:560px){.brand--rsm .brand-copy strong{font-size:.78rem;letter-spacing:.05em}.music-header{padding-inline:4%}}
+
+/* VC1: stronger label-brand hierarchy */
+.music-header{padding-top:.72rem;padding-bottom:.72rem;box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.brand--rsm{gap:.9rem}
+.brand--rsm .brand-logo{width:58px;height:58px;border-radius:8px;border:1px solid rgba(255,255,255,.10);box-shadow:0 7px 20px rgba(0,0,0,.20)}
+.brand--rsm .brand-copy strong{font-size:1.06rem;letter-spacing:.095em}
+.brand--rsm .brand-copy>span{font-size:.64rem;letter-spacing:.15em;color:#9ea4ad}
+.nav a{padding:.46rem .66rem;border-radius:999px;transition:.18s background,.18s color,.18s border-color}
+.nav a:hover{background:rgba(217,168,78,.09)}
