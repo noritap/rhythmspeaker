@@ -77,7 +77,8 @@ button:focus-visible,
 .release-card:focus-visible,
 .btn:focus-visible,
 .track-action:focus-visible,
-.release-listen:focus-visible {
+.release-listen:focus-visible,
+.related-release:focus-visible {
   outline: 3px solid #f1c66d;
   outline-offset: 4px;
   border-radius: 8px;
@@ -103,7 +104,7 @@ button:focus-visible,
   color: var(--gold);
 }
 
-/* VC1: close every page with the same RSM identity used in the header */
+/* Close every page with the same RSM identity used in the header */
 .footer-inner > div:first-child {
   position: relative;
   min-height: 48px;
@@ -129,7 +130,7 @@ button:focus-visible,
   letter-spacing: .08em;
 }
 
-/* VC2: mood cards are real album entry points */
+/* Mood cards are real album entry points */
 .quick-card--link {
   position: relative;
   display: block;
@@ -160,7 +161,7 @@ button:focus-visible,
   opacity: 1;
 }
 
-/* VC3: album discovery and listening are distinct actions */
+/* Album discovery and listening are distinct actions */
 .release-unit {
   display: flex;
   flex-direction: column;
@@ -193,6 +194,50 @@ button:focus-visible,
   transform: translateY(-2px);
 }
 
+/* Cross-album circulation */
+.section--related { padding-top: 3.2rem; padding-bottom: 3.2rem; }
+.related-release {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 112px 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255,255,255,.03);
+  color: inherit;
+  text-decoration: none;
+  transition: transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.related-release img {
+  width: 112px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #111;
+}
+.related-release__copy { min-width: 0; }
+.related-release__id {
+  display: block;
+  color: var(--gold);
+  font: 700 .72rem 'Outfit',sans-serif;
+  letter-spacing: .12em;
+}
+.related-release strong {
+  display: block;
+  margin-top: .2rem;
+  font: 700 clamp(1.15rem,2vw,1.55rem) 'Outfit','Noto Sans JP',sans-serif;
+}
+.related-release small { display: block; margin-top: .28rem; color: var(--muted); }
+.related-release__arrow { color: var(--gold); font-size: 1.3rem; }
+.related-release:hover,
+.related-release:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(217,168,78,.5);
+  background: rgba(217,168,78,.05);
+}
+
 @media (max-width: 560px) {
   .footer-inner > div:first-child {
     padding-left: 52px;
@@ -207,6 +252,13 @@ button:focus-visible,
   .release-listen {
     min-height: 48px;
   }
+  .related-release {
+    grid-template-columns: 78px 1fr auto;
+    gap: .85rem;
+    padding: .8rem;
+  }
+  .related-release img { width: 78px; border-radius: 11px; }
+  .related-release small { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -222,7 +274,9 @@ button:focus-visible,
   .quick-card--link:hover,
   .quick-card--link:focus-visible,
   .release-listen:hover,
-  .release-listen:focus-visible {
+  .release-listen:focus-visible,
+  .related-release:hover,
+  .related-release:focus-visible {
     transform: none;
   }
 }
