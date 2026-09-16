@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "status": "foundation",
+  "classes": [
+    {
+      "id": "step",
+      "name": "STEP CLASS",
+      "url": "./step/",
+      "category": "tap-foundation",
+      "levels": ["超初級 🔰", "初級"],
+      "instructors": ["MiFa-san", "本間茂樹", "さささ", "丹生良彬", "奥平", "古庄里好"]
+    },
+    {
+      "id": "tap",
+      "name": "TAP CLASS",
+      "url": "./tap/",
+      "category": "tap-expression",
+      "instructorRule": "all-instructors"
+    },
+    {
+      "id": "stretch",
+      "name": "STRETCH CLASS",
+      "url": "./stretch/",
+      "category": "body-training",
+      "instructors": ["MiFa-san", "古庄里好"]
+    },
+    {
+      "id": "isolation",
+      "name": "ISOLATION / BODY CONTROL",
+      "url": "./isolation/",
+      "category": "body-training",
+      "instructors": ["古庄里好"],
+      "assignmentStatus": "additional instructors not yet specified"
+    },
+    {
+      "id": "bar-method",
+      "name": "BAR METHOD",
+      "url": "./bar-method/",
+      "category": "body-training",
+      "instructors": ["古庄里好"],
+      "assignmentStatus": "additional instructors not yet specified"
+    },
+    {
+      "id": "hiit",
+      "name": "HIIT TRAINING",
+      "url": "./hiit/",
+      "category": "body-training",
+      "instructors": ["丹生良彬", "古庄里好"]
+    }
+  ],
+  "rules": {
+    "furushoCanTeachAllClasses": true,
+    "tapClassInstructorRule": "all-instructors",
+    "primaryConversion": "Official LINE trial consultation"
+  }
+}
