@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "purpose": "Central display-framing metadata for approved Rhythm Speaker instructor photos. Values tune crop/brightness without altering identity.",
+  "rules": {
+    "identityEditing": "prohibited",
+    "allowed": ["crop", "scale", "position", "brightness", "contrast", "saturation"],
+    "defaultFit": "cover",
+    "facePriority": "keep the instructor face readable and visually centered across hub, profile and TAP style cards"
+  },
+  "instructors": {
+    "mifa": {"hubPosition": "100% 100%", "profilePosition": "100% 100%", "tapPosition": "100% 100%", "filter": "brightness(1.06) contrast(1.03) saturate(0.98)"},
+    "homma": {"hubPosition": "50% 18%", "profilePosition": "50% 16%", "tapPosition": "50% 18%", "filter": "brightness(1.04) contrast(1.04) saturate(0.98)"},
+    "sasasa": {"hubPosition": "50% 14%", "profilePosition": "50% 12%", "tapPosition": "50% 14%", "filter": "brightness(1.08) contrast(1.04) saturate(0.96)"},
+    "niu": {"hubPosition": "50% 18%", "profilePosition": "50% 16%", "tapPosition": "50% 18%", "filter": "brightness(1.05) contrast(1.03) saturate(0.98)"},
+    "okudaira": {"hubPosition": "50% 16%", "profilePosition": "50% 14%", "tapPosition": "50% 16%", "filter": "brightness(1.04) contrast(1.03) saturate(0.98)"},
+    "furusho": {"hubPosition": "50% 18%", "profilePosition": "50% 16%", "tapPosition": "50% 18%", "filter": "brightness(1.03) contrast(1.03) saturate(0.98)"}
+  }
+}
