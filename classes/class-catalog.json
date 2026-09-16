@@ -1,0 +1,75 @@
+{
+  "version": "1.1",
+  "status": "active-foundation",
+  "updated": "2026-09-16",
+  "sourcePolicy": {
+    "businessFacts": "user-confirmed facts + current official repository",
+    "doNotInvent": ["timetable", "price", "duration", "intensity", "additional instructor assignments", "class-specific outcomes not yet confirmed"]
+  },
+  "classes": [
+    {
+      "id": "step",
+      "name": "STEP CLASS",
+      "url": "./step/",
+      "category": "tap-foundation",
+      "pageMaturity": "detail-v1",
+      "levels": ["超初級 🔰", "初級"],
+      "instructors": ["MiFa-san", "本間茂樹", "さささ", "丹生良彬", "奥平", "古庄里好"],
+      "assignmentEvidence": "user-confirmed-2026-09-16"
+    },
+    {
+      "id": "tap",
+      "name": "TAP CLASS",
+      "url": "./tap/",
+      "category": "tap-expression",
+      "pageMaturity": "detail-v1",
+      "instructorRule": "all-instructors",
+      "assignmentEvidence": "user-confirmed-2026-09-16"
+    },
+    {
+      "id": "stretch",
+      "name": "STRETCH CLASS",
+      "url": "./stretch/",
+      "category": "body-training",
+      "pageMaturity": "visual-master",
+      "instructors": ["MiFa-san", "古庄里好"],
+      "assignmentEvidence": "current-stretch-page-and-user-context"
+    },
+    {
+      "id": "isolation",
+      "name": "ISOLATION / BODY CONTROL",
+      "url": "./isolation/",
+      "category": "body-training",
+      "pageMaturity": "foundation",
+      "instructors": ["古庄里好"],
+      "assignmentStatus": "additional instructors not yet specified",
+      "assignmentEvidence": "furusho-global-rule-user-confirmed-2026-09-16"
+    },
+    {
+      "id": "bar-method",
+      "name": "BAR METHOD",
+      "url": "./bar-method/",
+      "category": "body-training",
+      "pageMaturity": "foundation",
+      "instructors": ["古庄里好"],
+      "assignmentStatus": "additional instructors not yet specified",
+      "assignmentEvidence": "furusho-global-rule-user-confirmed-2026-09-16"
+    },
+    {
+      "id": "hiit",
+      "name": "HIIT TRAINING",
+      "url": "./hiit/",
+      "category": "body-training",
+      "pageMaturity": "foundation",
+      "instructors": ["丹生良彬", "古庄里好"],
+      "assignmentEvidence": "user-confirmed-2026-09-16"
+    }
+  ],
+  "rules": {
+    "furushoCanTeachAllClasses": true,
+    "tapClassInstructorRule": "all-instructors",
+    "primaryConversion": "Official LINE trial consultation",
+    "detailPageVisualMaster": "./stretch/",
+    "nextMaturityOrder": ["step", "tap", "isolation", "bar-method", "hiit"]
+  }
+}
