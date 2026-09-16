@@ -10,12 +10,15 @@
   border:0!important;
 }
 
+/*
+  AYAKO NO HEYA / FIXED PROGRAM KEY VISUAL
+  The hero is a permanent program-brand asset.
+  Episode-specific thumbnails belong in LATEST EPISODE below.
+*/
 .ayako-hero--kv{
-  padding:clamp(2.2rem,5vw,4.5rem) 0 clamp(2.8rem,6vw,5rem);
-  background:
-    radial-gradient(circle at 82% 12%,rgba(213,161,46,.12),transparent 24%),
-    radial-gradient(circle at 8% 88%,rgba(141,40,56,.22),transparent 32%),
-    linear-gradient(180deg,#101011 0%,#131315 100%);
+  padding:0;
+  background:#0d0d0f;
+  border-bottom:1px solid rgba(243,232,210,.12);
 }
 
 .ayako-hero--kv::before{display:none}
@@ -23,61 +26,67 @@
 .ayako-hero-shell{
   position:relative;
   z-index:1;
-  display:grid;
-  gap:1.45rem;
+  width:100%;
+  max-width:none;
+  padding:0;
 }
 
 .ayako-hero-kv{
+  position:relative;
   overflow:hidden;
-  border-radius:clamp(18px,2.5vw,30px);
-  border:1px solid rgba(243,232,210,.18);
+  width:100%;
   background:#171717;
-  box-shadow:0 26px 80px rgba(0,0,0,.34);
+}
+
+.ayako-hero-kv::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:18%;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(13,13,15,.28));
 }
 
 .ayako-hero-kv img{
   display:block;
   width:100%;
+  height:auto;
   aspect-ratio:16/9;
   object-fit:cover;
+  object-position:center center;
 }
 
+/*
+  The fixed key visual already contains the show title/tagline.
+  Keep the semantic H1 in HTML, but avoid duplicating visible copy over the art.
+*/
 .ayako-hero-copy{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:2rem;
-  align-items:end;
+  display:none;
 }
 
-.ayako-hero-intro{max-width:720px}
-.ayako-hero-intro .hero-kicker{margin:0 0 .45rem}
-.ayako-hero-intro .ayako-tagline{margin:.1rem 0 .45rem}
-.ayako-hero-intro .hero-lead{
-  margin:0;
-  max-width:700px;
-  font-size:clamp(1rem,2vw,1.18rem);
-}
-
-.ayako-hero-copy .hero-actions{
-  margin-top:0;
-  justify-content:flex-end;
-  align-items:center;
+@media (min-width:1440px){
+  .ayako-hero-kv img{
+    max-height:820px;
+    object-fit:cover;
+  }
 }
 
 @media (max-width:900px){
-  .ayako-hero-copy{
-    grid-template-columns:1fr;
-    gap:1rem;
+  .ayako-hero-kv img{
+    aspect-ratio:16/9;
+    object-position:center center;
   }
-  .ayako-hero-copy .hero-actions{justify-content:flex-start}
 }
 
 @media (max-width:640px){
-  .ayako-hero--kv{padding:1.35rem 0 2.8rem}
-  .ayako-hero-shell{gap:1rem}
-  .ayako-hero-kv{border-radius:16px}
-  .ayako-hero-copy{gap:.8rem}
-  .ayako-hero-copy .hero-actions{width:100%}
-  .ayako-hero-copy .btn{flex:1 1 0}
-  .ayako-hero-intro .hero-lead{font-size:.98rem}
+  .ayako-hero-kv{
+    min-height:0;
+  }
+
+  .ayako-hero-kv img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    object-position:center center;
+  }
 }
