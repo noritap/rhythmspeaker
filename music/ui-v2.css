@@ -71,7 +71,7 @@
   }
 }
 
-/* VC3: interaction, keyboard and motion quality */
+/* Interaction, keyboard and motion quality */
 a:focus-visible,
 button:focus-visible,
 .release-card:focus-visible,
@@ -102,7 +102,7 @@ button:focus-visible,
   color: var(--gold);
 }
 
-/* VC4: close every page with the same RSM identity used in the header */
+/* VC1: close every page with the same RSM identity used in the header */
 .footer-inner > div:first-child {
   position: relative;
   min-height: 48px;
@@ -128,6 +128,37 @@ button:focus-visible,
   letter-spacing: .08em;
 }
 
+/* VC2: mood cards are real album entry points */
+.quick-card--link {
+  position: relative;
+  display: block;
+  min-height: 142px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.quick-card--link .quick-arrow {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  color: var(--gold);
+  font: 700 1rem 'Outfit',sans-serif;
+  opacity: .75;
+  transition: transform .2s ease,opacity .2s ease;
+}
+.quick-card--link:hover,
+.quick-card--link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(217,168,78,.5);
+  background: rgba(217,168,78,.055);
+  box-shadow: 0 16px 32px rgba(0,0,0,.14);
+}
+.quick-card--link:hover .quick-arrow,
+.quick-card--link:focus-visible .quick-arrow {
+  transform: translate(2px,-2px);
+  opacity: 1;
+}
+
 @media (max-width: 560px) {
   .footer-inner > div:first-child {
     padding-left: 52px;
@@ -135,6 +166,9 @@ button:focus-visible,
   .footer-inner > div:first-child::before {
     width: 40px;
     height: 40px;
+  }
+  .quick-card--link {
+    min-height: 132px;
   }
 }
 
@@ -147,7 +181,9 @@ button:focus-visible,
   }
   .release-card:hover,
   .release-card:focus-visible,
-  .btn:hover {
+  .btn:hover,
+  .quick-card--link:hover,
+  .quick-card--link:focus-visible {
     transform: none;
   }
 }
