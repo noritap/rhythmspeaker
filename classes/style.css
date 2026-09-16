@@ -86,6 +86,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.choose-grid-three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .choose-card {
     position: relative;
     padding: 2rem;
@@ -93,6 +97,10 @@
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.06);
+}
+
+.choose-card-stretch {
+    background: linear-gradient(145deg, #fff 0%, #f7efed 100%);
 }
 
 .choose-card svg {
@@ -149,6 +157,10 @@
     border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.class-detail-stretch {
+    border-color: rgba(239, 51, 64, 0.18);
+}
+
 .class-detail-head {
     display: flex;
     justify-content: space-between;
@@ -197,6 +209,13 @@
 
 .class-detail-grid li + li {
     margin-top: 0.45rem;
+}
+
+.class-detail-cta {
+    margin-top: 1.5rem;
+    background: transparent;
+    color: var(--primary-color);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
 .classes-note {
@@ -331,6 +350,7 @@
         flex-direction: column;
     }
 
+    .choose-grid-three,
     .path-grid {
         grid-template-columns: 1fr;
     }
@@ -360,7 +380,8 @@
     .classes-hero-actions .btn,
     .path-actions .btn,
     .classes-note .btn,
-    .classes-final-cta .btn {
+    .classes-final-cta .btn,
+    .class-detail-cta {
         width: 100%;
         white-space: normal;
     }
