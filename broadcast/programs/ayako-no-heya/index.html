@@ -10,13 +10,14 @@
   <meta property="og:title" content="あやこの部屋｜タップと人を語る">
   <meta property="og:description" content="宇川彩子がゲストを迎え、トークとタップからその人を知る番組。">
   <meta property="og:url" content="https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/">
-  <meta property="og:image" content="https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg">
+  <meta property="og:image" content="https://noritap.github.io/rhythmspeaker/broadcast/assets/ayako-no-heya/hero.avif">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../../../logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="./hero.css">
   <script src="../../app.js" defer></script>
   <script type="application/ld+json">
   {
@@ -25,7 +26,7 @@
     "name": "あやこの部屋",
     "description": "宇川彩子がゲストを迎え、トークとタップからその人を知るトーク＆セッション番組。",
     "url": "https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/",
-    "image": "https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg",
+    "image": "https://noritap.github.io/rhythmspeaker/broadcast/assets/ayako-no-heya/hero.avif",
     "inLanguage": "ja",
     "creator": {
       "@type": "Person",
@@ -50,21 +51,22 @@
   </header>
 
   <main id="main">
-    <section class="ayako-hero">
-      <div class="container ayako-grid">
-        <div>
-          <p class="hero-kicker">RS BROADCAST NETWORK / TALK & SESSION</p>
-          <h1 class="ayako-title">あやこの<br>部屋</h1>
-          <p class="ayako-tagline">タップと人を語る。</p>
-          <p class="hero-lead">人を知る。タップを知る。音で会話し、心を通わせる。</p>
+    <section class="ayako-hero ayako-hero--kv" aria-labelledby="ayako-hero-title">
+      <div class="container ayako-hero-shell">
+        <div class="ayako-hero-kv">
+          <img src="../../assets/ayako-no-heya/hero.avif" width="960" height="540" alt="宇川彩子が赤いソファに座る『あやこの部屋』番組キービジュアル" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div class="ayako-hero-copy">
+          <div class="ayako-hero-intro">
+            <p class="hero-kicker">RS BROADCAST NETWORK / TALK & SESSION</p>
+            <h1 class="visually-hidden" id="ayako-hero-title">あやこの部屋</h1>
+            <p class="ayako-tagline">タップと人を語る。</p>
+            <p class="hero-lead">人を知る。タップを知る。音で会話し、心を通わせる。</p>
+          </div>
           <div class="hero-actions">
             <a class="btn btn--gold" href="https://youtu.be/hf-70tPlpLo" target="_blank" rel="noopener noreferrer" data-rsb-event="program_latest_watch_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="hero" data-destination-type="youtube">最新話を見る</a>
             <a class="btn btn--ghost" href="#about">番組について</a>
           </div>
-        </div>
-        <div class="ayako-photo">
-          <img src="https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg" alt="あやこの部屋 第0回 古庄里好ゲスト回のYouTubeサムネイル" loading="eager">
-          <div class="stamp">TAP × PEOPLE</div>
         </div>
       </div>
     </section>
