@@ -4,7 +4,7 @@ Release: RSM-ALB-002
 Title: さあ、行ってみようか❗️
 Visual Role: B_COVER_PUBLISHED_1X1
 Aspect Ratio: 1:1
-Status: APPROVED / BINARY_IMPORT_PENDING
+Status: APPROVED / ONE_COMMAND_LOCAL_IMPORT_READY
 
 ## Canonical Web Path
 
@@ -32,6 +32,25 @@ After the binary file exists at the canonical path, replace the temporary YouTub
 
 2. `/music/albums/saa-ittemiyouka/index.html`
    - Main Album Visual
+
+## One-command installer
+
+Repository helper:
+`/tools/install-rsm-album-cover.sh`
+
+Usage from the `rhythmspeaker` repository:
+
+```bash
+bash tools/install-rsm-album-cover.sh "/absolute/path/to/saa-ittemiyouka_B_cover-published_1x1.jpg"
+```
+
+The script:
+1. copies the approved B image to the canonical Web path,
+2. replaces the three temporary YouTube-derived image references,
+3. verifies the references,
+4. stages the image and HTML changes,
+5. commits,
+6. pushes `main`.
 
 ## Usage Rule
 
