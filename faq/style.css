@@ -46,7 +46,7 @@
 .faq-hero-inner{position:relative;z-index:1}
 .faq-intro{margin-top:-2rem;position:relative;z-index:2;background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.1);padding:3.2rem 3.4rem}
 .faq-section{position:relative;overflow:hidden}
-.faq-section:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.96),rgba(17,17,17,.88)),url('../classes/stretch/assets/stretch-visual-sheet.webp') center 65%/cover no-repeat;opacity:.32;pointer-events:none}
+.faq-section:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,#111 0%,#191919 58%,#2a2118 100%);opacity:.32;pointer-events:none}
 .faq-section-light:before{background:linear-gradient(90deg,rgba(246,242,235,.95),rgba(246,242,235,.9)),url('../assets/images/trial/rental-tap-shoes.webp') center/cover no-repeat;opacity:.42}
 .faq-section>*{position:relative;z-index:1}
 .faq-list{gap:1.15rem}
