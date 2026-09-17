@@ -24,13 +24,20 @@ Timeout-safe delivery rule:
 5. Verify each batch before starting the next batch.
 6. Keep the PR Draft until desktop and mobile visual QA are complete.
 
-Phase 1 QA checklist:
+Phase 1 static QA completed:
+- Canonical, OGP and Twitter card metadata are present.
+- Temporary Base64 instructor placeholder was removed.
+- Responsive guards exist for 1050 / 720 / 430 / 360 px breakpoints.
+- Horizontal overflow is explicitly guarded.
+- Header/CTA/card grids include mobile-specific sizing.
+- Class, instructor, studio, access and LINE destinations remain linked.
+- Instructor identity and studio-truthfulness guardrails remain unchanged.
+
+Browser QA still required before merge:
 - Desktop: hero crop, class cards, instructor faces, studio imagery, CTA hierarchy.
-- Mobile (~390 px): no horizontal scrolling, header/menu usable, cards remain readable, CTA does not overlap content.
-- Instructor identity: no generated or identity-altering replacements.
-- Studio truthfulness: no fabricated layout presented as the real location.
-- Links: Class, Instructor, Trial, About/Studio, FAQ, Access and LINE destinations remain reachable.
-- SEO/social: canonical, OGP and Twitter card metadata retained.
+- Mobile (~390 px): no horizontal scrolling, header/menu usable, cards readable, CTA does not overlap content.
+- Verify external Wix image loads for instructor portraits.
+- Verify real-device LINE deep-link behavior.
 
 Phase 2:
 - Apply the same visual system to Classes, Instructor hub, STEP/TAP, Trial, About/Studio, Access and FAQ.
