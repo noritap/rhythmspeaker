@@ -518,9 +518,7 @@
 .trial-flow-grid article p { color: rgba(255, 255, 255, 0.72); }
 
 .trial-first-sound {
-    background:
-        linear-gradient(105deg, rgba(10, 10, 10, 0.96), rgba(10, 10, 10, 0.64)),
-        url('../classes/stretch/assets/stretch-visual-sheet.webp') center 68% / cover no-repeat;
+    background: linear-gradient(110deg, #101010 0%, #1c1c1c 58%, #2b2118 100%);
 }
 
 .trial-faq {
