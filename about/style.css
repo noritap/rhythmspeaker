@@ -44,8 +44,11 @@ body { background:#fff; color:var(--about-ink); }
 .about-hero:after{content:"";position:absolute;inset:auto 0 0;height:7px;background:linear-gradient(90deg,#ff3347 0 34%,rgba(255,255,255,.32) 34% 100%)}
 .about-hero-inner{position:relative;z-index:1;margin:auto auto 0}
 .barrier-grid article,.web-grid article{position:relative;overflow:hidden;padding-top:13.5rem;min-height:390px;background:#fff;border:1px solid #e4dfd5;box-shadow:0 18px 42px rgba(0,0,0,.07)}
-.barrier-grid article:before,.web-grid article:before{content:"";position:absolute;inset:0 0 auto;height:11.5rem;background:url('../classes/stretch/assets/stretch-visual-sheet.webp') center/cover no-repeat;filter:brightness(.94) saturate(.92)}
-.barrier-grid article:nth-child(2):before,.web-grid article:nth-child(2):before{background-position:66% 55%}.barrier-grid article:nth-child(3):before,.web-grid article:nth-child(3):before{background-position:100% 100%}
+.barrier-grid article:before{content:"";position:absolute;inset:0 0 auto;height:11.5rem;background:linear-gradient(135deg,#151515 0%,#2b2118 58%,#d9a441 140%)}
+.barrier-grid article:nth-child(2):before{background:linear-gradient(135deg,#171717 0%,#2f2a24 58%,#8d6b2c 140%)}
+.barrier-grid article:nth-child(3):before{background:linear-gradient(135deg,#111 0%,#262626 58%,#5f4a21 140%)}
+.web-grid article:before{content:"";position:absolute;inset:0 0 auto;height:11.5rem;background:url('../classes/stretch/assets/stretch-visual-sheet.webp') center/cover no-repeat;filter:brightness(.94) saturate(.92)}
+.web-grid article:nth-child(2):before{background-position:66% 55%}.web-grid article:nth-child(3):before{background-position:100% 100%}
 .method-section{position:relative;overflow:hidden;background:linear-gradient(100deg,rgba(12,12,12,.97),rgba(12,12,12,.82)),url('../hero.jpg') center 58%/cover no-repeat}
 .instructor-section{padding-top:7rem;padding-bottom:7rem;background:linear-gradient(180deg,#f4f0e8,#ece4d7)}
 .instructor-profile{grid-template-columns:minmax(320px,.8fr) 1.2fr;gap:5rem}.instructor-image img{aspect-ratio:4/5;object-fit:cover;object-position:center 18%;border-radius:30px;box-shadow:0 28px 70px rgba(0,0,0,.18)}
