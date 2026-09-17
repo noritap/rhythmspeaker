@@ -478,9 +478,7 @@
 }
 
 .trial-included {
-    background:
-        linear-gradient(110deg, rgba(14, 14, 14, 0.98), rgba(14, 14, 14, 0.88)),
-        url('../classes/stretch/assets/stretch-visual-sheet.webp') center 72% / cover no-repeat;
+    background: linear-gradient(115deg, #111 0%, #1a1a1a 55%, #2a2118 100%);
 }
 
 .included-item {
