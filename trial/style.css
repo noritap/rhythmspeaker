@@ -533,9 +533,7 @@
 }
 
 .trial-access {
-    background:
-        linear-gradient(110deg, rgba(14, 14, 14, 0.97), rgba(14, 14, 14, 0.86)),
-        url('../classes/stretch/assets/stretch-visual-sheet.webp') center 74% / cover no-repeat;
+    background: linear-gradient(110deg, #101010 0%, #191919 58%, #2a2018 100%);
 }
 
 .trial-map {
