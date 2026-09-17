@@ -39,11 +39,35 @@
 .faq-contact-actions .btn-secondary:hover { background:#f0e5d4; }
 .faq-footer-nav { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem 1.5rem; margin:1.4rem 0; }
 .faq-footer-nav a { color:#fff; text-decoration:underline; text-underline-offset:4px; }
+
+/* FAQ UX v3 */
+.faq-hero{min-height:720px;align-items:flex-end;padding-bottom:6.5rem;background-image:linear-gradient(90deg,rgba(8,8,8,.95) 0%,rgba(8,8,8,.72) 46%,rgba(8,8,8,.24) 100%),url('../hero.jpg');background-position:center 58%;position:relative;overflow:hidden}
+.faq-hero:after{content:"";position:absolute;left:8%;bottom:0;width:30%;height:7px;background:#ff3347}
+.faq-hero-inner{position:relative;z-index:1}
+.faq-intro{margin-top:-2rem;position:relative;z-index:2;background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.1);padding:3.2rem 3.4rem}
+.faq-section{position:relative;overflow:hidden}
+.faq-section:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,17,17,.96),rgba(17,17,17,.88)),url('../classes/stretch/assets/stretch-visual-sheet.webp') center 65%/cover no-repeat;opacity:.32;pointer-events:none}
+.faq-section-light:before{background:linear-gradient(90deg,rgba(246,242,235,.95),rgba(246,242,235,.9)),url('../assets/images/trial/rental-tap-shoes.webp') center/cover no-repeat;opacity:.42}
+.faq-section>*{position:relative;z-index:1}
+.faq-list{gap:1.15rem}
+.faq-list details{border-radius:24px;box-shadow:0 16px 38px rgba(0,0,0,.12);transition:transform .2s ease,box-shadow .2s ease}
+.faq-section-light .faq-list details{box-shadow:0 16px 38px rgba(72,48,20,.08)}
+.faq-list details:hover{transform:translateY(-2px);box-shadow:0 22px 48px rgba(0,0,0,.16)}
+.faq-list summary{min-height:76px;padding:1.5rem 1.65rem;font-size:1.08rem}
+.faq-answer{padding:0 1.65rem 1.65rem}
+.faq-contact{max-width:none;margin:0;padding:6rem 8%;color:#fff;background:linear-gradient(105deg,rgba(8,8,8,.96),rgba(8,8,8,.72)),url('../hero.jpg') center 58%/cover no-repeat}
+.faq-contact p{color:rgba(255,255,255,.75)}
+.faq-contact .faq-kicker{color:#f0bd61}
+.faq-contact-actions .btn-secondary{color:#fff;border-color:rgba(255,255,255,.45);background:rgba(255,255,255,.06)}
+.faq-contact-actions .btn-secondary:hover{background:rgba(255,255,255,.14)}
+
 @media (max-width:768px) {
   .faq-hero { min-height:auto; padding:7rem 1.25rem 4rem; background-position:62% center; }
+  .faq-hero:after{left:1.25rem;width:42%}
   .faq-hero-actions { flex-direction:column; align-items:stretch; }
   .faq-hero-actions .btn { width:100%; white-space:normal; text-align:center; justify-content:center; }
   .faq-intro,.faq-contact { grid-template-columns:1fr; gap:1.4rem; padding:4rem 1.25rem; }
+  .faq-intro{margin:0;border-radius:0;box-shadow:none}
   .faq-section { padding:4rem 1.25rem; }
   .faq-list summary { padding:1.15rem; font-size:1rem; }
   .faq-answer { padding:0 1.15rem 1.25rem; }
