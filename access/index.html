@@ -57,9 +57,25 @@
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .access-page-v3 .access-hero{min-height:760px;display:flex;align-items:flex-end;background-image:linear-gradient(90deg,rgba(7,7,7,.94) 0%,rgba(7,7,7,.72) 46%,rgba(7,7,7,.18) 100%),url('../classes/stretch/assets/stretch-visual-sheet.webp');background-size:cover;background-position:center 62%;position:relative;overflow:hidden}
+    .access-page-v3 .access-hero:after{content:"";position:absolute;inset:auto 0 0;height:7px;background:linear-gradient(90deg,#ff3347 0 34%,rgba(255,255,255,.32) 34% 100%)}
+    .access-page-v3 .access-hero-inner{position:relative;z-index:1;max-width:840px}
+    .access-page-v3 .studio-summary{background:#f4efe7;padding:0 6% 5.5rem}
+    .access-page-v3 .summary-card{transform:translateY(-2.2rem);position:relative;z-index:2;border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.12);overflow:hidden;background:#fff}
+    .access-page-v3 .summary-card:before{content:"";display:block;height:260px;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.26)),url('../classes/stretch/assets/stretch-visual-sheet.webp') center 72%/cover no-repeat}
+    .access-page-v3 .route-section{background:#fff}
+    .access-page-v3 .route-card{position:relative;overflow:hidden;min-height:320px;padding-top:11.8rem;background:#111;color:#fff;border-radius:24px}
+    .access-page-v3 .route-card:before{content:"";position:absolute;inset:0 0 auto;height:10.4rem;background:url('../hero.jpg') center/cover no-repeat;filter:brightness(.82) saturate(.9)}
+    .access-page-v3 .route-card:nth-child(2):before{background-position:47% 62%}.access-page-v3 .route-card:nth-child(3):before{background-position:74% 54%}
+    .access-page-v3 .route-card h3,.access-page-v3 .route-card p,.access-page-v3 .route-card i,.access-page-v3 .route-card span{position:relative;z-index:1}.access-page-v3 .route-card p{color:rgba(255,255,255,.72)}
+    .access-page-v3 .map-section{background:#f3eee7}.access-page-v3 .map-frame{border-radius:28px;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.12)}
+    .access-page-v3 .access-cta{background:linear-gradient(105deg,rgba(8,8,8,.96),rgba(8,8,8,.72)),url('../classes/stretch/assets/stretch-visual-sheet.webp') center 74%/cover no-repeat}
+    @media(max-width:768px){.access-page-v3 .access-hero{min-height:620px;background-position:64% 62%}.access-page-v3 .summary-card:before{height:210px}.access-page-v3 .route-card{min-height:300px;padding-top:11rem}.access-page-v3 .route-card:before{height:9.7rem}}
+  </style>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="access-page-v3">
   <nav>
     <a href="../" class="logo logo-home-link" aria-label="Rhythm Speaker 教室トップへ">
       <img src="../logo.png" alt="" class="logo-img">
