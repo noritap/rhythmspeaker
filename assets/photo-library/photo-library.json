@@ -1,19 +1,105 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "updated": "2026-09-18",
   "canonical": true,
   "rules": {
     "prefer_real": true,
     "generated_factual_use": false,
     "instructor_generation_forbidden": true,
-    "allow_real_photo_processing": ["crop", "resize", "compress", "brightness", "contrast", "white-balance", "color-correction"]
+    "allow_real_photo_processing": [
+      "crop",
+      "resize",
+      "compress",
+      "brightness",
+      "contrast",
+      "white-balance",
+      "color-correction"
+    ]
   },
   "assets": [
-    {"id":"home-hero-studio-v4","path":"assets/home-hero-studio-v4.jpg","type":"real","category":"studio","verified":true,"recommended_for":["studio","about","hero-fallback"],"notes":"Verified real Rhythm Speaker studio photo. Prefer more dynamic dedicated hero photography when available."},
-    {"id":"home-class-step-v4","path":"assets/home-class-step-v4.jpg","type":"real-or-approved-derived","category":"class-step","verified":true,"recommended_for":["step","beginner"],"notes":"Approved homepage STEP class image."},
-    {"id":"home-class-tap-v4","path":"assets/home-class-tap-v4.jpg","type":"real-or-approved-derived","category":"class-tap","verified":true,"recommended_for":["tap","performance"],"notes":"Approved homepage TAP image."},
-    {"id":"home-class-stretch-v4","path":"assets/home-class-stretch-v4.jpg","type":"real-or-approved-derived","category":"class-stretch","verified":true,"recommended_for":["stretch","body-training"],"notes":"Approved homepage STRETCH image."},
-    {"id":"tap-dance-instructor-furusho-noritaka","path":"tap-dance-instructor-furusho-noritaka.jpg","type":"real","category":"instructor","verified":true,"subject":"古庄里好","recommended_for":["instructors","founder","about"]}
+    {
+      "id": "home-hero-studio-v4",
+      "path": "assets/home-hero-studio-v4.jpg",
+      "type": "real",
+      "category": "studio",
+      "verified": true,
+      "recommended_for": [
+        "studio",
+        "about",
+        "hero-fallback"
+      ],
+      "notes": "Verified real Rhythm Speaker studio photo. Prefer more dynamic dedicated hero photography when available."
+    },
+    {
+      "id": "home-class-step-v4",
+      "path": "assets/home-class-step-v4.jpg",
+      "type": "real-or-approved-derived",
+      "category": "class-step",
+      "verified": true,
+      "recommended_for": [
+        "step",
+        "beginner"
+      ],
+      "notes": "Approved homepage STEP class image."
+    },
+    {
+      "id": "home-class-tap-v4",
+      "path": "assets/home-class-tap-v4.jpg",
+      "type": "real-or-approved-derived",
+      "category": "class-tap",
+      "verified": true,
+      "recommended_for": [
+        "tap",
+        "performance"
+      ],
+      "notes": "Approved homepage TAP image."
+    },
+    {
+      "id": "home-class-stretch-v4",
+      "path": "assets/home-class-stretch-v4.jpg",
+      "type": "real-or-approved-derived",
+      "category": "class-stretch",
+      "verified": true,
+      "recommended_for": [
+        "stretch",
+        "body-training"
+      ],
+      "notes": "Approved homepage STRETCH image."
+    },
+    {
+      "id": "tap-dance-instructor-furusho-noritaka",
+      "path": "tap-dance-instructor-furusho-noritaka.jpg",
+      "type": "real",
+      "category": "instructor",
+      "verified": true,
+      "subject": "古庄里好",
+      "recommended_for": [
+        "instructors",
+        "founder",
+        "about"
+      ]
+    },
+    {
+      "id": "studio-5631",
+      "path": "assets/photo-library/real/studio/studio-5631.jpg",
+      "type": "real",
+      "category": "studio",
+      "verified": true,
+      "source": "user-uploaded-in-chat",
+      "recommended_for": [
+        "studio",
+        "about",
+        "shoes",
+        "editorial-detail"
+      ],
+      "notes": "Actual Rhythm Speaker shoe-storage/detail scene. Good for studio culture, equipment and editorial detail; not a full-room overview."
+    }
   ],
-  "pending_ingestion_categories": ["raw-studio-photos-uploaded-in-chat","access-building-and-basement-photos","shoe-detail-photos","performance-archive-photos","latest-instructor-source-photos"]
+  "pending_ingestion_categories": [
+    "raw-studio-photos-uploaded-in-chat",
+    "access-building-and-basement-photos",
+    "shoe-detail-photos",
+    "performance-archive-photos",
+    "latest-instructor-source-photos"
+  ]
 }
