@@ -46,3 +46,26 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
 @media(max-width:360px){.purpose-grid{grid-template-columns:1fr}.purpose-grid a{min-height:96px}}
 
 .card-copy>small{display:block;margin:0 2rem .25rem 0;font:700 .66rem 'Outfit','Noto Sans JP',sans-serif;color:#b25e66;letter-spacing:.04em}
+
+/* Homepage class-card responsive UX normalization v2 */
+
+.class-strip .visual-card{display:flex;flex-direction:column;height:100%}
+.class-strip .visual-card .visual{height:auto;min-height:0;max-height:none;aspect-ratio:4/3;flex:0 0 auto}
+.class-strip .card-copy{display:flex;flex:1;flex-direction:column;min-height:142px}
+.class-strip .card-copy>span{top:1rem;bottom:auto}
+@media(max-width:1050px){
+  .class-strip .card-copy{min-height:136px}
+}
+@media(max-width:720px){
+  .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
+  .class-strip .card-copy{min-height:152px;padding:.9rem}
+  .class-strip .card-copy>span{right:.75rem;top:.75rem}
+}
+@media(max-width:430px){
+  .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
+  .class-strip .card-copy{min-height:158px}
+}
+@media(max-width:360px){
+  .class-strip .visual-card .visual{height:auto;aspect-ratio:16/9}
+  .class-strip .card-copy{min-height:128px}
+}
