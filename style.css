@@ -51,21 +51,21 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
 
 .class-strip .visual-card{display:flex;flex-direction:column;height:100%}
 .class-strip .visual-card .visual{height:auto;min-height:0;max-height:none;aspect-ratio:4/3;flex:0 0 auto}
-.class-strip .card-copy{display:flex;flex:1;flex-direction:column;min-height:142px}
+.class-strip .card-copy{display:flex;flex:1;flex-direction:column;min-height:112px;padding:1rem .9rem 1.05rem}
 .class-strip .card-copy>span{top:1rem;bottom:auto}
 @media(max-width:1050px){
-  .class-strip .card-copy{min-height:136px}
+  .class-strip .card-copy{min-height:108px}
 }
 @media(max-width:720px){
   .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
-  .class-strip .card-copy{min-height:152px;padding:.9rem}
+  .class-strip .card-copy{min-height:118px;padding:.8rem}
   .class-strip .card-copy>span{right:.75rem;top:.75rem}
 }
 @media(max-width:430px){
   .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
-  .class-strip .card-copy{min-height:158px}
+  .class-strip .card-copy{min-height:118px}
 }
 @media(max-width:360px){
   .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
-  .class-strip .card-copy{min-height:128px}
+  .class-strip .card-copy{min-height:104px}
 }
