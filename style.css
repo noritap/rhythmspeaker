@@ -44,3 +44,5 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
 @media(max-width:900px){.purpose-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:720px){.purpose-nav{padding:3.5rem 1rem}.purpose-intro{display:block;margin-bottom:1.25rem}.purpose-intro>p:last-child{margin-top:.7rem}.purpose-grid{grid-template-columns:1fr 1fr;gap:.6rem}.purpose-grid a{min-height:126px;padding:1rem 2.35rem 1rem .9rem}.purpose-grid strong{font-size:.84rem}.purpose-grid b{right:.7rem;width:26px;height:26px}}
 @media(max-width:360px){.purpose-grid{grid-template-columns:1fr}.purpose-grid a{min-height:96px}}
+
+.card-copy>small{display:block;margin:0 2rem .25rem 0;font:700 .66rem 'Outfit','Noto Sans JP',sans-serif;color:#b25e66;letter-spacing:.04em}
