@@ -82,3 +82,6 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
 @media(max-width:1050px){.instructor-editorial-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.instructor-editorial-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.instructor-editorial-gallery .instructor-card{aspect-ratio:auto;padding-bottom:.6rem}.instructor-editorial-gallery .portrait{height:auto;aspect-ratio:1/1}.instructor-editorial-gallery .tags{margin:.5rem .55rem 0;gap:.2rem}.instructor-editorial-gallery .tags span{font-size:.58rem;padding:.22rem .4rem}}
 @media(max-width:360px){.instructor-editorial-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Finder CTA placement: show the complete gallery before leaving the homepage */
+.section-after-link{display:flex;justify-content:flex-end;margin-top:1.25rem}.section-after-link .text-link{display:inline-flex;align-items:center;min-height:44px}@media(max-width:768px){.section-after-link{justify-content:flex-start;margin-top:1rem}.section-after-link .text-link{width:100%;justify-content:flex-end}}
