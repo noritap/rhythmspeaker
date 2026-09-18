@@ -1,6 +1,6 @@
 # PROJECT_PROFILE
 
-Version: 3.2
+Version: 3.3
 Status: ACTIVE
 Project: Rhythm Speaker Web
 
@@ -88,6 +88,12 @@ live予約DB、認証、決済自動化をOfficial Web本体の標準機能と�
 WHAT PROJECT IS THIS:
 本PROJECT_PROFILE.md
 
+LOCAL WORKSTATION / FILESYSTEM ENVIRONMENT:
+WORKSTATION_PROFILE.md
+
+Local Operation Rule:
+AIがローカルファイル、ダウンロード済みファイル、Mac上のRepository、`cp` / `mv` / `find` / `ls` 等を扱う案内を行う場合、既知のパスを推測せず `WORKSTATION_PROFILE.md` を参照する。
+
 CURRENT REAL STATE:
 GitHub Repository
 noritap/rhythmspeaker
@@ -124,11 +130,12 @@ Supporting Sources:
 
 Source Priority:
 1. PROJECT_PROFILE.md = Project Identity / Boundary / Priority
-2. GitHub main = Current production code / docs / structure
-3. Active PR / feature branch = Current unmerged development state
-4. README.md / docs / workshops/README.md = Project-specific design and operating rules
-5. AI_OS_CREATION_RULES = Generic development methodology
-6. Current Conversation = Current user intent
+2. WORKSTATION_PROFILE.md = Confirmed local Mac / filesystem environment for local operations
+3. GitHub main = Current production code / docs / structure
+4. Active PR / feature branch = Current unmerged development state
+5. README.md / docs / workshops/README.md = Project-specific design and operating rules
+6. AI_OS_CREATION_RULES = Generic development methodology
+7. Current Conversation = Current user intent
 
 ━━━━━━━━━━━━━━━━━━━━
 # 4. PLATFORM / SYSTEM BOUNDARY
