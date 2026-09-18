@@ -283,3 +283,32 @@ body:not(.home-v3):not(.home-rebuild) .mobile-nav{display:none}body:not(.home-v3
     padding:.52rem .35rem;
   }
 }
+
+/* Regression guard: the compact navigation shell owns every non-desktop width. */
+@media (min-width:721px) and (max-width:1100px){
+  .home-rebuild .site-header{
+    position:relative !important;
+    inset:auto !important;
+    z-index:50;
+    min-height:62px;
+    height:62px;
+    padding:.5rem 1rem;
+    display:flex;
+    align-items:center;
+    overflow:visible;
+    background:#fff;
+    box-shadow:none;
+  }
+  .home-rebuild .site-header .brand{margin-right:auto}
+  .home-rebuild .site-header .mobile-nav{
+    position:relative !important;
+    inset:auto !important;
+    margin:0;
+    flex:0 0 auto;
+  }
+  .home-rebuild .site-header .mobile-nav-panel{
+    top:2.75rem;
+    right:0;
+    left:auto;
+  }
+}
