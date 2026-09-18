@@ -103,3 +103,105 @@ body:not(.home-v3):not(.home-rebuild) .mobile-nav{display:none}body:not(.home-v3
 
 /* Homepage visual integration fixes v1 */
 .home-rebuild .site-header{position:sticky;top:0;z-index:200}.home-rebuild main{position:relative;z-index:1}
+
+/* =========================================================
+   HOME MOBILE HEADER v2 — simple, non-overlapping shell
+   ========================================================= */
+@media (max-width: 720px){
+  .home-rebuild .site-header{
+    position:relative !important;
+    inset:auto !important;
+    z-index:50;
+    width:100%;
+    min-height:58px;
+    height:58px;
+    padding:0 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    overflow:visible;
+    background:#fff;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    box-shadow:none;
+    backdrop-filter:none;
+  }
+  .home-rebuild .site-header .brand{
+    margin:0 auto 0 0;
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .home-rebuild .site-header .brand-logo{
+    width:32px;
+    height:32px;
+    flex:0 0 32px;
+  }
+  .home-rebuild .site-header .brand span{display:block}
+  .home-rebuild .site-header .brand strong{
+    display:block;
+    font-size:.88rem;
+    line-height:1;
+    white-space:nowrap;
+  }
+  .home-rebuild .site-header .brand small,
+  .home-rebuild .site-header .desktop-nav,
+  .home-rebuild .site-header .header-cta{display:none !important}
+  .home-rebuild .site-header .mobile-nav{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    margin:0;
+    padding:0;
+    flex:0 0 auto;
+  }
+  .home-rebuild .site-header .mobile-nav summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-width:62px;
+    height:36px;
+    padding:0 12px;
+    border:1px solid #d8d2cb;
+    border-radius:999px;
+    background:#fff;
+    color:#171717;
+    font:800 .68rem 'Outfit',sans-serif;
+    letter-spacing:.08em;
+  }
+  .home-rebuild .site-header .mobile-nav summary::-webkit-details-marker{display:none}
+  .home-rebuild .site-header .mobile-nav-panel{
+    position:absolute !important;
+    top:44px !important;
+    right:0 !important;
+    left:auto !important;
+    width:min(280px,calc(100vw - 28px));
+    max-height:calc(100svh - 76px);
+    overflow:auto;
+    margin:0;
+    padding:8px;
+    display:grid;
+    gap:0;
+    list-style:none;
+    background:#fff;
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:14px;
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
+  }
+  .home-rebuild .site-header .mobile-nav:not([open]) .mobile-nav-panel{display:none}
+  .home-rebuild .site-header .mobile-nav-panel a{
+    display:block;
+    padding:10px 12px;
+    border-radius:9px;
+    text-decoration:none;
+    font-size:.82rem;
+    font-weight:700;
+  }
+  .home-rebuild .rb-hero{
+    min-height:calc(100svh - 58px);
+    padding-top:4.5rem;
+  }
+}
