@@ -57,6 +57,7 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
   .class-strip .card-copy{min-height:108px}
 }
 @media(max-width:720px){
+  .p-mifa{background-image:url('/rhythmspeaker/assets/instructors/instructor-mifa-mobile-editorial-v1.png?v=20260919')}
   .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
   .class-strip .card-copy{min-height:82px;padding:.8rem}
   .class-strip .card-copy p{display:none}
