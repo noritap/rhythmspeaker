@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">STRETCH</title><desc id="desc">Editorial beginner stretch class visual</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eee8df"/><stop offset="1" stop-color="#c8d2ca"/></linearGradient></defs>
+<rect width="1200" height="800" fill="url(#bg)"/>
+<circle cx="965" cy="150" r="260" fill="#fff" opacity=".28"/>
+<path d="M0 650C280 610 450 680 710 635s330-22 490 15v150H0z" fill="#8b6d56" opacity=".22"/>
+<g fill="none" stroke="#22282a" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="570" cy="238" r="55" stroke-width="22"/>
+<path d="M555 302c-45 90-75 174-64 256M526 345c-86 72-158 114-250 127M574 345c78 72 145 112 239 122" stroke-width="34"/>
+<path d="M493 552c-118 38-212 74-303 121M500 552c125 42 224 78 331 126" stroke-width="42"/>
+</g>
+<path d="M157 694h735" stroke="#ef3f3f" stroke-width="10" stroke-linecap="round"/>
+<text x="70" y="110" fill="#202426" font-family="Arial,Helvetica,sans-serif" font-size="74" font-weight="800" letter-spacing="3">STRETCH</text>
+<text x="73" y="158" fill="#c53b36" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="5">MOBILITY • FLEXIBILITY • RESET</text>
+</svg>
