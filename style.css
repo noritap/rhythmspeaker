@@ -335,3 +335,95 @@ body:not(.home-v3):not(.home-rebuild) .mobile-nav{display:none}body:not(.home-v3
  .home-rebuild .rb-class-detail-grid{grid-template-columns:1fr;gap:1rem}
  .home-rebuild .rb-class-count{padding:.6rem .9rem!important}
 }
+
+/* HOME CLASS COMPACT SWIPE EXPERIMENT v2
+   Mobile goal: show the whole choice set quickly, then browse artwork without vertical fatigue. */
+.home-rebuild .rb-class-gallery-head{display:none}
+@media(max-width:720px){
+  .home-rebuild .rb-classes{padding-top:3.25rem;padding-bottom:3.25rem}
+  .home-rebuild .rb-classes .rb-section-head{margin-bottom:1rem}
+  .home-rebuild .rb-classes .rb-section-head>p{margin-top:.65rem;line-height:1.65}
+
+  .home-rebuild .rb-class-index{margin-bottom:1rem}
+  .home-rebuild .rb-class-index-label{margin-bottom:.55rem}
+  .home-rebuild .rb-class-index-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:.4rem;
+  }
+  .home-rebuild .rb-class-index-grid a{
+    min-height:56px;
+    padding:.5rem .55rem;
+    border-radius:10px;
+  }
+  .home-rebuild .rb-class-index-grid strong{
+    font-size:.64rem;
+    line-height:1.1;
+    overflow-wrap:anywhere;
+  }
+  .home-rebuild .rb-class-index-grid span{
+    margin-top:.12rem;
+    font-size:.6rem;
+    line-height:1.2;
+  }
+
+  .home-rebuild .rb-class-gallery-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:100%;
+    margin:.85rem 0 .45rem;
+    color:#766f68;
+    font:800 .62rem 'Outfit',sans-serif;
+    letter-spacing:.11em;
+  }
+  .home-rebuild .rb-class-gallery-head strong{color:#171717}
+
+  .home-rebuild .rb-class-detail-grid{
+    width:calc(100% + 1rem);
+    max-width:none;
+    margin:0 -1rem 0 0;
+    padding:0 1rem 1rem 0;
+    display:grid;
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:min(82vw,340px);
+    gap:.7rem;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-left:0;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .home-rebuild .rb-class-detail-grid::-webkit-scrollbar{display:none}
+  .home-rebuild .rb-class-detail-grid .rb-class{
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    align-self:start;
+    border-radius:14px;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class-img{
+    width:100%;
+    aspect-ratio:1/1;
+    background-size:contain;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class-count{
+    padding:.45rem .75rem!important;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class-count b{font-size:.86rem}
+  .home-rebuild .rb-class-detail-grid .rb-class>div:last-child{
+    padding:.65rem .75rem .75rem;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class h3{
+    margin:.08rem 0;
+    font-size:.98rem;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class p{
+    margin:.08rem 0;
+    font-size:.7rem;
+    line-height:1.45;
+  }
+  .home-rebuild .rb-class-detail-grid .rb-class small{font-size:.48rem}
+  .home-rebuild .rb-class[id]{scroll-margin-inline:0}
+}
