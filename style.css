@@ -72,3 +72,15 @@ body:not(.home-v3) .mobile-nav{display:none}body:not(.home-v3) footer{padding:2r
   .class-strip .visual-card .visual{height:auto;aspect-ratio:4/3}
   .class-strip .card-copy{min-height:78px}
 }
+
+/* Instructor Editorial Gallery v1 */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.instructor-editorial-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.instructor-editorial-gallery .instructor-card{position:relative;padding:0;background:#111;border:0;border-radius:18px;aspect-ratio:1/1;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:transform .2s ease,box-shadow .2s ease}
+.instructor-editorial-gallery .instructor-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,.13)}
+.instructor-editorial-gallery .portrait{width:100%;height:100%;filter:none}
+.instructor-editorial-gallery .tags{position:absolute;left:.75rem;right:.75rem;bottom:.75rem;margin:0;z-index:2}
+.instructor-editorial-gallery .tags span{background:rgba(255,255,255,.9);border:1px solid rgba(0,0,0,.12);backdrop-filter:blur(8px)}
+@media(max-width:1050px){.instructor-editorial-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){.instructor-editorial-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.instructor-editorial-gallery .instructor-card{aspect-ratio:1/1}.instructor-editorial-gallery .portrait{height:100%}.instructor-editorial-gallery .tags{left:.55rem;right:.55rem;bottom:.55rem;gap:.2rem}.instructor-editorial-gallery .tags span{font-size:.58rem;padding:.22rem .4rem}}
+@media(max-width:360px){.instructor-editorial-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
