@@ -64,17 +64,42 @@
 
 .fv-copy h1 {
   margin: 0;
-  font-size: clamp(2.7rem, 14vw, 4.8rem);
+  font-size: clamp(2.35rem, 11.5vw, 4.8rem);
   line-height: 0.98;
   letter-spacing: -0.06em;
   color: #fff;
+}
+
+.fv-label {
+  display: grid;
+  gap: 0.18rem;
+  margin-bottom: 1rem;
+}
+
+.fv-label strong {
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+}
+
+.fv-label span {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,.72);
 }
 
 .fv-lead {
   margin: 1.25rem 0 0;
   font-size: 1rem;
   line-height: 1.85;
-  color: rgba(255,255,255,.78);
+  color: rgba(255,255,255,.9);
+}
+
+.fv-guide {
+  margin: 0.75rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.68);
 }
 
 .fv-actions {
@@ -127,8 +152,9 @@
 }
 
 .fv-visual img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  object-position: center 58%;
 }
 
 .finder,
@@ -484,7 +510,8 @@
   }
 
   .fv-visual img {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 5;
+    object-position: 54% center;
   }
 
   .finder-list {
