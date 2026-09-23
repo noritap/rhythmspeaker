@@ -42,8 +42,19 @@
     link.dataset.placement = 'archive';
     link.dataset.destinationType = 'episode';
 
+    if (episode.thumbnail_url || episode.youtube_id) {
+      const media = document.createElement('div');
+      media.className = 'card-media';
+      const image = document.createElement('img');
+      image.src = episode.thumbnail_url || `https://i.ytimg.com/vi/${episode.youtube_id}/hqdefault.jpg`;
+      image.alt = `${episode.title} のサムネイル`;
+      image.loading = 'lazy';
+      media.append(image);
+      link.append(media);
+    }
+
     const label = document.createElement('small');
-    label.textContent = `EP.${String(episode.episode_number).padStart(2, '0')}`;
+    label.textContent = `EP.${String(episode.episode_number).padStart(2, '0')}${episode.duration ? ` / ${episode.duration}` : ''}`;
     const title = document.createElement('h3');
     title.textContent = guestNames.length ? guestNames.join(' / ') : episode.title;
     const summary = document.createElement('p');
