@@ -197,7 +197,8 @@
   };
 
   const renderPeopleGrids = async () => {
-    const containers = [...document.querySelectorAll('[data-rsb-people]')];
+    const containers = [...document.querySelectorAll('[data-rsb-people]')]
+      .filter((container) => container.dataset.rsbPeopleStatic !== 'true');
     if (!containers.length) return;
 
     try {
