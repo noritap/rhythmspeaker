@@ -4,13 +4,33 @@
     "name": "宇川彩子",
     "name_en": "Ayako Ukawa",
     "role": "Jazz Tap Dancer / Host",
-    "episode_ids": ["ayako-000"]
+    "episode_ids": [
+      "ayako-000",
+      "ayako-001"
+    ],
+    "official_url": "https://ayatap.amebaownd.com/",
+    "instagram_url": "https://www.instagram.com/ayako_ukawa",
+    "youtube_url": "https://www.youtube.com/user/jazztapdance"
   },
   {
     "id": "noritaka-furusho",
     "name": "古庄里好",
     "name_en": "Noritaka Furusho",
     "role": "Tap Dancer / Assistant / Guest",
-    "episode_ids": ["ayako-000"]
+    "episode_ids": [
+      "ayako-000"
+    ],
+    "official_url": "https://noritap.github.io/furusho-official/"
+  },
+  {
+    "id": "shinri-suzuki",
+    "name": "鈴木心理",
+    "name_en": "Shinri Suzuki",
+    "role": "Tap Dancer / Guest",
+    "episode_ids": [
+      "ayako-001"
+    ],
+    "official_url": "https://www.shinrisuzukitapdance.com",
+    "instagram_url": "https://www.instagram.com/shinrisuzuki"
   }
 ]
