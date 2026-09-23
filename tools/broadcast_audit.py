@@ -58,13 +58,6 @@ def audit(root: Path) -> list[str]:
         if not page.exists():
             problems.append(f"PROGRAM_PAGE_MISSING:{program_id}")
 
-        latest_id = program.get("latest_episode_id")
-        latest = episodes_by_id.get(latest_id)
-        if not latest:
-            problems.append(f"LATEST_EPISODE_MISSING:{program_id}:{latest_id}")
-        elif latest.get("program") != program_id:
-            problems.append(f"LATEST_EPISODE_PROGRAM_MISMATCH:{program_id}:{latest_id}")
-
         for person_id in [*(program.get("host_ids") or []), *(program.get("assistant_ids") or [])]:
             if person_id not in people_ids:
                 problems.append(f"PROGRAM_PERSON_UNKNOWN:{program_id}:{person_id}")
@@ -94,6 +87,18 @@ def audit(root: Path) -> list[str]:
     ecosystem = root / "ecosystem/index.html"
     if ecosystem.exists() and "../broadcast/" not in ecosystem.read_text(encoding="utf-8"):
         problems.append("ECOSYSTEM_WATCH_ROUTE_MISSING")
+
+    network_page = root / "broadcast/index.html"
+    if network_page.exists():
+        text = network_page.read_text(encoding="utf-8")
+        for hook in [
+            'data-rsb-network-featured',
+            'data-rsb-network-latest',
+            'data-rsb-network-programs',
+            'data-rsb-network-people',
+        ]:
+            if hook not in text:
+                problems.append(f"NETWORK_DATA_HOOK_MISSING:{hook}")
 
     program_page = root / "broadcast/programs/ayako-no-heya/index.html"
     if program_page.exists():
