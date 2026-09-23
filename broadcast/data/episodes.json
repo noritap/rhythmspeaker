@@ -4,19 +4,122 @@
     "program": "ayako-no-heya",
     "episode_number": 0,
     "title": "古庄里好と語るタップダンス",
-    "guest_ids": ["noritaka-furusho"],
+    "guest_ids": [
+      "noritaka-furusho"
+    ],
     "published": "2026-09-13",
+    "duration": "32:23",
     "youtube_id": "hf-70tPlpLo",
     "youtube_url": "https://youtu.be/hf-70tPlpLo",
+    "thumbnail_url": "https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg",
     "summary": "2人の出会いとスタジオ運営の歴史、ジャズの即興セッション講座、そしてダンサーごとの身体論に迫る『俺のシャッフル』までを語る第0回。",
-    "topics": ["improvisation", "AABA", "shuffle", "studio-history"],
+    "topics": [
+      "improvisation",
+      "AABA",
+      "shuffle",
+      "studio-history"
+    ],
     "chapters": [
-      {"time":"00:00","seconds":0,"label":"オープニング"},
-      {"time":"01:06","seconds":66,"label":"2人の出会いとスタジオ運営の歴史"},
-      {"time":"07:01","seconds":421,"label":"あやこのインプロ講座"},
-      {"time":"14:19","seconds":859,"label":"世代論と現代の予約・ライフスタイル"},
-      {"time":"22:14","seconds":1334,"label":"俺のシャッフル"},
-      {"time":"28:16","seconds":1696,"label":"ライブ・ワークショップ告知＆エンディング"}
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング"
+      },
+      {
+        "time": "01:06",
+        "seconds": 66,
+        "label": "2人の出会いとスタジオ運営の歴史"
+      },
+      {
+        "time": "07:01",
+        "seconds": 421,
+        "label": "あやこのインプロ講座"
+      },
+      {
+        "time": "14:19",
+        "seconds": 859,
+        "label": "世代論と現代の予約・ライフスタイル"
+      },
+      {
+        "time": "22:14",
+        "seconds": 1334,
+        "label": "俺のシャッフル"
+      },
+      {
+        "time": "28:16",
+        "seconds": 1696,
+        "label": "ライブ・ワークショップ告知＆エンディング"
+      }
+    ],
+    "event_id": null
+  },
+  {
+    "id": "ayako-001",
+    "program": "ayako-no-heya",
+    "episode_number": 1,
+    "title": "鈴木心理 × 宇川彩子｜バンドとしてのタップ、メトロノーム裏打ちセッション",
+    "guest_ids": [
+      "shinri-suzuki"
+    ],
+    "published": null,
+    "duration": "30:17",
+    "youtube_id": "Nmsy9j71N38",
+    "youtube_url": "https://youtu.be/Nmsy9j71N38",
+    "thumbnail_url": "https://i.ytimg.com/vi/Nmsy9j71N38/maxresdefault.jpg",
+    "summary": "鈴木心理さんを迎え、タップを『バンドの一員』として捉える感覚、メトロノームの裏打ちでグルーヴを作るセッション、シャッフル、タップダンサーとしての考え方までをトークと実演で掘り下げます。",
+    "topics": [
+      "band-ensemble",
+      "metronome",
+      "improvisation",
+      "shuffle",
+      "groove"
+    ],
+    "chapters": [
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング・ゲスト紹介（鈴木心理さん）"
+      },
+      {
+        "time": "00:31",
+        "seconds": 31,
+        "label": "ゲスト紹介＆トーク"
+      },
+      {
+        "time": "00:51",
+        "seconds": 51,
+        "label": "共演のきっかけ＆お互いのタップへのアプローチ"
+      },
+      {
+        "time": "06:35",
+        "seconds": 395,
+        "label": "あやこのインプロ講座 プチ（メトロノーム裏打ちセッション）"
+      },
+      {
+        "time": "11:08",
+        "seconds": 668,
+        "label": "表拍（オン）での練習とメトロノームの使い分け"
+      },
+      {
+        "time": "13:54",
+        "seconds": 834,
+        "label": "バンド『TDY』結成の経緯とアンサンブルでのタップ"
+      },
+      {
+        "time": "18:14",
+        "seconds": 1094,
+        "label": "俺のシャッフル（体の使い方・当てる位置の深掘り解説）"
+      },
+      {
+        "time": "26:45",
+        "seconds": 1605,
+        "label": "ライブ・セッションイベント情報"
+      },
+      {
+        "time": "29:26",
+        "seconds": 1766,
+        "label": "エンディング・次回ゲスト告知"
+      }
     ],
     "event_id": null
   }
