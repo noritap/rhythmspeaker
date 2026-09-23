@@ -6,7 +6,7 @@
   <title>RS BROADCAST NETWORK｜WATCH HUB</title>
   <meta name="description" content="RS BROADCAST NETWORKの番組・エピソード・出演者をつなぐWATCH HUB。最新回から番組、人、タップカルチャーへ。">
   <link rel="canonical" href="https://noritap.github.io/rhythmspeaker/broadcast/">
-  <meta property="og:type" content="website"><meta property="og:title" content="RS BROADCAST NETWORK"><meta property="og:description" content="番組から、人へ。人から、タップの世界へ。"><meta property="og:url" content="https://noritap.github.io/rhythmspeaker/broadcast/"><meta property="og:image" content="https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg"><meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website"><meta property="og:title" content="RS BROADCAST NETWORK"><meta property="og:description" content="番組から、人へ。人から、タップの世界へ。"><meta property="og:url" content="https://noritap.github.io/rhythmspeaker/broadcast/"><meta property="og:image" content="https://i.ytimg.com/vi/Nmsy9j71N38/maxresdefault.jpg"><meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="../logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@600;700;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./home.css"><script src="./app.js" defer></script>
@@ -15,13 +15,59 @@
 <a class="skip-link" href="#main">本文へ移動</a>
 <header class="rsb-header"><a class="rsb-brand" href="./" aria-label="RS BROADCAST NETWORK トップ"><strong>RSBN</strong><span>RS BROADCAST NETWORK / WATCH</span></a><nav class="rsb-nav" aria-label="BROADCAST ナビゲーション"><a href="./">HOME</a><a href="#programs">PROGRAMS</a><a href="#people">PEOPLE</a><a href="../ecosystem/">STUDIO</a><a class="btn btn--gold" href="https://www.youtube.com/channel/UCsCznku0uyE4718G5wfj_2Q" target="_blank" rel="noopener noreferrer" data-rsb-event="broadcast_feature_watch_click" data-placement="header" data-destination-type="youtube">WATCH</a></nav></header>
 <main id="main">
-<section class="stream-hero" aria-labelledby="featured-title"><div class="stream-hero__backdrop" aria-hidden="true"></div><div class="stream-hero__content"><p class="stream-hero__label">FEATURED / AYAKO NO HEYA / EP.00</p><h1 id="featured-title">あやこの部屋</h1><p class="stream-hero__copy">タップと人を語る。宇川彩子が古庄里好と、出会い、即興、身体感覚、そしてタップダンスを語る第0回。</p><div class="hero-actions"><a class="btn btn--gold" href="https://youtu.be/hf-70tPlpLo" target="_blank" rel="noopener noreferrer" data-rsb-event="watch_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="network-hero" data-destination-type="youtube">▶ 今すぐ見る</a><a class="btn btn--ghost" href="./episodes/ayako-000/" data-rsb-event="episode_card_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="network-hero" data-destination-type="episode">詳細・チャプター</a></div></div></section>
+<section class="stream-hero" aria-labelledby="featured-title" data-rsb-network-featured>
+  <div class="stream-hero__backdrop" aria-hidden="true"></div>
+  <div class="stream-hero__content">
+    <p class="stream-hero__label" data-rsb-featured-label>FEATURED / AYAKO NO HEYA</p>
+    <h1 id="featured-title" data-rsb-featured-title>あやこの部屋</h1>
+    <p class="stream-hero__copy" data-rsb-featured-copy>最新エピソードを読み込んでいます。</p>
+    <div class="hero-actions">
+      <a class="btn btn--gold" href="./programs/ayako-no-heya/" data-rsb-featured-watch data-rsb-event="watch_click" data-placement="network-hero" data-destination-type="episode">▶ 今すぐ見る</a>
+      <a class="btn btn--ghost" href="./programs/ayako-no-heya/" data-rsb-featured-details data-rsb-event="episode_card_click" data-placement="network-hero" data-destination-type="episode">詳細・チャプター</a>
+    </div>
+  </div>
+</section>
+
 <div class="stream-home">
-<section class="stream-row" aria-labelledby="latest-heading"><div class="container"><div class="stream-row__head"><h2 id="latest-heading">最新エピソード</h2><p>NEW RELEASES</p></div><div class="stream-shelf"><a class="stream-tile" href="./episodes/ayako-000/" data-rsb-event="episode_card_click" data-program-id="ayako-no-heya" data-episode-id="ayako-000" data-placement="latest-shelf" data-destination-type="episode"><div class="stream-tile__media"><img src="https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg" alt="あやこの部屋 第0回 古庄里好ゲスト回"></div><div class="stream-tile__body"><small>あやこの部屋 / EP.00</small><h3>古庄里好と語るタップダンス</h3><p>即興、AABA、俺のシャッフル。</p></div></a><article class="stream-tile"><div class="stream-tile__media stream-tile__media--soon">NEXT EPISODE</div><div class="stream-tile__body"><small>COMING SOON</small><h3>次のエピソード</h3><p>公開準備が整った番組から追加します。</p></div></article></div></div></section>
-<section class="stream-row" id="programs" aria-labelledby="programs-heading"><div class="container"><div class="stream-row__head"><h2 id="programs-heading">RSBN ORIGINALS</h2><p>PROGRAMS</p></div><div class="stream-shelf"><a class="stream-tile" href="./programs/ayako-no-heya/" data-rsb-event="broadcast_program_click" data-program-id="ayako-no-heya" data-placement="program-shelf" data-destination-type="program"><div class="stream-tile__media stream-tile__media--editorial"><strong>あやこの<br>部屋</strong></div><div class="stream-tile__body"><small>TALK / SESSION / PEOPLE</small><h3>あやこの部屋</h3><p>ジャズタップの「音」から、その人の人生と今を聴く部屋。</p></div></a><article class="stream-tile"><div class="stream-tile__media stream-tile__media--soon">MORE PROGRAMS</div><div class="stream-tile__body"><small>ON AIR 2026.09.23</small><h3>新番組を順次追加</h3></div></article></div></div></section>
-<section class="stream-row" id="people" aria-labelledby="people-heading"><div class="container"><div class="stream-row__head"><h2 id="people-heading">PEOPLE</h2><p>TAP PEOPLE ARCHIVE</p></div><div class="stream-shelf stream-person"><a class="stream-tile" href="./programs/ayako-no-heya/#people"><div class="stream-tile__media stream-tile__media--editorial"><strong>AYAKO<br>UKAWA</strong></div><div class="stream-tile__body"><small>HOST</small><h3>宇川彩子</h3><p>番組から人物へ。</p></div></a><a class="stream-tile" href="./programs/ayako-no-heya/#people"><div class="stream-tile__media stream-tile__media--editorial"><strong>NORITAKA<br>FURUSHO</strong></div><div class="stream-tile__body"><small>EP.00 / GUEST</small><h3>古庄里好</h3><p>人物から次のコンテンツへ。</p></div></a></div></div></section>
-<section class="stream-row" aria-labelledby="discover-heading"><div class="container"><div class="stream-row__head"><h2 id="discover-heading">タップの世界を探索</h2><p>DISCOVER</p></div><div class="stream-shelf"><a class="stream-tile" href="./programs/ayako-no-heya/#corners"><div class="stream-tile__media stream-tile__media--editorial"><strong>CORNERS<br>& TOPICS</strong></div><div class="stream-tile__body"><small>CHAPTERS</small><h3>コーナーから見る</h3><p>興味のある話題へ直接ジャンプ。</p></div></a><a class="stream-tile" href="../ecosystem/"><div class="stream-tile__media stream-tile__media--soon">RHYTHM SPEAKER</div><div class="stream-tile__body"><small>STUDIO / ECOSYSTEM</small><h3>スタジオへ</h3><p>見るだけで終わらず、体験へつながる。</p></div></a></div></div></section>
-<div class="container"><p class="stream-note">RSBNは動画配信サービスの馴染みある「Featured → 棚から選ぶ → 番組 → Episode」という操作文法を使いながら、番組・人物・コーナー・ライブ・スタジオを横断して辿れるWATCH HUBとして育てます。</p></div>
-</div></main>
+  <section class="stream-row" aria-labelledby="latest-heading">
+    <div class="container">
+      <div class="stream-row__head"><h2 id="latest-heading">最新エピソード</h2><p>NEW RELEASES</p></div>
+      <div class="stream-shelf" data-rsb-network-latest>
+        <article class="stream-tile"><div class="stream-tile__media stream-tile__media--soon">LOADING</div><div class="stream-tile__body"><small>EPISODES</small><h3>最新情報を読み込み中</h3></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="stream-row" id="programs" aria-labelledby="programs-heading">
+    <div class="container">
+      <div class="stream-row__head"><h2 id="programs-heading">RSBN ORIGINALS</h2><p>PROGRAMS</p></div>
+      <div class="stream-shelf" data-rsb-network-programs>
+        <a class="stream-tile" href="./programs/ayako-no-heya/"><div class="stream-tile__media"><img src="./assets/ayako-no-heya/hero-v3.webp" alt="あやこの部屋 番組ビジュアル"></div><div class="stream-tile__body"><small>TALK / SESSION / PEOPLE</small><h3>あやこの部屋</h3><p>タップと人を語る。</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stream-row" id="people" aria-labelledby="people-heading">
+    <div class="container">
+      <div class="stream-row__head"><h2 id="people-heading">PEOPLE</h2><p>TAP PEOPLE ARCHIVE</p></div>
+      <div class="stream-shelf stream-person" data-rsb-network-people>
+        <a class="stream-tile" href="./programs/ayako-no-heya/#people"><div class="stream-tile__media stream-tile__media--editorial"><strong>AYAKO<br>UKAWA</strong></div><div class="stream-tile__body"><small>HOST</small><h3>宇川彩子</h3><p>人物アーカイブへ。</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stream-row" aria-labelledby="discover-heading">
+    <div class="container">
+      <div class="stream-row__head"><h2 id="discover-heading">タップの世界を探索</h2><p>DISCOVER</p></div>
+      <div class="stream-shelf">
+        <a class="stream-tile" href="./programs/ayako-no-heya/#corners"><div class="stream-tile__media stream-tile__media--editorial"><strong>CORNERS<br>& TOPICS</strong></div><div class="stream-tile__body"><small>CHAPTERS</small><h3>コーナーから見る</h3><p>興味のある話題へ直接ジャンプ。</p></div></a>
+        <a class="stream-tile" href="../ecosystem/"><div class="stream-tile__media stream-tile__media--soon">RHYTHM SPEAKER</div><div class="stream-tile__body"><small>STUDIO / ECOSYSTEM</small><h3>スタジオへ</h3><p>見るだけで終わらず、体験へつながる。</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><p class="stream-note">RSBNは、Episode・Program・Peopleの正本データからトップページを自動更新します。新しいEpisodeを追加すると、Featured・最新Episode・出演者導線が同じデータを参照して更新されます。</p></div>
+</div>
+</main>
 <footer class="footer"><div class="container footer-grid"><div><strong>RS BROADCAST NETWORK</strong><br><span>Rhythm Speaker / WATCH</span></div><div><a href="../ecosystem/">Rhythm Speaker サービス一覧へ戻る</a></div></div></footer>
 </body></html>

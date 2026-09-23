@@ -3,9 +3,15 @@
     "id": "ayako-no-heya",
     "name": "あやこの部屋",
     "tagline": "タップと人を語る",
-    "status": "VALIDATION",
-    "host_ids": ["ayako-ukawa"],
-    "assistant_ids": ["noritaka-furusho"],
-    "latest_episode_id": "ayako-000"
+    "description": "ジャズタップの「音」から、その人の人生と今を聴くトーク＆セッション番組。",
+    "status": "ON AIR",
+    "category": "TALK / SESSION / PEOPLE",
+    "artwork_url": "./assets/ayako-no-heya/hero-v3.webp",
+    "host_ids": [
+      "ayako-ukawa"
+    ],
+    "assistant_ids": [
+      "noritaka-furusho"
+    ]
   }
 ]
