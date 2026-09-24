@@ -528,3 +528,19 @@
     display: none;
   }
 }
+
+/* Trial hero image v2: retain the learner and tap shoes in both layouts. */
+.fv-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 68% center;
+}
+@media (min-width: 769px) {
+  .fv-visual img {
+    aspect-ratio: 3 / 4;
+    object-position: 73% center;
+  }
+}
