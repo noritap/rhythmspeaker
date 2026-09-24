@@ -16,9 +16,9 @@ Scope: Rhythm Speaker公式Webで使用する池袋スタジオの実景・ス�
 
 ## 3. Reference Assets
 
-提供された以下の写真6枚をGitHubへ格納する際の**予定パス**。現時点でバイナリのimportが済んだことを意味しない。
+提供された以下の写真6枚はGitHubの作業ブランチへimport済み。マージ後にmain上の正式参照素材として使用する。
 
-| ID | 提供ファイル | Repository path（import予定） | 主な用途 |
+| ID | 提供ファイル | Repository path（import済み） | 主な用途 |
 | --- | --- | --- | --- |
 | RS-STUDIO-01 | 1200×630｜HP シェア用.002.png | `assets/images/studio/reference/studio-01.png` | 鏡・フロア・受付を含む実景 |
 | RS-STUDIO-02 | IBJLA2401CUQX6{…}.jpg | `assets/images/studio/reference/studio-02.jpg` | 旧撮影・別時点の室内参考 |
@@ -27,7 +27,7 @@ Scope: Rhythm Speaker公式Webで使用する池袋スタジオの実景・ス�
 | RS-STUDIO-05 | ダンスフロア3.JPG | `assets/images/studio/reference/studio-05.jpg` | 広角・フロア・鏡面 |
 | RS-STUDIO-06 | ダンスフロア4.JPG | `assets/images/studio/reference/studio-06.jpg` | 正面広角・室内の位置関係 |
 
-画像バイナリをimportした後、各ファイルが実際に存在することを検証し、この表を`ACTIVE`に変更する。それまでは`PENDING BINARY IMPORT`。
+Asset status: `ACTIVE / VERIFIED ON FEATURE BRANCH`。2026-09-25、GitHub上で6ファイルの存在とファイルサイズを確認。`main`反映・公開利用はPRマージ後に別途確認する。
 
 ## 4. Image Creation Rules
 
