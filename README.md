@@ -167,6 +167,11 @@ Avoid:
 - 情報過多
 - 過剰装飾
 
+Studio imagery:
+- 池袋スタジオの背景生成・加工は実景写真を正本参照とし、架空の別スタジオへ置き換えない。
+- 正式な参照写真・生成の許容範囲・スマホ品質ゲート: [Studio Image Grounding Rule](docs/05_STUDIO_IMAGE_GROUNDING_RULE.md)
+- レンタル用品の実物証拠写真・配置: [Trial Photo Usage Spec](docs/03_TRIAL_PHOTO_USAGE_SPEC.md)
+
 ## 8. Business data rules
 
 推測で変更しない:
