@@ -1,6 +1,6 @@
 # PROJECT_PROFILE
 
-Version: 3.3
+Version: 3.4
 Status: ACTIVE
 Project: Rhythm Speaker Web
 
@@ -360,6 +360,9 @@ Image Policy:
 - Rhythm Speaker実景素材を最優先
 - 実物のレンタルシューズ / ウェア等、安心材料になる写真を優先
 - 汎用ストック素材は補助用途に限定
+- 池袋スタジオの背景生成・画像加工は、提供された実景写真を正本参照とし、実際の床・鏡・壁・照明・受付等の特徴と位置関係を維持する
+- 別の架空スタジオへの置換や、生成人物を実際の講師・生徒と誤認させる表現をしない
+- 詳細ルールと参照写真のimport状況: docs/05_STUDIO_IMAGE_GROUNDING_RULE.md
 
 ━━━━━━━━━━━━━━━━━━━━
 # 9. TECHNICAL ARCHITECTURE
