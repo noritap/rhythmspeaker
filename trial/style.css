@@ -649,14 +649,14 @@
   }
 }
 
-/* Trial Hero v3 first-step responsive artwork: art direction without cutting off the shoes. */
+/* Trial Hero v3: approved first-step photographs, separately art-directed for desktop/mobile. */
 .fv-visual picture {
   display: block;
   width: 100%;
 }
 @media (max-width: 768px) {
   .fv-visual img {
-    aspect-ratio: 49 / 40;
+    aspect-ratio: 4 / 5;
     object-position: center;
   }
 }
