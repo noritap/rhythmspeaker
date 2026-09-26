@@ -293,6 +293,12 @@
   aspect-ratio: 16 / 10;
 }
 
+/* The archive photo has a much warmer, more saturated source palette.
+   Tone it down only in the trial gallery; preserve the original asset. */
+.real-grid figure:last-child img {
+  filter: saturate(.62) contrast(.94) brightness(.96);
+}
+
 .real-grid figcaption {
   display: grid;
   gap: .3rem;
