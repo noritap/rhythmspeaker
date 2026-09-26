@@ -32,7 +32,7 @@ jobs:
               im = ImageOps.exif_transpose(im).convert('RGB')
               im.save(tap_out, 'WEBP', quality=82, method=6)
               print('TAP', tap_out.stat().st_size, im.size)
-          body_src = Path('assets/home-class-stretch-v4.jpg')
+          body_src = Path('assets/classes/class-stretch-editorial-v1.png')
           body_out = out / 'trial-your-start-body-classes-v1.webp'
           with Image.open(body_src) as im:
               im = ImageOps.exif_transpose(im).convert('RGB')
