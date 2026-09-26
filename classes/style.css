@@ -48,3 +48,20 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
   .classes-page .class-card-feature,
   .classes-page .class-card-mini{transition:none}
 }
+
+/* Keep category icons outside the editorial photographs on all screen sizes. */
+.classes-page .class-card-feature .class-card-icon,
+.classes-page .class-card-mini .class-card-icon{
+  position:static;
+  width:44px;
+  height:44px;
+  margin:0 0 .7rem;
+  flex:none;
+  box-shadow:none;
+  backdrop-filter:none;
+  border:1px solid #e9e2da;
+  border-radius:12px;
+}
+.classes-page .class-card-dark .class-card-icon{border-color:rgba(255,255,255,.25)}
+.classes-page .class-card-feature .class-card-icon svg,
+.classes-page .class-card-mini .class-card-icon svg{width:23px;height:23px}
