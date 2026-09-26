@@ -12,3 +12,39 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 .classes-page .catalog-grid-four .class-card-mini:nth-child(3)::before{background-image:url('../assets/classes/class-bar-method-editorial-v1.png');background-size:cover;background-position:center}
 .classes-page .catalog-grid-four .class-card-mini:nth-child(4)::before{background-image:url('../assets/classes/class-hiit-editorial-v1.png');background-size:cover;background-position:center}
 .classes-page .class-card-feature:nth-child(1)::before,.classes-page .class-card-feature:nth-child(2)::before{background-position:center}
+
+/* Class catalog v2: consistent image framing and touch-friendly card links. */
+.classes-page .class-card-feature::before,
+.classes-page .class-card-mini::before{
+  aspect-ratio:16 / 10;
+  min-height:0;
+  flex:none;
+  background-size:cover;
+  background-position:center;
+}
+.classes-page .class-card-feature:nth-child(1)::before,
+.classes-page .class-card-feature:nth-child(2)::before{background-position:center}
+.classes-page .class-card-mini h3{min-height:2.5em;line-height:1.25}
+.classes-page .class-card-feature .btn::after,
+.classes-page .class-card-mini .text-link::after{
+  content:"";position:absolute;inset:0;z-index:3;
+}
+.classes-page .class-card-feature:focus-within,
+.classes-page .class-card-mini:focus-within{
+  outline:3px solid #ff3347;outline-offset:4px;
+}
+@media(hover:hover){
+  .classes-page .class-card-feature:hover,
+  .classes-page .class-card-mini:hover{cursor:pointer}
+}
+@media(max-width:768px){
+  .classes-page .class-card-feature::before,
+  .classes-page .class-card-mini::before{min-height:0;aspect-ratio:16 / 10}
+  .classes-page .class-card-mini h3{min-height:0}
+  .classes-page .class-card-feature .btn,
+  .classes-page .class-card-mini .text-link{min-height:44px;display:inline-flex;align-items:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .classes-page .class-card-feature,
+  .classes-page .class-card-mini{transition:none}
+}
