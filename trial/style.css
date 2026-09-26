@@ -713,17 +713,17 @@
   }
 }
 
-/* Trial Hero v4: photo and copy share the first viewport on mobile. */
+/* Trial Hero v5: content-driven mobile composition, not viewport-height imagery.
+   Crop the floor-heavy source around the shoes; let START FINDER follow naturally. */
 @media (max-width:768px) {
   .fv-hero {
     position:relative;
     isolation:isolate;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    min-height:clamp(590px,74svh,710px);
+    display:block;
     box-sizing:border-box;
-    padding:5.5rem 1rem 2.25rem;
+    min-height:0;
+    height:auto;
+    padding:5.35rem 1rem 6.5rem;
     overflow:hidden;
     background:#111;
   }
@@ -735,10 +735,9 @@
     pointer-events:none;
     background:linear-gradient(180deg,
       rgba(8,8,8,.94) 0%,
-      rgba(8,8,8,.87) 24%,
-      rgba(8,8,8,.66) 43%,
-      rgba(8,8,8,.13) 73%,
-      rgba(8,8,8,.38) 100%);
+      rgba(8,8,8,.86) 34%,
+      rgba(8,8,8,.54) 65%,
+      rgba(8,8,8,.12) 100%);
   }
   .fv-copy {
     position:relative;
@@ -766,10 +765,15 @@
   .fv-visual img {
     aspect-ratio:auto;
     object-fit:cover;
-    object-position:center 53%;
+    object-position:center 47%;
+    transform:scale(1.28);
+    transform-origin:50% 43%;
   }
   .fv-copy h1 { text-wrap:balance; }
   .fv-actions { grid-template-columns:minmax(0,1fr) auto; }
   .fv-actions .action-primary,
   .fv-actions .action-text { white-space:normal; text-align:center; }
+}
+@media (max-width:359px) {
+  .fv-actions { grid-template-columns:1fr; }
 }
