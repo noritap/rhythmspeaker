@@ -259,26 +259,62 @@
   background: #151515;
 }
 
+.real-intro {
+  color: rgba(255,255,255,.76);
+  line-height: 1.8;
+}
+
 .real-grid {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem .85rem;
 }
 
 .real-grid figure {
+  min-width: 0;
   margin: 0;
 }
 
+.real-grid .real-main {
+  grid-column: 1 / -1;
+}
+
 .real-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 18px;
+  border-radius: 14px;
+  background: #252525;
+}
+
+.real-grid .real-main img {
+  aspect-ratio: 16 / 10;
 }
 
 .real-grid figcaption {
-  margin-top: 0.55rem;
-  color: rgba(255,255,255,.68);
-  font-size: 0.82rem;
-  line-height: 1.5;
+  display: grid;
+  gap: .3rem;
+  margin-top: .7rem;
+  color: rgba(255,255,255,.74);
+  font-size: .78rem;
+  line-height: 1.65;
+}
+
+.real-grid figcaption strong {
+  color: #fff;
+  font-size: .95rem;
+}
+
+@media (min-width: 769px) {
+  .real-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .real-grid figcaption {
+    font-size: .9rem;
+  }
 }
 
 .trial-offer {
@@ -513,7 +549,7 @@
   }
 
   .real-grid {
-    grid-template-columns: 1.4fr .6fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .trial-offer {
