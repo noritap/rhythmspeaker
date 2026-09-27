@@ -55,7 +55,8 @@ def audit_file(source, content=None):
     relative = source.relative_to(ROOT).as_posix()
     if relative.startswith(EXCLUDED):
         return []
-    if content is None:\n        content = source.read_text(encoding="utf-8")
+    if content is None:
+        content = source.read_text(encoding="utf-8")
     issues = []
     def check(url, line):
         target = target_for(source, url)
