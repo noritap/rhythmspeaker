@@ -1,0 +1,43 @@
+name: Optimize instructor and studio photos (3VC)
+on:
+  push:
+    branches:
+      - perf/instructor-studio-webp-3vc
+    paths:
+      - scripts/optimize_instructor_studio_images.py
+      - .github/workflows/optimize-instructor-studio-photos.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=11,<13'
+      - name: Generate WebP assets and rewrite CSS references
+        run: python scripts/optimize_instructor_studio_images.py
+      - name: Validate responsive assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          instructor=list(Path('assets/instructors').glob('*-[0-9]*w.webp'))
+          studio=list(Path('assets').glob('home-studio-experience-v2-*w.webp'))
+          assert len(instructor)==20 and len(studio)==2, (len(instructor),len(studio))
+          assert all(p.stat().st_size<=400*1024 for p in instructor+studio)
+          print('PASS: 22 assets under 400 KiB')
+          PY
+      - name: Commit optimized assets and CSS
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/instructors assets/home-studio-experience-v2-*w.webp style.css instructors/style.css
+          if ! git diff --cached --quiet; then
+            git commit -m "perf: deliver optimized instructor and studio backgrounds"
+            git push
+          fi
