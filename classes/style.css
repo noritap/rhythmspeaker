@@ -107,3 +107,6 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 .classes-page #class-quickfind-reset{min-height:44px;padding:.5rem .85rem;border:1px solid #d7cfc4;border-radius:999px;background:#fff;color:#171717;font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
 .classes-page #class-quickfind-reset:focus-visible{outline:3px solid #ff3347;outline-offset:3px}
 .classes-page .classes-hero-actions [data-class-category].is-selected{background:#fff;color:#171717;border-color:#fff}
+
+/* Category selection hides both the unrelated quick links and the full detail section. */
+.classes-page .catalog-section[data-catalog-group][hidden]{display:none!important}
