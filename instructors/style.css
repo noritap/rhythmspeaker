@@ -13,3 +13,40 @@ body.instructors-page{background:#f4efe7;color:#171717}.instructors-page main{ov
 .finder-section{padding:5.5rem 6%;background:#f4efe8}.finder-section .section-head{margin-bottom:2rem}.finder-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}.finder-grid a{display:flex;flex-direction:column;gap:.4rem;padding:1.35rem 1.4rem;border:1px solid #ded5ca;border-radius:18px;background:#fff;color:#171717;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}.finder-grid a:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.07)}.finder-grid strong{font-family:'Outfit',sans-serif;font-size:1.05rem;letter-spacing:.03em}.finder-grid span{color:#746c65;font-size:.86rem;font-weight:700}@media(max-width:768px){.finder-section{padding:4rem 1.25rem}.finder-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.finder-grid a{padding:1.05rem;border-radius:15px}}
 
 .person-photo--nao{background-image:url('../assets/instructors/instructor-nao-editorial-v1.png')}.person-photo--kattun{background-image:url('../assets/instructors/instructor-kattun-editorial-v1.png')}.person-photo--saito{background-image:url('../assets/instructors/instructor-saito-hiroaki-editorial-v1.png')}.person-photo--pal{background-image:url('../assets/instructors/instructor-pal-editorial-v1.png')}
+
+/* Instructor Finder v2: share the exact editorial images already used on home. */
+.person-photo--mifa{background-image:url('../assets/instructors/instructor-mifa-editorial-v2.png');background-size:cover;background-position:center!important}
+.person-photo--homma{background-image:url('../assets/instructors/instructor-honma-editorial-v1.png');background-position:center!important}
+.person-photo--sasasa{background-image:url('../assets/instructors/instructor-sasasa-editorial-v1.png');background-position:center!important}
+.person-photo--niu{background-image:url('../assets/instructors/instructor-nibu-editorial-v1.png');background-position:center!important}
+.person-photo--okudaira{background-image:url('../assets/instructors/instructor-okudaira-editorial-v1.png');background-position:center!important}
+.person-photo--nao{background-image:url('../assets/instructors/instructor-nao-editorial-v1.png');background-position:center!important}
+.person-photo--kattun{background-image:url('../assets/instructors/instructor-kattun-editorial-v1.png');background-position:center!important}
+.person-photo--saito{background-image:url('../assets/instructors/instructor-saito-hiroaki-editorial-v1.png');background-position:center!important}
+.person-photo--pal{background-image:url('../assets/instructors/instructor-pal-editorial-v1.png');background-position:center!important}
+.person-photo--furusho{background-image:url('../assets/instructors/instructor-furusho-editorial-v1.png');background-position:center!important}
+.instructors-page .person-photo{background-size:cover!important;filter:none}
+.instructors-page .person-card:hover .person-photo{filter:none;transform:none}
+.instructors-page .person-card[hidden],.instructors-page #clear-filter[hidden]{display:none!important}
+.instructors-page .team-section{scroll-margin-top:5rem}
+.instructors-page .filter-help{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin:1rem 0 0;color:#625b54;font-size:.88rem}
+.instructors-page .filter-help a{color:#a32a39;font-weight:800;text-underline-offset:.2em}
+.instructors-page .filter-status{margin:1.25rem 0 -1rem;font-weight:800;color:#5c544d}
+.instructors-page .finder-grid a.is-active{border-color:#ff4358;background:#fff0f2;box-shadow:inset 0 0 0 1px #ff4358}
+.instructors-page .finder-grid a:focus-visible,.instructors-page .filter-help a:focus-visible{outline:3px solid #ff4358;outline-offset:3px}
+@media(max-width:768px){
+  .instructors-page .finder-section{padding:3rem 1rem}
+  .instructors-page .finder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;position:static;width:100%;overflow:visible}
+  .instructors-page .finder-grid a{min-width:0;min-height:92px;box-sizing:border-box;padding:.9rem;gap:.35rem;overflow-wrap:anywhere;word-break:normal}
+  .instructors-page .finder-grid strong{font-size:1rem}
+  .instructors-page .finder-grid span{font-size:.78rem;line-height:1.5}
+  .instructors-page .team-section{padding:3.25rem 1rem}
+  .instructors-page .team-grid{gap:.8rem}
+  .instructors-page .person-card{grid-template-columns:112px minmax(0,1fr);gap:.9rem;padding:.9rem;align-items:center}
+  .instructors-page .person-photo{width:112px;min-height:112px;aspect-ratio:1;border-radius:12px}
+  .instructors-page .person-card h3{font-size:1.32rem;overflow-wrap:anywhere}
+  .instructors-page .style-name{font-size:.77rem;line-height:1.55}
+  .instructors-page .class-links{gap:.35rem}
+  .instructors-page .class-links a{padding:.36rem .48rem;font-size:.68rem}
+}
+@media(max-width:360px){.instructors-page .person-card{grid-template-columns:92px minmax(0,1fr)}.instructors-page .person-photo{width:92px;min-height:92px}}
