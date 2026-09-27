@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import posixpath
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -68,7 +69,7 @@ def is_valid_conversion_destination(page: Path, href: str) -> bool:
         return False
     # Navigation links are relative to each HTML page. Normalize against
     # its directory, rather than accepting any path ending in /apply/.
-    target = (page.parent / parts.path / "index.html").as_posix()
+    target = posixpath.normpath((page.parent / parts.path / "index.html").as_posix())
     return Path(target) == APPLY_PAGE
 
 
