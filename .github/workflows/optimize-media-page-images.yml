@@ -1,0 +1,52 @@
+name: Media image optimization 3VC
+on:
+  push:
+    branches: [perf/music-broadcast-rss-images-3vc]
+    paths:
+      - scripts/optimize_media_page_images.py
+      - .github/workflows/optimize-media-page-images.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=11,<13'
+      - name: Optimize music assets and stabilize media thumbnails
+        run: python scripts/optimize_media_page_images.py
+      - name: Verify generated assets and image dimensions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class Images(HTMLParser):
+              def __init__(self): super().__init__(); self.tags=[]
+              def handle_starttag(self,tag,attrs):
+                  if tag=="img": self.tags.append(dict(attrs))
+          paths=["music/index.html","broadcast/index.html","broadcast/programs/ayako-no-heya/index.html","rss/014/index.html"]
+          for path in paths:
+              parser=Images();parser.feed(Path(path).read_text())
+              for img in parser.tags:
+                  src=img.get("src","")
+                  if any(k in src for k in ["hero-v3.webp","maxresdefault.jpg","hqdefault.jpg","RSM_monogram","saa-ittemiyouka_B_cover"]):
+                      assert img.get("width") and img.get("height"), (path,src)
+          assets=[Path("music/assets/brand/RSM_monogram_white_on_black.webp"),Path("music/assets/images/albums/saa-ittemiyouka/saa-ittemiyouka_B_cover-published_1x1.webp")]
+          assert all(p.exists() and p.stat().st_size<250*1024 for p in assets)
+          print("PASS: media image dimensions and image budgets")
+          PY
+      - name: Commit generated assets and markup
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add music/assets/brand music/assets/images/albums/saa-ittemiyouka music/index.html broadcast/index.html broadcast/programs/ayako-no-heya/index.html rss/014/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "perf: optimize media images and reserve thumbnail dimensions"
+            git push
+          fi
