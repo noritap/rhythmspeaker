@@ -1,0 +1,41 @@
+name: Sitewide image regression guard
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - '**/*.css'
+      - '**/*.png'
+      - '**/*.jpg'
+      - '**/*.jpeg'
+      - '**/*.webp'
+      - '**/*.avif'
+      - '**/*.gif'
+      - '**/*.svg'
+      - 'scripts/sitewide_image_guard.py'
+      - '.github/workflows/sitewide-image-guard.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check new image regressions
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git fetch origin "${{ github.base_ref }}"
+            python3 scripts/sitewide_image_guard.py --base "origin/${{ github.base_ref }}" --json image-audit.json
+          else
+            python3 scripts/sitewide_image_guard.py --json image-audit.json
+          fi
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitewide-image-audit
+          path: image-audit.json
+          if-no-files-found: ignore
