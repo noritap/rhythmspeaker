@@ -65,3 +65,36 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 .classes-page .class-card-dark .class-card-icon{border-color:rgba(255,255,255,.25)}
 .classes-page .class-card-feature .class-card-icon svg,
 .classes-page .class-card-mini .class-card-icon svg{width:23px;height:23px}
+
+/* 3VC / Class Finder v3: semantic images, fast class selection, mobile-first. */
+.classes-page .class-card-feature::before,.classes-page .class-card-mini::before{display:none!important}
+.classes-page .class-card-image{display:block;flex:none;width:calc(100% + 4rem);max-width:none;aspect-ratio:16/10;height:auto;margin:-2rem -2rem 1.4rem;object-fit:cover;object-position:center;background:#e9e3dc}
+.classes-page .class-card-feature,.classes-page .class-card-mini{scroll-margin-top:6rem}
+.classes-page .class-card-feature .class-card-kicker,.classes-page .class-card-mini .class-card-kicker{margin-top:0}
+.classes-page .class-card-feature .btn,.classes-page .class-card-mini .text-link{position:relative;z-index:1;min-height:44px}
+.classes-page .class-card-feature .btn::after,.classes-page .class-card-mini .text-link::after{z-index:2}
+.classes-page .class-quickfind{padding:3rem 5%;background:#f6f3ee}
+.classes-page .class-quickfind h2{margin:0;font-size:clamp(1.7rem,3.8vw,2.7rem);line-height:1.2;letter-spacing:-.03em}
+.classes-page .class-quickfind-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin-top:1.5rem}
+.classes-page .class-quickfind-grid a{display:flex;flex-direction:column;justify-content:center;gap:.3rem;min-width:0;min-height:82px;padding:1rem 1.2rem;border:1px solid #ded5ca;border-radius:14px;background:#fff;color:#171717;text-decoration:none;box-sizing:border-box;overflow-wrap:break-word;word-break:normal;writing-mode:horizontal-tb;transition:border-color .2s ease,transform .2s ease}
+.classes-page .class-quickfind-grid a strong{font-family:'Outfit','Noto Sans JP',sans-serif;font-size:1.15rem;line-height:1.25}
+.classes-page .class-quickfind-grid a span{font-size:.82rem;color:#655f59;line-height:1.4}
+.classes-page .class-quickfind-grid a:hover{border-color:#ff3347;transform:translateY(-2px)}
+.classes-page .class-quickfind-grid a:focus-visible{outline:3px solid #ff3347;outline-offset:3px}
+@media(max-width:768px){
+  .classes-page .classes-hero{min-height:0;padding:6.5rem 1.25rem 3.5rem}
+  .classes-page .classes-hero h1{font-size:clamp(2.35rem,10.5vw,3.8rem);line-height:1.15}
+  .classes-page .classes-hero-copy{font-size:1rem;line-height:1.75}
+  .classes-page .classes-hero-actions{gap:.65rem;margin-top:1.4rem}
+  .classes-page .class-quickfind{padding:2.5rem 1.25rem}
+  .classes-page .class-quickfind-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+  .classes-page .class-quickfind-grid a{min-height:83px;padding:.8rem .85rem}
+  .classes-page .class-quickfind-grid a strong{font-size:clamp(.85rem,3.5vw,1.05rem)}
+  .classes-page .class-quickfind-grid a span{font-size:.74rem}
+  .classes-page .class-card-image{width:calc(100% + 3rem);margin:-1.5rem -1.5rem 1.2rem}
+  .classes-page .class-card-mini .class-card-image{width:calc(100% + 2.8rem);margin:-1.4rem -1.4rem 1.2rem}
+  .classes-page .catalog-section{padding:3.5rem 1.25rem}
+  .classes-page .catalog-grid{margin-top:1.5rem}
+}
+@media(max-width:350px){.classes-page .class-quickfind-grid{grid-template-columns:1fr}.classes-page .class-quickfind-grid a{min-height:64px}}
+@media(prefers-reduced-motion:reduce){.classes-page .class-quickfind-grid a{transition:none}}
