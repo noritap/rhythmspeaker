@@ -50,3 +50,11 @@ body.instructors-page{background:#f4efe7;color:#171717}.instructors-page main{ov
   .instructors-page .class-links a{padding:.36rem .48rem;font-size:.68rem}
 }
 @media(max-width:360px){.instructors-page .person-card{grid-template-columns:92px minmax(0,1fr)}.instructors-page .person-photo{width:92px;min-height:92px}}
+
+/* 3VC: class finder is content, never a site navigation bar. */
+.instructors-page .finder-section .finder-grid{position:static;inset:auto;z-index:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;justify-content:stretch;width:100%;height:auto;max-width:none;min-width:0;margin:0;padding:0;overflow:visible;gap:.8rem;background:transparent;box-shadow:none;transform:none}
+.instructors-page .finder-section .finder-grid>a{position:static;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;width:100%;height:auto;max-width:none;margin:0;padding:1.2rem;border:1px solid #ded5ca;border-radius:16px;white-space:normal;word-break:normal;overflow-wrap:break-word;writing-mode:horizontal-tb;text-orientation:mixed;text-align:left;box-sizing:border-box}
+.instructors-page .finder-section .finder-grid>a strong,.instructors-page .finder-section .finder-grid>a span{display:block;max-width:100%;white-space:normal;word-break:normal;writing-mode:horizontal-tb;text-orientation:mixed}
+@media(max-width:768px){.instructors-page .finder-section .finder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.instructors-page .finder-section .finder-grid>a{min-height:96px;padding:.85rem}.instructors-page .finder-section .finder-grid>a strong{font-size:clamp(.82rem,3.4vw,1rem);line-height:1.35;letter-spacing:0}.instructors-page .finder-section .finder-grid>a span{font-size:.76rem;line-height:1.5}}
+@media(max-width:350px){.instructors-page .finder-section .finder-grid{grid-template-columns:1fr}.instructors-page .finder-section .finder-grid>a{min-height:72px}}
+@media(prefers-reduced-motion:reduce){.instructors-page .finder-section .finder-grid>a{transition:none}}
