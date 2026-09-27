@@ -51,11 +51,11 @@ class Images(HTMLParser):
         if tag in ("img", "source"):
             self.tags.append((tag, dict(attrs), self.getpos()[0]))
 
-def audit_file(source):
+def audit_file(source, content=None):
     relative = source.relative_to(ROOT).as_posix()
     if relative.startswith(EXCLUDED):
         return []
-    content = source.read_text(encoding="utf-8")
+    if content is None:\n        content = source.read_text(encoding="utf-8")
     issues = []
     def check(url, line):
         target = target_for(source, url)
@@ -109,16 +109,7 @@ def main():
             previous = run("git", "show", f"{args.base}:{path.as_posix()}")
         except subprocess.CalledProcessError:
             previous = ""
-        # For baseline comparisons, materialize old content into a temporary
-        # sibling only in memory by comparing normalized tag/URL issue counts.
-        baseline = set()
-        if previous:
-            from tempfile import TemporaryDirectory
-            with TemporaryDirectory(dir=ROOT / path.parent) as temp:
-                old = Path(temp) / path.name
-                old.write_text(previous, encoding="utf-8")
-                for _, _, kind, detail in audit_file(old):
-                    baseline.add((kind, detail))
+        baseline = {(kind, detail) for _, _, kind, detail in audit_file(ROOT / path, previous)} if previous else set()
         for issue in current:
             if (issue[2], issue[3]) not in baseline:
                 new_issues.append(issue)
