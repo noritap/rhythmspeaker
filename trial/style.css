@@ -790,3 +790,9 @@
 @media(max-width:420px){.fv-actions{grid-template-columns:1fr}.fv-actions .action-text{grid-column:1}.recommend-actions{align-items:stretch;flex-direction:column}.recommend-row .recommend-actions .recommend-apply{width:100%}}
 @media(min-width:769px){.fv-actions{grid-template-columns:max-content max-content}.fv-actions .action-text{grid-column:1/-1}}
 @media(prefers-reduced-motion:reduce){.recommend-row:target{scroll-behavior:auto}}
+
+/* Hobby / community: real archive photo, clearly labelled and consistent with YOUR START. */
+.recommend-hobby-photo{margin:0;min-width:0}
+.recommend-hobby-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:18px;filter:saturate(.76) contrast(.97)}
+.recommend-hobby-photo figcaption{margin-top:.5rem;color:#68635d;font-size:.73rem;line-height:1.6}
+@media(min-width:769px){.recommend-row-hobby .recommend-hobby-photo{order:0}.recommend-row-hobby>div{order:1}}
