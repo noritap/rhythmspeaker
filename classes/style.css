@@ -98,3 +98,12 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 }
 @media(max-width:350px){.classes-page .class-quickfind-grid{grid-template-columns:1fr}.classes-page .class-quickfind-grid a{min-height:64px}}
 @media(prefers-reduced-motion:reduce){.classes-page .class-quickfind-grid a{transition:none}}
+
+/* Hero category selection filters only QUICK FIND; full class catalog remains available. */
+.classes-page .class-quickfind{scroll-margin-top:5.5rem}
+.classes-page .class-quickfind-grid>a[hidden],.classes-page #class-quickfind-reset[hidden]{display:none!important}
+.classes-page .class-quickfind-controls{display:flex;align-items:center;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+.classes-page .class-quickfind-status{margin:0;color:#625c56;font-size:.86rem;font-weight:700}
+.classes-page #class-quickfind-reset{min-height:44px;padding:.5rem .85rem;border:1px solid #d7cfc4;border-radius:999px;background:#fff;color:#171717;font:inherit;font-size:.86rem;font-weight:800;cursor:pointer}
+.classes-page #class-quickfind-reset:focus-visible{outline:3px solid #ff3347;outline-offset:3px}
+.classes-page .classes-hero-actions [data-class-category].is-selected{background:#fff;color:#171717;border-color:#fff}
