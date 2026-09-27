@@ -3,12 +3,16 @@ from __future__ import annotations
 
 import argparse
 import re
+import posixpath
 from pathlib import Path
+from urllib.parse import urlsplit
 
 CANONICAL_TRIAL_LINE_URL = (
     "https://line.me/R/oaMessage/%40ypk3334t/"
     "?%E5%88%9D%E5%9B%9E%E4%BD%93%E9%A8%93%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82"
 )
+
+APPLY_PAGE = Path("trial/apply/index.html")
 
 PAGES = [
     Path("index.html"),
@@ -54,6 +58,31 @@ def is_trial_conversion_anchor(attrs: str, body: str) -> bool:
     )
 
 
+def is_valid_conversion_destination(page: Path, href: str) -> bool:
+    """Accept direct LINE booking or the verified first-party application form."""
+    if href == CANONICAL_TRIAL_LINE_URL:
+        return True
+    if not href or href.startswith(("#", "//")):
+        return False
+    parts = urlsplit(href)
+    if parts.scheme or parts.netloc or parts.query or parts.fragment:
+        return False
+    # Navigation links are relative to each HTML page. Normalize against
+    # its directory, rather than accepting any path ending in /apply/.
+    target = posixpath.normpath((page.parent / parts.path / "index.html").as_posix())
+    return Path(target) == APPLY_PAGE
+
+
+def apply_form_has_line_handoff(html: str) -> bool:
+    """Check that the application form still has a functional LINE handoff."""
+    return (
+        'id="line"' in html
+        and "line.me/R/oaMessage/%40ypk3334t/" in html
+        and "encodeURIComponent(message())" in html
+        and "addEventListener('click'" in html
+    )
+
+
 def audit(root: Path) -> list[tuple[str, str, str]]:
     problems: list[tuple[str, str, str]] = []
     for rel in PAGES:
@@ -71,17 +100,22 @@ def audit(root: Path) -> list[tuple[str, str, str]]:
             if not is_trial_conversion_anchor(attrs, body):
                 continue
             matched_trial_anchor = True
-            if href != CANONICAL_TRIAL_LINE_URL:
+            if not is_valid_conversion_destination(rel, href):
                 problems.append((str(rel), visible_text(body), href))
 
         if not matched_trial_anchor:
             problems.append((str(rel), "TRIAL_CTA_MISSING", ""))
 
+    apply_path = root / APPLY_PAGE
+    if not apply_path.is_file():
+        problems.append((str(APPLY_PAGE), "FILE_MISSING", ""))
+    elif not apply_form_has_line_handoff(apply_path.read_text(encoding="utf-8")):
+        problems.append((str(APPLY_PAGE), "LINE_HANDOFF_MISSING", ""))
     return problems
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit trial LINE CTA consistency")
+    parser = argparse.ArgumentParser(description="Audit trial booking CTA and application-to-LINE handoff")
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--strict", action="store_true")
     args = parser.parse_args()
@@ -90,6 +124,7 @@ def main() -> int:
     if not problems:
         print("TRIAL CTA AUDIT: PASS")
         print(f"canonical_url={CANONICAL_TRIAL_LINE_URL}")
+        print(f"first_party_application={APPLY_PAGE}")
         return 0
 
     print("TRIAL CTA AUDIT: DRIFT DETECTED")
