@@ -5,6 +5,7 @@ on:
     paths:
       - 'trial/apply/index.html'
       - 'tools/ux_pr220_browser_check.js'
+      - 'tools/ux_diagnostics.js'
       - '.github/workflows/ux-pr220-browser-check.yml'
   workflow_dispatch:
 
@@ -14,24 +15,26 @@ permissions:
 jobs:
   browser-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.base.sha || 'main' }}
           path: baseline
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Install browser
         run: |
-          npm install --no-save playwright@1.56.1
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3 lighthouse@12
           npx playwright install --with-deps chromium
       - name: Run local sites and compare viewports
         run: |
           python3 -m http.server 8001 --directory baseline >/tmp/ux-before.log 2>&1 &
           python3 -m http.server 8002 --directory . >/tmp/ux-after.log 2>&1 &
           node tools/ux_pr220_browser_check.js
+          node tools/ux_diagnostics.js
       - uses: actions/upload-artifact@v4
         if: always()
         with:
