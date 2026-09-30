@@ -11,6 +11,7 @@ const phases = { before: 'http://127.0.0.1:8001', after: 'http://127.0.0.1:8002'
   const browser = await chromium.launch();
   const results = [];
   const forms = [];
+  const failures = [];
   for (const [phase, origin] of Object.entries(phases)) {
     for (const width of widths) {
       const context = await browser.newContext({ viewport: { width, height: 850 }, locale: 'ja-JP', timezoneId: 'Asia/Tokyo' });
@@ -38,13 +39,29 @@ const phases = { before: 'http://127.0.0.1:8001', after: 'http://127.0.0.1:8002'
           await page.locator('#copy').click();
           const pastDate = await page.evaluate(() => ({ feedback: document.querySelector('#feedback').textContent, focus: document.activeElement.id }));
           forms.push({ phase, width, whitespace, pastDate });
+          if (phase === 'after') {
+            if (whitespace.focus !== 'name' || !whitespace.feedback.includes('お名前')) failures.push(`whitespace name accepted at ${width}px`);
+            if (pastDate.focus !== 'date' || !pastDate.feedback.includes('希望日')) failures.push(`wrong date feedback at ${width}px`);
+            await page.locator('#date').fill('');
+            await page.locator('#name').focus();
+            await page.keyboard.press('Tab');
+            await page.keyboard.press('Space');
+            const keyboard = await page.evaluate(() => ({
+              focusedName: document.activeElement.name,
+              preview: document.querySelector('#preview').textContent,
+              live: document.querySelector('#preview').getAttribute('aria-live'),
+              invalid: document.querySelector('#date').getAttribute('aria-invalid'),
+            }));
+            if (keyboard.focusedName !== 'experience' || !keyboard.preview.includes('経験：初めて')) failures.push(`keyboard choice failed at ${width}px`);
+            if (keyboard.live === 'polite' || keyboard.invalid === 'true') failures.push(`stale accessibility state at ${width}px`);
+          }
         }
       }
       await context.close();
     }
   }
   await browser.close();
-  fs.writeFileSync('ux-evidence/diagnostics.json', JSON.stringify({ results, forms }, null, 2));
+  fs.writeFileSync('ux-evidence/diagnostics.json', JSON.stringify({ failures, results, forms }, null, 2));
   for (const [phase, origin] of Object.entries(phases)) {
     for (const [name, route] of [['home', '/'], ['trial', '/trial/'], ['apply', '/trial/apply/']]) {
       execFileSync(process.execPath, [require.resolve('lighthouse/cli/index.js'), origin + route,
@@ -54,4 +71,5 @@ const phases = { before: 'http://127.0.0.1:8001', after: 'http://127.0.0.1:8002'
     }
   }
   console.log(JSON.stringify({ forms, violations: results.filter(r => r.axe.length).map(r => ({ phase:r.phase,route:r.route,width:r.width,rules:r.axe.map(v=>v.id) })) }, null, 2));
+  if (failures.length) { console.error(failures); process.exitCode = 1; }
 })().catch(error => { console.error(error); process.exitCode = 1; });
