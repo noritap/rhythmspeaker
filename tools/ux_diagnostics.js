@@ -54,6 +54,15 @@ const phases = { before: 'http://127.0.0.1:8001', after: 'http://127.0.0.1:8002'
             }));
             if (keyboard.focusedName !== 'experience' || !keyboard.preview.includes('経験：初めて')) failures.push(`keyboard choice failed at ${width}px`);
             if (keyboard.live === 'polite' || keyboard.invalid === 'true') failures.push(`stale accessibility state at ${width}px`);
+            // Abort before any external request is sent; use only synthetic input.
+            await page.route('https://line.me/**', route => route.abort());
+            const [request] = await Promise.all([
+              page.waitForRequest(request => request.url().startsWith('https://line.me/')),
+              page.locator('#line').click(),
+            ]);
+            const outgoing = decodeURIComponent(request.url());
+            if (!outgoing.includes('お名前：検証用ユーザー') || !outgoing.includes('経験：初めて')) failures.push(`LINE draft lost form values at ${width}px`);
+
           }
         }
       }
