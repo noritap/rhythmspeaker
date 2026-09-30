@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'trial/apply/index.html'
+      - 'classes/index.html'
+      - 'classes/style.css'
+      - 'tools/class_filter_check.js'
       - 'tools/ux_pr220_browser_check.js'
       - 'tools/ux_diagnostics.js'
       - '.github/workflows/ux-pr220-browser-check.yml'
@@ -35,6 +38,7 @@ jobs:
           python3 -m http.server 8002 --directory . >/tmp/ux-after.log 2>&1 &
           node tools/ux_pr220_browser_check.js
           node tools/ux_diagnostics.js
+          if [ -f tools/class_filter_check.js ]; then node tools/class_filter_check.js; fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
