@@ -110,3 +110,6 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 
 /* Category selection hides both the unrelated quick links and the full detail section. */
 .classes-page .catalog-section[data-catalog-group][hidden]{display:none!important}
+
+.classes-hero-actions button[data-class-category]{font-family:inherit;font-size:inherit;line-height:inherit;cursor:pointer;border:1px solid rgba(255,255,255,.45)}
+.classes-hero-actions button[data-class-category]:focus-visible{outline:3px solid #fff;outline-offset:4px}
