@@ -29,6 +29,7 @@ function renderSessions(){
   $$('[data-rm]').forEach(b=>b.onclick=()=>{const removed=editing.sessions[Number(b.dataset.rm)]?.id;editing.sessions.splice(Number(b.dataset.rm),1);editing.sessions.forEach(s=>s.consumes=(s.consumes||[]).filter(x=>x!==removed));renderSessions()});
 }
 async function saveEditor(e){e.preventDefault();try{editing.title=eTitle.value.trim();editing.slug=editing.slug||slugify(editing.title);editing.instructor=eInstructor.value.trim();editing.date=eDate.value;editing.status=eStatus.value;editing.venue=eVenue.value.trim();editing.address=eAddress.value.trim();editing.summary=eSummary.value.trim();editing.description=eDescription.value.trim();editing.paymentNote=ePaymentNote.value.trim();if(eCoverFile.files[0])editing.cover=await store.uploadCover(eCoverFile.files[0]);if(!editing.sessions.length)throw new Error('クラスを1つ以上追加してください');await store.saveEvent(editing);toast('保存しました');await renderDashboard()}catch(err){toast(err.message||'保存できませんでした')}}
+const reservationViewState={eventId:null,classFilter:'',statusFilter:'active',query:''};
 async function renderReservations(eventId=''){
   showPane('reservations');
   const allEvents=await store.listEvents();
@@ -38,7 +39,7 @@ async function renderReservations(eventId=''){
   const active=rows.filter(r=>r.status!=='cancelled');
   const paidRows=active.filter(r=>r.paymentStatus==='paid'),unpaidRows=active.filter(r=>r.paymentStatus!=='paid');
   const expected=active.reduce((a,r)=>a+Number(r.amount||0),0),paidAmount=paidRows.reduce((a,r)=>a+Number(r.amount||0),0),unpaidAmount=unpaidRows.reduce((a,r)=>a+Number(r.amount||0),0);
-  const sessionOptions=[...new Set(active.map(sessionName))].filter(Boolean);
+  const sessionOptions=[...new Map(active.map(r=>[`${r.eventId}:${r.sessionId}`,{key:`${r.eventId}:${r.sessionId}`,label:sessionName(r)}])).values()];
   reservationsPane.innerHTML=`<div class="row mobile-stack"><div><p class="eyebrow">RESERVATIONS</p><h1>${ev?esc(ev.title):'全予約'}</h1><p class="help">クラス・入金・受付状態で絞り込み、対応が必要な予約をすぐ確認できます。</p></div><button class="btn subtle" id="resBack">戻る</button></div>
   <div class="stats reservation-stats" style="margin:18px 0">
     <div class="stat"><span>予約人数</span><strong>${active.length}</strong><small>売上予定 ${yen(expected)}</small></div>
@@ -47,14 +48,16 @@ async function renderReservations(eventId=''){
     <div class="stat"><span>受付済</span><strong>${active.filter(r=>r.checkin).length} / ${active.length}</strong><small>未受付 ${active.filter(r=>!r.checkin).length}名</small></div>
   </div>
   <section class="reservation-controls" aria-label="予約絞り込み">
-    <div class="reservation-control-group"><strong>クラス</strong><div id="classFilters" class="filter-chips"><button class="filter-chip is-active" data-class="">すべて <b>${active.length}</b></button>${sessionOptions.map(name=>`<button class="filter-chip" data-class="${esc(name)}">${esc(name)} <b>${active.filter(r=>sessionName(r)===name).length}</b></button>`).join('')}</div></div>
+    <div class="reservation-control-group"><strong>クラス</strong><div id="classFilters" class="filter-chips"><button class="filter-chip is-active" data-class="">すべて <b>${active.length}</b></button>${sessionOptions.map(s=>`<button class="filter-chip" data-class="${esc(s.key)}">${esc(s.label)} <b>${active.filter(r=>`${r.eventId}:${r.sessionId}`===s.key).length}</b></button>`).join('')}</div></div>
     <div class="reservation-control-group"><strong>状態</strong><div id="statusFilters" class="filter-chips"><button class="filter-chip is-active" data-status="active">有効予約 <b>${active.length}</b></button><button class="filter-chip filter-chip--warn" data-status="unpaid">未入金 <b>${unpaidRows.length}</b></button><button class="filter-chip" data-status="paid">入金済 <b>${paidRows.length}</b></button><button class="filter-chip" data-status="unchecked">未受付 <b>${active.filter(r=>!r.checkin).length}</b></button><button class="filter-chip" data-status="checked">受付済 <b>${active.filter(r=>r.checkin).length}</b></button><button class="filter-chip" data-status="cancelled">取消 <b>${rows.filter(r=>r.status==='cancelled').length}</b></button></div></div>
     <label class="reservation-search">予約者検索<input id="reservationSearch" type="search" placeholder="氏名・メールアドレス"></label>
     <div class="reservation-result"><strong id="resultCount"></strong><span id="resultAmount"></span></div>
   </section>
   <div id="reservationResults"></div>`;
   resBack.onclick=renderDashboard;
-  let classFilter='',statusFilter='active',query='';
+  if(reservationViewState.eventId!==eventId){reservationViewState.eventId=eventId;reservationViewState.classFilter='';reservationViewState.statusFilter='active';reservationViewState.query='';}
+  let {classFilter,statusFilter,query}=reservationViewState;
+  const syncState=()=>Object.assign(reservationViewState,{eventId,classFilter,statusFilter,query});
   function matchesStatus(r){
     if(statusFilter==='cancelled')return r.status==='cancelled';
     if(r.status==='cancelled')return false;
@@ -66,16 +69,16 @@ async function renderReservations(eventId=''){
   }
   function renderRows(){
     const q=query.trim().toLowerCase();
-    const filtered=rows.filter(r=>(!classFilter||sessionName(r)===classFilter)&&matchesStatus(r)&&(!q||String(r.name||'').toLowerCase().includes(q)||String(r.email||'').toLowerCase().includes(q)));
+    const filtered=rows.filter(r=>(!classFilter||`${r.eventId}:${r.sessionId}`===classFilter)&&matchesStatus(r)&&(!q||String(r.name||'').toLowerCase().includes(q)||String(r.email||'').toLowerCase().includes(q)));
     resultCount.textContent=`${filtered.length}件を表示`;
     resultAmount.textContent=`表示金額 ${yen(filtered.filter(r=>r.status!=='cancelled').reduce((a,r)=>a+Number(r.amount||0),0))}`;
     reservationResults.innerHTML=filtered.length?`<div class="tablewrap reservation-table"><table><thead><tr><th>氏名</th><th>クラス</th><th>金額</th><th>支払</th><th>受付</th><th>状態</th><th>操作</th></tr></thead><tbody>${filtered.map(r=>`<tr class="${r.status==='cancelled'?'is-cancelled':''}"><td><strong>${esc(r.name)}</strong><br><span class="help">${esc(r.email)}</span></td><td>${esc(sessionName(r))}</td><td>${yen(r.amount)}</td><td><span class="status-badge ${r.paymentStatus==='paid'?'status-badge--ok':'status-badge--warn'}">${r.paymentStatus==='paid'?'入金済':'未入金'}</span></td><td><span class="status-badge ${r.checkin?'status-badge--ok':''}">${r.checkin?'受付済':'未受付'}</span></td><td>${r.status==='cancelled'?'取消':'予約'}</td><td>${r.status!=='cancelled'?`<button class="smallbtn" data-pay="${r.id}">${r.paymentStatus==='paid'?'未入金へ':'入金済へ'}</button> <button class="smallbtn ${r.checkin?'':'smallbtn--primary'}" data-check="${r.id}">${r.checkin?'受付取消':'受付する'}</button> <button class="smallbtn danger" data-cancel="${r.id}">取消</button>`:''}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">条件に一致する予約はありません。</div>';
-    $$('[data-pay]').forEach(b=>b.onclick=async()=>{const rr=rows.find(x=>x.id===b.dataset.pay);await store.updateReservation(rr.id,{paymentStatus:rr.paymentStatus==='paid'?'unpaid':'paid'});renderReservations(eventId)});
-    $$('[data-check]').forEach(b=>b.onclick=async()=>{const rr=rows.find(x=>x.id===b.dataset.check);await store.updateReservation(rr.id,{checkin:!rr.checkin});renderReservations(eventId)});
-    $$('[data-cancel]').forEach(b=>b.onclick=async()=>{if(confirm('予約をキャンセルしますか？')){await store.updateReservation(b.dataset.cancel,{status:'cancelled'});renderReservations(eventId)}});
+    $$('[data-pay]').forEach(b=>b.onclick=async()=>{const rr=rows.find(x=>x.id===b.dataset.pay);syncState();await store.updateReservation(rr.id,{paymentStatus:rr.paymentStatus==='paid'?'unpaid':'paid'});renderReservations(eventId)});
+    $$('[data-check]').forEach(b=>b.onclick=async()=>{const rr=rows.find(x=>x.id===b.dataset.check);syncState();await store.updateReservation(rr.id,{checkin:!rr.checkin});renderReservations(eventId)});
+    $$('[data-cancel]').forEach(b=>b.onclick=async()=>{if(confirm('予約をキャンセルしますか？')){syncState();await store.updateReservation(b.dataset.cancel,{status:'cancelled'});renderReservations(eventId)}});
   }
-  $$('#classFilters [data-class]').forEach(b=>b.onclick=()=>{classFilter=b.dataset.class;$$('#classFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
-  $$('#statusFilters [data-status]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.status;$$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
-  reservationSearch.oninput=()=>{query=reservationSearch.value;renderRows()};
+  $$('#classFilters [data-class]').forEach(b=>b.onclick=()=>{classFilter=b.dataset.class;syncState();$('#classFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
+  $$('#statusFilters [data-status]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.status;syncState();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
+  reservationSearch.oninput=()=>{query=reservationSearch.value;syncState();renderRows()};
   renderRows();
 }
