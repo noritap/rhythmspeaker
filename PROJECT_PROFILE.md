@@ -1,6 +1,6 @@
 # PROJECT_PROFILE
 
-Version: 3.4
+Version: 3.5
 Status: ACTIVE
 Project: Rhythm Speaker Web
 
@@ -54,7 +54,7 @@ Default Branch:
 main
 
 Repository Strategy:
-Single Project Repository with isolated preview subtree
+Single Project Repository with isolated live Workshop subtree
 
 Canonical Profile Path:
 /PROJECT_PROFILE.md
@@ -74,12 +74,11 @@ https://noritap.github.io/rhythmspeaker/
 Repository Role:
 Rhythm Speaker公式Webの新規顧客向け導線、SEO、ブランド理解、体験予約CV、情報ページ群を管理する。
 
-`/workshops/` は同一Repository内の isolated preview subtree として扱う。
+`/workshops/` は同一Repository内の isolated live operations subtree として扱う。
 Official Web本体とWorkshop Managerの運用境界を混同しない。
 
 このRepositoryは、RS Wallet本体、STORESの商品販売機能を実装する場所ではない。
-Workshop Managerについても、公開Preview / demo UIは保持できるが、
-live予約DB、認証、決済自動化をOfficial Web本体の標準機能として扱わない。
+Workshop ManagerはWorkshop専用Supabaseによるlive予約DB / Auth / Storageを利用するが、Official Web本体の標準機能としては扱わない。決済は外部URL送客＋手動入金管理で、Stripe Webhook等の自動入金反映は未導入。
 
 ━━━━━━━━━━━━━━━━━━━━
 # 3. SOURCE OF TRUTH
@@ -151,34 +150,36 @@ Role:
 - LINEへの送客
 - メディア / SEO資産化
 
-Workshop Manager Preview:
+Workshop Manager Live Operations:
 Path:
 /workshops/
 
 Role:
-- ワークショップ公開ページのPreview
-- スマホ管理UIのPreview
-- イベント作成 / 編集 / 予約導線の検証
-- demoデータによる運用設計確認
+- ワークショップ公開ページ / 予約
+- スマホ管理UI
+- イベント作成 / 編集 / 予約管理 / 当日受付
+- 講師向けtoken-gated read-only確認
 
 Current Runtime Boundary:
-- `workshops/config.js` の `mode` は `demo`
-- demoではブラウザ localStorageを使用
-- 端末間共有なし
-- Supabase live DB / Auth / Storageは未接続
-- live決済自動化は未接続
+- `workshops/config.js` の `mode` は `live`
+- Workshop専用Supabase URL / Publishable Keyを使用
+- Supabase Authを管理画面で使用
+- event / session / reservation dataはSupabaseで端末間共有
+- `workshop-media` Storage bucketを使用
+- 講師viewはevent単位tokenでread-only共有
+- Stripe Checkout / Webhookによる自動入金反映は未導入
 
-Workshop Manager Live Gate:
-以下は別のArchitecture / Security Gateとして扱い、明示承認なしに有効化しない。
-- `mode: "live"` への切替
-- Supabase URL / Publishable Key設定
-- Supabase Auth本番運用
-- 予約者個人データの本番保存
-- Stripe Checkout / Webhook
-- 本番決済状態の自動更新
-- Secrets / Service Role KeyのRepository保存
+Workshop Manager High-Risk Gate:
+以下はArchitecture / Security Gateとして扱い、明示承認・差分確認なしに変更しない。
+- RLS / Authorization
+- Auth / 管理者権限
+- reservation schema
+- 個人情報の取得項目
+- destructive migration / delete
+- Stripe Checkout / Webhook等の決済自動化
+- Service Role Key / Secretsの取扱い
 
-Live化する場合は、専用App / Repository分離を含めて再評価する。
+Publishable Keyはブラウザ利用を前提とし、AuthorizationはRLS / RPC / Authで担保する。
 
 STORES:
 Role:
@@ -278,8 +279,7 @@ Official Web全体の体験予約CTAへ無断で置換しない。
 - 既存Production導線の破壊
 - Secrets / API Key / Token / .envの保存
 - External Repositoryへの無断WRITE
-- Workshop Managerのdemo → live切替
-- Workshop Managerへの本番Supabase認証 / 個人情報保存の無断導入
+- Workshop ManagerのRLS / Auth / reservation schema / 個人情報項目の無断変更
 - Stripe / Webhook等の本番決済自動化の無断導入
 
 静的HTML / CSSで目的を達成できるOfficial Web領域では、不要なフレームワーク移行を行わない。
@@ -388,11 +388,11 @@ Do Not Prematurely Introduce to Official Web:
 - Build System
 - Heavy Component Framework
 
-Workshop Manager Preview Stack:
+Workshop Manager Live Stack:
 - Static HTML / CSS / JavaScript
-- localStorage demo mode
-- Supabase client library included for future live mode
-- GitHub Pages preview
+- Supabase client
+- Supabase Auth / Database / Storage
+- GitHub Pages public/admin UI
 
 Workshop ManagerはOfficial Webと同じRepositoryに存在しても、
 Runtime / Data / Auth / Payment Boundaryは分離する。
@@ -483,7 +483,7 @@ Priority Rule:
 ━━━━━━━━━━━━━━━━━━━━
 
 Current Development Phase:
-Production + Phase 1 Optimization + Isolated Workshop Preview
+Production + Phase 1 Optimization + Isolated Workshop Live Operations
 
 Current Goal:
 公開済みのPhase 1ページ群と既存初心者LPを維持しながら、
@@ -503,16 +503,18 @@ Phase 1 Production Page Set:
 Additional Published Content:
 - /rss/
 
-Isolated Preview:
+Isolated Workshop Live Operations:
 - /workshops/
 - /workshops/event.html?slug=...
 - /workshops/admin/
+- /workshops/instructor/?token=...
 
-Workshop Preview Status:
-- demo mode
-- localStorage
-- Supabase live未接続
-- live Auth / reservation DB / payment automation未稼働
+Workshop Runtime Status:
+- live mode
+- Workshop専用Supabase
+- Supabase Auth / reservation DB / Storage稼働
+- external payment URL + manual payment-status management
+- Stripe Webhook等のpayment automationは未稼働
 
 Phase 1 Principle:
 現在の `/` を初心者向けCVページとして維持し、
@@ -545,9 +547,10 @@ Official Web Production:
 - LocalBusiness structured data on /access/
 - Conversion Measurement Baseline specification
 
-Published Preview / Not Live Operations:
-- /workshops/
-- Workshop Manager demo/admin UI
+Workshop Live Operations:
+- /workshops/ public event / reservation UI
+- /workshops/admin/ authenticated manager UI
+- /workshops/instructor/ token-gated read-only view
 
 Current Development:
 - Phase 1 production optimization
@@ -626,11 +629,13 @@ External Link Check:
 - YouTube
 - SNS
 
-Workshop Preview Check:
-- DEMO MODE表示
-- localStorage前提が明確
-- 本番個人データを入力させない
-- live設定値が空であること
+Workshop Live Check:
+- LIVE表示とruntime modeが一致
+- 公開予約導線が機能
+- 管理画面Authが機能
+- 予約者情報が非管理者へ露出しない
+- RLS / RPC境界を壊していない
+- Secrets / Service Role KeyをRepositoryへ保存しない
 
 Production Validation Order:
 1. main commit確認
@@ -649,12 +654,11 @@ noritap/rhythmspeaker
 
 Primary WRITE Area:
 - Rhythm Speaker Official Web
-- `/workshops/` demo / preview subtree
+- `/workshops/` live operations subtree
 
 Workshop WRITE Boundary:
-- demo / preview改善は本Repositoryで可能
-- live Auth / DB / Payment activationは別承認・別Architecture Gate
-- 専用App / Repository分離が必要かlive化前に再評価
+- live UI / 運用UX改善は本Repositoryで可能
+- RLS / Auth / schema / Privacy / Payment automation変更は別承認・別Architecture Gate
 
 From Revenue Strategy Project:
 Permission:
@@ -695,9 +699,9 @@ External WRITE:
 - Phase 1完了後のKPI基準
 - CMS導入判断条件
 - Custom Domain候補
-- Workshop Manager live化時の専用Repository / Hosting方針
-- Workshop Manager専用Supabase Project
-- Workshop Managerの本番Auth / Privacy / Payment運用
+- Workshop Managerを将来専用Repository / Hostingへ分離する条件
+- Stripe等による本番決済自動化の導入時期
+- Workshop ManagerのPrivacy運用詳細 / retention policy
 
 UNKNOWNは推測で埋めない。
 
@@ -733,7 +737,7 @@ UNKNOWNは推測で埋めない。
 - Canonical Profile Pathが明確
 - Production branchが明確
 - GitHub Official Web / LINE / STORES / RS Walletの役割が分離されている
-- Workshop Manager Previewとlive operationsの境界が明確
+- Workshop Manager live operationsとOfficial Web本体の境界が明確
 - Primary CTAが明確
 - Business Data Safetyが明確
 - Do Not Touchが明確
@@ -772,11 +776,10 @@ AUTH / TIPS / USE
 を担当する。
 
 Workshop Managerは、
-現時点では同一Repository内のISOLATED DEMO / PREVIEWであり、
-Official Web本体のlive予約・認証・決済基盤とはみなさない。
+同一Repository内のISOLATED LIVE OPERATIONSであり、Workshop専用Supabaseで予約・Auth・Storageを運用する。
+Official Web本体のPrimary LINE Funnelとは分離し、Workshopのlive機能をOfficial Web全体の標準予約・認証・決済基盤とはみなさない。
 
-Workshop Managerをlive化する場合は、
-DATA / AUTH / PRIVACY / PAYMENT / HOSTING / REPOSITORY境界を再評価してから進める。
+RLS / AUTH / PRIVACY / PAYMENT AUTOMATION / destructive migrationを変更する場合は、High-Risk Gateとして再評価する。
 
 既存Production Funnelを守りながら、
 Official WebはStatic HTML / CSSを基盤に段階的にVersion Upgradeする。
