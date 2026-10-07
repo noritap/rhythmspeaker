@@ -46,7 +46,7 @@ const participantView={classId:"",payment:"all",query:""};
 function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';participantRows.innerHTML='<tr><td colspan="6">表示できません。</td></tr>';}
 function attendanceIds(p,sessions){
   const booked=sessions.find(s=>s.id===p.sessionId||s.name===p.sessionName);
-  const consumes=Array.isArray(p.consumes)&&p.consumes.length?p.consumes:(Array.isArray(booked?.consumes)&&booked.consumes.length?booked.consumes:[p.sessionId]);
+  const consumes=Array.isArray(p.consumes)&&p.consumes.length?p.consumes:(Array.isArray(booked?.consumes)&&booked.consumes.length?booked.consumes:[p.sessionId||booked?.id]);
   return consumes.filter(Boolean);
 }
 function attendanceNames(p,sessions){
