@@ -58,9 +58,10 @@ function renderParticipants(){
   if(!dashboardData)return;
   const sessions=dashboardData.sessions||[],people=dashboardData.participants||[];
   const counts=id=>people.filter(p=>attendanceIds(p,sessions).includes(id)).length;
+  const attendanceSessions=sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
   participantControls.innerHTML=`
     <label class="participant-search">予約者を検索<input id="participantSearch" type="search" placeholder="氏名で検索" value="${esc(participantView.query)}"></label>
-    <div class="participant-filter-group"><strong>クラス</strong><div class="filter-chips"><button class="filter-chip ${!participantView.classId?'is-active':''}" data-pclass="">すべて <b>${people.length}</b></button>${sessions.filter(s=>!(s.consumes||[]).length).map(s=>`<button class="filter-chip ${participantView.classId===s.id?'is-active':''}" data-pclass="${esc(s.id)}">${esc(s.name)} <b>${counts(s.id)}</b></button>`).join('')}</div></div>
+    <div class="participant-filter-group"><strong>クラス</strong><div class="filter-chips"><button class="filter-chip ${!participantView.classId?'is-active':''}" data-pclass="">すべて <b>${people.length}</b></button>${attendanceSessions.map(s=>`<button class="filter-chip ${participantView.classId===s.id?'is-active':''}" data-pclass="${esc(s.id)}">${esc(s.name)} <b>${counts(s.id)}</b></button>`).join('')}</div></div>
     <div class="participant-filter-group"><strong>支払</strong><div class="filter-chips"><button class="filter-chip ${participantView.payment==='all'?'is-active':''}" data-ppay="all">すべて</button><button class="filter-chip ${participantView.payment==='unpaid'?'is-active filter-chip--warn':''}" data-ppay="unpaid">未入金 <b>${people.filter(p=>p.paymentStatus!=='paid').length}</b></button><button class="filter-chip ${participantView.payment==='paid'?'is-active':''}" data-ppay="paid">入金済 <b>${people.filter(p=>p.paymentStatus==='paid').length}</b></button></div></div>`;
   const q=participantView.query.trim().toLowerCase();
   const filtered=people.filter(p=>(!participantView.classId||attendanceIds(p,sessions).includes(participantView.classId))&&(participantView.payment==='all'||(participantView.payment==='paid'?(p.paymentStatus==='paid'):(p.paymentStatus!=='paid')))&&(!q||String(p.name||'').toLowerCase().includes(q)));
@@ -77,10 +78,10 @@ function render(data){
   eventTitle.textContent=e.title||'Workshop';
   eventMeta.textContent=[e.date?fmtDate(e.date):'',e.venue||'',e.instructor?`講師：${e.instructor}`:''].filter(Boolean).join(' / ');
   updatedAt.textContent=`最終更新 ${fmtUpdated(data.generatedAt||new Date().toISOString())}`;
-  const attendanceSessions=sessions.filter(s=>!(s.consumes||[]).length);
+  const attendanceSessions=sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
   stats.innerHTML=`<div class="stat"><span>参加予定</span><strong>${Number(t.reservations||people.length||0)}名</strong></div>${attendanceSessions.slice(0,2).map(s=>`<div class="stat"><span>${esc(s.name)}</span><strong>${people.filter(p=>attendanceIds(p,sessions).includes(s.id)).length}名</strong></div>`).join('')}<div class="stat stat--attention"><span>未入金</span><strong>${people.filter(p=>p.paymentStatus!=='paid').length}名</strong><small>${yen(t.unpaidRevenue)} 未収</small></div>`;
   classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card" data-class-filter="${esc(s.id)}"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>予約席</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>残席</span><strong>${Number(s.remaining||0)}席</strong></div><button class="smallbtn" type="button">参加者を見る</button></article>`).join(''):'<p>クラス情報がありません。</p>';
-  classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const s=sessions.find(x=>x.id===card.dataset.classFilter);participantView.classId=(s?.consumes||[]).length?'':card.dataset.classFilter;renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
+  classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const s=sessions.find(x=>x.id===card.dataset.classFilter);const targets=Array.isArray(s?.consumes)&&s.consumes.length?s.consumes:[card.dataset.classFilter];participantView.classId=targets.length===1?targets[0]:'';renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
   renderParticipants();
 }
 
