@@ -16,7 +16,7 @@ PAGES = [
     Path("rss/index.html"),
 ]
 
-REQUIRED_LABELS = ["教室トップ", "初回体験", "クラス", "教室紹介", "サービス一覧", "FAQ", "アクセス", "RSS"]
+REQUIRED_LABELS = ["教室トップ", "初回体験", "クラス", "教室紹介", "ワークショップ", "サービス一覧", "FAQ", "アクセス", "RSS"]
 LEGACY_SHOP_LABEL = "メインHP・SHOP"
 
 
