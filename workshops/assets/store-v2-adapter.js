@@ -70,6 +70,22 @@
         const m=new Map(copy.sessions.map(s=>[s.id,crypto.randomUUID()]));copy.sessions=copy.sessions.map(s=>({...s,id:m.get(s.id),consumes:(s.consumes||[]).map(x=>m.get(x)).filter(Boolean)}));
         return this.saveEvent(copy);
       },
+      async listWaitlist(eventId){
+        const {data,error}=await client.from('workshop_waitlist').select('*').eq('event_id',eventId).order('created_at',{ascending:true});
+        if(error)throw error;return data||[];
+      },
+      async addWaitlist(payload){
+        const {data,error}=await client.from('workshop_waitlist').insert({event_id:payload.eventId,session_id:payload.sessionId,name:payload.name,email:payload.email||null,phone:payload.phone||null}).select().single();
+        if(error)throw error;return data;
+      },
+      async updateWaitlist(id,patch){
+        const {data,error}=await client.from('workshop_waitlist').update(patch).eq('id',id).select().single();
+        if(error)throw error;return data;
+      },
+      async listReservationAudit(eventId){
+        const {data,error}=await client.from('workshop_operation_audit').select('*').eq('event_id',eventId).order('occurred_at',{ascending:false}).limit(100);
+        if(error)throw error;return data||[];
+      },
       async getInstructorSpecialRemaining(eventId,sessionId){
         const {data,error}=await client.rpc('workshop_instructor_special_remaining',{p_event_id:eventId,p_session_id:sessionId});
         if(error) throw error; return Number(data||0);
