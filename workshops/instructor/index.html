@@ -28,7 +28,7 @@
 
   <section class="section section--tight"><div class="shell"><div class="section-head"><div><p class="kicker">CLASSES</p><h2>クラス別の予約状況</h2><p>定員・予約席・残席・売上見込を確認できます。</p></div></div><div id="classGrid" class="class-status-grid"></div></div></section>
 
-  <section id="participantsSection" class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・実際の参加クラス・支払状況をすぐ確認できます。</p></div></div><div id="participantControls" class="participant-controls"></div><div id="participantResult" class="participant-result"></div><div id="rosterGroups" class="roster-groups" aria-live="polite">読み込み中...</div></div></section>
+  <section id="participantsSection" class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・実際の参加クラス・支払状況をすぐ確認できます。</p></div></div><div class="refresh-row" style="margin-bottom:12px"><button id="printInstructorRoster" class="btn btn--ghost" type="button">クラス別名簿を印刷</button></div><div id="participantControls" class="participant-controls"></div><div id="participantResult" class="participant-result"></div><div id="rosterGroups" class="roster-groups" aria-live="polite">読み込み中...</div></div></section>
 </main>
 
 <footer class="site-footer"><div class="shell">Rhythm Speaker</div></footer>
@@ -99,6 +99,7 @@ async function load(){
   }catch(err){showError(err.message==='invalid_or_disabled_link'?'この講師共有リンクは無効です。運営に新しいURLを確認してください。':(err.message||'読み込みに失敗しました。'));}
 }
 refreshBtn.onclick=load;
+printInstructorRoster.onclick=()=>window.print();
 load();
 setInterval(load,60000);
 </script>
