@@ -40,6 +40,8 @@ async function renderReservations(eventId=''){
   const paidRows=active.filter(r=>r.paymentStatus==='paid'),unpaidRows=active.filter(r=>r.paymentStatus!=='paid');
   const expected=active.reduce((a,r)=>a+Number(r.amount||0),0),paidAmount=paidRows.reduce((a,r)=>a+Number(r.amount||0),0),unpaidAmount=unpaidRows.reduce((a,r)=>a+Number(r.amount||0),0);
   const sessionOptions=[...new Map(active.map(r=>[`${r.eventId}:${r.sessionId}`,{key:`${r.eventId}:${r.sessionId}`,label:sessionName(r)}])).values()];
+  const waitlist=ev&&store.listWaitlist?await store.listWaitlist(ev.id):[];
+  const audit=ev&&store.listReservationAudit?await store.listReservationAudit(ev.id):[];
   const specialAvailability=ev&&store.getInstructorSpecialRemaining?await Promise.all(ev.sessions.map(async s=>({id:s.id,name:s.name,remaining:await store.getInstructorSpecialRemaining(ev.id,s.id)}))):[];
   reservationsPane.innerHTML=`<div class="row mobile-stack"><div><p class="eyebrow">RESERVATIONS</p><h1>${ev?esc(ev.title):'全予約'}</h1><p class="help">クラス・入金・受付状態で絞り込み、対応が必要な予約をすぐ確認できます。</p></div><button class="btn subtle" id="resBack">戻る</button></div>
   <div class="stats reservation-stats" style="margin:18px 0">
@@ -57,6 +59,10 @@ async function renderReservations(eventId=''){
   </section>
   <div class="row" style="margin:12px 0"><button id="checkinMode" class="btn btn--ghost" type="button">受付モード：未受付者</button><button id="unpaidMode" class="btn btn--ghost" type="button">未入金対応一覧</button></div><div id="reservationResults"></div>`;
   resBack.onclick=renderDashboard;
+  if(ev&&waitlistForm){
+    waitlistForm.onsubmit=async e=>{e.preventDefault();try{await store.addWaitlist({eventId:ev.id,sessionId:waitSession.value,name:waitName.value.trim(),email:waitEmail.value.trim(),phone:waitPhone.value.trim()});toast('キャンセル待ちに登録しました');await renderReservations(eventId)}catch(err){toast(err.message||'登録できませんでした')}};
+    $('[data-wait-status]').forEach(el=>el.onchange=async()=>{if(!el.value)return;try{await store.updateWaitlist(el.dataset.waitStatus,{status:el.value,contacted_at:el.value==='contacted'?new Date().toISOString():null});toast('状態を更新しました');await renderReservations(eventId)}catch(err){toast(err.message||'更新できませんでした')}});
+  }
   if(ev&&openSpecialForm){openSpecialForm.onclick=()=>specialReservationForm.classList.remove('hidden');closeSpecialForm.onclick=()=>specialReservationForm.classList.add('hidden');specialReservationForm.onsubmit=async e=>{e.preventDefault();const selected=specialAvailability.find(x=>x.id===specialSession.value);if(!selected||selected.remaining<=0){toast('このクラスのイントラ特別枠は満席です');return}try{await store.createInstructorSpecialReservation({eventId:ev.id,sessionId:specialSession.value,name:specialName.value,email:specialEmail.value,phone:specialPhone.value,note:specialNote.value});toast('イントラ特別枠で追加しました');await renderReservations(eventId)}catch(err){toast(err.message?.includes('INSTRUCTOR_SPECIAL_FULL')?'イントラ特別枠は満席です':(err.message||'追加できませんでした'))}}}
   if(reservationViewState.eventId!==eventId){reservationViewState.eventId=eventId;reservationViewState.classFilter='';reservationViewState.statusFilter='active';reservationViewState.query='';}
   let {classFilter,statusFilter,query}=reservationViewState;
