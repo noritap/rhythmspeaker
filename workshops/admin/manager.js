@@ -55,7 +55,7 @@ async function renderReservations(eventId=''){
     <label class="reservation-search">予約者検索<input id="reservationSearch" type="search" placeholder="氏名・メールアドレス"></label>
     <div class="reservation-result"><strong id="resultCount"></strong><span id="resultAmount"></span></div>
   </section>
-  <div id="reservationResults"></div>`;
+  <div class="row" style="margin:12px 0"><button id="checkinMode" class="btn btn--ghost" type="button">受付モード：未受付者</button><button id="unpaidMode" class="btn btn--ghost" type="button">未入金対応一覧</button></div><div id="reservationResults"></div>`;
   resBack.onclick=renderDashboard;
   if(ev&&openSpecialForm){openSpecialForm.onclick=()=>specialReservationForm.classList.remove('hidden');closeSpecialForm.onclick=()=>specialReservationForm.classList.add('hidden');specialReservationForm.onsubmit=async e=>{e.preventDefault();const selected=specialAvailability.find(x=>x.id===specialSession.value);if(!selected||selected.remaining<=0){toast('このクラスのイントラ特別枠は満席です');return}try{await store.createInstructorSpecialReservation({eventId:ev.id,sessionId:specialSession.value,name:specialName.value,email:specialEmail.value,phone:specialPhone.value,note:specialNote.value});toast('イントラ特別枠で追加しました');await renderReservations(eventId)}catch(err){toast(err.message?.includes('INSTRUCTOR_SPECIAL_FULL')?'イントラ特別枠は満席です':(err.message||'追加できませんでした'))}}}
   if(reservationViewState.eventId!==eventId){reservationViewState.eventId=eventId;reservationViewState.classFilter='';reservationViewState.statusFilter='active';reservationViewState.query='';}
@@ -82,6 +82,8 @@ async function renderReservations(eventId=''){
   }
   $$('#classFilters [data-class]').forEach(b=>b.onclick=()=>{classFilter=b.dataset.class;syncState();$('#classFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
   $$('#statusFilters [data-status]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.status;syncState();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
+  checkinMode.onclick=()=>{statusFilter='unchecked';query='';reservationSearch.value='';syncState();renderRows();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unchecked'))};
+  unpaidMode.onclick=()=>{statusFilter='unpaid';query='';reservationSearch.value='';syncState();renderRows();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unpaid'))};
   reservationSearch.oninput=()=>{query=reservationSearch.value;syncState();renderRows()};
   renderRows();
 }
