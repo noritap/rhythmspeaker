@@ -4,11 +4,11 @@ window.RSClassRoster=Object.freeze({
   attendanceIds(person,sessions){
     const booked=sessions.find(s=>s.id===person.sessionId||s.name===person.sessionName);
     const raw=Array.isArray(person.consumes)&&person.consumes.length?person.consumes:(Array.isArray(booked?.consumes)&&booked.consumes.length?booked.consumes:[person.sessionId||booked?.id]);
-    return [...new Set(raw.map(v=>sessions.find(s=>s.id===v||s.name===v)?.id||v).filter(Boolean))];
+    return [...new Set(raw.map(v=>sessions.find(s=>s.id===v||s.name===v)?.id).filter(Boolean))];
   },
   classes(sessions){
     const consumed=new Set(sessions.flatMap(s=>Array.isArray(s.consumes)?s.consumes:[]).map(v=>sessions.find(x=>x.id===v||x.name===v)?.id||v));
-    return consumed.size?sessions.filter(s=>consumed.has(s.id)):sessions.filter(s=>!s.consumes?.length);
+    return consumed.size?sessions.filter(s=>consumed.has(s.id)||(!s.consumes?.length&&!sessions.some(x=>(x.consumes||[]).some(v=>v===s.id||v===s.name)))):sessions.filter(s=>!s.consumes?.length);
   },
   escape(value){return String(value??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot',"'":'&#039;'}[c]));},
   renderCard({session,people,sessions,title='',showCheckin=true}){
