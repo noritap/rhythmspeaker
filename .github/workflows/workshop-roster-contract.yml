@@ -1,0 +1,25 @@
+name: Workshop Roster Contract
+on:
+  pull_request:
+    paths:
+      - 'workshops/**'
+      - '.github/workflows/workshop-roster-contract.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'workshops/**'
+      - '.github/workflows/workshop-roster-contract.yml'
+jobs:
+  roster-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check shared JavaScript syntax
+        run: |
+          node --check workshops/assets/class-roster.js
+          node --check workshops/admin/manager.js
+      - name: Run class roster regression tests
+        run: node --test workshops/tests/class-roster.test.cjs

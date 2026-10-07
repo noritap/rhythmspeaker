@@ -5,10 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <title>Instructor View | Rhythm Speaker</title>
-  <link rel="stylesheet" href="../assets/workshop-os-v2.css?v=20260829-4">
+  <link rel="stylesheet" href="../assets/workshop-os-v2.css?v=20261008-2">
   <style>
     .instructor-hero{padding:42px 0 20px}.instructor-note{margin:14px 0 0;color:var(--muted);font-size:13px;line-height:1.7}.refresh-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.updated-at{font-size:12px;color:var(--muted)}.class-status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.class-status-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px}.class-status-card h3{margin:6px 0 14px;font-size:22px}.class-status-card .metric{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px solid var(--line)}.class-status-card .metric:first-of-type{border-top:0}.class-status-card .metric span{color:var(--muted);font-size:12px}.class-status-card .metric strong{font-size:14px}.instructor-warning{padding:14px 16px;border-radius:16px;background:#fff7e4;border:1px solid #ead7a9;color:#6e4d0a;font-size:13px;line-height:1.7;margin:18px 0}.participant-name{font-weight:850}.source-badge{display:inline-flex;padding:4px 8px;border-radius:999px;background:#f0ede6;font-size:11px;font-weight:800;text-transform:uppercase}.pay-paid{color:var(--green);font-weight:850}.pay-unpaid{color:#9a6700;font-weight:850}@media(max-width:820px){.class-status-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.site-header__inner{height:auto;min-height:68px;padding:10px 0}.header-actions{width:auto}}@media(max-width:520px){.stats{grid-template-columns:1fr 1fr}.stat strong{font-size:21px}.page-title{font-size:40px}.tablewrap table{min-width:620px}}
-  </style>
+  .participant-controls{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:12px;display:grid;gap:15px}.participant-search{max-width:440px;margin:0}.participant-filter-group{display:grid;gap:8px}.participant-filter-group>strong{font-size:12px;color:var(--muted)}.participant-result{padding:0 2px 12px}.participant-result strong{font-size:24px}.participant-result span{color:var(--muted)}.attendance-tags{display:flex;gap:5px;flex-wrap:wrap}.attendance-tag{display:inline-flex;padding:5px 8px;border-radius:999px;background:var(--gold-soft);color:#5a3b00;font-size:11px;font-weight:850}.class-status-card[data-class-filter]{cursor:pointer;transition:.16s ease}.class-status-card[data-class-filter]:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.class-status-card .smallbtn{margin-top:12px}.special-badge{display:inline-flex;margin-top:5px;padding:4px 7px;border-radius:999px;background:#efe4ff;color:#6840a0;font-size:10px;font-weight:900}@media(max-width:680px){.participant-controls{padding:14px}.participant-filter-group .filter-chips{flex-wrap:nowrap;overflow-x:auto}.instructor-participant-table{border:0;background:transparent;overflow:visible}.instructor-participant-table table,.instructor-participant-table thead,.instructor-participant-table tbody,.instructor-participant-table tr,.instructor-participant-table th,.instructor-participant-table td{display:block}.instructor-participant-table table{min-width:0}.instructor-participant-table thead{display:none}.instructor-participant-table tr{background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:10px}.instructor-participant-table td{border:0;padding:5px 0}.instructor-participant-table td:first-child{font-size:18px;padding-bottom:8px}.instructor-participant-table td:nth-child(3)::before{content:"予約内容  ";color:var(--muted);font-size:11px}.instructor-participant-table td:nth-child(4)::before{content:"金額  ";color:var(--muted);font-size:11px}.instructor-participant-table td:nth-child(6)::before{content:"予約経路  ";color:var(--muted);font-size:11px}}
+.roster-groups{display:grid;gap:18px}.roster-class{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden}.roster-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;background:#faf7f0;border-bottom:1px solid var(--line)}.roster-heading h3{margin:4px 0;font-size:22px}.roster-heading-stats{text-align:right}.roster-heading-stats strong{display:block;font-size:25px}.roster-heading-stats small{color:var(--muted)}.roster-list{margin:0;padding:0;list-style:none;counter-reset:roster}.roster-person{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);counter-increment:roster}.roster-person:last-child{border-bottom:0}.roster-person-main{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.roster-person-main::before{content:counter(roster) ".";font-size:12px;color:var(--muted);min-width:24px}.roster-booking{font-size:11px;color:var(--muted)}.roster-person-side{text-align:right;white-space:nowrap}.roster-person-side small{display:block;color:var(--muted)}.roster-empty{padding:18px 20px;color:var(--muted)}@media(max-width:680px){.roster-heading{padding:14px}.roster-heading h3{font-size:19px}.roster-person{padding:13px 14px}.roster-person-main{gap:5px}.roster-booking{width:100%;padding-left:24px}.roster-heading-stats small{font-size:10px}}
+</style>
+  <link rel="stylesheet" href="../assets/class-roster.css?v=20261008-1">
 </head>
 <body>
 <header class="site-header">
@@ -25,12 +28,13 @@
 
   <section class="section section--tight"><div class="shell"><div class="section-head"><div><p class="kicker">CLASSES</p><h2>クラス別の予約状況</h2><p>定員・予約席・残席・売上見込を確認できます。</p></div></div><div id="classGrid" class="class-status-grid"></div></div></section>
 
-  <section class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・参加クラス・支払状況・予約経路のみ表示します。</p></div></div><div class="tablewrap"><table><thead><tr><th>氏名</th><th>クラス</th><th>金額</th><th>支払</th><th>予約経路</th></tr></thead><tbody id="participantRows"><tr><td colspan="5">読み込み中...</td></tr></tbody></table></div></div></section>
+  <section id="participantsSection" class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・実際の参加クラス・支払状況をすぐ確認できます。</p></div></div><div class="refresh-row" style="margin-bottom:12px"><button id="printInstructorRoster" class="btn btn--ghost" type="button">クラス別名簿を印刷</button></div><div id="participantControls" class="participant-controls"></div><div id="participantResult" class="participant-result"></div><div id="rosterGroups" class="roster-groups" aria-live="polite">読み込み中...</div></div></section>
 </main>
 
 <footer class="site-footer"><div class="shell">Rhythm Speaker</div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.js"></script>
+<script src="../assets/class-roster.js?v=20261008-1"></script>
 <script>
 const token=new URLSearchParams(location.search).get('token');
 const cfg=window.RS_WORKSHOP_CONFIG||{};
@@ -40,21 +44,46 @@ const fmtDate=s=>new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'long',da
 const fmtTime=s=>String(s||'').slice(0,5);
 const fmtUpdated=s=>new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date(s));
 let client;
+let dashboardData=null;
+const participantView={classId:"",payment:"all",query:""};
 
-function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';participantRows.innerHTML='<tr><td colspan="5">表示できません。</td></tr>';}
+function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';rosterGroups.textContent='表示できません。';}
+const attendanceIds=(p,sessions)=>RSClassRoster.attendanceIds(p,sessions);
+function attendanceNames(p,sessions){
+  const ids=attendanceIds(p,sessions);
+  const names=ids.map(id=>sessions.find(s=>s.id===id)?.name).filter(Boolean);
+  return names.length?names:[p.sessionName||''];
+}
+function renderParticipants(){
+  if(!dashboardData)return;
+  const sessions=dashboardData.sessions||[],people=RSClassRoster.activePeople(dashboardData.participants||[]);
+  const counts=id=>people.filter(p=>attendanceIds(p,sessions).includes(id)).length;
+  const attendanceSessions=RSClassRoster.classes(sessions);
+  participantControls.innerHTML=`
+    <label class="participant-search">予約者を検索<input id="participantSearch" type="search" placeholder="氏名で検索" value="${esc(participantView.query)}"></label>
+    <div class="participant-filter-group"><strong>クラス</strong><div class="filter-chips"><button class="filter-chip ${!participantView.classId?'is-active':''}" data-pclass="">すべて <b>${people.length}</b></button>${attendanceSessions.map(s=>`<button class="filter-chip ${participantView.classId===s.id?'is-active':''}" data-pclass="${esc(s.id)}">${esc(s.name)} <b>${counts(s.id)}</b></button>`).join('')}</div></div>
+    <div class="participant-filter-group"><strong>支払</strong><div class="filter-chips"><button class="filter-chip ${participantView.payment==='all'?'is-active':''}" data-ppay="all">すべて</button><button class="filter-chip ${participantView.payment==='unpaid'?'is-active filter-chip--warn':''}" data-ppay="unpaid">未入金 <b>${people.filter(p=>p.paymentStatus!=='paid').length}</b></button><button class="filter-chip ${participantView.payment==='paid'?'is-active':''}" data-ppay="paid">入金済 <b>${people.filter(p=>p.paymentStatus==='paid').length}</b></button></div></div>`;
+  const q=participantView.query.trim().toLowerCase();
+  const filtered=people.filter(p=>(!participantView.classId||attendanceIds(p,sessions).includes(participantView.classId))&&(participantView.payment==='all'||(participantView.payment==='paid'?(p.paymentStatus==='paid'):(p.paymentStatus!=='paid')))&&(!q||String(p.name||'').toLowerCase().includes(q)));
+  participantResult.innerHTML=`<strong>${filtered.length}名</strong><span> / 全${people.length}名（セット予約は各参加クラスに表示）</span>`;
+  const selectedSessions=participantView.classId?attendanceSessions.filter(s=>s.id===participantView.classId):attendanceSessions;
+  rosterGroups.innerHTML=selectedSessions.map(session=>RSClassRoster.renderCard({session,people:filtered,sessions,showCheckin:false})).join('')||'<p class="roster-empty">表示できるクラスがありません。</p>';
+  participantControls.querySelectorAll('[data-pclass]').forEach(b=>b.onclick=()=>{participantView.classId=b.dataset.pclass;renderParticipants()});
+  participantControls.querySelectorAll('[data-ppay]').forEach(b=>b.onclick=()=>{participantView.payment=b.dataset.ppay;renderParticipants()});
+  participantSearch.oninput=e=>{participantView.query=e.target.value;renderParticipants();participantSearch.focus();participantSearch.setSelectionRange(participantView.query.length,participantView.query.length)};
+}
 function render(data){
+  dashboardData=data;
   const e=data.event||{},t=data.totals||{},sessions=data.sessions||[],people=data.participants||[];
   document.title=`${e.title||'Instructor View'} | Rhythm Speaker`;
   eventTitle.textContent=e.title||'Workshop';
   eventMeta.textContent=[e.date?fmtDate(e.date):'',e.venue||'',e.instructor?`講師：${e.instructor}`:''].filter(Boolean).join(' / ');
   updatedAt.textContent=`最終更新 ${fmtUpdated(data.generatedAt||new Date().toISOString())}`;
-  stats.innerHTML=`
-    <div class="stat"><span>予約人数</span><strong>${Number(t.reservations||0)}名</strong></div>
-    <div class="stat"><span>売上見込</span><strong>${yen(t.bookedRevenue)}</strong></div>
-    <div class="stat"><span>入金済</span><strong>${yen(t.paidRevenue)}</strong></div>
-    <div class="stat"><span>未収</span><strong>${yen(t.unpaidRevenue)}</strong></div>`;
-  classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>料金</span><strong>${yen(s.price)}</strong></div><div class="metric"><span>予約席</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>残席</span><strong>${Number(s.remaining||0)}席</strong></div><div class="metric"><span>売上見込</span><strong>${yen(s.bookedRevenue)}</strong></div><div class="metric"><span>入金済</span><strong>${yen(s.paidRevenue)}</strong></div></article>`).join(''):'<p>クラス情報がありません。</p>';
-  participantRows.innerHTML=people.length?people.map(p=>`<tr><td class="participant-name">${esc(p.name)}</td><td>${esc(p.sessionName||'')}</td><td>${yen(p.amount)}</td><td class="${p.paymentStatus==='paid'?'pay-paid':'pay-unpaid'}">${p.paymentStatus==='paid'?'入金済':'未入金'}</td><td><span class="source-badge">${esc(p.source||'web')}</span></td></tr>`).join(''):'<tr><td colspan="5">現在、予約はありません。</td></tr>';
+  const attendanceSessions=RSClassRoster.classes(sessions);
+  stats.innerHTML=`<div class="stat"><span>参加予定</span><strong>${Number(t.reservations||people.length||0)}名</strong></div>${attendanceSessions.slice(0,2).map(s=>`<div class="stat"><span>${esc(s.name)}</span><strong>${people.filter(p=>attendanceIds(p,sessions).includes(s.id)).length}名</strong></div>`).join('')}<div class="stat stat--attention"><span>未入金</span><strong>${people.filter(p=>p.paymentStatus!=='paid').length}名</strong><small>${yen(t.unpaidRevenue)} 未収</small></div>`;
+  classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card" data-class-filter="${esc(s.id)}"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>一般枠</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>イントラ特別枠</span><strong>${Number(s.specialOccupied||0)} / ${Number(s.specialCapacity||5)}</strong></div><div class="metric"><span>特別枠 残り</span><strong>${Number(s.specialRemaining||0)}席</strong></div><button class="smallbtn" type="button">参加者を見る</button></article>`).join(''):'<p>クラス情報がありません。</p>';
+  classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const selected=sessions.find(x=>x.id===card.dataset.classFilter);const targets=Array.isArray(selected?.consumes)&&selected.consumes.length?selected.consumes:[card.dataset.classFilter];participantView.classId=targets.length===1?targets[0]:'';renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
+  renderParticipants();
 }
 
 async function load(){
@@ -69,6 +98,7 @@ async function load(){
   }catch(err){showError(err.message==='invalid_or_disabled_link'?'この講師共有リンクは無効です。運営に新しいURLを確認してください。':(err.message||'読み込みに失敗しました。'));}
 }
 refreshBtn.onclick=load;
+printInstructorRoster.onclick=()=>window.print();
 load();
 setInterval(load,60000);
 </script>
