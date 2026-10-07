@@ -33,6 +33,7 @@
 <footer class="site-footer"><div class="shell">Rhythm Speaker</div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="../config.js"></script>
+<script src="../assets/class-roster.js?v=20261008-1"></script>
 <script>
 const token=new URLSearchParams(location.search).get('token');
 const cfg=window.RS_WORKSHOP_CONFIG||{};
@@ -46,11 +47,7 @@ let dashboardData=null;
 const participantView={classId:"",payment:"all",query:""};
 
 function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';rosterGroups.textContent='表示できません。';}
-function attendanceIds(p,sessions){
-  const booked=sessions.find(s=>s.id===p.sessionId||s.name===p.sessionName);
-  const raw=Array.isArray(p.consumes)&&p.consumes.length?p.consumes:(Array.isArray(booked?.consumes)&&booked.consumes.length?booked.consumes:[p.sessionId||booked?.id]);
-  return raw.map(v=>sessions.find(s=>s.id===v||s.name===v)?.id||v).filter(Boolean);
-}
+const attendanceIds=(p,sessions)=>RSClassRoster.attendanceIds(p,sessions);
 function attendanceNames(p,sessions){
   const ids=attendanceIds(p,sessions);
   const names=ids.map(id=>sessions.find(s=>s.id===id)?.name).filter(Boolean);
@@ -61,7 +58,7 @@ function renderParticipants(){
   const sessions=dashboardData.sessions||[],people=dashboardData.participants||[];
   const counts=id=>people.filter(p=>attendanceIds(p,sessions).includes(id)).length;
   const consumedIds=new Set(sessions.flatMap(s=>Array.isArray(s.consumes)?s.consumes:[]).map(v=>sessions.find(x=>x.id===v||x.name===v)?.id||v));
-  const attendanceSessions=consumedIds.size?sessions.filter(s=>consumedIds.has(s.id)):sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
+  const attendanceSessions=RSClassRoster.classes(sessions);
   participantControls.innerHTML=`
     <label class="participant-search">予約者を検索<input id="participantSearch" type="search" placeholder="氏名で検索" value="${esc(participantView.query)}"></label>
     <div class="participant-filter-group"><strong>クラス</strong><div class="filter-chips"><button class="filter-chip ${!participantView.classId?'is-active':''}" data-pclass="">すべて <b>${people.length}</b></button>${attendanceSessions.map(s=>`<button class="filter-chip ${participantView.classId===s.id?'is-active':''}" data-pclass="${esc(s.id)}">${esc(s.name)} <b>${counts(s.id)}</b></button>`).join('')}</div></div>
