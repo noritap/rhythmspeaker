@@ -56,9 +56,8 @@ function attendanceNames(p,sessions){
 }
 function renderParticipants(){
   if(!dashboardData)return;
-  const sessions=dashboardData.sessions||[],people=dashboardData.participants||[];
+  const sessions=dashboardData.sessions||[],people=RSClassRoster.activePeople(dashboardData.participants||[]);
   const counts=id=>people.filter(p=>attendanceIds(p,sessions).includes(id)).length;
-  const consumedIds=new Set(sessions.flatMap(s=>Array.isArray(s.consumes)?s.consumes:[]).map(v=>sessions.find(x=>x.id===v||x.name===v)?.id||v));
   const attendanceSessions=RSClassRoster.classes(sessions);
   participantControls.innerHTML=`
     <label class="participant-search">予約者を検索<input id="participantSearch" type="search" placeholder="氏名で検索" value="${esc(participantView.query)}"></label>
