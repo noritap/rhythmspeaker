@@ -20,6 +20,7 @@ ITEMS = [
     ("初回体験", "trial/"),
     ("クラス", "classes/"),
     ("教室紹介", "about/"),
+    ("ワークショップ", "workshops/"),
     ("サービス一覧", "ecosystem/"),
     ("FAQ", "faq/"),
     ("アクセス", "access/"),
