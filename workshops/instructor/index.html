@@ -67,13 +67,7 @@ function renderParticipants(){
   const filtered=people.filter(p=>(!participantView.classId||attendanceIds(p,sessions).includes(participantView.classId))&&(participantView.payment==='all'||(participantView.payment==='paid'?(p.paymentStatus==='paid'):(p.paymentStatus!=='paid')))&&(!q||String(p.name||'').toLowerCase().includes(q)));
   participantResult.innerHTML=`<strong>${filtered.length}名</strong><span> / 全${people.length}名（セット予約は各参加クラスに表示）</span>`;
   const selectedSessions=participantView.classId?attendanceSessions.filter(s=>s.id===participantView.classId):attendanceSessions;
-  const card=p=>`<li class="roster-person"><div class="roster-person-main"><strong>${esc(p.name)}</strong>${p.reservationKind==='instructor_special'?'<span class="special-badge">イントラ特別枠</span>':''}<span class="roster-booking">${esc(p.sessionName||'')}</span></div><div class="roster-person-side"><span class="${p.paymentStatus==='paid'?'pay-paid':'pay-unpaid'}">${p.paymentStatus==='paid'?'入金済':'未入金'}</span><small>${yen(p.amount)}</small></div></li>`;
-  rosterGroups.innerHTML=selectedSessions.map(s=>{
-    const members=filtered.filter(p=>attendanceIds(p,sessions).includes(s.id));
-    const special=members.filter(p=>p.reservationKind==='instructor_special').length;
-    const unpaid=members.filter(p=>p.paymentStatus!=='paid').length;
-    return `<section class="roster-class" aria-label="${esc(s.name)}の参加予定者"><div class="roster-heading"><div><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3></div><div class="roster-heading-stats"><strong>${members.length}名</strong><small>特別枠 ${special}名・未入金 ${unpaid}名</small></div></div>${members.length?`<ol class="roster-list">${members.map(card).join('')}</ol>`:'<p class="roster-empty">条件に合う参加者はいません。</p>'}</section>`;
-  }).join('')||'<p class="roster-empty">表示できるクラスがありません。</p>';
+  rosterGroups.innerHTML=selectedSessions.map(session=>RSClassRoster.renderCard({session,people:filtered,sessions,showCheckin:false})).join('')||'<p class="roster-empty">表示できるクラスがありません。</p>';
   participantControls.querySelectorAll('[data-pclass]').forEach(b=>b.onclick=()=>{participantView.classId=b.dataset.pclass;renderParticipants()});
   participantControls.querySelectorAll('[data-ppay]').forEach(b=>b.onclick=()=>{participantView.payment=b.dataset.ppay;renderParticipants()});
   participantSearch.oninput=e=>{participantView.query=e.target.value;renderParticipants();participantSearch.focus();participantSearch.setSelectionRange(participantView.query.length,participantView.query.length)};
