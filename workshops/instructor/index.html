@@ -58,7 +58,8 @@ function renderParticipants(){
   if(!dashboardData)return;
   const sessions=dashboardData.sessions||[],people=dashboardData.participants||[];
   const counts=id=>people.filter(p=>attendanceIds(p,sessions).includes(id)).length;
-  const attendanceSessions=sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
+  const consumedIds=new Set(sessions.flatMap(s=>Array.isArray(s.consumes)?s.consumes:[]).map(v=>sessions.find(x=>x.id===v||x.name===v)?.id||v));
+  const attendanceSessions=consumedIds.size?sessions.filter(s=>consumedIds.has(s.id)):sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
   participantControls.innerHTML=`
     <label class="participant-search">予約者を検索<input id="participantSearch" type="search" placeholder="氏名で検索" value="${esc(participantView.query)}"></label>
     <div class="participant-filter-group"><strong>クラス</strong><div class="filter-chips"><button class="filter-chip ${!participantView.classId?'is-active':''}" data-pclass="">すべて <b>${people.length}</b></button>${attendanceSessions.map(s=>`<button class="filter-chip ${participantView.classId===s.id?'is-active':''}" data-pclass="${esc(s.id)}">${esc(s.name)} <b>${counts(s.id)}</b></button>`).join('')}</div></div>
@@ -78,7 +79,8 @@ function render(data){
   eventTitle.textContent=e.title||'Workshop';
   eventMeta.textContent=[e.date?fmtDate(e.date):'',e.venue||'',e.instructor?`講師：${e.instructor}`:''].filter(Boolean).join(' / ');
   updatedAt.textContent=`最終更新 ${fmtUpdated(data.generatedAt||new Date().toISOString())}`;
-  const attendanceSessions=sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
+  const consumedIds=new Set(sessions.flatMap(s=>Array.isArray(s.consumes)?s.consumes:[]).map(v=>sessions.find(x=>x.id===v||x.name===v)?.id||v));
+  const attendanceSessions=consumedIds.size?sessions.filter(s=>consumedIds.has(s.id)):sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
   stats.innerHTML=`<div class="stat"><span>参加予定</span><strong>${Number(t.reservations||people.length||0)}名</strong></div>${attendanceSessions.slice(0,2).map(s=>`<div class="stat"><span>${esc(s.name)}</span><strong>${people.filter(p=>attendanceIds(p,sessions).includes(s.id)).length}名</strong></div>`).join('')}<div class="stat stat--attention"><span>未入金</span><strong>${people.filter(p=>p.paymentStatus!=='paid').length}名</strong><small>${yen(t.unpaidRevenue)} 未収</small></div>`;
   classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card" data-class-filter="${esc(s.id)}"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>予約席</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>残席</span><strong>${Number(s.remaining||0)}席</strong></div><button class="smallbtn" type="button">参加者を見る</button></article>`).join(''):'<p>クラス情報がありません。</p>';
   classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const selected=sessions.find(x=>x.id===card.dataset.classFilter);const targets=Array.isArray(selected?.consumes)&&selected.consumes.length?selected.consumes:[card.dataset.classFilter];participantView.classId=targets.length===1?targets[0]:'';renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
