@@ -45,7 +45,7 @@ const participantView={classId:"",payment:"all",query:""};
 
 function showError(message){errorBox.textContent=message;errorBox.classList.remove('hidden');stats.innerHTML='';classGrid.innerHTML='';participantRows.innerHTML='<tr><td colspan="6">表示できません。</td></tr>';}
 function attendanceIds(p,sessions){
-  const booked=sessions.find(s=>s.id===p.sessionId);
+  const booked=sessions.find(s=>s.id===p.sessionId||s.name===p.sessionName);
   const consumes=Array.isArray(p.consumes)&&p.consumes.length?p.consumes:(Array.isArray(booked?.consumes)&&booked.consumes.length?booked.consumes:[p.sessionId]);
   return consumes.filter(Boolean);
 }
@@ -81,7 +81,7 @@ function render(data){
   const attendanceSessions=sessions.filter(s=>!Array.isArray(s.consumes)||!s.consumes.length);
   stats.innerHTML=`<div class="stat"><span>参加予定</span><strong>${Number(t.reservations||people.length||0)}名</strong></div>${attendanceSessions.slice(0,2).map(s=>`<div class="stat"><span>${esc(s.name)}</span><strong>${people.filter(p=>attendanceIds(p,sessions).includes(s.id)).length}名</strong></div>`).join('')}<div class="stat stat--attention"><span>未入金</span><strong>${people.filter(p=>p.paymentStatus!=='paid').length}名</strong><small>${yen(t.unpaidRevenue)} 未収</small></div>`;
   classGrid.innerHTML=sessions.length?sessions.map(s=>`<article class="class-status-card" data-class-filter="${esc(s.id)}"><p class="kicker">${fmtTime(s.start)}–${fmtTime(s.end)}</p><h3>${esc(s.name)}</h3><div class="metric"><span>予約席</span><strong>${Number(s.occupied||0)} / ${Number(s.capacity||0)}</strong></div><div class="metric"><span>残席</span><strong>${Number(s.remaining||0)}席</strong></div><button class="smallbtn" type="button">参加者を見る</button></article>`).join(''):'<p>クラス情報がありません。</p>';
-  classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const s=sessions.find(x=>x.id===card.dataset.classFilter);const targets=Array.isArray(s?.consumes)&&s.consumes.length?s.consumes:[card.dataset.classFilter];participantView.classId=targets.length===1?targets[0]:'';renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
+  classGrid.querySelectorAll('[data-class-filter]').forEach(card=>card.onclick=()=>{const selected=sessions.find(x=>x.id===card.dataset.classFilter);const targets=Array.isArray(selected?.consumes)&&selected.consumes.length?selected.consumes:[card.dataset.classFilter];participantView.classId=targets.length===1?targets[0]:'';renderParticipants();participantsSection.scrollIntoView({behavior:'smooth',block:'start'})});
   renderParticipants();
 }
 
