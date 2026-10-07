@@ -70,6 +70,13 @@
         const m=new Map(copy.sessions.map(s=>[s.id,crypto.randomUUID()]));copy.sessions=copy.sessions.map(s=>({...s,id:m.get(s.id),consumes:(s.consumes||[]).map(x=>m.get(x)).filter(Boolean)}));
         return this.saveEvent(copy);
       },
+      async createInstructorSpecialReservation(payload){
+        const {data,error}=await client.rpc('create_workshop_instructor_special_reservation',{
+          p_event_id:payload.eventId,p_session_id:payload.sessionId,p_name:payload.name,
+          p_email:payload.email||null,p_phone:payload.phone||null,p_note:payload.note||null
+        });
+        if(error) throw error; return data;
+      },
       async getInstructorToken(eventId){
         const {data,error}=await client.rpc('get_or_create_workshop_instructor_link',{p_event_id:eventId});
         if(error) throw error; return data;
