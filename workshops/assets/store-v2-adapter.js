@@ -70,6 +70,10 @@
         const m=new Map(copy.sessions.map(s=>[s.id,crypto.randomUUID()]));copy.sessions=copy.sessions.map(s=>({...s,id:m.get(s.id),consumes:(s.consumes||[]).map(x=>m.get(x)).filter(Boolean)}));
         return this.saveEvent(copy);
       },
+      async getInstructorSpecialRemaining(eventId,sessionId){
+        const {data,error}=await client.rpc('workshop_instructor_special_remaining',{p_event_id:eventId,p_session_id:sessionId});
+        if(error) throw error; return Number(data||0);
+      },
       async createInstructorSpecialReservation(payload){
         const {data,error}=await client.rpc('create_workshop_instructor_special_reservation',{
           p_event_id:payload.eventId,p_session_id:payload.sessionId,p_name:payload.name,
