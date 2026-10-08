@@ -1,0 +1,207 @@
+/* STEP hero / 2026-10-09
+   Approved actual lesson photo: user-provided floor-level studio image.
+   Class identity poster stays unchanged in the compact summary strip.
+   This file loads after shared photo-system.css intentionally. */
+.step-page .class-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 660px;
+  padding: clamp(7.5rem, 10vw, 9rem) 6% clamp(3rem, 6vw, 5rem);
+  color: #fff;
+  background-color: #171310;
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, .86) 0%, rgba(8, 8, 8, .67) 35%, rgba(8, 8, 8, .20) 72%, rgba(8, 8, 8, .04) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, .32), transparent 55%),
+    url('../../assets/classes/class-step-hero-lesson-v1.webp');
+  background-position: center, center, center 53%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.step-page .class-hero::after {
+  height: 5px;
+  background: linear-gradient(90deg, #ff4058 0 30%, rgba(255,255,255,.3) 30% 100%);
+}
+.step-page .class-hero-grid {
+  display: block;
+  width: min(1180px, 100%);
+}
+.step-page .step-hero-copy {
+  width: min(650px, 60%);
+}
+.step-page .class-hero .class-kicker {
+  color: #ff8190;
+}
+.step-page .class-hero h1 {
+  color: #fff;
+  font-size: clamp(3.1rem, 5.2vw, 5rem);
+  line-height: 1.14;
+  margin: .75rem 0 1.25rem;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+  text-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.step-page .class-hero .class-lead {
+  color: rgba(255,255,255,.94);
+  line-height: 1.8;
+  max-width: 610px;
+  text-shadow: 0 1px 8px rgba(0,0,0,.28);
+}
+.step-page .class-hero .class-actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1.6rem;
+}
+.step-page .class-hero .class-actions .btn {
+  width: auto;
+  min-height: 48px;
+}
+.step-page .class-hero .class-actions .btn-secondary {
+  color: #fff;
+  border-color: rgba(255,255,255,.78);
+  background: rgba(0,0,0,.38);
+  backdrop-filter: blur(4px);
+}
+.step-page .class-hero .class-actions .btn-secondary:hover {
+  background: rgba(0,0,0,.6);
+}
+.step-page .class-hero .class-trial-note {
+  margin-top: 1rem;
+  color: rgba(255,255,255,.92);
+  font-size: .82rem;
+  text-shadow: 0 1px 5px rgba(0,0,0,.45);
+}
+.step-page .class-hero .class-trial-note strong {
+  color: #fff;
+}
+.step-page .step-class-summary {
+  background: #f8f4ef;
+  border-bottom: 1px solid #e4dbd0;
+}
+.step-page .step-summary-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem,3vw,2.5rem);
+  padding: 1.15rem 0;
+}
+.step-page .step-summary-poster {
+  flex: 0 0 100px;
+  margin: 0;
+}
+.step-page .step-summary-poster .class-identity-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 9px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.1);
+}
+.step-page .step-summary-facts {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 1.25rem;
+}
+.step-page .step-summary-facts small {
+  display: block;
+  margin-bottom: .3rem;
+  color: #84786d;
+  font: 800 .63rem/1.4 'Outfit','Noto Sans JP',sans-serif;
+  letter-spacing: .09em;
+}
+.step-page .step-summary-facts strong {
+  display: block;
+  color: #29221d;
+  font-size: clamp(.78rem,1.1vw,.95rem);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .step-page .class-hero {
+    min-height: 600px;
+    padding: 7.25rem 5% 3rem;
+    background-position: center, center, 53% center;
+  }
+  .step-page .step-hero-copy {
+    width: min(570px, 77%);
+  }
+  .step-page .class-hero h1 {
+    font-size: clamp(2.5rem, 5.5vw, 3.6rem);
+  }
+  .step-page .step-summary-inner {
+    padding: 1rem 5%;
+  }
+  .step-page .step-summary-facts {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .75rem 1.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .step-page .class-hero {
+    min-height: 690px;
+    align-items: flex-start;
+    padding: calc(64px + 1.65rem) 1.25rem 2.5rem;
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.75) 36%, rgba(0,0,0,.35) 63%, rgba(0,0,0,.04) 100%),
+      url('../../assets/classes/class-step-hero-lesson-v1.webp');
+    background-position: center, 31% center;
+  }
+  .step-page .step-hero-copy {
+    width: 100%;
+    max-width: 560px;
+  }
+  .step-page .class-hero h1 {
+    font-size: clamp(2.35rem, 8.7vw, 3.35rem);
+    line-height: 1.15;
+    margin: .65rem 0 1rem;
+  }
+  .step-page .class-hero .class-lead {
+    font-size: .9rem;
+    line-height: 1.68;
+  }
+  .step-page .class-hero .class-actions {
+    display: grid;
+    grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr);
+    gap: .55rem;
+    margin-top: 1.2rem;
+  }
+  .step-page .class-hero .class-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    padding: .7rem .4rem;
+    font-size: .8rem;
+    white-space: normal;
+  }
+  .step-page .class-hero .class-trial-note {
+    font-size: .74rem;
+    line-height: 1.6;
+  }
+  .step-page .step-summary-inner {
+    gap: .9rem;
+    padding: .85rem 1.25rem;
+  }
+  .step-page .step-summary-poster {
+    flex-basis: 84px;
+  }
+  .step-page .step-summary-facts {
+    grid-template-columns: 1fr;
+    gap: .4rem;
+  }
+  .step-page .step-summary-facts > div:nth-child(n+3) {
+    display: none;
+  }
+  .step-page .step-summary-facts small {
+    margin: 0;
+    font-size: .58rem;
+  }
+  .step-page .step-summary-facts strong {
+    font-size: .82rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-page .class-hero .btn { transition: none; }
+}
