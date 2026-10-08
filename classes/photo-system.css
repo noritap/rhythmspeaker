@@ -121,7 +121,28 @@
 }
 
 @media (max-width: 768px) {
-  .class-page .class-identity-art { width: min(100%, 240px); }
+  /* Keep the class picture and essential facts in one scannable row. */
+  .class-page .class-panel {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: .8rem;
+    padding: .9rem;
+  }
+  .class-page .class-identity-art {
+    width: 100%;
+    margin: 0;
+  }
+  .class-page .class-identity-art figcaption { font-size: .58rem; }
+  .class-page .class-facts { min-width: 0; }
+  .class-page .class-facts small { font-size: .59rem; }
+  .class-page .class-facts strong {
+    font-size: clamp(.82rem, 3.3vw, 1rem);
+    line-height: 1.35;
+    margin: .12rem 0 .65rem;
+    overflow-wrap: anywhere;
+  }
+  .class-page .class-facts strong:last-child { margin-bottom: 0; }
   .step-page #levels .class-card,
   .tap-page #concept .class-card,
   .tap-page #difference .class-feature { padding: 1.35rem; }
