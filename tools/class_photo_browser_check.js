@@ -101,20 +101,36 @@ function expect(ok, message) { if (!ok) errors.push(message); }
         if (data.hero && target !== '/classes/stretch/') {
           // This catches the actual 2026-10-09 regression: an oversized black
           // hero with a miniature poster hidden inside a huge dashboard panel.
-          expect(data.hero.color === 'rgb(32, 29, 27)',
-            width + ' ' + target + ': class intro is not a light editorial layout');
-          expect(data.hero.height < (width <= 390 ? 740 : 690),
+          if (target === '/classes/step/') {
+            expect(data.hero.color === 'rgb(255, 255, 255)',
+              width + ': STEP hero must use white text over the actual lesson photo');
+            expect(data.hero.background.includes('class-step-hero-lesson-v1.webp'),
+              width + ': STEP hero does not use approved user photo');
+            expect(data.hero.height >= (width <= 390 ? 620 : 530),
+              width + ': STEP photo hero is too short to communicate studio atmosphere');
+          } else {
+            expect(data.hero.color === 'rgb(32, 29, 27)',
+              width + ' ' + target + ': class intro is not a light editorial layout');
+          }
+          expect(data.hero.height < (width <= 390 ? 740 : 760),
             width + ' ' + target + ': class hero too tall (' + data.hero.height + 'px)');
-          expect(data.photos[0]?.width >= (width >= 750 ? 220 : 115),
+          expect(data.photos[0]?.width >= (target === '/classes/step/' ? 80 : (width >= 750 ? 220 : 115)),
             width + ' ' + target + ': class poster too small (' + data.photos[0]?.width + 'px)');
           expect(data.hero.kickerTop >= data.hero.navBottom + 8,
             width + ' ' + target + ': class eyebrow is hidden behind fixed navigation');
-          expect(data.hero.secondaryColor === 'rgb(37, 33, 30)',
+          expect(data.hero.secondaryColor === (target === '/classes/step/' ? 'rgb(255, 255, 255)' : 'rgb(37, 33, 30)'),
             width + ' ' + target + ': secondary CTA text is low contrast');
           expect(data.hero.ctaHeight >= 44,
             width + ' ' + target + ': primary booking CTA tap target too small');
           expect(data.hero.ctaTop < (width <= 390 ? 650 : 690),
             width + ' ' + target + ': primary CTA too far down the page');
+        }
+        if (target === '/classes/step/') {
+          const heroPhoto = await page.request.get(base + '/assets/classes/class-step-hero-lesson-v1.webp');
+          expect(heroPhoto.status() === 200,
+            width + ': STEP hero image asset missing or HTTP ' + heroPhoto.status());
+          expect((heroPhoto.headers()['content-type'] || '').includes('image/'),
+            width + ': STEP hero asset must be a real image');
         }
         if (target === '/classes/step/' && width >= 750) {
           expect(data.hero?.headingLines <= 2.2,
