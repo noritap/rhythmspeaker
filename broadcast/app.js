@@ -327,10 +327,38 @@
     link.dataset.destinationType = latestAppearance ? 'episode' : 'program';
 
     const media = document.createElement('div');
-    media.className = 'stream-tile__media stream-tile__media--editorial';
-    const title = document.createElement('strong');
-    title.textContent = person.name_en || person.name;
-    media.append(title);
+    media.className = 'stream-tile__media';
+
+    const showEditorialFallback = () => {
+      media.replaceChildren();
+      media.classList.remove('stream-tile__media--portrait');
+      media.classList.add('stream-tile__media--editorial');
+      const title = document.createElement('strong');
+      title.textContent = person.name_en || person.name;
+      media.append(title);
+    };
+
+    if (person.portrait_url) {
+      media.classList.add('stream-tile__media--portrait');
+      const photo = document.createElement('img');
+      photo.src = new URL(person.portrait_url, scriptUrl).href;
+      photo.alt = `${person.name}のプロフィール写真`;
+      photo.loading = 'lazy';
+      photo.decoding = 'async';
+      if (person.portrait_position) photo.style.objectPosition = person.portrait_position;
+      photo.addEventListener('error', () => {
+        if (!photo.dataset.fallback && person.portrait_fallback_url) {
+          photo.dataset.fallback = 'true';
+          photo.src = new URL(person.portrait_fallback_url, scriptUrl).href;
+          photo.alt = `${person.name}さん出演回のYouTubeサムネイル`;
+          return;
+        }
+        showEditorialFallback();
+      });
+      media.append(photo);
+    } else {
+      showEditorialFallback();
+    }
 
     const body = document.createElement('div');
     body.className = 'stream-tile__body';
