@@ -25,7 +25,7 @@ body.instructors-page{background:#f4efe7;color:#171717}.instructors-page main{ov
 .person-photo--saito{background-image:var(--rs-instructor-photo-saito);background-position:center!important}
 .person-photo--pal{background-image:var(--rs-instructor-photo-pal);background-position:center!important}
 .person-photo--furusho{background-image:var(--rs-instructor-photo-furusho);background-position:center!important}
-.instructors-page .person-photo{background-size:100% 100%!important;filter:none}
+.instructors-page .person-photo{background-size:contain!important;background-color:#f4f0ea;filter:none}
 .instructors-page .person-card:hover .person-photo{filter:none;transform:none}
 .instructors-page .person-card[hidden],.instructors-page #clear-filter[hidden]{display:none!important}
 .instructors-page .team-section{scroll-margin-top:5rem}
