@@ -52,6 +52,17 @@
   border-color: #b4aaa0;
   background: rgba(255,255,255,.45);
 }
+.step-page .class-trial-note {
+  margin: .85rem 0 0;
+  color: #6c5f55;
+  font-size: .8rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+.step-page .class-trial-note strong {
+  color: #2c2420;
+  font-size: .92rem;
+}
 .class-page .class-actions .btn-secondary:hover {
   background: #fff;
 }
