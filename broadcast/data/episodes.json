@@ -122,5 +122,79 @@
       }
     ],
     "event_id": null
+  },
+  {
+    "id": "ayako-002",
+    "program": "ayako-no-heya",
+    "episode_number": 2,
+    "title": "橋本タクト（橋本拓人）× 宇川彩子｜シャッフルの禁忌と初めて明かす夢",
+    "guest_ids": [
+      "takuto-hashimoto"
+    ],
+    "published": null,
+    "youtube_id": "L5TENbISDpI",
+    "youtube_url": "https://youtu.be/L5TENbISDpI",
+    "thumbnail_url": "https://i.ytimg.com/vi/L5TENbISDpI/maxresdefault.jpg",
+    "summary": "橋本タクト（橋本拓人）さんを迎え、生演奏での即興の面白さ、「引き足は下げるな」というシャッフルの技術、ブルーノートでソロライブを開く夢を語る第2回。",
+    "topics": [
+      "live-music",
+      "improvisation",
+      "shuffle",
+      "twist",
+      "blue-note-dream"
+    ],
+    "chapters": [
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング"
+      },
+      {
+        "time": "00:54",
+        "seconds": 54,
+        "label": "ゲスト登場：橋本タクト（タップ歴18年の原点）"
+      },
+      {
+        "time": "02:14",
+        "seconds": 134,
+        "label": "柔らかさと余裕／舞台で楽しむスタイル"
+      },
+      {
+        "time": "04:11",
+        "seconds": 251,
+        "label": "初舞台からソロへ・ミュージシャンとの出会い"
+      },
+      {
+        "time": "06:08",
+        "seconds": 368,
+        "label": "生演奏で踊る面白さとハプニングの魅力"
+      },
+      {
+        "time": "10:19",
+        "seconds": 619,
+        "label": "俺のシャッフル（足首の脱力と90度の基本）"
+      },
+      {
+        "time": "16:51",
+        "seconds": 1011,
+        "label": "語られた夢「ブルーノートのステージへ」"
+      },
+      {
+        "time": "20:04",
+        "seconds": 1204,
+        "label": "あやこのインプロ講座 プチ（人の動きを真似て広げる）"
+      },
+      {
+        "time": "25:04",
+        "seconds": 1504,
+        "label": "西荻窪ボイラー室 10月ライブ情報"
+      },
+      {
+        "time": "27:35",
+        "seconds": 1655,
+        "label": "エンディング"
+      }
+    ],
+    "event_id": null
   }
 ]
