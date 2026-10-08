@@ -65,6 +65,13 @@
 
 /* Stretch has an intentionally contextual hero; show its TOP class poster
    immediately after the hero, without covering the studio imagery or CTA. */
+/* Real studio scene, not a multi-panel sprite, for the STRETCH hero. */
+.stretch-page .sprite-studio--hero {
+  background-image: url('../../assets/images/trial/trial-real-studio-floor-v1.webp');
+  background-position: center;
+  background-size: cover;
+}
+
 .stretch-page .stretch-identity-strip {
   display: flex;
   align-items: center;
@@ -105,6 +112,7 @@
 .stretch-page .stretch-team-photo {
   display: block;
   width: 100%;
+  max-width: 280px;
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
