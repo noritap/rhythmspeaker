@@ -56,6 +56,8 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           };
           const heroEl = document.querySelector('.class-hero');
           const heroRect = heroEl?.getBoundingClientRect();
+          const heading = heroEl?.querySelector('h1');
+          const headingLineHeight = heading ? parseFloat(getComputedStyle(heading).lineHeight) : 0;
           const primaryCTA = heroEl?.querySelector('.class-actions .btn-primary');
           const ctaRect = primaryCTA?.getBoundingClientRect();
           const kickerRect = heroEl?.querySelector('.class-kicker')?.getBoundingClientRect();
@@ -63,6 +65,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           const secondary = heroEl?.querySelector('.class-actions .btn-secondary');
           const hero = heroEl ? {
             height: heroRect.height,
+            headingLines: headingLineHeight ? heading.getBoundingClientRect().height / headingLineHeight : null,
             color: getComputedStyle(heroEl).color,
             background: getComputedStyle(heroEl).backgroundImage,
             ctaTop: ctaRect?.top ?? null,
@@ -112,6 +115,10 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ' ' + target + ': primary booking CTA tap target too small');
           expect(data.hero.ctaTop < (width <= 390 ? 650 : 690),
             width + ' ' + target + ': primary CTA too far down the page');
+        }
+        if (target === '/classes/step/' && width >= 750) {
+          expect(data.hero?.headingLines <= 2.2,
+            width + ': STEP headline has an orphaned third line');
         }
         if (target === '/classes/step/') {
           expect(data.levelPseudo?.content === 'none' || data.levelPseudo?.display === 'none',
