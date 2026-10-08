@@ -19,6 +19,7 @@
   min-height: 0;
   padding: clamp(2.25rem, 4.5vw, 4.75rem) clamp(1.25rem, 5vw, 5rem);
   color: #201d1b;
+  padding-top: clamp(6rem, 8vw, 7rem); /* fixed site nav occupies first 68px */
   background: linear-gradient(125deg, #faf7f2 0%, #f0e9e0 100%);
 }
 .class-page .class-hero::after {
@@ -47,7 +48,7 @@
   margin-top: 1.45rem;
   gap: .7rem;
 }
-.class-page .class-actions .btn-secondary {
+.class-page .class-hero .class-actions .btn-secondary {
   color: #25211e;
   border-color: #b4aaa0;
   background: rgba(255,255,255,.45);
@@ -63,7 +64,7 @@
   color: #2c2420;
   font-size: .92rem;
 }
-.class-page .class-actions .btn-secondary:hover {
+.class-page .class-hero .class-actions .btn-secondary:hover {
   background: #fff;
 }
 .class-page .class-panel {
@@ -218,9 +219,21 @@
   background: #f4f0ea;
 }
 
+/* A 750px split-screen is still a two-column layout.
+   Keep the CTA pair inline; don't inherit the old <=768px stacked buttons. */
+@media (min-width: 701px) and (max-width: 900px) {
+  .class-page .class-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .class-page .class-actions .btn {
+    width: auto;
+  }
+}
+
 @media (max-width: 700px) {
   .class-page .class-hero {
-    padding: 1.85rem 1.25rem 2.25rem;
+    padding: calc(68px + 1.35rem) 1.25rem 2.25rem;
   }
   .class-page .class-hero-grid {
     grid-template-columns: minmax(0,1fr);
