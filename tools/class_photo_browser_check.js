@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const base = 'http://127.0.0.1:8002';
 const classes = ['step', 'tap', 'stretch', 'isolation', 'bar-method', 'hiit'];
-const widths = [360, 390, 768, 1280];
+const widths = [360, 390, 750, 768, 1280];
 const errors = [];
 const results = [];
 
@@ -54,11 +54,23 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             const style = getComputedStyle(el, '::before');
             return { content: style.content, display: style.display };
           };
+          const heroEl = document.querySelector('.class-hero');
+          const heroRect = heroEl?.getBoundingClientRect();
+          const primaryCTA = heroEl?.querySelector('.class-actions .btn-primary');
+          const ctaRect = primaryCTA?.getBoundingClientRect();
+          const hero = heroEl ? {
+            height: heroRect.height,
+            color: getComputedStyle(heroEl).color,
+            background: getComputedStyle(heroEl).backgroundImage,
+            ctaTop: ctaRect?.top ?? null,
+            ctaHeight: ctaRect?.height ?? null,
+            panelWidth: document.querySelector('.class-panel')?.getBoundingClientRect().width ?? null,
+          } : null;
           const team = target === '/classes/stretch/' ?
             [...document.querySelectorAll('.stretch-team-photo')].map(el => el.complete && el.naturalWidth > 0) : [];
           return {
             width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
-            photos, team, levelPseudo: pseudo('#levels .class-card'),
+            photos, team, hero, levelPseudo: pseudo('#levels .class-card'),
             conceptPseudo: pseudo('#concept .class-card'),
             routePseudo: pseudo('.route-card'),
           };
@@ -77,6 +89,20 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           expect(photo.width >= 80 && Math.abs(photo.width - photo.height) < 3,
             width + ' ' + target + ': poster not square (' + photo.width + 'x' + photo.height + ')');
         }
+        if (data.hero && target !== '/classes/stretch/') {
+          // This catches the actual 2026-10-09 regression: an oversized black
+          // hero with a miniature poster hidden inside a huge dashboard panel.
+          expect(data.hero.color === 'rgb(32, 29, 27)',
+            width + ' ' + target + ': class intro is not a light editorial layout');
+          expect(data.hero.height < (width <= 390 ? 740 : 690),
+            width + ' ' + target + ': class hero too tall (' + data.hero.height + 'px)');
+          expect(data.photos[0]?.width >= (width >= 750 ? 220 : 115),
+            width + ' ' + target + ': class poster too small (' + data.photos[0]?.width + 'px)');
+          expect(data.hero.ctaHeight >= 44,
+            width + ' ' + target + ': primary booking CTA tap target too small');
+          expect(data.hero.ctaTop < (width <= 390 ? 650 : 690),
+            width + ' ' + target + ': primary CTA too far down the page');
+        }
         if (target === '/classes/step/') {
           expect(data.levelPseudo?.content === 'none' || data.levelPseudo?.display === 'none',
             width + ': STEP level cards still show repeated dancer photos');
@@ -93,7 +119,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           expect(data.routePseudo?.content === 'none' || data.routePseudo?.display === 'none',
             width + ': access route still shows irrelevant dancer photo');
         }
-        if (width === 390 || width === 1280) {
+        if (width === 390 || width === 750 || width === 1280) {
           const slug = target.split('/').filter(Boolean).join('-') || 'home';
           await page.screenshot({ path: 'ux-evidence/photo-' + slug + '-' + width + '.png', fullPage: false });
         }
