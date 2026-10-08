@@ -55,6 +55,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             return { content: style.content, display: style.display };
           };
           const heroEl = document.querySelector('.class-hero');
+          const lessonPhoto = heroEl?.querySelector('.step-hero-photo');
           const heroRect = heroEl?.getBoundingClientRect();
           const heading = heroEl?.querySelector('h1');
           const headingLineHeight = heading ? parseFloat(getComputedStyle(heading).lineHeight) : 0;
@@ -68,6 +69,14 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             headingLines: headingLineHeight ? heading.getBoundingClientRect().height / headingLineHeight : null,
             color: getComputedStyle(heroEl).color,
             background: getComputedStyle(heroEl).backgroundImage,
+            lessonPhoto: lessonPhoto ? {
+              loaded: lessonPhoto.complete && lessonPhoto.naturalWidth > 0,
+              src: lessonPhoto.getAttribute('src'),
+              fit: getComputedStyle(lessonPhoto).objectFit,
+              width: lessonPhoto.getBoundingClientRect().width,
+              height: lessonPhoto.getBoundingClientRect().height,
+              alt: lessonPhoto.alt,
+            } : null,
             ctaTop: ctaRect?.top ?? null,
             ctaHeight: ctaRect?.height ?? null,
             kickerTop: kickerRect?.top ?? null,
@@ -104,8 +113,16 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           if (target === '/classes/step/') {
             expect(data.hero.color === 'rgb(255, 255, 255)',
               width + ': STEP hero must use white text over the actual lesson photo');
-            expect(data.hero.background.includes('class-step-hero-lesson-v1.webp'),
+            expect(data.hero.lessonPhoto?.src.includes('class-step-hero-lesson-v1.webp'),
               width + ': STEP hero does not use approved user photo');
+            expect(data.hero.lessonPhoto?.loaded,
+              width + ': STEP lesson hero photo did not load');
+            expect(data.hero.lessonPhoto?.fit === 'cover',
+              width + ': STEP hero photo is not full-bleed');
+            expect(data.hero.lessonPhoto?.width >= width - 1,
+              width + ': STEP hero photo does not span viewport width');
+            expect(data.hero.lessonPhoto?.alt?.includes('実際のSTEPレッスン'),
+              width + ': STEP lesson photo lacks descriptive alternative text');
             expect(data.hero.height >= (width <= 390 ? 620 : 530),
               width + ': STEP photo hero is too short to communicate studio atmosphere');
           } else {
