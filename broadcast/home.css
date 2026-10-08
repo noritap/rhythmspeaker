@@ -2,7 +2,7 @@
 
 /* PEOPLE portraits: keep the actual photo visible, without overlaying names on faces. */
 .stream-person .stream-tile__media--portrait{background:#19191b}
-.stream-person .stream-tile__media--portrait img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.9);transition:transform .25s ease}
+.stream-person .stream-tile__media--portrait img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
 .stream-person .stream-tile:hover .stream-tile__media--portrait img{transform:scale(1.025)}
 .stream-person .stream-tile__media--portrait img[data-fallback="true"]{object-fit:contain;object-position:center!important;background:#19191b}
 .stream-person .stream-tile__media--portrait::after{content:"";position:absolute;inset:auto 0 0;height:18%;pointer-events:none;background:linear-gradient(0deg,rgba(15,15,16,.45),transparent)}
