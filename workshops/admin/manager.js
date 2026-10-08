@@ -1,6 +1,6 @@
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],yen=n=>new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(Number(n||0));let store,editing=null;
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)};
-const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#039;'}[m]));
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
 function slugify(s){return String(s||'workshop').trim().toLowerCase().replace(/[^a-z0-9\u3040-\u30ff\u3400-\u9fff]+/g,'-').replace(/^-|-$/g,'')+'-'+Date.now().toString(36)}
 (async()=>{store=await RSStore.get();if(store.mode==='live'){modebar.classList.remove('demo');modebar.textContent='LIVE｜Supabaseオンライン管理'}const user=await store.currentUser();if(user)openAdmin();})();
 loginForm.onsubmit=async e=>{e.preventDefault();try{await store.signIn(loginEmail.value,loginPassword.value);openAdmin()}catch(err){toast(err.message||'ログインできません')}};
