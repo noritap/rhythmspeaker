@@ -12,6 +12,7 @@ on:
       - '**/*.gif'
       - '**/*.svg'
       - 'scripts/sitewide_image_guard.py'
+      - 'scripts/instructor_photo_contract.py'
       - '.github/workflows/sitewide-image-guard.yml'
   workflow_dispatch:
 permissions:
@@ -32,6 +33,8 @@ jobs:
           else
             python3 scripts/sitewide_image_guard.py --json image-audit.json
           fi
+      - name: Check instructor photo source consistency
+        run: python3 scripts/instructor_photo_contract.py
       - name: Upload audit report
         if: always()
         uses: actions/upload-artifact@v4
