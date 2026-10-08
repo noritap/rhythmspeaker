@@ -89,10 +89,10 @@ async function renderReservations(eventId=''){
     $$('[data-check]').forEach(b=>b.onclick=async()=>{const rr=rows.find(x=>x.id===b.dataset.check);syncState();await store.updateReservation(rr.id,{checkin:!rr.checkin});renderReservations(eventId)});
     $$('[data-cancel]').forEach(b=>b.onclick=async()=>{if(confirm('予約をキャンセルしますか？')){syncState();await store.updateReservation(b.dataset.cancel,{status:'cancelled'});renderReservations(eventId)}});
   }
-  $$('#classFilters [data-class]').forEach(b=>b.onclick=()=>{classFilter=b.dataset.class;syncState();$('#classFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
-  $$('#statusFilters [data-status]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.status;syncState();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
-  checkinMode.onclick=()=>{statusFilter='unchecked';query='';reservationSearch.value='';syncState();renderRows();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unchecked'))};
-  unpaidMode.onclick=()=>{statusFilter='unpaid';query='';reservationSearch.value='';syncState();renderRows();$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unpaid'))};
+  $$('#classFilters [data-class]').forEach(b=>b.onclick=()=>{classFilter=b.dataset.class;syncState();$$('#classFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
+  $$('#statusFilters [data-status]').forEach(b=>b.onclick=()=>{statusFilter=b.dataset.status;syncState();$$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x===b));renderRows()});
+  checkinMode.onclick=()=>{statusFilter='unchecked';query='';reservationSearch.value='';syncState();renderRows();$$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unchecked'))};
+  unpaidMode.onclick=()=>{statusFilter='unpaid';query='';reservationSearch.value='';syncState();renderRows();$$('#statusFilters .filter-chip').forEach(x=>x.classList.toggle('is-active',x.dataset.status==='unpaid'))};
   reservationSearch.oninput=()=>{query=reservationSearch.value;syncState();renderRows()};
   renderRows();
 }
