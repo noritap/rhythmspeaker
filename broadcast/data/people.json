@@ -11,7 +11,12 @@
     ],
     "official_url": "https://ayatap.amebaownd.com/",
     "instagram_url": "https://www.instagram.com/ayako_ukawa",
-    "youtube_url": "https://www.youtube.com/user/jazztapdance"
+    "youtube_url": "https://www.youtube.com/user/jazztapdance",
+    "portrait_url": "https://www.tokk.co.jp/images/lineup/photo_tap_acrobat_ukawa.jpg",
+    "portrait_source_url": "https://www.tokk.co.jp/line-up/tap_acrobat.html",
+    "portrait_usage_status": "UNKNOWN",
+    "portrait_fallback_url": "https://i.ytimg.com/vi/L5TENbISDpI/maxresdefault.jpg",
+    "portrait_position": "50% 28%"
   },
   {
     "id": "noritaka-furusho",
@@ -23,7 +28,12 @@
       "ayako-001",
       "ayako-002"
     ],
-    "official_url": "https://noritap.github.io/furusho-official/"
+    "official_url": "https://noritap.github.io/furusho-official/",
+    "portrait_url": "../tap-dance-instructor-furusho-noritaka.jpg",
+    "portrait_source_url": "https://github.com/noritap/rhythmspeaker/blob/main/tap-dance-instructor-furusho-noritaka.jpg",
+    "portrait_usage_status": "CONTROLLED_SOURCE",
+    "portrait_fallback_url": "https://i.ytimg.com/vi/hf-70tPlpLo/maxresdefault.jpg",
+    "portrait_position": "50% 28%"
   },
   {
     "id": "shinri-suzuki",
@@ -34,7 +44,12 @@
       "ayako-001"
     ],
     "official_url": "https://www.shinrisuzukitapdance.com",
-    "instagram_url": "https://www.instagram.com/shinrisuzuki"
+    "instagram_url": "https://www.instagram.com/shinrisuzuki",
+    "portrait_url": "https://static.wixstatic.com/media/9c8102_caee2d6c8bd84eee89afbc0ec0a4d270.jpg/v1/fill/w_342%2Ch_227%2Cal_c%2Cq_80%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/9c8102_caee2d6c8bd84eee89afbc0ec0a4d270.jpg",
+    "portrait_source_url": "https://www.shinrisuzukitapdance.com/profile",
+    "portrait_usage_status": "UNKNOWN",
+    "portrait_fallback_url": "https://i.ytimg.com/vi/Nmsy9j71N38/maxresdefault.jpg",
+    "portrait_position": "50% 24%"
   },
   {
     "id": "takuto-hashimoto",
@@ -45,6 +60,11 @@
     "episode_ids": [
       "ayako-002"
     ],
-    "official_url": "https://gamba-tap.com/instructor/"
+    "official_url": "https://gamba-tap.com/instructor/",
+    "portrait_url": "https://gamba-tap.com/wp-content/uploads/2025/10/S__100696098-1024x683.jpg",
+    "portrait_source_url": "https://gamba-tap.com/instructor/",
+    "portrait_usage_status": "UNKNOWN",
+    "portrait_fallback_url": "https://i.ytimg.com/vi/L5TENbISDpI/maxresdefault.jpg",
+    "portrait_position": "50% 25%"
   }
 ]
