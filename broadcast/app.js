@@ -338,11 +338,19 @@
       media.append(title);
     };
 
-    if (person.portrait_url) {
+    // The source link alone does not grant republication rights.
+    // Until usage is verified, show only the already-published show thumbnail.
+    const approvedPortrait = person.portrait_url
+      && ['VERIFIED', 'CONTROLLED_SOURCE'].includes(person.portrait_usage_status);
+    const imageUrl = approvedPortrait ? person.portrait_url : person.portrait_fallback_url;
+    if (imageUrl) {
       media.classList.add('stream-tile__media--portrait');
       const photo = document.createElement('img');
-      photo.src = new URL(person.portrait_url, scriptUrl).href;
-      photo.alt = `${person.name}のプロフィール写真`;
+      photo.src = new URL(imageUrl, scriptUrl).href;
+      photo.alt = approvedPortrait
+        ? `${person.name}のプロフィール写真`
+        : `${person.name}さん出演回のYouTubeサムネイル`;
+      if (!approvedPortrait) photo.dataset.fallback = 'true';
       photo.loading = 'lazy';
       photo.decoding = 'async';
       if (person.portrait_position) photo.style.objectPosition = person.portrait_position;
