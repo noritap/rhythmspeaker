@@ -13,6 +13,8 @@ on:
       - '**/*.svg'
       - 'scripts/sitewide_image_guard.py'
       - 'scripts/instructor_photo_contract.py'
+      - 'scripts/class_photo_contract.py'
+      - 'classes/photo-system.css'
       - '.github/workflows/sitewide-image-guard.yml'
   workflow_dispatch:
 permissions:
@@ -35,6 +37,8 @@ jobs:
           fi
       - name: Check instructor photo source consistency
         run: python3 scripts/instructor_photo_contract.py
+      - name: Check canonical class artwork and photo roles
+        run: python3 scripts/class_photo_contract.py
       - name: Upload audit report
         if: always()
         uses: actions/upload-artifact@v4
