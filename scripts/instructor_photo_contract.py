@@ -89,6 +89,23 @@ def main() -> int:
         css_photo_selector(step, f".step-page .instructor-card:nth-child({n}):before",
                            key, "classes/step/index.html")
 
+    # A square TOP editorial image must remain completely visible on every
+    # instructor-introduction card, without wide cropping or gradient masks.
+    expect(bool(re.search(r"\.step-page \.instructor-card:before\\s*\\{[^}]*aspect-ratio:1/1", step)),
+           "STEP cards must reserve a full square image frame")
+    expect(bool(re.search(r"\.step-page \.instructor-card:before\\s*\\{[^}]*center/contain", step)),
+           "STEP cards must fit the complete artwork without cropping")
+    expect(".step-page .instructor-card:after{content:none}" in step,
+           "STEP instructor artwork must not be masked by a gradient")
+    expect("padding:13rem" not in step and "padding-top:15rem" not in step,
+           "STEP instructor text must not overlay the image")
+    expect("aspect-ratio:1/1;margin:-.55rem" in tap and "center/contain" in tap,
+           "TAP instructor artwork must use full-square contain fitting")
+    expect(".person-mark,.person-photo{width:100%;aspect-ratio:1/1" in hub,
+           "Instructor Finder desktop artwork must use a square frame")
+    expect("background-size:contain!important" in hub,
+           "Instructor Finder portraits must show complete artwork")
+
     expect('src="../assets/instructors/instructor-furusho-editorial-v1-960w.webp"' in about,
            "about/index.html: Furusho portrait must match TOP")
     for path in SOURCES:
