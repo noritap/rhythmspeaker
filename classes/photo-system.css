@@ -10,23 +10,68 @@
   background: #f4f0ea;
 }
 
-/* The class identity is the approved poster, not a generic dancer hero.
-   Keep the backdrop decorative and neutral so it never competes with art. */
-.class-page .class-hero,
-.step-page .class-hero,
-.tap-page .class-hero {
-  background: linear-gradient(135deg, #111 0%, #222 65%, #302c29 100%);
+/* 2026-10-09 UX correction:
+   Canonical class posters are part of a compact editorial introduction,
+   NOT miniature posters inside a giant black dashboard.
+   Applies to STEP / TAP / ISOLATION / BAR METHOD / HIIT. */
+.class-page .class-hero {
+  display: block;
+  min-height: 0;
+  padding: clamp(2.25rem, 4.5vw, 4.75rem) clamp(1.25rem, 5vw, 5rem);
+  color: #201d1b;
+  background: linear-gradient(125deg, #faf7f2 0%, #f0e9e0 100%);
 }
-.step-page .class-path article,
-.tap-page .class-section.dark {
-  background: linear-gradient(135deg, #151515, #292929);
+.class-page .class-hero::after {
+  height: 1px;
+  background: #e5dcd1;
 }
-
-/* Five class-detail pages: put the class poster beside the facts,
-   never behind text or inside a cropped decorative background. */
+.class-page .class-hero-grid {
+  grid-template-columns: minmax(0, 1.12fr) minmax(260px, .88fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.class-page .class-hero h1 {
+  font-size: clamp(2.55rem, 5.3vw, 5rem);
+  line-height: 1.16;
+  letter-spacing: -.045em;
+  margin: .65rem 0 1.1rem;
+  overflow-wrap: anywhere;
+}
+.class-page .class-lead {
+  max-width: 640px;
+  font-size: clamp(.95rem, 1.35vw, 1.08rem);
+  line-height: 1.75;
+  color: #57524d;
+}
+.class-page .class-actions {
+  margin-top: 1.45rem;
+  gap: .7rem;
+}
+.class-page .class-actions .btn-secondary {
+  color: #25211e;
+  border-color: #b4aaa0;
+  background: rgba(255,255,255,.45);
+}
+.class-page .class-actions .btn-secondary:hover {
+  background: #fff;
+}
+.class-page .class-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .95rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
 .class-page .class-identity-art {
-  width: min(100%, 280px);
-  margin: 0 auto 1.25rem;
+  width: min(100%, 360px);
+  margin: 0 auto;
   padding: 0;
 }
 .class-page .class-identity-photo {
@@ -35,15 +80,45 @@
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  border-radius: 14px;
+  border-radius: 16px;
   background: #f4f0ea;
+  box-shadow: 0 16px 36px rgba(48,36,27,.13);
 }
 .class-page .class-identity-art figcaption {
-  margin-top: .5rem;
-  color: rgba(255,255,255,.76);
-  font: 800 .7rem/1.4 'Outfit','Noto Sans JP',sans-serif;
-  letter-spacing: .04em;
-  text-align: center;
+  display: none; /* the approved poster already contains the class name */
+}
+.class-page .class-facts {
+  display: grid;
+  grid-template-columns: minmax(0,.82fr) minmax(0,1.18fr);
+  align-items: baseline;
+  gap: .24rem .65rem;
+  padding: .9rem 0 0;
+  border-top: 1px solid #d9d0c6;
+  min-width: 0;
+}
+.class-page .class-facts small {
+  color: #84796f;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.class-page .class-facts strong {
+  color: #272320;
+  font-size: clamp(.78rem,1.25vw,.93rem);
+  line-height: 1.4;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.class-page .class-section {
+  padding-top: clamp(3.25rem,5vw,4.5rem);
+  padding-bottom: clamp(3.25rem,5vw,4.5rem);
+}
+.class-page .class-section h2 {
+  font-size: clamp(1.9rem,3.8vw,3.2rem);
+}
+.step-page .class-path article,
+.tap-page .class-section.dark {
+  background: linear-gradient(135deg, #151515, #292929);
 }
 
 /* A lesson level or teaching concept is a textual choice, not a new class
@@ -132,29 +207,78 @@
   background: #f4f0ea;
 }
 
-@media (max-width: 768px) {
-  /* Keep the class picture and essential facts in one scannable row. */
+@media (max-width: 700px) {
+  .class-page .class-hero {
+    padding: 1.85rem 1.25rem 2.25rem;
+  }
+  .class-page .class-hero-grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 1.35rem;
+  }
+  .class-page .class-hero h1 {
+    font-size: clamp(2.15rem, 8.7vw, 3rem);
+    line-height: 1.17;
+    margin: .55rem 0 .85rem;
+  }
+  .class-page .class-lead {
+    font-size: .94rem;
+    line-height: 1.7;
+  }
+  .class-page .class-actions {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .6rem;
+    margin-top: 1.2rem;
+  }
+  .class-page .class-actions .btn {
+    min-width: 0;
+    min-height: 48px;
+    padding: .75rem .5rem;
+    font-size: .82rem;
+    line-height: 1.4;
+    white-space: normal;
+  }
   .class-page .class-panel {
     display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr);
     align-items: center;
-    gap: .8rem;
-    padding: .9rem;
+    gap: .95rem;
+    padding: .85rem;
+    border: 1px solid #e2d8cd;
+    border-radius: 18px;
+    background: rgba(255,255,255,.65);
   }
   .class-page .class-identity-art {
     width: 100%;
     margin: 0;
   }
-  .class-page .class-identity-art figcaption { font-size: .58rem; }
-  .class-page .class-facts { min-width: 0; }
-  .class-page .class-facts small { font-size: .59rem; }
-  .class-page .class-facts strong {
-    font-size: clamp(.82rem, 3.3vw, 1rem);
-    line-height: 1.35;
-    margin: .12rem 0 .65rem;
-    overflow-wrap: anywhere;
+  .class-page .class-identity-photo {
+    border-radius: 10px;
+    box-shadow: none;
   }
-  .class-page .class-facts strong:last-child { margin-bottom: 0; }
+  .class-page .class-facts {
+    display: grid;
+    grid-template-columns: minmax(0,1fr);
+    align-content: center;
+    gap: .12rem;
+    padding: 0;
+    border: 0;
+  }
+  .class-page .class-facts small {
+    font-size: .58rem;
+    letter-spacing: .04em;
+  }
+  .class-page .class-facts strong {
+    font-size: clamp(.78rem,3.3vw,.93rem);
+    line-height: 1.35;
+    margin: 0 0 .45rem;
+  }
+  .class-page .class-facts > :nth-child(n+5) {
+    display: none; /* only the two decision-making facts above the fold */
+  }
+  .class-page .class-section {
+    padding: 3.25rem 1.25rem;
+  }
   .step-page #levels .class-card,
   .tap-page #concept .class-card,
   .tap-page #difference .class-feature { padding: 1.35rem; }
