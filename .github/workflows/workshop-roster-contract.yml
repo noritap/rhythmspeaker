@@ -22,4 +22,4 @@ jobs:
           node --check workshops/assets/class-roster.js
           node --check workshops/admin/manager.js
       - name: Run class roster regression tests
-        run: node --test workshops/tests/class-roster.test.cjs
+        run: node --test workshops/tests/*.test.cjs
