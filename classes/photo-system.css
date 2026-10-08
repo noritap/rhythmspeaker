@@ -32,7 +32,7 @@
   gap: clamp(1.5rem, 4vw, 4rem);
 }
 .class-page .class-hero h1 {
-  font-size: clamp(2.55rem, 5.3vw, 5rem);
+  font-size: clamp(2.15rem, 4vw, 3.75rem); /* avoid orphaned last kana */
   line-height: 1.16;
   letter-spacing: -.045em;
   margin: .65rem 0 1.1rem;
