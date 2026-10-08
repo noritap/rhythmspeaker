@@ -14,17 +14,118 @@
 .step-page .class-path article{min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,rgba(17,17,17,.34),#111 78%),url('../../hero.jpg') center/cover no-repeat}.step-page .class-path article:nth-child(2){background-position:46% 62%}.step-page .class-path article:nth-child(3){background-position:72% 55%}
 @media(max-width:900px){.step-page .instructor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.step-page .class-hero{min-height:auto}}
 @media(max-width:560px){.step-page .instructor-grid{grid-template-columns:1fr}.step-page .instructor-card{min-height:330px;padding-top:15rem}.step-page .instructor-card:before{height:13.5rem}.step-page #levels .class-card{padding-top:12.5rem}.step-page #levels .class-card:before{height:11rem}}
+
+/* STEP detail: beginner decision, visit expectations, and conversion clarity */
+.step-page [id]{scroll-margin-top:11rem}
+.step-page .step-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;width:min(1180px,88%);margin:1.25rem auto 0}
+.step-page .step-fact{padding:1rem 1.1rem;border:1px solid #e5ddd2;border-radius:16px;background:#fff}
+.step-page .step-fact small{display:block;color:#70665d;font-size:.78rem;font-weight:700}
+.step-page .step-fact strong{display:block;margin-top:.2rem;font-size:1.05rem;line-height:1.45}
+.step-page .step-level-for{display:inline-block;margin:.85rem 0 .3rem;color:#6b353b;font-weight:900;font-size:.83rem}
+.step-page .step-level-action{display:inline-flex;align-items:center;min-height:48px;margin-top:1.2rem;font-weight:900;color:#171717;text-decoration:underline;text-underline-offset:.24em}
+.step-page .step-level-action:hover{color:#b81734}
+.step-page .step-level-note{margin-top:1.4rem;padding:1rem 1.2rem;background:#fff;border-left:4px solid #e2384f;border-radius:0 12px 12px 0;line-height:1.85}
+.step-page .step-visit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:2rem}
+.step-page .step-visit-card{padding:1.5rem;border:1px solid #e5ddd2;border-radius:20px;background:#fff}
+.step-page .step-visit-card .step-visit-number{display:inline-block;font-family:Outfit,sans-serif;font-size:1.9rem;font-weight:900;color:#cf2541}
+.step-page .step-visit-card h3{font-size:1.2rem;margin:.35rem 0 .7rem}
+.step-page .step-visit-card p{margin:0;color:#5e5752;line-height:1.85}
+.step-page .step-visit-note{margin:1.4rem 0 0;line-height:1.85;color:#504b46}
+.step-page .step-visit-note a{font-weight:900;color:inherit;text-underline-offset:.2em}
+.step-page .step-faq-list{display:grid;gap:.7rem;margin-top:2rem;max-width:880px}
+.step-page .step-faq-list details{background:#fff;border:1px solid #e5ddd2;border-radius:16px;padding:0 1.25rem}
+.step-page .step-faq-list summary{cursor:pointer;padding:1.15rem 0;font-weight:900;line-height:1.65;min-height:48px}
+.step-page .step-faq-list details[open] summary{border-bottom:1px solid #eee7df}
+.step-page .step-faq-list p{margin:.9rem 0 1.2rem;color:#555;line-height:1.85}
+.step-page .step-faq-list summary:focus-visible,.step-page .step-level-action:focus-visible,.step-page .class-jump a:focus-visible{outline:3px solid #b81734;outline-offset:3px}
+.step-page .step-booking-facts{font-weight:800;color:#fff!important}
+@media(max-width:900px){.step-page .step-facts{grid-template-columns:repeat(2,minmax(0,1fr))}.step-page .step-visit-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.step-page .step-facts{width:calc(100% - 2.5rem);gap:.5rem}.step-page .step-fact{padding:.85rem}.step-page .step-fact strong{font-size:.94rem}.step-page .step-visit-card{padding:1.2rem}.step-page .step-faq-list details{padding:0 1rem}}
 </style>
 </head>
 <body class="class-page step-page">
 <nav><a href="../../" class="logo logo-home-link" aria-label="Rhythm Speaker 教室トップへ"><img src="../../logo.png" alt="" class="logo-img"><span class="logo-text">Rhythm Speaker</span></a><ul class="nav-links"><li><a href="../" aria-current="page">クラス</a></li><li><a href="../../trial/">初回体験</a></li><li><a href="../../instructors/">講師</a></li><li><a href="../../about/">教室紹介</a></li><li><a href="../../access/">アクセス</a></li></ul><a href="../../trial/apply/?class=STEP" class="btn btn-primary cta-nav">初回体験を申し込む</a></nav>
 <main>
 <section class="class-hero"><div class="class-shell class-hero-grid"><div><p class="class-kicker">STEP CLASS｜FOUNDATION</p><h1>一音から、<br>タップダンスになる。</h1><p class="class-lead">初めて床を鳴らす人から、基本ステップを組み合わせたい人まで。STEPはRhythm Speakerの共通基礎カリキュラムです。担当講師が変わっても、同じ基礎を順番に積み上げられます。</p><div class="class-actions"><a class="btn btn-primary" href="../../trial/apply/?class=STEP">初回体験を申し込む</a><a class="btn btn-secondary" href="#levels">レベルを見る</a></div></div><aside class="class-panel"><small>START</small><strong>完全未経験からOK</strong><small>LEVEL</small><strong>超初級 🔰 → 初級</strong><small>SYSTEM</small><strong>共通基礎カリキュラム</strong><small>INSTRUCTORS</small><strong>6名</strong></aside></div></section>
-<div class="class-jump" aria-label="STEPページ内メニュー"><a href="#levels">レベル</a><a href="#method">学び方</a><a href="#instructors">講師</a><a href="#booking">体験</a></div>
-<section class="class-section" id="levels"><div class="class-shell"><div class="section-head"><p class="class-kicker">LEVEL PATH</p><h2>最初の一音から、基礎をつなげる。</h2><p class="section-intro">STEPでは「できる・できない」を急いで判定しません。まず一音を出し、基本動作を確認し、少しずつ音と動きをつなげていきます。</p></div><div class="class-grid"><article class="class-card accent"><span class="number">01</span><span class="tag">BEGINNER</span><h3>STEP 超初級 🔰</h3><p>タップ未経験者向け。立ち方、膝の使い方、足のどの部分で床を叩くかを確認し、極めてシンプルな動作から音を出します。</p></article><article class="class-card"><span class="number">02</span><span class="tag">BASIC</span><h3>STEP 初級</h3><p>基本ステップを組み合わせ、簡単なリズムパターンやコンビネーションへ進みます。複数の音をつなげる感覚を育てます。</p></article><article class="class-card"><span class="number">→</span><span class="tag">NEXT</span><h3>TAP CLASSへ</h3><p>基礎を使って、各インストラクターの音楽性・リズム・コンビネーション・表現へ広げていきます。</p></article></div></div></section>
+<div class="class-jump" aria-label="STEPページ内メニュー"><a href="#levels">レベル</a><a href="#method">学び方</a><a href="#first-visit">体験の流れ</a><a href="#instructors">講師</a><a href="#booking">申込</a></div>
+<div class="step-facts" aria-label="STEP初回体験の基本情報">
+  <div class="step-fact"><small>初回体験</small><strong>1,000円</strong></div>
+  <div class="step-fact"><small>レッスン時間</small><strong>60分</strong></div>
+  <div class="step-fact"><small>レンタル</small><strong>シューズ・ウェア無料</strong></div>
+  <div class="step-fact"><small>入会金</small><strong>0円</strong></div>
+</div>
+<section class="class-section" id="levels">
+  <div class="class-shell">
+    <div class="section-head">
+      <p class="class-kicker">CHOOSE YOUR LEVEL</p>
+      <h2>初めての方は、超初級から。</h2>
+      <p class="section-intro">「まだ一度も踊ったことがない」「少し経験がある」「もっと音楽で踊りたい」。今の自分に近い入口を選べます。迷ったら超初級からで大丈夫です。</p>
+    </div>
+    <div class="class-grid">
+      <article class="class-card accent">
+        <span class="number" aria-hidden="true">01</span><span class="tag">FIRST STEP / はじめて</span>
+        <h3>STEP 超初級 🔰</h3>
+        <p class="step-level-for">こんな方へ</p>
+        <p>タップダンスは初めて。運動やリズムに自信がなくても、まずは一音を出すところから始めたい方。</p>
+        <p class="step-level-for">レッスンでは</p>
+        <p>立ち方・膝の使い方・足のどこで床を鳴らすかを、シンプルな動きから確認します。</p>
+        <a class="step-level-action" href="../../trial/apply/?class=STEP" aria-label="STEP超初級の初回体験を申し込む">超初級で体験してみる →</a>
+      </article>
+      <article class="class-card">
+        <span class="number" aria-hidden="true">02</span><span class="tag">BASIC / 基礎をつなぐ</span>
+        <h3>STEP 初級</h3>
+        <p class="step-level-for">こんな方へ</p>
+        <p>基本の音や動きを練習したことがあり、ステップを組み合わせてリズムをつなげたい方。</p>
+        <p class="step-level-for">レッスンでは</p>
+        <p>基本ステップを組み合わせ、簡単なリズムパターンやコンビネーションに取り組みます。</p>
+        <a class="step-level-action" href="../../trial/apply/?class=STEP" aria-label="STEP初級について初回体験を申し込む">初級について相談・体験する →</a>
+      </article>
+      <article class="class-card">
+        <span class="number" aria-hidden="true">03</span><span class="tag">NEXT / 表現へ</span>
+        <h3>TAP CLASSへ</h3>
+        <p class="step-level-for">こんな方へ</p>
+        <p>STEPで身につけた基礎を、音楽・振付・リズム表現へ広げたい方。</p>
+        <p class="step-level-for">その先では</p>
+        <p>担当講師ごとのスタイルや音楽性を楽しみながら、タップダンスの表現を深めます。</p>
+        <a class="step-level-action" href="../tap/">TAP CLASSを見てみる →</a>
+      </article>
+    </div>
+    <p class="step-level-note"><strong>どちらを選べばいいか分からなくても大丈夫。</strong> 体験申込時に経験の有無を選べます。最初から正しいレベルを決める必要はありません。</p>
+  </div>
+</section>
 <section class="class-section alt" id="method"><div class="class-shell"><div class="section-head"><p class="class-kicker">HOW STEP WORKS</p><h2>講師が変わっても、基礎はつながる。</h2><p class="section-intro">STEPは講師ごとの振付クラスではなく、Rhythm Speakerの基礎学習システムとして運用します。</p></div><div class="class-path"><article><small>01｜SOUND</small><h3>まず音を出す</h3><p>足のどこで床を鳴らすか、身体をどう支えるかを確認します。</p></article><article><small>02｜STEP</small><h3>基本動作を覚える</h3><p>基本ステップを一つずつ練習し、同じ音を安定して出せるようにします。</p></article><article><small>03｜RHYTHM</small><h3>音をつなげる</h3><p>基本ステップを組み合わせ、簡単なリズムやコンビネーションへ進みます。</p></article></div><div class="class-proof"><span>完全初心者歓迎</span><span>共通カリキュラム</span><span>超初級 → 初級</span><span>担当講師を選べる</span></div></div></section>
+<section class="class-section" id="first-visit">
+  <div class="class-shell">
+    <div class="section-head">
+      <p class="class-kicker">YOUR FIRST LESSON</p>
+      <h2>最初の60分は、こんな流れ。</h2>
+      <p class="section-intro">初めての場所、初めての音でも、準備に迷わず参加できるように。体験当日の基本的な流れをご案内します。</p>
+    </div>
+    <div class="step-visit-grid">
+      <article class="step-visit-card"><span class="step-visit-number" aria-hidden="true">01</span><h3>15分前を目安に来店</h3><p>池袋のスタジオへ。初めての方は、着替えや準備の時間を見込んで少し早めにお越しください。</p></article>
+      <article class="step-visit-card"><span class="step-visit-number" aria-hidden="true">02</span><h3>シューズを履いて、一音から</h3><p>タップシューズ・ウェアは無料でレンタルできます。60分の体験レッスンで、まずは音を出す楽しさを味わいます。</p></article>
+      <article class="step-visit-card"><span class="step-visit-number" aria-hidden="true">03</span><h3>気になることを相談</h3><p>続け方やレベル選びで気になることがあれば、体験後に相談できます。その場で入会を決める必要はありません。</p></article>
+    </div>
+    <p class="step-visit-note">場所が心配な方は <a href="../../access/">写真と地図でアクセスを確認</a>。初回体験の詳細は <a href="../../trial/">初めての方へ</a> をご覧ください。</p>
+  </div>
+</section>
 <section class="class-section" id="instructors"><div class="class-shell"><div class="section-head"><p class="class-kicker">INSTRUCTORS</p><h2>STEP担当インストラクター</h2><p class="section-intro">同じ基礎カリキュラムを、複数のインストラクターから受講できます。名前を押すと担当クラス一覧を確認できます。</p></div><div class="instructor-grid"><a class="instructor-card" href="../../instructors/#mifa"><strong>MiFa-san</strong><small>STEP Instructor</small></a><a class="instructor-card" href="../../instructors/#homma"><strong>本間茂樹</strong><small>STEP Instructor</small></a><a class="instructor-card" href="../../instructors/#sasasa"><strong>さささ</strong><small>STEP Instructor</small></a><a class="instructor-card" href="../../instructors/#niu"><strong>丹生良彬</strong><small>STEP Instructor</small></a><a class="instructor-card" href="../../instructors/#okudaira"><strong>奥平</strong><small>STEP Instructor</small></a><a class="instructor-card" href="../../instructors/#furusho"><strong>古庄里好</strong><small>STEP Instructor</small></a></div></div></section>
 <section class="class-section dark"><div class="class-shell"><div class="section-head"><p class="class-kicker">STEP → TAP</p><h2>基礎は、表現するための入口。</h2><p class="section-intro">STEPで覚えた音や動きは、その先のTAP CLASSで音楽や表現へつながります。最初から上手く踊ることより、まず一音ずつ身体に入れていくことを大切にします。</p></div><div class="class-actions"><a class="btn btn-primary" href="../tap/">TAP CLASSを見る</a><a class="btn btn-secondary" href="../../instructors/">講師から選ぶ</a></div></div></section>
-<section class="class-cta" id="booking"><div class="class-shell"><div><p class="class-kicker">START HERE</p><h2>初めてなら、STEP超初級から。</h2><p>クラス選びに迷う場合も、LINEで経験の有無を伝えるだけで相談できます。</p></div><a class="btn btn-primary" href="../../trial/apply/?class=STEP">初回体験を申し込む</a></div></section>
+<section class="class-section alt" id="step-faq">
+  <div class="class-shell">
+    <div class="section-head">
+      <p class="class-kicker">BEFORE YOU START</p>
+      <h2>始める前の、よくある質問。</h2>
+      <p class="section-intro">STEPに興味を持った方から、体験前によく気になるポイントをまとめました。</p>
+    </div>
+    <div class="step-faq-list">
+      <details><summary>タップダンスが完全に初めてでも参加できますか？</summary><p>はい。STEP超初級は、初めて音を出す方を想定したクラスです。立ち方や足の使い方から確認します。</p></details>
+      <details><summary>タップシューズやレッスンウェアを持っていません。</summary><p>初回体験ではタップシューズとウェアを無料でレンタルできます。詳しい準備は<a href="../../trial/">初回体験ページ</a>でご確認ください。</p></details>
+      <details><summary>超初級と初級、どちらに申し込めばいいですか？</summary><p>未経験なら超初級がおすすめです。経験がある方や判断に迷う方は、申込フォームで経験を伝えてご相談ください。</p></details>
+      <details><summary>毎回同じ講師でないと続けられませんか？</summary><p>STEPは共通基礎カリキュラムを採用しています。担当講師が変わっても、基礎をつなげて学べる設計です。</p></details>
+    </div>
+  </div>
+</section>
+<section class="class-cta" id="booking"><div class="class-shell"><div><p class="class-kicker">START HERE</p><h2>最初の一音を、体験してみよう。</h2><p class="step-booking-facts">初回体験 1,000円 ／ 60分 ／ シューズ・ウェア無料 ／ 入会金0円</p><p>未経験ならSTEP超初級から。申込フォームで経験と希望日時を伝え、LINEまたはメールで相談できます。日時が決まってから予約確定となります。</p></div><a class="btn btn-primary" href="../../trial/apply/?class=STEP">初回体験を申し込む</a></div></section>
 </main><footer><p class="copyright">&copy; 2026 Rhythm Speaker. All Rights Reserved.</p></footer>
 </body></html>
