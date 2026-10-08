@@ -91,9 +91,9 @@ def main() -> int:
 
     # A square TOP editorial image must remain completely visible on every
     # instructor-introduction card, without wide cropping or gradient masks.
-    expect(bool(re.search(r"\.step-page \.instructor-card:before\\s*\\{[^}]*aspect-ratio:1/1", step)),
+    expect(bool(re.search(r"\.step-page \.instructor-card:before\s*\{[^}]*aspect-ratio:1/1", step)),
            "STEP cards must reserve a full square image frame")
-    expect(bool(re.search(r"\.step-page \.instructor-card:before\\s*\\{[^}]*center/contain", step)),
+    expect(bool(re.search(r"\.step-page \.instructor-card:before\s*\{[^}]*center/contain", step)),
            "STEP cards must fit the complete artwork without cropping")
     expect(".step-page .instructor-card:after{content:none}" in step,
            "STEP instructor artwork must not be masked by a gradient")
