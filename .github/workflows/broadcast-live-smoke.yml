@@ -44,7 +44,8 @@ jobs:
           }
 
           check_page "https://noritap.github.io/rhythmspeaker/broadcast/" "RS BROADCAST NETWORK" network.html
-          check_page "https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/" "あやこの部屋" program.html
+          check_page "https://noritap.github.io/rhythmspeaker/broadcast/programs/ayako-no-heya/" "第2回｜橋本タクト" program.html
+          check_page "https://noritap.github.io/rhythmspeaker/broadcast/episodes/ayako-002/" "L5TENbISDpI" episode-002.html
           check_page "https://noritap.github.io/rhythmspeaker/broadcast/episodes/ayako-000/" "古庄里好" episode.html
 
           echo "BROADCAST LIVE SMOKE: PASS"
