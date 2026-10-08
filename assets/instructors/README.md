@@ -21,3 +21,13 @@
 6. Verify crop and readability on mobile, tablet, desktop. Different aspect ratios may crop the same source photo, but never substitute a different photo.
 
 This policy applies to instructor-introduction surfaces. Broadcast guest/episode photography may be separate when a person appears in a distinct editorial role.
+
+## Full-artwork display policy (2026-10-09)
+
+The approved TOP instructor images are **square editorial posters**, not headshot crops. A person's face, typography, and artwork must remain visible together.
+
+- Render instructor-introduction artwork inside a **1:1 frame** using `background-size: contain` (or `<img width height style="object-fit:contain">`). Never use wide `16:10` / `4:3` `cover` crops.
+- Put the instructor name, class tags and links **below** the image, never over its face or printed lettering. No darkening filter or gradient mask over the artwork.
+- Keep the same approved image on TOP, STEP, TAP, instructor directory, and profiles. Small-screen layouts may change card columns, not image proportions.
+- For future non-square photos, letterbox in a square frame rather than stretching or cropping; if the source is meant to be displayed in its original aspect ratio, use a dedicated natural-ratio `img` component.
+- `scripts/instructor_photo_contract.py` checks these layout invariants alongside canonical image references.
