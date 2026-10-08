@@ -1,0 +1,166 @@
+/* RHYTHM SPEAKER / canonical class photo system
+   Identity posters are square and must remain fully visible on every device.
+   Lesson, studio and wayfinding photos have separate contextual roles. */
+
+/* The class finder uses the same six square editorial posters as TOP. */
+.classes-page .class-card-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  object-position: center;
+  background: #f4f0ea;
+}
+
+/* The class identity is the approved poster, not a generic dancer hero.
+   Keep the backdrop decorative and neutral so it never competes with art. */
+.class-page .class-hero,
+.step-page .class-hero,
+.tap-page .class-hero {
+  background: linear-gradient(135deg, #111 0%, #222 65%, #302c29 100%);
+}
+.step-page .class-path article,
+.tap-page .class-section.dark {
+  background: linear-gradient(135deg, #151515, #292929);
+}
+
+/* Five class-detail pages: put the class poster beside the facts,
+   never behind text or inside a cropped decorative background. */
+.class-page .class-identity-art {
+  width: min(100%, 280px);
+  margin: 0 auto 1.25rem;
+  padding: 0;
+}
+.class-page .class-identity-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f4f0ea;
+}
+.class-page .class-identity-art figcaption {
+  margin-top: .5rem;
+  color: rgba(255,255,255,.76);
+  font: 800 .7rem/1.4 'Outfit','Noto Sans JP',sans-serif;
+  letter-spacing: .04em;
+  text-align: center;
+}
+
+/* A lesson level or teaching concept is a textual choice, not a new class
+   identity. Remove repeated generic dancer images and keep the cards concise. */
+.step-page #levels .class-card,
+.tap-page #concept .class-card {
+  min-height: 0;
+  padding: 1.65rem;
+}
+.step-page #levels .class-card::before,
+.tap-page #concept .class-card::before,
+.tap-page #difference .class-feature::before {
+  content: none;
+  display: none;
+}
+.tap-page #difference .class-feature {
+  min-height: 0;
+  padding: 1.6rem;
+}
+
+/* Instructor editorial posters are a separate canonical photo family. */
+.tap-page #instructors .tap-style-photo {
+  aspect-ratio: 1 / 1;
+  background-size: contain;
+  background-position: center;
+  transform: none;
+}
+.tap-page #instructors .class-card:hover .tap-style-photo {
+  transform: none;
+}
+
+/* Stretch has an intentionally contextual hero; show its TOP class poster
+   immediately after the hero, without covering the studio imagery or CTA. */
+/* Real studio scene, not a multi-panel sprite, for the STRETCH hero. */
+.stretch-page .sprite-studio--hero {
+  background-image: url('../../assets/images/trial/trial-real-studio-floor-v1.webp');
+  background-position: center;
+  background-size: cover;
+}
+
+.stretch-page .stretch-identity-strip {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem,3vw,2rem);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  color: #171717;
+}
+.stretch-page .stretch-identity-photo {
+  display: block;
+  flex: 0 0 auto;
+  width: clamp(112px,15vw,172px);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #f4f0ea;
+}
+.stretch-page .stretch-identity-copy small {
+  display: block;
+  color: #a53249;
+  font: 900 .7rem/1.5 'Outfit',sans-serif;
+  letter-spacing: .1em;
+}
+.stretch-page .stretch-identity-copy strong {
+  display: block;
+  margin-top: .35rem;
+  font-size: clamp(1rem,2.4vw,1.45rem);
+  line-height: 1.4;
+}
+.stretch-page .stretch-identity-copy p {
+  margin: .35rem 0 0;
+  color: #635e59;
+  font-size: .86rem;
+  line-height: 1.65;
+}
+.stretch-page .stretch-team-photo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 18px;
+  background: #f4f0ea;
+}
+
+@media (max-width: 768px) {
+  /* Keep the class picture and essential facts in one scannable row. */
+  .class-page .class-panel {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: .8rem;
+    padding: .9rem;
+  }
+  .class-page .class-identity-art {
+    width: 100%;
+    margin: 0;
+  }
+  .class-page .class-identity-art figcaption { font-size: .58rem; }
+  .class-page .class-facts { min-width: 0; }
+  .class-page .class-facts small { font-size: .59rem; }
+  .class-page .class-facts strong {
+    font-size: clamp(.82rem, 3.3vw, 1rem);
+    line-height: 1.35;
+    margin: .12rem 0 .65rem;
+    overflow-wrap: anywhere;
+  }
+  .class-page .class-facts strong:last-child { margin-bottom: 0; }
+  .step-page #levels .class-card,
+  .tap-page #concept .class-card,
+  .tap-page #difference .class-feature { padding: 1.35rem; }
+  .stretch-page .stretch-identity-strip { padding: 1rem; }
+}
+@media (max-width: 360px) {
+  .stretch-page .stretch-identity-photo { width: 104px; }
+  .stretch-page .stretch-identity-copy p { font-size: .78rem; }
+}

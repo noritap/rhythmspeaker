@@ -5,6 +5,9 @@ on:
     paths:
       - 'trial/apply/index.html'
       - 'classes/index.html'
+      - 'classes/**'
+      - 'access/index.html'
+      - 'tools/class_photo_browser_check.js'
       - 'classes/style.css'
       - 'tools/class_filter_check.js'
       - 'tools/ux_pr220_browser_check.js'
@@ -38,6 +41,7 @@ jobs:
           python3 -m http.server 8002 --directory . >/tmp/ux-after.log 2>&1 &
           node tools/ux_pr220_browser_check.js
           node tools/ux_diagnostics.js
+          node tools/class_photo_browser_check.js
           if [ -f tools/class_filter_check.js ]; then node tools/class_filter_check.js; fi
       - uses: actions/upload-artifact@v4
         if: always()
