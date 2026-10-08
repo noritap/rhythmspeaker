@@ -1,0 +1,4 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const html=fs.readFileSync(path.join(__dirname,'../instructor/index.html'),'utf8');
+test('VC1: checkin refresh failure is surfaced and auto-refresh avoids active edits',()=>{assert.match(html,/await load\(\{strict:true\}\)/);assert.match(html,/if\(options.strict\)throw err/);assert.match(html,/!document.hidden&&!checkinView.busy.size/);});
+test('VC2: staff focus mode hides non-reception panels without removing them',()=>{assert.match(html,/id="checkinFocusToggle"/);assert.match(html,/body\.checkin-focus #instructorSpecial/);assert.match(html,/checkinSearch\.focus\(\)/);});
+test('VC3: unpaid triage is distinct from admin payment confirmation',()=>{assert.match(html,/支払確認待ち/);assert.match(html,/支払状態の確定・訂正は管理者画面/);assert.match(html,/p_checkin:next/);assert.doesNotMatch(html,/p_payment_status/);});
