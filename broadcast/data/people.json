@@ -12,12 +12,13 @@
     "official_url": "https://ayatap.amebaownd.com/",
     "instagram_url": "https://www.instagram.com/ayako_ukawa",
     "youtube_url": "https://www.youtube.com/user/jazztapdance",
-    "portrait_url": "https://www.tokk.co.jp/images/lineup/photo_tap_acrobat_ukawa.jpg",
-    "portrait_source_url": "https://www.tokk.co.jp/line-up/tap_acrobat.html",
+    "portrait_url": "./assets/people/ayako-ukawa-portrait.webp",
+    "portrait_source_url": "https://github.com/noritap/rhythmspeaker/blob/main/broadcast/assets/people/ayako-ukawa-portrait.webp",
     "portrait_usage_status": "VERIFIED",
     "portrait_fallback_url": "https://i.ytimg.com/vi/L5TENbISDpI/maxresdefault.jpg",
-    "portrait_position": "50% 28%",
-    "portrait_permission_basis": "RSBN運営者が出演者本人からWeb掲載許可を取得済みと2026-10-09に確認"
+    "portrait_position": "50% 20%",
+    "portrait_permission_basis": "RSBN運営者が出演者本人からWeb掲載許可を取得済みと2026-10-09に確認",
+    "portrait_source_note": "番組運営者がチャットにアップロードした宇川彩子さんの写真を、人物の生成・修正なしでWebPへ縮小最適化したもの"
   },
   {
     "id": "noritaka-furusho",
