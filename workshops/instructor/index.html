@@ -35,7 +35,7 @@
 
   <section id="instructorClasses" class="section section--tight"><div class="shell"><div class="section-head"><div><p class="kicker">CLASSES</p><h2>クラス別の予約状況</h2><p>定員・予約席・残席・売上見込を確認できます。</p></div></div><div id="classGrid" class="class-status-grid"></div></div></section>
 
-  <section id="checkinSection" class="section section--tight"><div class="shell"><div class="checkin-panel"><p class="kicker">EVENT DAY / CHECK-IN</p><h2>当日受付</h2><p class="checkin-note">予約を検索して受付。受付済と入金済は別の状態です。未入金の方は支払いを確認してください。</p><div id="checkinMetrics" class="checkin-metrics" aria-live="polite"></div><label for="checkinSearch" class="help">参加者を検索</label><input id="checkinSearch" class="checkin-search" type="search" placeholder="名前で検索" autocomplete="off"><div id="checkinFilters" class="checkin-filters"></div><div id="checkinMessage" role="status" aria-live="polite"></div><p class="checkin-note">支払状態の確定・訂正は管理者画面で行います。受付処理では入金状態は変わりません。</p><div id="checkinList" class="checkin-list"></div></div></div></section>
+  <section id="checkinSection" class="section section--tight"><div class="shell"><div class="checkin-panel"><p class="kicker">EVENT DAY / CHECK-IN</p><h2>当日受付</h2><p class="checkin-note">予約を検索して受付。受付済と入金済は別の状態です。未入金の方は支払いを確認してください。</p><div id="checkinMetrics" class="checkin-metrics" aria-live="polite"></div><label for="checkinSearch" class="help">参加者を検索</label><input id="checkinSearch" class="checkin-search" type="search" placeholder="氏名・予約番号で検索" autocomplete="off"><div id="checkinFilters" class="checkin-filters"></div><div id="checkinMessage" role="status" aria-live="polite"></div><p id="checkinPendingPayment" class="checkin-note" aria-live="polite"></p><p class="checkin-note">支払状態の確定・訂正は管理者画面で行います。受付処理では入金状態は変わりません。</p><div id="checkinList" class="checkin-list"></div></div></div></section>
   <section id="instructorSpecial" class="section section--tight"><div class="shell"><div class="instructor-special-panel"><p class="kicker">INSTRUCTOR SPECIAL</p><h2>イントラ特別枠</h2><p class="help">一般予約が満席でも、講師用の特別枠で追加できます。各クラス最大5名（セット予約は両クラスの枠を使用）。</p><div id="instructorSpecialAvailability" class="special-allocation-grid" aria-live="polite"></div><form id="instructorSpecialForm" class="instructor-special-form"><div class="grid2"><label>参加クラス<select id="instructorSpecialSession" required></select></label><label>参加者氏名<input id="instructorSpecialName" maxlength="120" required autocomplete="off" placeholder="氏名"></label></div><div class="grid2"><label>メール（任意）<input id="instructorSpecialEmail" type="email" maxlength="254"></label><label>電話（任意）<input id="instructorSpecialPhone" type="tel" maxlength="40"></label></div><label>メモ（任意）<input id="instructorSpecialNote" maxlength="500" placeholder="紹介者・連絡事項など"></label><div class="row"><button id="instructorSpecialSubmit" class="btn btn--gold" type="submit">＋ 特別枠で追加</button><span id="instructorSpecialMessage" class="instructor-special-message" aria-live="polite"></span></div></form></div></div></section>
 
   <section id="participantsSection" class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・実際の参加クラス・支払状況をすぐ確認できます。</p></div></div><div class="refresh-row" style="margin-bottom:12px"><button id="printInstructorRoster" class="btn btn--ghost" type="button">クラス別名簿を印刷</button></div><div id="participantControls" class="participant-controls"></div><div id="participantResult" class="participant-result"></div><div id="rosterGroups" class="roster-groups" aria-live="polite">読み込み中...</div></div></section>
@@ -56,25 +56,27 @@ const fmtUpdated=s=>new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeri
 let client;
 let dashboardData=null;
 const participantView={classId:"",payment:"all",query:""};
-const checkinView={filter:"pending",query:"",busy:new Set(),requestId:0};
+const checkinView={filter:"pending",query:"",busy:new Set(),requestId:0,showPaymentHint:true};
 let checkinLoading=false;
 function renderCheckin(){
  if(!dashboardData)return;
  const people=RSClassRoster.activePeople(dashboardData.participants||[]),sessions=dashboardData.sessions||[];
  const checked=people.filter(p=>p.checkin).length,unpaid=people.filter(p=>p.paymentStatus!=='paid').length;
+ checkinPendingPayment.textContent=unpaid?`支払確認待ち ${unpaid}名。受付済でも未入金の方は管理者による入金確認が必要です。`:'支払確認待ちはありません。';
  checkinMetrics.innerHTML=`<div class="checkin-metric"><span>予約</span><strong>${people.length}</strong></div><div class="checkin-metric"><span>受付済</span><strong>${checked}</strong></div><div class="checkin-metric"><span>未受付</span><strong>${people.length-checked}</strong></div>`;
  checkinFilters.innerHTML=[['pending','未受付 '+(people.length-checked)],['all','すべて '+people.length],['unpaid','支払確認待ち '+unpaid],['done','受付済 '+checked]].map(([key,label])=>`<button type="button" data-checkin-filter="${key}" aria-pressed="${checkinView.filter===key}">${label}</button>`).join('');
  checkinFilters.querySelectorAll('button').forEach(b=>b.onclick=()=>{checkinView.filter=b.dataset.checkinFilter;renderCheckin()});
  const q=checkinView.query.trim().toLowerCase();
- const visible=people.filter(p=>(!q||String(p.name||'').toLowerCase().includes(q))&&(checkinView.filter==='all'||(checkinView.filter==='pending'&&!p.checkin)||(checkinView.filter==='done'&&p.checkin)||(checkinView.filter==='unpaid'&&p.paymentStatus!=='paid')));
+ const visible=people.filter(p=>(!q||String(p.name||'').toLowerCase().includes(q)||String(p.id||'').toLowerCase().includes(q))&&(checkinView.filter==='all'||(checkinView.filter==='pending'&&!p.checkin)||(checkinView.filter==='done'&&p.checkin)||(checkinView.filter==='unpaid'&&p.paymentStatus!=='paid')));
  checkinList.innerHTML=visible.map(p=>`<div class="checkin-person ${p.checkin?'is-done':''}"><div><strong>${esc(p.name)}</strong><div class="details">${esc(attendanceNames(p,sessions).join('・'))}</div><div class="${p.paymentStatus==='paid'?'details':'payment-warning'}">${p.paymentStatus==='paid'?'入金済':'未入金・支払確認が必要'}</div></div><button class="btn ${p.checkin?'btn--ghost':'btn--gold'}" type="button" data-checkin-id="${esc(p.id)}" ${checkinView.busy.has(p.id)?'disabled':''}>${p.checkin?'受付取消':'✓ 受付する'}</button></div>`).join('')||'<p class="checkin-note">該当する参加者はいません。</p>';
  checkinList.querySelectorAll('[data-checkin-id]').forEach(b=>b.onclick=async()=>{
   const person=people.find(p=>p.id===b.dataset.checkinId);if(!person||checkinView.busy.has(person.id))return;
   const next=!person.checkin;
-  if(!confirm(`${person.name}さんを${next?'受付済':'未受付に戻す'}操作を行います。\n支払状態は変更されません。`))return;
+  if(!next&&checkinView.busy.size)return;
+  if((!next||person.paymentStatus!=='paid')&&!confirm(`${person.name}さんを${next?'受付済':'未受付に戻す'}操作を行います。\n${person.paymentStatus!=='paid'?'未入金のため支払確認が必要です。\n':''}支払状態は変更されません。`))return;
   checkinView.busy.add(person.id);checkinMessage.textContent='保存しています…';renderCheckin();
   try{const {error}=await client.rpc('set_workshop_instructor_checkin_by_token',{p_token:token,p_reservation_id:person.id,p_checkin:next});if(error)throw error;await load({strict:true});checkinMessage.textContent=`${person.name}さん：${next?'受付完了':'受付取消完了'}`}
-  catch(err){checkinMessage.textContent='保存に失敗しました。受付状態を確認して再試行してください。'}
+  catch(err){checkinMessage.textContent='保存または更新確認に失敗しました。再読込して受付状態を確認してください。連続操作は避けてください。'}
   finally{checkinView.busy.delete(person.id);renderCheckin()}
  });
 }
