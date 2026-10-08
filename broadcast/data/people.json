@@ -6,7 +6,8 @@
     "role": "Jazz Tap Dancer / Host",
     "episode_ids": [
       "ayako-000",
-      "ayako-001"
+      "ayako-001",
+      "ayako-002"
     ],
     "official_url": "https://ayatap.amebaownd.com/",
     "instagram_url": "https://www.instagram.com/ayako_ukawa",
@@ -18,7 +19,9 @@
     "name_en": "Noritaka Furusho",
     "role": "Tap Dancer / Assistant / Guest",
     "episode_ids": [
-      "ayako-000"
+      "ayako-000",
+      "ayako-001",
+      "ayako-002"
     ],
     "official_url": "https://noritap.github.io/furusho-official/"
   },
@@ -32,5 +35,16 @@
     ],
     "official_url": "https://www.shinrisuzukitapdance.com",
     "instagram_url": "https://www.instagram.com/shinrisuzuki"
+  },
+  {
+    "id": "takuto-hashimoto",
+    "name": "橋本タクト",
+    "name_kanji": "橋本拓人",
+    "name_en": "Takuto Hashimoto",
+    "role": "Tap Dancer / Guest",
+    "episode_ids": [
+      "ayako-002"
+    ],
+    "official_url": "https://gamba-tap.com/instructor/"
   }
 ]
