@@ -21,6 +21,18 @@ function expect(ok, message) { if (!ok) errors.push(message); }
       for (const target of targets) {
         const response = await page.goto(base + target, { waitUntil: 'load' });
         expect(response?.status() === 200, width + ' ' + target + ': HTTP ' + response?.status());
+        // Force lazy-loaded posters to decode before measuring them.
+        await page.evaluate(async (target) => {
+          const selector = target === '/classes/' ? '.class-card-image' :
+            target === '/classes/stretch/' ? '.stretch-identity-photo, .stretch-team-photo' :
+            target === '/access/' ? null : '.class-identity-photo';
+          if (!selector) return;
+          const imgs = [...document.querySelectorAll(selector)];
+          await Promise.all(imgs.map(async img => {
+            img.loading = 'eager';
+            try { await img.decode(); } catch (_) { /* reported below */ }
+          }));
+        }, target);
         const data = await page.evaluate((target) => {
           const classIndex = target === '/classes/';
           const access = target === '/access/';
