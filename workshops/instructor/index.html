@@ -15,6 +15,7 @@
 
 .instructor-special-panel{background:#fff9eb;border:1px solid #e5c16c;border-radius:22px;padding:20px}.instructor-special-panel h2{margin:4px 0 8px}.instructor-special-form{margin-top:16px;display:grid;gap:12px}.instructor-special-form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.instructor-special-form label{display:grid;gap:5px;font-weight:700;font-size:13px}.instructor-special-form input,.instructor-special-form select{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:10px;background:white}.instructor-special-remaining{font-size:13px;color:var(--muted)}.instructor-special-message{font-weight:700;font-size:13px}.instructor-special-message[role=alert]{color:var(--red)}@media(max-width:680px){.instructor-special-form .grid2{grid-template-columns:1fr}}
 .checkin-panel{border:1px solid var(--line);border-radius:20px;background:#fff;padding:20px}.checkin-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}.checkin-metric{padding:15px;border:1px solid var(--line);border-radius:14px}.checkin-metric strong{display:block;font-size:30px}.checkin-list{display:grid;gap:8px}.checkin-person{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}.checkin-person.is-done{background:#eff9f3}.checkin-person .details{font-size:12px;color:var(--muted)}.checkin-person .payment-warning{font-weight:700;color:#a46800}.checkin-person button{min-width:100px;min-height:44px;cursor:pointer}.checkin-person button:disabled{opacity:.5}.checkin-search:focus-visible,.checkin-person button:focus-visible{outline:3px solid #b88000;outline-offset:2px}.checkin-filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.checkin-filters button{border:1px solid var(--line);border-radius:30px;background:white;padding:10px 14px;cursor:pointer}.checkin-filters button[aria-pressed=true]{background:#111;color:white}.checkin-search{width:100%;max-width:460px;padding:13px;border:1px solid var(--line);border-radius:10px}.checkin-note{font-size:13px;color:var(--muted)}@media(max-width:600px){.checkin-metric{padding:10px}.checkin-metric strong{font-size:24px}.checkin-person{align-items:flex-start;flex-direction:column}.checkin-person button{width:100%}}
+.instructor-focus-toggle{border:1px solid #c8942d;border-radius:999px;padding:9px 13px;background:#fff7e5;font-weight:700;white-space:nowrap;cursor:pointer}body.checkin-focus #instructorTop,body.checkin-focus #instructorClasses,body.checkin-focus #instructorSpecial,body.checkin-focus #participantsSection,body.checkin-focus .site-footer{display:none}body.checkin-focus #checkinSection{padding-top:16px}body.checkin-focus .checkin-panel{max-width:800px;margin:auto}body.checkin-focus .instructor-focus-toggle{background:#111;color:#fff}
 </style>
   <link rel="stylesheet" href="../assets/class-roster.css?v=20261008-4">
 </head>
@@ -26,7 +27,7 @@
   </div>
 </header>
 
-<nav class="instructor-quick-nav" aria-label="講師ページメニュー"><div class="shell"><a href="#instructorTop">⌂ トップ</a><a href="#checkinSection">当日受付</a><a href="#instructorClasses">クラス別状況</a><a href="#instructorSpecial">特別枠で追加</a><a href="#participantsSection">参加者名簿</a><a href="#participantsSection" id="instructorPrintNav">名簿印刷</a></div></nav>
+<nav class="instructor-quick-nav" aria-label="講師ページメニュー"><div class="shell"><a href="#instructorTop">⌂ トップ</a><a href="#checkinSection">当日受付</a><button id="checkinFocusToggle" type="button" aria-pressed="false" class="instructor-focus-toggle">受付専用表示</button><a href="#instructorClasses">クラス別状況</a><a href="#instructorSpecial">特別枠で追加</a><a href="#participantsSection">参加者名簿</a><a href="#participantsSection" id="instructorPrintNav">名簿印刷</a></div></nav>
 <main id="app">
   <section id="instructorTop" class="instructor-hero"><div class="shell"><p class="kicker">INSTRUCTOR ONLY</p><h1 id="eventTitle" class="page-title">読み込み中...</h1><p id="eventMeta" class="page-lead"></p><div class="refresh-row"><span id="updatedAt" class="updated-at"></span></div><p class="instructor-note">講師共有用の閲覧ページです。予約者のメールアドレス・電話番号は表示しません。</p></div></section>
 
@@ -159,6 +160,7 @@ async function load(options={}){
   }catch(err){showError(err.message==='invalid_or_disabled_link'?'この講師共有リンクは無効です。運営に新しいURLを確認してください。':(err.message||'読み込みに失敗しました。'));if(options.strict)throw err;}
   finally{checkinLoading=false;}
 }
+checkinFocusToggle.onclick=()=>{const enabled=document.body.classList.toggle('checkin-focus');checkinFocusToggle.setAttribute('aria-pressed',String(enabled));checkinFocusToggle.textContent=enabled?'通常表示に戻す':'受付専用表示';if(enabled){checkinSection.scrollIntoView({block:'start'});checkinSearch.focus()}};
 checkinSearch.oninput=e=>{checkinView.query=e.target.value;renderCheckin()};
 checkinSearch.addEventListener('keydown',e=>{if(e.key==='Escape'){checkinSearch.value='';checkinView.query='';renderCheckin()}});
 refreshBtn.onclick=load;
