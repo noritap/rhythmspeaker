@@ -73,7 +73,7 @@ function renderCheckin(){
   const person=people.find(p=>p.id===b.dataset.checkinId);if(!person||checkinView.busy.has(person.id))return;
   const next=!person.checkin;
   if(!next&&checkinView.busy.size)return;
-  if(!confirm(`${person.name}さんを${next?'受付済':'未受付に戻す'}操作を行います。\n支払状態は変更されません。`))return;
+  if((!next||person.paymentStatus!=='paid')&&!confirm(`${person.name}さんを${next?'受付済':'未受付に戻す'}操作を行います。\n${person.paymentStatus!=='paid'?'未入金のため支払確認が必要です。\n':''}支払状態は変更されません。`))return;
   checkinView.busy.add(person.id);checkinMessage.textContent='保存しています…';renderCheckin();
   try{const {error}=await client.rpc('set_workshop_instructor_checkin_by_token',{p_token:token,p_reservation_id:person.id,p_checkin:next});if(error)throw error;await load({strict:true});checkinMessage.textContent=`${person.name}さん：${next?'受付完了':'受付取消完了'}`}
   catch(err){checkinMessage.textContent='保存または更新確認に失敗しました。再読込して受付状態を確認してください。連続操作は避けてください。'}
