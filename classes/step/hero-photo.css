@@ -9,20 +9,37 @@
   min-height: 660px;
   padding: clamp(7.5rem, 10vw, 9rem) 6% clamp(3rem, 6vw, 5rem);
   color: #fff;
-  background-color: #171310;
-  background-image:
-    linear-gradient(90deg, rgba(8, 8, 8, .86) 0%, rgba(8, 8, 8, .67) 35%, rgba(8, 8, 8, .20) 72%, rgba(8, 8, 8, .04) 100%),
-    linear-gradient(0deg, rgba(0, 0, 0, .32), transparent 55%),
-    url('../../assets/classes/class-step-hero-lesson-v1.webp');
-  background-position: center, center, center 53%;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: #171310;
+  isolation: isolate;
+}
+.step-page .step-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 53%;
+}
+.step-page .class-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(8,8,8,.86) 0%, rgba(8,8,8,.67) 35%, rgba(8,8,8,.20) 72%, rgba(8,8,8,.04) 100%),
+    linear-gradient(0deg, rgba(0,0,0,.32), transparent 55%);
 }
 .step-page .class-hero::after {
+  z-index: 3;
   height: 5px;
   background: linear-gradient(90deg, #ff4058 0 30%, rgba(255,255,255,.3) 30% 100%);
 }
 .step-page .class-hero-grid {
+  position: relative;
+  z-index: 2;
   display: block;
   width: min(1180px, 100%);
 }
@@ -124,7 +141,9 @@
   .step-page .class-hero {
     min-height: 600px;
     padding: 7.25rem 5% 3rem;
-    background-position: center, center, 53% center;
+  }
+  .step-page .step-hero-photo {
+    object-position: 53% center;
   }
   .step-page .step-hero-copy {
     width: min(570px, 77%);
@@ -145,10 +164,12 @@
     min-height: 690px;
     align-items: flex-start;
     padding: calc(64px + 1.65rem) 1.25rem 2.5rem;
-    background-image:
-      linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.75) 36%, rgba(0,0,0,.35) 63%, rgba(0,0,0,.04) 100%),
-      url('../../assets/classes/class-step-hero-lesson-v1.webp');
-    background-position: center, 31% center;
+  }
+  .step-page .class-hero::before {
+    background: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.75) 36%, rgba(0,0,0,.35) 63%, rgba(0,0,0,.04) 100%);
+  }
+  .step-page .step-hero-photo {
+    object-position: 31% center;
   }
   .step-page .step-hero-copy {
     width: 100%;
