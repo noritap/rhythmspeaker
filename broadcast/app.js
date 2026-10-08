@@ -341,7 +341,7 @@
     // The source link alone does not grant republication rights.
     // Until usage is verified, show only the already-published show thumbnail.
     const approvedPortrait = person.portrait_url
-      && ['VERIFIED', 'CONTROLLED_SOURCE'].includes(person.portrait_usage_status);
+      && person.portrait_usage_status === 'VERIFIED';
     const imageUrl = approvedPortrait ? person.portrait_url : person.portrait_fallback_url;
     if (imageUrl) {
       media.classList.add('stream-tile__media--portrait');
