@@ -58,12 +58,18 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           const heroRect = heroEl?.getBoundingClientRect();
           const primaryCTA = heroEl?.querySelector('.class-actions .btn-primary');
           const ctaRect = primaryCTA?.getBoundingClientRect();
+          const kickerRect = heroEl?.querySelector('.class-kicker')?.getBoundingClientRect();
+          const navRect = document.querySelector('nav')?.getBoundingClientRect();
+          const secondary = heroEl?.querySelector('.class-actions .btn-secondary');
           const hero = heroEl ? {
             height: heroRect.height,
             color: getComputedStyle(heroEl).color,
             background: getComputedStyle(heroEl).backgroundImage,
             ctaTop: ctaRect?.top ?? null,
             ctaHeight: ctaRect?.height ?? null,
+            kickerTop: kickerRect?.top ?? null,
+            navBottom: navRect?.bottom ?? null,
+            secondaryColor: secondary ? getComputedStyle(secondary).color : null,
             panelWidth: document.querySelector('.class-panel')?.getBoundingClientRect().width ?? null,
           } : null;
           const team = target === '/classes/stretch/' ?
@@ -98,6 +104,10 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ' ' + target + ': class hero too tall (' + data.hero.height + 'px)');
           expect(data.photos[0]?.width >= (width >= 750 ? 220 : 115),
             width + ' ' + target + ': class poster too small (' + data.photos[0]?.width + 'px)');
+          expect(data.hero.kickerTop >= data.hero.navBottom + 8,
+            width + ' ' + target + ': class eyebrow is hidden behind fixed navigation');
+          expect(data.hero.secondaryColor === 'rgb(37, 33, 30)',
+            width + ' ' + target + ': secondary CTA text is low contrast');
           expect(data.hero.ctaHeight >= 44,
             width + ' ' + target + ': primary booking CTA tap target too small');
           expect(data.hero.ctaTop < (width <= 390 ? 650 : 690),
