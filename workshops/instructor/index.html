@@ -16,6 +16,31 @@
 .instructor-special-panel{background:#fff9eb;border:1px solid #e5c16c;border-radius:22px;padding:20px}.instructor-special-panel h2{margin:4px 0 8px}.instructor-special-form{margin-top:16px;display:grid;gap:12px}.instructor-special-form .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.instructor-special-form label{display:grid;gap:5px;font-weight:700;font-size:13px}.instructor-special-form input,.instructor-special-form select{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:10px;background:white}.instructor-special-remaining{font-size:13px;color:var(--muted)}.instructor-special-message{font-weight:700;font-size:13px}.instructor-special-message[role=alert]{color:var(--red)}@media(max-width:680px){.instructor-special-form .grid2{grid-template-columns:1fr}}
 .checkin-panel{border:1px solid var(--line);border-radius:20px;background:#fff;padding:20px}.checkin-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}.checkin-metric{padding:15px;border:1px solid var(--line);border-radius:14px}.checkin-metric strong{display:block;font-size:30px}.checkin-list{display:grid;gap:8px}.checkin-person{border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:12px}.checkin-person.is-done{background:#eff9f3}.checkin-person .details{font-size:12px;color:var(--muted)}.checkin-person .payment-warning{font-weight:700;color:#a46800}.checkin-person button{min-width:100px;min-height:44px;cursor:pointer}.checkin-person button:disabled{opacity:.5}.checkin-search:focus-visible,.checkin-person button:focus-visible{outline:3px solid #b88000;outline-offset:2px}.checkin-filters{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.checkin-filters button{border:1px solid var(--line);border-radius:30px;background:white;padding:10px 14px;cursor:pointer}.checkin-filters button[aria-pressed=true]{background:#111;color:white}.checkin-search{width:100%;max-width:460px;padding:13px;border:1px solid var(--line);border-radius:10px}.checkin-note{font-size:13px;color:var(--muted)}@media(max-width:600px){.checkin-metric{padding:10px}.checkin-metric strong{font-size:24px}.checkin-person{align-items:flex-start;flex-direction:column}.checkin-person button{width:100%}}
 .instructor-focus-toggle{border:1px solid #c8942d;border-radius:999px;padding:9px 13px;background:#fff7e5;font-weight:700;white-space:nowrap;cursor:pointer}body.checkin-focus #instructorTop,body.checkin-focus #instructorClasses,body.checkin-focus #instructorSpecial,body.checkin-focus #participantsSection,body.checkin-focus .site-footer{display:none}body.checkin-focus #checkinSection{padding-top:16px}body.checkin-focus .checkin-panel{max-width:800px;margin:auto}body.checkin-focus .instructor-focus-toggle{background:#111;color:#fff}
+
+.mobile-instructor-nav{display:none}.instructor-special-extra{display:contents}
+@media(max-width:680px){
+ body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+ .instructor-quick-nav{display:none}
+ .mobile-instructor-nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;z-index:100;background:white;border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom));box-shadow:0 -4px 24px #00000012}
+ .mobile-instructor-nav a{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;min-height:52px;color:#444;text-decoration:none;font-size:12px;font-weight:750;border-radius:12px}
+ .mobile-instructor-nav a[aria-current="page"]{background:#fff3d6;color:#6f4900}
+ .mobile-instructor-nav .mobile-icon{font-size:21px;line-height:1.1}
+ #instructorTop,#checkinSection,#instructorClasses,#instructorSpecial,#participantsSection{scroll-margin-top:80px}
+ .instructor-hero{padding:18px 0 4px}.instructor-hero .page-title{font-size:clamp(22px,6vw,30px);line-height:1.18;overflow-wrap:anywhere}
+ .instructor-hero .instructor-note{display:none}
+ .checkin-panel{padding:14px;border-radius:14px}
+ .checkin-search{max-width:none;min-height:48px;font-size:16px}
+ .checkin-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}
+ .checkin-filters button{min-height:44px;flex:0 0 auto}
+ .checkin-person{padding:14px;gap:10px}.checkin-person button{min-height:48px;font-size:15px}
+ .instructor-special-panel{padding:15px}
+ .instructor-special-form input,.instructor-special-form select{min-height:48px;font-size:16px}
+ .instructor-special-extra{display:none}.instructor-special-extra.is-open{display:contents}
+ .instructor-special-extra-toggle{min-height:44px;border:1px solid var(--line);background:white;border-radius:10px;padding:10px 14px;text-align:left;font-weight:700}
+ .instructor-special-form .btn{min-height:48px;width:100%}
+}
+@media(min-width:681px){.instructor-special-extra-toggle{display:none}}
+@media print{.mobile-instructor-nav{display:none!important}body{padding-bottom:0!important}}
 </style>
   <link rel="stylesheet" href="../assets/class-roster.css?v=20261008-4">
 </head>
@@ -28,7 +53,7 @@
 </header>
 
 <nav class="instructor-quick-nav" aria-label="講師ページメニュー"><div class="shell"><a href="#instructorTop">⌂ トップ</a><a href="#checkinSection">当日受付</a><button id="checkinFocusToggle" type="button" aria-pressed="false" class="instructor-focus-toggle">受付専用表示</button><a href="#instructorClasses">クラス別状況</a><a href="#instructorSpecial">特別枠で追加</a><a href="#participantsSection">参加者名簿</a><a href="#participantsSection" id="instructorPrintNav">名簿印刷</a></div></nav>
-<main id="app">
+<nav class="mobile-instructor-nav" aria-label="スマホ用講師メニュー"><a href="#checkinSection" data-mobile-nav="checkinSection"><span class="mobile-icon" aria-hidden="true">✓</span>受付</a><a href="#participantsSection" data-mobile-nav="participantsSection"><span class="mobile-icon" aria-hidden="true">☷</span>名簿</a><a href="#instructorSpecial" data-mobile-nav="instructorSpecial"><span class="mobile-icon" aria-hidden="true">＋</span>追加</a><a href="#instructorTop" data-mobile-nav="instructorTop"><span class="mobile-icon" aria-hidden="true">⌂</span>概要</a></nav><main id="app">
   <section id="instructorTop" class="instructor-hero"><div class="shell"><p class="kicker">INSTRUCTOR ONLY</p><h1 id="eventTitle" class="page-title">読み込み中...</h1><p id="eventMeta" class="page-lead"></p><div class="refresh-row"><span id="updatedAt" class="updated-at"></span></div><p class="instructor-note">講師共有用の閲覧ページです。予約者のメールアドレス・電話番号は表示しません。</p></div></section>
 
   <section class="section section--tight"><div class="shell"><div id="errorBox" class="instructor-warning hidden"></div><div id="stats" class="stats"></div></div></section>
@@ -36,7 +61,7 @@
   <section id="instructorClasses" class="section section--tight"><div class="shell"><div class="section-head"><div><p class="kicker">CLASSES</p><h2>クラス別の予約状況</h2><p>定員・予約席・残席・売上見込を確認できます。</p></div></div><div id="classGrid" class="class-status-grid"></div></div></section>
 
   <section id="checkinSection" class="section section--tight"><div class="shell"><div class="checkin-panel"><p class="kicker">EVENT DAY / CHECK-IN</p><h2>当日受付</h2><p class="checkin-note">予約を検索して受付。受付済と入金済は別の状態です。未入金の方は支払いを確認してください。</p><div id="checkinMetrics" class="checkin-metrics" aria-live="polite"></div><label for="checkinSearch" class="help">参加者を検索</label><input id="checkinSearch" class="checkin-search" type="search" placeholder="氏名・予約番号で検索" autocomplete="off"><div id="checkinFilters" class="checkin-filters"></div><div id="checkinMessage" role="status" aria-live="polite"></div><p id="checkinPendingPayment" class="checkin-note" aria-live="polite"></p><p class="checkin-note">支払状態の確定・訂正は管理者画面で行います。受付処理では入金状態は変わりません。</p><div id="checkinList" class="checkin-list"></div></div></div></section>
-  <section id="instructorSpecial" class="section section--tight"><div class="shell"><div class="instructor-special-panel"><p class="kicker">INSTRUCTOR SPECIAL</p><h2>イントラ特別枠</h2><p class="help">一般予約が満席でも、講師用の特別枠で追加できます。各クラス最大5名（セット予約は両クラスの枠を使用）。</p><div id="instructorSpecialAvailability" class="special-allocation-grid" aria-live="polite"></div><form id="instructorSpecialForm" class="instructor-special-form"><div class="grid2"><label>参加クラス<select id="instructorSpecialSession" required></select></label><label>参加者氏名<input id="instructorSpecialName" maxlength="120" required autocomplete="off" placeholder="氏名"></label></div><div class="grid2"><label>メール（任意）<input id="instructorSpecialEmail" type="email" maxlength="254"></label><label>電話（任意）<input id="instructorSpecialPhone" type="tel" maxlength="40"></label></div><label>メモ（任意）<input id="instructorSpecialNote" maxlength="500" placeholder="紹介者・連絡事項など"></label><div class="row"><button id="instructorSpecialSubmit" class="btn btn--gold" type="submit">＋ 特別枠で追加</button><span id="instructorSpecialMessage" class="instructor-special-message" aria-live="polite"></span></div></form></div></div></section>
+  <section id="instructorSpecial" class="section section--tight"><div class="shell"><div class="instructor-special-panel"><p class="kicker">INSTRUCTOR SPECIAL</p><h2>イントラ特別枠</h2><p class="help">一般予約が満席でも、講師用の特別枠で追加できます。各クラス最大5名（セット予約は両クラスの枠を使用）。</p><div id="instructorSpecialAvailability" class="special-allocation-grid" aria-live="polite"></div><form id="instructorSpecialForm" class="instructor-special-form"><div class="grid2"><label>参加クラス<select id="instructorSpecialSession" required></select></label><label>参加者氏名<input id="instructorSpecialName" maxlength="120" required autocomplete="off" placeholder="氏名"></label></div><button id="instructorSpecialExtraToggle" class="instructor-special-extra-toggle" type="button" aria-expanded="false" aria-controls="instructorSpecialExtra">連絡先・メモを追加（任意） ▾</button><div id="instructorSpecialExtra" class="instructor-special-extra"><div class="grid2"><label>メール（任意）<input id="instructorSpecialEmail" type="email" maxlength="254"></label><label>電話（任意）<input id="instructorSpecialPhone" type="tel" maxlength="40"></label></div><label>メモ（任意）<input id="instructorSpecialNote" maxlength="500" placeholder="紹介者・連絡事項など"></label></div><div class="row"><button id="instructorSpecialSubmit" class="btn btn--gold" type="submit">＋ 特別枠で追加</button><span id="instructorSpecialMessage" class="instructor-special-message" aria-live="polite"></span></div></form></div></div></section>
 
   <section id="participantsSection" class="section section--surface"><div class="shell"><div class="section-head"><div><p class="kicker">PARTICIPANTS</p><h2>参加予定者</h2><p>氏名・実際の参加クラス・支払状況をすぐ確認できます。</p></div></div><div class="refresh-row" style="margin-bottom:12px"><button id="printInstructorRoster" class="btn btn--ghost" type="button">クラス別名簿を印刷</button></div><div id="participantControls" class="participant-controls"></div><div id="participantResult" class="participant-result"></div><div id="rosterGroups" class="roster-groups" aria-live="polite">読み込み中...</div></div></section>
 </main>
@@ -144,6 +169,7 @@ instructorSpecialForm.onsubmit=async e=>{
     instructorSpecialForm.reset();
     await load();
     instructorSpecialMessage.textContent='登録しました。人数・名簿を更新しました。';
+    if(window.matchMedia('(max-width:680px)').matches){checkinView.filter='pending';checkinView.query=name;checkinSearch.value=name;setMobileActive('checkinSection');checkinSection.scrollIntoView({block:'start'});renderCheckin();}
   }catch(err){instructorSpecialMessage.setAttribute('role','alert');instructorSpecialMessage.textContent=({'INSTRUCTOR_SPECIAL_FULL':'特別枠が満席です。','invalid_or_disabled_link':'共有リンクが無効です。','NAME_REQUIRED':'氏名を入力してください。'})[err.message]||'登録できませんでした。再度お試しください。';}
   finally{instructorSpecialSubmit.disabled=false;}
 };
@@ -163,6 +189,11 @@ async function load(options={}){
   finally{checkinLoading=false;}
 }
 checkinFocusToggle.onclick=()=>{const enabled=document.body.classList.toggle('checkin-focus');checkinFocusToggle.setAttribute('aria-pressed',String(enabled));checkinFocusToggle.textContent=enabled?'通常表示に戻す':'受付専用表示';if(enabled){checkinSection.scrollIntoView({block:'start'});checkinSearch.focus()}};
+const mobileLinks=[...document.querySelectorAll('[data-mobile-nav]')];
+function setMobileActive(id){mobileLinks.forEach(a=>{if(a.dataset.mobileNav===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')})}
+mobileLinks.forEach(a=>a.addEventListener('click',()=>setMobileActive(a.dataset.mobileNav)));
+setMobileActive(location.hash.slice(1)||'checkinSection');
+instructorSpecialExtraToggle.onclick=()=>{const expanded=instructorSpecialExtraToggle.getAttribute('aria-expanded')!=='true';instructorSpecialExtraToggle.setAttribute('aria-expanded',String(expanded));instructorSpecialExtra.classList.toggle('is-open',expanded);instructorSpecialExtraToggle.textContent=expanded?'連絡先・メモを閉じる ▴':'連絡先・メモを追加（任意） ▾'};
 checkinSearch.oninput=e=>{checkinView.query=e.target.value;renderCheckin()};
 checkinSearch.addEventListener('keydown',e=>{if(e.key==='Escape'){checkinSearch.value='';checkinView.query='';renderCheckin()}});
 refreshBtn.onclick=load;
