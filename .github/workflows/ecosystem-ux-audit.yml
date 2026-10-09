@@ -1,0 +1,24 @@
+name: Ecosystem UX Audit
+
+on:
+  pull_request:
+    paths:
+      - 'ecosystem/**'
+      - 'tools/ecosystem_ux_audit.py'
+      - '.github/workflows/ecosystem-ux-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'ecosystem/**'
+      - 'tools/ecosystem_ux_audit.py'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Audit ecosystem semantics
+        run: python tools/ecosystem_ux_audit.py
