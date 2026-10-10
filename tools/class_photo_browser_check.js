@@ -57,6 +57,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           const heroEl = document.querySelector('.class-hero');
           const lessonPhoto = heroEl?.querySelector('.step-hero-photo');
           const heroRect = heroEl?.getBoundingClientRect();
+          const copyRect = heroEl?.querySelector('.step-hero-copy')?.getBoundingClientRect();
           const heading = heroEl?.querySelector('h1');
           const headingLineHeight = heading ? parseFloat(getComputedStyle(heading).lineHeight) : 0;
           const primaryCTA = heroEl?.querySelector('.class-actions .btn-primary');
@@ -66,11 +67,16 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           const secondary = heroEl?.querySelector('.class-actions .btn-secondary');
           const hero = heroEl ? {
             height: heroRect.height,
+            bottom: heroRect.bottom,
+            copyBottom: copyRect?.bottom ?? null,
+            headingText: heading?.textContent?.trim() ?? null,
             headingLines: headingLineHeight ? heading.getBoundingClientRect().height / headingLineHeight : null,
             color: getComputedStyle(heroEl).color,
             background: getComputedStyle(heroEl).backgroundImage,
             lessonPhoto: lessonPhoto ? {
               loaded: lessonPhoto.complete && lessonPhoto.naturalWidth > 0,
+              naturalWidth: lessonPhoto.naturalWidth,
+              naturalHeight: lessonPhoto.naturalHeight,
               src: lessonPhoto.getAttribute('src'),
               fit: getComputedStyle(lessonPhoto).objectFit,
               width: lessonPhoto.getBoundingClientRect().width,
@@ -78,6 +84,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
               alt: lessonPhoto.alt,
             } : null,
             ctaTop: ctaRect?.top ?? null,
+            ctaBottom: ctaRect?.bottom ?? null,
             ctaHeight: ctaRect?.height ?? null,
             kickerTop: kickerRect?.top ?? null,
             navBottom: navRect?.bottom ?? null,
@@ -117,6 +124,14 @@ function expect(ok, message) { if (!ok) errors.push(message); }
               width + ': STEP hero does not use approved user photo');
             expect(data.hero.lessonPhoto?.loaded,
               width + ': STEP lesson hero photo did not load');
+            expect(data.hero.lessonPhoto?.naturalWidth >= 1200 && data.hero.lessonPhoto?.naturalHeight >= 650,
+              width + ': STEP photo is undersized or unexpectedly cropped');
+            expect(data.hero.headingText === '一音から、踊りが始まる。',
+              width + ': STEP hero headline drifted from approved concise copy');
+            expect(data.hero.copyBottom <= data.hero.bottom - 12,
+              width + ': STEP hero text overflows the photo section');
+            expect(data.hero.ctaBottom <= data.hero.bottom - 12,
+              width + ': STEP booking CTA is clipped by the photo section');
             expect(data.hero.lessonPhoto?.fit === 'cover',
               width + ': STEP hero photo is not full-bleed');
             expect(data.hero.lessonPhoto?.width >= width - 1,
@@ -148,6 +163,11 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ': STEP hero image asset missing or HTTP ' + heroPhoto.status());
           expect((heroPhoto.headers()['content-type'] || '').includes('image/'),
             width + ': STEP hero asset must be a real image');
+          if (heroPhoto.ok()) {
+            const bytes = (await heroPhoto.body()).length;
+            expect(bytes >= 10000 && bytes <= 300000,
+              width + ': STEP photo should be optimized without losing visual quality (' + bytes + ' bytes)');
+          }
         }
         if (target === '/classes/step/' && width >= 750) {
           expect(data.hero?.headingLines <= 2.2,
