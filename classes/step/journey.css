@@ -349,3 +349,130 @@
   .step-page .step-next .class-actions .btn { width: 100%; }
   .step-page .step-final-cta h2 { font-size: clamp(1.7rem,7vw,2.6rem); }
 }
+
+/* Mobile 390px screenshot 3VC / 2026-10-11
+   VC2: give a concrete next action after the two STEP levels.
+   VC3: remove orphan heading, clarify instructor choice and condense repeats. */
+.step-page .step-level-decision {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  padding: 1.15rem 1.3rem;
+  border: 1px solid #ecd4d8;
+  border-radius: 18px;
+  background: #fff9f7;
+}
+.step-page .step-level-decision p {
+  margin: 0;
+  flex: 1 1 300px;
+  color: #4d4540;
+  font-size: .93rem;
+  line-height: 1.65;
+}
+.step-page .step-level-decision p strong { color: #221d1a; }
+.step-page .step-level-decision .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .4rem;
+  min-height: 48px;
+  line-height: 1.4;
+  text-align: center;
+}
+.step-page .step-instructors-title-mobile { display: none; }
+.step-page #instructors .section-intro strong {
+  color: #322922;
+  font-weight: 800;
+}
+.step-page .step-instructor-followup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem 1rem;
+  margin: 1.2rem 0 0;
+  padding: .85rem 1rem;
+  border: 1px solid #e7ddd4;
+  border-radius: 15px;
+  background: #fff;
+  color: #3c3530;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.step-page .step-instructor-followup a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #b82943;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.step-page .step-instructor-followup a:focus-visible,
+.step-page .step-level-decision a:focus-visible {
+  outline: 3px solid #c92244;
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .step-page #levels .class-grid .class-card:nth-child(3) {
+    display: none; /* TAP is explained later in the STEP→TAP bridge. */
+  }
+  .step-page .step-level-decision {
+    display: block;
+    margin-top: .85rem;
+    padding: 1rem;
+  }
+  .step-page .step-level-decision p {
+    font-size: .88rem;
+    line-height: 1.55;
+  }
+  .step-page .step-level-decision .btn {
+    width: 100%;
+    margin-top: .85rem;
+    font-size: .9rem;
+  }
+  .step-page .step-instructors-title-desktop { display: none; }
+  .step-page .step-instructors-title-mobile { display: inline; }
+  .step-page #instructors .section-head h2 {
+    font-size: clamp(1.7rem,7vw,2.15rem);
+    line-height: 1.3;
+    overflow-wrap: normal;
+  }
+  .step-page #instructors .instructor-card {
+    min-height: 108px;
+  }
+  .step-page #instructors .step-instructor-body {
+    justify-content: center;
+  }
+  .step-page #instructors .instructor-card .step-instructor-style {
+    font-size: .8rem;
+    line-height: 1.45;
+  }
+  .step-page #instructors .step-instructor-link {
+    font-size: .83rem;
+    line-height: 1.45;
+  }
+  .step-page .step-instructor-followup {
+    display: block;
+    margin-top: .85rem;
+    padding: .85rem 1rem;
+  }
+  .step-page .step-instructor-followup a {
+    margin-top: .2rem;
+  }
+  .step-page #method .class-path { gap: .5rem; margin-top: 1.15rem; }
+  .step-page #method .class-path article {
+    border-top-width: 1px;
+    border-left: 4px solid #ed5268;
+    padding: .9rem 1rem;
+    border-radius: 12px;
+  }
+  .step-page #method .class-path h3 { margin: .12rem 0 .18rem; }
+  .step-page #method .class-path p { font-size: .85rem; line-height: 1.55; }
+  .step-page #method .class-proof {
+    display: none; /* The same facts already appear in the summary and level path. */
+  }
+}
