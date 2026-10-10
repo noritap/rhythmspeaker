@@ -113,6 +113,14 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             const booking = document.getElementById('booking');
             const trialLinks = [...document.querySelectorAll('#start a, #booking a')];
             return {
+              summaryFactsVisible: [...document.querySelectorAll('.step-summary-facts > div')].filter(el =>
+                getComputedStyle(el).display !== 'none').length,
+              mobileInstructorHeadingVisible: getComputedStyle(document.querySelector('.step-instructors-title-mobile')).display !== 'none',
+              desktopInstructorHeadingVisible: getComputedStyle(document.querySelector('.step-instructors-title-desktop')).display !== 'none',
+              levelThirdVisible: getComputedStyle(document.querySelector('#levels .class-grid .class-card:nth-child(3)')).display !== 'none',
+              levelDecision: document.querySelector('.step-level-decision .btn')?.getAttribute('href'),
+              instructorFollowup: document.querySelector('.step-instructor-followup a')?.getAttribute('href'),
+              methodProofVisible: getComputedStyle(document.querySelector('#method .class-proof')).display !== 'none',
               sectionsPresent: sections.every(Boolean),
               sectionsInOrder: sections.every((el,i) => i === 0 || el.compareDocumentPosition(sections[i-1]) & Node.DOCUMENT_POSITION_PRECEDING),
               processCount: start?.querySelectorAll('.step-start-steps li').length ?? 0,
@@ -258,6 +266,24 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ': STEP instructor thumbnails should be compact, not full posters');
           expect(journey?.instructors.every(c => c.height <= (width <= 390 ? 150 : 170)),
             width + ': STEP instructor cards too tall on this viewport');
+          expect(journey?.levelDecision === '../../trial/apply/?class=STEP' &&
+            journey?.instructorFollowup === '../../trial/apply/?class=STEP',
+            width + ': mobile decision guidance must lead to the real STEP trial form');
+          if (width <= 390) {
+            expect(data.hero.height >= 620 && data.hero.height <= 650,
+              width + ': mobile STEP photo hero should be 620-650px, not an oversized scroll wall');
+            expect(journey?.summaryFactsVisible === 4,
+              width + ': mobile STEP summary hides important class facts');
+            expect(journey?.mobileInstructorHeadingVisible && !journey?.desktopInstructorHeadingVisible,
+              width + ': long instructor heading still wraps an orphan kana on mobile');
+            expect(!journey?.levelThirdVisible,
+              width + ': duplicate TAP level card should not interrupt the beginner STEP choice');
+            expect(!journey?.methodProofVisible,
+              width + ': redundant method proof tags add unnecessary mobile scrolling');
+          } else if (width >= 750) {
+            expect(journey?.desktopInstructorHeadingVisible && journey?.levelThirdVisible,
+              width + ': desktop STEP content was unintentionally hidden');
+          }
           expect(journey?.methodCount === 3 && journey?.methodBackground !== 'rgb(17, 17, 17)',
             width + ': STEP learning stages must be compact, light, and scannable');
         }
