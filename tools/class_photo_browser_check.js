@@ -104,6 +104,36 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             secondaryColor: secondary ? getComputedStyle(secondary).color : null,
             panelWidth: document.querySelector('.class-panel')?.getBoundingClientRect().width ?? null,
           } : null;
+          const classFinder = classIndex ? (() => {
+            const rect = el => el?.getBoundingClientRect();
+            const hero = document.querySelector('.classes-hero');
+            const categoryButtons = [...document.querySelectorAll('.classes-hero [data-class-category]')];
+            const lineCTA = document.querySelector('.classes-hero .btn-primary');
+            const trialCTA = document.querySelector('.class-beginner-route-cta');
+            const route = document.querySelector('.class-beginner-route');
+            const catalog = document.querySelector('.catalog-section');
+            const cards = [...document.querySelectorAll('.catalog-grid article')];
+            return {
+              heroHeight: rect(hero)?.height,
+              heroBottom: rect(hero)?.bottom,
+              categoryTops: categoryButtons.map(el => rect(el).top),
+              categoryHeights: categoryButtons.map(el => rect(el).height),
+              lineTop: rect(lineCTA)?.top,
+              lineHeight: rect(lineCTA)?.height,
+              proof: document.querySelector('.classes-hero-proof')?.textContent,
+              routeVisible: !!route && getComputedStyle(route).display !== 'none',
+              routeBeforeCatalog: !!route && !!catalog && !!(route.compareDocumentPosition(catalog) & Node.DOCUMENT_POSITION_FOLLOWING),
+              trialHref: trialCTA?.getAttribute('href'),
+              trialHeight: rect(trialCTA)?.height,
+              cards: cards.map(el => ({
+                height: rect(el).height,
+                posterWidth: rect(el.querySelector('.class-card-image')).width,
+                posterHeight: rect(el.querySelector('.class-card-image')).height,
+                heading: el.querySelector('h3')?.textContent,
+                linkHeight: rect(el.querySelector('a'))?.height,
+              })),
+            };
+          })() : null;
           const stepJourney = target === '/classes/step/' ? (() => {
             const sectionIds = ['levels','start','instructors','method','booking'];
             const sections = sectionIds.map(id => document.getElementById(id));
@@ -167,7 +197,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             [...document.querySelectorAll('.stretch-team-photo')].map(el => el.complete && el.naturalWidth > 0) : [];
           return {
             width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
-            photos, team, hero, stepJourney, levelPseudo: pseudo('#levels .class-card'),
+            photos, team, hero, classFinder, stepJourney, levelPseudo: pseudo('#levels .class-card'),
             conceptPseudo: pseudo('#concept .class-card'),
             routePseudo: pseudo('.route-card'),
           };
@@ -175,8 +205,34 @@ function expect(ok, message) { if (!ok) errors.push(message); }
         results.push({ target, width, ...data });
         expect(data.scrollWidth <= width + 1,
           width + ' ' + target + ': horizontal overflow ' + data.scrollWidth);
-        if (target === '/classes/') expect(data.photos.length === 6,
-          width + ': class finder must show six class images');
+        if (target === '/classes/') {
+          expect(data.photos.length === 6,
+            width + ': class finder must show six class images');
+          const finder = data.classFinder;
+          expect(finder?.routeVisible && finder?.routeBeforeCatalog &&
+            finder?.trialHref === '../trial/apply/?class=STEP' &&
+            finder?.trialHeight >= 44,
+            width + ': beginner-first STEP trial route missing, too small or below catalog');
+          expect(finder?.proof?.includes('¥1,000') &&
+            finder?.proof?.includes('無料レンタル'),
+            width + ': hero must show confirmed trial price and free rental');
+          expect(finder?.cards?.length === 6 &&
+            finder.cards.every(c => c.linkHeight >= 44),
+            width + ': six class cards need accessible 44px details links');
+          if (width <= 390) {
+            expect(finder.heroHeight <= 650,
+              width + ': class finder hero is still a long mobile scroll wall (' + finder.heroHeight + 'px)');
+            expect(Math.abs(finder.categoryTops[0] - finder.categoryTops[1]) < 2 &&
+              finder.categoryHeights.every(h => h >= 44) &&
+              finder.lineTop >= finder.categoryTops[0] + finder.categoryHeights[0] - 2 &&
+              finder.lineHeight >= 44,
+              width + ': category choices should be side-by-side with LINE beneath');
+            expect(finder.cards.every(c => c.height <= 320 &&
+              c.posterWidth >= 80 && c.posterWidth <= 105 &&
+              Math.abs(c.posterWidth - c.posterHeight) < 2),
+              width + ': class cards must be compact with 80-105px square un-cropped posters');
+          }
+        }
         else if (target !== '/access/') expect(data.photos.length === 1,
           width + ' ' + target + ': must show one class identity poster');
         for (const photo of data.photos) {
