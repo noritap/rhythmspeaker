@@ -60,3 +60,20 @@ body.instructor-profile{background:#f4efe7;color:#171717}.instructor-profile mai
 .furusho-page .furusho-contact{padding-top:3rem;padding-bottom:4rem}
 .furusho-page .furusho-contact .profile-contact-copy h2{overflow-wrap:normal;word-break:normal;text-wrap:balance}
 @media(max-width:768px){.furusho-page .furusho-cinematic{min-height:740px;min-height:90svh}.furusho-page .furusho-trust{font-size:.83rem}.furusho-page .profile-video-section,.furusho-page .furusho-profile-details{padding-top:3rem;padding-bottom:3rem}.furusho-page .profile-video-layout{grid-template-columns:1fr}.furusho-page .profile-video-frame{width:min(100%,270px)}.furusho-page .furusho-method{padding-top:3rem;padding-bottom:2rem}.furusho-page .furusho-contact{padding-top:2.5rem;padding-bottom:3rem}.furusho-page .furusho-contact .profile-contact-copy h2{font-size:clamp(1.55rem,7vw,2.1rem)}}
+
+/* Screenshot-driven Furusho mobile UX — 2026-10-11. */
+.furusho-page .furusho-class-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:1.3rem;padding:.85rem 1.2rem;border:2px solid #171717;border-radius:999px;color:#171717;background:transparent;text-decoration:none;font-weight:800;text-align:center}
+.furusho-page .furusho-class-cta:focus-visible{outline:3px solid #ff405e;outline-offset:4px}
+@media(max-width:768px){
+.furusho-page .furusho-cinematic{min-height:min(820px,94svh);padding-bottom:2.5rem}
+.furusho-page .furusho-hero-content{max-width:100%;min-width:0}
+.furusho-page .furusho-cinematic h1{font-size:clamp(2.85rem,12.5vw,4.7rem);letter-spacing:-.045em;overflow-wrap:normal;word-break:keep-all;text-shadow:0 2px 15px rgba(0,0,0,.65)}
+.furusho-page .furusho-cinematic .furusho-hero-photo{background-position:center 23%}
+.furusho-page .furusho-cinematic:before{background:linear-gradient(0deg,#101011 4%,rgba(16,16,17,.98) 30%,rgba(16,16,17,.6) 58%,rgba(16,16,17,.03) 92%)}
+.furusho-page .profile-video-section{padding-top:2.7rem;padding-bottom:2.7rem}
+.furusho-page .profile-video-frame{width:min(100%,235px);max-width:235px;border-radius:17px}
+.furusho-page .profile-video-layout{gap:1.4rem;margin-top:1.25rem}
+.furusho-page .profile-video-copy h3{font-size:clamp(1.25rem,5vw,1.65rem)}
+.furusho-page .furusho-class-cta{width:100%;box-sizing:border-box}
+}
+@media(max-width:370px){.furusho-page .furusho-cinematic{min-height:760px;min-height:100svh}.furusho-page .furusho-cinematic h1{font-size:clamp(2.65rem,12vw,3.5rem)}}
