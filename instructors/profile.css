@@ -42,3 +42,21 @@ body.instructor-profile{background:#f4efe7;color:#171717}.instructor-profile mai
 .instructor-profile .profile-cta .profile-contact-actions{min-width:0;width:100%;flex:auto}
 @media(max-width:768px){.instructor-profile .furusho-cinematic{min-height:760px;min-height:90svh;padding:2.5rem 1.25rem 3rem;align-items:end}.furusho-cinematic .furusho-hero-photo{inset:0 0 auto 0;width:100%;height:74%;background-position:center 25%}.furusho-cinematic:before{background:linear-gradient(0deg,#101011 5%,rgba(16,16,17,.98) 23%,rgba(16,16,17,.68) 50%,rgba(16,16,17,.05) 88%)}.furusho-cinematic .furusho-hero-content{margin:auto 0 0}.furusho-cinematic h1{font-size:clamp(3.3rem,14vw,5.5rem)}.furusho-cinematic .furusho-lead{font-size:clamp(1.25rem,5.2vw,1.8rem)}.furusho-cinematic .furusho-description{font-size:.93rem}.furusho-cinematic .furusho-actions{flex-direction:column;gap:.6rem;margin-top:1.25rem}.furusho-cinematic .furusho-actions a{width:100%}.instructor-profile .profile-cta .profile-shell{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:no-preference){.furusho-cinematic .furusho-hero-content{animation:furusho-reveal .55s ease-out both}@keyframes furusho-reveal{from{opacity:.65;transform:translateY(12px)}to{opacity:1;transform:none}}}
+
+/* Furusho 3VC — mobile-first conversion and content hierarchy, scoped to one instructor. */
+.furusho-page .furusho-trust{font-weight:750;color:#fff;font-size:.88rem;letter-spacing:.02em;margin:1.05rem 0 0}
+.furusho-page .furusho-cinematic{min-height:clamp(540px,69svh,740px)}
+.furusho-page .furusho-hero-content{max-width:1080px}
+.furusho-page .furusho-primary{box-shadow:0 10px 26px rgba(255,64,94,.22)}
+.furusho-page .furusho-secondary:hover,.furusho-page .furusho-secondary:focus-visible{background:rgba(255,255,255,.15)}
+.furusho-page .profile-video-section{padding-top:4.25rem;padding-bottom:4.25rem}
+.furusho-page .profile-video-layout{grid-template-columns:minmax(200px,270px) minmax(0,1fr);gap:clamp(1.5rem,5vw,4.5rem);margin-top:1.5rem}
+.furusho-page .profile-video-frame{max-width:270px}
+.furusho-page .furusho-profile-details{padding-top:4.5rem;padding-bottom:4.5rem}
+.furusho-page .furusho-class-hint{display:block;font-size:.82rem;font-weight:500;color:#666;margin-top:.35rem}
+.furusho-page .profile-classes a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.furusho-page .profile-classes a:focus-visible,.furusho-page .profile-video-youtube:focus-visible{outline:3px solid #ff405e;outline-offset:4px}
+.furusho-page .furusho-method{padding-top:4rem;padding-bottom:3rem}
+.furusho-page .furusho-contact{padding-top:3rem;padding-bottom:4rem}
+.furusho-page .furusho-contact .profile-contact-copy h2{overflow-wrap:normal;word-break:normal;text-wrap:balance}
+@media(max-width:768px){.furusho-page .furusho-cinematic{min-height:740px;min-height:90svh}.furusho-page .furusho-trust{font-size:.83rem}.furusho-page .profile-video-section,.furusho-page .furusho-profile-details{padding-top:3rem;padding-bottom:3rem}.furusho-page .profile-video-layout{grid-template-columns:1fr}.furusho-page .profile-video-frame{width:min(100%,270px)}.furusho-page .furusho-method{padding-top:3rem;padding-bottom:2rem}.furusho-page .furusho-contact{padding-top:2.5rem;padding-bottom:3rem}.furusho-page .furusho-contact .profile-contact-copy h2{font-size:clamp(1.55rem,7vw,2.1rem)}}
