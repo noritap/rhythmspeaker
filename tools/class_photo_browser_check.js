@@ -2,6 +2,11 @@
    Runs against the PR preview local server from ux-pr220-browser-check.yml. */
 const { chromium } = require('playwright');
 const fs = require('fs');
+const crypto = require('crypto');
+
+// This is the SHA-256 of the user-approved, 1600×900 WebP lesson photograph.
+// Prevent an unrelated or re-encoded photo from silently replacing the approved hero.
+const STEP_HERO_SHA256 = '4e88432ff5c6194192629d42debdc6cc5c9757d61911d57ad64cf1dfbb9ef89f';
 
 const base = 'http://127.0.0.1:8002';
 const classes = ['step', 'tap', 'stretch', 'isolation', 'bar-method', 'hiit'];
@@ -12,6 +17,14 @@ const results = [];
 function expect(ok, message) { if (!ok) errors.push(message); }
 
 (async () => {
+  const heroAssetPath = 'assets/classes/class-step-hero-lesson-v1.webp';
+  if (fs.existsSync(heroAssetPath)) {
+    const digest = crypto.createHash('sha256').update(fs.readFileSync(heroAssetPath)).digest('hex');
+    expect(digest === STEP_HERO_SHA256,
+      'STEP hero does not match the exact user-approved image (SHA-256 mismatch)');
+  } else {
+    expect(false, 'STEP hero image is missing from the repository: ' + heroAssetPath);
+  }
   fs.mkdirSync('ux-evidence', { recursive: true });
   const browser = await chromium.launch({ headless: true });
   try {
