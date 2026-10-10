@@ -11,7 +11,8 @@ alter table public.instructor_profile_audit enable row level security;
 revoke all on public.instructor_profile_audit from anon, authenticated;
 revoke all on public.instructor_admins from anon, authenticated;
 -- Prevent instructors from altering status, feedback, approval or publication timestamps via generic UPDATE.
-revoke update on public.instructor_profiles from authenticated;
+revoke insert, update on public.instructor_profiles from authenticated;
+grant insert (owner_id, profile) on public.instructor_profiles to authenticated;
 grant update (profile) on public.instructor_profiles to authenticated;
 -- Disallow instructor edits to a profile after submission. Existing RLS policies remain in effect.
 create or replace function public.instructor_submit()
