@@ -115,6 +115,18 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             return {
               summaryFactsVisible: [...document.querySelectorAll('.step-summary-facts > div')].filter(el =>
                 getComputedStyle(el).display !== 'none').length,
+              summaryFacts: [...document.querySelectorAll('.step-summary-facts > div')].map(el => ({
+                label: el.querySelector('small')?.textContent.trim(),
+                value: el.querySelector('strong')?.textContent.trim(),
+                fontSize: parseFloat(getComputedStyle(el.querySelector('strong')).fontSize),
+              })),
+              faqCount: document.querySelectorAll('#faq details').length,
+              faqInitiallyClosed: [...document.querySelectorAll('#faq details')].every(el => !el.open),
+              faqNoInstantBooking: document.querySelector('#faq')?.textContent.includes('フォームを入力するだけでは送信・予約確定にはなりません'),
+              faqAccessHref: document.querySelector('.step-faq-access')?.getAttribute('href'),
+              faqTrialHref: document.querySelector('#faq details a')?.getAttribute('href'),
+              faqJumpHref: document.querySelector('.class-jump a:last-child')?.getAttribute('href'),
+              faqJumpFits: (() => { const el = document.querySelector('.class-jump'); return el.scrollWidth <= el.clientWidth + 1; })(),
               mobileInstructorHeadingVisible: getComputedStyle(document.querySelector('.step-instructors-title-mobile')).display !== 'none',
               desktopInstructorHeadingVisible: getComputedStyle(document.querySelector('.step-instructors-title-desktop')).display !== 'none',
               levelThirdVisible: getComputedStyle(document.querySelector('#levels .class-grid .class-card:nth-child(3)')).display !== 'none',
@@ -266,6 +278,23 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ': STEP instructor thumbnails should be compact, not full posters');
           expect(journey?.instructors.every(c => c.height <= (width <= 390 ? 150 : 170)),
             width + ': STEP instructor cards too tall on this viewport');
+          expect(journey?.faqCount === 3 && journey?.faqInitiallyClosed &&
+            journey?.faqNoInstantBooking,
+            width + ': FAQ must be 3 native closed disclosures and clarify booking is not instant');
+          expect(journey?.faqAccessHref === '../../access/' &&
+            journey?.faqTrialHref === '../../trial/' &&
+            journey?.faqJumpHref === '#faq',
+            width + ': FAQ must link to canonical access/trial pages and sticky menu');
+          expect(journey?.summaryFacts.length === 4 &&
+            journey.summaryFacts[2].value === '池袋駅から徒歩3分' &&
+            journey.summaryFacts[3].value === '60分・¥1,000',
+            width + ': decision summary must show verified access and trial duration/price');
+          if (width <= 390) {
+            expect(journey?.faqJumpFits,
+              width + ': mobile four-item sticky jump menu should not scroll horizontally');
+            expect(journey?.summaryFacts.every(f => f.fontSize >= 12),
+              width + ': mobile class summary fact font smaller than 12px');
+          }
           expect(journey?.levelDecision === '../../trial/apply/?class=STEP' &&
             journey?.instructorFollowup === '../../trial/apply/?class=STEP',
             width + ': mobile decision guidance must lead to the real STEP trial form');
@@ -286,6 +315,19 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           }
           expect(journey?.methodCount === 3 && journey?.methodBackground !== 'rgb(17, 17, 17)',
             width + ': STEP learning stages must be compact, light, and scannable');
+        }
+        if (target === '/classes/step/' && width === 390) {
+          const faqFirst = page.locator('#faq details').first();
+          await faqFirst.locator('summary').click();
+          expect(await faqFirst.evaluate(el => el.open),
+            '390: FAQ disclosure does not open by tap');
+          await faqFirst.locator('summary').focus();
+          await page.keyboard.press('Space');
+          expect(!(await faqFirst.evaluate(el => el.open)),
+            '390: FAQ disclosure does not close with keyboard Space');
+          const accessResponse = await page.request.get(base + '/access/');
+          expect(accessResponse.status() === 200,
+            '390: FAQ access destination returned ' + accessResponse.status());
         }
         if (target === '/classes/step/' && width >= 750) {
           expect(data.hero?.headingLines <= 2.2,
