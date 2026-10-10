@@ -346,3 +346,46 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 
 /* Category filtering must also hide irrelevant beginner recommendations. */
 .classes-page .class-beginner-route[hidden]{display:none!important}
+
+
+/* Visual-impact 3VC: preserve compact discovery while restoring photographic scale. */
+@media(max-width:768px){
+  /* VC1: use a cinematic hero without pushing category choices below the fold. */
+  .classes-page .classes-hero{
+    position:relative;
+    isolation:isolate;
+    background-image:linear-gradient(90deg,rgba(8,8,8,.84),rgba(8,8,8,.52) 60%,rgba(8,8,8,.2)),url('../hero.jpg');
+    background-position:57% 43%;
+    background-size:cover;
+  }
+  .classes-page .classes-hero h1{text-shadow:0 2px 20px rgba(0,0,0,.35)}
+  /* VC2: give the primary tap classes a prominent, authentic square poster. */
+  .classes-page .catalog-grid-two .class-card-feature{
+    grid-template-columns:minmax(0,1fr);
+    row-gap:.55rem;
+    padding:1rem;
+  }
+  .classes-page .catalog-grid-two .class-card-feature .class-card-image{
+    grid-column:1;
+    grid-row:auto;
+    width:100%;
+    height:auto;
+    aspect-ratio:1;
+    max-height:340px;
+    object-fit:contain;
+    border-radius:12px;
+    background:#f4f0ea;
+  }
+  .classes-page .catalog-grid-two .class-card-feature>:not(.class-card-image){grid-column:1}
+  /* VC3: make the class-to-detail action clear without hiding the real image. */
+  .classes-page .catalog-grid-two .class-card-feature .btn{
+    width:100%;
+    justify-content:center;
+    min-height:48px;
+    margin-top:.5rem;
+  }
+}
+@media(max-width:390px){
+  .classes-page .catalog-grid-two .class-card-feature{grid-template-columns:minmax(0,1fr)}
+  .classes-page .catalog-grid-two .class-card-feature .class-card-image{width:100%;height:auto}
+}
