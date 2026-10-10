@@ -113,3 +113,233 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 
 .classes-hero-actions button[data-class-category]{font-family:inherit;font-size:inherit;line-height:inherit;cursor:pointer;border:1px solid rgba(255,255,255,.45)}
 .classes-hero-actions button[data-class-category]:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
+
+/* 2026-10-11 /classes/ 3VC — compact discovery, visible beginner route, photo-preserving cards. */
+.classes-page .classes-hero-proof{
+  margin:1rem 0 0;
+  color:rgba(255,255,255,.85);
+  font-size:.85rem;
+  font-weight:700;
+  line-height:1.6;
+}
+.classes-page .class-beginner-route{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1.25rem;
+  padding:1.15rem 1.3rem;
+  margin:1.25rem 0 0;
+  border:1px solid #e4c6c9;
+  border-radius:18px;
+  background:#fffaf8;
+  box-shadow:0 6px 18px rgba(60,30,25,.04);
+}
+.classes-page .class-beginner-route-copy{min-width:0}
+.classes-page .class-beginner-route-kicker{
+  display:block;
+  color:#ac263d;
+  font-size:.69rem;
+  font-weight:900;
+  letter-spacing:.07em;
+  line-height:1.5;
+}
+.classes-page .class-beginner-route-copy strong{
+  display:block;
+  margin-top:.25rem;
+  color:#171717;
+  font-size:clamp(1.08rem,2.4vw,1.4rem);
+  line-height:1.35;
+}
+.classes-page .class-beginner-route-copy p{
+  margin:.3rem 0 0;
+  color:#625b56;
+  font-size:.85rem;
+  line-height:1.55;
+}
+.classes-page .class-beginner-route-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.3rem;
+  flex:0 0 auto;
+  min-height:48px;
+  padding:.7rem 1.15rem;
+  border-radius:999px;
+  background:#ff4058;
+  color:#fff;
+  font-weight:900;
+  font-size:.85rem;
+  line-height:1.35;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 6px 15px rgba(220,40,68,.16);
+}
+.classes-page .class-beginner-route-cta:hover{background:#d92745}
+.classes-page .class-beginner-route-cta:focus-visible{
+  outline:3px solid #a8223e;
+  outline-offset:4px;
+}
+@media(max-width:768px){
+  /* VC1: reduce above-the-fold scroll without losing category selection or LINE. */
+  .classes-page .classes-hero{
+    padding:calc(68px + 1.1rem) 1.25rem 2rem;
+    background-position:62% center;
+  }
+  .classes-page .classes-hero h1{
+    font-size:clamp(2.15rem,9vw,2.8rem);
+    line-height:1.18;
+  }
+  .classes-page .classes-hero-copy{
+    margin-top:.85rem;
+    max-width:37ch;
+    font-size:.9rem;
+    line-height:1.65;
+  }
+  .classes-page .classes-hero-actions{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.6rem;
+    margin-top:1.15rem;
+  }
+  .classes-page .classes-hero-actions [data-class-category]{
+    min-width:0;
+    min-height:48px;
+    padding:.7rem .45rem;
+    font-size:.85rem;
+    font-weight:800;
+    line-height:1.3;
+  }
+  .classes-page .classes-hero-actions>a.btn-primary{
+    grid-column:1/-1;
+    min-height:48px;
+    padding:.75rem 1rem;
+  }
+  .classes-page .classes-hero-proof{
+    margin-top:.8rem;
+    font-size:.74rem;
+    line-height:1.55;
+  }
+  /* VC2: square canonical posters stay fully visible, but cards stop
+     consuming an entire viewport each. No text is removed from the DOM. */
+  .classes-page .catalog-section{padding:2.7rem 1.25rem}
+  .classes-page .catalog-head h2{font-size:clamp(1.65rem,7vw,2.25rem)}
+  .classes-page .catalog-head p:not(.classes-eyebrow){font-size:.88rem;line-height:1.65}
+  .classes-page .catalog-grid{gap:.8rem;margin-top:1.2rem}
+  .classes-page .catalog-grid .class-card-feature,
+  .classes-page .catalog-grid .class-card-mini{
+    display:grid;
+    grid-template-columns:100px minmax(0,1fr);
+    align-content:start;
+    align-items:start;
+    column-gap:1rem;
+    row-gap:.38rem;
+    min-height:0;
+    padding:1rem;
+    border-radius:17px;
+  }
+  .classes-page .catalog-grid .class-card-image{
+    grid-column:1;
+    grid-row:1/9;
+    align-self:start;
+    width:100px;
+    height:100px;
+    max-width:100%;
+    aspect-ratio:1/1;
+    margin:0;
+    border-radius:10px;
+    object-fit:contain;
+    background:#f4f0ea;
+  }
+  .classes-page .catalog-grid .class-card-feature>:not(.class-card-image),
+  .classes-page .catalog-grid .class-card-mini>:not(.class-card-image){
+    grid-column:2;
+    min-width:0;
+  }
+  .classes-page .catalog-grid .class-card-kicker{
+    font-size:.62rem;
+    line-height:1.3;
+    letter-spacing:.08em;
+  }
+  .classes-page .catalog-grid .class-card-feature h3,
+  .classes-page .catalog-grid .class-card-mini h3{
+    min-height:0;
+    margin:0;
+    font-size:clamp(1.12rem,4.4vw,1.4rem);
+    line-height:1.25;
+    overflow-wrap:anywhere;
+  }
+  .classes-page .catalog-grid .class-card-feature>p:not(.class-card-instructors),
+  .classes-page .catalog-grid .class-card-mini>p:not(.class-card-instructors){
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    overflow:hidden;
+    font-size:.79rem;
+    line-height:1.55;
+  }
+  .classes-page .catalog-grid .class-card-instructors{
+    margin-top:.1rem!important;
+    font-size:.7rem;
+    line-height:1.45;
+    overflow-wrap:anywhere;
+  }
+  .classes-page .catalog-grid .class-card-meta{
+    margin-top:.2rem;
+    gap:.3rem;
+  }
+  .classes-page .catalog-grid .class-card-meta span{
+    padding:.25rem .48rem;
+    font-size:.68rem;
+  }
+  .classes-page .catalog-grid .class-card-feature .btn{
+    justify-self:start;
+    align-self:start;
+    margin-top:.2rem;
+    min-height:44px;
+    padding:.55rem .85rem;
+    font-size:.82rem;
+  }
+  .classes-page .catalog-grid .class-card-mini .text-link{
+    justify-self:start;
+    align-self:start;
+    margin-top:.2rem;
+    padding:0;
+    min-height:44px;
+    display:inline-flex;
+    align-items:center;
+    font-size:.82rem;
+    text-decoration:underline;
+    text-underline-offset:4px;
+  }
+  /* VC3: show a direct booking option before the long-form catalog. */
+  .classes-page .class-quickfind{padding:2rem 1.25rem}
+  .classes-page .class-quickfind h2{font-size:clamp(1.55rem,6.5vw,2rem)}
+  .classes-page .class-quickfind-grid{margin-top:1rem}
+  .classes-page .class-beginner-route{
+    flex-direction:column;
+    align-items:stretch;
+    gap:.8rem;
+    padding:1rem;
+    margin-top:1rem;
+  }
+  .classes-page .class-beginner-route-copy strong{font-size:1.05rem}
+  .classes-page .class-beginner-route-copy p{font-size:.8rem}
+  .classes-page .class-beginner-route-cta{width:100%;min-height:48px}
+}
+@media(max-width:390px){
+  .classes-page .catalog-grid .class-card-feature,
+  .classes-page .catalog-grid .class-card-mini{
+    grid-template-columns:88px minmax(0,1fr);
+    column-gap:.8rem;
+    padding:.85rem;
+  }
+  .classes-page .catalog-grid .class-card-image{width:88px;height:88px}
+  .classes-page .catalog-grid .class-card-feature h3,
+  .classes-page .catalog-grid .class-card-mini h3{font-size:1.1rem}
+  .classes-page .catalog-grid .class-card-feature>p:not(.class-card-instructors),
+  .classes-page .catalog-grid .class-card-mini>p:not(.class-card-instructors){-webkit-line-clamp:2}
+}
+@media(prefers-reduced-motion:reduce){
+  .classes-page .class-beginner-route-cta{scroll-behavior:auto}
+}
