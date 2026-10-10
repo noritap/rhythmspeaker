@@ -227,3 +227,36 @@
 @media (prefers-reduced-motion: reduce) {
   .step-page .class-hero .btn { transition: none; }
 }
+
+/* 2026-10-11 / 390px screenshot VC1:
+   Reveal the level choice sooner without cropping the approved tap shoe.
+   Four useful class facts must remain visible, not silently disappear. */
+@media (max-width: 700px) {
+  .step-page .class-hero {
+    min-height: 630px;
+    padding-bottom: 2rem;
+  }
+  .step-page .step-hero-photo { object-position: 31% center; }
+  .step-page .step-summary-inner {
+    gap: .75rem;
+    padding: .7rem 1.25rem;
+  }
+  .step-page .step-summary-facts {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: .45rem .5rem;
+  }
+  .step-page .step-summary-facts > div:nth-child(n+3) { display: block; }
+  .step-page .step-summary-facts small { font-size: .55rem; }
+  .step-page .step-summary-facts strong {
+    font-size: .72rem;
+    line-height: 1.4;
+    overflow-wrap: normal;
+  }
+}
+@media (max-width: 375px) {
+  .step-page .step-summary-inner { gap: .6rem; }
+  .step-page .step-summary-poster { flex-basis: 80px; }
+  .step-page .step-summary-facts { column-gap: .35rem; }
+  .step-page .step-summary-facts strong { font-size: .69rem; }
+}
