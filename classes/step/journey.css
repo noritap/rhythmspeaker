@@ -1,0 +1,240 @@
+/* STEP conversion journey / 2026-10-11.
+   Page-scoped; keeps approved photo hero, TOP posters and global navigation unchanged. */
+.step-page #levels,
+.step-page #start,
+.step-page #instructors,
+.step-page #method,
+.step-page #booking { scroll-margin-top: 150px; }
+.step-page .class-jump { scrollbar-width: thin; }
+.step-page .class-jump a:focus-visible,
+.step-page .step-start a:focus-visible,
+.step-page #instructors a:focus-visible,
+.step-page .step-final-cta a:focus-visible {
+  outline: 3px solid #c92244;
+  outline-offset: 3px;
+}
+.step-page .step-start { background: #fff; }
+.step-page .step-start-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1.05fr) minmax(0,.95fr);
+  gap: clamp(2rem,5vw,4.5rem);
+  align-items: center;
+}
+.step-page .step-start-intro { min-width: 0; }
+.step-page .step-start h2 {
+  font-size: clamp(2rem,3.8vw,3.2rem);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+.step-page .step-start .section-intro { max-width: 630px; }
+.step-page .step-start-actions,
+.step-page .step-final-actions {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-top: 1.5rem;
+}
+.step-page .step-start-actions .btn,
+.step-page .step-final-actions .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  text-align: center;
+  text-decoration: none;
+  white-space: normal;
+  line-height: 1.4;
+}
+.step-page .step-line-btn {
+  border: 1px solid #bbb2a9;
+  border-radius: 999px;
+  background: #fff;
+  color: #25211e;
+  font-weight: 800;
+  padding: .75rem 1.2rem;
+  gap: .35rem;
+}
+.step-page .step-line-btn:hover { background: #f6f0e9; border-color: #7b7169; }
+.step-page .step-start-note {
+  margin: 1rem 0 0;
+  max-width: 650px;
+  color: #625b55;
+  font-size: .83rem;
+  line-height: 1.75;
+}
+.step-page .step-start-note strong { color: #24201d; }
+.step-page .step-start-steps {
+  list-style: none;
+  margin: 0;
+  padding: 1.4rem clamp(1.1rem,2.8vw,2rem);
+  border: 1px solid #e8ddd3;
+  border-radius: 22px;
+  background: #f9f6f1;
+}
+.step-page .step-start-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: .95rem 0;
+}
+.step-page .step-start-steps li + li { border-top: 1px solid #e8dfd6; }
+.step-page .step-start-number {
+  flex: 0 0 2.1rem;
+  color: #db304a;
+  font: 900 1rem/1.5 'Outfit',sans-serif;
+}
+.step-page .step-start-steps li div { min-width: 0; }
+.step-page .step-start-steps strong {
+  display: block;
+  color: #211d1a;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.step-page .step-start-steps p {
+  margin: .3rem 0 0;
+  color: #625b55;
+  font-size: .9rem;
+  line-height: 1.65;
+}
+/* Instructor posters stay fully visible, but no longer dominate the mobile scroll. */
+.step-page #instructors .instructor-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: .8rem;
+  margin-top: 1.6rem;
+}
+.step-page #instructors .instructor-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  min-height: 118px;
+  padding: .7rem;
+  gap: .85rem;
+  border: 1px solid #e4dbd2;
+  border-radius: 17px;
+  background: #fff;
+  color: #1c1917;
+  box-shadow: 0 8px 22px rgba(28,23,20,.04);
+}
+.step-page #instructors .instructor-card:hover {
+  background: #fff8f6;
+  border-color: #ef9daa;
+  transform: translateY(-2px);
+}
+.step-page #instructors .instructor-card::before {
+  content: "";
+  display: block;
+  flex: 0 0 92px;
+  width: 92px;
+  height: 92px;
+  aspect-ratio: 1;
+  border-radius: 11px;
+  background-color: #181818;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.step-page #instructors .step-instructor-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.step-page #instructors .instructor-card strong,
+.step-page #instructors .instructor-card small {
+  margin: 0;
+  color: #1c1917;
+}
+.step-page #instructors .instructor-card strong {
+  font-size: clamp(.92rem,1.3vw,1.08rem);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.step-page #instructors .instructor-card small {
+  margin-top: .12rem;
+  color: #6b625b;
+  font-size: .73rem;
+}
+.step-page #instructors .step-instructor-link {
+  display: block;
+  margin-top: .55rem;
+  color: #b82943;
+  font-size: .72rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+/* Learning sequence is compact and scannable, not three tall black tiles. */
+.step-page #method { background: #fff; }
+.step-page #method .class-path {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 1rem;
+  margin-top: 1.7rem;
+}
+.step-page #method .class-path article {
+  min-height: 0;
+  display: block;
+  padding: 1.4rem;
+  border-radius: 16px;
+  border: 1px solid #e5dcd2;
+  border-top: 4px solid #ed5268;
+  background: #faf7f2;
+  color: #24201d;
+}
+.step-page #method .class-path small { color: #bd2b44; }
+.step-page #method .class-path h3 { color: #24201d; }
+.step-page #method .class-path p {
+  color: #605950;
+  line-height: 1.7;
+  font-size: .92rem;
+}
+.step-page .class-section.dark {
+  background: #f6f1eb;
+  color: #211d1a;
+}
+.step-page .class-section.dark .section-intro { color: #605950; }
+.step-page .class-section.dark .class-actions .btn-secondary {
+  color: #211d1a;
+  border-color: #bdb3a8;
+  background: #fff;
+}
+.step-page .class-section.dark .class-actions .btn-secondary:hover { background: #f5ece6; }
+.step-page .step-final-cta .step-line-btn {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,.65);
+}
+.step-page .step-final-cta .step-line-btn:hover { background: rgba(255,255,255,.13); }
+.step-page .step-final-actions { margin-top: 0; }
+@media (max-width: 900px) {
+  .step-page .step-start-layout { grid-template-columns: minmax(0,1fr); gap: 1.6rem; }
+  .step-page #instructors .instructor-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .step-page .step-final-actions { margin-top: 1rem; }
+}
+@media (max-width: 700px) {
+  .step-page #levels,
+  .step-page #start,
+  .step-page #instructors,
+  .step-page #method,
+  .step-page #booking { scroll-margin-top: 185px; }
+  .step-page .step-start h2 { font-size: clamp(1.85rem,7.2vw,2.45rem); }
+  .step-page .step-start-actions { display: grid; grid-template-columns: 1fr; gap: .6rem; }
+  .step-page .step-start-actions .btn { width: 100%; }
+  .step-page .step-start-steps { padding: .55rem 1.1rem; border-radius: 17px; }
+  .step-page .step-start-steps li { padding: .9rem 0; }
+  .step-page #instructors .instructor-grid { grid-template-columns: 1fr; gap: .65rem; }
+  .step-page #instructors .instructor-card { min-height: 0; padding: .55rem; gap: .8rem; border-radius: 14px; }
+  .step-page #instructors .instructor-card::before { flex-basis: 76px; width: 76px; height: 76px; }
+  .step-page #instructors .step-instructor-link { margin-top: .35rem; }
+  .step-page #method .class-path { grid-template-columns: 1fr; gap: .65rem; }
+  .step-page #method .class-path article { padding: 1.1rem 1.2rem; }
+  .step-page #method .class-path h3 { margin: .25rem 0 .35rem; }
+  .step-page .step-final-actions { display: grid; grid-template-columns: 1fr; width: 100%; gap: .65rem; }
+  .step-page .step-final-actions .btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-page #instructors .instructor-card { transition: none; }
+}
