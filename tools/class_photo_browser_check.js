@@ -104,11 +104,41 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             secondaryColor: secondary ? getComputedStyle(secondary).color : null,
             panelWidth: document.querySelector('.class-panel')?.getBoundingClientRect().width ?? null,
           } : null;
+          const stepJourney = target === '/classes/step/' ? (() => {
+            const sectionIds = ['levels','start','instructors','method','booking'];
+            const sections = sectionIds.map(id => document.getElementById(id));
+            const cards = [...document.querySelectorAll('#instructors .instructor-card')];
+            const methodCards = [...document.querySelectorAll('#method .class-path article')];
+            const start = document.getElementById('start');
+            const booking = document.getElementById('booking');
+            const trialLinks = [...document.querySelectorAll('#start a, #booking a')];
+            return {
+              sectionsPresent: sections.every(Boolean),
+              sectionsInOrder: sections.every((el,i) => i === 0 || el.compareDocumentPosition(sections[i-1]) & Node.DOCUMENT_POSITION_PRECEDING),
+              processCount: start?.querySelectorAll('.step-start-steps li').length ?? 0,
+              formLinks: trialLinks.filter(a => a.getAttribute('href') === '../../trial/apply/?class=STEP').length,
+              lineLinks: trialLinks.filter(a => a.getAttribute('href') === 'https://lin.ee/zC5YLe7').length,
+              noFalseAvailability: start?.textContent.includes('日時は送信時点では未確定') ?? false,
+              instructors: cards.map(el => {
+                const rect = el.getBoundingClientRect();
+                const photo = getComputedStyle(el,'::before');
+                return {
+                  height: rect.height, width: rect.width,
+                  label: el.textContent.trim(), href: el.getAttribute('href'),
+                  photo: photo.backgroundImage !== 'none',
+                  photoWidth: parseFloat(photo.width),
+                };
+              }),
+              methodCount: methodCards.length,
+              methodBackground: methodCards.length ? getComputedStyle(methodCards[0]).backgroundColor : null,
+              lastBookingHasLine: !!booking?.querySelector('a[href="https://lin.ee/zC5YLe7"]'),
+            };
+          })() : null;
           const team = target === '/classes/stretch/' ?
             [...document.querySelectorAll('.stretch-team-photo')].map(el => el.complete && el.naturalWidth > 0) : [];
           return {
             width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
-            photos, team, hero, levelPseudo: pseudo('#levels .class-card'),
+            photos, team, hero, stepJourney, levelPseudo: pseudo('#levels .class-card'),
             conceptPseudo: pseudo('#concept .class-card'),
             routePseudo: pseudo('.route-card'),
           };
@@ -181,6 +211,23 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             expect(bytes >= 10000 && bytes <= 300000,
               width + ': STEP photo should be optimized without losing visual quality (' + bytes + ' bytes)');
           }
+        }
+        if (target === '/classes/step/') {
+          const journey = data.stepJourney;
+          expect(journey?.sectionsPresent && journey?.sectionsInOrder,
+            width + ': STEP conversion sections missing or in the wrong reading order');
+          expect(journey?.processCount === 3 && journey?.noFalseAvailability,
+            width + ': STEP booking journey must explain all three steps and no instant confirmation');
+          expect(journey?.formLinks === 2 && journey?.lineLinks === 2 && journey?.lastBookingHasLine,
+            width + ': STEP booking and independent LINE consultation CTAs missing');
+          expect(journey?.instructors.length === 6 && journey?.instructors.every(c => c.photo && c.href?.startsWith('../../instructors/#')),
+            width + ': STEP instructor cards missing approved portraits or profile links');
+          expect(journey?.instructors.every(c => c.photoWidth >= 70 && c.photoWidth <= 100),
+            width + ': STEP instructor thumbnails should be compact, not full posters');
+          expect(journey?.instructors.every(c => c.height <= (width <= 390 ? 150 : 170)),
+            width + ': STEP instructor cards too tall on this viewport');
+          expect(journey?.methodCount === 3 && journey?.methodBackground !== 'rgb(17, 17, 17)',
+            width + ': STEP learning stages must be compact, light, and scannable');
         }
         if (target === '/classes/step/' && width >= 750) {
           expect(data.hero?.headingLines <= 2.2,
