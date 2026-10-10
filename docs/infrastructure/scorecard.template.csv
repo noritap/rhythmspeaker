@@ -1,0 +1,4 @@
+system,monthly_incremental_gross_profit_jpy,monthly_cost_jpy,consecutive_months,expected_lost_margin_jpy,safety_blocker,uptime_critical,evidence
+Workshop Manager,,,,,false,true,
+Instructor intake,,,,,false,false,
+Revenue automation,,,,,false,false,
