@@ -265,12 +265,12 @@
 @media (max-width: 700px) {
   .step-page .step-summary-inner {
     display: grid;
-    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-columns: 84px minmax(0, 1fr);
     gap: .8rem;
     align-items: center;
     padding: .9rem 1.25rem;
   }
-  .step-page .step-summary-poster { width: 76px; margin: 0; }
+  .step-page .step-summary-poster { width: 84px; margin: 0; }
   .step-page .step-summary-facts {
     display: grid;
     grid-template-columns: repeat(2, minmax(0,1fr));
@@ -288,8 +288,8 @@
   }
 }
 @media (max-width: 375px) {
-  .step-page .step-summary-inner { grid-template-columns: 68px minmax(0,1fr); gap: .65rem; }
-  .step-page .step-summary-poster { width: 68px; }
+  .step-page .step-summary-inner { grid-template-columns: 80px minmax(0,1fr); gap: .65rem; }
+  .step-page .step-summary-poster { width: 80px; }
   .step-page .step-summary-facts { gap: .5rem .6rem; }
   .step-page .step-summary-facts strong { font-size: .76rem; }
 }
