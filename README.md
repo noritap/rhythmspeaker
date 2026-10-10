@@ -270,3 +270,7 @@ STORES role                     OFFICIAL SHOP
 RS Wallet role                  MEMBER UTILITY
 Public 7-category architecture  ACTIVE / EXPANDING
 ```
+
+
+### Production-first UX improvement loop (2026-10-11)
+For Rhythm Speaker website changes, use: inspect latest `main` and production → choose evidence-backed improvements → implement on a feature branch → run CI and relevant QA → open PR and merge only after safety checks → verify the deployed GitHub Pages site (mobile-first, links, images, accessibility, regressions) → score observed UX and iterate. A PR, green CI, or merge alone is **not** proof of production verification. Clearly record unverified checks and blockers; do not claim publication or visual QA when unavailable. Prefer small, reversible changes. Preserve source-of-truth rules and protected workflows.

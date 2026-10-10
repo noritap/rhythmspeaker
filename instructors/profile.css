@@ -21,3 +21,24 @@ body.instructor-profile{background:#f4efe7;color:#171717}.instructor-profile mai
 .profile-contact-note{text-align:center}
 @media(max-width:768px){.profile-video-layout{grid-template-columns:1fr;gap:1.6rem}.profile-video-frame{width:min(100%,290px);margin-inline:auto}.profile-video-action{width:100%;box-sizing:border-box}.profile-contact-copy{flex:auto;width:100%}.profile-contact-actions{flex:auto;width:100%}.profile-cta .profile-contact-copy h2{font-size:clamp(1.7rem,8vw,2.5rem)}.profile-contact-note{text-align:left}}
 @media(prefers-reduced-motion:reduce){.profile-video-frame,.profile-video-action{scroll-behavior:auto}}
+
+/* Furusho cinematic hero — scoped to his profile only. Uses the approved portrait already on site. */
+.instructor-profile .furusho-cinematic{position:relative;isolation:isolate;min-height:clamp(610px,78svh,840px);display:flex;align-items:center;overflow:hidden;background:#101011;color:#fff;padding:clamp(3rem,7vw,6rem) 6%}
+.furusho-cinematic .furusho-hero-photo{position:absolute;z-index:-2;inset:0 0 0 45%;width:55%;height:100%;background-image:var(--rs-instructor-photo-furusho);background-size:cover;background-position:center;filter:contrast(1.04)}
+.furusho-cinematic:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#101011 0%,rgba(16,16,17,.98) 31%,rgba(16,16,17,.75) 52%,rgba(16,16,17,.10) 90%)}
+.furusho-cinematic .furusho-hero-content{width:min(1080px,100%);margin:auto;position:relative}
+.furusho-cinematic .furusho-eyebrow{color:#ff687e;letter-spacing:.2em;font-weight:850;font-size:.75rem;margin:0 0 1.4rem}
+.furusho-cinematic h1{font-size:clamp(3.6rem,8vw,8rem);line-height:1;letter-spacing:-.06em;margin:0 0 1.2rem}
+.furusho-cinematic .furusho-lead{font-size:clamp(1.35rem,2.4vw,2.3rem);font-weight:800;line-height:1.4;max-width:15em;margin:0 0 1rem}
+.furusho-cinematic .furusho-description{max-width:33em;color:#e0dfe1;line-height:1.8;font-size:1rem;margin:0}
+.furusho-cinematic .furusho-actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem}
+.furusho-cinematic .furusho-actions a{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.4rem;border-radius:999px;font-weight:800;text-decoration:none;box-sizing:border-box}
+.furusho-cinematic .furusho-primary{background:#ff405e;color:#fff}
+.furusho-cinematic .furusho-secondary{border:1px solid rgba(255,255,255,.68);color:#fff;background:rgba(0,0,0,.28)}
+.furusho-cinematic .furusho-actions a:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.instructor-profile .profile-cta .profile-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px);gap:clamp(1.5rem,4vw,4rem)}
+.instructor-profile .profile-cta .profile-contact-copy{min-width:0;max-width:none}
+.instructor-profile .profile-cta .profile-contact-copy h2{font-size:clamp(1.7rem,2.75vw,2.45rem);line-height:1.3;overflow-wrap:anywhere}
+.instructor-profile .profile-cta .profile-contact-actions{min-width:0;width:100%;flex:auto}
+@media(max-width:768px){.instructor-profile .furusho-cinematic{min-height:760px;min-height:90svh;padding:2.5rem 1.25rem 3rem;align-items:end}.furusho-cinematic .furusho-hero-photo{inset:0 0 auto 0;width:100%;height:74%;background-position:center 25%}.furusho-cinematic:before{background:linear-gradient(0deg,#101011 5%,rgba(16,16,17,.98) 23%,rgba(16,16,17,.68) 50%,rgba(16,16,17,.05) 88%)}.furusho-cinematic .furusho-hero-content{margin:auto 0 0}.furusho-cinematic h1{font-size:clamp(3.3rem,14vw,5.5rem)}.furusho-cinematic .furusho-lead{font-size:clamp(1.25rem,5.2vw,1.8rem)}.furusho-cinematic .furusho-description{font-size:.93rem}.furusho-cinematic .furusho-actions{flex-direction:column;gap:.6rem;margin-top:1.25rem}.furusho-cinematic .furusho-actions a{width:100%}.instructor-profile .profile-cta .profile-shell{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:no-preference){.furusho-cinematic .furusho-hero-content{animation:furusho-reveal .55s ease-out both}@keyframes furusho-reveal{from{opacity:.65;transform:translateY(12px)}to{opacity:1;transform:none}}}
