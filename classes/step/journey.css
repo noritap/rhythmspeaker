@@ -476,3 +476,91 @@
     display: none; /* The same facts already appear in the summary and level path. */
   }
 }
+
+/* 2026-10-11 VC2: native, keyboard-operable FAQ before final booking.
+   VC3: FAQ becomes reachable from the four-item mobile section menu. */
+.step-page #faq { scroll-margin-top: 126px; }
+.step-page .step-faq { background: #fff; }
+.step-page .step-faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
+  align-items: start;
+  gap: clamp(1.5rem,5vw,4rem);
+}
+.step-page .step-faq-intro { min-width: 0; }
+.step-page .step-faq h2 {
+  font-size: clamp(1.8rem,3.4vw,2.85rem);
+  line-height: 1.25;
+}
+.step-page .step-faq-visit {
+  margin: 1.35rem 0 .5rem;
+  color: #524a43;
+  font-size: .88rem;
+  line-height: 1.65;
+}
+.step-page .step-faq-visit strong { color: #29221d; }
+.step-page .step-faq-access {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #b82943;
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+.step-page .step-faq-list {
+  display: grid;
+  gap: .65rem;
+}
+.step-page .step-faq-list details {
+  border: 1px solid #e6ddd4;
+  border-radius: 14px;
+  background: #faf7f2;
+  color: #24201d;
+  overflow: hidden;
+}
+.step-page .step-faq-list details[open] {
+  border-color: #dcb3bb;
+  background: #fff9f8;
+}
+.step-page .step-faq-list summary {
+  display: list-item;
+  cursor: pointer;
+  padding: 1.05rem 1.2rem;
+  font-weight: 800;
+  line-height: 1.55;
+}
+.step-page .step-faq-list summary::marker { color: #c42d48; }
+.step-page .step-faq-list details p {
+  margin: 0;
+  padding: 0 1.2rem 1.15rem;
+  color: #5b534d;
+  font-size: .9rem;
+  line-height: 1.8;
+}
+.step-page .step-faq-list details a { color: #b82943; font-weight: 800; }
+.step-page .step-faq a:focus-visible,
+.step-page .step-faq summary:focus-visible {
+  outline: 3px solid #c92244;
+  outline-offset: 3px;
+}
+@media (max-width: 900px) {
+  .step-page .step-faq-layout { grid-template-columns: 1fr; gap: 1.4rem; }
+}
+@media (max-width: 700px) {
+  .step-page #faq { scroll-margin-top: 115px; }
+  .step-page .class-jump {
+    justify-content: space-between;
+    gap: 0;
+    padding-inline: .65rem;
+  }
+  .step-page .class-jump a {
+    flex: 0 0 auto;
+    font-size: .78rem;
+    padding-inline: .55rem;
+  }
+  .step-page .step-faq-layout { gap: 1rem; }
+  .step-page .step-faq h2 { font-size: clamp(1.7rem,7vw,2.15rem); }
+  .step-page .step-faq-visit { margin-top: .9rem; font-size: .82rem; }
+  .step-page .step-faq-list summary { padding: .95rem 1rem; font-size: .9rem; }
+  .step-page .step-faq-list details p { padding: 0 1rem 1rem; font-size: .86rem; }
+}
