@@ -238,3 +238,114 @@
 @media (prefers-reduced-motion: reduce) {
   .step-page #instructors .instructor-card { transition: none; }
 }
+
+/* Screenshot-based 3VC (2026-10-11): readable instructor choice,
+   correct fixed-header anchor offsets, and a STEP-first conversion hierarchy.
+   Instructor descriptions are grounded in instructors/instructor-catalog.json. */
+.step-page .class-jump {
+  top: 62px; /* Shared subpage nav: 36px logo + 2 x .8rem vertical padding */
+  scroll-padding-inline: 1rem;
+}
+.step-page #levels,
+.step-page #start,
+.step-page #instructors,
+.step-page #method,
+.step-page #booking { scroll-margin-top: 126px; }
+.step-page #instructors .instructor-card {
+  min-height: 130px;
+  gap: .9rem;
+  padding: .75rem;
+}
+.step-page #instructors .instructor-card strong {
+  font-size: clamp(1rem,1.45vw,1.12rem);
+}
+.step-page #instructors .instructor-card .step-instructor-style {
+  color: #554e49;
+  font-size: .78rem;
+  line-height: 1.5;
+  margin-top: .28rem;
+  font-weight: 500;
+}
+.step-page #instructors .step-instructor-link {
+  font-size: .78rem;
+  line-height: 1.45;
+  margin-top: .45rem;
+}
+.step-page .step-next .class-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+.step-page .step-next .class-actions .btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  min-height: 48px;
+  line-height: 1.45;
+  text-align: center;
+}
+.step-page .step-next .class-actions .btn-secondary {
+  color: #29221d;
+  background: transparent;
+  border: 1px solid #bcb0a6;
+}
+.step-page .step-next .class-actions .btn-secondary:hover { background: #fff; }
+.step-page .step-final-cta h2 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+.step-page .step-final-heading-key { display: inline-block; }
+@media (min-width: 901px) and (max-width: 1150px) {
+  .step-page .step-hero-copy { width: min(650px,72%); }
+  .step-page .class-hero h1 { font-size: clamp(2.9rem,5vw,4.15rem); }
+}
+@media (max-width: 1120px) {
+  .step-page #instructors .instructor-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 1180px) {
+  /* In split-screen Chrome the former two-column footer left one orphaned
+     character in the headline. Stack the copy and buttons before it happens. */
+  .step-page .step-final-cta .class-shell {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+  }
+  .step-page .step-final-actions {
+    margin-top: 0;
+    width: 100%;
+  }
+  .step-page .step-final-cta { padding-block: clamp(3rem,4vw,4.5rem); }
+}
+@media (max-width: 700px) {
+  .step-page .class-jump {
+    top: 54px; /* Shared mobile subpage nav: 36px logo + 2 x .55rem */
+    gap: .15rem;
+    padding-block: .55rem;
+  }
+  .step-page .class-jump a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding-inline: .7rem;
+  }
+  .step-page #levels,
+  .step-page #start,
+  .step-page #instructors,
+  .step-page #method,
+  .step-page #booking { scroll-margin-top: 115px; }
+  .step-page #instructors .instructor-grid { grid-template-columns: 1fr; }
+  .step-page #instructors .instructor-card {
+    min-height: 112px;
+    gap: .75rem;
+    padding: .6rem;
+  }
+  .step-page #instructors .instructor-card strong { font-size: 1rem; }
+  .step-page #instructors .instructor-card .step-instructor-style { font-size: .77rem; }
+  .step-page #instructors .step-instructor-link { font-size: .78rem; }
+  .step-page .step-next .class-actions { display: grid; grid-template-columns: 1fr; }
+  .step-page .step-next .class-actions .btn { width: 100%; }
+  .step-page .step-final-cta h2 { font-size: clamp(1.7rem,7vw,2.6rem); }
+}

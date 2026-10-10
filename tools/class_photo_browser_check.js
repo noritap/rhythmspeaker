@@ -10,7 +10,7 @@ const STEP_HERO_SHA256 = '4e88432ff5c6194192629d42debdc6cc5c9757d61911d57ad64cf1
 
 const base = 'http://127.0.0.1:8002';
 const classes = ['step', 'tap', 'stretch', 'isolation', 'bar-method', 'hiit'];
-const widths = [360, 390, 750, 768, 1280];
+const widths = [360, 390, 750, 768, 810, 1024, 1280];
 const errors = [];
 const results = [];
 
@@ -119,12 +119,21 @@ function expect(ok, message) { if (!ok) errors.push(message); }
               formLinks: trialLinks.filter(a => a.getAttribute('href') === '../../trial/apply/?class=STEP').length,
               lineLinks: trialLinks.filter(a => a.getAttribute('href') === 'https://lin.ee/zC5YLe7').length,
               noFalseAvailability: start?.textContent.includes('日時は送信時点では未確定') ?? false,
+              instructorIntro: document.querySelector('#instructors .section-intro')?.textContent.trim(),
+              instructorStyles: cards.map(el => el.querySelector('.step-instructor-style')?.textContent.trim()),
+              jumpTop: parseFloat(getComputedStyle(document.querySelector('.class-jump')).top),
+              navHeight: document.querySelector('nav')?.getBoundingClientRect().height,
+              nextPrimary: document.querySelector('.step-next .class-actions .btn-primary')?.getAttribute('href'),
+              nextSecondary: document.querySelector('.step-next .class-actions .btn-secondary')?.getAttribute('href'),
+              finalHeadingKeyWidth: booking?.querySelector('.step-final-heading-key')?.getBoundingClientRect().width,
+              finalHeadingWidth: booking?.querySelector('h2')?.getBoundingClientRect().width,
               instructors: cards.map(el => {
                 const rect = el.getBoundingClientRect();
                 const photo = getComputedStyle(el,'::before');
                 return {
                   height: rect.height, width: rect.width,
                   label: el.textContent.trim(), href: el.getAttribute('href'),
+                  ariaLabel: el.getAttribute('aria-label'),
                   photo: photo.backgroundImage !== 'none',
                   photoWidth: parseFloat(photo.width),
                 };
@@ -220,8 +229,31 @@ function expect(ok, message) { if (!ok) errors.push(message); }
             width + ': STEP booking journey must explain all three steps and no instant confirmation');
           expect(journey?.formLinks === 2 && journey?.lineLinks === 2 && journey?.lastBookingHasLine,
             width + ': STEP booking and independent LINE consultation CTAs missing');
-          expect(journey?.instructors.length === 6 && journey?.instructors.every(c => c.photo && c.href?.startsWith('../../instructors/#')),
-            width + ': STEP instructor cards missing approved portraits or profile links');
+          const instructorIds = ['mifa','homma','sasasa','niu','okudaira','furusho'];
+          expect(journey?.instructors.length === 6 &&
+            journey.instructors.every((c,i) => c.photo &&
+              c.href === '../../instructors/' + instructorIds[i] + '/' &&
+              c.ariaLabel?.includes('プロフィール')),
+            width + ': STEP instructor cards must link to real instructor profile pages');
+          expect(journey?.instructorStyles.length === 6 &&
+            journey.instructorStyles.every(Boolean) &&
+            new Set(journey.instructorStyles).size === 6,
+            width + ': STEP instructor cards must show six distinct approved teaching styles');
+          expect(journey?.nextPrimary === '../../trial/apply/?class=STEP' &&
+            journey?.nextSecondary === '../tap/',
+            width + ': STEP to TAP bridge must prioritize STEP trial, not divert beginners');
+          expect(journey?.jumpTop >= journey?.navHeight - 6 &&
+            journey?.jumpTop <= journey?.navHeight + 12,
+            width + ': sticky STEP section navigation has a visible gap or overlaps fixed header');
+          expect(journey?.finalHeadingKeyWidth <= journey?.finalHeadingWidth + 1,
+            width + ': final STEP booking headline has an overflowing or orphaned phrase');
+          if (width === 810) {
+            for (const id of instructorIds) {
+              const profile = await page.request.get(base + '/instructors/' + id + '/');
+              expect(profile.status() === 200,
+                'STEP instructor destination /instructors/' + id + '/ returned ' + profile.status());
+            }
+          }
           expect(journey?.instructors.every(c => c.photoWidth >= 70 && c.photoWidth <= 100),
             width + ': STEP instructor thumbnails should be compact, not full posters');
           expect(journey?.instructors.every(c => c.height <= (width <= 390 ? 150 : 170)),
@@ -249,7 +281,7 @@ function expect(ok, message) { if (!ok) errors.push(message); }
           expect(data.routePseudo?.content === 'none' || data.routePseudo?.display === 'none',
             width + ': access route still shows irrelevant dancer photo');
         }
-        if (width === 390 || width === 750 || width === 1280) {
+        if (width === 390 || width === 750 || width === 810 || width === 1024 || width === 1280) {
           const slug = target.split('/').filter(Boolean).join('-') || 'home';
           await page.screenshot({ path: 'ux-evidence/photo-' + slug + '-' + width + '.png', fullPage: false });
         }
