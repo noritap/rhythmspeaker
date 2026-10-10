@@ -343,3 +343,6 @@ body.classes-page{background:#f6f3ee;color:#171717}.classes-page main{overflow:h
 @media(prefers-reduced-motion:reduce){
   .classes-page .class-beginner-route-cta{scroll-behavior:auto}
 }
+
+/* Category filtering must also hide irrelevant beginner recommendations. */
+.classes-page .class-beginner-route[hidden]{display:none!important}
