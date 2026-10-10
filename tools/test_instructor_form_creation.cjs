@@ -95,3 +95,28 @@ test('orphaned sheet or incomplete creation marker blocks new form', () => {
     assert.equal(h.state.forms, 0); assert.equal(h.state.released, true);
   }
 });
+
+test('submission page activates only canonical respondent URLs', () => {
+  const html = fs.readFileSync(path.join(__dirname, '../instructor-submit/index.html'), 'utf8');
+  const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+  for (const [url, active] of [
+    ['', false],
+    ['https://docs.google.com/forms/d/e/test-form/viewform', true],
+    ['https://forms.gle/TestForm', true],
+    ['https://docs.google.com/forms/d/test-form/edit', false],
+    ['https://docs.google.com/spreadsheets/d/test-sheet/edit', false],
+    ['https://forms.gle:443/TestForm', false],
+    ['https://forms.gle/TestForm?private=email', false],
+    ['https://forms.gle.evil.example/TestForm', false],
+  ]) {
+    const link = { hidden: true, href: '#' };
+    const status = { textContent: '準備中' };
+    vm.runInNewContext(script, {
+      URL, window: { RS_INSTRUCTOR_FORM_URL: url },
+      document: { getElementById: id => id === 'form-link' ? link : status },
+    });
+    assert.equal(!link.hidden, active, url);
+    if (active) assert.equal(link.href, url);
+    else assert.equal(link.href, '#');
+  }
+});
