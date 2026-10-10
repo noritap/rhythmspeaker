@@ -1,0 +1,37 @@
+name: Instructor Google Form Link Guard
+on:
+  pull_request:
+    paths:
+      - 'instructor-submit/**'
+      - 'docs/instructor-registration/google-forms/**'
+      - 'tools/test_instructor_form_creation.cjs'
+      - 'tools/instructor_form_link_guard.py'
+      - 'tools/test_instructor_form_link_guard.py'
+      - '.github/workflows/instructor-form-link-guard.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'instructor-submit/**'
+      - 'docs/instructor-registration/google-forms/**'
+      - 'tools/test_instructor_form_creation.cjs'
+      - 'tools/instructor_form_link_guard.py'
+      - 'tools/test_instructor_form_link_guard.py'
+      - '.github/workflows/instructor-form-link-guard.yml'
+  workflow_dispatch:
+jobs:
+  verify-form-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Form creation behavior tests (offline)
+        run: node --test tools/test_instructor_form_creation.cjs
+      - name: Unit tests
+        run: python -m unittest discover -s tools -p 'test_instructor_form_link_guard.py' -v
+      - name: Validate configured URL or safe inactive state
+        run: python tools/instructor_form_link_guard.py
