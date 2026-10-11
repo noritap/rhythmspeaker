@@ -280,3 +280,186 @@ button:focus-visible,
     transform: none;
   }
 }
+
+
+/* RSM ALB-003 / 3VC UX ENHANCEMENT */
+/* VC1: latest-release prominence and 3-album discovery */
+.hero--latest{
+  background:
+    radial-gradient(circle at 78% 18%,rgba(150,20,34,.22),transparent 30%),
+    radial-gradient(circle at 15% 72%,rgba(217,168,78,.10),transparent 34%),
+    var(--night);
+}
+.latest-callout{
+  display:grid;
+  gap:.2rem;
+  max-width:680px;
+  margin-top:1.45rem;
+  padding:1rem 1.1rem;
+  border:1px solid rgba(255,255,255,.14);
+  border-left:3px solid #b82b38;
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(184,43,56,.12),rgba(255,255,255,.025));
+  color:inherit;
+  text-decoration:none;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.latest-callout:hover,
+.latest-callout:focus-visible{
+  transform:translateY(-2px);
+  border-color:rgba(217,168,78,.5);
+  background:linear-gradient(90deg,rgba(184,43,56,.18),rgba(217,168,78,.04));
+}
+.latest-callout__kicker{
+  color:#e7b35a;
+  font:700 .7rem 'Outfit',sans-serif;
+  letter-spacing:.13em;
+}
+.latest-callout strong{
+  font:800 clamp(1.25rem,2.4vw,1.75rem) 'Outfit',sans-serif;
+  letter-spacing:.015em;
+}
+.latest-callout>span:last-child{color:#c5c8cd;font-size:.86rem}
+.hero-cover--latest{border-color:rgba(184,43,56,.42);box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.04)}
+.release-grid--three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.release-card--suspense{background:linear-gradient(145deg,#25151a,#101318 62%,#17191e)}
+.release-card--suspense:hover{border-color:rgba(190,48,62,.7)}
+.release-badge--new{background:rgba(123,14,28,.9);border-color:rgba(255,255,255,.24);color:#fff}
+.release-grid--three .release-card h3{font-size:clamp(1.55rem,2.6vw,2.35rem)}
+.release-unit--new .release-listen{border-color:rgba(190,48,62,.45);background:rgba(190,48,62,.09);color:#f1c66d}
+
+/* VC2: story-first discovery instead of a flat track catalog */
+.quick-grid--five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.quick-card--suspense{border-color:rgba(190,48,62,.36);background:linear-gradient(145deg,rgba(190,48,62,.10),rgba(255,255,255,.025))}
+.quick-card--suspense .quick-icon{background:rgba(190,48,62,.18);color:#ef8c96}
+.album-hero--suspense{
+  background:
+    radial-gradient(circle at 84% 18%,rgba(178,32,48,.22),transparent 28%),
+    radial-gradient(circle at 16% 70%,rgba(217,168,78,.07),transparent 32%);
+}
+.album-cover-mark--red::before{background:#b82b38}
+.section--story-arc{background:linear-gradient(180deg,rgba(184,43,56,.055),transparent 55%)}
+.story-steps{
+  list-style:none;
+  padding:0;
+  margin:2rem 0 1.2rem;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:.75rem;
+}
+.story-steps li{
+  position:relative;
+  min-width:0;
+  min-height:126px;
+  padding:1rem;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:rgba(255,255,255,.025);
+}
+.story-steps li::after{
+  content:"→";
+  position:absolute;
+  right:-.58rem;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:2;
+  width:1.15rem;
+  height:1.15rem;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--night);
+  color:#b82b38;
+  font-size:.72rem;
+}
+.story-steps li:nth-child(4n)::after,
+.story-steps li:last-child::after{display:none}
+.story-steps span{
+  display:block;
+  color:#e8b75f;
+  font:700 .72rem 'Outfit',sans-serif;
+  letter-spacing:.12em;
+}
+.story-steps strong{display:block;margin-top:.35rem;font-size:1.08rem}
+.story-steps small{
+  display:block;
+  margin-top:.2rem;
+  color:var(--muted);
+  font:600 .67rem 'Outfit',sans-serif;
+  letter-spacing:.035em;
+  overflow-wrap:anywhere;
+}
+.bonus-steps{
+  display:grid;
+  grid-template-columns:auto 1fr 1fr;
+  gap:.75rem;
+  align-items:stretch;
+  padding-top:.2rem;
+}
+.bonus-steps>div,.bonus-label{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:.8rem 1rem;
+  background:rgba(255,255,255,.025);
+}
+.bonus-label{
+  display:grid;
+  place-items:center;
+  color:#e8b75f;
+  font:700 .68rem 'Outfit',sans-serif;
+  letter-spacing:.12em;
+}
+.bonus-steps strong,.bonus-steps small{display:block}
+.bonus-steps small{margin-top:.15rem;color:var(--muted);font-size:.72rem}
+.tracklist-bonus{background:rgba(184,43,56,.035)}
+.track-title{min-width:0;overflow-wrap:anywhere}
+.track-title small{
+  display:inline-block;
+  margin-left:.45rem;
+  color:#e8b75f;
+  font:700 .58rem 'Outfit',sans-serif;
+  letter-spacing:.08em;
+}
+
+/* VC3: cross-album circulation, mobile touch comfort and scanability */
+.related-release-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.related-release-grid .related-release{margin-top:1.25rem;min-width:0}
+.related-release-grid .related-release strong{overflow-wrap:anywhere}
+@media(max-width:1100px){
+  .release-grid--three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quick-grid--five{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .release-grid--three{grid-template-columns:1fr}
+  .quick-grid--five{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .story-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .story-steps li:nth-child(4n)::after{display:grid}
+  .story-steps li:nth-child(2n)::after{display:none}
+  .bonus-steps{grid-template-columns:1fr 1fr}
+  .bonus-label{grid-column:1/-1;min-height:40px}
+  .related-release-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .latest-callout{padding:.88rem .9rem;margin-top:1.15rem}
+  .latest-callout>span:last-child{font-size:.78rem}
+  .quick-grid--five{grid-template-columns:1fr 1fr}
+  .story-steps{gap:.55rem}
+  .story-steps li{min-height:118px;padding:.8rem}
+  .story-steps strong{font-size:1rem}
+  .story-steps small{font-size:.61rem}
+  .bonus-steps{grid-template-columns:1fr}
+  .bonus-label{grid-column:auto}
+  .album-hero--suspense .hero-copy{font-size:1rem}
+  .tracklist li{gap:.65rem}
+}
+@media(max-width:390px){
+  .quick-grid--five{grid-template-columns:1fr}
+  .story-steps{grid-template-columns:1fr}
+  .story-steps li::after,
+  .story-steps li:nth-child(2n)::after,
+  .story-steps li:nth-child(4n)::after{display:none}
+}
