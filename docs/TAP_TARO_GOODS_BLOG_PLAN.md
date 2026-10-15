@@ -27,3 +27,14 @@
 - GitHub Actions automated writing/publishing has **not** been integrated into this repository.
 - Review homepage link placement only after layout QA. No navigation changes in this PR.
 - Before publishing: confirm Amazon Associates registered media includes the intended official site, Tracking ID plan, owner editorial signoff and main merge approval.
+
+
+## Updated owner direction — 2026-10-16
+- Public-facing name: **リズムスピーカー商店**.
+- Presenter/editorial character: **リズムタプ太郎** (canonical persona remains TAP_TARO_OS).
+- Scope: useful products and information for general readers, **not limited to dance**. Suggested categories: daily living, digital tools, hobbies, work, and dance.
+- Topic discovery should be automated in a later pipeline from verifiable, dated sources, scored for user utility, evidence quality, search intent, commercial relevance, competition, risk and maintenance burden. Do not invent search volume or product ratings.
+- Article generation requires citation/evidence ledger, distinct value, balanced pros/cons, no fabricated testing, and affiliate disclosures. Avoid sensitive health claims and restricted goods.
+- Automatic discovery and draft creation are **requirements, not yet implemented**; the current prototype is static and the prior REV-009 offline generator uses curated inputs.
+- Publishing remains PR-and-owner-approved; no new auto-publish permission granted. Preserve primary studio trial funnel and separate category pages.
+- Before a public Amazon affiliate launch, verify the official Rhythm Speaker URL is registered with Associates Central and confirm permitted links and Tracking ID.
