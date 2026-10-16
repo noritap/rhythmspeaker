@@ -76,6 +76,16 @@ html,body{max-width:100%;overflow-x:clip}\n.admin-main{overflow-wrap:anywhere}\n
 .roster-person-actions{width:100%;min-width:0}
 .roster-person-actions button{min-width:0;overflow-wrap:anywhere}
 .tablewrap{max-width:100%;overflow-x:auto}
+.admin-main,.admin-shell,#reservationsPane,.roster-groups,.roster-class,.roster-person,.roster-heading,.roster-heading>div,.roster-person-main,.roster-person-side,.reservation-controls,.reservation-control-group{box-sizing:border-box;min-width:0}
+.roster-heading{display:grid;grid-template-columns:minmax(0,1fr) auto}
+.roster-heading>div:first-child{min-width:0;overflow-wrap:anywhere}
+.roster-heading-stats{min-width:0;max-width:110px;text-align:right;white-space:normal}
+.filter-chips{display:flex;flex-wrap:wrap;min-width:0;max-width:100%}
+.filter-chip{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.roster-person-side{min-width:0;max-width:110px;overflow-wrap:anywhere}
+#reservationsPane .row{min-width:0;max-width:100%;flex-wrap:wrap}
+#reservationsPane .row>*{min-width:0;max-width:100%}
+.reservation-result{display:flex;flex-wrap:wrap;gap:6px}
 }
 </style>
 </head>
