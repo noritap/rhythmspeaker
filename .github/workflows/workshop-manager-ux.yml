@@ -6,6 +6,7 @@ on:
       - 'workshops/assets/class-roster.js'
       - 'workshops/assets/workshop-os-v2.css'
       - '.github/workflows/workshop-manager-ux.yml'
+      - 'workshops/tests/**'
   workflow_dispatch:
 permissions:
   contents: read
@@ -36,3 +37,18 @@ jobs:
           assert(roster.includes('roster-person-actions'),'Roster actions required');
           console.log('Workshop UX static invariants passed');
           NODE
+
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          npm install --no-save --no-package-lock @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Responsive browser tests
+        run: npx playwright test workshops/tests/mobile-admin.spec.cjs --browser chromium --reporter=line
