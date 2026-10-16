@@ -8,6 +8,14 @@
   <title>Workshop Manager | Rhythm Speaker</title>
   <link rel="stylesheet" href="../assets/workshop-os-v2.css?v=20261008-3">
   <link rel="stylesheet" href="../assets/class-roster.css?v=20261008-4">
+<style>
+.roster-person{flex-wrap:wrap;gap:10px}
+.roster-person-actions{display:flex;gap:8px;flex-basis:100%;justify-content:flex-end}
+.roster-person-actions button{min-height:44px}
+.reservation-advanced{margin:16px 0}
+.reservation-advanced>summary{cursor:pointer;padding:14px;border:1px solid #ddd;border-radius:10px;font-weight:700}
+@media(max-width:600px){.roster-person-actions button{flex:1}.roster-person-actions{width:100%}}
+</style>
 </head>
 <body>
 <div id="modebar" class="demo-notice">DEMO MODE</div>
@@ -42,8 +50,8 @@
 <script src="../config.js"></script>
 <script src="../assets/store.js?v=20261008-2"></script>
 <script src="../assets/store-v2-adapter.js?v=20261008-3"></script>
-<script src="../assets/class-roster.js?v=20261008-4"></script>
-<script src="./manager.js?v=20261008-8"></script>
+<script src="../assets/class-roster.js?v=20261016-1"></script>
+<script src="./manager.js?v=20261016-1"></script>
 <script src="./cms-v2.js?v=20260829-3"></script>
 </body>
 </html>
