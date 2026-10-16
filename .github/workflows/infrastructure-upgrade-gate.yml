@@ -1,0 +1,33 @@
+name: Infrastructure Upgrade Gate Tests
+on:
+  pull_request:
+    paths:
+      - 'tools/infrastructure_upgrade_gate.py'
+      - 'tools/test_infrastructure_upgrade_gate.py'
+      - 'tools/infrastructure_scorecard.py'
+      - 'tools/test_infrastructure_scorecard.py'
+      - '.github/workflows/infrastructure-upgrade-gate.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/infrastructure_upgrade_gate.py'
+      - 'tools/test_infrastructure_upgrade_gate.py'
+      - 'tools/infrastructure_scorecard.py'
+      - 'tools/test_infrastructure_scorecard.py'
+      - '.github/workflows/infrastructure-upgrade-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gate-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run infrastructure unit tests
+        run: python -m unittest discover -s tools -p 'test_infrastructure_*.py' -v
+      - name: Check Python syntax
+        run: python -m py_compile tools/infrastructure_upgrade_gate.py tools/infrastructure_scorecard.py
