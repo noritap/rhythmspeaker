@@ -1,0 +1,85 @@
+/* Workshop admin rebuilt layout v2 — single source of truth, 2026-10-16 */
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100%;min-width:0;margin:0}
+body{overflow-x:visible}
+.shell.admin-shell{width:min(1160px,calc(100% - 32px));margin-inline:auto;padding:24px 0 72px;min-width:0}
+.site-header__inner{min-width:0}
+.site-header__inner .brand{min-width:0}
+.brand__text{min-width:0;overflow-wrap:anywhere}
+.admin-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:20px;min-width:0}
+.admin-main,.admin-main>*,#dashboardPane,#reservationsPane,#editorPane{min-width:0;max-width:100%}
+.admin-main h1{overflow-wrap:anywhere}
+.admin-quick-nav{position:static;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.admin-quick-nav button{min-width:0;white-space:normal}
+.admin-quick-nav>span{flex:1 0 100%;margin-left:0}
+.stats,.reservation-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.stat{min-width:0;overflow-wrap:anywhere}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.row,.action-center,.action-center__buttons{min-width:0}
+.row>*{min-width:0;max-width:100%}
+.reservation-operation-status{padding:12px 14px;border:1px solid #b6d6bf;background:#eff8f0;color:#145b35;border-radius:12px;font-weight:700;margin:12px 0;overflow-wrap:anywhere}
+.reservation-controls{min-width:0;max-width:100%;display:grid;grid-template-columns:minmax(0,1fr)}
+.reservation-control-group,.filter-chips{min-width:0;max-width:100%}
+.filter-chips{display:flex;flex-wrap:wrap;gap:8px;overflow:visible}
+.filter-chip{min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.reservation-search,.reservation-search input{width:100%;max-width:100%;min-width:0}
+.reservation-result{display:flex;flex-wrap:wrap;gap:8px}
+.reservation-extra,.reservation-advanced,.special-allocation-panel{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.reservation-extra>summary,.reservation-advanced>summary{cursor:pointer;min-height:48px;padding:14px}
+.reservation-extra details pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%}
+.special-allocation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.special-reservation-form .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.special-reservation-form input,.special-reservation-form select{width:100%;max-width:100%;min-width:0}
+.tablewrap{max-width:100%;overflow-x:auto}
+.reservation-table{max-width:100%;overflow-x:auto}
+.roster-groups{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0;max-width:100%}
+.roster-class{min-width:0;max-width:100%;width:100%;overflow:visible}
+.roster-heading{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px}
+.roster-heading>div{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.roster-heading-stats{white-space:normal;max-width:100%}
+.roster-list{width:100%;min-width:0;margin:0;padding:0}
+.roster-person{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:14px;min-width:0;max-width:100%;width:100%}
+.roster-person-main{min-width:0;overflow-wrap:anywhere}
+.roster-person-side{min-width:0;max-width:120px;white-space:normal;overflow-wrap:anywhere}
+.roster-person-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;min-width:0;width:100%}
+.roster-person-actions button{width:100%;min-width:0;max-width:100%;min-height:48px;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:900px){
+.admin-layout{display:block}
+.admin-nav{display:none}
+.admin-main{width:100%}
+}
+@media(max-width:680px){
+.shell.admin-shell{width:calc(100% - 24px);padding-top:12px}
+.site-header__inner{gap:8px}
+.site-header__inner .brand__text strong{font-size:12px;overflow-wrap:anywhere}
+.admin-main h1{font-size:clamp(22px,6vw,30px);line-height:1.2}
+.admin-quick-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.admin-quick-nav button{width:100%;min-height:44px}
+.admin-quick-nav>span{grid-column:1/-1}
+.stats,.reservation-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stats .stat,.reservation-stats .stat{min-width:0;padding:12px}
+.cards{grid-template-columns:minmax(0,1fr)}
+#reservationsPane>.row:first-child{display:flex;flex-wrap:wrap;gap:10px}
+#reservationsPane .row{min-width:0;flex-wrap:wrap}
+#reservationsPane .row>*{min-width:0;max-width:100%}
+.reservation-controls{padding:12px}
+.roster-heading{display:grid;grid-template-columns:minmax(0,1fr);padding:14px}
+.roster-heading-stats{text-align:left}
+.roster-person{grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 12px}
+.roster-person-main,.roster-person-side,.roster-person-actions{grid-column:1;min-width:0;max-width:100%;width:100%}
+.roster-person-side{display:flex;flex-wrap:wrap;gap:8px;text-align:left}
+.roster-person-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+.special-allocation-panel{padding:12px}
+.special-allocation-grid,.special-reservation-form .grid2{grid-template-columns:minmax(0,1fr)}
+.reservation-table table{min-width:0}
+.reservation-table thead{display:none}
+.reservation-table tbody,.reservation-table tr,.reservation-table td{display:block}
+.reservation-table tr{padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:12px}
+.reservation-table td{padding:5px 0;overflow-wrap:anywhere}
+.reservation-table td:last-child{display:flex;flex-wrap:wrap;gap:6px}
+.reservation-table td:last-child button{flex:1 1 100px;min-height:44px}
+}
+@media print{
+.admin-quick-nav,.roster-person-actions,.admin-nav{display:none!important}
+.roster-class{break-inside:avoid}
+}
