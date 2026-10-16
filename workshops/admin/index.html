@@ -64,7 +64,7 @@
 .reservation-extra>summary{cursor:pointer;font-weight:700;min-height:48px;display:flex;align-items:center;overflow-wrap:anywhere}
 .reservation-extra details pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font-size:12px}
 @media(max-width:680px){
-html,body{max-width:100%;overflow-x:clip}
+html,body{max-width:100%;overflow-x:clip}\n.admin-main{overflow-wrap:anywhere}\n.admin-quick-nav button{min-width:0}\n.admin-quick-nav #navLogoutBtn{flex:0 0 auto}\n.reservation-extra>summary{overflow-wrap:anywhere}
 .admin-shell,.admin-layout,.admin-main,#reservationsPane{min-width:0!important;max-width:100%!important}
 .admin-nav{display:none!important}
 .admin-quick-nav{position:static;display:flex;flex-wrap:wrap!important;overflow:visible!important;gap:6px}
@@ -100,7 +100,7 @@ html,body{max-width:100%;overflow-x:clip}
       <button id="reservationsBtn" class="btn btn--ghost">全予約</button>
       <button id="logoutBtn" class="btn btn--ghost">ログアウト</button>
     </aside>
-    <div class="admin-main"><nav id="adminQuickNav" class="admin-quick-nav" aria-label="管理画面メニュー"><button id="navHomeBtn" type="button" class="smallbtn">⌂ 管理トップ</button><button id="navAllReservationsBtn" type="button" class="smallbtn">予約一覧</button><button id="navNewEventBtn" type="button" class="smallbtn">＋ イベント作成</button><span id="adminCurrentPage" aria-live="polite">ダッシュボード</span></nav>
+    <div class="admin-main"><nav id="adminQuickNav" class="admin-quick-nav" aria-label="管理画面メニュー"><button id="navHomeBtn" type="button" class="smallbtn">⌂ 管理トップ</button><button id="navAllReservationsBtn" type="button" class="smallbtn">予約一覧</button><button id="navNewEventBtn" type="button" class="smallbtn">＋ イベント作成</button><button id="navLogoutBtn" type="button" class="smallbtn">ログアウト</button><span id="adminCurrentPage" aria-live="polite">ダッシュボード</span></nav>
       <div id="dashboardPane"><div class="row"><div><p class="kicker">DASHBOARD</p><h1>ワークショップ管理</h1></div></div><div id="stats" class="stats"></div><h2>イベント</h2><div id="adminEvents" class="cards"></div></div>
       <div id="editorPane" class="hidden"></div>
       <div id="reservationsPane" class="hidden"></div>
