@@ -32,7 +32,7 @@ jobs:
           assert(html.includes('name="viewport"'),'Mobile viewport is required');
           assert(html.includes('id="navLogoutBtn"'),'Mobile logout must remain reachable');
           assert(js.includes('navLogoutBtn.onclick'),'Mobile logout must have a handler');
-          assert(html.includes('reservation-operation-status'),'Completion status styles required');
+          assert(fs.readFileSync('workshops/admin/admin-layout-v2.css','utf8').includes('.reservation-operation-status'),'Completion status styles required');
           assert(js.includes('reservation-operation-status'),'Completion status UI required');
           assert(roster.includes('roster-person-actions'),'Roster actions required');
           console.log('Workshop UX static invariants passed');
