@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const path = require('node:path');
 const url = 'file://' + path.resolve(__dirname, '../admin/index.html');
-const widths = [320, 375, 390, 438, 476];
+const widths = [320, 375, 390, 438, 476, 485];
 
 for (const width of widths) {
   test('workshop admin responsive shell at ' + width + 'px', async ({ browser }) => {
@@ -98,6 +98,9 @@ for (const width of widths) {
         return { selector, left: Math.round(box.left), right: Math.round(box.right), limit };
       })).filter(box => box.left < -1 || box.right > box.limit + 1);
     });
+    const metrics = await page.evaluate(() => ({ viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, bodyScrollWidth: document.body.scrollWidth }));
+    expect(metrics.scrollWidth, 'Page horizontal overflow: ' + JSON.stringify(metrics)).toBeLessThanOrEqual(metrics.viewport + 1);
+    expect(metrics.bodyScrollWidth, 'Body horizontal overflow: ' + JSON.stringify(metrics)).toBeLessThanOrEqual(metrics.viewport + 1);
     expect(result, 'Clipped roster elements at ' + width + 'px: ' + JSON.stringify(result)).toEqual([]);
   });
 }
