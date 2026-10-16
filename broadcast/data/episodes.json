@@ -196,5 +196,69 @@
       }
     ],
     "event_id": null
+  },
+  {
+    "id": "ayako-003",
+    "program": "ayako-no-heya",
+    "episode_number": 3,
+    "title": "今井萌愛 × 宇川彩子｜呼吸で変わるタップ表現、ヒール禁止の即興セッション",
+    "guest_ids": [
+      "moa-imai"
+    ],
+    "published": null,
+    "duration": null,
+    "youtube_id": "TD2Z4SVWOXw",
+    "youtube_url": "https://youtu.be/TD2Z4SVWOXw",
+    "thumbnail_url": "https://i.ytimg.com/vi/TD2Z4SVWOXw/hqdefault.jpg",
+    "summary": "今井萌愛さんを迎え、ダンス表現を生む呼吸、キャッツとの出会い、俺のシャッフルでの身体の使い方、AI音楽によるヒール禁止の即興セッションを語る。",
+    "topics": [
+      "breathing",
+      "shuffle",
+      "improvisation",
+      "dance-expression"
+    ],
+    "chapters": [
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング・ゲスト紹介｜今井萌愛"
+      },
+      {
+        "time": "00:52",
+        "seconds": 52,
+        "label": "子ども時代から現在まで、ダンサーとしての変化"
+      },
+      {
+        "time": "02:28",
+        "seconds": 148,
+        "label": "『キャッツ』との出会い、バレエとジャズダンス"
+      },
+      {
+        "time": "06:45",
+        "seconds": 405,
+        "label": "公演・出演情報｜UNFRAME Vol.2 / FUZZ CLUB"
+      },
+      {
+        "time": "08:28",
+        "seconds": 508,
+        "label": "俺のシャッフル｜ダンサブルとリズムタップの違い"
+      },
+      {
+        "time": "13:10",
+        "seconds": 790,
+        "label": "表現力を生み出す「呼吸」の大切さ"
+      },
+      {
+        "time": "16:53",
+        "seconds": 1013,
+        "label": "あやこのインプロ講座 プチ｜AI作曲×ヒール禁止即興"
+      },
+      {
+        "time": "22:06",
+        "seconds": 1326,
+        "label": "エンディング・アフタートーク＆乾杯"
+      }
+    ],
+    "event_id": null
   }
 ]
