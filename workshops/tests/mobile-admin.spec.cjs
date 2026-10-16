@@ -52,6 +52,10 @@ test('roster check-in and payment controls update only a test fixture', async ({
   });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(url);
+  await page.evaluate(() => {
+    document.querySelector('#loginView').classList.add('hidden');
+    document.querySelector('#adminView').classList.remove('hidden');
+  });
   await page.locator('#navAllReservationsBtn').click();
   await expect(page.locator('.roster-person')).toContainText('【TEST】操作確認');
   await page.locator('[data-roster-check="QA-ONLY"]').click();
@@ -61,3 +65,39 @@ test('roster check-in and payment controls update only a test fixture', async ({
   await expect(page.locator('[data-roster-pay="QA-ONLY"]')).toContainText('入金済');
   expect(await page.evaluate(() => window.__qaUpdates)).toEqual([{ checkin: true }, { paymentStatus: 'paid' }]);
 });
+
+for (const width of widths) {
+  test('rendered roster fits viewport at ' + width + 'px', async ({ page }) => {
+    await page.route(/\\/assets\\/(store|store-v2-adapter)\\.js/, route => route.abort());
+    await page.addInitScript(() => {
+      const reservation = { id: 'QA-ONLY', eventId: 'qa-event', sessionId: 'qa-session', name: '【TEST】長い氏名・予約名簿の表示確認', amount: 0, paymentStatus: 'unpaid', checkin: false, status: 'reserved' };
+      const event = { id: 'qa-event', title: '【TEST】長いイベントタイトルの表示確認', date: '2099-01-01', sessions: [{ id: 'qa-session', name: '検証クラスの長いタイトル', consumes: [] }] };
+      window.RSStore = { get: async () => ({
+        mode: 'demo', currentUser: async () => null,
+        listEvents: async () => [event],
+        listReservations: async () => [reservation],
+        listWaitlist: async () => [],
+        listReservationAudit: async () => [],
+        getInstructorSpecialRemaining: async () => 5,
+        updateReservation: async (_id, patch) => Object.assign(reservation, patch)
+      }) };
+    });
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(url);
+    await page.evaluate(() => {
+      document.querySelector('#loginView').classList.add('hidden');
+      document.querySelector('#adminView').classList.remove('hidden');
+    });
+    await page.locator('#navAllReservationsBtn').click();
+    await expect(page.locator('.roster-person')).toContainText('【TEST】');
+    const result = await page.evaluate(() => {
+      const limit = document.documentElement.clientWidth;
+      const selectors = ['#adminView', '.admin-main', '#reservationsPane', '.roster-groups', '.roster-class', '.roster-heading', '.roster-person', '.roster-person-actions', '.roster-person-actions button'];
+      return selectors.flatMap(selector => [...document.querySelectorAll(selector)].map(el => {
+        const box = el.getBoundingClientRect();
+        return { selector, left: Math.round(box.left), right: Math.round(box.right), limit };
+      })).filter(box => box.left < -1 || box.right > box.limit + 1);
+    });
+    expect(result, 'Clipped roster elements at ' + width + 'px: ' + JSON.stringify(result)).toEqual([]);
+  });
+}
