@@ -1,0 +1,90 @@
+/* RHYTHM SPEAKER Workshop Manager: mobile-first UI, v3
+   Single owner of admin layout. No page-level overflow clipping. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{width:100%;min-width:0;margin:0}
+body{overflow-x:visible}
+:root{--admin-gap:12px;--admin-tap:48px}
+.shell.admin-shell{width:calc(100% - 24px);max-width:1120px;margin-inline:auto;padding:12px 0 calc(110px + env(safe-area-inset-bottom));min-width:0}
+.site-header__inner{min-width:0;gap:8px}
+.site-header__inner .brand{min-width:0;max-width:100%;gap:8px}
+.brand__text{min-width:0;overflow-wrap:anywhere}
+.brand__text strong{font-size:12px;line-height:1.25}
+.site-header__inner .btn{min-width:0;white-space:normal}
+.admin-layout{display:block;min-width:0;width:100%}
+.admin-nav{display:none}
+.admin-main,.admin-main>*,#dashboardPane,#editorPane,#reservationsPane{min-width:0;max-width:100%;width:100%}
+.admin-main h1{font-size:clamp(23px,6.5vw,32px);line-height:1.18;overflow-wrap:anywhere}
+.admin-main h2{font-size:clamp(19px,5vw,25px);overflow-wrap:anywhere}
+.admin-quick-nav{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:100;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;padding:8px max(8px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));margin:0;background:#fff;border-top:1px solid #ddd;box-shadow:0 -4px 18px #00000016}
+.admin-quick-nav .smallbtn{width:100%;min-width:0;min-height:var(--admin-tap);max-width:100%;padding:6px 3px;font-size:11px;line-height:1.25;white-space:normal;overflow-wrap:anywhere;border-radius:10px}
+.admin-quick-nav #navAllReservationsBtn{order:-2;background:#fff5df;border-color:#c28b1c}
+.admin-quick-nav #navHomeBtn{order:-1}
+.admin-quick-nav>span{display:none}
+.stats,.reservation-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.stat,.reservation-stats>*{min-width:0;padding:12px;overflow-wrap:anywhere}
+.cards{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.row{min-width:0;max-width:100%;display:flex;flex-wrap:wrap;gap:10px}
+.row>*{min-width:0;max-width:100%}
+#reservationsPane>.row:first-child{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px}
+.reservation-controls{min-width:0;max-width:100%;width:100%;padding:12px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.reservation-control-group{min-width:0;max-width:100%}
+.filter-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0;max-width:100%;overflow:visible}
+.filter-chip{flex:0 1 auto;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere;min-height:44px}
+.reservation-search,.reservation-search input{width:100%;max-width:100%;min-width:0}
+.reservation-result{display:flex;flex-wrap:wrap;gap:8px;overflow-wrap:anywhere}
+.reservation-extra,.reservation-advanced,.special-allocation-panel{min-width:0;max-width:100%;width:100%;overflow-wrap:anywhere}
+.reservation-extra>summary,.reservation-advanced>summary{cursor:pointer;min-height:48px;padding:14px}
+.special-allocation-panel{padding:12px}
+.special-allocation-grid,.special-reservation-form .grid2{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.special-reservation-form input,.special-reservation-form select{width:100%;max-width:100%;min-width:0}
+.roster-groups{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;min-width:0;max-width:100%}
+.roster-class{min-width:0;max-width:100%;width:100%;overflow:hidden;border-radius:16px}
+.roster-heading{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:12px;align-items:start}
+.roster-heading>div{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.roster-heading h3{font-size:18px;line-height:1.35}
+.roster-heading-stats{text-align:left;white-space:normal;max-width:100%}
+.roster-list{width:100%;min-width:0;margin:0;padding:0}
+.roster-person{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 12px;min-width:0;max-width:100%;width:100%;align-items:start}
+.roster-person-main,.roster-person-side,.roster-person-actions{grid-column:1;min-width:0;max-width:100%;width:100%;overflow-wrap:anywhere}
+.roster-person-main{display:grid;gap:4px}
+.roster-person-main strong{font-size:16px;line-height:1.4}
+.roster-person-side{display:flex;flex-wrap:wrap;align-items:center;gap:8px;text-align:left;white-space:normal}
+.roster-person-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.roster-person-actions .smallbtn{width:100%;min-width:0;max-width:100%;min-height:52px;padding:10px 5px;font-size:14px;white-space:normal;overflow-wrap:anywhere;touch-action:manipulation}
+.reservation-table{max-width:100%;overflow:visible}
+.reservation-table table{min-width:0;width:100%}
+.reservation-table thead{display:none}
+.reservation-table tbody,.reservation-table tr,.reservation-table td{display:block}
+.reservation-table tr{padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:12px;background:#fff}
+.reservation-table td{padding:5px 0;border:0;overflow-wrap:anywhere}
+.reservation-table td:last-child{display:flex;flex-wrap:wrap;gap:6px}
+.reservation-table td:last-child button{flex:1 1 100px;min-height:44px}
+.tablewrap:not(.reservation-table){max-width:100%;overflow-x:auto}
+.reservation-operation-status{padding:12px;border:1px solid #b6d6bf;background:#eff8f0;color:#145b35;border-radius:12px;font-weight:700;margin:12px 0;overflow-wrap:anywhere}
+@media(min-width:681px){
+:root{--admin-gap:16px}
+.shell.admin-shell{width:calc(100% - 32px);padding:24px 0 72px}
+.brand__text strong{font-size:15px}
+.admin-quick-nav{position:static;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 0;margin-bottom:16px;background:transparent;border-top:0;box-shadow:none}
+.admin-quick-nav .smallbtn{width:auto;min-height:44px;padding:9px 12px;font-size:13px}
+.admin-quick-nav>span{display:inline;color:#666;margin-left:auto;font-size:12px}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.special-allocation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.special-reservation-form .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.roster-heading{grid-template-columns:minmax(0,1fr) auto}
+.roster-heading-stats{text-align:right}
+.roster-person{grid-template-columns:minmax(0,1fr) auto}
+.roster-person-main{grid-column:1}
+.roster-person-side{grid-column:2;width:auto;max-width:140px;display:grid;text-align:right}
+.roster-person-actions{grid-column:1/-1}
+}
+@media(min-width:1024px){
+.admin-layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px}
+.admin-nav{display:grid;align-content:start;gap:8px}
+.admin-quick-nav{display:none}
+}
+@media print{
+.admin-quick-nav,.admin-nav,.roster-person-actions{display:none!important}
+.shell.admin-shell{padding:0;width:100%}
+.roster-class{break-inside:avoid}
+}
