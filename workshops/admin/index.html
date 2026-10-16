@@ -57,6 +57,26 @@
 .special-allocation-panel h2{font-size:clamp(18px,5vw,23px)}
 .reservation-advanced>summary{min-height:48px;display:flex;align-items:center}
 }
+
+/* Workshop operations UX: keep essential actions visible on narrow screens. */
+.reservation-operation-status{padding:12px 16px;border:1px solid #b6d6bf;background:#eff8f0;color:#145b35;border-radius:12px;font-weight:700;margin:12px 0;overflow-wrap:anywhere}
+.reservation-extra{min-width:0;max-width:100%}
+.reservation-extra>summary{cursor:pointer;font-weight:700;min-height:48px;display:flex;align-items:center;overflow-wrap:anywhere}
+.reservation-extra details pre{white-space:pre-wrap;overflow-wrap:anywhere;max-width:100%;font-size:12px}
+@media(max-width:680px){
+html,body{max-width:100%;overflow-x:clip}
+.admin-shell,.admin-layout,.admin-main,#reservationsPane{min-width:0!important;max-width:100%!important}
+.admin-nav{display:none!important}
+.admin-quick-nav{position:static;display:flex;flex-wrap:wrap!important;overflow:visible!important;gap:6px}
+.admin-quick-nav button{flex:1 1 auto;min-height:44px}
+#reservationsPane>.row:first-child{display:flex;flex-wrap:wrap;gap:10px}
+#reservationsPane h1{font-size:clamp(21px,5.6vw,29px);overflow-wrap:anywhere;word-break:break-word}
+.reservation-controls,.special-allocation-panel,.roster-class,.reservation-advanced{width:100%;max-width:100%;min-width:0!important}
+.roster-person-side{white-space:normal!important}
+.roster-person-actions{width:100%;min-width:0}
+.roster-person-actions button{min-width:0;overflow-wrap:anywhere}
+.tablewrap{max-width:100%;overflow-x:auto}
+}
 </style>
 </head>
 <body>
@@ -92,8 +112,8 @@
 <script src="../config.js"></script>
 <script src="../assets/store.js?v=20261008-2"></script>
 <script src="../assets/store-v2-adapter.js?v=20261008-3"></script>
-<script src="../assets/class-roster.js?v=20261016-1"></script>
-<script src="./manager.js?v=20261016-1"></script>
+<script src="../assets/class-roster.js?v=20261016-2"></script>
+<script src="./manager.js?v=20261016-3"></script>
 <script src="./cms-v2.js?v=20260829-3"></script>
 </body>
 </html>
