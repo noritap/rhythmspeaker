@@ -87,6 +87,38 @@ html,body{max-width:100%;overflow-x:clip}\n.admin-main{overflow-wrap:anywhere}\n
 #reservationsPane .row>*{min-width:0;max-width:100%}
 .reservation-result{display:flex;flex-wrap:wrap;gap:6px}
 }
+
+/* Admin-only viewport contract: do not let desktop intrinsic widths enlarge the page. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{min-width:0;width:100%;margin:0}
+.admin-shell,.admin-layout,.admin-main,#dashboardPane,#editorPane,#reservationsPane{min-width:0;max-width:100%}
+.admin-main>*{min-width:0;max-width:100%}
+@media(max-width:900px){
+.admin-layout{display:block;grid-template-columns:minmax(0,1fr)}
+.admin-main{width:100%;min-width:0}
+}
+@media(max-width:680px){
+.site-header__inner,.site-header__inner .brand{min-width:0}
+.brand__text{min-width:0;overflow-wrap:anywhere}
+.admin-shell{width:calc(100% - 24px);margin-inline:auto}
+#dashboardPane h1,#reservationsPane h1{max-width:100%;overflow-wrap:anywhere}
+.reservation-stats,.stats,.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reservation-stats>*{min-width:0}
+.roster-groups,.roster-class,.roster-list,.roster-person{width:100%;min-width:0;max-width:100%}
+.roster-list{padding-inline:0}
+.roster-person{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:10px}
+.roster-person-main,.roster-person-side,.roster-person-actions{grid-column:1!important;min-width:0;max-width:100%;width:100%}
+.roster-person-side{display:flex;flex-wrap:wrap;gap:8px;text-align:left;max-width:100%}
+.roster-person-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.roster-person-actions .smallbtn{width:100%;min-width:0;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.roster-heading{grid-template-columns:minmax(0,1fr)!important}
+.roster-heading-stats{max-width:100%;text-align:left}
+.reservation-controls,.special-allocation-panel,.reservation-advanced{min-width:0;max-width:100%;overflow-wrap:anywhere}
+.special-allocation-panel .grid2,.special-allocation-grid{grid-template-columns:minmax(0,1fr)}
+.reservation-search,.reservation-search input,.special-reservation-form input,.special-reservation-form select{width:100%;max-width:100%;min-width:0}
+.reservation-extra .tablewrap{width:100%;max-width:100%;overflow-x:auto}
+.reservation-extra .tablewrap table{min-width:760px}
+}
 </style>
 </head>
 <body>
