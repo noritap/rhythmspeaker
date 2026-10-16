@@ -15,6 +15,29 @@
 .reservation-advanced{margin:16px 0}
 .reservation-advanced>summary{cursor:pointer;padding:14px;border:1px solid #ddd;border-radius:10px;font-weight:700}
 @media(max-width:600px){.roster-person-actions button{flex:1}.roster-person-actions{width:100%}}
+
+/* Workshop admin narrow viewport containment */
+.admin-layout,.admin-main,.admin-shell,.reservation-controls,.special-allocation-panel,.roster-class{min-width:0;max-width:100%}
+@media(max-width:680px){
+.admin-shell{padding-top:12px}
+.admin-layout{display:block}
+.admin-nav{display:none}
+.admin-main{width:100%;min-width:0}
+.admin-main h1{font-size:clamp(25px,7vw,34px);overflow-wrap:anywhere;line-height:1.15}
+.reservation-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.roster-groups{min-width:0}
+.roster-class{overflow:hidden}
+.roster-person{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:8px 10px}
+.roster-person-main{min-width:0;overflow-wrap:anywhere}
+.roster-person-side{font-size:12px}
+.roster-person-actions{grid-column:1/-1;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;min-width:0;width:100%}
+.roster-person-actions .smallbtn{min-width:0;min-height:48px;white-space:normal}
+.reservation-advanced{max-width:100%;overflow:hidden}
+.reservation-table,.reservation-table table{max-width:100%;min-width:0!important}
+.reservation-table td{overflow-wrap:anywhere}
+.admin-quick-nav{top:0;flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:thin}
+.admin-quick-nav>span{display:none}
+}
 </style>
 </head>
 <body>
