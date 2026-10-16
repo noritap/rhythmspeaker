@@ -1,0 +1,38 @@
+name: Workshop Manager UX Quality Gate
+on:
+  pull_request:
+    paths:
+      - 'workshops/admin/**'
+      - 'workshops/assets/class-roster.js'
+      - 'workshops/assets/workshop-os-v2.css'
+      - '.github/workflows/workshop-manager-ux.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  static-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          node --check workshops/admin/manager.js
+          node --check workshops/assets/class-roster.js
+      - name: Workshop mobile UX invariants
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs'),assert=require('node:assert/strict');
+          const js=fs.readFileSync('workshops/admin/manager.js','utf8');
+          const html=fs.readFileSync('workshops/admin/index.html','utf8');
+          const roster=fs.readFileSync('workshops/assets/class-roster.js','utf8');
+          assert(js.includes("$$('.roster-groups [data-roster-check]"),'All roster buttons must be bound');
+          assert(!js.includes("  $('.roster-groups [data-roster-check]"),'Single-element roster binding regression');
+          assert(html.includes('name="viewport"'),'Mobile viewport is required');
+          assert(html.includes('id="navLogoutBtn"'),'Mobile logout must remain reachable');
+          assert(js.includes('navLogoutBtn.onclick'),'Mobile logout must have a handler');
+          assert(html.includes('reservation-operation-status'),'Completion status styles required');
+          assert(js.includes('reservation-operation-status'),'Completion status UI required');
+          assert(roster.includes('roster-person-actions'),'Roster actions required');
+          console.log('Workshop UX static invariants passed');
+          NODE
