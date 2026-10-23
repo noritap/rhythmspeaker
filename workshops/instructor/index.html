@@ -29,7 +29,7 @@
 
 <nav class="instructor-quick-nav" aria-label="講師ページメニュー"><div class="shell"><a href="#instructorTop">⌂ トップ</a><a href="#checkinSection">当日受付</a><button id="checkinFocusToggle" type="button" aria-pressed="false" class="instructor-focus-toggle">受付専用表示</button><a href="#instructorClasses">クラス別状況</a><a href="#instructorSpecial">特別枠で追加</a><a href="#participantsSection">参加者名簿</a><a href="#participantsSection" id="instructorPrintNav">名簿印刷</a></div></nav>
 <main id="app">
-  <section id="instructorTop" class="instructor-hero"><div class="shell"><p class="kicker">INSTRUCTOR ONLY</p><h1 id="eventTitle" class="page-title">読み込み中...</h1><p id="eventMeta" class="page-lead"></p><div class="refresh-row"><a id="publicEventLink" class="btn btn--gold btn--small hidden" href="../" target="_blank" rel="noopener noreferrer">一般公開ページを見る ↗</a><span id="updatedAt" class="updated-at"></span></div><p class="instructor-note">講師共有用の閲覧ページです。予約者のメールアドレス・電話番号は表示しません。</p></div></section>
+  <section id="instructorTop" class="instructor-hero"><div class="shell"><p class="kicker">INSTRUCTOR ONLY</p><h1 id="eventTitle" class="page-title">読み込み中...</h1><p id="eventMeta" class="page-lead"></p><div class="refresh-row"><a id="editEventLink" class="btn btn--small hidden" href="#" rel="nofollow">WS内容を編集</a><a id="publicEventLink" class="btn btn--gold btn--small hidden" href="../" target="_blank" rel="noopener noreferrer">一般公開ページを見る ↗</a><span id="updatedAt" class="updated-at"></span></div><p class="instructor-note">講師共有用の閲覧ページです。予約者のメールアドレス・電話番号は表示しません。</p></div></section>
 
   <section class="section section--tight"><div class="shell"><div id="errorBox" class="instructor-warning hidden"></div><div id="stats" class="stats"></div></div></section>
 
@@ -112,7 +112,7 @@ function render(data){
   const e=data.event||{},t=data.totals||{},sessions=data.sessions||[],people=RSClassRoster.activePeople(data.participants||[]);
   document.title=`${e.title||'Instructor View'} | Rhythm Speaker`;
   eventTitle.textContent=e.title||'Workshop';
-  const publicLink=document.getElementById('publicEventLink');const slug=String(e.slug||'');if(/^[a-z0-9][a-z0-9-]*$/.test(slug)){publicLink.href='../event.html?slug='+encodeURIComponent(slug);publicLink.classList.remove('hidden')}else{publicLink.classList.add('hidden')};
+  const publicLink=document.getElementById('publicEventLink');const editLink=document.getElementById('editEventLink');const slug=String(e.slug||'');if(/^[a-z0-9][a-z0-9-]*$/.test(slug)&&token){editLink.href='./edit.html?token='+encodeURIComponent(token);editLink.classList.remove('hidden')}else{editLink.classList.add('hidden')};if(/^[a-z0-9][a-z0-9-]*$/.test(slug)){publicLink.href='../event.html?slug='+encodeURIComponent(slug);publicLink.classList.remove('hidden')}else{publicLink.classList.add('hidden')};
   eventMeta.textContent=[e.date?fmtDate(e.date):'',e.venue||'',e.instructor?`講師：${e.instructor}`:''].filter(Boolean).join(' / ');
   updatedAt.textContent=`最終更新 ${fmtUpdated(data.generatedAt||new Date().toISOString())}`;
   const attendanceSessions=RSClassRoster.classes(sessions);
