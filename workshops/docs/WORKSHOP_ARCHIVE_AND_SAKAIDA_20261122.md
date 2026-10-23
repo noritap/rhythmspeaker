@@ -4,15 +4,15 @@ Status: DRAFT / NOT PUBLISHED / NO PRODUCTION DB WRITE
 
 ## 坂井田コージ 2026-11-22
 - 2026-11-22 (Sun), 15:00–16:30, 90 min
-- All levels / JPY 3,000 / opens with >=2 reservations
+- All levels / JPY 3,000 / capacity 10 / opens with >=2 reservations
 - Rhythm Speaker Ikebukuro
-- Speaker portrait, official bio, content outline, capacity, reservation method, payment method, cancellation policy: pending organizer confirmation
+- Speaker portrait, official bio, content outline, reservation method, payment method, cancellation policy: pending organizer confirmation
 - Revenue share 70/30 is internal and must not appear on public pages
 - Static draft: `workshops/sakaida-koji-20261122.html`
 - Public event listing and live booking are Supabase-backed; static draft alone does NOT create an event, session, or reservation.
 
 ## Production publication gate
-1. Organizer approves photo, profile, description, capacity, cancellation policy, reservation cutoff and payment URL.
+1. Organizer approves photo, profile, description, cancellation policy, reservation cutoff and payment URL.
 2. Admin creates event + 1 session in /workshops/admin using existing authenticated workflow, with 2-person minimum clearly noted.
 3. Verify published event appears in /workshops/, detail loads via event.html?slug=..., and reservation flow respects capacity.
 4. Do not expose 70/30 internal settlement in public copy.
