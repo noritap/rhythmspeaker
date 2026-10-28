@@ -27,6 +27,35 @@
     .eco-jump a[aria-current="location"]{background:#171717;color:#fff}
     @media(hover:none){.eco-card--linked:hover{transform:none;box-shadow:none}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.eco-card,.eco-jump a,.eco-card-link:after{transition:none!important}.eco-card--linked:hover,.eco-card--linked:active{transform:none}}
+
+    /* VC4: editorial hierarchy, readable cards, clear interaction affordance. */
+    .eco-section{background:linear-gradient(180deg,#f8f8f7 0%,#fff 32%)}
+    .eco-hero{background:radial-gradient(ellipse at 78% 12%,rgba(255,51,71,.23),transparent 38%),linear-gradient(125deg,#101014,#25252b)}
+    .eco-hero h1{max-width:13ch;letter-spacing:-.045em;text-wrap:balance}
+    .eco-group{margin-bottom:5.5rem;scroll-margin-top:160px}
+    .eco-group-head{border-top:2px solid #222;padding-top:1.7rem}
+    .eco-group h2{letter-spacing:-.035em;line-height:1.2}
+    .eco-grid{gap:1.2rem;margin-top:2rem}
+    .eco-card{min-height:220px;padding:1.85rem;background:#fff;border-color:#dedede;border-radius:16px;box-shadow:0 3px 16px rgba(0,0,0,.025)}
+    .eco-card:before{width:150px;height:150px;background:radial-gradient(circle,rgba(255,51,71,.045),transparent 70%)}
+    .eco-card h3{font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.3;letter-spacing:-.02em;margin:1.2rem 0 .55rem}
+    .eco-card p{line-height:1.75;max-width:48ch;color:#525252}
+    .eco-card small{font-size:.72rem;letter-spacing:.095em;color:#777}
+    .eco-card-link{font-size:.94rem;padding-top:.35rem}
+    .eco-card-link:after{font-size:1.2em}
+    .eco-card--linked:hover{border-color:#aaa;box-shadow:0 20px 42px rgba(0,0,0,.085)}
+    .eco-card--linked:focus-within{outline:3px solid var(--eco-red);outline-offset:3px}
+    #studio .eco-card:first-child{background:linear-gradient(140deg,#19191c,#303035);border-color:#252525;color:#fff}
+    #studio .eco-card:first-child h3,#studio .eco-card:first-child .eco-card-link{color:#fff}
+    #studio .eco-card:first-child p{color:#e1e1e1}
+    #studio .eco-card:first-child small{color:#ffb5bd}
+    #studio .eco-card:first-child .eco-service-icon{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.2)}
+    #studio .eco-card:first-child:hover{border-color:var(--eco-red)}
+    .eco-card:not(.eco-card--linked){background:#f3f3f3;box-shadow:none}
+    .eco-card:not(.eco-card--linked) .eco-card-link{color:#666}
+    .eco-jump a{min-height:44px}
+    @media(min-width:901px){#studio .eco-card:first-child{grid-column:span 2;min-height:210px}#studio .eco-card:first-child p{max-width:56ch}}
+    @media(max-width:760px){.eco-hero h1{font-size:clamp(2.45rem,10vw,3.5rem)}.eco-group{margin-bottom:4rem;scroll-margin-top:190px}.eco-grid{gap:.85rem;margin-top:1.4rem}.eco-card{min-height:0;padding:1.4rem;border-radius:14px}.eco-card h3{font-size:1.35rem;margin:.9rem 0 .5rem}.eco-card p{line-height:1.65;margin-bottom:1.1rem}.eco-jump-inner{gap:.4rem}.eco-jump a{padding:.7rem .8rem}}
   </style>
 </head>
 <body>
