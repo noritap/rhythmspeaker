@@ -71,8 +71,12 @@ def main() -> int:
     for path, current in PAGES.items():
         text = path.read_text(encoding="utf-8")
         prefix = "" if path == Path("index.html") else "../"
-        updated = replace_once(text, "nav-links", render_list(prefix, current, "nav-links", False), path)
-        updated = replace_once(updated, "mobile-nav-panel", render_list(prefix, current, "mobile-nav-panel", True), path)
+        if path == Path("ecosystem/index.html"):
+            # The portal uses one native disclosure on desktop and mobile.
+            updated = replace_once(text, "portal-site-links", render_list(prefix, current, "portal-site-links", False), path)
+        else:
+            updated = replace_once(text, "nav-links", render_list(prefix, current, "nav-links", False), path)
+            updated = replace_once(updated, "mobile-nav-panel", render_list(prefix, current, "mobile-nav-panel", True), path)
         if updated != text:
             path.write_text(updated, encoding="utf-8")
             print(f"UPDATED {path}")
