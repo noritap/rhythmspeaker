@@ -81,6 +81,19 @@ class PortalContractTest(unittest.TestCase):
                 target = (ROOT / 'ecosystem' / href).resolve()
                 self.assertTrue((target / 'index.html').is_file(), href)
 
+    def test_icon_sprite_has_no_layout_box_even_without_css(self):
+        class Sprite(HTMLParser):
+            def __init__(self):
+                super().__init__(); self.sprites = []
+            def handle_starttag(self, tag, attrs):
+                attrs = dict(attrs)
+                if tag == 'svg' and 'eco-sr' in attrs.get('class', '').split():
+                    self.sprites.append(attrs)
+        p = Sprite(); p.feed(self.html)
+        self.assertEqual(len(p.sprites), 1)
+        self.assertEqual(p.sprites[0].get('width'), '0')
+        self.assertEqual(p.sprites[0].get('height'), '0')
+
 
 if __name__ == '__main__':
     unittest.main()
