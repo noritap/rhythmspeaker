@@ -21,3 +21,5 @@ jobs:
         run: python -m py_compile tools/navigation_audit.py
       - name: Enforce navigation contract
         run: python tools/navigation_audit.py --strict
+      - name: Test portal navigation and destination regressions
+        run: python -m unittest discover -s tools -p 'test_navigation_portal.py' -v
