@@ -39,7 +39,7 @@ try {
  const store=await RSStore.get();
  if(store.mode!=='live')throw new Error('Live store required');
  const rows=await store.listEvents({publishedOnly:true});
- datasets.public=rows.filter(e=>e.status==='published'&&/^\d{4}-\d{2}-\d{2}$/.test(e.date)).map(e=>({...e,source:'public',flyerProvided:false,instructor:e.instructor||'講師未登録',flyer:e.flyerUrl||e.cover||'',sessions:(e.sessions||[]).filter(s=>s.active!==false).map(s=>({...s,start:s.start?String(s.start).slice(0,5):'時間未登録',end:s.end?String(s.end).slice(0,5):'時間未登録'}))}));
+ datasets.public=rows.filter(e=>e.status==='published'&&/^\d{4}-\d{2}-\d{2}$/.test(e.date)).map(e=>({...e,source:'public',flyerProvided:false,instructor:e.instructor||'講師未登録',flyer:RSWorkshopFlyer(e),sessions:(e.sessions||[]).filter(s=>s.active!==false).map(s=>({...s,start:s.start?String(s.start).slice(0,5):'時間未登録',end:s.end?String(s.end).slice(0,5):'時間未登録'}))}));
  updateCandidates();nearestMonth();render();$('#loadStatus').textContent='予約状況は各イベントの詳細ページでご確認ください。';
 } catch(error) {
  $('#loadStatus').setAttribute('role','alert');$('#loadStatus').textContent='開催情報を取得できませんでした。再読み込みしてください。';
