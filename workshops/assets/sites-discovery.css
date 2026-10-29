@@ -1,0 +1,46 @@
+/* Sites v2.1-inspired workshop discovery; isolated to workshop landing */
+:root{--rs-ink:#f4f0e9;--rs-bg:#111714;--rs-muted:#b7c1b9;--rs-accent:#d6b67a}
+body.rs-workshop-discovery{background:var(--rs-bg);color:var(--rs-ink)}
+.rs-workshop-discovery .site-header,.rs-workshop-discovery .site-footer{background:#111714;color:var(--rs-ink)}
+.rs-workshop-discovery .site-header a,.rs-workshop-discovery .site-footer a{color:var(--rs-ink)}
+.rs-workshop-discovery .page-hero{background:linear-gradient(125deg,#111714,#23392e 58%,#101613);color:var(--rs-ink);padding:clamp(70px,12vw,160px) 0}
+.rs-workshop-discovery .page-hero .kicker{letter-spacing:.25em;color:var(--rs-accent)}
+.rs-workshop-discovery .page-title{font-size:clamp(3.5rem,11vw,9rem);letter-spacing:-.055em;line-height:.94;overflow-wrap:anywhere}
+.rs-workshop-discovery .page-lead{font-size:clamp(1.1rem,2.6vw,1.6rem);color:#e3e7de;line-height:1.7;max-width:38rem}
+.rs-workshop-discovery .section{background:transparent;color:var(--rs-ink)}
+.rs-workshop-discovery .section-head h2{color:var(--rs-ink)}
+.rs-workshop-discovery .section-head p{color:var(--rs-muted)}
+.rs-discovery-panel{border:1px solid #3d5145;border-radius:22px;padding:clamp(14px,3vw,30px);background:#1b2820}
+.rs-discovery-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.rs-discovery-controls button,.rs-discovery-controls input{font:inherit;min-height:44px;border-radius:10px;border:1px solid #617263;padding:10px 14px}
+.rs-discovery-controls button{background:#26382d;color:var(--rs-ink);cursor:pointer}
+.rs-discovery-controls button[aria-pressed="true"]{background:var(--rs-accent);color:#17231b;border-color:var(--rs-accent);font-weight:700}
+.rs-discovery-controls input{background:#fff;color:#17231b;flex:1 1 170px;max-width:330px}
+.rs-discovery-controls label{color:var(--rs-ink);font-weight:700}
+.rs-discovery-month{display:flex;align-items:center;gap:14px;justify-content:space-between;margin:12px 0 18px}
+.rs-discovery-month strong{font-size:clamp(1.15rem,3vw,1.6rem)}
+.rs-discovery-month button{min-width:44px;min-height:44px;border:1px solid #6e8471;background:#293a2e;color:#fff;border-radius:50%;font:inherit;cursor:pointer}
+.rs-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.rs-calendar .weekday{text-align:center;font-size:.8rem;color:#c5d2c8;padding:10px 0}
+.rs-calendar .day{min-width:0;min-height:68px;border:1px solid #4b5c50;border-radius:10px;background:#17221b;color:#fff;font:inherit;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;cursor:pointer}
+.rs-calendar .day.has-events{border-color:var(--rs-accent);background:#334b3b}
+.rs-calendar .day[aria-pressed="true"]{background:var(--rs-accent);color:#17231b;outline:2px solid #fff;outline-offset:2px}
+.rs-calendar .day:disabled{opacity:.46;cursor:default}
+.rs-calendar .count{font-size:.69rem;font-weight:700}
+.rs-calendar .blank{min-height:60px}
+.rs-calendar-status{color:#c6d1c7;margin:14px 0 0;min-height:1.5em}
+.rs-workshop-discovery .list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:22px}
+.rs-workshop-discovery .workshop-list-card{background:#213027;color:var(--rs-ink);border:1px solid #465b4c;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.rs-workshop-discovery .workshop-list-card__media{background:#2d3c30}
+.rs-workshop-discovery .flyer-frame{height:250px;display:grid;place-items:center;overflow:hidden}
+.rs-workshop-discovery .flyer-frame img{width:100%;height:100%;object-fit:contain}
+.rs-workshop-discovery .workshop-list-card__body{padding:22px;flex:1;display:flex;flex-direction:column;gap:10px}
+.rs-workshop-discovery .workshop-list-card h3{color:#fff;font-size:1.35rem;line-height:1.4}
+.rs-workshop-discovery .event-meta,.rs-workshop-discovery .event-summary{color:#d2ddd3}
+.rs-workshop-discovery .price-row{margin-top:auto}
+.rs-workshop-discovery .workshop-list-card .btn{background:var(--rs-accent);color:#17231b;text-align:center}
+.rs-workshop-discovery .help{color:#d5ded4}
+.rs-workshop-discovery .rs-results-summary{color:#c6d1c7;margin-bottom:16px}
+.rs-workshop-discovery button:focus-visible,.rs-workshop-discovery input:focus-visible,.rs-workshop-discovery a:focus-visible{outline:3px solid #f0c873;outline-offset:3px}
+@media(max-width:520px){.rs-calendar{gap:3px}.rs-calendar .day{min-height:49px;font-size:.86rem}.rs-calendar .count{font-size:.62rem}.rs-discovery-panel{padding:12px}.rs-workshop-discovery .flyer-frame{height:210px}}
+@media(prefers-reduced-motion:reduce){.rs-workshop-discovery *{scroll-behavior:auto!important}}
