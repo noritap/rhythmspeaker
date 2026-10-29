@@ -16,5 +16,5 @@
  query.addEventListener('input',()=>{selected='';render()});
  document.querySelectorAll('[data-rs-view]').forEach(b=>b.addEventListener('click',()=>{view=b.dataset.rsView;selected='';render()}));
  document.querySelectorAll('[data-rs-mode]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.rsMode;selected='';const relevant=matches();if(relevant.length)month=relevant[0].date.slice(0,7);render()}));
- try{const store=await RSStore.get();if(store.mode!=='live')document.getElementById('modebar').classList.add('is-visible');events=await store.listEvents({publishedOnly:true});events=events.filter(e=>/^\d{4}-\d{2}-\d{2}$/.test(e.date));render()}catch(err){results.innerHTML='<p class="help" role="alert">開催情報を取得できませんでした。再読み込みしてください。</p>';status.textContent='カレンダーの読み込みに失敗しました。'}
+ try{const store=await RSStore.get();if(store.mode!=='live')document.getElementById('modebar').classList.add('is-visible');events=await store.listEvents({publishedOnly:true});events=events.filter(e=>/^\d{4}-\d{2}-\d{2}$/.test(e.date));const next=events.filter(e=>e.date>=today()).sort((a,b)=>a.date.localeCompare(b.date))[0];if(next)month=next.date.slice(0,7);render()}catch(err){results.innerHTML='<p class="help" role="alert">開催情報を取得できませんでした。再読み込みしてください。</p>';status.textContent='カレンダーの読み込みに失敗しました。'}
 })();
