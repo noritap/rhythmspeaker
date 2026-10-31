@@ -68,6 +68,10 @@ class CalendarSyncContract(unittest.TestCase):
         out, count = build(events, "calendar", KEY, catalog, {}, NOW)
         self.assertEqual(count, len(events))
         self.assertEqual(len(out["sessions"]), len(events))
+        self.assertEqual(
+            [x["publicStatus"] for x in out["sessions"]].count("CLOSE"), 1)
+        self.assertEqual(
+            [x["publicStatus"] for x in out["sessions"]].count("OPEN"), len(cases)-1)
         for title, _, class_type, capacity, teacher in cases:
             # Find by class/name where possible, without exposing event source IDs.
             self.assertTrue(any(
@@ -83,6 +87,21 @@ class CalendarSyncContract(unittest.TestCase):
         self.assertEqual(count, 1)
         self.assertEqual(out["sessions"][0]["className"], "特別ワークショップ・発展クラス")
         self.assertEqual(out["sessions"][0]["instructorName"], "スタジオに確認")
+        self.assertEqual(out["sessions"][0]["publicStatus"], "INQUIRY_ONLY")
+
+    def test_case_insensitive_close_marker_is_not_open(self):
+        event = fixture(id="close-event", summary="STEP🔰 | 60m | 本間 | close")
+        result, count = build([event], "private-calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        self.assertEqual(result["sessions"][0]["publicStatus"], "CLOSE")
+        self.assertEqual(result["sessions"][0]["bookingCountStatus"], "unknown")
+        self.assertIsNone(result["sessions"][0]["confirmedBookingCount"])
+
+    def test_unrecognized_admission_marker_is_not_open(self):
+        event = fixture(id="unrecognized-event", summary="STEP🔰 | 60m | 本間 | REVIEW")
+        result, count = build([event], "private-calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        self.assertEqual(result["sessions"][0]["publicStatus"], "INQUIRY_ONLY")
 
     def test_only_strict_open_classes_are_public(self):
         out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, NOW)
