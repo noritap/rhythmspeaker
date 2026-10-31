@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "event_id": "RSS_015",
+  "event_title": "Rhythm Speaker Show #015",
+  "event_date": "2026-10-31",
+  "start_time_jst": "19:00",
+  "distribution": {
+    "format": "undecided",
+    "allowed_formats": [
+      "live",
+      "prerecorded_premiere"
+    ],
+    "youtube_url": null,
+    "note": "生配信または事前収録のリアクション番組をプレミア公開。最終確定まではURLや配信形式を断定しない。"
+  },
+  "submissions": [
+    {
+      "intake_order": 1,
+      "program_order": 2,
+      "title": "Singin' in the Rain 雨に唄えば | 雨の日も心は晴れやかに",
+      "team": "MiFaクラスの皆さま",
+      "choreographer": "古庄里好",
+      "performers": null,
+      "comment": "今回の動画発表会は前回から2ヶ月の準備期間。取り組んでみたい振付としてこの作品を提案したものの、時間が足りない・・・。\n思案の結果、\n”ここまでを目指しましょう！”と、最初から目的地を決めてスタートしました。\n映画を観た人なら映像が、そうでない人もその歌声やメロディが心に残る有名なミュージカルソングとあって、楽しく練習しました。\nどうぞご覧ください🎥",
+      "video_url": "https://youtu.be/YvUuoiwFVqM",
+      "video_id": "YvUuoiwFVqM",
+      "status": "received",
+      "notes": "出演者個人名は未記載。放送順は未決定。"
+    },
+    {
+      "intake_order": 2,
+      "program_order": 3,
+      "title": "Nao’s tap dance performance at the Toyosu Outer Market",
+      "team": null,
+      "choreographer": null,
+      "performers": "Nao and Nori (guest), and their friends",
+      "comment": "鳥取のスーパータップダンサーNao（無名のタップダンサー）さんが、豊洲場外マルシェのイベントで踊るということで、見に行ってきました。その時に撮った動画です。\n粒のそろったクリアな音に聞き惚れ、相変わらずの高速＆高度なステップに圧倒されました。\n前日にNaoさんのワークショップを受講したのですが、ワークショップで教わったことを思い出しながら見ていました。今回のステップの中にも、Naoさんが先人たちから学び、そして自分流にアレンジしたものがたくさんあったと思います。\n\nゲストはノリさん！外部で踊るのを見るのは初めてです！！\nラストはさらにスペシャルなメンバーが！本当にいいものが見られました！！\n\n少し長めの動画になってしまいましたが、ぜひ最後までご覧ください。\nNaoさん、どうもありがとうございました。",
+      "video_url": "https://youtu.be/dik8yupFXhs",
+      "video_id": "dik8yupFXhs",
+      "status": "received",
+      "notes": "投稿者によるとNaoさんの掲載許可取得済み。別作品を準備中だが未受領。出演者の追加特定はしない。"
+    },
+    {
+      "intake_order": 3,
+      "program_order": 1,
+      "title": "いろんなシムシャム踊ってみた",
+      "team": "ささっさー（一部メンバーは方向性の違いによりソロ活動中）",
+      "choreographer": "シムシャム（Noriシャム）",
+      "performers": null,
+      "comment": "いろんなシムシャムにチャレンジしてみました。\nいつもやっているシムシャムですが、少し変えてみると、また違う味が出てきます。\nどうぞ、生ぬるい目でご覧ください。",
+      "video_url": "https://youtu.be/qQFKw9ENaAE",
+      "video_id": "qQFKw9ENaAE",
+      "status": "received",
+      "notes": "LINE公式アカウントの原文に掲載されたURLを採用。先に貼られたN41Tl2az2T4とは異なるため、LINE原文を正本として修正。放送順未決定。"
+    },
+    {
+      "intake_order": 4,
+      "program_order": 5,
+      "title": "還暦！むぎちょろ師匠の青春〜Shake Hip！",
+      "team": "teamむぎちょろ",
+      "choreographer": "しげちょろ",
+      "performers": "むぎちょろ師匠＋むぎちょろダンサーズ",
+      "editor": "みふぁちょろ",
+      "props": "ちょろひら",
+      "comment": "むぎちょろシリーズ第二弾になります！\n1986年、40年前の曲でタップを踊ってみました！",
+      "video_url": "https://youtu.be/x03NR7s27gw",
+      "video_id": "x03NR7s27gw",
+      "status": "received",
+      "notes": "シリーズ第二弾。前作との連続性を放送順編集時に考慮。"
+    },
+    {
+      "intake_order": 5,
+      "program_order": 6,
+      "title": "プロフェッショナル〜タップの流儀②〜",
+      "team": "teamむぎちょろ関連作品（正式チーム名未記載）",
+      "choreographer": null,
+      "performers": null,
+      "comment": "むぎちょろ師匠のリハーサル風景です。\n師匠は今回も一生懸命にタップに取り組んでおられました。\n本編は別映像をお楽しみください。",
+      "video_url": "https://youtu.be/eHbwar5XyLc",
+      "video_id": "eHbwar5XyLc",
+      "status": "received",
+      "related_intake_order": 4,
+      "notes": "受付004『還暦！むぎちょろ師匠の青春〜Shake Hip！』のメイキング／リハーサル映像。放送順は本編004の後に連続配置することを推奨。出演者・振付・チーム正式表記は原文に未記載。"
+    },
+    {
+      "intake_order": 6,
+      "program_order": 4,
+      "title": "母＆姉の弾く、「きらきらぼし」にのせて娘がタップを踏んでみた！",
+      "team": "幼稚な俳句の会",
+      "choreographer": "本間茂樹先生",
+      "performers": "中平京子、中原星子、中平洋子",
+      "comment": "母は、晩年に神経性の難病を患っていたのですが、最後までピアノを弾いたり散歩をしたり、頑張ってリハビリしていました。そんな姿をおさめた動画があったのを思い出し、タップを踏んでみました。衣装は、洋裁も得意だった母お手製のジャンパースカートです。なおチーム名は、同じくリハビリの一環で、３人で幼稚な俳句を作っては、互いに褒め合うという楽しい活動をしていた会からとりました。",
+      "video_url": "https://youtu.be/5jmOIJkCaO4",
+      "video_id": "5jmOIJkCaO4",
+      "status": "received",
+      "notes": "投稿者による③コメント全文差し替えの最終版を採用。初稿のコメントは非採用。放送順未定。"
+    }
+  ],
+  "ordering_policy": {
+    "intake_order": "submission arrival order",
+    "program_order": "editorial order after reviewing all submissions",
+    "must_keep_together": "related original and making-of/NG works when requested"
+  },
+  "source_policy": {
+    "input": "LINE message pasted into RSS strategy chat",
+    "preserve_original_comments": true,
+    "missing_fields": "null or 未確認; never invent names or credits",
+    "permissions": "user states forwarded submissions are already cleared for publication; report material exceptions rather than re-requesting routine permission"
+  },
+  "program_status": "provisional",
+  "program_editorial_note": "親しみやすいシムシャム→クラス作品→高度なタップ→家族の記憶→むぎちょろ本編とメイキングの連続上映。動画の再生時間と演出テンポは未検証。"
+}
