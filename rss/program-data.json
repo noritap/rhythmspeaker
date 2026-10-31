@@ -1,0 +1,695 @@
+{
+  "episodes": [
+    {
+      "episode_id": "015",
+      "episode_number": 15,
+      "event_date": "2026-10-31",
+      "publish_date": null,
+      "title": "Rhythm Speaker Show #015",
+      "thumbnail": "assets/thumbnails/YvUuoiwFVqM.jpg",
+      "program_url": "https://noritap.github.io/rhythmspeaker/rss/015/",
+      "broadcast_url": null,
+      "status": "published",
+      "public_evidence": "公式プログラム公開確認",
+      "key_visual": "assets/thumbnails/YvUuoiwFVqM.jpg",
+      "visual_source": "RSS投稿作品のYouTubeサムネイル"
+    },
+    {
+      "episode_id": "014",
+      "episode_number": 14,
+      "event_date": "2026-08-29",
+      "publish_date": null,
+      "title": "Rhythm Speaker Show #014",
+      "thumbnail": "assets/thumbnails/EwLMRzybRMo.jpg",
+      "program_url": "https://noritap.github.io/rhythmspeaker/rss/014/",
+      "broadcast_url": null,
+      "status": "published",
+      "public_evidence": "公式プログラム公開確認",
+      "key_visual": "assets/thumbnails/EwLMRzybRMo.jpg",
+      "visual_source": "RSS投稿作品のYouTubeサムネイル"
+    },
+    {
+      "episode_id": "013",
+      "episode_number": 13,
+      "event_date": null,
+      "publish_date": null,
+      "title": "Rhythm Speaker Show #013",
+      "thumbnail": "assets/thumbnails/H89OV-0boVc.jpg",
+      "program_url": null,
+      "broadcast_url": "https://www.youtube.com/live/H89OV-0boVc",
+      "status": "published",
+      "public_evidence": "公式RSSトップのアーカイブ掲載確認",
+      "key_visual": "assets/thumbnails/H89OV-0boVc.jpg",
+      "visual_source": "RSS投稿作品のYouTubeサムネイル"
+    }
+  ],
+  "works": [
+    {
+      "work_id": "015-1",
+      "episode_id": "015",
+      "program_order": 2,
+      "title": "Singin' in the Rain 雨に唄えば | 雨の日も心は晴れやかに",
+      "team": "MiFaクラスの皆さま",
+      "performers": null,
+      "choreographer": "古庄里好",
+      "comment": "今回の動画発表会は前回から2ヶ月の準備期間。取り組んでみたい振付としてこの作品を提案したものの、時間が足りない・・・。\n思案の結果、\n”ここまでを目指しましょう！”と、最初から目的地を決めてスタートしました。\n映画を観た人なら映像が、そうでない人もその歌声やメロディが心に残る有名なミュージカルソングとあって、楽しく練習しました。\nどうぞご覧ください🎥",
+      "youtube_url": "https://youtu.be/YvUuoiwFVqM",
+      "thumbnail": "assets/thumbnails/YvUuoiwFVqM.jpg",
+      "category": [
+        "クラス作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "015-2",
+      "episode_id": "015",
+      "program_order": 3,
+      "title": "Nao’s tap dance performance at the Toyosu Outer Market",
+      "team": null,
+      "performers": "Nao and Nori (guest), and their friends",
+      "choreographer": null,
+      "comment": "鳥取のスーパータップダンサーNao（無名のタップダンサー）さんが、豊洲場外マルシェのイベントで踊るということで、見に行ってきました。その時に撮った動画です。\n粒のそろったクリアな音に聞き惚れ、相変わらずの高速＆高度なステップに圧倒されました。\n前日にNaoさんのワークショップを受講したのですが、ワークショップで教わったことを思い出しながら見ていました。今回のステップの中にも、Naoさんが先人たちから学び、そして自分流にアレンジしたものがたくさんあったと思います。\n\nゲストはノリさん！外部で踊るのを見るのは初めてです！！\nラストはさらにスペシャルなメンバーが！本当にいいものが見られました！！\n\n少し長めの動画になってしまいましたが、ぜひ最後までご覧ください。\nNaoさん、どうもありがとうございました。",
+      "youtube_url": "https://youtu.be/dik8yupFXhs",
+      "thumbnail": "assets/thumbnails/dik8yupFXhs.jpg",
+      "category": [],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "015-3",
+      "episode_id": "015",
+      "program_order": 1,
+      "title": "いろんなシムシャム踊ってみた",
+      "team": "ささっさー（一部メンバーは方向性の違いによりソロ活動中）",
+      "performers": null,
+      "choreographer": "シムシャム（Noriシャム）",
+      "comment": "いろんなシムシャムにチャレンジしてみました。\nいつもやっているシムシャムですが、少し変えてみると、また違う味が出てきます。\nどうぞ、生ぬるい目でご覧ください。",
+      "youtube_url": "https://youtu.be/qQFKw9ENaAE",
+      "thumbnail": "assets/thumbnails/qQFKw9ENaAE.jpg",
+      "category": [
+        "チャレンジ"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "015-4",
+      "episode_id": "015",
+      "program_order": 5,
+      "title": "還暦！むぎちょろ師匠の青春〜Shake Hip！",
+      "team": "teamむぎちょろ",
+      "performers": "むぎちょろ師匠＋むぎちょろダンサーズ",
+      "choreographer": "しげちょろ",
+      "comment": "むぎちょろシリーズ第二弾になります！\n1986年、40年前の曲でタップを踊ってみました！",
+      "youtube_url": "https://youtu.be/x03NR7s27gw",
+      "thumbnail": "fallback.svg",
+      "category": [
+        "グループ作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": "みふぁちょろ",
+      "props": "ちょろひら",
+      "production_support": null,
+      "related_work_ids": [
+        "015-5"
+      ]
+    },
+    {
+      "work_id": "015-5",
+      "episode_id": "015",
+      "program_order": 6,
+      "title": "プロフェッショナル〜タップの流儀②〜",
+      "team": "teamむぎちょろ関連作品（正式チーム名未記載）",
+      "performers": null,
+      "choreographer": null,
+      "comment": "むぎちょろ師匠のリハーサル風景です。\n師匠は今回も一生懸命にタップに取り組んでおられました。\n本編は別映像をお楽しみください。",
+      "youtube_url": "https://youtu.be/eHbwar5XyLc",
+      "thumbnail": "fallback.svg",
+      "category": [
+        "メイキング・練習風景"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": [
+        "015-4"
+      ]
+    },
+    {
+      "work_id": "015-6",
+      "episode_id": "015",
+      "program_order": 4,
+      "title": "母＆姉の弾く、「きらきらぼし」にのせて娘がタップを踏んでみた！",
+      "team": "幼稚な俳句の会",
+      "performers": "中平京子、中原星子、中平洋子",
+      "choreographer": "本間茂樹先生",
+      "comment": "母は、晩年に神経性の難病を患っていたのですが、最後までピアノを弾いたり散歩をしたり、頑張ってリハビリしていました。そんな姿をおさめた動画があったのを思い出し、タップを踏んでみました。衣装は、洋裁も得意だった母お手製のジャンパースカートです。なおチーム名は、同じくリハビリの一環で、３人で幼稚な俳句を作っては、互いに褒め合うという楽しい活動をしていた会からとりました。",
+      "youtube_url": "https://youtu.be/5jmOIJkCaO4",
+      "thumbnail": "assets/thumbnails/5jmOIJkCaO4.jpg",
+      "category": [
+        "コラボレーション"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-1",
+      "episode_id": "014",
+      "program_order": 1,
+      "title": "School TAP",
+      "team": "福岡県立福岡高等視覚特別支援学校 タップダンス愛好会",
+      "performers": "タップダンス愛好会",
+      "choreographer": "タップダンス愛好会（生徒による創作）",
+      "comment": "福岡高等視覚特別支援学校のタップダンス愛好会です。私たちは、互いの足音を聴き合いながら息を合わせて踊ります。目で合わせるのではなく、音で合わせる。それが私たちのタップダンスです。「音を残す」という発表会のテーマに、私たちなりの音を重ねられたらうれしいです。",
+      "youtube_url": "https://www.youtube.com/watch?v=EwLMRzybRMo",
+      "thumbnail": "assets/thumbnails/EwLMRzybRMo.jpg",
+      "category": [
+        "グループ作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-2",
+      "episode_id": "014",
+      "program_order": 2,
+      "title": "ドレミタップチャレンジ",
+      "team": "ささっさー",
+      "performers": "ささっさー",
+      "choreographer": null,
+      "comment": "若手実力派タップダンサーM〇S〇SH〇さんのライブを見て、「コレやってみたい！」と思い、トライしました。◇A◇A◇Iさんたちのように上手く格好よくはできませんが、チャレンジしてみたのでどうぞご覧ください。水曜夜8時さささクラスでは、基礎練やコンビネーション、振り付けなども行っています。",
+      "youtube_url": "https://youtu.be/de-O9x8wIgg",
+      "thumbnail": "assets/thumbnails/de-O9x8wIgg.jpg",
+      "category": [
+        "チャレンジ"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": [
+        "014-3"
+      ]
+    },
+    {
+      "work_id": "014-3",
+      "episode_id": "014",
+      "program_order": 3,
+      "title": "ドレミタップNG",
+      "team": "ささっさー plus 1",
+      "performers": "ささっさー plus 1",
+      "choreographer": null,
+      "comment": "ドレミタップチャレンジのNG集です。手と足で違うことをするのは難しかったです。楽しくトライしたドレミタップチャレンジのNGシーン、どうぞご覧ください。",
+      "youtube_url": "https://youtu.be/e5aOXB61adU",
+      "thumbnail": "assets/thumbnails/e5aOXB61adU.jpg",
+      "category": [
+        "メイキング・練習風景"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": [
+        "014-2"
+      ]
+    },
+    {
+      "work_id": "014-4",
+      "episode_id": "014",
+      "program_order": 4,
+      "title": "ミュージック・アワー",
+      "team": "MiFaクラスの皆さん",
+      "performers": "MiFaクラスの皆さん",
+      "choreographer": "MiFa",
+      "comment": "今回は夏を彷彿とさせるナンバー、ポルノグラフィティさんの「ミュージック・アワー」に合わせて踏みます。Bメロに入れたブロードウェイステップに苦戦したり、歌詞に合わせた上半身の振り付けを工夫したりと、皆さんと一緒に作り上げました。どうぞご覧ください。",
+      "youtube_url": "https://youtu.be/4f5OBmAjNoc",
+      "thumbnail": "assets/thumbnails/4f5OBmAjNoc.jpg",
+      "category": [
+        "クラス作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-5",
+      "episode_id": "014",
+      "program_order": 5,
+      "title": "『Harvest5』Peritune",
+      "team": "秩父タップダンスサークル with RS",
+      "performers": "秩父タップダンスサークルの皆様とささっさ〜",
+      "choreographer": "さささ",
+      "comment": "2026年7〜8月の4回、レッスンを担当させていただきました。明るいお祭り調の曲で楽しく踊りました。",
+      "youtube_url": "https://youtu.be/SKkcdEGbVMQ",
+      "thumbnail": "assets/thumbnails/SKkcdEGbVMQ.jpg",
+      "category": [
+        "グループ作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-6",
+      "episode_id": "014",
+      "program_order": 6,
+      "title": "スーザン(80%テンポでチャレンジ)",
+      "team": "うっちーとさささ",
+      "performers": "うっちー / さささ",
+      "choreographer": "古庄里好",
+      "comment": "メキメキ実力を伸ばしているうっちー。原曲のテンポで踊れるようになる日も近いかも。",
+      "youtube_url": "https://youtu.be/CBlL9OIT1ag",
+      "thumbnail": "assets/thumbnails/CBlL9OIT1ag.jpg",
+      "category": [
+        "チャレンジ"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-7",
+      "episode_id": "014",
+      "program_order": 7,
+      "title": "『風になる』でノリシャム踏んでみた！",
+      "team": "なつめ",
+      "performers": "なつめ",
+      "choreographer": null,
+      "comment": "お盆休みにバイクで三重県から愛媛県まで走ったときに、ところどころで撮った映像を詰め込みました。就職で東京から離れ、なかなか満足に練習できない日々ですが、諦めるものかと地道に公園で練習しています。春にはまだ生えたばかりだった雑草が、今はこんなに青々と茂っています。",
+      "youtube_url": "https://youtu.be/ZbCkkdREc7w",
+      "thumbnail": "assets/thumbnails/ZbCkkdREc7w.jpg",
+      "category": [
+        "ソロパフォーマンス"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-8",
+      "episode_id": "014",
+      "program_order": 8,
+      "title": "父の弾く、ショパン「別れの曲」にのせて娘がタップを踏んでみた！",
+      "team": "E&Y",
+      "performers": "中平英二 / 中平洋子",
+      "choreographer": "最初の8カウント：本間茂樹先生 / 続き：Yさんがレッスンで習ったステップを構成",
+      "comment": "母と父の訪問看護を長年ご担当くださった方が定年退職することになりました。その方の最後の訪問日にショパンの「別れの曲」を弾くため、父が頑張って練習していたので、私のタップとのコラボを企画しました。",
+      "youtube_url": "https://youtu.be/QIMhrWkZ15o",
+      "thumbnail": "assets/thumbnails/QIMhrWkZ15o.jpg",
+      "category": [
+        "コラボレーション"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": []
+    },
+    {
+      "work_id": "014-9",
+      "episode_id": "014",
+      "program_order": 9,
+      "title": "『おっさんのダンスが変だっていいじゃないか！』〜還暦！むぎちょろ師匠の挑戦！",
+      "team": "河原工 / MiFa / 中平洋子 / 本間茂樹",
+      "performers": "河原工 / MiFa / 中平洋子 / 本間茂樹",
+      "choreographer": "本間茂樹",
+      "comment": "還暦を迎えたちょろおじが、麦茶大好き、むぎちょろ師匠としてパワーアップして登場。むぎちょろ師匠の挑戦は続きます。",
+      "youtube_url": "https://youtu.be/OsIy-I5myzU",
+      "thumbnail": "assets/thumbnails/OsIy-I5myzU.jpg",
+      "category": [
+        "グループ作品"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": "MiFa",
+      "props": "中平洋子",
+      "production_support": null,
+      "related_work_ids": [
+        "014-10"
+      ]
+    },
+    {
+      "work_id": "014-10",
+      "episode_id": "014",
+      "program_order": 10,
+      "title": "プロフェッショナル　タップの流儀",
+      "team": "メイキング動画",
+      "performers": null,
+      "choreographer": null,
+      "comment": "『おっさんのダンスが変だっていいじゃないか！』のメイキング動画です。何度もリハーサルを繰り返す、監督とタップダンサーの熱い練習風景をご覧ください。",
+      "youtube_url": "https://youtu.be/k5lmVTTABpE",
+      "thumbnail": "assets/thumbnails/k5lmVTTABpE.jpg",
+      "category": [
+        "メイキング・練習風景"
+      ],
+      "status": "published",
+      "publish_date": null,
+      "editor": null,
+      "props": null,
+      "production_support": null,
+      "related_work_ids": [
+        "014-9"
+      ]
+    }
+  ],
+  "contributors": [
+    {
+      "contributor_id": "credit-1",
+      "display_name": "MiFaクラスの皆さま",
+      "role": "team",
+      "related_works": [
+        "015-1"
+      ]
+    },
+    {
+      "contributor_id": "credit-2",
+      "display_name": "古庄里好",
+      "role": "choreographer",
+      "related_works": [
+        "015-1",
+        "014-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-3",
+      "display_name": "Nao and Nori (guest), and their friends",
+      "role": "performers",
+      "related_works": [
+        "015-2"
+      ]
+    },
+    {
+      "contributor_id": "credit-4",
+      "display_name": "ささっさー（一部メンバーは方向性の違いによりソロ活動中）",
+      "role": "team",
+      "related_works": [
+        "015-3"
+      ]
+    },
+    {
+      "contributor_id": "credit-5",
+      "display_name": "シムシャム（Noriシャム）",
+      "role": "choreographer",
+      "related_works": [
+        "015-3"
+      ]
+    },
+    {
+      "contributor_id": "credit-6",
+      "display_name": "teamむぎちょろ",
+      "role": "team",
+      "related_works": [
+        "015-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-7",
+      "display_name": "むぎちょろ師匠＋むぎちょろダンサーズ",
+      "role": "performers",
+      "related_works": [
+        "015-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-8",
+      "display_name": "しげちょろ",
+      "role": "choreographer",
+      "related_works": [
+        "015-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-9",
+      "display_name": "みふぁちょろ",
+      "role": "editor",
+      "related_works": [
+        "015-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-10",
+      "display_name": "ちょろひら",
+      "role": "props",
+      "related_works": [
+        "015-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-11",
+      "display_name": "teamむぎちょろ関連作品（正式チーム名未記載）",
+      "role": "team",
+      "related_works": [
+        "015-5"
+      ]
+    },
+    {
+      "contributor_id": "credit-12",
+      "display_name": "幼稚な俳句の会",
+      "role": "team",
+      "related_works": [
+        "015-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-13",
+      "display_name": "中平京子、中原星子、中平洋子",
+      "role": "performers",
+      "related_works": [
+        "015-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-14",
+      "display_name": "本間茂樹先生",
+      "role": "choreographer",
+      "related_works": [
+        "015-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-15",
+      "display_name": "福岡県立福岡高等視覚特別支援学校 タップダンス愛好会",
+      "role": "team",
+      "related_works": [
+        "014-1"
+      ]
+    },
+    {
+      "contributor_id": "credit-16",
+      "display_name": "タップダンス愛好会",
+      "role": "performers",
+      "related_works": [
+        "014-1"
+      ]
+    },
+    {
+      "contributor_id": "credit-17",
+      "display_name": "タップダンス愛好会（生徒による創作）",
+      "role": "choreographer",
+      "related_works": [
+        "014-1"
+      ]
+    },
+    {
+      "contributor_id": "credit-18",
+      "display_name": "ささっさー",
+      "role": "team",
+      "related_works": [
+        "014-2"
+      ]
+    },
+    {
+      "contributor_id": "credit-19",
+      "display_name": "ささっさー",
+      "role": "performers",
+      "related_works": [
+        "014-2"
+      ]
+    },
+    {
+      "contributor_id": "credit-20",
+      "display_name": "ささっさー plus 1",
+      "role": "team",
+      "related_works": [
+        "014-3"
+      ]
+    },
+    {
+      "contributor_id": "credit-21",
+      "display_name": "ささっさー plus 1",
+      "role": "performers",
+      "related_works": [
+        "014-3"
+      ]
+    },
+    {
+      "contributor_id": "credit-22",
+      "display_name": "MiFaクラスの皆さん",
+      "role": "team",
+      "related_works": [
+        "014-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-23",
+      "display_name": "MiFaクラスの皆さん",
+      "role": "performers",
+      "related_works": [
+        "014-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-24",
+      "display_name": "MiFa",
+      "role": "choreographer",
+      "related_works": [
+        "014-4"
+      ]
+    },
+    {
+      "contributor_id": "credit-25",
+      "display_name": "秩父タップダンスサークル with RS",
+      "role": "team",
+      "related_works": [
+        "014-5"
+      ]
+    },
+    {
+      "contributor_id": "credit-26",
+      "display_name": "秩父タップダンスサークルの皆様とささっさ〜",
+      "role": "performers",
+      "related_works": [
+        "014-5"
+      ]
+    },
+    {
+      "contributor_id": "credit-27",
+      "display_name": "さささ",
+      "role": "choreographer",
+      "related_works": [
+        "014-5"
+      ]
+    },
+    {
+      "contributor_id": "credit-28",
+      "display_name": "うっちーとさささ",
+      "role": "team",
+      "related_works": [
+        "014-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-29",
+      "display_name": "うっちー / さささ",
+      "role": "performers",
+      "related_works": [
+        "014-6"
+      ]
+    },
+    {
+      "contributor_id": "credit-30",
+      "display_name": "なつめ",
+      "role": "team",
+      "related_works": [
+        "014-7"
+      ]
+    },
+    {
+      "contributor_id": "credit-31",
+      "display_name": "なつめ",
+      "role": "performers",
+      "related_works": [
+        "014-7"
+      ]
+    },
+    {
+      "contributor_id": "credit-32",
+      "display_name": "E&Y",
+      "role": "team",
+      "related_works": [
+        "014-8"
+      ]
+    },
+    {
+      "contributor_id": "credit-33",
+      "display_name": "中平英二 / 中平洋子",
+      "role": "performers",
+      "related_works": [
+        "014-8"
+      ]
+    },
+    {
+      "contributor_id": "credit-34",
+      "display_name": "最初の8カウント：本間茂樹先生 / 続き：Yさんがレッスンで習ったステップを構成",
+      "role": "choreographer",
+      "related_works": [
+        "014-8"
+      ]
+    },
+    {
+      "contributor_id": "credit-35",
+      "display_name": "河原工 / MiFa / 中平洋子 / 本間茂樹",
+      "role": "team",
+      "related_works": [
+        "014-9"
+      ]
+    },
+    {
+      "contributor_id": "credit-36",
+      "display_name": "河原工 / MiFa / 中平洋子 / 本間茂樹",
+      "role": "performers",
+      "related_works": [
+        "014-9"
+      ]
+    },
+    {
+      "contributor_id": "credit-37",
+      "display_name": "メイキング動画",
+      "role": "team",
+      "related_works": [
+        "014-10"
+      ]
+    }
+  ],
+  "verified_at": "2026-10-31",
+  "date_policy": "公開日時未登録のため確認済み公開状態で絞り、開催日を代替ソートに使用。作品は公開日時未登録のため開催回・プログラム順。"
+}
