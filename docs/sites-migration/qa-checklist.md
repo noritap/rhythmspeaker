@@ -25,3 +25,6 @@ Physical phones, native LINE/mail handoff/send, full screen-reader testing, live
 ## Scoring (reviewer judgment, not measured conversion)
 Design18/20; reservation UX19/20; discovery/form19/20; integration13/15; mobile/accessibility9/10; data/security8/10; handoff5/5 =91/100.
 No production approval implied; Calendar and count systems remain incomplete.
+
+## PR CI follow-up
+First CI browser run passed 10 routes ×6 widths, discovery/forms and trial handoff. Old portal nine-card selectors updated to seven categories +two utilities with safe destinations; source shell stored as text to avoid treating documentation as a deployed page. Migration FAQ/pricing accordions and class/instructor filters also manually verified.
