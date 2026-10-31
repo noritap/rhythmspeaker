@@ -6,11 +6,28 @@
   "start_time_jst": "19:00",
   "distribution": {
     "format": "undecided",
-    "allowed_formats": ["live", "prerecorded_premiere"],
+    "allowed_formats": [
+      "live",
+      "prerecorded_premiere"
+    ],
     "youtube_url": null,
     "note": "生配信または事前収録のリアクション番組をプレミア公開。最終確定まではURLや配信形式を断定しない。"
   },
-  "submissions": [],
+  "submissions": [
+    {
+      "intake_order": 1,
+      "program_order": null,
+      "title": "Singin' in the Rain 雨に唄えば | 雨の日も心は晴れやかに",
+      "team": "MiFaクラスの皆さま",
+      "choreographer": "古庄里好",
+      "performers": null,
+      "comment": "今回の動画発表会は前回から2ヶ月の準備期間。取り組んでみたい振付としてこの作品を提案したものの、時間が足りない・・・。\n思案の結果、\n”ここまでを目指しましょう！”と、最初から目的地を決めてスタートしました。\n映画を観た人なら映像が、そうでない人もその歌声やメロディが心に残る有名なミュージカルソングとあって、楽しく練習しました。\nどうぞご覧ください🎥",
+      "video_url": "https://youtu.be/YvUuoiwFVqM",
+      "video_id": "YvUuoiwFVqM",
+      "status": "received",
+      "notes": "出演者個人名は未記載。放送順は未決定。"
+    }
+  ],
   "ordering_policy": {
     "intake_order": "submission arrival order",
     "program_order": "editorial order after reviewing all submissions",
