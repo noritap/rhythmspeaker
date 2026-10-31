@@ -67,6 +67,20 @@
       "video_id": "x03NR7s27gw",
       "status": "received",
       "notes": "シリーズ第二弾。前作との連続性を放送順編集時に考慮。"
+    },
+    {
+      "intake_order": 5,
+      "program_order": null,
+      "title": "プロフェッショナル〜タップの流儀②〜",
+      "team": "teamむぎちょろ関連作品（正式チーム名未記載）",
+      "choreographer": null,
+      "performers": null,
+      "comment": "むぎちょろ師匠のリハーサル風景です。\n師匠は今回も一生懸命にタップに取り組んでおられました。\n本編は別映像をお楽しみください。",
+      "video_url": "https://youtu.be/eHbwar5XyLc",
+      "video_id": "eHbwar5XyLc",
+      "status": "received",
+      "related_intake_order": 4,
+      "notes": "受付004『還暦！むぎちょろ師匠の青春〜Shake Hip！』のメイキング／リハーサル映像。放送順は本編004の後に連続配置することを推奨。出演者・振付・チーム正式表記は原文に未記載。"
     }
   ],
   "ordering_policy": {
