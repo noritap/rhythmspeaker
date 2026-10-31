@@ -2,6 +2,7 @@
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 from navigation_audit import portal_problems
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,7 +17,7 @@ class Cards(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if tag == 'article' and 'portal-card' in a.get('class', '').split():
+        if tag == 'article' and any(c in a.get('class', '').split() for c in ('portal-card','portal-tile')):
             self.card = {'main': [], 'links': [], 'h2': 0}
             self.cards.append(self.card)
         if self.card is not None:
@@ -24,7 +25,7 @@ class Cards(HTMLParser):
                 self.card['h2'] += 1
             if tag == 'a':
                 self.card['links'].append(a['href'])
-                if 'portal-main-link' in a.get('class', '').split():
+                if any(c in a.get('class', '').split() for c in ('portal-main-link','portal-main')):
                     self.card['main'].append(a['href'])
 
     def handle_endtag(self, tag):
@@ -56,6 +57,13 @@ class PortalContractTest(unittest.TestCase):
         p = Cards()
         p.feed(self.html)
         self.assertEqual(len(p.cards), 9)
+        if 'data-ux-source="sites-v6"' in self.html:
+            expected=['../','../broadcast/','../music/','../workshops/','../ecosystem/?category=learn','https://rhythmspeaker.stores.jp/','../about/','https://tips-app-seven.vercel.app/','https://lin.ee/zC5YLe7']
+            for card, main in zip(p.cards,expected):
+                self.assertEqual(card['main'],[main]);self.assertEqual(card['h2'],1)
+            self.assertIn('https://noritap.github.io/furusho-official/',p.cards[6]['links'])
+            self.assertIn('../classes/',p.cards[4]['links'])
+            return
         expected = ['../', '../broadcast/', '../music/', '../workshops/', None, None,
                     'https://noritap.github.io/furusho-official/',
                     'https://tips-app-seven.vercel.app/',
@@ -78,7 +86,7 @@ class PortalContractTest(unittest.TestCase):
         for href in p.hrefs:
             self.assertNotIn(href, ['', '#'])
             if href.startswith(('../', './')):
-                target = (ROOT / 'ecosystem' / href).resolve()
+                target = (ROOT / 'ecosystem' / urlsplit(href).path).resolve()
                 self.assertTrue((target / 'index.html').is_file(), href)
 
     def test_icon_sprite_has_no_layout_box_even_without_css(self):
@@ -90,6 +98,10 @@ class PortalContractTest(unittest.TestCase):
                 if tag == 'svg' and 'eco-sr' in attrs.get('class', '').split():
                     self.sprites.append(attrs)
         p = Sprite(); p.feed(self.html)
+        if 'data-ux-source="sites-v6"' in self.html:
+            self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
+            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),9)
+            return
         self.assertEqual(len(p.sprites), 1)
         self.assertEqual(p.sprites[0].get('width'), '0')
         self.assertEqual(p.sprites[0].get('height'), '0')

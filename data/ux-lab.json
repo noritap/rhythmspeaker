@@ -1,0 +1,186 @@
+{
+  "people": [
+    {
+      "id": "mifa",
+      "name": "MiFa-san",
+      "classes": [
+        "STEP",
+        "TAP",
+        "STRETCH"
+      ],
+      "style": "ナラティブタップ｜やさしく細やか",
+      "photo": "assets/instructors/instructor-mifa-editorial-v2-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/mifa/"
+    },
+    {
+      "id": "homma",
+      "name": "本間茂樹",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "style": "共感型ストーリータップ｜丁寧型",
+      "photo": "assets/instructors/instructor-honma-editorial-v1-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/homma/"
+    },
+    {
+      "id": "sasasa",
+      "name": "さささ",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "style": "構造的アートタップ｜分析型",
+      "photo": "assets/instructors/instructor-sasasa-editorial-v1-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/sasasa/"
+    },
+    {
+      "id": "niu",
+      "name": "丹生良彬",
+      "classes": [
+        "STEP",
+        "TAP",
+        "HIIT"
+      ],
+      "style": "自由系即興タップ｜感覚・即興型",
+      "photo": "assets/instructors/instructor-nibu-editorial-v1-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/niu/"
+    },
+    {
+      "id": "okudaira",
+      "name": "奥平崇史",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "style": "旅するタップ｜柔軟・自由・イベント型",
+      "photo": "assets/instructors/instructor-okudaira-editorial-v1-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/okudaira/"
+    },
+    {
+      "id": "nao",
+      "name": "NAO",
+      "classes": [],
+      "style": "担当クラス・指導内容は確認してご案内します。",
+      "photo": "assets/instructors/instructor-nao-editorial-v1-960w.webp",
+      "profile": null
+    },
+    {
+      "id": "kattun",
+      "name": "かっつん",
+      "classes": [],
+      "style": "担当クラス・指導内容は確認してご案内します。",
+      "photo": "assets/instructors/instructor-kattun-editorial-v1-960w.webp",
+      "profile": null
+    },
+    {
+      "id": "saito",
+      "name": "齊藤洋映",
+      "classes": [],
+      "style": "担当クラス・指導内容は確認してご案内します。",
+      "photo": "assets/instructors/instructor-saito-hiroaki-editorial-v1-960w.webp",
+      "profile": null
+    },
+    {
+      "id": "pal",
+      "name": "PAL",
+      "classes": [],
+      "style": "担当クラス・指導内容は確認してご案内します。",
+      "photo": "assets/instructors/instructor-pal-editorial-v1-960w.webp",
+      "profile": null
+    },
+    {
+      "id": "furusho",
+      "name": "古庄里好",
+      "classes": [
+        "STEP",
+        "TAP",
+        "STRETCH",
+        "ISOLATION",
+        "BAR METHOD",
+        "HIIT"
+      ],
+      "style": "身体物理タップ｜身体構造・重心・リズム",
+      "photo": "assets/instructors/instructor-furusho-editorial-v1-960w.webp",
+      "profile": "https://noritap.github.io/rhythmspeaker/instructors/furusho/"
+    }
+  ],
+  "classes": [
+    {
+      "id": "step",
+      "name": "STEP",
+      "desc": "初めての方は超初級から。基本ステップを一つずつ練習し、少しずつ組み合わせます。共通カリキュラムなので、担当講師が変わっても学びをつなげられます。",
+      "photo": "assets/classes/class-step-editorial-v3-640w.webp",
+      "group": "tap"
+    },
+    {
+      "id": "tap",
+      "name": "TAP",
+      "desc": "STEPで学んだ基本を使い、音楽に合わせて踊ります。コンビネーションや振付、表現に挑戦し、講師ごとのスタイルも楽しめます。",
+      "photo": "assets/classes/class-tap-editorial-v1-640w.webp",
+      "group": "tap"
+    },
+    {
+      "id": "stretch",
+      "name": "STRETCH",
+      "desc": "前屈・開脚を入口に、柔軟性と身体のつながりを学ぶ。",
+      "photo": "assets/classes/class-stretch-editorial-v1-640w.webp",
+      "group": "body"
+    },
+    {
+      "id": "isolation",
+      "name": "ISOLATION",
+      "desc": "身体の部位を意識し、分けて動かす感覚を育てる。",
+      "photo": "assets/classes/class-isolation-editorial-v1-640w.webp",
+      "group": "body"
+    },
+    {
+      "id": "bar-method",
+      "name": "BAR METHOD",
+      "desc": "軸・姿勢・身体の使い方へ意識を向ける。",
+      "photo": "assets/classes/class-bar-method-editorial-v1-640w.webp",
+      "group": "body"
+    },
+    {
+      "id": "hiit",
+      "name": "HIIT",
+      "desc": "動き続けるための体力づくりを支える。",
+      "photo": "assets/classes/class-hiit-editorial-v1-640w.webp",
+      "group": "body"
+    }
+  ],
+  "faq": [
+    {
+      "q": "完全初心者でも大丈夫ですか？",
+      "a": "はい。初心者向けの「STEP 超初級」では、基本的な立ち方、膝の使い方、足のどの部分で床を叩くかから練習します。タップを一度も経験したことがない方も参加できます。"
+    },
+    {
+      "q": "50代・60代からでも始められますか？",
+      "a": "はい。50代・60代から始めたい方もご相談ください。年齢や体力への不安を確認しながら、基本の姿勢や音の出し方から進めます。"
+    },
+    {
+      "q": "一人でも参加できますか？",
+      "a": "はい、お一人での体験参加も歓迎しています。初めての方は、LINE予約時に未経験であることや不安な点を伝えていただけます。"
+    },
+    {
+      "q": "初回体験の費用と時間を教えてください。",
+      "a": "初回限定チャージ特典として、1,000円のチャージで3,500 TIPSが付与され、対象レッスン1回分に利用できます。体験レッスンは60分、入会金は0円です。適用条件はお申し込み時に確認します。開始15分前を目安にお越しください。"
+    },
+    {
+      "q": "手ぶらで行っても大丈夫ですか？",
+      "a": "はい。タップシューズと動きやすいウェアを無料でレンタルできます。体験用のシューズやウェアを購入してから来る必要はありません。"
+    },
+    {
+      "q": "服装やタップシューズはどうすればいいですか？",
+      "a": "スタジオの無料レンタルをご利用いただけます。来店後にウェアへ着替え、足のサイズに合うタップシューズを選びます。"
+    },
+    {
+      "q": "体験はどのように予約しますか？",
+      "a": "初回体験は公式LINEから予約できます。経験の有無や希望、気になることをLINEでお知らせください。当日の空き状況を確認したい場合もLINEからお問い合わせください。"
+    },
+    {
+      "q": "体験前にRS Walletへの登録は必要ですか？",
+      "a": "お問い合わせ・日時相談の時点では不要です。初回チャージ特典を実際に利用する段階で、対象確認とRS Wallet・チャージをご案内します。登録やチャージだけでは予約は確定しません。"
+    }
+  ]
+}

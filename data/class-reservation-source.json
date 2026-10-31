@@ -1,0 +1,6 @@
+{
+  "mode": "live",
+  "path": "data/class-sessions.public.json",
+  "releaseStatus": "production_manual_inquiry",
+  "note": "Calendar sync is not connected. No sample fallback. Applications go through the studio official contact."
+}

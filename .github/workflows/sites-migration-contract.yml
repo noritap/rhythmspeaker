@@ -1,0 +1,27 @@
+name: Sites migration preview contracts
+on:
+  pull_request:
+    paths: ['assets/ux-lab/**', 'data/class-*', 'data/ux-lab.json', '**/index.html', 'tools/*class*', 'tools/*sites*', 'scripts/build_sites_migration.cjs', 'docs/sites-migration/**', '.github/workflows/sites-migration-contract.yml']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python tools/sites_migration_audit.py
+      - run: python tools/test_public_class_projection.py
+      - run: python tools/navigation_audit.py --strict
+      - run: python tools/trial_cta_audit.py --strict
+      - run: python scripts/class_photo_contract.py
+      - run: python scripts/instructor_photo_contract.py
+      - run: python tools/build_sites_preview.py /tmp/rs-sites-preview
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sites-migration-preview
+          path: /tmp/rs-sites-preview
+          retention-days: 14
