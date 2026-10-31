@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "event_id": "RSS_015",
+  "event_title": "Rhythm Speaker Show #015",
+  "event_date": "2026-10-31",
+  "start_time_jst": "19:00",
+  "distribution": {
+    "format": "undecided",
+    "allowed_formats": ["live", "prerecorded_premiere"],
+    "youtube_url": null,
+    "note": "生配信または事前収録のリアクション番組をプレミア公開。最終確定まではURLや配信形式を断定しない。"
+  },
+  "submissions": [],
+  "ordering_policy": {
+    "intake_order": "submission arrival order",
+    "program_order": "editorial order after reviewing all submissions",
+    "must_keep_together": "related original and making-of/NG works when requested"
+  },
+  "source_policy": {
+    "input": "LINE message pasted into RSS strategy chat",
+    "preserve_original_comments": true,
+    "missing_fields": "null or 未確認; never invent names or credits",
+    "permissions": "user states forwarded submissions are already cleared for publication; report material exceptions rather than re-requesting routine permission"
+  }
+}
