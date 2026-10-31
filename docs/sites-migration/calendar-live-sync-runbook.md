@@ -38,10 +38,14 @@ Status: **IMPLEMENTED AS A GATED PR; NOT LIVE until the owner configures access/
    Review whether this convention applies to **all** future eligible events.
    Private visibility, CLOSE/REOPEN, unknown classes/teachers and bad durations
    always remain excluded.
-4. Verify the **actual approved maximum class capacity** and configure GitHub
-   **Actions variable** \`RS_APPROVED_CLASS_CAPACITY\` as an integer. Do not assume
-   the prototype's 10-person sample capacity applies to real classes. If capacity
-   differs by class/session, update the policy and tests before enabling sync.
+4. **Approved class capacities (2026-11-01, owner-confirmed):**
+   - STRETCH: 5 attendees
+   - ISOLATION: 5 attendees
+   - STEP, TAP, BAR METHOD, HIIT: 10 attendees each
+   These values are stored in the per-class mapping
+   `tools/sync_public_classes.py` (`CLASS_CAPACITIES`) and covered by tests.
+   The previous `RS_APPROVED_CLASS_CAPACITY` GitHub variable is no longer used.
+   A future capacity change requires a code and test update.
 5. Only after the above review and a successful private preview, set repository
    **Actions variables**:
    - \`RS_OPEN_CLASSES_APPROVED=true\`
