@@ -23,7 +23,7 @@ from public_class_projection import project
 
 ROOT = Path(__file__).resolve().parents[1]
 TZ = ZoneInfo("Asia/Tokyo")
-DURATIONS = {"STEP": 60, "TAP": 60, "STRETCH": 60, "ISOLATION": 60, "BAR METHOD": 30, "HIIT": 30}
+DURATIONS = {"STEP": (60,), "TAP": (60, 90), "STRETCH": (30, 60), "ISOLATION": (60,), "BAR METHOD": (30,), "HIIT": (30,)}
 CLASS_CAPACITIES = {"STEP": 10, "TAP": 10, "STRETCH": 5, "ISOLATION": 5, "BAR METHOD": 10, "HIIT": 10}
 CLASS_IDS = {"STEP": "class-step", "TAP": "class-tap", "STRETCH": "class-stretch", "ISOLATION": "class-isolation", "BAR METHOD": "class-bar-method", "HIIT": "class-hiit"}
 ALIASES = {"古庄": "furusho", "古庄里好": "furusho", "本間": "homma", "本間茂樹": "homma", "さささ": "sasasa",
@@ -51,12 +51,22 @@ def normalize(event, calendar_id, key, approved, catalog):
     parts = [p.strip() for p in re.split(r"[|｜]", event.get("summary", ""))]
     if len(parts) != 4 or parts[-1].upper() != "OPEN":
         return None
-    raw_class, raw_teacher, raw_duration, _ = parts
+    raw_class, middle_one, middle_two, _ = parts
+    # Existing calendar events use BOTH ordering conventions. Only an exact
+    # duration token can be moved; never interpret descriptions or free text.
+    duration_one = re.fullmatch(r"(\d{2,3})\s*m", middle_one, re.I)
+    duration_two = re.fullmatch(r"(\d{2,3})\s*m", middle_two, re.I)
+    if bool(duration_one) == bool(duration_two):
+        return None
+    if duration_one:
+        raw_duration, raw_teacher = middle_one, middle_two
+        duration = int(duration_one.group(1))
+    else:
+        raw_duration, raw_teacher = middle_two, middle_one
+        duration = int(duration_two.group(1))
     cls = re.sub(r"\s*🔰\s*", "", raw_class).strip().upper()
     cls = "BAR METHOD" if cls in ("BAR", "BAR METHOD") else cls
-    if cls not in DURATIONS or not re.fullmatch(r"\d{2,3}\s*m", raw_duration, re.I):
-        return None
-    if int(re.match(r"\d+", raw_duration).group()) != DURATIONS[cls]:
+    if cls not in DURATIONS or duration not in DURATIONS[cls]:
         return None
     teacher_id = ALIASES.get(raw_teacher)
     teacher = approved.get(teacher_id)
@@ -73,7 +83,7 @@ def normalize(event, calendar_id, key, approved, catalog):
         b = datetime.fromisoformat(end.replace("Z", "+00:00")).astimezone(TZ)
     except ValueError:
         return None
-    if a.date() != b.date() or (b-a).total_seconds() != DURATIONS[cls] * 60:
+    if a.date() != b.date() or (b-a).total_seconds() != duration * 60:
         return None
     session_id = identity(event, calendar_id, key)
     level = "超初級" if "🔰" in raw_class else ("初級" if "初級" in raw_class else "")
