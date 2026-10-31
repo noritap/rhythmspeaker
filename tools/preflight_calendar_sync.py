@@ -50,7 +50,7 @@ def ensure_safe_projection(projection, events):
         if (session["confirmedBookingCount"] is not None
                 or session["bookingCountStatus"] != "unknown"
                 or session["bookingCountSource"] is not None
-                or session["publicStatus"] not in ("OPEN", "CLOSE", "INQUIRY_ONLY"))::
+                or session["publicStatus"] not in ("OPEN", "CLOSE", "INQUIRY_ONLY")):
             raise PreflightFailure("SANITIZED_OUTPUT_INVALID")
     # Never allow calendar IDs, event IDs, raw descriptions, private notes,
     # locations, or attendee addresses to be embedded in the public output.
