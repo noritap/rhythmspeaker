@@ -37,10 +37,11 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
 - Guest instructors and combinations such as かっつん, 古庄里好・丹生,
   古庄/MiFa-san and 古庄里好・MiFa-san are represented as published display identities.
 - Source count MUST equal projected event count on each run; any drop fails the workflow.
-- `OPEN` means an already scheduled lesson is accepting additional riders (相乗り受講申込可).
-- `CLOSE` means the lesson remains **publicly listed and scheduled**, but accepts no additional riders; it is **not** cancelled, full, or deleted.
-- A missing/unrecognized status marker is published as `INQUIRY_ONLY` and cannot show a join CTA until a human confirms.
-- OPEN is permission to **request** a seat, never an automatically confirmed booking; the studio confirms after inquiry.
+- **Final owner rule (2026-11-01):** Only a standalone `CLOSE` token at the **end** of the calendar event title (case-insensitive, optional trailing whitespace) disables extra riders. Example: `STEP🔰 | 60m | 本間 | CLOSE`.
+- `OPEN`, no marker, and any **non-CLOSE** trailing marker are all treated as `OPEN` for rideshare inquiries. No `OPEN` suffix is required. If 3-part class/teacher/duration titles have no marker, both known column orders remain parsed. Unrecognized title formats stay visible as full class labels.
+- `CLOSE` means the lesson remains **publicly listed and scheduled** but has `追加受付なし`; it is not cancelled or automatically marked full.
+- `OPEN` allows only an **application/inquiry**, never an automatically confirmed seat. The studio confirms after inquiry; actual booking counts remain unknown.
+- **Operational risk of default-allow:** Forgetting to set `CLOSE` allows applications on a class that should be closed. Operators must explicitly add final `CLOSE` whenever additional attendees are not accepted, and confirm updates on the site after each calendar change. If that mistake is unacceptable, a fail-closed explicit status scheme should be used instead.
 - The UI must never show `CLOSE` as `満席`, `開講中止`, or `このクラスに参加する`.
 - Per-class capacity remains STRETCH/ISOLATION 5, otherwise 10.
 - No reservation ledger exists; booking counts remain unknown.
