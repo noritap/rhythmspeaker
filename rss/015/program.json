@@ -52,6 +52,21 @@
       "video_id": "qQFKw9ENaAE",
       "status": "received",
       "notes": "LINE公式アカウントの原文に掲載されたURLを採用。先に貼られたN41Tl2az2T4とは異なるため、LINE原文を正本として修正。放送順未決定。"
+    },
+    {
+      "intake_order": 4,
+      "program_order": null,
+      "title": "還暦！むぎちょろ師匠の青春〜Shake Hip！",
+      "team": "teamむぎちょろ",
+      "choreographer": "しげちょろ",
+      "performers": "むぎちょろ師匠＋むぎちょろダンサーズ",
+      "editor": "みふぁちょろ",
+      "props": "ちょろひら",
+      "comment": "むぎちょろシリーズ第二弾になります！\n1986年、40年前の曲でタップを踊ってみました！",
+      "video_url": "https://youtu.be/x03NR7s27gw",
+      "video_id": "x03NR7s27gw",
+      "status": "received",
+      "notes": "シリーズ第二弾。前作との連続性を放送順編集時に考慮。"
     }
   ],
   "ordering_policy": {
