@@ -35,6 +35,17 @@ class PreflightContract(unittest.TestCase):
     def test_valid_output_is_accepted(self):
         ensure_safe_projection(output(), [EVENT])
 
+    def test_close_and_unknown_are_safe_public_projection_states(self):
+        for title, expected in [
+            ("STRETCH | 30m | 古庄 | CLOSE", "CLOSE"),
+            ("STRETCH | 30m | 古庄 | REVIEW", "INQUIRY_ONLY"),
+        ]:
+            event = dict(EVENT, summary=title)
+            result, count = build([event], "private-calendar", KEY, CATALOG, {}, NOW)
+            self.assertEqual(count, 1)
+            self.assertEqual(result["sessions"][0]["publicStatus"], expected)
+            ensure_safe_projection(result, [event])
+
     def test_denies_attendee_leak(self):
         result = output()
         result["sessions"][0]["instructorName"] = "person-private@example.org"
