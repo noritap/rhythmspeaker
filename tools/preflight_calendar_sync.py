@@ -69,9 +69,8 @@ def ensure_safe_projection(projection, events):
 def main():
     if any(not os.environ.get(name) for name in SECRETS):
         raise PreflightFailure("MISSING_GITHUB_SECRETS")
-    key = os.environ["RS_SESSION_ID_KEY"].encode("utf-8")
-    if len(key) < 32:
-        raise PreflightFailure("INVALID_HMAC_KEY")
+    # Verify calendar access first, so credential connectivity can be
+    # diagnosed even when an independently configured signing key is invalid.
     calendar_id = os.environ["RS_LESSON_CALENDAR_ID"]
     try:
         from google.oauth2 import service_account
@@ -95,6 +94,10 @@ def main():
         raise PreflightFailure("CALENDAR_READ_FAILED") from None
     if not events:
         raise PreflightFailure("NO_CALENDAR_EVENTS")
+    # Only use the HMAC key after private calendar authentication succeeded.
+    key = os.environ["RS_SESSION_ID_KEY"].encode("utf-8")
+    if len(key) < 32:
+        raise PreflightFailure("INVALID_HMAC_KEY")
     try:
         catalog = json.loads((ROOT / "instructors/instructor-catalog.json").read_text(encoding="utf-8"))
         projection, supported = build(events, calendar_id, key, catalog, {}, now)
