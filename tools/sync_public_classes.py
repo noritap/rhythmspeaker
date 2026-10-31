@@ -72,22 +72,22 @@ def normalize(event, calendar_id, key, approved, catalog):
     # convention changes later; stop the entire sync, never skip one row.
     if re.search(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|https?://", title, re.I):
         raise ValueError("Contact address in lesson title")
+    # Explicit owner rule: ONLY a standalone final CLOSE means no
+    # additional riders. All other active lessons default to OPEN, whether
+    # they have an OPEN marker, a different suffix, or no marker at all.
+    admission_status = "CLOSE" if re.search(r"(?:^|[|｜\s])CLOSE\s*$", title, re.I) else "OPEN"
     parts = [p.strip() for p in re.split(r"[|｜]", title)]
-    duration_one = re.fullmatch(r"(\d{2,3})\s*m", parts[1], re.I) if len(parts) == 4 else None
-    duration_two = re.fullmatch(r"(\d{2,3})\s*m", parts[2], re.I) if len(parts) == 4 else None
-    # Both existing studio event-title orders are recognized, regardless
-    # of their trailing booking marker (e.g. OPEN/CLOSE). All are lessons.
-    parsed = len(parts) == 4 and bool(duration_one) != bool(duration_two)
-    # OPEN means riders may request to join. CLOSE means the class is held
-    # but no additional riders are accepted. Unrecognized markers remain
-    # visible without any join CTA (fail-safe rather than claiming OPEN).
-    marker = parts[-1].upper() if parsed else "INQUIRY_ONLY"
-    admission_status = marker if marker in ("OPEN", "CLOSE") else "INQUIRY_ONLY"
+    # Existing title orders have 4 fields with a status marker, but 3-field
+    # titles without any marker must also retain their class and teacher.
+    # For unrecognized titles, keep the complete calendar title as the label.
+    core = parts[:-1] if len(parts) == 4 and re.fullmatch(r"OPEN|CLOSE", parts[-1], re.I) else parts
+    duration_one = re.fullmatch(r"(\d{2,3})\s*m", core[1], re.I) if len(core) == 3 else None
+    duration_two = re.fullmatch(r"(\d{2,3})\s*m", core[2], re.I) if len(core) == 3 else None
+    parsed = len(core) == 3 and bool(duration_one) != bool(duration_two)
     if parsed:
-        raw_class = parts[0]
-        raw_teacher = parts[2] if duration_one else parts[1]
+        raw_class = core[0]
+        raw_teacher = core[2] if duration_one else core[1]
     else:
-        # Future title formats remain visible as the complete public label.
         raw_class = title.strip()
         raw_teacher = "スタジオに確認"
     if not raw_class or not raw_teacher:

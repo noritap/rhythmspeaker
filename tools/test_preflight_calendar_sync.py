@@ -35,10 +35,11 @@ class PreflightContract(unittest.TestCase):
     def test_valid_output_is_accepted(self):
         ensure_safe_projection(output(), [EVENT])
 
-    def test_close_and_unknown_are_safe_public_projection_states(self):
+    def test_close_and_missing_marker_are_safe_public_projection_states(self):
         for title, expected in [
             ("STRETCH | 30m | 古庄 | CLOSE", "CLOSE"),
-            ("STRETCH | 30m | 古庄 | REVIEW", "INQUIRY_ONLY"),
+            ("STRETCH | 30m | 古庄 | REVIEW", "OPEN"),
+            ("STRETCH | 30m | 古庄", "OPEN"),
         ]:
             event = dict(EVENT, summary=title)
             result, count = build([event], "private-calendar", KEY, CATALOG, {}, NOW)

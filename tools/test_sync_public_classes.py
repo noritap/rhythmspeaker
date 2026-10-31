@@ -87,7 +87,7 @@ class CalendarSyncContract(unittest.TestCase):
         self.assertEqual(count, 1)
         self.assertEqual(out["sessions"][0]["className"], "特別ワークショップ・発展クラス")
         self.assertEqual(out["sessions"][0]["instructorName"], "スタジオに確認")
-        self.assertEqual(out["sessions"][0]["publicStatus"], "INQUIRY_ONLY")
+        self.assertEqual(out["sessions"][0]["publicStatus"], "OPEN")
 
     def test_case_insensitive_close_marker_is_not_open(self):
         event = fixture(id="close-event", summary="STEP🔰 | 60m | 本間 | close")
@@ -97,11 +97,36 @@ class CalendarSyncContract(unittest.TestCase):
         self.assertEqual(result["sessions"][0]["bookingCountStatus"], "unknown")
         self.assertIsNone(result["sessions"][0]["confirmedBookingCount"])
 
-    def test_unrecognized_admission_marker_is_not_open(self):
+    def test_non_close_marker_defaults_to_open(self):
         event = fixture(id="unrecognized-event", summary="STEP🔰 | 60m | 本間 | REVIEW")
         result, count = build([event], "private-calendar", KEY, PEOPLE, {}, NOW)
         self.assertEqual(count, 1)
-        self.assertEqual(result["sessions"][0]["publicStatus"], "INQUIRY_ONLY")
+        self.assertEqual(result["sessions"][0]["publicStatus"], "OPEN")
+
+    def test_only_standalone_final_close_denies_rideshare(self):
+        # The calendar itself is the publication source, regardless of title
+        # format. An absent OPEN marker does not suppress a booking inquiry.
+        cases = [
+            ("STEP🔰 | 60m | 本間 | CLOSE", "CLOSE", "STEP 超初級", "本間茂樹"),
+            ("STEP🔰 | 60m | 本間 | close  ", "CLOSE", "STEP 超初級", "本間茂樹"),
+            ("STEP🔰 | 60m | 本間 | OPEN", "OPEN", "STEP 超初級", "本間茂樹"),
+            ("STEP🔰 | 60m | 本間", "OPEN", "STEP 超初級", "本間茂樹"),
+            ("STEP🔰 | 本間 | 60m", "OPEN", "STEP 超初級", "本間茂樹"),
+            ("STEP🔰 | 60m | 本間 | REVIEW", "OPEN", "STEP🔰 | 60m | 本間 | REVIEW", "スタジオに確認"),
+            ("特別クラス", "OPEN", "特別クラス", "スタジオに確認"),
+            ("特別クラス CLOSE", "CLOSE", "特別クラス CLOSE", "スタジオに確認"),
+            ("特別クラス ENCLOSE", "OPEN", "特別クラス ENCLOSE", "スタジオに確認"),
+            ("STEP🔰 | 60m | 本間 | CLOSED", "OPEN", "STEP🔰 | 60m | 本間 | CLOSED", "スタジオに確認"),
+        ]
+        for title, expected, name, teacher in cases:
+            with self.subTest(title=title):
+                result, count = build([fixture(summary=title)], "calendar", KEY, PEOPLE, {}, NOW)
+                self.assertEqual(count, 1)
+                session = result["sessions"][0]
+                self.assertEqual(session["publicStatus"], expected)
+                self.assertEqual(session["className"], name)
+                self.assertEqual(session["instructorName"], teacher)
+                self.assertIsNone(session["confirmedBookingCount"])
 
     def test_only_strict_open_classes_are_public(self):
         out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, NOW)
