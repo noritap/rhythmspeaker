@@ -24,6 +24,7 @@ from public_class_projection import project
 ROOT = Path(__file__).resolve().parents[1]
 TZ = ZoneInfo("Asia/Tokyo")
 DURATIONS = {"STEP": 60, "TAP": 60, "STRETCH": 60, "ISOLATION": 60, "BAR METHOD": 30, "HIIT": 30}
+CLASS_CAPACITIES = {"STEP": 10, "TAP": 10, "STRETCH": 5, "ISOLATION": 5, "BAR METHOD": 10, "HIIT": 10}
 CLASS_IDS = {"STEP": "class-step", "TAP": "class-tap", "STRETCH": "class-stretch", "ISOLATION": "class-isolation", "BAR METHOD": "class-bar-method", "HIIT": "class-hiit"}
 ALIASES = {"古庄": "furusho", "古庄里好": "furusho", "本間": "homma", "本間茂樹": "homma", "さささ": "sasasa",
            "MiFa": "mifa", "MiFa-san": "mifa", "丹生": "niu", "丹生良彬": "niu", "奥平": "okudaira", "奥平崇史": "okudaira"}
@@ -43,7 +44,7 @@ def identity(event, calendar_id, key):
     return "session-" + hmac.new(key, value.encode("utf-8"), hashlib.sha256).hexdigest()[:24]
 
 
-def normalize(event, calendar_id, key, approved, catalog, capacity):
+def normalize(event, calendar_id, key, approved, catalog):
     """No inferred class assignments or publication from event descriptions."""
     if event.get("status") != "confirmed" or event.get("visibility") == "private":
         return None
@@ -80,7 +81,7 @@ def normalize(event, calendar_id, key, approved, catalog, capacity):
                 eventKey=session_id, originalStart="approved", instructorId=teacher_id,
                 classId=CLASS_IDS[cls], className=cls + (" " + level if level else ""),
                 classType=cls, publicLevel=level, start=a.isoformat(), end=b.isoformat(),
-                approvedCapacity=capacity, cancelled=False), session_id
+                approvedCapacity=CLASS_CAPACITIES[cls], cancelled=False), session_id
 
 
 def fetch_calendar(calendar_id, access_token, start, end):
@@ -102,12 +103,12 @@ def fetch_calendar(calendar_id, access_token, start, end):
             return rows
 
 
-def build(events, calendar_id, key, catalog, previous, capacity, now):
+def build(events, calendar_id, key, catalog, previous, now):
     people = instructors_from_catalog(catalog)
     by_id = {p["id"]: p for p in people}
     normalized, id_map = [], {}
     for event in events:
-        value = normalize(event, calendar_id, key, by_id, catalog, capacity)
+        value = normalize(event, calendar_id, key, by_id, catalog)
         if value is None:
             continue
         item, public_id = value
@@ -145,12 +146,6 @@ def run():
     missing = [name for name in SECRETS if not os.environ.get(name)]
     if missing:
         raise SystemExit("Missing protected calendar configuration: " + ", ".join(missing))
-    try:
-        capacity = int(os.environ["RS_APPROVED_CLASS_CAPACITY"])
-    except (KeyError, ValueError):
-        raise SystemExit("RS_APPROVED_CLASS_CAPACITY is required")
-    if capacity < 1 or capacity > 99:
-        raise SystemExit("Invalid approved capacity")
     session_key = os.environ["RS_SESSION_ID_KEY"].encode()
     if len(session_key) < 32:
         raise SystemExit("Session ID HMAC key must be at least 32 bytes")
@@ -169,7 +164,7 @@ def run():
     target = Path(args.output)
     old = json.loads(target.read_text()) if target.exists() else {}
     catalog = json.loads((ROOT / "instructors/instructor-catalog.json").read_text())
-    result, accepted = build(rows, calendar_id, session_key, catalog, old, capacity, now)
+    result, accepted = build(rows, calendar_id, session_key, catalog, old, now)
     # Refuse an anomalous complete data loss; never replace successful data with empty
     # on a potentially misconfigured or expired credential/calendar.
     if old.get("sessions") and not accepted:
