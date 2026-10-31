@@ -45,6 +45,34 @@ class CalendarSyncContract(unittest.TestCase):
             self.assertEqual(result["sessions"][0]["capacity"], capacity, class_name)
             self.assertIsNone(result["sessions"][0]["confirmedBookingCount"])
 
+    def test_calendar_order_and_observed_durations(self):
+        # The live calendar has both CLASS|TEACHER|DURATION|OPEN and
+        # CLASS|DURATION|TEACHER|OPEN. A strict known teacher is still required.
+        catalog = {"instructors": [{"id": "furusho", "name": "古庄里好",
+            "classes": ["TAP", "STRETCH", "STEP"],
+            "contact": {"line": "https://lin.ee/zC5YLe7", "type": "studio_official"}}]}
+        cases = [
+            ("STEP🔰 | 古庄 | 60m | OPEN", 60, "11:00:00", 10),
+            ("STEP🔰 | 60m | 古庄 | OPEN", 60, "11:00:00", 10),
+            ("STRETCH | 30m | 古庄 | OPEN", 30, "10:30:00", 5),
+            ("TAP | 90m | 古庄 | OPEN", 90, "11:30:00", 10),
+        ]
+        for title, duration, stop, capacity in cases:
+            ev = fixture(summary=title, end={"dateTime": "2026-11-05T" + stop + "+09:00"})
+            out, count = build([ev], "calendar", KEY, catalog, {}, NOW)
+            self.assertEqual(count, 1, title)
+            self.assertEqual(out["sessions"][0]["capacity"], capacity)
+        # Do not broaden labels, unknown teacher names, or unapproved lengths.
+        for bad in [
+            "STEP | 90m | 古庄 | OPEN",
+            "STRETCH | 90m | 古庄 | OPEN",
+            "TAP | 60m | 30m | OPEN",
+            "TAP | 古庄 | 時間未定 | OPEN",
+            "TAP & WS | 60m | 古庄 | OPEN",
+        ]:
+            out, count = build([fixture(summary=bad)], "calendar", KEY, catalog, {}, NOW)
+            self.assertEqual(count, 0, bad)
+
     def test_only_strict_open_classes_are_public(self):
         out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, NOW)
         self.assertEqual(count, 1)

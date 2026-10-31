@@ -1,6 +1,6 @@
 # Rhythm Speaker 通常クラス｜Google Calendar 自動同期
 
-Status: **IMPLEMENTED AS A GATED PR; NOT LIVE until the owner configures access/publication**.
+Status: **Read-only preflight prepared; public calendar sync remains disabled pending owner approval**.
 
 ## Architecture
 
@@ -18,6 +18,27 @@ Status: **IMPLEMENTED AS A GATED PR; NOT LIVE until the owner configures access/
 - If public synchronization has not succeeded for three hours, the browser hides
   stale sessions and routes visitors to official LINE/email.
 
+## Read-only verification before public release
+
+- Workflow: .github/workflows/class-calendar-preflight.yml (Calendar connectivity and privacy preflight).
+- Runs on trusted main pushes to preflight-related files or by manual Actions dispatch.
+- Pull requests execute offline contract tests, never using production secrets.
+- Validates credential authentication, private lesson-calendar read, allowlisted class projection,
+  per-class capacity, unknown booking counts and private field exclusion.
+- Never writes data/class-sessions.public.json, Google events, bookings, uploads or artifacts.
+- Only sanitized PASS and error category codes are printed; no raw events, IDs, attendees or keys.
+- Both repository publication variables must remain false until owner review.
+
+### Live-calendar schema observations (read-only, 2026-11-01 through 11-07)
+
+- Both CLASS | TEACHER | DURATION | OPEN and CLASS | DURATION | TEACHER | OPEN occur.
+- The parser now supports both exact orders and observed special STRETCH 30m and TAP 90m slots.
+- Supported durations: STEP 60m; TAP 60m/90m; STRETCH 30m/60m;
+  ISOLATION 60m; BAR METHOD 30m; HIIT 30m.
+- Unknown teachers, combined class labels, invalid duration, CLOSE/REOPEN and private events remain excluded.
+- A successful read-only preflight does NOT authorize public publication.
+- Owner must approve the OPEN publication convention and special-duration classes before enabling sync.
+
 ## Required one-time owner/operator setup (never provide credentials in chat)
 
 1. In Google Cloud, configure a service account with read-only Calendar API access;
@@ -30,14 +51,13 @@ Status: **IMPLEMENTED AS A GATED PR; NOT LIVE until the owner configures access/
    - \`RS_LESSON_CALENDAR_ID\`: calendar ID for レッスン296, also a secret.
    - \`RS_SESSION_ID_KEY\`: random secret key of at least 32 UTF-8 bytes; keep stable
      across runs or public session links will change.
-3. Owner must review and approve **publication policy** for existing event titles:
-   only \`<CLASS> | <APPROVED_TEACHER> | <DURATION>m | OPEN\` is eligible,
-   and only when the class/teacher pairing matches the six approved instructors
-   in \`instructors/instructor-catalog.json\`. A Google "confirmed" status or
-   an OPEN marker alone does not grant public access before owner approval.
-   Review whether this convention applies to **all** future eligible events.
-   Private visibility, CLOSE/REOPEN, unknown classes/teachers and bad durations
-   always remain excluded.
+3. Owner must review and approve the publication rule for actual events.
+   Two exact event-title orders are eligible: CLASS | TEACHER | DURATION | OPEN
+   and CLASS | DURATION | TEACHER | OPEN. Both require a known teacher
+   and a class supported by instructors/instructor-catalog.json.
+   OPEN alone is NOT blanket public-release approval. The review must explicitly
+   address STRETCH 30m and TAP 90m special duration classes.
+   Private events, CLOSE/REOPEN and unknown classes/teachers remain excluded.
 4. **Approved class capacities (2026-11-01, owner-confirmed):**
    - STRETCH: 5 attendees
    - ISOLATION: 5 attendees
