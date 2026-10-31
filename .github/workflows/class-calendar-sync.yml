@@ -5,6 +5,10 @@ on:
     paths:
       - "tools/sync_public_classes.py"
       - "tools/test_sync_public_classes.py"
+      - "tools/public_class_projection.py"
+      - "tools/test_public_class_projection.py"
+      - "tools/test_calendar_status_ui.js"
+      - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-sync.yml"
   schedule:
     - cron: "17 * * * *"
@@ -23,6 +27,8 @@ jobs:
           python-version: "3.12"
       - run: python tools/test_sync_public_classes.py
       - run: python tools/test_public_class_projection.py
+      - name: Verify OPEN/CLOSE website status and participation action
+        run: node tools/test_calendar_status_ui.js
 
   publish:
     # Never run calendar access on PRs, forks, or without explicit approval.
