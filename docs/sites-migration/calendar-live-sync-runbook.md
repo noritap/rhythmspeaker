@@ -1,6 +1,6 @@
 # Rhythm Speaker 通常クラス｜Google Calendar 自動同期
 
-Status: **Read-only preflight prepared; public calendar sync remains disabled pending owner approval**.
+Status: **Owner approved the entire レッスン296 calendar as publishable lesson schedules (2026-11-01). Sync remains gated by GitHub variables until validation and activation.**
 
 ## Architecture
 
@@ -27,18 +27,19 @@ Status: **Read-only preflight prepared; public calendar sync remains disabled pe
   per-class capacity, unknown booking counts and private field exclusion.
 - Never writes data/class-sessions.public.json, Google events, bookings, uploads or artifacts.
 - Only sanitized PASS and error category codes are printed; no raw events, IDs, attendees or keys.
-- Both repository publication variables must remain false until owner review.
+- Both repository publication variables remain false until the all-events coverage release is tested. The owner has already approved publication of this calendar.
 
-### Live-calendar schema observations (read-only, 2026-11-01 through 11-07)
+### Source calendar findings and coverage contract
 
-- Both CLASS | TEACHER | DURATION | OPEN and CLASS | DURATION | TEACHER | OPEN occur.
-- The parser now supports both exact orders and observed special STRETCH 30m and TAP 90m slots.
-- Supported durations: STEP 60m; TAP 60m/90m; STRETCH 30m/60m;
-  ISOLATION 60m; BAR METHOD 30m; HIIT 30m.
-- Unknown teachers, combined class labels, invalid duration, CLOSE/REOPEN and private events remain excluded.
-- A successful read-only preflight does NOT authorize public publication.
-- Owner must approve the OPEN publication convention and special-duration classes before enabling sync.
-
+- On 2026-11-01, Nov 1–30 contained 117 active timed events:
+  93 matched the former whitelist and 24 were wrongly excluded.
+- Observed special labels include TAP初級, STEP & 振付, STEP🟡, TAP応用🔵, BAR メソッド.
+- Guest instructors and combinations such as かっつん, 古庄里好・丹生,
+  古庄/MiFa-san and 古庄里好・MiFa-san are represented as published display identities.
+- Source count MUST equal projected event count on each run; any drop fails the workflow.
+- `OPEN` denotes calendar's own marker only, not confirmed available seats or a booking.
+- Per-class capacity remains STRETCH/ISOLATION 5, otherwise 10.
+- No reservation ledger exists; booking counts remain unknown.
 ## Required one-time owner/operator setup (never provide credentials in chat)
 
 1. In Google Cloud, configure a service account with read-only Calendar API access;
@@ -51,13 +52,16 @@ Status: **Read-only preflight prepared; public calendar sync remains disabled pe
    - \`RS_LESSON_CALENDAR_ID\`: calendar ID for レッスン296, also a secret.
    - \`RS_SESSION_ID_KEY\`: random secret key of at least 32 UTF-8 bytes; keep stable
      across runs or public session links will change.
-3. Owner must review and approve the publication rule for actual events.
-   Two exact event-title orders are eligible: CLASS | TEACHER | DURATION | OPEN
-   and CLASS | DURATION | TEACHER | OPEN. Both require a known teacher
-   and a class supported by instructors/instructor-catalog.json.
-   OPEN alone is NOT blanket public-release approval. The review must explicitly
-   address STRETCH 30m and TAP 90m special duration classes.
-   Private events, CLOSE/REOPEN and unknown classes/teachers remain excluded.
+3. Owner-approved publication scope (2026-11-01): Every active, timed event
+   in the studio-owned レッスン296 calendar is a publishable studio lesson.
+   Do not require an OPEN marker, a teacher/class allowlist match, or a standard
+   class label. Both title orders and guest/co-teacher names are supported.
+   An unknown class label or teacher is preserved, never silently dropped.
+   The job fails closed on invalid/private event metadata or incomplete projection.
+   No attendee information, raw Google IDs, descriptions, locations or private
+   notes are published. Event title class and teacher portions are publishable.
+   The existing rolling 90-day upcoming-schedule horizon is retained.
+   This is the published schedule window, not a historical archive of the calendar.
 4. **Approved class capacities (2026-11-01, owner-confirmed):**
    - STRETCH: 5 attendees
    - ISOLATION: 5 attendees
