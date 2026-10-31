@@ -10,3 +10,6 @@ Owner authorized integration and production publication in the conversation.
 - Canonical instructor contact policy preserved: bookings through studio, desired instructor in message; PR297 remains unmerged.
 - No booking sends, payments, calendar edits, database/auth changes.
 - Future calendar synchronization requires a least-privilege server-side credential, explicit OPEN allowlist, a private event-ID map, deletion/recurrence handling and a separate confirmed-count ledger. Do not publish a one-off calendar dump as continuously synchronized data.
+
+## Post-deploy regression fix
+Sequential client-side route navigation exposed relative header/footer links resolving against the new pathname. The enhancer now freezes their initial document URL before routing; CI explicitly tests home → schedule → pricing → FAQ → portal → home. Asset version incremented to invalidate the first release cache.

@@ -1,4 +1,5 @@
 'use strict';
+const uxDocumentURL=location.href;
 const uxRoot=new URL('../../',document.currentScript.src),uxBasePath=uxRoot.pathname;
 const uxRoutes={'/':'','/trial':'trial/','/schedule':'schedule/','/pricing':'pricing/','/classes':'classes/','/instructors':'instructors/','/about':'about/','/access':'access/','/faq':'faq/','/services':'ecosystem/'};
 function uxHref(v){if(v.startsWith('#/')){let [path,q]=v.slice(1).split('?');return new URL((uxRoutes[path]??path.replace(/^\//,'')+'/')+(q?'?'+q:''),uxRoot).href.replace(location.origin,'');}if(v.startsWith('https://noritap.github.io/rhythmspeaker/'))return new URL(v.slice('https://noritap.github.io/rhythmspeaker/'.length),uxRoot).href.replace(location.origin,'');return v;}
@@ -75,6 +76,6 @@ document.querySelector('.skip').addEventListener('click',e=>{e.preventDefault();
 document.querySelector('.brand-mark').addEventListener('click',e=>{if(uxRoute().split('?')[0]==='/services'){e.preventDefault();closeMenu();window.scrollTo({top:0,behavior:'instant'});main.focus({preventScroll:true})}});
 
 // Rewrite dynamic modal links too. Changes are only applied when an attribute differs.
-function uxNormalizeNodes(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href'),next=uxHref(h);if(h!==next)a.setAttribute('href',next)});document.querySelectorAll('img[src^="assets/"]').forEach(i=>i.src=new URL(i.getAttribute('src'),uxRoot).href);}
+function uxNormalizeNodes(){document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');let next=uxHref(h);if(!next.startsWith('#')&&!/^[a-z][a-z0-9+.-]*:/i.test(next)&&!next.startsWith('//')){const u=new URL(next,uxDocumentURL);next=u.pathname+u.search+u.hash;}if(h!==next)a.setAttribute('href',next)});document.querySelectorAll('img[src^="assets/"]').forEach(i=>i.src=new URL(i.getAttribute('src'),uxRoot).href);}
 new MutationObserver(uxNormalizeNodes).observe(document.body,{childList:true,subtree:true});uxNormalizeNodes();
 document.addEventListener('click',e=>{const a=e.target.closest('a[href]');if(!a||a.target==='_blank'||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;const u=new URL(a.href,location.href);if(u.origin!==location.origin||!u.pathname.startsWith(uxBasePath))return;const suffix=u.pathname.slice(uxBasePath.length);if(!Object.values(uxRoutes).includes(suffix))return;if(u.hash&&!u.hash.startsWith('#/'))return;e.preventDefault();history.pushState(null,'',u.pathname+u.search+u.hash);route();});
