@@ -1,0 +1,274 @@
+{
+  "version": "class-reservation-v1.3",
+  "sourceMode": "sample",
+  "timezone": "Asia/Tokyo",
+  "instructorSource": {
+    "type": "draft_pr",
+    "number": 297,
+    "commit": "2e15fbd9f7126e068442bd2ecc9c427bb7b59e3f"
+  },
+  "instructors": [
+    {
+      "id": "furusho",
+      "name": "古庄里好",
+      "classes": [
+        "STEP",
+        "TAP",
+        "STRETCH",
+        "ISOLATION",
+        "BAR METHOD",
+        "HIIT"
+      ],
+      "line": "https://lin.ee/zC5YLe7",
+      "contactType": "studio_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "sasasa",
+      "name": "さささ",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "line": "https://lin.ee/T8INM106",
+      "contactType": "instructor_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "homma",
+      "name": "本間茂樹",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "line": "https://lin.ee/7Dk4s8o",
+      "contactType": "instructor_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "mifa",
+      "name": "MiFa-san",
+      "classes": [
+        "STEP",
+        "TAP",
+        "STRETCH"
+      ],
+      "line": "https://lin.ee/irS6q7P",
+      "contactType": "instructor_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "niu",
+      "name": "丹生良彬",
+      "classes": [
+        "STEP",
+        "TAP",
+        "HIIT"
+      ],
+      "line": "https://lin.ee/EgoTM7j",
+      "contactType": "instructor_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "okudaira",
+      "name": "奥平崇史",
+      "classes": [
+        "STEP",
+        "TAP"
+      ],
+      "line": "https://lin.ee/zC5YLe7",
+      "contactType": "studio_official",
+      "assignmentVerified": true
+    },
+    {
+      "id": "kattsun",
+      "name": "かっつん",
+      "classes": [],
+      "line": "https://lin.ee/N7D6m5Q",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "saito_hiroe",
+      "name": "齊藤洋映",
+      "classes": [],
+      "line": "https://lin.ee/RNgUL4U",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "pal",
+      "name": "PAL",
+      "classes": [],
+      "line": "https://lin.ee/XPKjw0c",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "nao",
+      "name": "NAO",
+      "classes": [],
+      "line": "https://lin.ee/zC5YLe7",
+      "contactType": "studio_official",
+      "assignmentVerified": false
+    }
+  ],
+  "sessions": [
+    {
+      "id": "demo-01",
+      "date": "2026-11-01",
+      "start": "10:00",
+      "end": "11:00",
+      "classType": "STEP",
+      "level": "超初級",
+      "instructorId": "furusho",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-step",
+      "className": "STEP 超初級",
+      "instructorName": "古庄里好",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-02",
+      "date": "2026-11-01",
+      "start": "14:00",
+      "end": "15:00",
+      "classType": "TAP",
+      "level": "音楽・表現",
+      "instructorId": "homma",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-tap",
+      "className": "TAP 音楽・表現",
+      "instructorName": "本間茂樹",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-03",
+      "date": "2026-11-04",
+      "start": "11:00",
+      "end": "12:00",
+      "classType": "STRETCH",
+      "level": "柔軟性",
+      "instructorId": "mifa",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-stretch",
+      "className": "STRETCH 柔軟性",
+      "instructorName": "MiFa-san",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-04",
+      "date": "2026-11-07",
+      "start": "15:00",
+      "end": "16:00",
+      "classType": "STEP",
+      "level": "初級",
+      "instructorId": "sasasa",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-step",
+      "className": "STEP 初級",
+      "instructorName": "さささ",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-05",
+      "date": "2026-11-12",
+      "start": "19:00",
+      "end": "20:00",
+      "classType": "TAP",
+      "level": "音楽・表現",
+      "instructorId": "niu",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-tap",
+      "className": "TAP 音楽・表現",
+      "instructorName": "丹生良彬",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-06",
+      "date": "2026-11-15",
+      "start": "10:00",
+      "end": "11:00",
+      "classType": "STEP",
+      "level": "超初級",
+      "instructorId": "okudaira",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-step",
+      "className": "STEP 超初級",
+      "instructorName": "奥平崇史",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-07",
+      "date": "2026-11-21",
+      "start": "11:00",
+      "end": "12:00",
+      "classType": "ISOLATION",
+      "level": "身体コントロール",
+      "instructorId": "furusho",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-isolation",
+      "className": "ISOLATION 身体コントロール",
+      "instructorName": "古庄里好",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    },
+    {
+      "id": "demo-08",
+      "date": "2026-12-05",
+      "start": "14:00",
+      "end": "15:00",
+      "classType": "TAP",
+      "level": "音楽・表現",
+      "instructorId": "homma",
+      "source": "sample",
+      "publicStatus": "OPEN",
+      "confirmedBookingCount": null,
+      "bookingCountSource": null,
+      "capacity": 10,
+      "classId": "class-tap",
+      "className": "TAP 音楽・表現",
+      "instructorName": "本間茂樹",
+      "bookingCountStatus": "unknown",
+      "updatedAt": null
+    }
+  ],
+  "dataState": "sample",
+  "generatedAt": null,
+  "lastSuccessfulSyncAt": null,
+  "lastAttemptAt": null
+}

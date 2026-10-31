@@ -40,6 +40,9 @@ def main():
     access = read("access/index.html")
     stretch = read("classes/stretch/index.html")
 
+    migrated = 'data-ux-source="sites-v6"' in home
+    import json
+    model = json.loads(read("data/ux-lab.json")) if migrated else None
     for slug, stem in CLASSES.items():
         small = f"{stem}-640w.webp"
         large = f"{stem}-1100w.webp"
@@ -48,22 +51,30 @@ def main():
                    f"{slug}: missing approved class artwork {filename}")
         # TOP and class finder must both point to exactly the same canonical
         # file family, rather than merely displaying a visually similar shot.
-        home_anchor = f'href="classes/{slug}/"'
-        expect(home_anchor in home, f"TOP: missing class link {slug}")
-        home_window = home.split(home_anchor, 1)[-1][:800]
-        expect(f'src="assets/classes/{small}"' in home_window,
-               f"TOP: {slug} must use canonical 640w poster")
-        expect(f"assets/classes/{large}" in home_window,
-               f"TOP: {slug} must provide canonical 1100w srcset")
+        if migrated:
+            record = next((c for c in model['classes'] if c['id'] == slug), None)
+            expect(record is not None and record['photo'] == f'assets/classes/{small}', f'{slug}: catalog artwork drift')
+            finder_window = finder.split(f'id="class-{slug}"', 1)[-1][:1000]
+            expect(f'src="/rhythmspeaker/assets/classes/{small}"' in finder_window, f'{slug}: static finder artwork drift')
+            expect(f'/rhythmspeaker/assets/classes/{large}' in finder_window, f'{slug}: responsive artwork missing')
+            if slug in ('step', 'tap'):
+                expect(f'/rhythmspeaker/assets/classes/{small}' in home, f'{slug}: featured home artwork missing')
+        else:
+            home_anchor = f'href="classes/{slug}/"'
+            expect(home_anchor in home, f"TOP: missing class link {slug}")
+            home_window = home.split(home_anchor, 1)[-1][:800]
+            expect(f'src="assets/classes/{small}"' in home_window,
+                   f"TOP: {slug} must use canonical 640w poster")
+            expect(f"assets/classes/{large}" in home_window,
+                   f"TOP: {slug} must provide canonical 1100w srcset")
 
-        finder_anchor = f'id="class-{slug}"'
-        expect(finder_anchor in finder, f"/classes/: missing class {slug}")
-        finder_window = finder.split(finder_anchor, 1)[-1][:800]
-        expect(f'src="../assets/classes/{small}"' in finder_window,
-               f"/classes/: {slug} must match TOP poster")
-        expect(f"../assets/classes/{large}" in finder_window,
-               f"/classes/: {slug} must provide 1100w variant")
-
+            finder_anchor = f'id="class-{slug}"'
+            expect(finder_anchor in finder, f"/classes/: missing class {slug}")
+            finder_window = finder.split(finder_anchor, 1)[-1][:800]
+            expect(f'src="../assets/classes/{small}"' in finder_window,
+                   f"/classes/: {slug} must match TOP poster")
+            expect(f"../assets/classes/{large}" in finder_window,
+                   f"/classes/: {slug} must provide 1100w variant")
         detail = read(f"classes/{slug}/index.html")
         cls = "stretch-identity-photo" if slug == "stretch" else "class-identity-photo"
         expect(f'class="{cls}" src="../../assets/classes/{large}"' in detail,
@@ -73,7 +84,7 @@ def main():
         expect('href="../photo-system.css"' in detail,
                f"{slug} detail: missing shared no-crop stylesheet")
 
-    expect('href="photo-system.css"' in finder,
+    expect(('href="photo-system.css"' in finder) or (migrated and "object-fit:contain;aspect-ratio:1" in read("assets/ux-lab/app.css")),
            "/classes/: missing shared photo system")
     expect(".classes-page .class-card-image" in shared and
            "object-fit: contain" in shared and "aspect-ratio: 1 / 1" in shared,
@@ -87,9 +98,9 @@ def main():
 
     expect("stretch-visual-sheet.webp" not in access,
            "/access/: do not use stretch outcomes as location evidence")
-    expect("../assets/images/trial/trial-real-studio-floor-v1.webp" in access,
+    expect(("../assets/images/trial/trial-real-studio-floor-v1.webp" in access or "/rhythmspeaker/assets/images/trial/trial-real-studio-floor-v1.webp" in access),
            "/access/: use grounded studio photo")
-    expect(".access-page-v3 .route-card:before{content:none}" in access,
+    expect((".access-page-v3 .route-card:before{content:none}" in access) or (migrated and "route-card" not in access),
            "/access/: generic dancer photo must not impersonate route imagery")
 
     for person in ("mifa-editorial-v2", "furusho-editorial-v1"):

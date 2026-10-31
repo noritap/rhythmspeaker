@@ -37,12 +37,17 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Run local sites and compare viewports
         run: |
-          python3 -m http.server 8001 --directory baseline >/tmp/ux-before.log 2>&1 &
-          python3 -m http.server 8002 --directory . >/tmp/ux-after.log 2>&1 &
-          node tools/ux_pr220_browser_check.js
-          node tools/ux_diagnostics.js
-          node tools/class_photo_browser_check.js
-          if [ -f tools/class_filter_check.js ]; then node tools/class_filter_check.js; fi
+          if grep -q 'data-ux-source="sites-v6"' index.html; then
+            python3 -m http.server 8002 --directory .. >/tmp/ux-after.log 2>&1 &
+            node tools/sites_migration_browser_check.js
+          else
+            python3 -m http.server 8001 --directory baseline >/tmp/ux-before.log 2>&1 &
+            python3 -m http.server 8002 --directory . >/tmp/ux-after.log 2>&1 &
+            node tools/ux_pr220_browser_check.js
+            node tools/ux_diagnostics.js
+            node tools/class_photo_browser_check.js
+            if [ -f tools/class_filter_check.js ]; then node tools/class_filter_check.js; fi
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
