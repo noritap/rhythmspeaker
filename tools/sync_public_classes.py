@@ -78,6 +78,11 @@ def normalize(event, calendar_id, key, approved, catalog):
     # Both existing studio event-title orders are recognized, regardless
     # of their trailing booking marker (e.g. OPEN/CLOSE). All are lessons.
     parsed = len(parts) == 4 and bool(duration_one) != bool(duration_two)
+    # OPEN means riders may request to join. CLOSE means the class is held
+    # but no additional riders are accepted. Unrecognized markers remain
+    # visible without any join CTA (fail-safe rather than claiming OPEN).
+    marker = parts[-1].upper() if parsed else "INQUIRY_ONLY"
+    admission_status = marker if marker in ("OPEN", "CLOSE") else "INQUIRY_ONLY"
     if parsed:
         raw_class = parts[0]
         raw_teacher = parts[2] if duration_one else parts[1]
@@ -118,7 +123,8 @@ def normalize(event, calendar_id, key, approved, catalog):
             key, ("teacher:" + raw_teacher).encode("utf-8"), hashlib.sha256
         ).hexdigest()[:16]
     teacher = {"id": teacher_id, "name": approved[teacher_id]["name"] if teacher_id in approved else raw_teacher}
-    value = dict(publicApproved=True, kind="lesson", summary="OPEN",
+    value = dict(publicApproved=True, kind="lesson", summary=admission_status,
+                 admissionStatus=admission_status,
                  calendarKey="approved", eventKey=session_id, originalStart="approved",
                  instructorId=teacher_id, classId=class_id, className=class_name,
                  classType=class_type, publicLevel=level,

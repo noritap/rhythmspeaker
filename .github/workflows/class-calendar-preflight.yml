@@ -9,6 +9,10 @@ on:
       - "tools/test_preflight_calendar_sync.py"
       - "tools/sync_public_classes.py"
       - "tools/test_sync_public_classes.py"
+      - "tools/public_class_projection.py"
+      - "tools/test_public_class_projection.py"
+      - "tools/test_calendar_status_ui.js"
+      - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-preflight.yml"
   pull_request:
     paths:
@@ -16,6 +20,10 @@ on:
       - "tools/test_preflight_calendar_sync.py"
       - "tools/sync_public_classes.py"
       - "tools/test_sync_public_classes.py"
+      - "tools/public_class_projection.py"
+      - "tools/test_public_class_projection.py"
+      - "tools/test_calendar_status_ui.js"
+      - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-preflight.yml"
 
 permissions:
@@ -35,6 +43,8 @@ jobs:
         run: python tools/test_preflight_calendar_sync.py
       - name: Verify existing public class projection
         run: python tools/test_public_class_projection.py
+      - name: Verify OPEN/CLOSE website status and participation action
+        run: node tools/test_calendar_status_ui.js
 
   read-only-live-preflight:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

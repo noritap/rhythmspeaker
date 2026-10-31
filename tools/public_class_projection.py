@@ -4,15 +4,17 @@ Input must be explicitly approved normalized events, not an unfiltered calendar 
 """
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import re
 
 def project(events, instructors, identity_map, generated_at):
     people={p['id']:p for p in instructors}
     rows=[]; seen=set()
     for event in events:
-        # Rentals/CLOSE/private events are not teacher availability.
+        # Calendar classes are all publicly listed. Admission is independent
+        # from publication: CLOSE is listed but not joinable.
         if event.get('publicApproved') is not True or event.get('kind')!='lesson':continue
-        if not re.search(r'(?<!\w)OPEN(?!\w)',event.get('summary','')):continue
+        status=event.get('admissionStatus')
+        if status not in ('OPEN','CLOSE','INQUIRY_ONLY'):
+            raise ValueError('Unknown lesson admission status')
         key=(event.get('calendarKey'),event.get('eventKey'),event.get('originalStart'))
         public_id=identity_map.get(key)
         if not public_id or public_id in seen:continue
@@ -30,7 +32,7 @@ def project(events, instructors, identity_map, generated_at):
         rows.append(dict(id=public_id,classId=event['classId'],className=event['className'],
           date=start.date().isoformat(),start=start.strftime('%H:%M'),end=end.strftime('%H:%M'),
           classType=event['classType'],level=event.get('publicLevel',''),instructorId=person['id'],
-          instructorName=person['name'],source='live',publicStatus='CANCELLED' if event.get('cancelled') else 'OPEN',
+          instructorName=person['name'],source='live',publicStatus='CANCELLED' if event.get('cancelled') else status,
           confirmedBookingCount=None,bookingCountStatus='unknown',bookingCountSource=None,
           capacity=event.get('approvedCapacity',10),updatedAt=generated_at))
         seen.add(public_id)

@@ -37,7 +37,11 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
 - Guest instructors and combinations such as かっつん, 古庄里好・丹生,
   古庄/MiFa-san and 古庄里好・MiFa-san are represented as published display identities.
 - Source count MUST equal projected event count on each run; any drop fails the workflow.
-- `OPEN` denotes calendar's own marker only, not confirmed available seats or a booking.
+- `OPEN` means an already scheduled lesson is accepting additional riders (相乗り受講申込可).
+- `CLOSE` means the lesson remains **publicly listed and scheduled**, but accepts no additional riders; it is **not** cancelled, full, or deleted.
+- A missing/unrecognized status marker is published as `INQUIRY_ONLY` and cannot show a join CTA until a human confirms.
+- OPEN is permission to **request** a seat, never an automatically confirmed booking; the studio confirms after inquiry.
+- The UI must never show `CLOSE` as `満席`, `開講中止`, or `このクラスに参加する`.
 - Per-class capacity remains STRETCH/ISOLATION 5, otherwise 10.
 - No reservation ledger exists; booking counts remain unknown.
 ## Required one-time owner/operator setup (never provide credentials in chat)
