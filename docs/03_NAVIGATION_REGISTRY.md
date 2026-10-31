@@ -112,3 +112,6 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 - Navigation Audit strict PASS
 - Navigation Sync Checkで未コミット差分が0
 - 新規Primary PageはRegistry Scopeへ登録
+
+## Sites migration review branch (not yet production)
+The migration keeps RS-NAV-2's ten destinations and ordering, including RSS/SHOP/workshops. The compact Sites header exposes schedule/pricing/instructors as additional STUDIO entry points. Shared desktop/mobile menu lists retain the canonical generated contract. `/ecosystem/` keeps one canonical portal list and a no-JavaScript navigation fallback. Logos on migrated studio pages consistently return to the service portal; brand-name text returns to the studio home. New schedule/pricing routes are review-only pending owner approval; no main routing changes are adopted by this document alone.

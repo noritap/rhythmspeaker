@@ -1,0 +1,44 @@
+{
+  "contractVersion": "1.3",
+  "status": "prototype_contract_not_connected",
+  "routes": {"finder": "#/schedule", "detail": "#/schedule?class=<publicSessionId>", "application": "#/schedule?class=<publicSessionId>&step=apply", "request": "#/schedule?mode=request"},
+  "transportProposal": {"method": "GET", "endpoint": "/api/public-class-sessions", "implemented": false, "timezone": "Asia/Tokyo", "noCredentialsInClient": true},
+  "envelope": {
+    "version": "class-reservation-v1.3",
+    "sourceMode": ["sample", "live"],
+    "dataState": ["sample", "ready", "unavailable", "sync_failed"],
+    "generatedAt": "RFC3339 timestamp or null",
+    "lastSuccessfulSyncAt": "RFC3339 timestamp or null",
+    "lastAttemptAt": "RFC3339 timestamp or null",
+    "sessions": "PublicSession[]; empty on no-data/failure; never fall back from live to sample"
+  },
+  "PublicSession": {
+    "id": "opaque stable PUBLIC occurrence ID; distinct from Google event ID",
+    "classId": "verified class type registry ID",
+    "className": "public verified class name",
+    "date": "YYYY-MM-DD JST",
+    "start": "HH:mm JST",
+    "end": "HH:mm JST, greater than start; cross-day sessions excluded pending separate policy",
+    "classType": ["STEP", "TAP", "STRETCH", "ISOLATION", "BAR METHOD", "HIIT"],
+    "level": "verified public level, never inferred",
+    "instructorId": "approved instructor catalog ID",
+    "instructorName": "public instructor display name",
+    "source": ["sample", "live"],
+    "publicStatus": ["OPEN", "CANCELLED"],
+    "confirmedBookingCount": "integer >=0 only when verified; otherwise null",
+    "bookingCountStatus": ["known", "unknown"],
+    "bookingCountSource": "approved server aggregate source label or null, never private DB IDs",
+    "capacity": "verified positive integer, default10 only under approved policy",
+    "updatedAt": "RFC3339 public row update timestamp or null"
+  },
+  "derivedStates": {
+    "full": "bookingCountStatus=known AND source verified AND confirmedBookingCount>=capacity",
+    "count_unknown": "count null or status unknown or source missing; never display0 or promise seats",
+    "cancelled": "publicStatus=CANCELLED; show details only, no application composer",
+    "search_empty": "successful loaded dataset plus zero matches; different from acquisition failure"
+  },
+  "selection": {"retainedFields": ["id", "classId", "date", "start", "end", "instructorId", "instructorName", "className", "publicStatus", "confirmedBookingCount", "bookingCountStatus", "capacity"], "storage": "in-memory + public occurrence ID in hash only; no localStorage/sessionStorage/cookies", "draft": "in-memory through internal navigation; cleared by reload", "privateMessageInUrl": false},
+  "durationReference": {"STEP":60,"TAP":60,"STRETCH":60,"ISOLATION":60,"BAR METHOD":30,"HIIT":30,"meaning":"standard request durations, not availability or confirmed price"},
+  "prohibitedPublicFields": ["calendarId", "googleEventId", "recurringEventId", "iCalUID", "rawSummary", "rawDescription", "attendees", "participantNames", "participantEmails", "organizerEmail", "privateNotes", "credentials", "privateKeys", "accessTokens"],
+  "writes": {"implemented": false,"actualSend":false,"reservationCreation":false,"calendarChanges":false,"countUpdates":false,"payment":false}
+}

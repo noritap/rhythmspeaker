@@ -1,0 +1,46 @@
+{
+  "sourceVersion": 6,
+  "sourceCommit": "d6dd29f85a3da73697c5738121ccf0228bc1fd01",
+  "sourceType": "editable_original_source",
+  "cssVariables": {
+    "--ink": "#191918",
+    "--paper": "#f5f2eb",
+    "--white": "#fff",
+    "--muted": "#64635d",
+    "--border": "#d6d2c8",
+    "--accent": "#b69c67",
+    "--space": "clamp(20px,5vw,76px)"
+  },
+  "styles": [
+    "assets/ux-lab/app.css",
+    "assets/ux-lab/class-finder.css"
+  ],
+  "widthsTested": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "photoPolicy": "same approved assets; 1:1 contain for classes/instructors",
+  "components": [
+    "header",
+    "global menu",
+    "portal entry",
+    "hero",
+    "class card",
+    "instructor search",
+    "pricing plans",
+    "native FAQ",
+    "calendar",
+    "combined filters",
+    "detail dialog",
+    "application composer",
+    "request form",
+    "footer"
+  ],
+  "runtime": "static HTML + vanilla JavaScript; memory-only drafts",
+  "differences": "migration-map.md"
+}

@@ -106,7 +106,7 @@ def main() -> int:
     expect("background-size:contain!important" in hub,
            "Instructor Finder portraits must show complete artwork")
 
-    expect('src="../assets/instructors/instructor-furusho-editorial-v1-960w.webp"' in about,
+    expect(('src="../assets/instructors/instructor-furusho-editorial-v1-960w.webp"' in about or 'src="/rhythmspeaker/assets/instructors/instructor-furusho-editorial-v1-960w.webp"' in about),
            "about/index.html: Furusho portrait must match TOP")
     for path in SOURCES:
         body = source(path)

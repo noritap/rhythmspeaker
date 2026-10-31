@@ -1,0 +1,110 @@
+{
+  "source": "Sites v6",
+  "assets": [
+    {
+      "path": "logo.png",
+      "sha256": "dffcb243a5177da5565850b56437069c704b9acddd135b500e899cd6ec6ce28e",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/home-hero-studio-v5.jpg",
+      "sha256": "73415dcd0e2d11975fbe1288a5d5cb38c59c6e976cdd0bd3e94b523ee2b7dfe5",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-hiit-editorial-v1-640w.webp",
+      "sha256": "d60df1dfaa7bd11dffbdabee364e540536aca3e32c7a957bc2c5fcb47e23462b",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-isolation-editorial-v1-640w.webp",
+      "sha256": "387dd0eeb5cc059a3f1e71422193003d1e01bf3549405f7fb223a76f3cb9c9b1",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-bar-method-editorial-v1-640w.webp",
+      "sha256": "2df98a8a9b2574f794695b5d242d46e7cd6e8b7bc709f0a866b5d6544c504c4f",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-stretch-editorial-v1-640w.webp",
+      "sha256": "546ac711a80c50afe043132bac2c284ff737b335ddf1466362e5e71478ba8fb3",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-step-editorial-v3-640w.webp",
+      "sha256": "108d4f8c5666019ae4f12233e121db07646096ff0482e17c2e34c3af1184636a",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/classes/class-tap-editorial-v1-640w.webp",
+      "sha256": "967bd99b8604b4cb2f41496189be5a52b847d7cb65f582b4f3bceb32c6ac636b",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-saito-hiroaki-editorial-v1-960w.webp",
+      "sha256": "4fb2c8616a03a298bc5f84a64937539ff6920da5008b69724ed624e1935d85cb",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-okudaira-editorial-v1-960w.webp",
+      "sha256": "b99e4615265a3ff67d465c85eec9dcafec70f091df1f58727d2b627620fa2c02",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-furusho-editorial-v1-960w.webp",
+      "sha256": "ecf8bf25549142d97150bc850764974b31a321702f98f8cc35138b89ed3f5048",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-kattun-editorial-v1-960w.webp",
+      "sha256": "a9cc7ce909edcf8caf2a6e91964feaa8ce7e387652c4511e23daa17c9ef8a57b",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-honma-editorial-v1-960w.webp",
+      "sha256": "ca487eeb804e35eef9a0b57e6c0634b102cdc2e53cc8c3163c8d19d4fc81c115",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-nao-editorial-v1-960w.webp",
+      "sha256": "8038c01a49ad21bef03c292d19330a1197034933ca8f83087b0d7eec7052ba7b",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-pal-editorial-v1-960w.webp",
+      "sha256": "a1b0c130afc3b75eebfb036c4b21e77ea113bff98348a93caad73380e74af6c0",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-mifa-editorial-v2-960w.webp",
+      "sha256": "420185cbd0202900a6921f250b73d2de404cd42aa57f3b842f17d93e7e3a9f86",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-sasasa-editorial-v1-960w.webp",
+      "sha256": "3e247754b2c437e766b0c3c46cc8c01ceaea72b3e58d84fdc1cc3d756c6be2b4",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/instructors/instructor-nibu-editorial-v1-960w.webp",
+      "sha256": "a619cd823d262f6a4b6c5b4bd6d355e5bfaf0879a231e51e43303d5ffcbc76f0",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/images/trial/trial-real-studio-floor-v1.webp",
+      "sha256": "da157b92b304c290502d7a9022614047330fc9997ad029443cd1fbf22956da36",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/images/trial/trial-your-start-hobby-real-lesson-v1.webp",
+      "sha256": "3eb8f9b6d6f797b3b53dd400058a7dc54c9d56e3e30a3d783167c6c9d4f2e9d3",
+      "reusedFromMain": true
+    },
+    {
+      "path": "assets/images/trial/trial-real-rental-shoes-v1.webp",
+      "sha256": "f6fc198ee01e72e798a662b9f52ffcd89a2290e47d002c9cb84248b52e7498f7",
+      "reusedFromMain": true
+    }
+  ]
+}

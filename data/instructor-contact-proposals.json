@@ -1,0 +1,38 @@
+{
+  "status": "unmerged_proposal",
+  "source": "PR297 + explicit user-provided contact URLs",
+  "instructors": [
+    {
+      "id": "kattsun",
+      "name": "かっつん",
+      "classes": [],
+      "line": "https://lin.ee/N7D6m5Q",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "saito_hiroe",
+      "name": "齊藤洋映",
+      "classes": [],
+      "line": "https://lin.ee/RNgUL4U",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "pal",
+      "name": "PAL",
+      "classes": [],
+      "line": "https://lin.ee/XPKjw0c",
+      "contactType": "instructor_official",
+      "assignmentVerified": false
+    },
+    {
+      "id": "nao",
+      "name": "NAO",
+      "classes": [],
+      "line": "https://lin.ee/zC5YLe7",
+      "contactType": "studio_official",
+      "assignmentVerified": false
+    }
+  ]
+}

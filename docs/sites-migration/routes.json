@@ -1,0 +1,73 @@
+{
+  "pages": [
+    {
+      "sites": "#/",
+      "github": "/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/trial",
+      "github": "/trial/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/schedule",
+      "github": "/schedule/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/pricing",
+      "github": "/pricing/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/classes",
+      "github": "/classes/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/instructors",
+      "github": "/instructors/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/about",
+      "github": "/about/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/access",
+      "github": "/access/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/faq",
+      "github": "/faq/",
+      "status": "migrated",
+      "canonical": true
+    },
+    {
+      "sites": "#/services",
+      "github": "/ecosystem/",
+      "status": "migrated",
+      "canonical": true
+    }
+  ],
+  "preservedClassDetails": [
+    "/classes/step/",
+    "/classes/tap/",
+    "/classes/stretch/",
+    "/classes/isolation/",
+    "/classes/bar-method/",
+    "/classes/hiit/"
+  ],
+  "basePath": "/rhythmspeaker/"
+}
