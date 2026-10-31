@@ -48,10 +48,10 @@
       "choreographer": "シムシャム（Noriシャム）",
       "performers": null,
       "comment": "いろんなシムシャムにチャレンジしてみました。\nいつもやっているシムシャムですが、少し変えてみると、また違う味が出てきます。\nどうぞ、生ぬるい目でご覧ください。",
-      "video_url": "https://youtu.be/N41Tl2az2T4",
-      "video_id": "N41Tl2az2T4",
-      "status": "received_video_url_needs_reconciliation",
-      "notes": "2026-10-31のユーザー貼付URL N41Tl2az2T4 を仮登録。ブラウザで確認したLINE履歴には同タイトルで qQFKw9ENaAE が記載されており、URLの整合性は未確認。両YouTubeページの直接取得は失敗。放送順未決定。"
+      "video_url": "https://youtu.be/qQFKw9ENaAE",
+      "video_id": "qQFKw9ENaAE",
+      "status": "received",
+      "notes": "LINE公式アカウントの原文に掲載されたURLを採用。先に貼られたN41Tl2az2T4とは異なるため、LINE原文を正本として修正。放送順未決定。"
     }
   ],
   "ordering_policy": {
