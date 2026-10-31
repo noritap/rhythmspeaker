@@ -1,1 +1,6 @@
-{"mode":"sample","path":"data/class-sessions.sample.json","releaseStatus":"preview_only","note":"Calendar authentication and confirmed reservation ledger are not connected. Do not switch to live without validation and approval."}
+{
+  "mode": "live",
+  "path": "data/class-sessions.public.json",
+  "releaseStatus": "production_manual_inquiry",
+  "note": "Calendar sync is not connected. No sample fallback. Applications go through the studio official contact."
+}

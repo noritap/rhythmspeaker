@@ -22,6 +22,14 @@ for page in PAGES:
   p=(ROOT/unquote(u.path.removeprefix('/rhythmspeaker/'))) if u.path.startswith('/rhythmspeaker/') else ROOT/Path(page).parent/unquote(u.path)
   if p.is_dir():p=p/'index.html'
   if not p.exists():errors.append(f'{page}: broken {url}')
+config=json.loads((ROOT/'data/class-reservation-source.json').read_text())
+if config.get('releaseStatus')=='production_manual_inquiry':
+ if config.get('mode')!='live' or config.get('path')!='data/class-sessions.public.json':errors.append('Production cannot use sample source')
+ for page in PAGES:
+  html=(ROOT/page).read_text()
+  if 'noindex' in html or 'MIGRATION PREVIEW' in html:errors.append(page+': review metadata left in production')
+ public=json.loads((ROOT/'data/class-sessions.public.json').read_text())
+ if any(s.get('source')!='live' for s in public['sessions']):errors.append('Sample session in production')
 baseline=json.loads((ROOT/'docs/sites-migration/baseline.json').read_text())
 for page,digest in baseline['protected'].items():
  if hashlib.sha256((ROOT/page).read_bytes()).hexdigest()!=digest:errors.append('protected file modified: '+page)
