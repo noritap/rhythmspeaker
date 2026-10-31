@@ -45,33 +45,44 @@ class CalendarSyncContract(unittest.TestCase):
             self.assertEqual(result["sessions"][0]["capacity"], capacity, class_name)
             self.assertIsNone(result["sessions"][0]["confirmedBookingCount"])
 
-    def test_calendar_order_and_observed_durations(self):
-        # The live calendar has both CLASS|TEACHER|DURATION|OPEN and
-        # CLASS|DURATION|TEACHER|OPEN. A strict known teacher is still required.
+    def test_all_calendar_title_variants_are_published(self):
         catalog = {"instructors": [{"id": "furusho", "name": "古庄里好",
-            "classes": ["TAP", "STRETCH", "STEP"],
+            "classes": ["STEP", "TAP", "STRETCH"],
             "contact": {"line": "https://lin.ee/zC5YLe7", "type": "studio_official"}}]}
         cases = [
-            ("STEP🔰 | 古庄 | 60m | OPEN", 60, "11:00:00", 10),
-            ("STEP🔰 | 60m | 古庄 | OPEN", 60, "11:00:00", 10),
-            ("STRETCH | 30m | 古庄 | OPEN", 30, "10:30:00", 5),
-            ("TAP | 90m | 古庄 | OPEN", 90, "11:30:00", 10),
+            ("STEP🔰 | 古庄 | 60m | OPEN", "11:00:00", "STEP", 10, "古庄里好"),
+            ("STEP🔰 | 60m | 古庄 | OPEN", "11:00:00", "STEP", 10, "古庄里好"),
+            ("STRETCH | 30m | 古庄 | OPEN", "10:30:00", "STRETCH", 5, "古庄里好"),
+            ("TAP | 90m | 古庄 | OPEN", "11:30:00", "TAP", 10, "古庄里好"),
+            ("TAP初級 | 60m | 本間 | OPEN", "11:00:00", "TAP初級", 10, "本間"),
+            ("STEP & 振付 | 60m | かっつん | OPEN", "11:00:00", "STEP & 振付", 10, "かっつん"),
+            ("BAR メソッド | 60m | 古庄里好・丹生 | OPEN", "11:00:00", "BAR メソッド", 10, "古庄里好・丹生"),
+            ("STEP🟡 | 60m | 古庄 | OPEN", "11:00:00", "STEP🟡", 10, "古庄里好"),
+            ("TAP応用🔵 | 60m | 古庄/MiFa-san | OPEN", "11:00:00", "TAP応用🔵", 10, "古庄/MiFa-san"),
+            ("TAP | 60m | 古庄 | CLOSE", "11:00:00", "TAP", 10, "古庄里好"),
         ]
-        for title, duration, stop, capacity in cases:
-            ev = fixture(summary=title, end={"dateTime": "2026-11-05T" + stop + "+09:00"})
-            out, count = build([ev], "calendar", KEY, catalog, {}, NOW)
-            self.assertEqual(count, 1, title)
-            self.assertEqual(out["sessions"][0]["capacity"], capacity)
-        # Do not broaden labels, unknown teacher names, or unapproved lengths.
-        for bad in [
-            "STEP | 90m | 古庄 | OPEN",
-            "STRETCH | 90m | 古庄 | OPEN",
-            "TAP | 60m | 30m | OPEN",
-            "TAP | 古庄 | 時間未定 | OPEN",
-            "TAP & WS | 60m | 古庄 | OPEN",
-        ]:
-            out, count = build([fixture(summary=bad)], "calendar", KEY, catalog, {}, NOW)
-            self.assertEqual(count, 0, bad)
+        events = []
+        for i, (title, stop, class_type, capacity, teacher) in enumerate(cases):
+            events.append(fixture(id="real-calendar-id-" + str(i), summary=title,
+                end={"dateTime": "2026-11-05T" + stop + "+09:00"}))
+        out, count = build(events, "calendar", KEY, catalog, {}, NOW)
+        self.assertEqual(count, len(events))
+        self.assertEqual(len(out["sessions"]), len(events))
+        for title, _, class_type, capacity, teacher in cases:
+            # Find by class/name where possible, without exposing event source IDs.
+            self.assertTrue(any(
+                row["classType"] == class_type and row["capacity"] == capacity
+                for row in out["sessions"]
+            ), title)
+        self.assertTrue(all(s["confirmedBookingCount"] is None for s in out["sessions"]))
+        self.assertNotIn("hidden@example.com", str(out))
+
+    def test_unformatted_but_valid_event_is_never_dropped(self):
+        out, count = build([fixture(summary="特別ワークショップ・発展クラス")],
+                           "calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        self.assertEqual(out["sessions"][0]["className"], "特別ワークショップ・発展クラス")
+        self.assertEqual(out["sessions"][0]["instructorName"], "スタジオに確認")
 
     def test_only_strict_open_classes_are_public(self):
         out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, NOW)
@@ -87,19 +98,30 @@ class CalendarSyncContract(unittest.TestCase):
                        "SECRET_PRIVATE_DESCRIPTION", "hidden@example.com", "本間 |"]:
             self.assertNotIn(secret, public)
 
-    def test_deny_private_closed_unlisted_and_mismatch(self):
+    def test_entire_sync_fails_closed_on_unsafe_event_metadata(self):
         for change in [
-            {"summary": "STEP🔰| 本間 |60m | CLOSE"},
-            {"summary": "STEP🔰| 本間 |60m | REOPEN"},
-            {"summary": "STEP🔰| 不明講師 |60m | OPEN"},
-            {"summary": "ISOLATION| 本間 |60m | OPEN"},
-            {"summary": "STEP🔰| 本間 |30m | OPEN"},
             {"visibility": "private"},
             {"status": "tentative"},
-            {"end": {"dateTime": "2026-11-05T11:30:00+09:00"}},
+            {"start": {"date": "2026-11-05"}},
+            {"summary": "private.user@example.org"},
+            {"summary": ""},
+            {"end": {"dateTime": "2026-11-05T09:30:00+09:00"}},
         ]:
-            _, count = build([fixture(**change)], "private-calendar", KEY, PEOPLE, {}, NOW)
-            self.assertEqual(count, 0, str(change))
+            with self.assertRaises(ValueError, msg=str(list(change))):
+                build([fixture(), fixture(id="bad-event", **change)],
+                      "private-calendar", KEY, PEOPLE, {}, NOW)
+
+    def test_dynamic_teacher_and_class_visibility(self):
+        out, count = build([fixture(
+            summary="STEP & 振付 | 60m | 古庄里好・MiFa-san | OPEN"
+        )], "calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        row = out["sessions"][0]
+        self.assertEqual(row["className"], "STEP & 振付")
+        self.assertEqual(row["instructorName"], "古庄里好・MiFa-san")
+        self.assertTrue(row["instructorId"].startswith("calendar-teacher-"))
+        self.assertEqual(row["capacity"], 10)
+        self.assertTrue(row["id"].startswith("session-"))
 
     def test_stable_id_and_cancellation_tombstone(self):
         first, _ = build([fixture()], "private-calendar", KEY, PEOPLE, {}, NOW)
