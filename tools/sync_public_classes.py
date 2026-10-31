@@ -171,6 +171,14 @@ def build(events, calendar_id, key, catalog, previous, now):
         id_map[ident] = public_id
     stamp = now.isoformat(timespec="seconds")
     public = project(normalized, people, id_map, stamp)
+    # The browser has a static official instructor catalog. Include only
+    # additional calendar-listed guest and co-teacher display identities.
+    public["instructors"] = [
+        dict(id=p["id"], name=p["name"], classes=p["classes"],
+             line="https://lin.ee/zC5YLe7", contactType="studio_official",
+             assignmentVerified=False)
+        for p in people if p["id"].startswith("calendar-teacher-")
+    ]
     if len(public["sessions"]) != len(events):
         raise RuntimeError("Calendar projection incomplete: refusing partial publication")
     # Previously published sessions removed from the active calendar are
