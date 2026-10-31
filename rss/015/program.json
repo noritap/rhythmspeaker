@@ -39,6 +39,19 @@
       "video_id": "dik8yupFXhs",
       "status": "received",
       "notes": "投稿者によるとNaoさんの掲載許可取得済み。別作品を準備中だが未受領。出演者の追加特定はしない。"
+    },
+    {
+      "intake_order": 3,
+      "program_order": null,
+      "title": "いろんなシムシャム踊ってみた",
+      "team": "ささっさー（一部メンバーは方向性の違いによりソロ活動中）",
+      "choreographer": "シムシャム（Noriシャム）",
+      "performers": null,
+      "comment": "いろんなシムシャムにチャレンジしてみました。\nいつもやっているシムシャムですが、少し変えてみると、また違う味が出てきます。\nどうぞ、生ぬるい目でご覧ください。",
+      "video_url": "https://youtu.be/N41Tl2az2T4",
+      "video_id": "N41Tl2az2T4",
+      "status": "received_video_url_needs_reconciliation",
+      "notes": "2026-10-31のユーザー貼付URL N41Tl2az2T4 を仮登録。ブラウザで確認したLINE履歴には同タイトルで qQFKw9ENaAE が記載されており、URLの整合性は未確認。両YouTubeページの直接取得は失敗。放送順未決定。"
     }
   ],
   "ordering_policy": {
