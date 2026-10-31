@@ -42,7 +42,6 @@ jobs:
       RS_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.RS_GOOGLE_SERVICE_ACCOUNT_JSON }}
       RS_LESSON_CALENDAR_ID: ${{ secrets.RS_LESSON_CALENDAR_ID }}
       RS_SESSION_ID_KEY: ${{ secrets.RS_SESSION_ID_KEY }}
-      RS_APPROVED_CLASS_CAPACITY: ${{ vars.RS_APPROVED_CLASS_CAPACITY }}
       RS_OPEN_CLASSES_APPROVED: ${{ vars.RS_OPEN_CLASSES_APPROVED }}
     steps:
       - uses: actions/checkout@v4

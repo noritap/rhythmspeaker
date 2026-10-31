@@ -28,13 +28,30 @@ def fixture(**changes):
 
 
 class CalendarSyncContract(unittest.TestCase):
+    def test_class_specific_capacity(self):
+        catalog = {"instructors": [{"id": "furusho", "name": "古庄里好",
+            "classes": ["STEP", "TAP", "STRETCH", "ISOLATION", "BAR METHOD", "HIIT"],
+            "contact": {"line": "https://lin.ee/zC5YLe7", "type": "studio_official"}}]}
+        expected = {"STEP": 10, "TAP": 10, "STRETCH": 5,
+                    "ISOLATION": 5, "BAR METHOD": 10, "HIIT": 10}
+        for class_name, capacity in expected.items():
+            duration = 30 if class_name in {"BAR METHOD", "HIIT"} else 60
+            end = "10:30:00" if duration == 30 else "11:00:00"
+            event = fixture(id="occurrence-" + class_name,
+                summary=f"{class_name} | 古庄 |{duration}m | OPEN",
+                end={"dateTime": "2026-11-05T" + end + "+09:00"})
+            result, count = build([event], "calendar", KEY, catalog, {}, NOW)
+            self.assertEqual(count, 1, class_name)
+            self.assertEqual(result["sessions"][0]["capacity"], capacity, class_name)
+            self.assertIsNone(result["sessions"][0]["confirmedBookingCount"])
+
     def test_only_strict_open_classes_are_public(self):
-        out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, 3, NOW)
+        out, count = build([fixture()], "private-calendar-id", KEY, PEOPLE, {}, NOW)
         self.assertEqual(count, 1)
         self.assertEqual(len(out["sessions"]), 1)
         row = out["sessions"][0]
         self.assertEqual(row["className"], "STEP 超初級")
-        self.assertEqual(row["capacity"], 3)
+        self.assertEqual(row["capacity"], 10)
         self.assertIsNone(row["confirmedBookingCount"])
         self.assertTrue(row["id"].startswith("session-"))
         public = str(out)
@@ -53,16 +70,16 @@ class CalendarSyncContract(unittest.TestCase):
             {"status": "tentative"},
             {"end": {"dateTime": "2026-11-05T11:30:00+09:00"}},
         ]:
-            _, count = build([fixture(**change)], "private-calendar", KEY, PEOPLE, {}, 3, NOW)
+            _, count = build([fixture(**change)], "private-calendar", KEY, PEOPLE, {}, NOW)
             self.assertEqual(count, 0, str(change))
 
     def test_stable_id_and_cancellation_tombstone(self):
-        first, _ = build([fixture()], "private-calendar", KEY, PEOPLE, {}, 3, NOW)
+        first, _ = build([fixture()], "private-calendar", KEY, PEOPLE, {}, NOW)
         moved = fixture(start={"dateTime": "2026-11-06T12:00:00+09:00"},
                         end={"dateTime": "2026-11-06T13:00:00+09:00"})
-        second, _ = build([moved], "private-calendar", KEY, PEOPLE, first, 3, NOW)
+        second, _ = build([moved], "private-calendar", KEY, PEOPLE, first, NOW)
         self.assertEqual(first["sessions"][0]["id"], second["sessions"][0]["id"])
-        third, _ = build([], "private-calendar", KEY, PEOPLE, second, 3, NOW)
+        third, _ = build([], "private-calendar", KEY, PEOPLE, second, NOW)
         self.assertEqual(third["sessions"][0]["publicStatus"], "CANCELLED")
 
     def test_other_calendar_or_key_changes_id(self):
