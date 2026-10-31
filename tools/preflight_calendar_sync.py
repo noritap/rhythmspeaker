@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 from sync_public_classes import (
-    CLASS_CAPACITIES,
+    capacity_for_class,
     SECRETS,
     TZ,
     build,
@@ -40,12 +40,12 @@ def ensure_safe_projection(projection, events):
     output = json.dumps(projection, ensure_ascii=False)
     identities = set()
     for session in sessions:
-        if set(session) != allowed or session["classType"] not in CLASS_CAPACITIES:
+        if set(session) != allowed:
             raise PreflightFailure("SANITIZED_OUTPUT_INVALID")
         if session["id"] in identities or not re.fullmatch(r"session-[a-f0-9]{24}", session["id"]):
             raise PreflightFailure("SANITIZED_OUTPUT_INVALID")
         identities.add(session["id"])
-        if session["capacity"] != CLASS_CAPACITIES[session["classType"]]:
+        if session["capacity"] != capacity_for_class(session["className"]):
             raise PreflightFailure("SANITIZED_OUTPUT_INVALID")
         if (session["confirmedBookingCount"] is not None
                 or session["bookingCountStatus"] != "unknown"
@@ -103,10 +103,11 @@ def main():
         projection, supported = build(events, calendar_id, key, catalog, {}, now)
     except Exception:
         raise PreflightFailure("PARSER_OR_PROJECTION_FAILED") from None
-    if not supported:
-        raise PreflightFailure("NO_APPROVED_SCHEMA_MATCHES")
+    if supported != len(events):
+        raise PreflightFailure("INCOMPLETE_CALENDAR_COVERAGE")
     ensure_safe_projection(projection, events)
-    print("PREFLIGHT_OK: authenticated read, approved-schema projection, privacy and capacity checks.")
+    print("PREFLIGHT_OK: authenticated read, full calendar coverage, privacy and capacity checks.")
+    print("COVERAGE: source_events=" + str(len(events)) + "; projected_events=" + str(supported))
     print("READ_ONLY: no JSON, calendar or booking data was written; no event content was logged.")
 
 
