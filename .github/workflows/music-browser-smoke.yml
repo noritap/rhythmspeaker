@@ -1,0 +1,31 @@
+name: Music Browser Smoke
+on:
+  pull_request:
+    paths:
+      - "music/**"
+      - "tools/music_browser_smoke.cjs"
+      - ".github/workflows/music-browser-smoke.yml"
+  push:
+    branches: [main]
+    paths:
+      - "music/**"
+      - "tools/music_browser_smoke.cjs"
+      - ".github/workflows/music-browser-smoke.yml"
+permissions:
+  contents: read
+jobs:
+  browser-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright Chromium
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Serve static GitHub Pages tree and smoke-test browser UX
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 &
+          node tools/music_browser_smoke.cjs
