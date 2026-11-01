@@ -5,7 +5,7 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
 ## Architecture
 
 - Source: studio-owned **レッスン296** Google Calendar, read-only service-account access.
-- Runtime: GitHub Actions, hourly schedule, only after explicit repository-variable approval.
+- Runtime: GitHub Actions with two scheduled opportunities per hour, only after explicit repository-variable approval.
 - Output: \`data/class-sessions.public.json\`, the existing GitHub Pages UI's data source.
 - No direct browser access to private Google Calendar; no calendar editing or booking writes.
 - 「296レンタル」 is **not** published and is not used as a free/busy guarantee.
@@ -24,7 +24,7 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
 - **A customer's attendance reservation is confirmed only when the studio explicitly replies 「予約確定」 by LINE message or email.** An inquiry, a copy button, opening LINE, or even sending a message does not constitute booking confirmation.
 - `CLOSE` at the end of a calendar event title means the confirmed class accepts **no further joining students**, but remains public. `OPEN` or no marker means new joining inquiries are accepted, without guaranteeing a seat.
 - The visitor-visible `開催情報を再読み込み` button only re-fetches `data/class-sessions.public.json` from **GitHub Pages** with a cache-busting request. It does not contact Google Calendar, trigger GitHub Actions, mutate classes, or incur extra paid back-end operations.
-- Google Calendar to GitHub data publication remains separate via the approved hourly GitHub Actions job (cron: `17 * * * *`). Calendar changes become visible **after successful scheduled sync and Pages deployment**; the user-side refresh only picks up the latest already-published snapshot.
+- Google Calendar to GitHub data publication remains separate via the approved GitHub Actions job (cron: `17,47 * * * *`, two opportunities per hour). Calendar changes become visible **after successful scheduled sync and Pages deployment**; the user-side refresh only picks up the latest already-published snapshot.
 - For immediate Google Calendar-to-site sync, an authenticated operator may manually dispatch the existing workflow on `main`. Never expose GitHub tokens or Calendar credentials to public browser code, nor allow any visitor to trigger a backend sync.
 - When refreshing fails, the UI preserves the last validated data and shows an error. After 3h without successful source sync, the existing stale-data guard still hides outdated class availability.
 
@@ -109,6 +109,17 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
   described as a completed production connection.
 - Use \`python tools/test_sync_public_classes.py\` and
   \`python tools/test_public_class_projection.py\` for offline contracts.
+
+## VC1 publication reliability (2026-11-02; Draft PR until merged)
+
+- GitHub Actions attempts scheduling at minutes 17 and 47 each hour. This reduces the expected wait but is **not a guaranteed timer**: GitHub may delay or omit scheduled events.
+- The `publish` job retains its `main`-only, explicit approval-variable gate, write permission scoped to that job, and `publish-public-classes` concurrency group. No production calendar credentials are used by PR test jobs.
+- `tools/publish_public_classes.sh` commits only `data/class-sessions.public.json` and uses a normal, **non-force** push.
+- On a push rejection, it fetches the newest `main`. A retry is allowed only when the remote history is a descendant of the original checkout and the public JSON itself has **not changed** remotely. Unrelated concurrent commits are rebased; changed public JSON, rewrite, or unchanged remote head fail closed.
+- The publish step has a maximum of three attempts. A failed job must remain visibly failed for investigation; never silently mark a skipped or conflicted publication as successful.
+- Offline regression tests run via `python tools/test_calendar_workflow_reliability.py`, using disposable local Git repos to test normal publish, no-op, unrelated remote commit, conflicting public JSON, and non-main ref safety.
+- No automatic outside watchdog, alerting, or user-facing stale-UI redesign is included in VC1. Those remain future independent changes.
+- After merging and explicitly approving release, inspect the next scheduled Actions runs and GitHub Pages' published `lastSuccessfulSyncAt`. A merge alone does not guarantee that a scheduled run will occur.
 
 ## Rollback
 
