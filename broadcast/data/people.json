@@ -7,7 +7,8 @@
     "episode_ids": [
       "ayako-000",
       "ayako-001",
-      "ayako-002"
+      "ayako-002",
+      "ayako-003"
     ],
     "official_url": "https://ayatap.amebaownd.com/",
     "instagram_url": "https://www.instagram.com/ayako_ukawa",
@@ -28,7 +29,8 @@
     "episode_ids": [
       "ayako-000",
       "ayako-001",
-      "ayako-002"
+      "ayako-002",
+      "ayako-003"
     ],
     "official_url": "https://noritap.github.io/furusho-official/",
     "portrait_url": "../tap-dance-instructor-furusho-noritaka.jpg",
@@ -71,5 +73,18 @@
     "portrait_fallback_url": "https://i.ytimg.com/vi/L5TENbISDpI/maxresdefault.jpg",
     "portrait_position": "50% 25%",
     "portrait_permission_basis": "RSBN運営者が出演者本人からWeb掲載許可を取得済みと2026-10-09に確認"
+  },
+  {
+    "id": "moa-imai",
+    "name": "今井萌愛",
+    "name_en": "Moa Imai",
+    "role": "Tap Dancer / Guest",
+    "episode_ids": [
+      "ayako-003"
+    ],
+    "instagram_url": "https://www.instagram.com/imaimoa/",
+    "portrait_usage_status": "UNVERIFIED",
+    "portrait_fallback_url": "https://i.ytimg.com/vi/h3_i-OyvqpE/maxresdefault.jpg",
+    "portrait_position": "50% 24%"
   }
 ]
