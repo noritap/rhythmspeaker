@@ -196,5 +196,65 @@
       }
     ],
     "event_id": null
+  },
+  {
+    "id": "ayako-003",
+    "program": "ayako-no-heya",
+    "episode_number": 3,
+    "title": "今井萌愛 × 宇川彩子｜呼吸で変わるタップ表現、ヒール禁止の即興セッション",
+    "guest_ids": [
+      "moa-imai"
+    ],
+    "published": "2026-10-16",
+    "duration": "25:17",
+    "youtube_id": "h3_i-OyvqpE",
+    "youtube_url": "https://youtu.be/h3_i-OyvqpE",
+    "thumbnail_url": "https://i.ytimg.com/vi/h3_i-OyvqpE/maxresdefault.jpg",
+    "summary": "今井萌愛さんを迎え、タップとの出会い、呼吸で変わる身体表現、俺のシャッフル、ヒールを使わない即興セッションまでをトークと実演で掘り下げる第3回。",
+    "topics": [
+      "breathing",
+      "shuffle",
+      "improvisation",
+      "dance-expression",
+      "toe-only-improvisation"
+    ],
+    "chapters": [
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング・ゲスト紹介（今井萌愛さん）"
+      },
+      {
+        "time": "01:30",
+        "seconds": 90,
+        "label": "トーク：タップダンスとの出会い・経歴"
+      },
+      {
+        "time": "03:20",
+        "seconds": 200,
+        "label": "俺のシャッフル"
+      },
+      {
+        "time": "05:15",
+        "seconds": 315,
+        "label": "呼吸で変わるタップ表現について"
+      },
+      {
+        "time": "12:00",
+        "seconds": 720,
+        "label": "あやこのインプロ講座 プチ｜ヒール禁止の即興セッション"
+      },
+      {
+        "time": "20:45",
+        "seconds": 1245,
+        "label": "セッションの振り返りと感想"
+      },
+      {
+        "time": "24:30",
+        "seconds": 1470,
+        "label": "エンディング"
+      }
+    ],
+    "event_id": null
   }
 ]
