@@ -31,7 +31,7 @@ class WorkflowContract(unittest.TestCase):
         self.assertIn("group: publish-public-classes", source)
         self.assertIn("cancel-in-progress: false", source)
         self.assertRegex(source, r"permissions:\s*\n\s*contents: read")
-        self.assertRegex(source, r"publish:.*?permissions:\s*\n\s*contents: write", re.S)
+        self.assertIsNotNone(re.search(r"publish:.*?permissions:\s*\n\s*contents: write", source, re.S))
         for secret in ("RS_GOOGLE_SERVICE_ACCOUNT_JSON", "RS_LESSON_CALENDAR_ID",
                        "RS_SESSION_ID_KEY"):
             self.assertIn("secrets." + secret, source)
