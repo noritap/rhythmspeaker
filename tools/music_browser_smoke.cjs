@@ -12,6 +12,7 @@ const assert = require('node:assert/strict');
    await page.locator('[data-rsm-results] .rsm-track-row').first().waitFor({timeout:15000});
    assert.match(await page.locator('[data-rsm-count]').innerText(),/38曲/);
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+   if(overflow>2){const offenders=await page.evaluate(()=>Array.from(document.querySelectorAll('*')).map(el=>({tag:el.tagName,cls:(el.className||'').toString().slice(0,110),text:(el.textContent||'').trim().slice(0,35),right:Math.round(el.getBoundingClientRect().right),left:Math.round(el.getBoundingClientRect().left)})).filter(x=>x.right>window.innerWidth+2||x.left< -2).slice(0,25));console.log('OVERFLOW OFFENDERS',width,JSON.stringify(offenders));}
    assert(overflow<=2,'horizontal overflow '+width+': '+overflow);
    if(width===390){
     await page.locator('[data-rsm-search]').fill('Steady Hands');
