@@ -247,6 +247,14 @@
     .filter((episode) => episode.program === programId)
     .sort((a, b) => Number(b.episode_number || 0) - Number(a.episode_number || 0))[0] || null;
 
+  const chapterAnchor = (chapter) => `chapter-${String(chapter.time || '00:00').replace(':', '-')}`;
+  const chapterHref = (episode, chapter) => {
+    const url = new URL(episodeHref(episode));
+    url.searchParams.set('start', Number(chapter.seconds || 0));
+    url.hash = chapterAnchor(chapter);
+    return url.href;
+  };
+
   const makeStreamEpisodeTile = (episode, program, guestNames = []) => {
     const link = document.createElement('a');
     link.className = 'stream-tile';
@@ -263,6 +271,7 @@
     image.src = episode.thumbnail_url || `https://i.ytimg.com/vi/${episode.youtube_id}/hqdefault.jpg`;
     image.alt = `${program?.name || ''} EP.${String(episode.episode_number).padStart(2, '0')} ${guestNames.join(' / ')}`.trim();
     image.loading = 'lazy';
+    image.decoding = 'async';
     media.append(image);
 
     const body = document.createElement('div');
@@ -328,7 +337,6 @@
 
     const media = document.createElement('div');
     media.className = 'stream-tile__media';
-
     const showEditorialFallback = () => {
       media.replaceChildren();
       media.classList.remove('stream-tile__media--portrait');
@@ -338,18 +346,13 @@
       media.append(title);
     };
 
-    // The source link alone does not grant republication rights.
-    // Until usage is verified, show only the already-published show thumbnail.
-    const approvedPortrait = person.portrait_url
-      && person.portrait_usage_status === 'VERIFIED';
+    const approvedPortrait = person.portrait_url && person.portrait_usage_status === 'VERIFIED';
     const imageUrl = approvedPortrait ? person.portrait_url : person.portrait_fallback_url;
     if (imageUrl) {
       media.classList.add('stream-tile__media--portrait');
       const photo = document.createElement('img');
       photo.src = new URL(imageUrl, scriptUrl).href;
-      photo.alt = approvedPortrait
-        ? `${person.name}のプロフィール写真`
-        : `${person.name}さん出演回のYouTubeサムネイル`;
+      photo.alt = approvedPortrait ? `${person.name}のプロフィール写真` : `${person.name}さん出演回のYouTubeサムネイル`;
       if (!approvedPortrait) photo.dataset.fallback = 'true';
       photo.loading = 'lazy';
       photo.decoding = 'async';
@@ -375,12 +378,23 @@
     const name = document.createElement('h3');
     name.textContent = person.name;
     const summary = document.createElement('p');
-    summary.textContent = latestAppearance
-      ? `EP.${String(latestAppearance.episode_number).padStart(2, '0')} から見る`
-      : '人物アーカイブへ';
+    summary.textContent = latestAppearance ? `EP.${String(latestAppearance.episode_number).padStart(2, '0')} から見る` : '人物アーカイブへ';
     body.append(label, name, summary);
     link.append(media, body);
     return link;
+  };
+
+  const topicLabels = {
+    improvisation: 'IMPROVISATION',
+    shuffle: 'SHUFFLE',
+    groove: 'GROOVE',
+    'live-music': 'LIVE MUSIC',
+    'band-ensemble': 'ENSEMBLE',
+    metronome: 'METRONOME',
+    twist: 'TWIST',
+    'studio-history': 'HISTORY',
+    AABA: 'AABA',
+    'blue-note-dream': 'DREAM / STAGE'
   };
 
   const renderNetworkHome = async () => {
@@ -388,7 +402,11 @@
     const latestShelf = document.querySelector('[data-rsb-network-latest]');
     const programShelf = document.querySelector('[data-rsb-network-programs]');
     const peopleShelf = document.querySelector('[data-rsb-network-people]');
-    if (!featured && !latestShelf && !programShelf && !peopleShelf) return;
+    const chapterGrid = document.querySelector('[data-rsb-network-chapters]');
+    const topicGrid = document.querySelector('[data-rsb-network-topics]');
+    const cornerGrid = document.querySelector('[data-rsb-network-corners]');
+    const picksGrid = document.querySelector('[data-rsb-network-picks]');
+    if (![featured, latestShelf, programShelf, peopleShelf, chapterGrid, topicGrid, cornerGrid, picksGrid].some(Boolean)) return;
 
     try {
       const [programs, episodes, people] = await Promise.all([
@@ -399,14 +417,9 @@
 
       const programsById = new Map(programs.map((item) => [item.id, item]));
       const peopleById = new Map(people.map((item) => [item.id, item]));
-      const orderedEpisodes = [...episodes].sort((a, b) => {
-        const programCompare = String(a.program).localeCompare(String(b.program));
-        if (programCompare !== 0) return programCompare;
-        return Number(b.episode_number || 0) - Number(a.episode_number || 0);
-      });
-
+      const orderedEpisodes = [...episodes].sort((a, b) => Number(b.episode_number || 0) - Number(a.episode_number || 0));
       const featuredProgram = programs.find((program) => latestEpisodeForProgram(program.id, episodes)) || programs[0];
-      const featuredEpisode = featuredProgram ? latestEpisodeForProgram(featuredProgram.id, episodes) : null;
+      const featuredEpisode = featuredProgram ? latestEpisodeForProgram(featuredProgram.id, episodes) : orderedEpisodes[0] || null;
 
       if (featured && featuredProgram && featuredEpisode) {
         const heroImage = featuredEpisode.thumbnail_url || `https://i.ytimg.com/vi/${featuredEpisode.youtube_id}/maxresdefault.jpg`;
@@ -430,15 +443,10 @@
 
       if (latestShelf) {
         const fragment = document.createDocumentFragment();
-        orderedEpisodes
-          .sort((a, b) => Number(b.episode_number || 0) - Number(a.episode_number || 0))
-          .slice(0, 8)
-          .forEach((episode) => {
-            const guestNames = (episode.guest_ids || [])
-              .map((id) => peopleById.get(id)?.name)
-              .filter(Boolean);
-            fragment.append(makeStreamEpisodeTile(episode, programsById.get(episode.program), guestNames));
-          });
+        orderedEpisodes.slice(0, 8).forEach((episode) => {
+          const guestNames = (episode.guest_ids || []).map((id) => peopleById.get(id)?.name).filter(Boolean);
+          fragment.append(makeStreamEpisodeTile(episode, programsById.get(episode.program), guestNames));
+        });
         latestShelf.replaceChildren(fragment);
       }
 
@@ -457,16 +465,129 @@
         episodes.forEach((episode) => (episode.guest_ids || []).forEach((id) => visibleIds.add(id)));
 
         const fragment = document.createDocumentFragment();
-        [...visibleIds]
-          .map((id) => peopleById.get(id))
-          .filter(Boolean)
-          .forEach((person) => {
-            const appearance = episodes
-              .filter((episode) => (episode.guest_ids || []).includes(person.id))
-              .sort((a, b) => Number(b.episode_number || 0) - Number(a.episode_number || 0))[0] || null;
-            fragment.append(makeStreamPersonTile(person, appearance));
-          });
+        [...visibleIds].map((id) => peopleById.get(id)).filter(Boolean).forEach((person) => {
+          const appearance = episodes
+            .filter((episode) => (episode.guest_ids || []).includes(person.id))
+            .sort((a, b) => Number(b.episode_number || 0) - Number(a.episode_number || 0))[0] || null;
+          fragment.append(makeStreamPersonTile(person, appearance));
+        });
         peopleShelf.replaceChildren(fragment);
+      }
+
+      if (chapterGrid && featuredEpisode) {
+        const meaningful = (featuredEpisode.chapters || []).filter((chapter) => !/オープニング|エンディング/.test(chapter.label || ''));
+        const preferred = meaningful.filter((chapter) => /シャッフル|インプロ|生演奏|夢|バンド|セッション/.test(chapter.label || ''));
+        const selected = [...preferred, ...meaningful].filter((chapter, index, list) => list.findIndex((item) => item.time === chapter.time) === index).slice(0, 3);
+        const fragment = document.createDocumentFragment();
+        selected.forEach((chapter) => {
+          const link = document.createElement('a');
+          link.className = 'chapter-feature';
+          link.href = chapterHref(featuredEpisode, chapter);
+          link.style.setProperty('--chapter-image', `url("${featuredEpisode.thumbnail_url || ''}")`);
+          link.dataset.rsbEvent = 'episode_chapter_click';
+          link.dataset.programId = featuredEpisode.program;
+          link.dataset.episodeId = featuredEpisode.id;
+          link.dataset.placement = 'network-featured-chapters';
+          link.dataset.destinationType = 'episode_chapter';
+          const time = document.createElement('span');
+          time.className = 'chapter-time';
+          time.textContent = chapter.time;
+          const title = document.createElement('strong');
+          title.textContent = chapter.label;
+          const meta = document.createElement('small');
+          meta.textContent = `EP.${String(featuredEpisode.episode_number).padStart(2, '0')} から見る`;
+          link.append(time, title, meta);
+          fragment.append(link);
+        });
+        if (fragment.childNodes.length) chapterGrid.replaceChildren(fragment);
+      }
+
+      if (topicGrid) {
+        const stats = new Map();
+        orderedEpisodes.forEach((episode) => (episode.topics || []).forEach((topic) => {
+          const current = stats.get(topic) || { count: 0, latest: episode };
+          current.count += 1;
+          if (Number(episode.episode_number || 0) > Number(current.latest?.episode_number || -1)) current.latest = episode;
+          stats.set(topic, current);
+        }));
+        const fragment = document.createDocumentFragment();
+        [...stats.entries()].sort((a, b) => b[1].count - a[1].count).slice(0, 8).forEach(([topic, stat]) => {
+          const link = document.createElement('a');
+          link.className = 'topic-card';
+          link.href = episodeHref(stat.latest);
+          link.dataset.rsbEvent = 'broadcast_topic_click';
+          link.dataset.episodeId = stat.latest.id;
+          link.dataset.placement = 'network-topics';
+          link.dataset.destinationType = 'episode';
+          const label = document.createElement('small');
+          label.textContent = `${stat.count} EPISODE${stat.count > 1 ? 'S' : ''}`;
+          const title = document.createElement('strong');
+          title.textContent = topicLabels[topic] || String(topic).replaceAll('-', ' ').toUpperCase();
+          const arrow = document.createElement('span');
+          arrow.textContent = '関連Episodeを見る →';
+          link.append(label, title, arrow);
+          fragment.append(link);
+        });
+        if (fragment.childNodes.length) topicGrid.replaceChildren(fragment);
+      }
+
+      if (cornerGrid) {
+        const definitions = [
+          { key: /俺のシャッフル/, name: '俺のシャッフル', description: '同じShuffleでも、音・身体・打点は人によって違う。' },
+          { key: /あやこのインプロ講座/, name: 'あやこのインプロ講座 プチ', description: '即興をルールと音の会話としてほどいていく。' }
+        ];
+        const fragment = document.createDocumentFragment();
+        definitions.forEach((definition) => {
+          const matches = [];
+          orderedEpisodes.forEach((episode) => (episode.chapters || []).forEach((chapter) => {
+            if (definition.key.test(chapter.label || '')) matches.push({ episode, chapter });
+          }));
+          if (!matches.length) return;
+          const latest = matches[0];
+          const link = document.createElement('a');
+          link.className = 'corner-v3-card';
+          link.href = chapterHref(latest.episode, latest.chapter);
+          link.dataset.rsbEvent = 'broadcast_corner_click';
+          link.dataset.episodeId = latest.episode.id;
+          link.dataset.placement = 'network-corners';
+          link.dataset.destinationType = 'episode_chapter';
+          const small = document.createElement('small');
+          small.textContent = `REGULAR / ${matches.length} EPISODES`;
+          const title = document.createElement('strong');
+          title.textContent = definition.name;
+          const body = document.createElement('p');
+          body.textContent = definition.description;
+          link.append(small, title, body);
+          fragment.append(link);
+        });
+        if (fragment.childNodes.length) cornerGrid.replaceChildren(fragment);
+      }
+
+      if (picksGrid && featuredEpisode) {
+        const meaningful = (featuredEpisode.chapters || []).filter((chapter) => !/オープニング|エンディング|ライブ情報/.test(chapter.label || ''));
+        const candidates = [
+          meaningful.find((chapter) => /シャッフル/.test(chapter.label || '')),
+          meaningful.find((chapter) => /インプロ|生演奏|バンド|セッション/.test(chapter.label || '')),
+          meaningful.find((chapter) => /夢|原点|出会い|舞台/.test(chapter.label || ''))
+        ].filter(Boolean);
+        const selected = [...candidates, ...meaningful].filter((chapter, index, list) => list.findIndex((item) => item.time === chapter.time) === index).slice(0, 3);
+        const fragment = document.createDocumentFragment();
+        selected.forEach((chapter, index) => {
+          const link = document.createElement('a');
+          link.className = 'route-card';
+          link.href = chapterHref(featuredEpisode, chapter);
+          link.dataset.rsbEvent = 'broadcast_editorial_pick_click';
+          link.dataset.episodeId = featuredEpisode.id;
+          link.dataset.placement = 'network-editorial-route';
+          link.dataset.destinationType = 'episode_chapter';
+          const number = document.createElement('span');
+          number.textContent = String(index + 1).padStart(2, '0');
+          const title = document.createElement('strong');
+          title.textContent = `${chapter.time}　${chapter.label}`;
+          link.append(number, title);
+          fragment.append(link);
+        });
+        if (fragment.childNodes.length) picksGrid.replaceChildren(fragment);
       }
     } catch (error) {
       console.warn('[RSB] Network home fallback retained.', error);
