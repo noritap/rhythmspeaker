@@ -32,7 +32,7 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 .portal-quick-card--schedule{background:#f0e4df}
 .portal-section{margin:0 0 46px}
 .portal-section>.portal-grid{display:grid;gap:15px}
-.portal-grid--lessons,.portal-grid--shopping{grid-template-columns:repeat(2,minmax(0,1fr))}
+.portal-grid--lessons{grid-template-columns:repeat(2,minmax(0,1fr))}.portal-grid--shopping{grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr)}
 .portal-grid--media,.portal-grid--support{grid-template-columns:repeat(3,minmax(0,1fr))}
 .portal-section .portal-tile{min-height:220px;padding:20px 22px;background:#f2f0eb}
 .portal-section--lessons .portal-tile{min-height:250px}
@@ -73,3 +73,5 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
  .portal-section .portal-shortcuts a{min-height:44px}
 }
 @media(prefers-reduced-motion:reduce){.portal-quick-card{transition:none}.portal-quick-card:hover{transform:none}}
+
+@media(max-width:700px){.portal-section .portal-main>p{font-size:13px}.portal-section .portal-shortcuts a{font-size:12px}}
