@@ -1,7 +1,7 @@
 # RHYTHM SPEAKER｜全公式Web 文言UX・情報整理ポリシー v1.0
 
 Updated: 2026-11-01
-Status: ACTIVE / For public copy changes
+Status: SUPERSEDED by [RS_WEB_UX_RULES_V2.md](RS_WEB_UX_RULES_V2.md). Historical reference only.
 Repository: `noritap/rhythmspeaker`
 Canonical source: `PROJECT_PROFILE.md`, `README.md`, current `main`
 
