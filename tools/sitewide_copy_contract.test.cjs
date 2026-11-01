@@ -61,7 +61,8 @@ has('rental/index.html', '30%');
 has('workshops/event.html', '予約を受け付けました');
 has('instructor-registration/index.html', '個人情報');
 has('classes/step/index.html', 'STEP超初級');
-has('music/albums/saa-ittemiyouka/index.html', 'TRACK LIST');
+has('music/albums/saa-ittemiyouka/index.html', 'album/saa-ittemiyouka');
+has('music/app.js', 'THE TRACKLIST');
 has('broadcast/programs/ayako-no-heya/index.html', 'あやこの部屋');
 
 console.log('PASS: ' + pages.length + ' HTML pages accounted for; core copy and operational boundaries protected.');

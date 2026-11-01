@@ -1,0 +1,69 @@
+{
+  "sites_project_id": "appgprj_6ae71c962ffc8191b79b785fffeddb96",
+  "sites_version": 3,
+  "sites_commit": "e5288b220cd3fbb626520af4d0b473636c65e158",
+  "sites_saved_version_id": "appgprj_6ae71c962ffc8191b79b785fffeddb96~appgver_b03016f4b2048191a36767a7b4f16001",
+  "github_main_commit": "1999652412413103c97eafbe6b35cc48efc3a846",
+  "method": "git show from exact commit confirmed by Sites saved-version metadata; no screen reconstruction",
+  "source_files": [
+    {
+      "source_path": "dist/app.js",
+      "package_path": "source/original/app.js",
+      "sha256": "acd86c1adc6ae3a500b23c63bd6b1884d62ea88074e218a053721466202cce6b"
+    },
+    {
+      "source_path": "dist/assets/brand/RSM_monogram_white_on_black.png",
+      "package_path": "assets/brand/RSM_monogram_white_on_black.png",
+      "sha256": "7583e793363526a99aec234d3335ddeb29775bb20ba847f66b4e637af96f6aba"
+    },
+    {
+      "source_path": "dist/assets/brand/RSM_monogram_white_on_black.webp",
+      "package_path": "assets/brand/RSM_monogram_white_on_black.webp",
+      "sha256": "c2c1e8c8627d93d741972dd9623f037cad66b853313e03d260abc5573ce64793"
+    },
+    {
+      "source_path": "dist/assets/images/albums/saa-ittemiyouka/ASSET_MANIFEST.md",
+      "package_path": "assets/images/albums/saa-ittemiyouka/ASSET_MANIFEST.md",
+      "sha256": "d226717cf8718b942e61b5734d51df59baedf2784756bc463c14262673ec0cce"
+    },
+    {
+      "source_path": "dist/assets/images/albums/saa-ittemiyouka/saa-ittemiyouka_B_cover-published_1x1.jpg",
+      "package_path": "assets/images/albums/saa-ittemiyouka/saa-ittemiyouka_B_cover-published_1x1.jpg",
+      "sha256": "aebff278c21183a2c16bead1c208211c721d4526c35ff42937058b4e19fca9c1"
+    },
+    {
+      "source_path": "dist/assets/images/albums/saa-ittemiyouka/saa-ittemiyouka_B_cover-published_1x1.webp",
+      "package_path": "assets/images/albums/saa-ittemiyouka/saa-ittemiyouka_B_cover-published_1x1.webp",
+      "sha256": "fd5730667a7f0786e844946dcbdbdb5ccbd974bcedde6a14bc515586672db342"
+    },
+    {
+      "source_path": "dist/assets/images/albums/tap-dance-in-suspense/tap-dance-in-suspense_B_cover-published_1x1.webp",
+      "package_path": "assets/images/albums/tap-dance-in-suspense/tap-dance-in-suspense_B_cover-published_1x1.webp",
+      "sha256": "72cf8162083b1e6ba82efc394a534039d4082d9baac469f797f35981c932e60f"
+    },
+    {
+      "source_path": "dist/data/catalog.json",
+      "package_path": "data/catalog.json",
+      "sha256": "b99ddb9f203c11c8fb6b8625a5fbde865b3b4f43de70f82cf554e25a6a1aa743"
+    },
+    {
+      "source_path": "dist/index.html",
+      "package_path": "source/original/index.html",
+      "sha256": "7f752bed9c78d2dca11d2c64b8c8991b38b7d3488b8378bdbc16d3c9b36a330c"
+    },
+    {
+      "source_path": "dist/style.css",
+      "package_path": "source/original/style.css",
+      "sha256": "2b7af66008ab8104efff58d1fe8ce7313afebf26e628da52cf25ba7099938b30"
+    }
+  ],
+  "screen_reconstructed_files": [],
+  "export_generated_files": [
+    "source/github-pages/music/index.html",
+    "source/github-pages/music/app.js",
+    "source/github-pages/music/albums/*/index.html",
+    "source/github-pages/music/discover/index.html",
+    "source/github-pages/music/albums/index.html",
+    "source/github-pages/music/listen/index.html"
+  ]
+}

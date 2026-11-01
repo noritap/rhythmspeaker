@@ -12,7 +12,7 @@ for(const a of data.albums){
  assert(/^https:\/\/www\.youtube\.com\/playlist\?list=[\w-]+$/.test(a.playlist_url));
  if(!a.image.startsWith('https://'))assert(fs.existsSync(path.join(root,'music',a.image)),'missing album image: '+a.image);
  const html=read('music/albums/'+a.slug+'/index.html');
- assert(html.includes('../../explorer.js')&&html.includes('../../explorer.css'),'album missing explorer: '+a.slug);
+ assert(html.includes('./app.js')&&html.includes('rsm-initial-route')&&html.includes('album/'+a.slug),'album route missing: '+a.slug);
  for(const [n,t] of a.tracks.entries()){
   assert.equal(t.number,n+1);
   assert(t.id&&t.title&&t.playback&&!ids.has(t.id),'invalid track: '+t.id);ids.add(t.id);
@@ -31,7 +31,8 @@ assert.equal(direct,33,'expected 33 verified direct-video IDs');
 const disco=data.albums.find(a=>a.slug==='disco-001');
 assert(disco&&disco.id==='RSM-ALB-004'&&disco.tracks.length===14,'DISCO 001 catalog missing');
 assert(disco.tracks.every(t=>t.youtube_id&&t.duration_seconds>0),'DISCO 001 individual videos/durations required');
-const home=read('music/index.html'),script=read('music/explorer.js');
-assert(home.includes('data-rsm-explorer')&&home.includes('./explorer.js')&&home.includes('../broadcast/'));
-assert(script.includes('youtube-nocookie.com/embed/')&&script.includes('data/catalog.json'));
+const home=read('music/index.html'),script=read('music/app.js');
+assert(home.includes('./app.js')&&home.includes('#discover')&&home.includes('https://noritap.github.io/rhythmspeaker/broadcast/'));
+assert(script.includes('www.youtube.com/embed/')&&script.includes('data/catalog.json'));
+for(const view of ['discover','albums','listen'])assert(read('music/'+view+'/index.html').includes('rsm-initial-route'));
 console.log('MUSIC AUDIT PASS: '+data.albums.length+' albums / '+total+' tracks / '+direct+' direct / '+(total-direct)+' playlist-only');

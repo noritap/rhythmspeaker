@@ -1,0 +1,39 @@
+{
+  "base_main": "1999652412413103c97eafbe6b35cc48efc3a846",
+  "screens": [
+    "HOME",
+    "DISCOVER",
+    "ALBUMS",
+    "album/disco-001",
+    "album/tap-dance-in-suspense",
+    "album/saa-ittemiyouka",
+    "album/velvet-city-motion",
+    "LISTEN"
+  ],
+  "widths": [
+    320,
+    375,
+    390,
+    430,
+    1280,
+    1440,
+    1920
+  ],
+  "layout_cases": 56,
+  "horizontal_overflow": 0,
+  "broken_local_images": 0,
+  "search": {
+    "Steady Hands": 1,
+    "FUNK": 38,
+    "FUNK+DISCO": 14,
+    "no_match": 0,
+    "reset": 52
+  },
+  "queue_previous_next": "pass",
+  "stop_on_leave": "pass",
+  "album_playback": "observed YouTube API playing state for VELVET CITY MOTION",
+  "audio_all_tracks": "not verified",
+  "application_console_errors_observed": [],
+  "missing_direct_ids": 19,
+  "missing_official_covers": 2
+}
