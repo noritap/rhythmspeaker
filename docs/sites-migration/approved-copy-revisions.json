@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Owner-approved protected HTML revisions, including sitewide copy simplification, RS BROADCAST HOME v3, and あやこの部屋 live-sync connection.",
+  "approvedReason": "Owner-approved protected HTML revisions, including corrected あやこの部屋 EP.03 corner timestamps.",
   "scope": "Exact content-addressed protected HTML revisions only; immutable SHA-256 baseline remains unchanged.",
   "blobSha1": {
     "broadcast/index.html": "463099986911202c3d45931a40d4e1e92b1d2190",
@@ -20,6 +20,6 @@
     "rss/index.html": "d793c1a78ab2b444e4efe7e4ebfd5b9bcd464918",
     "trial/apply/index.html": "41f4e0f5951c6a4fd5e0080ee03521364cf13646",
     "workshops/index.html": "c36238baba0ccfc120080b5c4ccf81e358bcc8fb",
-    "broadcast/programs/ayako-no-heya/index.html": "038a7f320b41b93bbc7afe61b4c808baaa7dd830"
+    "broadcast/programs/ayako-no-heya/index.html": "d442ffc8b094ac6e4e498d99f6b478bb3f7c1718"
   }
 }
