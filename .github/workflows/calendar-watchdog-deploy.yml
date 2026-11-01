@@ -1,0 +1,83 @@
+# Scoped, intentionally manual Cloudflare release. Never runs on pull requests.
+name: Calendar watchdog production deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: "Type DEPLOY_RS_CALENDAR_WATCHDOG to authorize this release"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rs-calendar-watchdog-cloudflare-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Confirm exact production repository, ref, and owner approval
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REPOSITORY" != "noritap/rhythmspeaker" ||
+                "$GITHUB_REF" != "refs/heads/main" ||
+                "$CONFIRMATION" != "DEPLOY_RS_CALENDAR_WATCHDOG" ]]; then
+            echo "::error::Release refused: repository, main branch or confirmation mismatch."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Test source, recovery safety, and public stale-data fallback
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check tools/calendar-watchdog/worker.mjs
+          node --test tools/calendar-watchdog/worker.test.mjs
+          node tools/test_calendar_stale_contract.js
+          node -e '
+            const fs = require("node:fs");
+            const config = JSON.parse(fs.readFileSync("tools/calendar-watchdog/wrangler.jsonc", "utf8"));
+            if (config.name !== "rs-calendar-watchdog" ||
+                config.main !== "worker.mjs" ||
+                config.workers_dev !== false ||
+                JSON.stringify(config.triggers?.crons) !== JSON.stringify(["*/15 * * * *"])) {
+              console.error("Refusing unexpected Worker name, entrypoint, public route or Cron.");
+              process.exit(1);
+            }
+          '
+
+      - name: Refuse release without Cloudflare deployment credentials
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$CLOUDFLARE_API_TOKEN" || -z "$CLOUDFLARE_ACCOUNT_ID" ]]; then
+            echo "::error::Missing repository Actions secrets CLOUDFLARE_API_TOKEN and/or CLOUDFLARE_ACCOUNT_ID."
+            echo "::error::Configure restricted Cloudflare credentials before requesting a production deployment."
+            exit 1
+          fi
+
+      - name: Deploy approved source and 15-minute Cron to Cloudflare
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: tools/calendar-watchdog
+          command: deploy --config wrangler.jsonc
