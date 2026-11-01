@@ -1,0 +1,37 @@
+name: Public sitemap and indexing policy
+
+on:
+  pull_request:
+    paths:
+      - "sitemap.xml"
+      - "docs/seo/page-registry.json"
+      - "tools/sitemap_audit.py"
+      - "tools/test_sitemap_audit.py"
+      - ".github/workflows/sitemap-audit.yml"
+      - "**/*.html"
+  push:
+    branches: [main]
+    paths:
+      - "sitemap.xml"
+      - "docs/seo/page-registry.json"
+      - "tools/sitemap_audit.py"
+      - "tools/test_sitemap_audit.py"
+      - ".github/workflows/sitemap-audit.yml"
+      - "**/*.html"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify sitemap, public routes, noindex and canonical URLs
+        run: python tools/sitemap_audit.py
+      - name: Sitemap and route regression tests
+        run: python tools/test_sitemap_audit.py
