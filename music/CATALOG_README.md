@@ -2,7 +2,7 @@
 
 ## Implementation
 
-Canonical catalog: music/data/catalog.json. Current baseline: three albums, 38 tracks.
+Canonical catalog: music/data/catalog.json. Current baseline: four albums, 52 tracks.
 
 The music/explorer.js progressive enhancement reads this catalog to update home album cards, album track lists, track search, theme filters and user-initiated YouTube embed playback. Static page content remains as a no-JavaScript fallback. Existing album URLs are preserved.
 
@@ -17,6 +17,6 @@ The music/explorer.js progressive enhancement reads this catalog to update home 
 
 ## Planned further evolution
 
-The initial migration has a single runtime catalog but still contains independently authored no-JS HTML fallback and static social OGP tags. A static generator should eventually derive both from the canonical catalog. A new album currently also requires creating its stable fallback album page manually. Do not claim those operations have been automated.
+Current DISCO 001 intake (2026-11-01): 14 individual YouTube video IDs and durations confirmed from Studio; all 14 video visibility settings were unlisted when checked, while playlist was public. The representative image is temporary, album release date and commercial rights remain unverified, and only track 11 is independently labelled BONUS. Public Music listing does not change YouTube visibility.\n\nThe initial migration has a single runtime catalog but still contains independently authored no-JS HTML fallback and static social OGP tags. A static generator should eventually derive both from the canonical catalog. A new album currently also requires creating its stable fallback album page manually. Do not claim those operations have been automated.
 
 Preserve existing rights restrictions: avoid offering download, sale or license before individual work and account rights are verified.
