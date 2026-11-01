@@ -1,0 +1,36 @@
+name: Calendar watchdog safety tests
+
+on:
+  pull_request:
+    paths:
+      - "tools/calendar-watchdog/**"
+      - ".github/workflows/calendar-watchdog-contract.yml"
+      - "tools/test_calendar_stale_contract.js"
+      - "assets/ux-lab/class-finder.js"
+  push:
+    branches: [main]
+    paths:
+      - "tools/calendar-watchdog/**"
+      - ".github/workflows/calendar-watchdog-contract.yml"
+      - "tools/test_calendar_stale_contract.js"
+      - "assets/ux-lab/class-finder.js"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Offline independent-watchdog integration and abuse tests
+        run: node --test tools/calendar-watchdog/worker.test.mjs
+      - name: Existing fail-closed stale-class fallback
+        run: node tools/test_calendar_stale_contract.js
+      - name: Verify no secrets in deployment config
+        run: |
+          node -e "const c=JSON.parse(require('fs').readFileSync('tools/calendar-watchdog/wrangler.jsonc','utf8')); if(c.triggers.crons[0]!=='*/15 * * * *'||c.workers_dev!==false||JSON.stringify(c).includes('GH_APP_PRIVATE_KEY'))process.exit(1)"
