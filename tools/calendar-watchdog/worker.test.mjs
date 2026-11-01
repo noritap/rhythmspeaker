@@ -92,18 +92,29 @@ test('no secrets prevents dispatch and reports monitor_failed',async()=>{
   await assert.rejects(()=>monitor(s.env,s.fakeFetch,NOW),/monitoring failed/);
   assert.equal(s.calls.filter(c=>c.url.endsWith('/dispatches')).length,0);
 });
-test('recent workflow run blocks token request',async()=>{
+test('recent workflow run permits authenticated read but blocks dispatch',async()=>{
   const s=scenario({runs:[run(10)]});
   assert.equal(await monitor(s.env,s.fakeFetch,NOW),'recent_job_cooldown');
-  assert.equal(s.calls.filter(c=>c.url.endsWith('/access_tokens')).length,0);
+  assert.equal(s.calls.filter(c=>c.url.endsWith('/access_tokens')).length,1);
+  assert.equal(s.calls.some(c=>c.url.endsWith('/dispatches')),false);
 });
-test('source is current but Pages stale: no token needed',async()=>{
+test('source is current but Pages stale: authenticated read without dispatch',async()=>{
   const s=scenario({source:envelope(10),pages:envelope(150)});
   assert.equal(await monitor(s.env,s.fakeFetch,NOW),'pages_lagging');
-  assert.equal(s.calls.some(c=>c.url.endsWith('/access_tokens')),false);
+  assert.equal(s.calls.some(c=>c.url.endsWith('/dispatches')),false);
 });
-test('fresh run: no webhook or token required',async()=>{
+test('fresh run: authenticated workflow read, no webhook or dispatch',async()=>{
   const s=scenario({source:envelope(10),pages:envelope(12)});
   assert.equal(await monitor(s.env,s.fakeFetch,NOW),'healthy');
   assert.equal(s.calls.some(c=>c.url.endsWith('/alert')),false);
+});
+
+test('workflow reads authenticate and never leak installation token to public JSON or alerts', async()=>{
+  const s=scenario({source:envelope(10),pages:envelope(12)});
+  await monitor(s.env,s.fakeFetch,NOW);
+  const runs=s.calls.find(c=>new URL(c.url).pathname.endsWith('/runs'));
+  assert.equal(runs.authorization,'Bearer unit-test-installation-token');
+  assert.equal(s.calls.filter(c=>c.url.endsWith('/access_tokens')).length,1);
+  for(const c of s.calls.filter(c=>c.url.includes('class-sessions.public.json')||c.url.endsWith('/alert')))
+    assert.equal(c.authorization,undefined);
 });
