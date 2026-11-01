@@ -10,8 +10,8 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await page.locator('.portal-tile').count(),10,'exactly ten service cards');
   assert.equal(await page.locator('.portal-section').count(),4,'four purpose-based sections');
   assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
-  assert.equal(await page.locator('.portal-quick-card--trial').getAttribute('href'),'../trial/');
-  assert.equal(await page.locator('.portal-quick-card--schedule').getAttribute('href'),'../schedule/');
+  assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
+  assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
   assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
   assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
   assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
