@@ -41,7 +41,7 @@ class PortalContractTest(unittest.TestCase):
         self.assertEqual(portal_problems(self.html), [])
 
     def test_wrong_url_is_detected_even_when_label_exists(self):
-        bad = self.html.replace('href="../schedule/"', 'href="../not-schedule/"', 1)
+        bad = self.html.replace('class="rs-menu-action rs-menu-action--schedule" href="../schedule/"', 'class="rs-menu-action rs-menu-action--schedule" href="../not-schedule/"', 1)
         self.assertIn('PRIORITY_MENU_CONTENT_OR_ORDER_DRIFT', portal_problems(bad))
 
     def test_missing_or_duplicate_navigation_is_detected(self):
