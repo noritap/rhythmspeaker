@@ -41,17 +41,38 @@ class PortalContractTest(unittest.TestCase):
         self.assertEqual(portal_problems(self.html), [])
 
     def test_wrong_url_is_detected_even_when_label_exists(self):
-        bad = self.html.replace('href="../trial/"', 'href="../not-trial/"', 1)
-        self.assertIn('PORTAL_NAV_LABEL_HREF_ORDER_DRIFT', portal_problems(bad))
+        bad = self.html.replace('class="rs-menu-action rs-menu-action--schedule" href="../schedule/"', 'class="rs-menu-action rs-menu-action--schedule" href="../not-schedule/"', 1)
+        self.assertIn('PRIORITY_MENU_CONTENT_OR_ORDER_DRIFT', portal_problems(bad))
 
     def test_missing_or_duplicate_navigation_is_detected(self):
-        bad = self.html.replace('class="portal-site-links"', 'class="missing"')
-        self.assertIn('SINGLE_PORTAL_NAV_REQUIRED', portal_problems(bad))
+        bad = self.html.replace('class="rs-menu-nav"', 'class="missing"')
+        self.assertIn('SINGLE_MENU_NAV_REQUIRED', portal_problems(bad))
         self.assertIn('DUPLICATE_LEGACY_NAV', portal_problems(self.html + '<ul class="nav-links"><li>old</li></ul>'))
 
     def test_reordered_or_duplicate_item_is_detected(self):
-        bad = self.html.replace('>FAQ</a>', '>アクセス</a>', 1)
-        self.assertIn('PORTAL_NAV_LABEL_HREF_ORDER_DRIFT', portal_problems(bad))
+        bad = self.html.replace('>レッスン日程</strong>', '>アクセス</strong>', 1)
+        self.assertIn('PRIORITY_MENU_CONTENT_OR_ORDER_DRIFT', portal_problems(bad))
+
+    def test_priority_menu_is_unique_and_action_first(self):
+        import sys
+        from navigation_sync import PAGES, render_menu
+        for path, current in PAGES.items():
+            html = (ROOT / path).read_text()
+            prefix = '' if str(path) == 'index.html' else '../'
+            expected = render_menu(prefix, current)
+            self.assertEqual(html.count(expected), 1, f'{path} must match the canonical menu')
+            self.assertEqual(html.count('class="rs-menu-nav"'), 1)
+            self.assertEqual(html.count('class="rs-menu-group rs-menu-group--'), 4)
+            menu = html[html.index('<div id="menu"'):html.index('</header>')]
+            self.assertLess(menu.index('rs-menu-group--quick'), menu.index('rs-menu-group--lessons'))
+            self.assertLess(menu.index('rs-menu-group--lessons'), menu.index('rs-menu-group--member'))
+            self.assertLess(menu.index('rs-menu-group--member'), menu.index('rs-menu-group--more'))
+            self.assertIn('https://lin.ee/zC5YLe7', menu)
+            self.assertIn('https://tips-app-seven.vercel.app/', menu)
+            self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
+            self.assertNotIn('class="mobile-nav-panel"', menu)
+        self.assertNotIn('href="./" class="rs-menu-link--ecosystem"', self.html)
+        self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
     def test_ten_categories_have_headings_and_safe_destinations(self):
         p = Cards()

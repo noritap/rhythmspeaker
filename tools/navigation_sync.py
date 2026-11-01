@@ -1,86 +1,108 @@
 #!/usr/bin/env python3
+"""Generate the purpose-ranked right-header menu from one canonical route registry.
+
+Preserves the ten historical RS-NAV-2 destinations and adds existing schedule,
+pricing, instructor, rental, Wallet and LINE routes. Current page is not linked.
+"""
 from __future__ import annotations
 
 import re
 from pathlib import Path
 
 PAGES = {
-    Path("index.html"): None,
-    Path("trial/index.html"): "初回体験",
-    Path("classes/index.html"): "クラス",
-    Path("about/index.html"): "教室紹介",
-    Path("ecosystem/index.html"): "サービス一覧",
-    Path("faq/index.html"): "FAQ",
-    Path("access/index.html"): "アクセス",
-    Path("rss/index.html"): "RSS",
+    Path("index.html"): "",
+    Path("trial/index.html"): "trial/",
+    Path("classes/index.html"): "classes/",
+    Path("about/index.html"): "about/",
+    Path("ecosystem/index.html"): "ecosystem/",
+    Path("faq/index.html"): "faq/",
+    Path("access/index.html"): "access/",
+    Path("schedule/index.html"): "schedule/",
+    Path("pricing/index.html"): "pricing/",
+    Path("instructors/index.html"): "instructors/",
 }
-
-ITEMS = [
-    ("教室トップ", ""),
-    ("初回体験", "trial/"),
-    ("クラス", "classes/"),
-    ("教室紹介", "about/"),
-    ("ワークショップ", "workshops/"),
-    ("サービス一覧", "ecosystem/"),
-    ("FAQ", "faq/"),
-    ("アクセス", "access/"),
-    ("RSS", "rss/"),
+# P0 first; other destinations are sorted by how the visitor uses them.
+# Values are (display label, route, explanatory subline, CSS role).
+MENU_GROUPS = [
+    ("quick", "よく使うメニュー", [
+        ("レッスン日程", "schedule/", "日時・講師から探す", "schedule"),
+        ("初回体験 ¥1,000", "trial/", "初めての方はこちら", "trial"),
+    ]),
+    ("lessons", "教室・レッスン", [
+        ("料金", "pricing/", "", "pricing"),
+        ("クラス紹介", "classes/", "", "classes"),
+        ("講師紹介", "instructors/", "", "instructors"),
+        ("ワークショップ", "workshops/", "", "workshops"),
+        ("アクセス", "access/", "", "access"),
+        ("スタジオレンタル", "rental/", "", "rental"),
+    ]),
+    ("member", "会員・お問い合わせ", [
+        ("マイページ", "https://tips-app-seven.vercel.app/", "RS Wallet", "wallet"),
+        ("公式LINE", "https://lin.ee/zC5YLe7", "相談・変更", "line"),
+    ]),
+    ("more", "その他のページ", [
+        ("教室トップ", "", "", "home"),
+        ("教室紹介", "about/", "", "about"),
+        ("よくある質問", "faq/", "", "faq"),
+        ("Rhythm Speaker Show", "rss/", "", "rss"),
+        ("オリジナルグッズ", "https://rhythmspeaker.stores.jp/?all_items=true", "", "goods"),
+        ("すべてのサービス", "ecosystem/", "", "ecosystem"),
+    ]),
 ]
-SHOP_URL = "https://rhythmspeaker.stores.jp/?all_items=true"
-SHOP_LABEL = "オリジナルグッズ"
 
 
-def href_for(prefix: str, route: str, current: str | None, label: str) -> str:
-    if current == label:
-        return "./"
-    if not prefix:
+def href_for(prefix: str, route: str) -> str:
+    if route.startswith(("https://", "mailto:")):
         return route
-    return prefix if route == "" else prefix + route
+    return (prefix + route) if route else (prefix or "./")
 
 
-def render_list(prefix: str, current: str | None, css_class: str, mobile: bool) -> str:
-    indent = "      " if mobile else "    "
-    item_indent = indent + "  "
-    attrs = ' aria-label="モバイルサイト案内"' if mobile else ""
-    lines = [f'{indent}<ul class="{css_class}"{attrs}>']
-    for label, route in ITEMS:
-        href = href_for(prefix, route, current, label)
-        current_attr = ' aria-current="page"' if current == label else ""
-        lines.append(f'{item_indent}<li><a href="{href}"{current_attr}>{label}</a></li>')
-    external_attrs = '' if mobile else ' class="nav-external" aria-label="Rhythm Speaker オリジナルグッズへ"'
-    lines.append(f'{item_indent}<li><a href="{SHOP_URL}"{external_attrs}>{SHOP_LABEL}</a></li>')
-    lines.append(f"{indent}</ul>")
-    return "\n".join(lines)
-
-
-def replace_once(text: str, css_class: str, replacement: str, path: Path) -> str:
-    updated, count = re.subn(
-        rf'\s*<ul\s+class="{re.escape(css_class)}"[^>]*>.*?</ul>',
-        "\n" + replacement,
-        text,
-        count=1,
-        flags=re.S | re.I,
-    )
-    if count != 1:
-        raise SystemExit(f"{css_class} block not found exactly once: {path}")
-    return updated
+def render_menu(prefix: str, current: str) -> str:
+    out = ['<button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">メニュー <span aria-hidden="true">＋</span></button>',
+           '<div id="menu" class="rs-menu" hidden><nav class="rs-menu-nav" aria-label="すべてのページ">']
+    for key, heading, items in MENU_GROUPS:
+        lines = []
+        for label, route, detail, role in items:
+            if route == current:
+                continue  # no self-link, especially /ecosystem/
+            href = href_for(prefix, route)
+            if key == "quick":
+                lines.append(f'<a class="rs-menu-action rs-menu-action--{role}" href="{href}"><strong>{label}</strong><small>{detail}</small><span aria-hidden="true">↗</span></a>')
+            else:
+                extra = f'<small>{detail}</small>' if detail else ''
+                lines.append(f'<li><a class="rs-menu-link rs-menu-link--{role}" href="{href}">{label}{extra}</a></li>')
+        if not lines:
+            continue
+        out.append(f'<section class="rs-menu-group rs-menu-group--{key}" aria-label="{heading}"><p class="rs-menu-label">{heading}</p>')
+        if key == "quick":
+            out.append('<div class="rs-menu-primary">' + ''.join(lines) + '</div>')
+        else:
+            out.append('<ul class="rs-menu-links">' + ''.join(lines) + '</ul>')
+        out.append('</section>')
+    out.append('</nav></div>')
+    return ''.join(out)
 
 
 def main() -> int:
     changed = 0
     for path, current in PAGES.items():
-        text = path.read_text(encoding="utf-8")
+        source = path.read_text(encoding="utf-8")
         prefix = "" if path == Path("index.html") else "../"
-        if path == Path("ecosystem/index.html"):
-            # The portal uses one native disclosure on desktop and mobile.
-            updated = replace_once(text, "portal-site-links", render_list(prefix, current, "portal-site-links", False), path)
-        else:
-            updated = replace_once(text, "nav-links", render_list(prefix, current, "nav-links", False), path)
-            updated = replace_once(updated, "mobile-nav-panel", render_list(prefix, current, "mobile-nav-panel", True), path)
-        if updated != text:
+        menu = render_menu(prefix, current)
+        # Exact bounded replacement; never change booking content or footer.
+        updated, count = re.subn(
+            r'<button id="menu-button".*?</header>',
+            lambda _: menu + '</header>',
+            source,
+            count=1,
+            flags=re.S,
+        )
+        if count != 1:
+            raise SystemExit(f"menu boundary missing: {path}")
+        if updated != source:
             path.write_text(updated, encoding="utf-8")
-            print(f"UPDATED {path}")
             changed += 1
+            print(f"UPDATED {path}")
         else:
             print(f"OK {path}")
     print(f"changed_pages={changed}")

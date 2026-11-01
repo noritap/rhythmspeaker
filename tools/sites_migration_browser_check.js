@@ -2,6 +2,44 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/'];
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+// Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
+for(const width of [320,375,390,430,768,1440]){
+  await page.setViewportSize({width,height:640});
+  await page.goto(base+'ecosystem/');
+  const toggle=page.locator('#menu-button'),menu=page.locator('#menu');
+  await toggle.click();
+  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
+  assert.equal(await toggle.getAttribute('aria-label'),'メニューを閉じる');
+  assert.equal(await toggle.locator('span').innerText(),'×');
+  assert(await menu.isVisible());
+  assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group').count(),4);
+  assert.equal(await menu.locator('.rs-menu-action').count(),2);
+  assert.equal(await menu.locator('.rs-menu-link--ecosystem').count(),0,'self-link on all-services page must not be shown');
+  assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
+  assert.equal(await menu.locator('a[href$="trial/"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
+      <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
+  assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
+  assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
+  // Test the last link remains scroll-reachable on a short viewport.
+  assert(await menu.locator('.rs-menu-link--goods').isVisible());
+  await menu.locator('.rs-menu-link--goods').scrollIntoViewIfNeeded();
+  assert(await menu.locator('.rs-menu-link--goods').isVisible());
+  if(width===390||width===1440){
+    fs.mkdirSync('ux-evidence',{recursive:true});
+    await page.screenshot({path:'ux-evidence/priority-menu-'+width+'.png'});
+  }
+  await page.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+  assert.equal(await toggle.getAttribute('aria-label'),'メニューを開く');
+  assert.equal(await toggle.locator('span').innerText(),'＋');
+  assert(await toggle.evaluate(el=>document.activeElement===el));
+  assert(!(await menu.isVisible()));
+}
 // P0 actions and separate shop/review destinations. Validate at every supported width.
 for(const width of [320,375,390,430,768,1440]){
   await page.setViewportSize({width,height:900});
