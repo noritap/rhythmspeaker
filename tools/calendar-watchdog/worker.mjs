@@ -37,9 +37,13 @@ export function decide({source, pages, runs, now}) {
   }
 
   // Never create unbounded queued jobs. The scheduler can arrive late.
-  const active = (runs || []).some(r => r.status === 'queued' || r.status === 'in_progress' || r.status === 'waiting');
+  // PR validation jobs are not production sync attempts and must not suppress
+  // recovery merely because a developer updated the workflow.
+  const productionRuns = (runs || []).filter(r =>
+    (r.event === 'schedule' || r.event === 'workflow_dispatch') && r.head_branch === 'main');
+  const active = productionRuns.some(r => r.status === 'queued' || r.status === 'in_progress' || r.status === 'waiting');
   if (active) return {kind:'existing_job_active', dispatch:false, alert:true};
-  const recent = (runs || []).some(r => {
+  const recent = productionRuns.some(r => {
     const started = Date.parse(r.created_at || '');
     return Number.isFinite(started) && started <= now + CONFIG.maxFutureMs
       && started >= now - CONFIG.recentRunMs;
