@@ -105,6 +105,8 @@ def audit(root: Path) -> list[str]:
                 problems.append(f"NETWORK_DATA_HOOK_MISSING:{hook}")
 
     program_page = root / "broadcast/programs/ayako-no-heya/index.html"
+    if program_page.exists() and 'program-live.js' not in program_page.read_text(encoding="utf-8"):
+        problems.append("PROGRAM_LIVE_SYNC_MISSING")
     if program_page.exists():
         text = program_page.read_text(encoding="utf-8")
         if 'data-rsb-episode-archive="ayako-no-heya"' not in text:

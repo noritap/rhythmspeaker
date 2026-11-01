@@ -35,7 +35,14 @@ baseline=json.loads((ROOT/'docs/sites-migration/baseline.json').read_text())
 # revisions must be explicitly pinned to a content-addressed Git blob SHA-1.
 copy_revisions=json.loads((ROOT/'docs/sites-migration/approved-copy-revisions.json').read_text())
 approved=copy_revisions.get('blobSha1',{})
+content_revisions=json.loads((ROOT/'docs/sites-migration/approved-content-revisions.json').read_text())
+content_approved=content_revisions.get('blobSha1',{})
+content_allowed=set(content_revisions.get('allowedPaths',[]))
 if copy_revisions.get('schemaVersion')!=1:errors.append('invalid copy revisions manifest')
+if content_revisions.get('schemaVersion')!=1:errors.append('invalid content revisions manifest')
+for page,git_sha in content_approved.items():
+ if page not in content_allowed or page not in baseline['protected'] or len(git_sha)!=40:
+  errors.append('unexpected protected-content override: '+page)
 for page,git_sha in approved.items():
  if page not in baseline['protected'] or not page.endswith('.html') or len(git_sha)!=40:
   errors.append('unexpected protected-copy override: '+page)
@@ -44,7 +51,8 @@ for page,digest in baseline['protected'].items():
  original_ok=hashlib.sha256(payload).hexdigest()==digest
  git_blob=hashlib.sha1(b'blob '+str(len(payload)).encode()+b'\x00'+payload).hexdigest()
  approved_ok=page in approved and approved[page]==git_blob
- if not original_ok and not approved_ok:errors.append('protected file modified: '+page)
+ content_ok=page in content_allowed and page in content_approved and content_approved[page]==git_blob
+ if not original_ok and not approved_ok and not content_ok:errors.append('protected file modified: '+page)
 for path in ['assets/ux-lab/app.js','assets/ux-lab/class-finder.js']:
  subprocess.run(['node','--check',str(ROOT/path)],check=True)
 if errors:raise SystemExit('\n'.join(errors))

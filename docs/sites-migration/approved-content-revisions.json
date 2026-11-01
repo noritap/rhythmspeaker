@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "approvedReason": "Owner-approved evolving RS BROADCAST canonical data. Exact Git blob SHA-1 pins are required for every protected data revision.",
+  "allowedPaths": [
+    "broadcast/data/episodes.json",
+    "broadcast/data/people.json",
+    "broadcast/data/programs.json"
+  ],
+  "blobSha1": {
+    "broadcast/data/episodes.json": "6bc73d7c02162dff0c0822a060a25f669a221adb",
+    "broadcast/data/people.json": "c63062d29cf802dc1139ef00b2c56576be415a89"
+  }
+}

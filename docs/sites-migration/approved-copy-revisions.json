@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Owner-approved protected HTML revisions, including 2026-11-01 sitewide copy simplification and RS BROADCAST HOME v3 culture-navigation rebuild.",
-  "scope": "Exact content-addressed revisions only; immutable SHA-256 baseline remains unchanged. Broadcast runtime/style protection is preserved by adding isolated home-v3 layers.",
+  "approvedReason": "Owner-approved protected HTML revisions, including sitewide copy simplification, RS BROADCAST HOME v3, and あやこの部屋 live-sync connection.",
+  "scope": "Exact content-addressed protected HTML revisions only; immutable SHA-256 baseline remains unchanged.",
   "blobSha1": {
     "broadcast/index.html": "463099986911202c3d45931a40d4e1e92b1d2190",
     "classes/bar-method/index.html": "2348561f1167b8fd68b2110b5dc3d1cec3ea93cb",
@@ -19,6 +19,7 @@
     "rss-theater/index.html": "de720db397cb1c4a20259d4336aed4e4ec07a6e9",
     "rss/index.html": "d793c1a78ab2b444e4efe7e4ebfd5b9bcd464918",
     "trial/apply/index.html": "41f4e0f5951c6a4fd5e0080ee03521364cf13646",
-    "workshops/index.html": "c36238baba0ccfc120080b5c4ccf81e358bcc8fb"
+    "workshops/index.html": "c36238baba0ccfc120080b5c4ccf81e358bcc8fb",
+    "broadcast/programs/ayako-no-heya/index.html": "038a7f320b41b93bbc7afe61b4c808baaa7dd830"
   }
 }
