@@ -22,7 +22,7 @@ for(const width of [320,375,390,430,768,1440]){
   for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
     assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
   }
-  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
   assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
 }
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
