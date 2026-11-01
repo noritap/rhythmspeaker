@@ -24,6 +24,7 @@ for(const width of [320,375,390,430,768,1440]){
   }
   const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
   assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
+  if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
 }
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
 await page.goto(base);await page.locator('header nav[aria-label="主要メニュー"] a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('header nav[aria-label="主要メニュー"] a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
