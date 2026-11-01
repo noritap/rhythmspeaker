@@ -26,8 +26,8 @@ ITEMS = [
     ("アクセス", "access/"),
     ("RSS", "rss/"),
 ]
-SHOP_URL = "https://rhythmspeaker.stores.jp/"
-SHOP_LABEL = "SHOP"
+SHOP_URL = "https://rhythmspeaker.stores.jp/?all_items=true"
+SHOP_LABEL = "オリジナルグッズ"
 
 
 def href_for(prefix: str, route: str, current: str | None, label: str) -> str:
