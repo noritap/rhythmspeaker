@@ -1,12 +1,9 @@
 name: Music GitHub Pages Live Smoke
 on:
-  pull_request:
-    paths:
-      - "tools/music_live_smoke.cjs"
-      - ".github/workflows/music-live-smoke.yml"
   push:
     branches: [main]
     paths:
+      - "music/**"
       - "tools/music_live_smoke.cjs"
       - ".github/workflows/music-live-smoke.yml"
   workflow_dispatch:
@@ -20,5 +17,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Verify GitHub Pages live content and all three album pages
+      - name: Verify GitHub Pages live content and all four album pages
         run: node tools/music_live_smoke.cjs
