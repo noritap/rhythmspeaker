@@ -8,7 +8,7 @@ const envelope = minutes => ({
   sourceMode:'live',dataState:'ready',
   lastSuccessfulSyncAt:new Date(NOW-minutes*60_000).toISOString()
 });
-const run = (minutes, status='completed')=>({created_at:new Date(NOW-minutes*60_000).toISOString(),status});
+const run = (minutes, status='completed', event='schedule', head_branch='main')=>({created_at:new Date(NOW-minutes*60_000).toISOString(),status,event,head_branch});
 
 test('fresh repo and Pages: healthy', ()=>{
   assert.deepEqual(decide({source:envelope(18),pages:envelope(18),runs:[],now:NOW}),
@@ -16,6 +16,13 @@ test('fresh repo and Pages: healthy', ()=>{
 });
 test('GitHub is current but published Pages stale: alert, do not dispatch', ()=>{
   assert.equal(decide({source:envelope(10),pages:envelope(150),runs:[],now:NOW}).kind,'pages_lagging');
+});
+test('PR and non-main executions cannot suppress production recovery', ()=>{
+  const recentPR = run(5,'in_progress','pull_request','test-branch');
+  const differentBranch = run(5,'completed','workflow_dispatch','test-branch');
+  const result = decide({source:envelope(120),pages:envelope(120),runs:[recentPR,differentBranch],now:NOW});
+  assert.equal(result.kind,'dispatch_needed');
+  assert.equal(result.dispatch,true);
 });
 test('stale repository and no recent runs: request bounded recovery', ()=>{
   assert.deepEqual(decide({source:envelope(120),pages:envelope(120),runs:[],now:NOW}),
