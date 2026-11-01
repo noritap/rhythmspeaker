@@ -19,3 +19,15 @@
 #cf-refresh-status{font-size:13px;color:#47433d;line-height:1.6;margin:0}
 .cf-refresh-note{margin:4px 0 26px;font-size:12px}
 @media(max-width:400px){.cf-refresh-tools .button{width:100%;justify-content:center}}
+
+/* Schedule copy minimalism: keep context in controls, not repeated banners. */
+.cf-intro{margin:8px 0 20px;justify-content:flex-start}
+.cf-modes{margin-bottom:32px}
+.cf-modes button{padding:20px 22px;min-height:74px}
+.cf-source-status{background:transparent;border:0;padding:0;margin:0 0 8px}
+.cf-source-status span{margin:0;font-size:12px}
+.cf-refresh-tools{margin:0 0 22px}
+.cf-card-date{margin-top:8px}
+.cf-instructor{margin:14px 0 0;font-size:13px}
+.cf-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:760px){.cf-modes{margin-bottom:26px}.cf-modes button{min-height:66px;padding:17px 16px}}
