@@ -109,7 +109,7 @@ class PortalContractTest(unittest.TestCase):
         p = Sprite(); p.feed(self.html)
         if 'data-ux-source="sites-v6"' in self.html:
             self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
-            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),9)
+            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),10)
             return
         self.assertEqual(len(p.sprites), 1)
         self.assertEqual(p.sprites[0].get('width'), '0')
