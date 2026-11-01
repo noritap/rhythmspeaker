@@ -59,7 +59,7 @@ def portal_problems(text: str) -> list[str]:
         ("../classes/", "クラス"), ("../about/", "教室紹介"),
         ("../workshops/", "ワークショップ"), ("./", "サービス一覧"),
         ("../faq/", "FAQ"), ("../access/", "アクセス"),
-        ("../rss/", "RSS"), ("https://rhythmspeaker.stores.jp/", "SHOP"),
+        ("../rss/", "RSS"), ("https://rhythmspeaker.stores.jp/?all_items=true", "オリジナルグッズ"),
     ]
     base = "https://noritap.github.io/rhythmspeaker/ecosystem/"
     actual = [(urljoin(base, href), label.strip()) for href, label in parser.links]
@@ -88,8 +88,8 @@ def extract_mobile_nav(text: str) -> str:
 
 def missing_items(nav: str) -> list[str]:
     missing = [label for label in REQUIRED_LABELS if label not in nav]
-    if ">SHOP<" not in nav:
-        missing.append("SHOP")
+    if ">オリジナルグッズ<" not in nav:
+        missing.append("オリジナルグッズ")
     if LEGACY_SHOP_LABEL in nav:
         missing.append("LEGACY_MAIN_HP_SHOP_LABEL")
     return missing
