@@ -23,7 +23,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./ui-v2.css">
-<style>.rs-ecosystem-return{position:fixed;right:12px;bottom:12px;z-index:1000;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border:1px solid #b8b5ae;border-radius:999px;background:#faf9f6;color:#171717;font:700 13px/1.5 system-ui,sans-serif;text-decoration:none;box-shadow:0 3px 12px #0003}.rs-ecosystem-return:focus-visible{outline:3px solid #b12b3b;outline-offset:3px}@media(min-width:900px){.rs-ecosystem-return{right:22px;bottom:22px}}</style></head>
+<style>.rs-ecosystem-return{position:fixed;right:12px;bottom:12px;z-index:1000;display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 15px;border:1px solid #b8b5ae;border-radius:999px;background:#faf9f6;color:#171717;font:700 13px/1.5 system-ui,sans-serif;text-decoration:none;box-shadow:0 3px 12px #0003}.rs-ecosystem-return:focus-visible{outline:3px solid #b12b3b;outline-offset:3px}@media(min-width:900px){.rs-ecosystem-return{right:22px;bottom:22px}}</style><link rel="stylesheet" href="./explorer.css">
+</head>
 <body><a class="rs-ecosystem-return" href="../ecosystem/" aria-label="Rhythm Speaker 総合メニューへ">⌂ 総合メニュー</a>
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="music-header">
@@ -90,6 +91,26 @@
       </div>
     </section>
 
+    <section class="section rsm-explorer" data-rsm-explorer hidden aria-labelledby="rsm-explorer-heading">
+  <div class="container">
+    <p class="eyebrow">MUSIC EXPLORER / 38 TRACKS</p>
+    <div class="rsm-explorer__head"><h2 id="rsm-explorer-heading">今、聴きたい一曲を。</h2><p>曲名・アルバム名・音楽のテーマから探せます。アルバムを知らなくても、音楽から始められます。</p></div>
+    <div class="rsm-search"><label for="rsm-music-search">楽曲を探す</label><input id="rsm-music-search" type="search" data-rsm-search autocomplete="off" placeholder="曲名、SOUL、NIGHT、TAP など"></div>
+    <div data-rsm-tags class="rsm-tags" role="group" aria-label="テーマで絞り込む"></div>
+    <p data-rsm-count class="rsm-explorer__note" role="status" aria-live="polite">楽曲データを読み込んでいます。</p>
+    <ol data-rsm-results class="rsm-results" aria-label="検索した曲"></ol>
+    <button data-rsm-more type="button" class="rsm-more" hidden>残りの曲を表示</button>
+    <p class="rsm-explorer__note">曲別動画IDが登録されていない曲は、そのアルバムのYouTube再生リストを開きます。指定した曲へ直接移動するものではありません。</p>
+  </div>
+</section>
+<section class="section section--paper" aria-labelledby="rsm-movement-title">
+ <div class="container story">
+ <div><p class="eyebrow">FROM MUSIC TO MOVEMENT</p><h2 id="rsm-movement-title">音楽から、タップダンスへ。</h2></div>
+ <div><p>音楽を聴き、パフォーマンスを観て、実際に身体を動かす。Rhythm Speakerがつなぐ、もう一つの入口です。</p>
+ <div class="actions"><a class="btn btn--gold" style="background:#25272b;border-color:#25272b;color:#fff" href="../broadcast/">番組・映像を見る</a><a class="btn btn--ghost" style="border-color:#555" href="../workshops/">ワークショップを探す</a><a class="btn btn--ghost" style="border-color:#555" href="../classes/">クラスを見る</a></div></div>
+ </div>
+</section>
+
     <section class="section" aria-labelledby="choose-heading">
       <div class="container">
         <p class="eyebrow">START HERE</p><h2 id="choose-heading">気分・シーンから入る。</h2>
@@ -112,5 +133,6 @@
   </main>
 
   <footer class="footer"><div class="footer-inner"><div><strong>RHYTHM SPEAKER MUSIC</strong><br><span>Music for a kinder tomorrow.</span></div><div><a href="../ecosystem/">Rhythm Speaker サービス一覧へ戻る</a></div></div></footer>
+<script defer src="./explorer.js"></script>
 </body>
 </html>
