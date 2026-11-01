@@ -107,16 +107,18 @@ async function alert(env, f, kind) {
 
 export async function monitor(env, f=fetch, now=Date.now()) {
   try {
+    // Authenticate workflow reads as well as recovery dispatches. Anonymous
+    // requests from shared egress can exhaust GitHub's API rate limit.
+    const token = await installationToken(env,f,now);
     const [source,pages,workflow] = await Promise.all([
       readJson(f, CONFIG.sourceUrl, now),
       readJson(f, CONFIG.pagesUrl, now),
       readJson(f, `${CONFIG.githubApi}/repos/${CONFIG.repo}/actions/workflows/${CONFIG.workflow}/runs?branch=main&per_page=20`, now,
-        {'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28','User-Agent':'rs-calendar-watchdog'})
+        {'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28','User-Agent':'rs-calendar-watchdog'})
     ]);
     if (!Array.isArray(workflow.workflow_runs)) throw new Error('GitHub workflow runs malformed');
     const result = decide({source,pages,runs:workflow.workflow_runs,now});
     if (result.dispatch) {
-      const token = await installationToken(env,f,now);
       const response = await f(`${CONFIG.githubApi}/repos/${CONFIG.repo}/actions/workflows/${CONFIG.workflow}/dispatches`,{
         method:'POST',headers:{'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,
           'X-GitHub-Api-Version':'2022-11-28','User-Agent':'rs-calendar-watchdog'},
