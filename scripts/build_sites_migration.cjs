@@ -5,7 +5,7 @@ const stub=()=>({addEventListener(){},close(){},focus(){},classList:{toggle(){}}
 const context=vm.createContext({console,URL,URLSearchParams,Intl,Date,Set,Map,structuredClone,document:{currentScript:{src:'https://noritap.github.io/rhythmspeaker/assets/ux-lab/app.js'},querySelector:stub,querySelectorAll:()=>[],addEventListener(){},body:stub()},window:{addEventListener(){}},location:{origin:'https://noritap.github.io',href:'https://noritap.github.io/rhythmspeaker/',pathname:'/rhythmspeaker/',hash:'',search:''},fetch:()=>new Promise(()=>{}),MutationObserver:class{observe(){}},history:{}});
 vm.runInContext(fs.readFileSync('assets/ux-lab/class-finder.js','utf8'),context);vm.runInContext(fs.readFileSync('assets/ux-lab/app.js','utf8'),context);vm.runInContext('data='+fs.readFileSync('data/ux-lab.json','utf8'),context);
 const source=fs.readFileSync('docs/sites-migration/source-shell.txt','utf8'),heads=JSON.parse(fs.readFileSync('docs/sites-migration/legacy-heads.json','utf8'));
-const items=[['教室トップ',''],['初回体験','trial/'],['クラス','classes/'],['教室紹介','about/'],['ワークショップ','workshops/'],['サービス一覧','ecosystem/'],['FAQ','faq/'],['アクセス','access/'],['RSS','rss/'],['SHOP','https://rhythmspeaker.stores.jp/']];
+const items=[['教室トップ',''],['初回体験','trial/'],['クラス','classes/'],['教室紹介','about/'],['ワークショップ','workshops/'],['サービス一覧','ecosystem/'],['FAQ','faq/'],['アクセス','access/'],['RSS','rss/'],['オリジナルグッズ','https://rhythmspeaker.stores.jp/?all_items=true']];
 function assetHTML(html){return html.replace(/srcset="([^"]+)"/g,(_,v)=>'srcset="'+v.replace(/(^|,\s*)(assets\/[^ ,]+)/g,'$1/rhythmspeaker/$2')+'"');}
 for(const[route,[file,label,expr]]of Object.entries(pages)){
  const prefix=file==='index.html'?'':'../';
