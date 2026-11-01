@@ -75,3 +75,40 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 @media(prefers-reduced-motion:reduce){.portal-quick-card{transition:none}.portal-quick-card:hover{transform:none}}
 
 @media(max-width:700px){.portal-section .portal-main>p{font-size:13px}.portal-section .portal-shortcuts a{font-size:12px}}
+
+/* Priority menu v3 — one purpose-ranked menu for all primary official pages. */
+#menu.rs-menu{position:absolute;top:calc(100% - 1px);right:clamp(10px,3vw,45px);z-index:25;width:min(470px,calc(100vw - 20px));max-height:min(80dvh,740px);overflow-y:auto;overscroll-behavior:contain;padding:20px 22px;background:#fff;border:1px solid #d2ccc1;box-shadow:0 18px 55px #0002;scrollbar-gutter:stable}
+#menu.rs-menu .rs-menu-nav{display:block}
+#menu.rs-menu .rs-menu-group{margin:0 0 20px}
+#menu.rs-menu .rs-menu-group:last-child{margin-bottom:0}
+#menu.rs-menu .rs-menu-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:#666059;margin:0 0 9px;line-height:1.5}
+#menu.rs-menu .rs-menu-primary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#menu.rs-menu .rs-menu-action{position:relative;min-height:120px;padding:15px 14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;justify-content:flex-start;text-decoration:none;color:#171717;background:#f1e4dd;border:1px solid #c8b8af;border-radius:3px;line-height:1.35}
+#menu.rs-menu .rs-menu-action--schedule{background:#171717;color:#fff;border-color:#171717}
+#menu.rs-menu .rs-menu-action>strong{font-size:17px;font-weight:700;letter-spacing:-.035em}
+#menu.rs-menu .rs-menu-action>small{font-size:11px;line-height:1.5;color:inherit;opacity:.83;font-weight:400;margin:0}
+#menu.rs-menu .rs-menu-action>span{position:absolute;right:11px;bottom:10px;font-size:14px}
+#menu.rs-menu .rs-menu-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 9px;list-style:none;margin:0;padding:0}
+#menu.rs-menu .rs-menu-links li{list-style:none;min-width:0;padding:0;margin:0}
+#menu.rs-menu .rs-menu-link{min-height:46px;display:flex;align-items:center;justify-content:flex-start;padding:9px 11px!important;border:1px solid transparent;text-decoration:none;background:#f6f4f0;font-size:12px;line-height:1.45;font-weight:600;white-space:normal}
+#menu.rs-menu .rs-menu-link small{font-size:10px;color:#68615c;margin:3px 0 0}
+#menu.rs-menu .rs-menu-group--member .rs-menu-link{min-height:56px;display:flex;flex-direction:column;align-items:flex-start;background:#edf0ee}
+#menu.rs-menu .rs-menu-group--member .rs-menu-link--line{background:#e7ede5}
+#menu.rs-menu .rs-menu-group--more{border-top:1px solid #d7d2ca;padding-top:13px}
+#menu.rs-menu .rs-menu-group--more .rs-menu-link{min-height:44px;background:transparent;color:#514d47;font-weight:500}
+#menu.rs-menu .rs-menu-group--more .rs-menu-link--goods{color:#1f463b}
+#menu.rs-menu .rs-menu-group--more .rs-menu-link--ecosystem{color:#151515;font-weight:700;background:#eeeae3}
+#menu.rs-menu a:hover{background:#e9e1d5;color:#121212;border-color:#b5ac9f}
+#menu.rs-menu .rs-menu-action--schedule:hover{background:#353535;color:#fff}
+#menu.rs-menu a:focus-visible{outline:3px solid #ac603c;outline-offset:2px}
+#menu.rs-menu .rs-menu-nav:focus{outline:none}
+.menu-button[aria-expanded="true"]{font-weight:700}
+@media(max-width:700px){
+  #menu.rs-menu{right:10px;padding:15px;width:calc(100vw - 20px);max-height:calc(100dvh - 84px)}
+  #menu.rs-menu .rs-menu-action{min-height:98px;padding:12px}
+  #menu.rs-menu .rs-menu-action>strong{font-size:16px}
+  #menu.rs-menu .rs-menu-links{gap:3px 6px}
+  #menu.rs-menu .rs-menu-link{min-height:46px;font-size:12px;padding:10px!important}
+  #menu.rs-menu .rs-menu-group{margin-bottom:16px}
+}
+@media(max-width:340px){#menu.rs-menu .rs-menu-primary{gap:7px}#menu.rs-menu .rs-menu-action>strong{font-size:15px}#menu.rs-menu .rs-menu-link{font-size:11px}}
