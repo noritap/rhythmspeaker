@@ -18,11 +18,11 @@ class Cards(HTMLParser):
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if tag == 'article' and any(c in a.get('class', '').split() for c in ('portal-card','portal-tile')):
-            self.card = {'main': [], 'links': [], 'h2': 0}
+            self.card = {'main': [], 'links': [], 'h3': 0}
             self.cards.append(self.card)
         if self.card is not None:
-            if tag == 'h2':
-                self.card['h2'] += 1
+            if tag == 'h3':
+                self.card['h3'] += 1
             if tag == 'a':
                 self.card['links'].append(a['href'])
                 if any(c in a.get('class', '').split() for c in ('portal-main-link','portal-main')):
@@ -53,27 +53,36 @@ class PortalContractTest(unittest.TestCase):
         bad = self.html.replace('>FAQ</a>', '>アクセス</a>', 1)
         self.assertIn('PORTAL_NAV_LABEL_HREF_ORDER_DRIFT', portal_problems(bad))
 
-    def test_nine_categories_have_headings_and_safe_destinations(self):
+    def test_ten_categories_have_headings_and_safe_destinations(self):
         p = Cards()
         p.feed(self.html)
-        self.assertEqual(len(p.cards), 9)
-        if 'data-ux-source="sites-v6"' in self.html:
-            expected=['../','../broadcast/','../music/','../workshops/','../ecosystem/?category=learn','https://rhythmspeaker.stores.jp/','../about/','https://tips-app-seven.vercel.app/','https://lin.ee/zC5YLe7']
-            for card, main in zip(p.cards,expected):
-                self.assertEqual(card['main'],[main]);self.assertEqual(card['h2'],1)
-            self.assertIn('https://noritap.github.io/furusho-official/',p.cards[6]['links'])
-            self.assertIn('../classes/',p.cards[4]['links'])
-            return
-        expected = ['../', '../broadcast/', '../music/', '../workshops/', None, None,
-                    'https://noritap.github.io/furusho-official/',
-                    'https://tips-app-seven.vercel.app/',
-                    'mailto:rhythmspeaker296@gmail.com?subject=Rhythm%20Speaker%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B']
+        self.assertEqual(len(p.cards), 10)
+        expected = [
+            '../', '../workshops/', '../broadcast/', '../music/',
+            '../ecosystem/?category=learn',
+            'https://rhythmspeaker.stores.jp/?all_items=true',
+            'https://rhythmspeaker.hatenablog.com/',
+            '../about/', 'https://tips-app-seven.vercel.app/',
+            'https://lin.ee/zC5YLe7',
+        ]
         for card, main in zip(p.cards, expected):
-            self.assertEqual(card['main'], [] if main is None else [main])
-            self.assertEqual(card['h2'], 1)
-            self.assertLessEqual(len(card['links']) - len(card['main']), 3)
-        self.assertIn('https://rhythmspeaker.stores.jp/', p.cards[5]['links'])
-        self.assertIn('../classes/', p.cards[4]['links'])
+            self.assertEqual(card['main'], [main])
+            self.assertEqual(card['h3'], 1)
+            self.assertLessEqual(len(card['links']) - len(card['main']), 5)
+        self.assertNotIn('../schedule/', p.cards[0]['links'])  # primary schedule is already the top action
+        self.assertIn('../classes/', p.cards[0]['links'])
+        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[7]['links'])
+        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[9]['links'])
+
+    def test_primary_routes_and_shop_review_distinction(self):
+        self.assertIn('class="portal-quick-card portal-quick-card--trial" href="../trial/"', self.html)
+        self.assertIn('class="portal-quick-card portal-quick-card--schedule" href="../schedule/"', self.html)
+        self.assertIn('>レッスン日程</strong>', self.html)
+        self.assertIn('<h3>オリジナルグッズ</h3>', self.html)
+        self.assertIn('<h3>商品レビュー</h3>', self.html)
+        self.assertIn('リズムスピーカー商店を読む', self.html)
+        self.assertIn('<h2 id="portal-heading-shopping">買う・選ぶ</h2>', self.html)
+        self.assertNotIn('通常クラス予約', self.html)
 
     def test_all_first_party_link_targets_exist(self):
         class Links(HTMLParser):
@@ -100,7 +109,7 @@ class PortalContractTest(unittest.TestCase):
         p = Sprite(); p.feed(self.html)
         if 'data-ux-source="sites-v6"' in self.html:
             self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
-            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),9)
+            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),10)
             return
         self.assertEqual(len(p.sprites), 1)
         self.assertEqual(p.sprites[0].get('width'), '0')

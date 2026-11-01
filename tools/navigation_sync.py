@@ -26,8 +26,8 @@ ITEMS = [
     ("アクセス", "access/"),
     ("RSS", "rss/"),
 ]
-SHOP_URL = "https://rhythmspeaker.stores.jp/"
-SHOP_LABEL = "SHOP"
+SHOP_URL = "https://rhythmspeaker.stores.jp/?all_items=true"
+SHOP_LABEL = "オリジナルグッズ"
 
 
 def href_for(prefix: str, route: str, current: str | None, label: str) -> str:
@@ -47,7 +47,7 @@ def render_list(prefix: str, current: str | None, css_class: str, mobile: bool) 
         href = href_for(prefix, route, current, label)
         current_attr = ' aria-current="page"' if current == label else ""
         lines.append(f'{item_indent}<li><a href="{href}"{current_attr}>{label}</a></li>')
-    external_attrs = '' if mobile else ' class="nav-external" aria-label="Rhythm Speaker Official Shopへ"'
+    external_attrs = '' if mobile else ' class="nav-external" aria-label="Rhythm Speaker オリジナルグッズへ"'
     lines.append(f'{item_indent}<li><a href="{SHOP_URL}"{external_attrs}>{SHOP_LABEL}</a></li>')
     lines.append(f"{indent}</ul>")
     return "\n".join(lines)

@@ -1,6 +1,6 @@
 # Rhythm Speaker Web｜NAVIGATION_REGISTRY
 
-Version: 1.3
+Version: 2.0
 Status: ACTIVE
 Canonical Base URL: https://noritap.github.io/rhythmspeaker/
 
@@ -22,7 +22,7 @@ Order:
 7. FAQ — /rhythmspeaker/faq/
 8. アクセス — /rhythmspeaker/access/
 9. RSS — /rhythmspeaker/rss/
-10. SHOP — https://rhythmspeaker.stores.jp/
+10. オリジナルグッズ — https://rhythmspeaker.stores.jp/?all_items=true
 
 Brand / Home:
 - Rhythm Speaker logo → /rhythmspeaker/
@@ -32,17 +32,17 @@ Portal exception (PR #284 / #285, consolidated 2026-10-29):
 - `/ecosystem/` renders the same 10-link contract once, in a native details menu shared by desktop and mobile. Do not keep a hidden desktop copy to satisfy CI.
 - `tools/navigation_sync.py` generates its `portal-site-links` list. `tools/navigation_audit.py` checks one list, exact label/href/order, and absence of both legacy navigation lists.
 - The portal keeps the existing trial application CTA; inquiry, booking, payment and Wallet destinations are unchanged.
-- The nine directory cards are STUDIO / BROADCAST / MUSIC / EVENTS / ONLINE / SHOP / OWNER / MY PAGE / CONTACT. This directory taxonomy does not replace the global 10-link contract or the internal business classification below.
-- ONLINE and the dedicated SHOP site remain non-clickable pending entries; their verified supporting links remain available (maximum three per card). Never guess their primary URLs.
-- Card primary links use article-bounded expanded hit areas, with independent shortcuts above them. Every category has an h2. The menu opens without JavaScript; Escape dismissal is progressively enhanced.
+- The service directory now has ten purpose-based cards: STUDIO / EVENTS / WATCH / MUSIC / LEARN / ORIGINALS / REVIEW / ABOUT / MY PAGE / CONTACT. ORIGINALS is the STORES product-list entry; REVIEW is the separate リズムスピーカー商店 editorial entry. This grouping does not replace the global 10-link RS-NAV-2 contract or the internal business classification below.
+- LEARN links only to the existing learning guide; the separate online course remains marked as not yet available. ORIGINALS links to the existing STORES product listing. REVIEW links to the existing Hatena publication. Do not invent or change payment / booking behavior.
+- Card primary links use article-bounded expanded hit areas, with independent shortcuts above them. Each purpose group has an h2; each service card has an h3. The top two priority actions are 初回体験 and レッスン日程. The menu opens without JavaScript; Escape dismissal is progressively enhanced.
 
 Primary CTA:
-- 初回体験 / Official LINE
+- 初回体験 ¥1,000 / レッスン日程（公式LINEは予約・問い合わせの窓口として維持）
 
 Supporting Surfaces:
 - RS Walletは新規客のPrimary CTAにしない
-- STORESはRhythm Speaker Official Shopとして扱う
-- STORESをMain HPとは呼ばない
+- STORESはRhythm Speakerの**オリジナルグッズ**販売先として扱う。はてなブログの**商品レビュー／リズムスピーカー商店**とは別リンク・別目的にする
+- STORESをMain HPとは呼ばない。商品比較記事をSTORESと呼ばない
 
 ## Public Business Grouping
 
@@ -78,7 +78,7 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 - サービス一覧が一部ページだけに存在
 - RSSが一部ページだけに存在
 - DesktopとMobileの項目差
-- SHOP表記・hrefの不一致
+- オリジナルグッズ表記・hrefの不一致
 - STORESを「メインHP」と表記する旧ラベル
 - 項目順の不一致
 - Parent / Home導線欠落
@@ -94,7 +94,7 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 ## Current Baseline
 
 2026-08-31 business architecture reviewで、GitHub Pages Official WebをMain HP、STORESをOfficial Shopとする役割分担を確定。
-`RS-NAV-2` では旧「メインHP・SHOP」ラベルを `SHOP` へ変更する。
+`RS-NAV-2` では旧「メインHP・SHOP」ラベルを `オリジナルグッズ` へ変更する。
 
 ## Automation
 
@@ -106,7 +106,7 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 ## DONE CONDITION
 
 - Primary PagesのDesktop / Mobile NavigationがContractに一致
-- STORES表示がSHOPで統一
+- STORES表示がオリジナルグッズで統一
 - Official WebがMain HPとして扱われる
 - Footer対象ページも主要Directoryへの導線を保持
 - Navigation Audit strict PASS
@@ -114,4 +114,11 @@ RSS個別回、Workshop等のLocal Navigationは許可するが、Parent Return 
 - 新規Primary PageはRegistry Scopeへ登録
 
 ## Sites migration review branch (not yet production)
-The migration keeps RS-NAV-2's ten destinations and ordering, including RSS/SHOP/workshops. The compact Sites header exposes schedule/pricing/instructors as additional STUDIO entry points. Shared desktop/mobile menu lists retain the canonical generated contract. `/ecosystem/` keeps one canonical portal list and a no-JavaScript navigation fallback. Logos on migrated studio pages consistently return to the service portal; brand-name text returns to the studio home. New schedule/pricing routes are review-only pending owner approval; no main routing changes are adopted by this document alone.
+The migration keeps RS-NAV-2's ten destinations and ordering, including RSS/オリジナルグッズ/workshops. The compact Sites header exposes schedule/pricing/instructors as additional STUDIO entry points. Shared desktop/mobile menu lists retain the canonical generated contract. `/ecosystem/` keeps one canonical portal list and a no-JavaScript navigation fallback. Logos on migrated studio pages consistently return to the service portal; brand-name text returns to the studio home. New schedule/pricing routes are review-only pending owner approval; no main routing changes are adopted by this document alone.
+
+## v2 Canonical UX Rule
+
+- **docs/ux/RS_WEB_UX_RULES_V2.md** is the canonical UX wording, customer booking semantics and menu visual priority specification.
+- Top two purpose-driven actions on `/ecosystem/`: 初回体験 ¥1,000 and レッスン日程. `/schedule/` stays the same URL.
+- Global STORES link is labeled `オリジナルグッズ` and points to the product listing. Editorial shop is the separate `商品レビュー` category and is **not** a direct e-commerce checkout.
+- Preserve 10 global destinations/order and 10 purpose-based service cards; do not change operational workshop/Wallet/Calendar behavior.
