@@ -1,7 +1,7 @@
 # RHYTHM SPEAKER｜全サービスメニュー v1.0 UX評価
 
 Date: 2026-11-01
-Review status: **Draft PR / not production**
+Review status: **Baseline 90/100 preliminary before v2 naming integration**
 Pull request: https://github.com/noritap/rhythmspeaker/pull/314
 Browser QA: https://github.com/noritap/rhythmspeaker/actions/runs/41262259833
 Screenshots in GitHub Actions artifact `ux-pr220-evidence`: `ecosystem-390.png`, `ecosystem-1440.png`
@@ -39,7 +39,7 @@ Screenshots in GitHub Actions artifact `ux-pr220-evidence`: `ecosystem-390.png`,
 
 ## Residual issues and follow-up VC
 
-1. **Global SHOP naming**: RS-NAV-2 still has SHOP in universal menu and footer. Rename globally to 「オリジナルグッズ」 only after protected RSS menu and navigation contract can be updated consistently.
+1. **Global storefront naming**: v2 integrates 「オリジナルグッズ」 into the universal menu and source contract, subject to full regression validation before release.
 2. **Mobile length**: all ten service cards remain browsable; on 390px the page is vertically long. Before optimizing with progressive disclosure, obtain simple user task completion observations (初回体験／日程／音楽／商品レビュー).
 3. **External storefront catalog**: STORES listing `?all_items=true` is derived from the current storefront item menu. Monitor if the product listing path ever changes.
 4. **Business outcomes**: higher CTA salience is a design hypothesis. Confirm page clickthrough and LINE inquiries after any release; do not equate automated QA with a measured conversion uplift.
