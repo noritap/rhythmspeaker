@@ -1,6 +1,6 @@
 # Rhythm Speaker Web｜NAVIGATION_REGISTRY
 
-Version: 2.0
+Version: 3.0
 Status: ACTIVE
 Canonical Base URL: https://noritap.github.io/rhythmspeaker/
 
@@ -10,7 +10,7 @@ Rhythm Speaker公式WebのDesktop / Mobile Navigationを1つの正本として�
 
 ## Navigation Contract
 
-NAV_VERSION: RS-NAV-2
+NAV_VERSION: RS-NAV-3
 
 Order:
 1. 教室トップ — /rhythmspeaker/
@@ -122,3 +122,21 @@ The migration keeps RS-NAV-2's ten destinations and ordering, including RSS/オ�
 - Top two purpose-driven actions on `/ecosystem/`: 初回体験 ¥1,000 and レッスン日程. `/schedule/` stays the same URL.
 - Global STORES link is labeled `オリジナルグッズ` and points to the product listing. Editorial shop is the separate `商品レビュー` category and is **not** a direct e-commerce checkout.
 - Preserve 10 global destinations/order and 10 purpose-based service cards; do not change operational workshop/Wallet/Calendar behavior.
+
+## RS-NAV-3｜優先順位別共通メニュー（2026-11-01）
+
+RS-NAV-2の元の10行き先を削除しない。ただし、右上メニューの情報設計は利用者の目的・訪問頻度と収益上の優先順位に応じて組み替えた。
+
+1. 最優先: `/schedule/`「レッスン日程」 / `/trial/`「初回体験 ¥1,000」
+2. 教室・レッスン: `/pricing/`, `/classes/`, `/instructors/`, `/workshops/`, `/access/`, `/rental/`
+3. 会員・お問い合わせ: RS Wallet / スタジオ公式LINE
+4. その他: 教室トップ、教室紹介、FAQ、RSS、オリジナルグッズ、すべてのサービス
+
+現在のページへの自己リンクは省く。メニューをPC/モバイルで複製せず、単一の `nav.rs-menu-nav` を使用する。
+
+**生成正本**: `tools/navigation_sync.py` の `MENU_GROUPS` と `PAGES`。主要10ページが対象。
+**監査**: `tools/navigation_audit.py --strict` は全対象ページの正確な構造・行き先・順序を検証する。
+**UI**: 開閉表示・Escapeフォーカス復帰・画面高さ内のスクロール・2列カード・大きな行動CTA。
+**UX指針**: `docs/ux/RS_WEB_UX_RULES_V2.md` v2.1。
+
+これまでのRS-NAV-2の表示順に関する記述は履歴であり、新メニューの順序はこの章を優先する。
