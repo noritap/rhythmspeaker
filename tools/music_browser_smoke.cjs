@@ -4,7 +4,7 @@ const assert=require('node:assert/strict');
 (async()=>{const browser=await chromium.launch({headless:true,args:['--no-sandbox']});const errors=[];
 try{for(const width of [320,375,390,430,1280,1440,1920]){
  const page=await browser.newPage({viewport:{width,height:900}});page.on('pageerror',e=>errors.push(e.message));
- const base='http://127.0.0.1:8765/music/';
+ const base='http://127.0.0.1:8765/rhythmspeaker/music/';
  for(const route of ['#home','#discover','#albums','#album/disco-001','#album/tap-dance-in-suspense','#album/saa-ittemiyouka','#album/velvet-city-motion','#listen/velvet-city-motion-02']){
  await page.goto(base+route,{waitUntil:'domcontentloaded'});await page.locator('main h1').waitFor();
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),width+route+' overflow');
