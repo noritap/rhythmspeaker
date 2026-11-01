@@ -54,7 +54,7 @@ has('pricing/index.html', '3,500 TIPS');
 has('pricing/index.html', '1,000');
 has('trial/index.html', 'シューズ');
 has('access/index.html', '西池袋3-22-10');
-has('trial/apply/index.html', 'https://lin.ee/zC5YLe7');
+has('trial/apply/index.html', 'https://line.me/R/oaMessage/%40ypk3334t/');
 has('instructors/homma/index.html', 'https://lin.ee/zC5YLe7');
 has('instructors/homma/index.html', 'https://lin.ee/7Dk4s8o');
 has('rental/index.html', '30%');
