@@ -20,11 +20,11 @@ const check=async(p,fn)=>{
  throw last;
 };
 (async()=>{
- await check('/music/',b=>b.includes('data-rsm-explorer')&&b.includes('explorer.js'));
- await check('/music/data/catalog.json',b=>{const j=JSON.parse(b);return j.albums?.length===3&&j.albums.reduce((n,a)=>n+a.tracks.length,0)===38});
+ await check('/music/',b=>b.includes('data-rsm-explorer')&&b.includes('explorer.js')&&b.includes('DISCO 001'));
+ await check('/music/data/catalog.json',b=>{const j=JSON.parse(b);return j.albums?.length===4&&j.albums.reduce((n,a)=>n+a.tracks.length,0)===52&&j.albums.some(a=>a.slug==='disco-001'&&a.tracks.length===14&&a.tracks.every(t=>/^[A-Za-z0-9_-]{11}$/.test(t.youtube_id)))});
  await check('/music/explorer.js',b=>b.includes('youtube-nocookie.com/embed/')&&b.includes('renderExplorer'));
- for(const slug of ['tap-dance-in-suspense','saa-ittemiyouka','velvet-city-motion']){
+ for(const slug of ['disco-001','tap-dance-in-suspense','saa-ittemiyouka','velvet-city-motion']){
   await check('/music/albums/'+slug+'/',b=>b.includes('../../explorer.js')&&b.includes('tracklist'));
  }
- console.log('MUSIC GITHUB PAGES LIVE SMOKE PASS');
+ console.log('MUSIC GITHUB PAGES LIVE SMOKE PASS: 4 albums / 52 tracks / DISCO 001');
 })().catch(e=>{console.error(e);process.exitCode=1});
