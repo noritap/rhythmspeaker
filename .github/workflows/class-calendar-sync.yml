@@ -8,10 +8,13 @@ on:
       - "tools/public_class_projection.py"
       - "tools/test_public_class_projection.py"
       - "tools/test_calendar_status_ui.js"
+      - "tools/publish_public_classes.sh"
+      - "tools/test_calendar_workflow_reliability.py"
       - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-sync.yml"
   schedule:
-    - cron: "17 * * * *"
+    # Two independent opportunities per hour. GitHub scheduled runs may be delayed or dropped.
+    - cron: "17,47 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -27,6 +30,7 @@ jobs:
           python-version: "3.12"
       - run: python tools/test_sync_public_classes.py
       - run: python tools/test_public_class_projection.py
+      - run: python tools/test_calendar_workflow_reliability.py
       - name: Verify OPEN/CLOSE website status and participation action
         run: node tools/test_calendar_status_ui.js
 
@@ -39,6 +43,7 @@ jobs:
       vars.RS_OPEN_CLASSES_APPROVED == 'true'
     needs: test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     concurrency:
       group: publish-public-classes
       cancel-in-progress: false
@@ -64,14 +69,5 @@ jobs:
           python tools/test_sync_public_classes.py
           python tools/test_public_class_projection.py
           python tools/sites_migration_audit.py
-      - name: Commit only the sanitized public projection
-        run: |
-          if git diff --quiet -- data/class-sessions.public.json; then
-            echo "No public-data changes."
-            exit 0
-          fi
-          git config user.name "rhythm-speaker-calendar-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- data/class-sessions.public.json
-          git commit -m "data(schedule): refresh approved public class sessions"
-          git push origin HEAD:main
+      - name: Publish with bounded non-force conflict handling
+        run: bash tools/publish_public_classes.sh
