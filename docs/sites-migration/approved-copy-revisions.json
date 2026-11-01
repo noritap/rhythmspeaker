@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "2026-11-01 owner-requested sitewide customer-facing copy simplification; PR #313",
-  "scope": "Only exact content-addressed copy revisions on the 17 intentionally edited originally protected HTML files; original immutable SHA-256 baseline is retained.",
+  "approvedReason": "Owner-approved protected HTML revisions, including 2026-11-01 sitewide copy simplification and RS BROADCAST HOME v3 culture-navigation rebuild.",
+  "scope": "Exact content-addressed revisions only; immutable SHA-256 baseline remains unchanged. Broadcast runtime/style protection is preserved by adding isolated home-v3 layers.",
   "blobSha1": {
-    "broadcast/index.html": "9aa7396e0e62bd776490016d5848b8a52a84ca9d",
+    "broadcast/index.html": "463099986911202c3d45931a40d4e1e92b1d2190",
     "classes/bar-method/index.html": "2348561f1167b8fd68b2110b5dc3d1cec3ea93cb",
     "classes/hiit/index.html": "3b5446e0041d44799f1872b84a9a2e1779963ca3",
     "classes/isolation/index.html": "ba855b14f233080e4f7571469826f87ac3d9e9f6",

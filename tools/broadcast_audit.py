@@ -94,8 +94,12 @@ def audit(root: Path) -> list[str]:
         for hook in [
             'data-rsb-network-featured',
             'data-rsb-network-latest',
+            'data-rsb-network-chapters',
             'data-rsb-network-programs',
             'data-rsb-network-people',
+            'data-rsb-network-topics',
+            'data-rsb-network-corners',
+            'data-rsb-network-picks',
         ]:
             if hook not in text:
                 problems.append(f"NETWORK_DATA_HOOK_MISSING:{hook}")
