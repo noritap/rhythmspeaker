@@ -2,6 +2,29 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/'];
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+// P0 actions and separate shop/review destinations. Validate at every supported width.
+for(const width of [320,375,390,430,768,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.goto(base+'ecosystem/');
+  await page.locator('.portal-quick-card--schedule').waitFor();
+  assert.equal(await page.locator('.portal-tile').count(),10,'exactly ten service cards');
+  assert.equal(await page.locator('.portal-section').count(),4,'four purpose-based sections');
+  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
+  assert.equal(await page.locator('.portal-quick-card--trial').getAttribute('href'),'../trial/');
+  assert.equal(await page.locator('.portal-quick-card--schedule').getAttribute('href'),'../schedule/');
+  assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
+  assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
+  assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
+  assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
+  const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
+  assert(first&&secondary&&first.y<secondary.y,'quick actions must appear above secondary services');
+  assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' portal overflow');
+  for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
+    assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
+  }
+  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length);
+  assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
+}
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
 await page.goto(base);await page.locator('header nav[aria-label="主要メニュー"] a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('header nav[aria-label="主要メニュー"] a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
 await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
