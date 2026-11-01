@@ -1,9 +1,10 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Owner-approved protected HTML revisions, including corrected あやこの部屋 EP.03 corner timestamps.",
-  "scope": "Exact content-addressed protected HTML revisions only; immutable SHA-256 baseline remains unchanged.",
+  "approvedReason": "Previous owner-approved content revisions plus the owner-requested 2026-11-02 SEO metadata-only changes (RSS preview/QA noindex and workshop canonical URLs).",
+  "scope": "Exact content-addressed protected HTML revisions only; immutable SHA-256 baseline remains unchanged. SEO changes do not alter booking, data, scripts, or authentication.",
   "blobSha1": {
     "broadcast/index.html": "463099986911202c3d45931a40d4e1e92b1d2190",
+    "broadcast/programs/ayako-no-heya/index.html": "d442ffc8b094ac6e4e498d99f6b478bb3f7c1718",
     "classes/bar-method/index.html": "2348561f1167b8fd68b2110b5dc3d1cec3ea93cb",
     "classes/hiit/index.html": "3b5446e0041d44799f1872b84a9a2e1779963ca3",
     "classes/isolation/index.html": "ba855b14f233080e4f7571469826f87ac3d9e9f6",
@@ -16,10 +17,12 @@
     "instructors/niu/index.html": "4b945c9cf89733f42617244810dab37660f1a4e0",
     "instructors/okudaira/index.html": "a56546c2a1bea457866ec5daa20abfa76c5c0241",
     "instructors/sasasa/index.html": "2bbf23e4a78a74f5d0707b4872878a395026dc26",
-    "rss-theater/index.html": "de720db397cb1c4a20259d4336aed4e4ec07a6e9",
+    "rss-theater/index.html": "6e98047c8c61fb03e0940658a0b2d257da4aac3d",
+    "rss-theater/qa/index.html": "e8c27b1330967d42534aed723194dd7ce15a2934",
+    "rss-theater/qa/program.html": "6802c1a3f1a739588ce454a5fb1258357146ea40",
     "rss/index.html": "d793c1a78ab2b444e4efe7e4ebfd5b9bcd464918",
     "trial/apply/index.html": "41f4e0f5951c6a4fd5e0080ee03521364cf13646",
-    "workshops/index.html": "c36238baba0ccfc120080b5c4ccf81e358bcc8fb",
-    "broadcast/programs/ayako-no-heya/index.html": "d442ffc8b094ac6e4e498d99f6b478bb3f7c1718"
+    "workshops/index.html": "51482f9cdd92442af06f0c2ec95ddf193fc92bcd",
+    "workshops/sakaida-koji-20261122.html": "ba95279f623e382cb89534ea1148c6c11c69a311"
   }
 }
