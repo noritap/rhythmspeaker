@@ -1,0 +1,39 @@
+/* RSM MUSIC — Explorer v3. Preserve original album design and enhance discovery. */
+.rsm-explorer{background:linear-gradient(160deg,#101923,#17151b 65%,#221a16);border-top:1px solid rgba(255,255,255,.18)}
+.rsm-explorer__head{display:flex;justify-content:space-between;align-items:end;gap:1.2rem;flex-wrap:wrap}
+.rsm-explorer__head p{margin:0;color:#c1c7ce;max-width:48ch}
+.rsm-search{display:block;max-width:680px;margin:1.65rem 0 1rem}
+.rsm-search label{display:block;color:#f0e4cd;font-weight:700;margin-bottom:.45rem}
+.rsm-search input{display:block;width:100%;min-height:52px;border:1px solid #7d8790;border-radius:14px;background:#0c1016;color:#fff;padding:12px 16px;font:inherit}
+.rsm-search input::placeholder{color:#adb7c2}
+.rsm-search input:focus-visible{outline:3px solid #f1c66d;outline-offset:2px}
+.rsm-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.6rem}
+.rsm-tags button{border:1px solid #59616d;border-radius:999px;padding:.55rem 1rem;background:transparent;color:#eef0f3;cursor:pointer;font:700 .8rem 'Outfit','Noto Sans JP',sans-serif;min-height:42px}
+.rsm-tags button:hover,.rsm-tags button[aria-pressed=true]{background:#e5b65b;border-color:#e5b65b;color:#111}
+.rsm-tracklist{list-style:none;margin:1rem 0 0;padding:0;border-top:1px solid rgba(255,255,255,.17)}
+.rsm-tracklist li,.rsm-results li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:1rem;border-bottom:1px solid rgba(255,255,255,.15);padding:.85rem .25rem}
+.rsm-results{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.2)}
+.rsm-results .num,.rsm-tracklist .num{color:#e7b75c;font:700 .85rem 'Outfit',sans-serif}
+.rsm-track-meta{min-width:0;display:flex;flex-direction:column;gap:.24rem}
+.rsm-track-meta strong{font-size:1rem;line-height:1.45;overflow-wrap:anywhere}
+.rsm-track-meta small{font-size:.72rem;color:#bfc7d0;line-height:1.35}
+.rsm-play-button,.rsm-album-play{cursor:pointer;border:1px solid #caa158;background:#d9a84e;color:#16110c;border-radius:999px;min-height:42px;padding:.52rem .9rem;font:800 .78rem 'Noto Sans JP',sans-serif;white-space:nowrap}
+.rsm-play-button:hover,.rsm-album-play:hover{background:#f3ce83}
+.rsm-play-button:focus-visible,.rsm-album-play:focus-visible,.rsm-tags button:focus-visible,.rsm-more:focus-visible,.rsm-player button:focus-visible,.rsm-player a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.rsm-more{display:block;margin:1.4rem auto 0;border:1px solid #d9a84e;background:transparent;color:#f4e1b4;padding:.8rem 2rem;min-height:48px;cursor:pointer;border-radius:999px;font:700 .9rem inherit}
+.rsm-track-notice,.rsm-explorer__note{color:#c1c7ce;font-size:.82rem;line-height:1.7}
+.rsm-album-play{display:block;width:100%;margin-top:.6rem}
+.rsm-player[hidden],.rsm-explorer[hidden],.rsm-more[hidden]{display:none!important}
+.rsm-player{position:fixed;right:16px;bottom:16px;z-index:1002;width:min(440px,calc(100vw - 32px));background:#101419;border:1px solid #aa9468;border-radius:18px;box-shadow:0 22px 70px #000c;padding:.7rem;color:#fff}
+.rsm-player__bar{display:flex;align-items:start;justify-content:space-between;gap:1rem;padding:.3rem .4rem .7rem}
+.rsm-player__bar>div{min-width:0;display:flex;flex-direction:column;gap:.18rem}
+.rsm-player__kicker{color:#deb967;font:800 .62rem 'Outfit',sans-serif;letter-spacing:.14em}
+.rsm-player__title{font-size:.95rem;line-height:1.45;overflow-wrap:anywhere}
+.rsm-player__context{color:#c9ccd1;font-size:.68rem;line-height:1.4}
+.rsm-player__close{cursor:pointer;border:1px solid #8b9095;border-radius:999px;background:transparent;color:#fff;padding:.45rem .75rem;white-space:nowrap;min-height:42px}
+.rsm-player__frame{width:100%;aspect-ratio:16/9;background:#000;border-radius:10px;overflow:hidden}
+.rsm-player__frame iframe{border:0;width:100%;height:100%}
+.rsm-player__external{display:block;text-align:right;padding:.55rem .4rem .15rem;font-size:.8rem;color:#efd18e}
+body.rsm-player-open .sticky-listen{display:none}
+@media(max-width:560px){.rsm-explorer{padding-bottom:4rem}.rsm-tracklist li,.rsm-results li{grid-template-columns:26px minmax(0,1fr) auto;gap:.5rem}.rsm-track-meta strong{font-size:.88rem}.rsm-track-meta small{font-size:.64rem}.rsm-play-button{font-size:.71rem;padding:.45rem .55rem;min-height:44px}.rsm-player{right:0;bottom:0;width:100vw;border-radius:16px 16px 0 0;padding:.5rem .7rem max(.5rem,env(safe-area-inset-bottom))}.rsm-player__frame{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.rsm-tags button,.rsm-play-button,.rsm-album-play{transition:none}}
