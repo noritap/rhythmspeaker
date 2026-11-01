@@ -1,0 +1,26 @@
+name: Music Catalog Audit
+on:
+  pull_request:
+    paths:
+      - "music/**"
+      - "tools/music_catalog_audit.cjs"
+      - ".github/workflows/music-catalog-audit.yml"
+  push:
+    branches: [main]
+    paths:
+      - "music/**"
+      - "tools/music_catalog_audit.cjs"
+      - ".github/workflows/music-catalog-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  music-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate catalog, assets and page wiring
+        run: node tools/music_catalog_audit.cjs
