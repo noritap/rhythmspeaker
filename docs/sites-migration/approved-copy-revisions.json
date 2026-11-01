@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "approvedReason": "2026-11-01 owner-requested sitewide customer-facing copy simplification; PR #313",
+  "scope": "Only exact content-addressed copy revisions on the 17 intentionally edited originally protected HTML files; original immutable SHA-256 baseline is retained.",
+  "blobSha1": {
+    "broadcast/index.html": "9aa7396e0e62bd776490016d5848b8a52a84ca9d",
+    "classes/bar-method/index.html": "2348561f1167b8fd68b2110b5dc3d1cec3ea93cb",
+    "classes/hiit/index.html": "3b5446e0041d44799f1872b84a9a2e1779963ca3",
+    "classes/isolation/index.html": "ba855b14f233080e4f7571469826f87ac3d9e9f6",
+    "classes/step/index.html": "cf9cac5774f2fc776af5e731d50927e715638117",
+    "classes/stretch/index.html": "5b9146298bc929401f067a8f662043debac40e53",
+    "classes/tap/index.html": "6023a78af455bdd8d5baa847def4277f9a476526",
+    "instructors/furusho/index.html": "50bc011b87a8d4f51bad79b55ce1517c1a4f554d",
+    "instructors/homma/index.html": "3170bc85ac348b7e1aa5a1d3f5c98369fb5a36a5",
+    "instructors/mifa/index.html": "14420addb7fb55b4507520667d494273ada8c212",
+    "instructors/niu/index.html": "4b945c9cf89733f42617244810dab37660f1a4e0",
+    "instructors/okudaira/index.html": "a56546c2a1bea457866ec5daa20abfa76c5c0241",
+    "instructors/sasasa/index.html": "2bbf23e4a78a74f5d0707b4872878a395026dc26",
+    "rss-theater/index.html": "de720db397cb1c4a20259d4336aed4e4ec07a6e9",
+    "rss/index.html": "6488f115496e669f797a9babd020ec22c9c6d70e",
+    "trial/apply/index.html": "41f4e0f5951c6a4fd5e0080ee03521364cf13646",
+    "workshops/index.html": "c36238baba0ccfc120080b5c4ccf81e358bcc8fb"
+  }
+}

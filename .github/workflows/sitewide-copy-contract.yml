@@ -1,0 +1,27 @@
+name: Sitewide public-copy contract
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'index.html'
+      - 'assets/ux-lab/app.js'
+      - 'assets/ux-lab/class-finder.js'
+      - 'docs/ux/SITEWIDE_COPY_POLICY_V1.md'
+      - 'tools/sitewide_copy_contract.test.cjs'
+      - '.github/workflows/sitewide-copy-contract.yml'
+  push:
+    branches: ['main']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Verify source syntax of shared route renderer
+        run: node --check assets/ux-lab/app.js
+      - name: Verify page coverage and nonredundant copy contract
+        run: node tools/sitewide_copy_contract.test.cjs
