@@ -47,6 +47,28 @@
     if (title) title.textContent = episode.title;
     const summary = section.querySelector('.feature-body > p:not(.eyebrow)');
     if (summary) summary.textContent = episode.summary || '';
+    const meta = section.querySelector('.feature-body .feature-meta');
+    if (meta) {
+      const labels = {
+        breathing: 'BREATH',
+        shuffle: 'SHUFFLE',
+        improvisation: 'IMPROVISATION',
+        'dance-expression': 'BODY EXPRESSION',
+        'toe-only-improvisation': 'TOE-ONLY',
+        'live-music': 'LIVE MUSIC',
+        groove: 'GROOVE',
+        metronome: 'METRONOME',
+        'band-ensemble': 'ENSEMBLE'
+      };
+      const fragment = document.createDocumentFragment();
+      (episode.topics || []).slice(0, 4).forEach((topic) => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = labels[topic] || String(topic).replaceAll('-', ' ').toUpperCase();
+        fragment.append(chip);
+      });
+      if (fragment.childNodes.length) meta.replaceChildren(fragment);
+    }
     const actions = section.querySelectorAll('.feature-body .hero-actions a');
     if (actions[0]) actions[0].href = href;
     if (actions[1]) {
