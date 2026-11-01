@@ -37,3 +37,6 @@
 body.rsm-player-open .sticky-listen{display:none}
 @media(max-width:560px){.rsm-explorer{padding-bottom:4rem}.rsm-tracklist li,.rsm-results li{grid-template-columns:26px minmax(0,1fr) auto;gap:.5rem}.rsm-track-meta strong{font-size:.88rem}.rsm-track-meta small{font-size:.64rem}.rsm-play-button{font-size:.71rem;padding:.45rem .55rem;min-height:44px}.rsm-player{right:0;bottom:0;width:100vw;border-radius:16px 16px 0 0;padding:.5rem .7rem max(.5rem,env(safe-area-inset-bottom))}.rsm-player__frame{aspect-ratio:16/9}}
 @media(prefers-reduced-motion:reduce){.rsm-tags button,.rsm-play-button,.rsm-album-play{transition:none}}
+
+/* Browser audit: prevent rotated secondary hero artwork from protruding 13px at 320px. */
+@media(max-width:560px){.hero-visual--latest .hero-mini-cover{right:24px;width:min(38vw,140px);transform:rotate(2deg)}}
