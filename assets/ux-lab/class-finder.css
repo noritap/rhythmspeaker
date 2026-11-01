@@ -11,3 +11,11 @@
 
 /* Booking copy v1: compact cards keep actions aligned when redundant labels are removed. */
 @media(max-width:1000px){.cf-card-bottom>button:only-child{margin-top:0}}
+
+/* Public schedule refresh: no Calendar API calls from visitor browsers. */
+.cf-refresh-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:-12px 0 4px}
+.cf-refresh-tools .button{min-height:44px;padding:9px 15px;border:1px solid #857c6d;background:#fff;color:#191918;font-size:13px}
+.cf-refresh-tools .button:disabled{opacity:.6;cursor:wait}
+#cf-refresh-status{font-size:13px;color:#47433d;line-height:1.6;margin:0}
+.cf-refresh-note{margin:4px 0 26px;font-size:12px}
+@media(max-width:400px){.cf-refresh-tools .button{width:100%;justify-content:center}}

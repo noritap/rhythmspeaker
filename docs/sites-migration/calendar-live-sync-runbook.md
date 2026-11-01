@@ -18,6 +18,16 @@ Status: **Owner approved the entire レッスン296 calendar as publishable less
 - If public synchronization has not succeeded for three hours, the browser hides
   stale sessions and routes visitors to official LINE/email.
 
+## Customer-facing booking certainty and no-cost refresh (2026-11-01)
+
+- Every published active lesson in レッスン296 is a **confirmed class that will be held**, not a tentative class. Publication and the customer's seat reservation are different facts.
+- **A customer's attendance reservation is confirmed only when the studio explicitly replies 「予約確定」 by LINE message or email.** An inquiry, a copy button, opening LINE, or even sending a message does not constitute booking confirmation.
+- `CLOSE` at the end of a calendar event title means the confirmed class accepts **no further joining students**, but remains public. `OPEN` or no marker means new joining inquiries are accepted, without guaranteeing a seat.
+- The visitor-visible `開催情報を再読み込み` button only re-fetches `data/class-sessions.public.json` from **GitHub Pages** with a cache-busting request. It does not contact Google Calendar, trigger GitHub Actions, mutate classes, or incur extra paid back-end operations.
+- Google Calendar to GitHub data publication remains separate via the approved hourly GitHub Actions job (cron: `17 * * * *`). Calendar changes become visible **after successful scheduled sync and Pages deployment**; the user-side refresh only picks up the latest already-published snapshot.
+- For immediate Google Calendar-to-site sync, an authenticated operator may manually dispatch the existing workflow on `main`. Never expose GitHub tokens or Calendar credentials to public browser code, nor allow any visitor to trigger a backend sync.
+- When refreshing fails, the UI preserves the last validated data and shows an error. After 3h without successful source sync, the existing stale-data guard still hides outdated class availability.
+
 ## Read-only verification before public release
 
 - Workflow: .github/workflows/class-calendar-preflight.yml (Calendar connectivity and privacy preflight).
