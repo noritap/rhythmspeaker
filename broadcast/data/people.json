@@ -83,8 +83,10 @@
       "ayako-003"
     ],
     "instagram_url": "https://www.instagram.com/imaimoa/",
-    "portrait_usage_status": "UNVERIFIED",
+    "portrait_usage_status": "VERIFIED",
     "portrait_fallback_url": "https://i.ytimg.com/vi/h3_i-OyvqpE/maxresdefault.jpg",
-    "portrait_position": "50% 24%"
+    "portrait_position": "50% 18%",
+    "portrait_url": "./assets/people/moa-imai-portrait.jpg",
+    "portrait_permission_basis": "ユーザーが2026-11-01にRSBN人物カードへの写真差し替えを明示依頼"
   }
 ]
