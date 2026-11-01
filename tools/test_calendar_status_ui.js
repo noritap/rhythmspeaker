@@ -43,7 +43,6 @@ assert.doesNotMatch(context.cfCard(closed), /詳細・参加申込へ/);
 assert.doesNotMatch(context.cfCard(closed), /満席/);
 assert.doesNotMatch(context.cfCard(closed), /開講中止/);
 assert.equal(context.cfClosed(open), false);
-assert.equal(context.cfStatusText(open), '相乗り受付中');
 assert.match(context.cfCard(open), /詳細・参加申込へ/);
 assert.equal(context.cfStatusText(open), '参加申込受付中');
 assert.match(context.cfCount(open), /定員10名｜参加可否はお申し込み後にご案内/);
