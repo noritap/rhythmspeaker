@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Owner-approved evolving RS BROADCAST canonical data. Exact Git blob SHA-1 pins are required for every protected data revision.",
+  "approvedReason": "Owner-approved evolving RS BROADCAST canonical data, including corrected あやこの部屋 EP.03 Studio chapters.",
   "allowedPaths": [
     "broadcast/data/episodes.json",
     "broadcast/data/people.json",
     "broadcast/data/programs.json"
   ],
   "blobSha1": {
-    "broadcast/data/episodes.json": "6bc73d7c02162dff0c0822a060a25f669a221adb",
+    "broadcast/data/episodes.json": "c211014537fcd25a0f5088ef2acd2dd722698f9d",
     "broadcast/data/people.json": "c63062d29cf802dc1139ef00b2c56576be415a89"
   }
 }
