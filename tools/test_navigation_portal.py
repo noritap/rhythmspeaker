@@ -69,7 +69,7 @@ class PortalContractTest(unittest.TestCase):
             self.assertEqual(card['main'], [main])
             self.assertEqual(card['h3'], 1)
             self.assertLessEqual(len(card['links']) - len(card['main']), 5)
-        self.assertIn('../schedule/', p.cards[0]['links'])
+        self.assertNotIn('../schedule/', p.cards[0]['links'])  # primary schedule is already the top action
         self.assertIn('../classes/', p.cards[0]['links'])
         self.assertIn('https://noritap.github.io/furusho-official/', p.cards[7]['links'])
         self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[9]['links'])
