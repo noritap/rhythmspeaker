@@ -26,8 +26,11 @@ for(const a of data.albums){
   total++;
  }
 }
-assert.equal(total,38,'38-track baseline changed; update audit with verified new release');
-assert.equal(direct,19,'direct-video count changed; validate first');
+assert.equal(total,52,'expected 52 tracks across 4 albums');
+assert.equal(direct,33,'expected 33 verified direct-video IDs');
+const disco=data.albums.find(a=>a.slug==='disco-001');
+assert(disco&&disco.id==='RSM-ALB-004'&&disco.tracks.length===14,'DISCO 001 catalog missing');
+assert(disco.tracks.every(t=>t.youtube_id&&t.duration_seconds>0),'DISCO 001 individual videos/durations required');
 const home=read('music/index.html'),script=read('music/explorer.js');
 assert(home.includes('data-rsm-explorer')&&home.includes('./explorer.js')&&home.includes('../broadcast/'));
 assert(script.includes('youtube-nocookie.com/embed/')&&script.includes('data/catalog.json'));

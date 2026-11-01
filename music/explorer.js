@@ -123,6 +123,11 @@
       setText($('.latest-callout__kicker + strong + span',callout),latest.description);
       const heroCover = $('.hero-cover');
       if (heroCover) { heroCover.src = imagePath(latest.image); heroCover.alt = latest.title + ' アートワーク'; }
+      const heroLink = $('.hero--latest .actions .btn--gold');
+      if (heroLink) heroLink.href = latest.playlist_url;
+      const visualMark = $('.visual-mark');
+      if (visualMark && visualMark.lastChild && visualMark.lastChild.nodeType === Node.TEXT_NODE)
+        visualMark.lastChild.textContent = 'NEW / ' + latest.id;
     }
   }
 
