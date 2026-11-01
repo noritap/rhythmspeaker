@@ -1,6 +1,6 @@
 # RHYTHM SPEAKER｜全サービスメニュー 情報設計 v1.0
 
-Status: Implemented in feature branch for review; do not treat as production until PR merged
+Status: BASELINE / superseded by [RS_WEB_UX_RULES_V2.md](RS_WEB_UX_RULES_V2.md); applies on deployment
 Date: 2026-11-01
 Owner objective: 初見で理解できる名称、事業構造より利用目的、重要度を視覚と配置で区別
 
@@ -47,14 +47,14 @@ Owner objective: 初見で理解できる名称、事業構造より利用目的
 
 - `tools/test_navigation_portal.py`: 10カテゴリのリンク先、全カード見出し、P0の順序・2つのショッピング先の区別、デスクトップ/モバイル共有メニュー。
 - `tools/sites_migration_browser_check.js`: 10ページ×6幅の回帰、ポータルカードのリンクとフォーカス/横スクロール。
-- `tools/navigation_audit.py --strict`: RS-NAV-2の十項目グローバルナビはそのまま維持。「SHOP」は既存の正本メニュー名として維持し、利用目的が分かりやすい名称は全サービス内に配置する。
+- `tools/navigation_audit.py --strict`: RS-NAV-2の十項目グローバルナビはそのまま維持し、STORES項目の表示名は「オリジナルグッズ」へ統一する。
 - `tools/sitewide_copy_contract.test.cjs`: 予約・料金・プライバシーなどの重要情報保護。
 - Metrics after release: 日程ページ遷移率・初回体験ページ遷移率・商品一覧と記事の遷移混同・LINE導線到達。Analytics実数の取得なしに成果改善を断定しない。
 
 ## Risks / deferred
 
 1. STORESの「商品一覧」リンクがサービス側で変更された場合の保守。
-2. 公式Webのグローバルナビに残る「SHOP」の再命名は、RS-NAV-2とprotectedの `rss/index.html` を含む別レビューが必要。意図しない全サイト名称変更は行わない。
+2. グローバルナビの旧「SHOP」表示はv2ルールで「オリジナルグッズ」へ統合する。変更時に保護対象・自動生成・厳密テストを同時に更新する。
 3. 実利用者が「音楽作品購入」と「音楽を聴く」を混同しないか、公開後の小規模ユーザーテストで確認。
 4. 販売事業の収益順位は未検証のため、商店と商品販売のビジュアル優先度はUX仮説として評価する。
 
