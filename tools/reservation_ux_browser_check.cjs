@@ -10,7 +10,7 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
  const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.CHROMIUM_EXECUTABLE_PATH}:{})});const report={widths:[],scenarios:[],errors:[]};
  try{
   if(process.env.RESERVATION_BEFORE_URL){
-   const before=await browser.newPage({viewport:{width:390,height:740}});
+   const before=await browser.newPage({viewport:{width:390,height:740}});await before.clock.install({time:new Date('2026-11-02T08:35:00+09:00')});
    await before.route('**/data/class-sessions.public.json*',r=>r.fulfill({json:fixture()}));
    await before.goto(process.env.RESERVATION_BEFORE_URL+'schedule/');await before.locator('[data-cf-detail]').first().click();
    await before.screenshot({path:`${evidence}/before-detail-390.png`});await before.locator('#cf-join-apply').click();await before.screenshot({path:`${evidence}/before-compose-390.png`});await before.close();
@@ -82,9 +82,17 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
     payload=fixture();payload.lastSuccessfulSyncAt='2026-11-02T00:00:00+09:00';await page.locator('#cf-retry-selection').click();assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
     payload=fixture();await page.locator('#cf-retry-selection').click();await page.locator('#cf-message').waitFor();fail=true;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());assert(await page.getByRole('link',{name:'スタジオ公式LINEで相談する ↗'}).isVisible());
     fail=false;await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();
+    // A second click must not escape while first-click revalidation is pending.
+    await page.clock.fastForward(61_000);hold=true;payload.sessions[0].publicStatus='CLOSE';const attemptsBefore=contactRequests.length;
+    await page.locator('#cf-line').click();await page.waitForTimeout(100);await page.locator('#cf-line').click();
+    assert.equal(contactRequests.length,attemptsBefore,'pending revalidation blocks a second handoff click');hold=false;release?.();await page.locator('[data-flow="UNAVAILABLE"]').waitFor();
+    payload.sessions[0].publicStatus='OPEN';await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();
     // Single-flight and hourly budget, including forced retries.
     const countBefore=requests;hold=true;const pending=page.evaluate(()=>Promise.all([cfRefreshPublished(true),cfRefreshPublished(true)]));await page.waitForTimeout(100);hold=false;release?.();await pending;assert.equal(requests,countBefore+1);
     const beforeBurst=requests,used=await page.evaluate(()=>cfChecks.length);await page.evaluate(async()=>{for(let i=0;i<30;i++)await cfRefreshPublished(true)});assert.equal(requests-beforeBurst,20-used,'refresh budget must cap per-hour attempts in the current document');const capped=requests;await page.evaluate(()=>cfRefreshPublished(true));assert.equal(requests,capped);
+    assert(await page.getByRole('link',{name:'スタジオ公式LINEで相談する ↗'}).isVisible(),'budget exhaustion offers a usable direct consultation route');
+    assert.equal(await page.locator('#cf-line').count(),0,'normal handoff does not loop on exhausted budget');
+    report.scenarios.push('pending double-click blocked; exhausted budget offers consultation; baseline clock fixed');
     report.scenarios.push('A–N: draft/history/class isolation/copy failure/metadata change/CLOSE/CANCELLED/INQUIRY_ONLY/full/disappearance/stale/network/single-flight/budget');
    }
    report.widths.push({width,status:'PASS'});await context.close();

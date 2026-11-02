@@ -35,7 +35,13 @@ async function cfRefreshPublished(force=false){
   const now=Date.now();
   cfChecks=cfChecks.filter(t=>now-t<60*60_000);
   if(cfRefreshing||cfState.mode!=='join'||!document.querySelector('#cf-content'))return false;
-  if((!force&&now-cfLastCheck<cfRefreshPolicy.minMs)||cfChecks.length>=cfRefreshPolicy.maxPerHour)return !cfDataError;
+  if(cfChecks.length>=cfRefreshPolicy.maxPerHour){
+    const reason='公開情報の確認回数が上限に達しました。最新の受付状況はスタジオへ直接ご相談ください。';
+    if(cfSelected&&dialog.open)cfShowUnavailable(finderData.sessions.find(x=>x.id===cfSelected),reason);
+    const message=document.querySelector('#cf-refresh-status');if(message)message.textContent=reason;
+    return false;
+  }
+  if(!force&&now-cfLastCheck<cfRefreshPolicy.minMs)return !cfDataError;
   cfRefreshing=true;cfLastCheck=now;cfChecks.push(now);
   const button=document.querySelector('#cf-refresh');if(button)button.disabled=true;
   try{
@@ -113,6 +119,7 @@ function cfBindComposer(){
   copy.onclick=async()=>{if(!check())return;const value=text.value;try{await navigator.clipboard.writeText(value);if(!text.isConnected)return;if(text.value!==value){document.querySelector('#cf-copy-status').textContent='文章が変更されました。もう一度コピーしてください。';return;}copiedText=value;line.classList.add('primary');copy.classList.remove('primary');document.querySelector('#cf-copy-status').textContent='コピーしました。次は公式LINEに貼り付けて送信してください。';}catch{if(!text.isConnected)return;text.focus();text.select();document.querySelector('#cf-copy-status').textContent='自動コピーを利用できません。選択された文章を手動でコピーしてください。';}};
   for(const [link,channel]of [[line,'LINE'],[mail,'メール']])link.onclick=async e=>{
     if(!check()){e.preventDefault();return;}
+    if(cfRefreshing){e.preventDefault();document.querySelector('#cf-handoff-status').textContent='公開情報を確認中です。確認が終わるまでお待ちください。';return;}
     // Preserve normal/new-tab and modified-click behavior; never claim app launch or sending.
     if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey){document.querySelector('#cf-handoff-status').textContent='連絡先を開いた後、外部アプリで送信してください。予約はまだ確定していません。';return;}
     if(cfSelected&&Date.now()-cfLastCheck>=cfRefreshPolicy.minMs){e.preventDefault();const ok=await cfRefreshPublished();if(ok&&cfFlow!=='UNAVAILABLE'){document.querySelector('#cf-handoff-status').textContent='最新の公開情報を確認しました。もう一度連絡ボタンを押してください。';}return;}
