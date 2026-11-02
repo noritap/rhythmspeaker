@@ -33,8 +33,8 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Fixture browser scenarios and six widths (no real submissions)
         run: |
-          python3 -m http.server 8020 --directory . >/tmp/reservation-ux-server.log 2>&1 &
-          RESERVATION_BEFORE_URL=http://127.0.0.1:8020/baseline/ node tools/reservation_ux_browser_check.cjs
+          python3 -m http.server 8020 --directory .. >/tmp/reservation-ux-server.log 2>&1 &
+          RESERVATION_BASE_URL=http://127.0.0.1:8020/rhythmspeaker/ RESERVATION_BEFORE_URL=http://127.0.0.1:8020/rhythmspeaker/baseline/ node tools/reservation_ux_browser_check.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -23,7 +23,7 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
    await page.route('**/data/class-sessions.public.json*',async r=>{requests++;if(hold)await new Promise(resolve=>release=resolve);if(fail)return r.abort();await r.fulfill({json:payload});});
    const contactRequests=[];await context.route('https://lin.ee/**',r=>{contactRequests.push(r.request().url());return r.abort();});
    await page.goto(base+'schedule/');await page.locator('[data-cf-detail]').first().waitFor();
-   assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');
+   assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,'preview image failure');
    await page.locator('[data-cf-detail]').first().click();await page.locator('#cf-join-apply').waitFor();
    assert.equal(await page.locator('#detail a[href$="classes/"]').count(),0,'no forced class-page departure');
    await page.getByText('このクラスについて詳しく',{exact:true}).click();

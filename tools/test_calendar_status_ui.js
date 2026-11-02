@@ -53,7 +53,7 @@ assert.match(source, /<strong>開催予定から選ぶ<\/strong>/);
 assert.match(source, /<strong>希望日時で相談する<\/strong>/);
 assert.doesNotMatch(source, /<div class="cf-sample" role="note">|01 \/ JOIN A CLASS|02 \/ REQUEST A LESSON|<div class="cf-policy">/);
 assert.match(source, /スタジオから「予約確定」の返信/);
-assert.match(source, /LINEで送る場合は、文章をコピー/);
+assert.match(source, /コピーしました。次は公式LINEに貼り付けて送信してください/);
 assert.match(source, /cf-visually-hidden/);
 assert.match(source, /<h2 id="cf-find-title">開催予定から探す<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
