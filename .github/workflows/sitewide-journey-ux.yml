@@ -1,0 +1,26 @@
+name: Sitewide Journey UX Contract
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  journey-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check dynamic site syntax
+        run: |
+          node --check assets/ux-lab/class-finder.js
+          node --check assets/ux-lab/app.js
+      - name: Check public customer journeys
+        run: node tools/test_sitewide_journey_ux.cjs
