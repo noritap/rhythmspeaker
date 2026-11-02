@@ -7,7 +7,7 @@ const evidence='ux-evidence/reservation-v3';fs.mkdirSync(evidence,{recursive:tru
 const source=JSON.parse(fs.readFileSync('data/class-sessions.public.json','utf8'));
 function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-11-02T08:18:40+09:00';v.dataState='ready';v.sessions=v.sessions.slice(0,2).map((s,i)=>({...s,id:'session-ux-fixture-'+i,date:'2026-11-03',start:i?'14:00':'12:30',end:i?'15:00':'13:30',publicStatus:'OPEN',bookingCountStatus:'unknown',confirmedBookingCount:null,bookingCountSource:null}));return v;}
 (async()=>{
- const browser=await chromium.launch({headless:true});const report={widths:[],scenarios:[],errors:[]};
+ const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.CHROMIUM_EXECUTABLE_PATH}:{})});const report={widths:[],scenarios:[],errors:[]};
  try{
   if(process.env.RESERVATION_BEFORE_URL){
    const before=await browser.newPage({viewport:{width:390,height:740}});
@@ -84,7 +84,7 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
     fail=false;await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();
     // Single-flight and hourly budget, including forced retries.
     const countBefore=requests;hold=true;const pending=page.evaluate(()=>Promise.all([cfRefreshPublished(true),cfRefreshPublished(true)]));await page.waitForTimeout(100);hold=false;release?.();await pending;assert.equal(requests,countBefore+1);
-    await page.evaluate(async()=>{for(let i=0;i<30;i++)await cfRefreshPublished(true)});assert(requests<=22,'refresh budget must cap per-hour requests plus initial loads');
+    const beforeBurst=requests,used=await page.evaluate(()=>cfChecks.length);await page.evaluate(async()=>{for(let i=0;i<30;i++)await cfRefreshPublished(true)});assert.equal(requests-beforeBurst,20-used,'refresh budget must cap per-hour attempts in the current document');const capped=requests;await page.evaluate(()=>cfRefreshPublished(true));assert.equal(requests,capped);
     report.scenarios.push('A–N: draft/history/class isolation/copy failure/metadata change/CLOSE/CANCELLED/INQUIRY_ONLY/full/disappearance/stale/network/single-flight/budget');
    }
    report.widths.push({width,status:'PASS'});await context.close();

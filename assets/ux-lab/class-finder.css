@@ -42,3 +42,5 @@
 .cf-reservation-dialog .cf-contact-actions{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}.cf-reservation-dialog .cf-copy-row{display:block}.cf-reservation-dialog .cf-copy-row button,.cf-reservation-dialog .cf-contact-actions a{width:100%;min-height:48px;justify-content:center;text-align:center;white-space:normal}.cf-reservation-dialog #cf-copy-status,.cf-reservation-dialog #cf-handoff-status{margin:10px 0;min-height:24px;color:#3f3932}
 .cf-reservation-dialog :is(button,a,textarea,summary):focus-visible{outline:3px solid #9f372d;outline-offset:3px}.cf-refresh-tools:has(button[hidden]){margin-bottom:12px}.cf-refresh-tools [hidden]{display:none!important}
 @media(max-width:430px){.cf-reservation-dialog{padding:16px}.cf-detail-meta{gap:12px;margin:16px 0}.cf-detail-meta div{padding-bottom:10px}.cf-reservation-dialog .cf-composer textarea{padding:10px;min-height:200px}}
+
+.cf-composer textarea,.cf-supplement textarea{font-weight:400}
