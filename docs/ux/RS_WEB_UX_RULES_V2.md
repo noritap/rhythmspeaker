@@ -144,3 +144,14 @@ stateDiagram-v2
 ```
 
 HANDOFFの次の送信と予約確定返信は外部で行われ、サイトからは検証できない。
+
+## 11. Sitewide Journey UX v1 — 2026-11-02（公開導線の目的保持）
+
+- 適用目的: 各ページで利用者が選んだクラス種別・担当講師・料金プラン・レンタル方式を、次の問い合わせ・開催日程確認へ可能な限り保持する。全ページを予約モーダル化しない。
+- 初回体験申込 `/trial/apply/` は入力中の補足情報確認を `details` で同一画面内に提供。入力氏名・メッセージをURL・analytics・永続storageへ保存しない。
+- `/classes/*/` から `/schedule/?type=...` へ移動。既存の `?class=<session-id>` は予約対象の**開催枠ID**のため、クラス種別に流用しない。認識できないtypeは無視する。
+- `/instructors/*/` から `/schedule/?teacher=...` へ移動し、講師検索を初期設定。問い合わせ・予約確定ルールは従来どおり。
+- 料金・レンタルの個別相談は、選択したプラン名を含むLINE下書きを提供する。リンク起動は送信・予約・決済を意味しない。Walletや価格の条件を自動変更しない。
+- `/workshops/` の自己リンクをページ内の開催情報検索へ置換する。Workshop Managerの実予約フォーム、Supabase/RLS/個人情報・キャンセル処理には触れない。
+- `tools/test_sitewide_journey_ux.cjs` と専用CIで差分の契約を検証。サイト移植監査は不変の基準hashを保持し、今回変更した保護HTMLのみ `docs/sites-migration/approved-content-revisions.json` にGit Blob SHAを明示して監査する。
+- 実ブラウザ操作・LINEの外部アプリ動作・予約率向上は、単体契約CIがPASSしても独立した受入検証を必要とする。
