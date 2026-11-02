@@ -14,7 +14,7 @@ const stale = source.split('\n').find(x=>x.startsWith('const cfStale='));
 assert.ok(stale);
 const script = [
   "let finderData={sourceMode:'live',dataState:'ready',lastSuccessfulSyncAt:new Date(Date.now()-4*3600000).toISOString(),sessions:[{publicStatus:'OPEN'}]};",
-  "let cfScenario='normal';",
+  "let cfScenario='normal',cfDataError=false;",
   "const cfUpdated = () => 'four hours ago';",
   stale,
   oneLine('cfSessions'),

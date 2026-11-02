@@ -115,3 +115,32 @@ v1 documents are history/reference. Do not create another contradictory independ
 
 - 予約成立はスタジオからの「予約確定」LINE/メール返信後。メニューのクリックは申込・入金・予約成立を意味しない。
 - 料金・個人情報・決済・ワークショップ認証・開催確定状態・カレンダー同期に触れない。
+
+
+## 10. Reservation UX v3 — 2026-11-02（/schedule/への統合）
+
+- 状態: SEARCH → DETAIL → COMPOSE → HANDOFF。取得失敗・遅延・CLOSE/CANCELLED/INQUIRY_ONLY・公開情報消失・確定人数による定員到達・開始後はUNAVAILABLE。HANDOFFは連絡先への操作であり、アプリ起動・送信・予約成立の確認ではない。
+- DETAILの補足は同一モーダルのdetails。COMPOSEは選択要約、編集文章、コピー、LINE、メール、予約成立条件。詳細・別クラス・閉じるは低優先度。
+- クラス別draftはタブ内メモリのみ。URL・永続storage・analytics・ログへ文章を保存しない。同じクラスへ戻る/履歴移動で保持。別クラスへは流用しない。日時/担当などの変更時は通常申込を止め、明示確認後に新しい文章へ作り直す。
+- コピーはclipboard Promise成功後だけ成功表示。編集後はコピー済み表示を解除。失敗時は文章を選択して手動コピーを案内。LINEへのアクセスはコピー失敗でも維持。メール本文は最新編集文。
+- 公開JSON再取得は初回、5分間隔（可視時のみ）、タブ再表示、必要時の連絡前。自動確認は60秒以上間隔・同時1件・再試行を含み1時間20件まで・10秒timeout。Googleカレンダー同期や復旧ジョブは起動しない。
+- 通常時の再読込ボタンは非表示。異常時のみ「もう一度確認する」。取得失敗は古いOPENの通常申込を止めて相談窓口へ。再取得で編集中文章を自動置換しない。
+- 履歴はclass/stepと検索状態のみ。直接URLを維持。閉じる/Escapeで元の位置と操作対象へ戻す。モバイルは固定CTAを重ねず通常スクロール、textarea16px以上、可視フォーカス・状態live通知を維持。
+- 変更範囲は申し込みUXと必要テスト。独立監視のG1完成とは区別。効果は実測するまで仮説。
+
+
+```mermaid
+stateDiagram-v2
+    SEARCH --> DETAIL: クラス選択
+    DETAIL --> COMPOSE: 文章作成
+    COMPOSE --> DETAIL: 詳細確認
+    COMPOSE --> HANDOFF: 連絡先への操作
+    HANDOFF --> COMPOSE: 編集継続
+    DETAIL --> UNAVAILABLE: 受付不可・取得異常
+    COMPOSE --> UNAVAILABLE: 公開状態の変化
+    UNAVAILABLE --> DETAIL: 再確認・最新情報の確認
+    DETAIL --> SEARCH: 閉じる
+    COMPOSE --> SEARCH: 別クラス
+```
+
+HANDOFFの次の送信と予約確定返信は外部で行われ、サイトからは検証できない。
