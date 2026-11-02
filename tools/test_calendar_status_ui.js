@@ -58,7 +58,7 @@ assert.match(source, /cf-visually-hidden/);
 assert.match(source, /<h2 id="cf-find-title">開催予定から探す<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
 assert.doesNotMatch(staticPage, /掲載中のクラスは開講が決定しています|予約の流れ|JOIN A CLASS|REQUEST A LESSON/);
-assert.match(staticPage, /class-finder\.js\?v=20261101minimal1/);
+assert.match(staticPage, /class-finder\.js\?v=20261102reservation3/);
 assert.match(source, /data-cf-mode="request"/);
 assert.match(source, /https:\/\/lin\.ee\/zC5YLe7/);
 assert.equal(context.cfClosed(unknown), true);
@@ -69,62 +69,13 @@ assert.ok(context.cfCard(closed).includes('詳細を見る'));
 assert.match(source, /aria-describedby="cf-calendar-key-help"/);
 assert.match(source, /日付の件数はクラス数です/);
 assert.match(source, /\['OPEN','CLOSE','INQUIRY_ONLY','CANCELLED'\]\.includes\(s\.publicStatus\)/);
-assert.match(source, /const unavailable=cfClosed\(s\)/);
+assert.match(source, /if\(cfClosed\(s\)\)return cfClosedReason\(s\)/);
 
-assert.match(source, /id="cf-refresh"/);
-assert.match(source, /開催情報を再読み込み/);
-assert.match(source, /カレンダーの変更は毎時の同期後に反映されます/);
-assert.match(source, /\.onclick=cfRefreshPublished/);
-const refreshBlock = source.match(/async function cfRefreshPublished\(\)\{[\s\S]*?\n\}/)?.[0];
-assert.ok(refreshBlock, 'Refresh function must exist in the published JS');
-assert.match(refreshBlock, /url\.searchParams\.set\('refresh',String\(Date\.now\(\)\)\)/);
-assert.match(refreshBlock, /fetch\(url,\{cache:'no-store'\}\)/);
-assert.doesNotMatch(refreshBlock, /secrets|GoogleAuth|calendar\.googleapis|workflow_dispatch/);
-
-(async () => {
-  let fail = false, fetched = 0, publishedAt = '2026-11-01T09:30:00+09:00';
-  let refreshButton = {disabled:false}, refreshStatus = {textContent:''};
-  const env = {
-    URL, Date, Promise, Set, Error,
-    uxRoot: 'https://noritap.github.io/rhythmspeaker/',
-    uxContactsPromise: Promise.resolve([{id:'teacher',name:'講師',classes:['STEP'],line:'https://lin.ee/zC5YLe7'}]),
-    fetch: async (url,opts) => {
-      fetched++;
-      assert.equal(opts.cache, 'no-store');
-      assert.ok(url.pathname.endsWith('/data/class-sessions.public.json'));
-      assert.ok(url.searchParams.get('refresh'));
-      if(fail)throw Error('Network failure');
-      return {ok:true,json:async()=>({
-        sourceMode:'live',dataState:'ready',lastSuccessfulSyncAt:publishedAt,
-        instructors:[],sessions:[{id:'session-123',publicStatus:'CLOSE'}]
-      })};
-    },
-    cfValidateEnvelope: v => v,
-    cfStale: ()=>false,
-    cfRenderMode: ()=>{refreshButton={disabled:false};refreshStatus={textContent:''};},
-    document: {querySelector: selector => ({
-      '#cf-refresh': refreshButton,
-      '#cf-refresh-status': refreshStatus,
-      '#cf-content': {}
-    })[selector]||null}
-  };
-  vm.createContext(env);
-  vm.runInContext(
-    `let finderData={lastSuccessfulSyncAt:'2026-11-01T08:48:00+09:00',sessions:[]};
-     let finderLoad=null,cfRefreshing=false;const cfState={mode:'join'};`+refreshBlock,env
-  );
-  await vm.runInContext('cfRefreshPublished()',env);
-  assert.equal(fetched,1);
-  assert.match(refreshStatus.textContent,/新しい開催情報を反映しました/);
-  assert.equal(vm.runInContext('finderData.sessions[0].publicStatus',env),'CLOSE');
-  await vm.runInContext('cfRefreshPublished()',env);
-  assert.match(refreshStatus.textContent,/公開データに変更はありません/);
-  fail=true;
-  await vm.runInContext('cfRefreshPublished()',env);
-  assert.match(refreshStatus.textContent,/確認できませんでした/);
-  assert.equal(vm.runInContext('finderData.sessions[0].publicStatus',env),'CLOSE');
-  assert.equal(refreshButton.disabled,false);
-  assert.equal(fetched,3);
-  console.log('Calendar OPEN/CLOSE and public-data refresh UI contract passed.');
-})().catch(e=>{console.error(e);process.exitCode=1;});
-
+// Refresh integration and safety behavior are exercised against real DOM/fetch
+// in reservation_ux_browser_check.cjs, including a bounded request budget.
+assert.match(source, /id="cf-refresh"[^>]*hidden/);
+assert.match(source, /maxPerHour:20/);
+assert.match(source, /cfReconcileSelection/);
+assert.match(source, /cache:'no-store'/);
+assert.match(source, /AbortSignal.timeout\(10_000\)/);
+console.log('Calendar OPEN/CLOSE UI and bounded public-data refresh contract passed.');

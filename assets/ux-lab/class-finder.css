@@ -31,3 +31,14 @@
 .cf-instructor{margin:14px 0 0;font-size:13px}
 .cf-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:760px){.cf-modes{margin-bottom:26px}.cf-modes button{min-height:66px;padding:17px 16px}}
+/* Reservation UX v3: one decision per step; no overlay on editable content. */
+.cf-reservation-dialog{width:min(680px,calc(100vw - 24px));max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);padding:24px;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.cf-reservation-dialog .dialog-close{position:sticky;top:0;display:block;margin-left:auto;z-index:1;background:#fff;min-height:44px}
+.cf-reservation-dialog .cf-detail{padding:0;min-width:0;overflow-wrap:anywhere}.cf-reservation-dialog h2{font-size:clamp(21px,4vw,28px);padding:0;line-height:1.5;margin:12px 0 18px}.cf-reservation-dialog h3{font-size:17px;margin:20px 0 8px}
+.cf-selection-summary{display:grid;gap:2px;border-left:3px solid #a88759;padding:10px 14px;margin:12px 0;font-size:14px;line-height:1.7}.cf-selection-summary strong{font-size:17px}
+.cf-tertiary{display:block;border:0;background:transparent;min-height:44px;padding:10px 0;text-decoration:underline;text-underline-offset:4px;font:inherit;font-size:13px;color:#4e4942;cursor:pointer}.cf-detail>#cf-change-class{margin-top:24px}
+.cf-supplement,.cf-mail-help{border-top:1px solid #ccc7bd;border-bottom:1px solid #ccc7bd;padding:12px 0;margin:18px 0}.cf-supplement summary,.cf-mail-help summary{cursor:pointer;min-height:44px;display:list-item;padding:9px 0;font-size:14px}.cf-supplement p{font-size:14px;line-height:1.9}
+.cf-reservation-dialog .cf-composer{margin-top:12px}.cf-composer textarea,.cf-supplement textarea{box-sizing:border-box;display:block;width:100%;min-width:0;font:inherit;font-size:16px;line-height:1.7;padding:12px;resize:vertical;min-height:180px;max-height:60dvh;scroll-margin-block:32px}
+.cf-reservation-dialog .cf-contact-actions{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}.cf-reservation-dialog .cf-copy-row{display:block}.cf-reservation-dialog .cf-copy-row button,.cf-reservation-dialog .cf-contact-actions a{width:100%;min-height:48px;justify-content:center;text-align:center;white-space:normal}.cf-reservation-dialog #cf-copy-status,.cf-reservation-dialog #cf-handoff-status{margin:10px 0;min-height:24px;color:#3f3932}
+.cf-reservation-dialog :is(button,a,textarea,summary):focus-visible{outline:3px solid #9f372d;outline-offset:3px}.cf-refresh-tools:has(button[hidden]){margin-bottom:12px}.cf-refresh-tools [hidden]{display:none!important}
+@media(max-width:430px){.cf-reservation-dialog{padding:16px}.cf-detail-meta{gap:12px;margin:16px 0}.cf-detail-meta div{padding-bottom:10px}.cf-reservation-dialog .cf-composer textarea{padding:10px;min-height:200px}}

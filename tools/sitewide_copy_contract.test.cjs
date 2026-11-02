@@ -47,7 +47,7 @@ has('trial/apply/index.html', 'スタジオから「予約確定」の返信');
 has('trial/index.html', 'スタジオからの「予約確定」の返信');
 has('schedule/index.html', '開催予定から選ぶ');
 has('assets/ux-lab/class-finder.js', 'スタジオから「予約確定」の返信');
-has('assets/ux-lab/class-finder.js', '開催情報を再読み込み');
+has('assets/ux-lab/class-finder.js', 'もう一度確認する');
 
 // Don't trade clarity for deletion of material decisions, legal/operational details.
 has('pricing/index.html', '3,500 TIPS');
