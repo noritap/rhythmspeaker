@@ -127,3 +127,20 @@ v1 documents are history/reference. Do not create another contradictory independ
 - 通常時の再読込ボタンは非表示。異常時のみ「もう一度確認する」。取得失敗は古いOPENの通常申込を止めて相談窓口へ。再取得で編集中文章を自動置換しない。
 - 履歴はclass/stepと検索状態のみ。直接URLを維持。閉じる/Escapeで元の位置と操作対象へ戻す。モバイルは固定CTAを重ねず通常スクロール、textarea16px以上、可視フォーカス・状態live通知を維持。
 - 変更範囲は申し込みUXと必要テスト。独立監視のG1完成とは区別。効果は実測するまで仮説。
+
+
+```mermaid
+stateDiagram-v2
+    SEARCH --> DETAIL: クラス選択
+    DETAIL --> COMPOSE: 文章作成
+    COMPOSE --> DETAIL: 詳細確認
+    COMPOSE --> HANDOFF: 連絡先への操作
+    HANDOFF --> COMPOSE: 編集継続
+    DETAIL --> UNAVAILABLE: 受付不可・取得異常
+    COMPOSE --> UNAVAILABLE: 公開状態の変化
+    UNAVAILABLE --> DETAIL: 再確認・最新情報の確認
+    DETAIL --> SEARCH: 閉じる
+    COMPOSE --> SEARCH: 別クラス
+```
+
+HANDOFFの次の送信と予約確定返信は外部で行われ、サイトからは検証できない。

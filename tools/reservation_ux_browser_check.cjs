@@ -9,13 +9,19 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
 (async()=>{
  const browser=await chromium.launch({headless:true});const report={widths:[],scenarios:[],errors:[]};
  try{
+  if(process.env.RESERVATION_BEFORE_URL){
+   const before=await browser.newPage({viewport:{width:390,height:740}});
+   await before.route('**/data/class-sessions.public.json*',r=>r.fulfill({json:fixture()}));
+   await before.goto(process.env.RESERVATION_BEFORE_URL+'schedule/');await before.locator('[data-cf-detail]').first().click();
+   await before.screenshot({path:`${evidence}/before-detail-390.png`});await before.locator('#cf-join-apply').click();await before.screenshot({path:`${evidence}/before-compose-390.png`});await before.close();
+  }
   for(const width of [320,375,390,430,768,1440]){
    const context=await browser.newContext({viewport:{width,height:740},permissions:['clipboard-read','clipboard-write']});
    const page=await context.newPage();let payload=fixture(),fail=false,requests=0,hold=false,release;
    page.on('pageerror',e=>report.errors.push(e.message));
    await page.clock.install({time:new Date('2026-11-02T08:35:00+09:00')});
    await page.route('**/data/class-sessions.public.json*',async r=>{requests++;if(hold)await new Promise(resolve=>release=resolve);if(fail)return r.abort();await r.fulfill({json:payload});});
-   await page.route('https://lin.ee/**',r=>r.abort());
+   const contactRequests=[];await context.route('https://lin.ee/**',r=>{contactRequests.push(r.request().url());return r.abort();});
    await page.goto(base+'schedule/');await page.locator('[data-cf-detail]').first().waitFor();
    assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');
    await page.locator('[data-cf-detail]').first().click();await page.locator('#cf-join-apply').waitFor();
@@ -39,11 +45,18 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
    assert(await page.locator('#detail').evaluate(e=>{const b=e.getBoundingClientRect();return b.left>=0&&b.right<=innerWidth&&b.top>=0&&b.bottom<=innerHeight+1&&e.scrollWidth<=e.clientWidth+1;}),width+' modal bounds');
    await page.locator('#cf-line').scrollIntoViewIfNeeded();assert(await page.locator('#cf-line').isVisible());
    await page.keyboard.press('Escape');assert(!(await page.locator('#detail').isVisible()));
-   assert.equal(await page.evaluate(()=>document.activeElement?.dataset.cfDetail),'session-ux-fixture-0');
+   await page.waitForFunction(()=>document.activeElement?.dataset.cfDetail==='session-ux-fixture-0');
    await page.locator('[data-cf-detail]').first().click();await page.locator('#cf-join-apply').click();assert.equal(await page.locator('#cf-message').inputValue(),edited);
    await page.locator('#cf-change-class').click();await page.locator('[data-cf-detail]').nth(1).click();await page.locator('#cf-join-apply').click();
    const other=await page.locator('#cf-message').inputValue();assert(other.includes('session-ux-fixture-1'));assert(!other.includes('session-ux-fixture-0'));assert(!other.includes('参加経験について相談'));
    if(width===390){
+    // Observe the outbound navigation intent without contacting LINE or sending.
+    const popupPromise=page.waitForEvent('popup');await page.locator('#cf-line').click();const popup=await popupPromise;await popup.close();assert.equal(contactRequests[0],'https://lin.ee/zC5YLe7');
+    assert((await page.locator('#cf-handoff-status').innerText()).includes('予約はまだ確定していません'));
+    await page.addScriptTag({path:require.resolve('axe-core/axe.min.js')});
+    const accessibility=await page.evaluate(async()=>{const r=await axe.run('#detail',{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}));});
+    assert.deepEqual(accessibility,[],'modal WCAG automated checks');
+    await page.setViewportSize({width:390,height:430});await page.locator('#cf-message').focus();await page.locator('#cf-message').scrollIntoViewIfNeeded();assert(await page.locator('#detail').evaluate(e=>e.getBoundingClientRect().bottom<=innerHeight+1));await page.setViewportSize({width:390,height:740});
     // Denied clipboard never reports success; normal LINE remains available.
     await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:()=>Promise.reject(Error('denied'))}}));
     await page.locator('#cf-copy').click();assert((await page.locator('#cf-copy-status').innerText()).includes('手動でコピー'));
