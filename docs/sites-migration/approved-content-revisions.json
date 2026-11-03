@@ -24,7 +24,8 @@
     "rss/015/program.json",
     "rss/015/index.html",
     "rss/app.js",
-    "rss/theater.js"
+    "rss/theater.js",
+    "rss/index.html"
   ],
   "blobSha1": {
     "broadcast/data/episodes.json": "c211014537fcd25a0f5088ef2acd2dd722698f9d",
@@ -48,6 +49,7 @@
     "rss/015/program.json": "cec8edac99951d28a99ea79192978437315611c4",
     "rss/015/index.html": "ebb1e4ae3006478f7a6df2a2ad67f5a9a263e234",
     "rss/app.js": "16712066944b493b8d9a1647e48fcc62f44e8452",
-    "rss/theater.js": "d2d9a397f3a03986f1e59aa6650b9a1f235d9054"
+    "rss/theater.js": "d2d9a397f3a03986f1e59aa6650b9a1f235d9054",
+    "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b"
   }
 }
