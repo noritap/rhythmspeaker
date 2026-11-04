@@ -45,7 +45,10 @@ assert.ok(!app.includes('クラスが決まっていなくても、体験前に�
 assert.ok(!app.includes('最初からクラス名を知らなくても大丈夫です。'));
 has('trial/apply/index.html', 'スタジオから「予約確定」の返信');
 has('trial/index.html', 'スタジオからの「予約確定」の返信');
-has('schedule/index.html', '開催予定から選ぶ');
+has('schedule/index.html', 'レッスン日程・参加申し込み');
+has('schedule/index.html', '希望日時を相談する →');
+lacks('schedule/index.html', '開催予定から選ぶ');
+lacks('schedule/index.html', 'TRY ANOTHER RHYTHM');
 has('assets/ux-lab/class-finder.js', 'スタジオから「予約確定」の返信');
 has('assets/ux-lab/class-finder.js', 'もう一度確認する');
 
