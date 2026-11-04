@@ -17,11 +17,6 @@ const facts=()=>`<section class="facts-section" aria-labelledby="facts-title"><h
 const finalCTA=()=>`<section class="section dark wide-cta"><div><p class="eyebrow">YOUR FIRST SOUND</p><h2>まずは体験レッスンから。</h2></div>${link('#/trial','体験内容・予約方法を見る','button light')}</section>`;
 const classCard=c=>`<article class="card" id="class-${c.id}" data-class="${c.id}">${image(c.photo,c.name+'の承認済みクラス識別画像','loading="lazy" srcset="'+c.photo+' 640w, '+c.photo.replace('-640w','-1100w')+' 1100w"')}<div class="card-body"><span class="tag">${c.id==='step'?'未経験の方はこちら':c.group==='tap'?'タップダンス':'身体づくり'}</span><h3>${c.name}</h3><p class="desc">${esc(c.desc)}</p><a class="button" href="#/classes/${c.id}">クラス内容・担当講師を見る <span aria-hidden="true">→</span></a></div></article>`;
 const personCard=p=>`<article class="card person" data-person="${p.id}">${image(p.photo,p.name+'の承認済み講師紹介画像','class="person-photo--'+p.id+'" loading="lazy"')}<div class="card-body"><h3>${esc(p.name)}</h3><p class="desc">${esc(p.style||'担当クラスからご覧ください。')}</p><div>${p.classes.map(c=>`<span class="tag">${esc(c)}</span>`).join('')}</div><button class="button" data-detail-person="${p.id}">紹介・担当クラスを見る <span>＋</span></button></div></article>`;
-const pricingPlans=[
-{id:'standard10',name:'スタンダード10',paid:30000,total:35000,bonus:5000,lessons:10,per:3000,for:'これから定期的に通いたい方'},
-{id:'premium25',name:'プレミアム25',paid:68750,total:87500,bonus:18750,lessons:25,per:2750,for:'定期的にレッスンを続けたい方'},
-{id:'premium50',name:'プレミアム50',paid:125000,total:175000,bonus:50000,lessons:50,per:2500,for:'長く継続して通いたい方'}];
-const num=n=>n.toLocaleString('ja-JP');
 // Render the same price-first content as pricing/index.html for SPA routes.
 // All outbound internal URLs are root-absolute to work from any current pathname.
 function pricing(){return head('PRICING & LESSON PLANS','料金・通い方','初回体験は1,000円。通常レッスンは1回から利用でき、続ける方にはまとめてチャージするプランがあります。')+`
