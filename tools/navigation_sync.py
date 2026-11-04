@@ -2,7 +2,8 @@
 """Generate the purpose-ranked right-header menu from one canonical route registry.
 
 Preserves the ten historical RS-NAV-2 destinations and adds existing schedule,
-pricing, instructor, rental, Wallet and LINE routes. Current page is not linked.
+pricing, instructor, rental, Wallet and LINE routes. The priority schedule action
+remains visible on /schedule/; other same-page links are omitted.
 """
 from __future__ import annotations
 
@@ -63,11 +64,13 @@ def render_menu(prefix: str, current: str) -> str:
     for key, heading, items in MENU_GROUPS:
         lines = []
         for label, route, detail, role in items:
-            if route == current:
-                continue  # no self-link, especially /ecosystem/
+            is_schedule_here = key == "quick" and role == "schedule" and current == "schedule/"
+            if route == current and not is_schedule_here:
+                continue  # omit routine self-links, but keep the main booking action visible
             href = href_for(prefix, route)
             if key == "quick":
-                lines.append(f'<a class="rs-menu-action rs-menu-action--{role}" href="{href}"><strong>{label}</strong><small>{detail}</small><span aria-hidden="true">↗</span></a>')
+                current_page_attr = ' aria-current="page"' if is_schedule_here else ''
+                lines.append(f'<a class="rs-menu-action rs-menu-action--{role}" href="{href}"{current_page_attr}><strong>{label}</strong><small>{detail}</small><span aria-hidden="true">↗</span></a>')
             else:
                 extra = f'<small>{detail}</small>' if detail else ''
                 lines.append(f'<li><a class="rs-menu-link rs-menu-link--{role}" href="{href}">{label}{extra}</a></li>')
