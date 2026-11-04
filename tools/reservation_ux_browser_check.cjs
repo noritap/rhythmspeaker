@@ -5,7 +5,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 const base=process.env.RESERVATION_BASE_URL||'http://127.0.0.1:8020/';
 const evidence='ux-evidence/reservation-v3';fs.mkdirSync(evidence,{recursive:true});
 const source=JSON.parse(fs.readFileSync('data/class-sessions.public.json','utf8'));
-function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-11-02T08:18:40+09:00';v.dataState='ready';v.sessions=v.sessions.slice(0,2).map((s,i)=>({...s,id:'session-ux-fixture-'+i,date:'2026-11-03',start:i?'14:00':'12:30',end:i?'15:00':'13:30',publicStatus:'OPEN',bookingCountStatus:'unknown',confirmedBookingCount:null,bookingCountSource:null}));return v;}
+function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-11-02T08:18:40+09:00';v.dataState='ready';v.sessions=v.sessions.slice(0,2).map((s,i)=>({...s,id:'session-ux-fixture-'+i,date:'2026-11-02',start:i?'14:00':'12:30',end:i?'15:00':'13:30',publicStatus:'OPEN',bookingCountStatus:'unknown',confirmedBookingCount:null,bookingCountSource:null}));return v;}
 (async()=>{
  const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.CHROMIUM_EXECUTABLE_PATH}:{})});const report={widths:[],scenarios:[],errors:[]};
  try{
