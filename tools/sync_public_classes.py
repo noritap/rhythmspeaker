@@ -14,6 +14,7 @@ import os
 import re
 import tempfile
 from datetime import datetime, timedelta
+from calendar import monthrange
 from pathlib import Path
 from urllib.parse import urlencode, quote
 from urllib.request import Request, urlopen
@@ -80,13 +81,18 @@ def normalize(event, calendar_id, key, approved, catalog):
     # Existing title orders have 4 fields with a status marker, but 3-field
     # titles without any marker must also retain their class and teacher.
     # For unrecognized titles, keep the complete calendar title as the label.
-    core = parts[:-1] if len(parts) == 4 and re.fullmatch(r"OPEN|CLOSE", parts[-1], re.I) else parts
+    core = parts[:-1] if len(parts) in (3, 4) and re.fullmatch(r"OPEN|CLOSE", parts[-1], re.I) else parts
     duration_one = re.fullmatch(r"(\d{2,3})\s*m", core[1], re.I) if len(core) == 3 else None
     duration_two = re.fullmatch(r"(\d{2,3})\s*m", core[2], re.I) if len(core) == 3 else None
     parsed = len(core) == 3 and bool(duration_one) != bool(duration_two)
     if parsed:
         raw_class = core[0]
         raw_teacher = core[2] if duration_one else core[1]
+    elif len(core) == 2 and re.fullmatch(r"\d{2,3}\s*m", core[1], re.I):
+        # A lesson is listed without an instructor; never parse OPEN as a name.
+        raw_class = core[0]
+        raw_teacher = "スタジオに確認"
+        admission_status = "INQUIRY_ONLY"
     else:
         raw_class = title.strip()
         raw_teacher = "スタジオに確認"
@@ -153,11 +159,29 @@ def fetch_calendar(calendar_id, access_token, start, end):
             return rows
 
 
+def two_month_window_end(now):
+    """Exclusive end at midnight after the same local date two calendar months ahead."""
+    month_index = now.year * 12 + now.month - 1 + 2
+    year, month_zero = divmod(month_index, 12)
+    target_day = min(now.day, monthrange(year, month_zero + 1)[1])
+    return now.replace(
+        year=year, month=month_zero + 1, day=target_day,
+        hour=0, minute=0, second=0, microsecond=0
+    ) + timedelta(days=1)
+
+
+def is_explicitly_cancelled(event):
+    title = event.get("summary") or ""
+    return bool(re.search(r"(?:^|[|｜\s])CANCELLED\s*$", title, re.I))
+
+
 def build(events, calendar_id, key, catalog, previous, now):
     people = instructors_from_catalog(catalog)
     by_id = {p["id"]: p for p in people}
     normalized, id_map = [], {}
     for event in events:
+        if is_explicitly_cancelled(event):
+            continue
         item, public_id, teacher = normalize(event, calendar_id, key, by_id, catalog)
         person = by_id.get(teacher["id"])
         if person is None:
@@ -185,22 +209,8 @@ def build(events, calendar_id, key, catalog, previous, now):
              assignmentVerified=False)
         for p in people if p["id"].startswith("calendar-teacher-")
     ]
-    if len(public["sessions"]) != len(events):
+    if len(public["sessions"]) != len(normalized):
         raise RuntimeError("Calendar projection incomplete: refusing partial publication")
-    # Previously published sessions removed from the active calendar are
-    # retained as clearly marked cancellation records, never as open classes.
-    today = now.date().isoformat()
-    start, end = today, (now + timedelta(days=90)).date().isoformat()
-    current = {s["id"] for s in public["sessions"]}
-    if previous.get("dataState") == "ready":
-        for old in previous.get("sessions", []):
-            if start <= old.get("date", "") <= end and old.get("id") not in current and old.get("source") == "live":
-                tomb = {k: old[k] for k in (
-                    "id", "classId", "className", "date", "start", "end", "classType",
-                    "level", "instructorId", "instructorName", "source", "capacity")}
-                tomb.update(publicStatus="CANCELLED", confirmedBookingCount=None,
-                            bookingCountStatus="unknown", bookingCountSource=None, updatedAt=stamp)
-                public["sessions"].append(tomb)
     public["sessions"].sort(key=lambda s: (s["date"], s["start"], s["id"]))
     return public, len(normalized)
 
@@ -229,12 +239,12 @@ def run():
     creds.refresh(AuthRequest())
     now = datetime.now(TZ)
     calendar_id = os.environ["RS_LESSON_CALENDAR_ID"]
-    rows = fetch_calendar(calendar_id, creds.token, now, now + timedelta(days=90))
+    rows = fetch_calendar(calendar_id, creds.token, now, two_month_window_end(now))
     target = Path(args.output)
     old = json.loads(target.read_text()) if target.exists() else {}
     catalog = json.loads((ROOT / "instructors/instructor-catalog.json").read_text())
     result, accepted = build(rows, calendar_id, session_key, catalog, old, now)
-    if accepted != len(rows):
+    if accepted != sum(not is_explicitly_cancelled(event) for event in rows):
         raise SystemExit("Partial projection is forbidden for the lesson calendar")
     # Refuse an anomalous complete data loss; never replace successful data with empty
     # on a potentially misconfigured or expired credential/calendar.
