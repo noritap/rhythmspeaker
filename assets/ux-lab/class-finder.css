@@ -44,3 +44,6 @@
 @media(max-width:430px){.cf-reservation-dialog{padding:16px}.cf-detail-meta{gap:12px;margin:16px 0}.cf-detail-meta div{padding-bottom:10px}.cf-reservation-dialog .cf-composer textarea{padding:10px;min-height:200px}}
 
 .cf-composer textarea,.cf-supplement textarea{font-weight:400}
+
+/* Progressive upcoming-class list: mobile-friendly and accessible. */
+.cf-more{display:block;width:100%;min-height:48px;margin:18px 0 28px;border:1px solid #191918;background:#fff;color:#191918;font-size:14px;font-weight:600;cursor:pointer}.cf-more:hover,.cf-more:focus-visible{background:#f1ede6}

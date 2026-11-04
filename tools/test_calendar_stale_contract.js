@@ -5,10 +5,16 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const source = fs.readFileSync('assets/ux-lab/class-finder.js','utf8');
-const oneLine = name => {
-  const line = source.split('\n').find(x=>x.startsWith('function '+name+'('));
-  assert.ok(line, 'missing production function: '+name);
-  return line;
+// Read the complete production function even when its body spans several lines.
+const functionSource = name => {
+  const lines = source.split('\n');
+  const start = lines.findIndex(x=>x.startsWith('function '+name+'('));
+  assert.ok(start>=0, 'missing production function: '+name);
+  let end=start;
+  // Current functions use a closing brace at the end of their final line.
+  while (end<lines.length-1 && !lines[end].trim().endsWith('}')) end++;
+  assert.ok(lines[end].trim().endsWith('}'), 'incomplete function: '+name);
+  return lines.slice(start,end+1).join('\n');
 };
 const stale = source.split('\n').find(x=>x.startsWith('const cfStale='));
 assert.ok(stale);
@@ -17,9 +23,9 @@ const script = [
   "let cfScenario='normal',cfDataError=false;",
   "const cfUpdated = () => 'four hours ago';",
   stale,
-  oneLine('cfSessions'),
-  oneLine('cfDataStatus'),
-  oneLine('cfUnavailable')
+  functionSource('cfSessions'),
+  functionSource('cfDataStatus'),
+  functionSource('cfUnavailable')
 ].join('\n');
 const context = {Date,structuredClone};
 vm.createContext(context);
