@@ -127,7 +127,7 @@
 .step-page .step-summary-facts small {
   display: block;
   margin-bottom: .3rem;
-  color: #84786d;
+  color: #655a50; /* Label contrast >= 4.5:1 against STEP summary paper background. */
   font: 800 .63rem/1.4 'Outfit','Noto Sans JP',sans-serif;
   letter-spacing: .09em;
 }
