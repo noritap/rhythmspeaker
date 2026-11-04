@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
-import { createHandler, project } from './calendar.mjs';
+import { createHandler, project, twoMonthEndExclusive } from './calendar.mjs';
 
 const time = Date.parse('2026-11-04T16:00:00+09:00');
 const event = {
@@ -89,7 +89,7 @@ test('unknown events are omitted and recognized lessons follow the admission rul
   const rows = await publish(titles.map((summary, i) => ({
     ...event, id: String(i), recurringEventId: undefined, originalStartTime: undefined, summary
   })));
-  assert.deepEqual(rows.map(x => x.publicStatus), ['OPEN', 'INQUIRY_ONLY', 'CANCELLED']);
+  assert.deepEqual(rows.map(x => x.publicStatus), ['OPEN', 'INQUIRY_ONLY']);
 });
 
 test('the browser admission guard rejects cancellation immediately before handoff', async () => {
@@ -150,4 +150,16 @@ test('handoff is blocked when the clock reaches the start while the response is 
   await assert.rejects(confirm(closed));
   reply = () => { now = starts; return response(session); };
   await assert.rejects(confirm(session));
+});
+
+test('two-calendar-month horizon and cancellation removal', async () => {
+  assert.equal(twoMonthEndExclusive(new Date('2026-11-04T13:00:00+09:00')), '2027-01-05T00:00:00+09:00');
+  assert.equal(twoMonthEndExclusive(new Date('2026-12-31T13:00:00+09:00')), '2027-03-01T00:00:00+09:00');
+  const result = await publish([
+    { ...event, id: 'active-1', recurringEventId: undefined, originalStartTime: undefined },
+    { ...event, id: 'cancelled-1', recurringEventId: undefined, originalStartTime: undefined,
+      summary: 'STEP🔰｜60m｜古庄｜CANCELLED' }
+  ]);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].publicStatus, 'OPEN');
 });
