@@ -13,8 +13,9 @@ on:
       - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-sync.yml"
   schedule:
-    # Two independent opportunities per hour. GitHub scheduled runs may be delayed or dropped.
-    - cron: "17,47 * * * *"
+    # Best-effort quarter-hour updates. GitHub scheduled runs may be delayed or dropped;
+    # Cloudflare independent recovery remains required for reliability.
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
