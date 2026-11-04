@@ -47,3 +47,56 @@
 
 /* Progressive upcoming-class list: mobile-friendly and accessible. */
 .cf-more{display:block;width:100%;min-height:48px;margin:18px 0 28px;border:1px solid #191918;background:#fff;color:#191918;font-size:14px;font-weight:600;cursor:pointer}.cf-more:hover,.cf-more:focus-visible{background:#f1ede6}
+
+
+/* Production calendar-first schedule (2026-11-04).
+   Keep the existing studio shell and validated LINE/email detail flow. */
+.cf-shell{max-width:980px;padding-bottom:72px}
+.cf-shell .cf-tools-head{margin:8px 0 16px}
+.cf-shell .cf-tools-head h2{font-size:clamp(20px,3.4vw,27px)}
+.cf-shell .cf-workspace{display:flex;flex-direction:column;gap:24px}
+.cf-shell #cf-calendar-panel{width:100%;border-radius:18px;padding:clamp(12px,3vw,26px)}
+.cf-shell .cf-month-head{margin:0 0 12px}
+.cf-shell .cf-month-head button{border-radius:50%;background:#f8f6f1}
+.cf-shell .cf-week,.cf-shell .cf-calendar{gap:5px}
+.cf-shell .cf-calendar button{min-height:54px;border:1px solid #e5e1d9;border-radius:9px;background:#faf9f6;font-variant-numeric:tabular-nums}
+.cf-shell .cf-calendar button.has-session{background:#f0ebe1;border-color:#c3ab8a;border-bottom:2px solid #a27c4b}
+.cf-shell .cf-calendar button[aria-pressed=true]{background:#191918;color:#fff;border-color:#191918}
+.cf-shell .cf-calendar button[aria-pressed=true] small{color:#fff}
+.cf-shell .cf-week span{padding:4px 0 9px}
+.cf-shell .cf-calendar-actions{margin:15px 0 5px}
+.cf-shell .cf-calendar-actions button{min-height:44px}
+.cf-shell .cf-results-head{margin-top:0;padding-bottom:12px}
+.cf-shell .cf-results-head h3{font-size:clamp(18px,3vw,24px)}
+.cf-shell .cf-advanced{border:1px solid #d6d2c8;background:#fff;border-radius:12px;margin:12px 0 18px}
+.cf-shell .cf-advanced summary{padding:12px 16px;min-height:48px;display:list-item;cursor:pointer;font-weight:600;font-size:14px}
+.cf-shell .cf-advanced .cf-filters{border-top:1px solid #e1ddd4;margin:0}
+.cf-shell .cf-chips:empty{display:none}
+.cf-shell .cf-chips{min-height:0;margin:10px 0}
+.cf-shell .cf-card{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;align-items:center;border-radius:14px;padding:17px 20px;margin-bottom:10px}
+.cf-shell .cf-card-date{grid-column:1;margin:0;gap:6px}
+.cf-shell .cf-card-date strong{display:none}
+.cf-shell .cf-card-date span{font-size:18px;font-weight:700;color:#191918;font-variant-numeric:tabular-nums}
+.cf-shell .cf-card h4{grid-column:1;font-size:clamp(18px,3.2vw,22px);margin:3px 0;line-height:1.4}
+.cf-shell .cf-card .cf-instructor{grid-column:1;margin:0;font-size:13px}
+.cf-shell .cf-card-top{grid-column:1/-1;justify-content:flex-start}
+.cf-shell .cf-card-bottom{grid-column:2;grid-row:1/5;border:0;padding:0;margin:0}
+.cf-shell .cf-card-bottom button{margin:0;min-height:44px;white-space:normal;font-size:12px}
+.cf-shell .cf-source-status:empty{display:none}
+.cf-shell .cf-refresh-tools:has(button[hidden]){display:none}
+@media(max-width:760px){
+  .cf-shell .cf-workspace{display:flex;gap:16px}
+  .cf-shell .cf-advanced .cf-filters{grid-template-columns:1fr;padding:15px}
+  .cf-shell #cf-calendar-panel{padding:14px}
+  .cf-shell .cf-calendar button{min-height:49px}
+  .cf-shell .cf-card{grid-template-columns:minmax(0,1fr) auto;padding:14px}
+  .cf-shell .cf-card-bottom{display:block;grid-column:2;grid-row:1/5}
+  .cf-shell .cf-card-bottom button{width:auto;min-width:90px;padding:10px}
+}
+@media(max-width:360px){
+  .cf-shell #cf-calendar-panel{padding:9px}
+  .cf-shell .cf-calendar,.cf-shell .cf-week{gap:2px}
+  .cf-shell .cf-calendar button{min-height:46px;font-size:12px}
+  .cf-shell .cf-card{gap:6px}
+  .cf-shell .cf-card-bottom button{min-width:68px;padding:8px;font-size:11px}
+}
