@@ -27,7 +27,7 @@ async function read(path, stamp) {
       assert.equal((html.match(/class="pricing-entry-card /g)||[]).length, 2);
       assert.equal((html.match(/<details><summary>/g)||[]).length, 3);
       assert.equal((html.match(/月額契約なし/g)||[]).length, 1);
-      assert.equal((html.match(/class="pricing-wallet-link"/g)||[]).length, 1);
+      assert.equal((html.match(/class="text-link pricing-wallet-link"/g)||[]).length, 1);
       assert(html.includes("スタジオから「予約確定」の返信"), "booking confirmation removed");
       assert(!html.includes("01 / FIRST LESSON"), "old duplicated section still live");
       for (const name of ["スタンダード10", "プレミアム25", "プレミアム50"]) {
