@@ -23,7 +23,7 @@ class WorkflowContract(unittest.TestCase):
         source = WORKFLOW.read_text(encoding="utf-8")
         # One daily 05:00 JST run; no quarter-hour cron.
         self.assertNotIn('7,22,37,52', source)
-        self.assertEqual(len(re.findall(r'^\\s*- cron:', source, re.M)), 1)
+        self.assertEqual(len(re.findall(r'^\s*- cron:', source, re.M)), 1)
         # The full daily reconciliation is 05:00 JST (20:00 UTC previous day).
         self.assertRegex(source, r'cron:\s*"0 20 \* \* \*"')
         self.assertIn('two-calendar-month window', source)
