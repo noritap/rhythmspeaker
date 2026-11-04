@@ -1,0 +1,43 @@
+name: Pricing plain-language browser UX
+
+on:
+  pull_request:
+    paths:
+      - 'pricing/**'
+      - 'assets/ux-lab/app.css'
+      - 'tools/pricing_plain_ux_browser_check.cjs'
+      - '.github/workflows/pricing-plain-ux.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'pricing/**'
+      - 'assets/ux-lab/app.css'
+      - 'tools/pricing_plain_ux_browser_check.cjs'
+      - '.github/workflows/pricing-plain-ux.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pricing-ux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated browser and accessibility scanner
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Verify pricing contracts and six browser widths (no LINE or Wallet writes)
+        run: |
+          python3 -m http.server 8020 --directory .. >/tmp/rs-pricing-server.log 2>&1 &
+          RS_PRICING_BASE_URL=http://127.0.0.1:8020/rhythmspeaker/ node tools/pricing_plain_ux_browser_check.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pricing-plain-ux-evidence
+          path: ux-evidence/pricing-plain/
