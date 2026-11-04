@@ -31,7 +31,7 @@ function sourceContracts() {
   assert.equal((html.match(/<details><summary>/g)||[]).length, 3, "remove duplicated monthly/booking FAQ entries");
   assert.equal((html.match(/月額契約なし/g)||[]).length, 1, "monthly terms must not be duplicated");
   assert.equal((html.match(/href="https:\/\/tips-app-seven.vercel.app\//g)||[]).length >= 1, true);
-  assert.equal((html.match(/class="pricing-wallet-link"/g)||[]).length, 1);
+  assert.equal((html.match(/class="text-link pricing-wallet-link"/g)||[]).length, 1);
   assert(!html.includes("01 / FIRST LESSON") && !html.includes("VISITOR CHARGE"));
   assert(html.includes("シューズ・ウェア無料レンタル"));
   assert(html.includes("スタジオから「予約確定」の返信"), "booking must remain explicit");
