@@ -16,7 +16,8 @@ assert.match(trial,/id="copy"/);
 
 const finder=read('assets/ux-lab/class-finder.js');
 assert.match(finder,/const requestedType=params\?\.get\('type'\)/);
-assert.match(finder,/cfTypes\.includes\(requestedType\)/);
+assert.match(finder,/cfClassFamily\(requestedType\)/);
+assert.match(finder,/cfTypes\.includes\(family\)/);
 assert.match(finder,/q\.set\('type',cfState\.type\)/);
 assert.match(finder,/q\.set\('teacher',cfState\.query\)/);
 assert.match(finder,/params\?\.get\('class'\)/);
