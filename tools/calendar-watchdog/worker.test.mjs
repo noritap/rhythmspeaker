@@ -29,7 +29,7 @@ test('stale repository and no recent runs: request bounded recovery', ()=>{
     {kind:'dispatch_needed',dispatch:true,alert:true});
 });
 test('never dispatch while scheduled job is running or queued', ()=>{
-  for(const status of ['queued','in_progress','waiting']){
+  for(const status of ['queued','in_progress','waiting','pending','requested']){
     assert.equal(decide({source:envelope(120),pages:envelope(120),runs:[run(5,status)],now:NOW}).dispatch,false);
   }
 });
@@ -104,17 +104,27 @@ test('source is current but Pages stale: authenticated read without dispatch',as
   assert.equal(s.calls.some(c=>c.url.endsWith('/dispatches')),false);
 });
 test('fresh run: authenticated workflow read, no webhook or dispatch',async()=>{
-  const s=scenario({source:envelope(10),pages:envelope(12)});
+  const s=scenario({source:envelope(10),pages:envelope(10)});
   assert.equal(await monitor(s.env,s.fakeFetch,NOW),'healthy');
   assert.equal(s.calls.some(c=>c.url.endsWith('/alert')),false);
 });
 
 test('workflow reads authenticate and never leak installation token to public JSON or alerts', async()=>{
-  const s=scenario({source:envelope(10),pages:envelope(12)});
+  const s=scenario({source:envelope(10),pages:envelope(10)});
   await monitor(s.env,s.fakeFetch,NOW);
   const runs=s.calls.find(c=>new URL(c.url).pathname.endsWith('/runs'));
   assert.equal(runs.authorization,'Bearer unit-test-installation-token');
   assert.equal(s.calls.filter(c=>c.url.endsWith('/access_tokens')).length,1);
   for(const c of s.calls.filter(c=>c.url.includes('class-sessions.public.json')||c.url.endsWith('/alert')))
     assert.equal(c.authorization,undefined);
+});
+
+test('fresh GitHub and Pages with different sync versions cannot be healthy', ()=>{
+  assert.deepEqual(decide({source:envelope(10),pages:envelope(40),runs:[],now:NOW}),
+    {kind:'pages_lagging',dispatch:false,alert:true});
+});
+
+test('newer public Pages prevents a rollback-triggering dispatch', ()=>{
+  assert.deepEqual(decide({source:envelope(120),pages:envelope(100),runs:[],now:NOW}),
+    {kind:'source_behind_pages',dispatch:false,alert:true});
 });
