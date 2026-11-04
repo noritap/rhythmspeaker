@@ -22,8 +22,8 @@ const personCard=p=>`<article class="card person" data-person="${p.id}">${image(
 // Pricing SPA shares visitor-facing wording and plan links with pricing/index.html.
 function pricing(){return `<section class="page-head"><p class="eyebrow">PRICING & LESSON PLANS</p><h1>料金・通い方</h1><p>初回体験から、続けて通うプランまで。</p></section>
 <section class="pricing-system" aria-label="料金のしくみ"><p>レッスンは、専用ポイント「TIPS」をチャージして受講します。</p><p>RS Walletは残高・利用履歴を確認するマイページです。お問い合わせ時点では登録不要です。</p></section>
-<div class="pricing-proof" aria-label="基本条件"><span>入会金0円</span><span>月額契約なし</span></div>
-<div class="pricing-entry-grid" aria-label="初回と通常レッスンの料金">
+<div class="pricing-proof"><span>入会金0円</span><span>月額契約なし</span></div>
+<div class="pricing-entry-grid">
 <section class="pricing-entry-card pricing-entry-first" aria-labelledby="pricing-first"><p class="pricing-entry-label">初めての方</p><h2 id="pricing-first">初回体験</h2><p class="pricing-entry-price"><strong>1,000</strong><span>円</span></p><p class="pricing-entry-detail">3,500 TIPSで対象レッスン1回</p><p class="pricing-entry-note">シューズ・ウェア無料レンタル。初回特典の条件はお申し込み時にご案内します。</p><a class="button primary" href="/rhythmspeaker/trial/">初回体験の内容・申し込みへ<span aria-hidden="true">↗</span></a></section>
 <section class="pricing-entry-card pricing-entry-regular" aria-labelledby="pricing-single"><p class="pricing-entry-label">1回から利用できる</p><h2 id="pricing-single">通常レッスン（ビジター）</h2><p class="pricing-entry-price"><strong>3,500</strong><span>円</span></p><p class="pricing-entry-detail">3,500 TIPSで通常レッスン1回</p><p class="pricing-entry-note">30分クラス・個人レッスン・ワークショップなどは料金が異なる場合があります。</p><a class="button pricing-entry-secondary" href="/rhythmspeaker/schedule/">レッスン日程を見る<span aria-hidden="true">↗</span></a></section>
 </div>
