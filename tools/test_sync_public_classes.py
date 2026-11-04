@@ -7,7 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from sync_public_classes import build, identity, normalize
+from sync_public_classes import build, identity, normalize, two_month_window_end
 
 PEOPLE = {"instructors": [
     {"id": "homma", "name": "本間茂樹", "classes": ["STEP", "TAP"],
@@ -167,14 +167,34 @@ class CalendarSyncContract(unittest.TestCase):
         self.assertEqual(row["capacity"], 10)
         self.assertTrue(row["id"].startswith("session-"))
 
-    def test_stable_id_and_cancellation_tombstone(self):
+    def test_stable_id_and_no_cancellation_tombstone(self):
         first, _ = build([fixture()], "private-calendar", KEY, PEOPLE, {}, NOW)
         moved = fixture(start={"dateTime": "2026-11-06T12:00:00+09:00"},
                         end={"dateTime": "2026-11-06T13:00:00+09:00"})
         second, _ = build([moved], "private-calendar", KEY, PEOPLE, first, NOW)
         self.assertEqual(first["sessions"][0]["id"], second["sessions"][0]["id"])
         third, _ = build([], "private-calendar", KEY, PEOPLE, second, NOW)
-        self.assertEqual(third["sessions"][0]["publicStatus"], "CANCELLED")
+        self.assertEqual(third["sessions"], [])
+
+    def test_two_month_window_and_explicit_cancellation(self):
+        end = two_month_window_end(NOW)
+        self.assertEqual(end.isoformat(), "2027-01-02T00:00:00+09:00")
+        result, count = build([
+            fixture(id="active"),
+            fixture(id="cancelled", summary="STEP🔰 | 本間 | 60m | CANCELLED"),
+        ], "calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        self.assertEqual(len(result["sessions"]), 1)
+        self.assertEqual(result["sessions"][0]["publicStatus"], "OPEN")
+
+    def test_isolation_without_teacher_is_inquiry_only(self):
+        result, count = build([
+            fixture(id="isolation", summary="Isolation｜60m｜OPEN")
+        ], "calendar", KEY, PEOPLE, {}, NOW)
+        self.assertEqual(count, 1)
+        self.assertEqual(result["sessions"][0]["className"], "Isolation")
+        self.assertEqual(result["sessions"][0]["instructorName"], "スタジオに確認")
+        self.assertEqual(result["sessions"][0]["publicStatus"], "INQUIRY_ONLY")
 
     def test_other_calendar_or_key_changes_id(self):
         event = fixture()
