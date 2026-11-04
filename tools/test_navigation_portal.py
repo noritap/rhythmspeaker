@@ -71,6 +71,12 @@ class PortalContractTest(unittest.TestCase):
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
             self.assertNotIn('class="mobile-nav-panel"', menu)
+            if str(path) == 'schedule/index.html':
+                self.assertIn('class="rs-menu-action rs-menu-action--schedule" href="../schedule/" aria-current="page"', menu)
+                self.assertLess(menu.index('rs-menu-action--schedule'), menu.index('rs-menu-action--trial'))
+                self.assertEqual(menu.count('class="rs-menu-action rs-menu-action--schedule"'), 1)
+            elif current != 'schedule/':
+                self.assertEqual(menu.count('aria-current="page"'), 0)
         self.assertNotIn('href="./" class="rs-menu-link--ecosystem"', self.html)
         self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
