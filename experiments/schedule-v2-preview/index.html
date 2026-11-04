@@ -60,7 +60,7 @@ function render(){
  $('#count').textContent=rows.length+'件表示';
  if(S.info?.dataState==='unavailable'){$('#cards').innerHTML='<div class="empty"><strong>開催予定を取得できませんでした。</strong><p>現在の本番ページと公式LINEで最新情報をご確認ください。</p><a href="https://lin.ee/zC5YLe7" target="_blank" rel="noopener" class="button alt">公式LINEで相談する</a></div>';return;}
  $('#cards').innerHTML=rows.length?rows.map(x=>{
- const cancelled=x.publicStatus==='CANCELLED',closed=x.publicStatus==='CLOSE',label=cancelled?'開催中止':closed?'追加受付停止':'開催予定';
+ const cancelled=x.publicStatus==='CANCELLED',closed=x.publicStatus==='CLOSE',stale=S.mode==='public'&&S.info?.dataState==='stale',label=cancelled?'開催中止':closed?'追加受付停止':stale?'更新確認が必要':'開催予定';
  return '<article class="class"><div class="when"><strong>'+esc(fmtDate(x.date))+'</strong>'+esc(x.start)+'–'+esc(x.end)+'</div><div><span class="tag '+(cancelled||closed?'closed':'')+'">'+label+(S.mode==='demo'?'（デモ）':'')+'</span><h3>'+esc(x.className)+'</h3><p class="meta">担当：'+esc(x.instructorName)+'</p></div><button class="button" data-id="'+esc(x.id)+'">詳しく見る</button></article>';
  }).join(''):'<div class="empty">該当するレッスンがありません。条件を変更してください。</div>';
 }
