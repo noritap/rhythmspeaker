@@ -145,3 +145,6 @@ body .ws-reco .ws-reco-head{margin-bottom:16px}
  .cf-shell .cf-offer .cf-modes button[data-cf-mode="request"]{width:100%;text-align:center}
  .cf-shell .cf-day-invite{padding:14px 16px}
 }
+
+/* Concise open-time option: one-line purpose, no implied availability guarantee. */
+.cf-shell .cf-offer-copy p{margin:5px 0 0;color:#63594e;font-size:13px;line-height:1.65;max-width:32em}
