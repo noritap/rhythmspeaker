@@ -111,10 +111,10 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
     page.once('dialog',d=>d.accept());await page.locator('#cf-review-updated').click();await page.locator('#cf-join-apply').click();assert((await page.locator('#cf-message').inputValue()).includes('16:00'));assert(!(await page.locator('#cf-message').inputValue()).includes('保持テスト'));
     for(const state of ['CANCELLED','INQUIRY_ONLY']){payload.sessions[1].publicStatus=state;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());payload.sessions[1].publicStatus='OPEN';await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();}
     payload.sessions[1].bookingCountStatus='known';payload.sessions[1].bookingCountSource='fixture';payload.sessions[1].confirmedBookingCount=payload.sessions[1].capacity;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());payload=fixture();await page.locator('#cf-retry-selection').click();
-    // Fresh direct URL, missing class, stale data, network failure: all safe and retryable.
+    // Fresh direct URL, missing class, missed-daily-sync (>30h), network failure.
     await page.goto(base+'schedule/?class=session-ux-fixture-0&step=apply');await page.locator('#cf-message').waitFor();assert.equal(await page.locator('#cf-back-detail').count(),1);
     payload.sessions=[];await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
-    payload=fixture();payload.lastSuccessfulSyncAt='2026-11-02T00:00:00+09:00';await page.locator('#cf-retry-selection').click();assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
+    payload=fixture();payload.lastSuccessfulSyncAt='2026-10-31T00:00:00+09:00';await page.locator('#cf-retry-selection').click();assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
     payload=fixture();await page.locator('#cf-retry-selection').click();await page.locator('#cf-message').waitFor();fail=true;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());assert(await page.getByRole('link',{name:'スタジオ公式LINEで相談する ↗'}).isVisible());
     fail=false;await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();
     // A second click must not escape while first-click revalidation is pending.
