@@ -100,3 +100,22 @@
   .cf-shell .cf-card{gap:6px}
   .cf-shell .cf-card-bottom button{min-width:68px;padding:8px;font-size:11px}
 }
+
+/* VC1–VC3: quiet reservation-first layout. Do not alter dialog or booking validation. */
+body .cf-shell{padding-top:6px}
+body .cf-modes{display:flex;justify-content:flex-start;gap:0;margin:0 0 14px}
+body .cf-modes button{display:inline-flex;align-items:center;justify-content:flex-start;width:auto;min-height:44px;padding:8px 0;background:transparent;border:0;border-bottom:1px solid currentColor;box-shadow:none!important;color:#474239;font-size:14px;font-weight:600;text-align:left;cursor:pointer}
+body .cf-modes button[hidden]{display:none!important}
+body .cf-modes button:hover{text-decoration:underline}
+body .cf-modes button:focus-visible{outline:3px solid #9f372d;outline-offset:4px}
+body .cf-tools-head{margin:6px 0 16px}
+body .cf-workspace{gap:18px}
+body .cf-calendar button:disabled{opacity:.34;cursor:not-allowed;background:#f5f3ef;border-color:#eee9df}
+body .cf-month-head button:disabled{opacity:.25;cursor:not-allowed}
+body .cf-results-head{scroll-margin-top:90px}
+body .cf-results-head h3{font-size:clamp(18px,3vw,23px)}
+body .cf-calendar-actions{margin-top:12px}
+body #cf-results-jump{font-size:13px;min-height:44px}
+body .ws-reco .ws-reco-head{margin-bottom:16px}
+@media(min-width:900px){body #cf-results-jump{display:none}}
+@media(max-width:430px){body .cf-modes{margin-bottom:12px}body .cf-modes button{font-size:13px}}

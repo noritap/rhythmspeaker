@@ -23,6 +23,28 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
    await page.route('**/data/class-sessions.public.json*',async r=>{requests++;if(hold)await new Promise(resolve=>release=resolve);if(fail)return r.abort();await r.fulfill({json:payload});});
    const contactRequests=[];await context.route('https://lin.ee/**',r=>{contactRequests.push(r.request().url());return r.abort();});
    await page.goto(base+'schedule/');await page.locator('[data-cf-detail]').first().waitFor();
+   if(width===390){
+     // Calendar-only primary journey, alternate enquiry and rolling two-month limits.
+     assert.equal(await page.locator('[data-cf-mode="join"]').isHidden(),true);
+     assert.equal(await page.locator('[data-cf-mode="request"]').isVisible(),true);
+     assert.equal(await page.locator('#cf-prev').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2026-11-01"]').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2026-11-02"]').isEnabled(),true);
+     await page.locator('[data-cf-mode="request"]').click();
+     await page.locator('#cf-request-date').waitFor();
+     assert.equal(await page.locator('[data-cf-mode="request"]').isHidden(),true);
+     await page.locator('[data-cf-mode="join"]').click();
+     await page.locator('#cf-calendar').waitFor();
+     await page.locator('#cf-next').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2026年 12月/);
+     await page.locator('#cf-next').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2027年 1月/);
+     assert.equal(await page.locator('#cf-next').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2027-01-03"]').isDisabled(),true);
+     await page.locator('#cf-clear-date').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2026年 11月/);
+     await page.locator('[data-cf-detail]').first().waitFor();
+   }
    assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,'preview image failure');
    await page.locator('[data-cf-detail]').first().click();await page.locator('#cf-join-apply').waitFor();
    assert.equal(await page.locator('#detail a[href$="classes/"]').count(),0,'no forced class-page departure');
