@@ -124,3 +124,44 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
   #menu.rs-menu .rs-menu-group{margin-bottom:16px}
 }
 @media(max-width:340px){#menu.rs-menu .rs-menu-primary{gap:7px}#menu.rs-menu .rs-menu-action>strong{font-size:15px}#menu.rs-menu .rs-menu-link{font-size:11px}}
+
+
+/* Pricing UX v3 — compact first-screen comparison and predictable reading order. */
+.pricing-system{display:block;max-width:1320px;margin:0 auto 16px;padding:18px var(--space);border-left:3px solid var(--brand);background:#f2eee5}
+.pricing-system p{font-size:14px;line-height:1.7;margin:0}
+.pricing-system p+p{font-size:12px;color:var(--muted);margin-top:5px}
+.pricing-proof{padding-bottom:15px}
+.pricing-entry-grid{max-width:1320px;margin:0 auto;padding:0 var(--space) 30px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.pricing-entry-card{min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(22px,3vw,40px);border:1px solid var(--border);background:#fff}
+.pricing-entry-first{background:#f2eee5}
+.pricing-entry-label{font-size:12px;color:var(--muted);font-weight:700;margin:0 0 7px}
+.pricing-entry-card h2{font-size:clamp(19px,2.2vw,27px);line-height:1.4;margin:0}
+.pricing-entry-price{display:flex;align-items:baseline;gap:7px;font-variant-numeric:tabular-nums;margin:8px 0 4px;line-height:1.2}
+.pricing-entry-price strong{font-size:clamp(40px,4.6vw,65px);font-weight:600;letter-spacing:-1.7px}
+.pricing-entry-price span{font-size:16px}
+.pricing-entry-detail{font-weight:700;font-size:15px;margin:3px 0}
+.pricing-entry-note{color:var(--muted);font-size:12px;margin:11px 0 20px;line-height:1.75}
+.pricing-entry-card .button{margin-top:auto;min-height:48px;align-content:center}
+.pricing-entry-secondary{background:#22211e;color:#fff}
+.pricing-continue .pricing-grid{margin-top:22px}
+.pricing-plan h3{margin:0 0 12px}
+.pricing-plan .plan-price{margin:3px 0 10px}
+.pricing-plan .plan-count{margin:0 0 10px;padding:12px 0}
+.pricing-plan-tips{font-size:16px;font-weight:700;margin:0 0 14px;line-height:1.55}
+.pricing-plan-tips small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+.pricing-plan .per-lesson{margin:0 0 20px}
+.pricing-plan>.text-link{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+.pricing-wallet-link{display:inline-flex;align-items:center;min-height:44px;margin-top:20px}
+.pricing-other p{font-size:14px}
+.pricing-questions .pricing-faq-contact{margin:20px 0 0}
+@media(max-width:720px){
+  .pricing-system{padding:16px var(--space);margin-bottom:12px}
+  .pricing-system p{font-size:13px}
+  .pricing-system p+p{font-size:12px}
+  .pricing-entry-grid{grid-template-columns:1fr;gap:12px;padding-bottom:20px}
+  .pricing-entry-card{padding:24px}
+  .pricing-entry-card .button{width:100%;justify-content:center}
+  .pricing-entry-price strong{font-size:49px}
+  .pricing-plan .plan-price{font-size:clamp(34px,10vw,45px)}
+  .pricing-plan-tips{font-size:14px}
+}
