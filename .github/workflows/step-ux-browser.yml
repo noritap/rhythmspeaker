@@ -1,0 +1,42 @@
+name: STEP UX Six-Width Browser Contract
+
+on:
+  pull_request:
+    paths:
+      - 'classes/step/index.html'
+      - 'classes/step/**'
+      - 'tools/step_ux_browser_check.cjs'
+      - '.github/workflows/step-ux-browser.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  step-ux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || 'main' }}
+          path: baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Chromium and accessibility test package
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Compare STEP baseline and proposed UI in Chromium
+        run: |
+          python3 -m http.server 8001 --directory baseline > /tmp/step-before.log 2>&1 &
+          python3 -m http.server 8002 --directory . > /tmp/step-after.log 2>&1 &
+          node tools/step_ux_browser_check.cjs
+      - name: Upload evidence (screenshots and structured report)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: step-ux-six-width-evidence
+          path: ux-evidence/step-clarity/
