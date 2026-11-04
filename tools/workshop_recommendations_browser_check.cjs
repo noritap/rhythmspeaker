@@ -21,6 +21,11 @@ const fixture = [
   try {
     for (const width of [320, 375, 390, 430, 768, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 800 } });
+      const diagnostics = { requests: [], failures: [], errors: [], console: [] };
+      page.on("request", request => { if (request.url().includes("supabase.co")) diagnostics.requests.push({ method: request.method(), url: request.url() }); });
+      page.on("requestfailed", request => diagnostics.failures.push({ url: request.url(), error: request.failure()?.errorText }));
+      page.on("pageerror", error => diagnostics.errors.push(error.message));
+      page.on("console", message => { if (message.type() === "error") diagnostics.console.push(message.text()); });
       await page.clock.install({ time: new Date("2026-11-04T11:00:00.000Z") });
       await page.route("**/rest/v1/workshop_events**", async route => {
         const headers = {
@@ -36,7 +41,16 @@ const fixture = [
       });
       await page.goto(base + "schedule/");
       const section = page.locator("#rs-workshop-recommendations");
-      await section.waitFor({ state: "visible", timeout: 10000 });
+      try { await section.waitFor({ state: "visible", timeout: 10000 }); } catch (error) {
+        console.error("Recommendation diagnostics", JSON.stringify({ width, diagnostics,
+          state: await page.evaluate(() => ({ hasSection: !!document.querySelector("#rs-workshop-recommendations"),
+            sectionHidden: document.querySelector("#rs-workshop-recommendations")?.hidden,
+            config: window.RS_WORKSHOP_CONFIG ? { mode: window.RS_WORKSHOP_CONFIG.mode, url: window.RS_WORKSHOP_CONFIG.supabaseUrl, keyPrefix: String(window.RS_WORKSHOP_CONFIG.supabasePublishableKey).slice(0, 15) } : null,
+            scriptFound: [...document.scripts].some(s => s.src.includes("workshop-recommendations.js"))
+          })) }, null, 2));
+        await page.screenshot({ path: folder + "/failure-" + width + ".png", fullPage: true });
+        throw error;
+      }
       assert.equal(await page.locator(".ws-reco-card").count(), 1, "must show only eligible event");
       assert.match(await section.innerText(), /サカイダコージ/);
       assert.match(await section.innerText(), /3,000/);
