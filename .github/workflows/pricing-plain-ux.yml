@@ -5,6 +5,7 @@ on:
     paths:
       - 'pricing/**'
       - 'assets/ux-lab/app.css'
+      - 'assets/ux-lab/app.js'
       - 'tools/pricing_plain_ux_browser_check.cjs'
       - '.github/workflows/pricing-plain-ux.yml'
   push:
@@ -12,6 +13,7 @@ on:
     paths:
       - 'pricing/**'
       - 'assets/ux-lab/app.css'
+      - 'assets/ux-lab/app.js'
       - 'tools/pricing_plain_ux_browser_check.cjs'
       - '.github/workflows/pricing-plain-ux.yml'
   workflow_dispatch:
