@@ -1,28 +1,26 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#f7f6f2">
-<title>レッスンを探す｜Rhythm Speaker 試験ページ</title>
+<title>レッスンを探す｜Rhythm Speaker</title>
 <style>
 :root{color-scheme:dark;--ink:#f3f3f3;--muted:#bdbdbd;--line:#343434;--panel:#0a0a0a}
 *{box-sizing:border-box}body{margin:0;background:#050505;color:var(--ink);font:16px/1.55 system-ui,sans-serif}
 button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid white;outline-offset:2px}[hidden]{display:none!important}
 .head,.wrap{max-width:780px;margin:auto;padding:16px clamp(12px,4vw,26px)}
-.head{display:flex;justify-content:space-between;align-items:center}.brand{font-size:14px;letter-spacing:.07em;text-transform:uppercase}.brand small{display:none}.trial{font-size:12px;color:var(--muted)}
+.head{display:flex;justify-content:space-between;align-items:center}.brand{font-size:14px;letter-spacing:.07em;text-transform:uppercase}.brand small{display:none}
 .wrap{border:1px solid var(--line);border-radius:20px;background:var(--panel);margin-bottom:24px}h1{margin:0;font-size:clamp(26px,5vw,36px)}.lead,.meta,.small,.weekday,.count,.bottom{color:var(--muted)}.lead{margin:6px 0 14px}
 .button,.month-nav button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:6px 12px;border:1px solid var(--line);border-radius:10px;background:#242424;color:var(--ink);text-decoration:none}.button:disabled{opacity:.6}
 #today{float:right;font-size:12px;margin-bottom:6px}#calendarPanel{clear:both}.month-nav{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 12px}.month-nav button{border-radius:999px;background:transparent}.month-nav strong{font-size:clamp(18px,4vw,24px)}
 .calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}.weekday{text-align:center;font-size:13px}
 .day{position:relative;min-width:0;min-height:44px;padding:4px 0 9px;border:1px solid #444;border-radius:10px;background:#2d2d2d;color:var(--ink);text-align:center}.day.past{background:#222;color:#aaa}.day[aria-pressed=true]{background:#090909;border-color:#ddd;font-weight:700}.day .n{position:absolute;bottom:5px;left:50%;width:5px;height:5px;border-radius:50%;background:#bcbcbc;transform:translateX(-50%)}
-details{margin-top:12px;color:var(--muted)}summary{cursor:pointer}.filter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}.filter label{min-width:0;font-size:13px}.filter .full{grid-column:1/-1}.filter input,.filter select{display:block;width:100%;min-height:44px}
 .actions{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid var(--line);margin:16px 0 12px;padding-top:16px}h2{font-size:20px;margin:0}.count{white-space:nowrap}.cards{display:grid;gap:10px}
 .class{display:grid;grid-template-columns:minmax(0,1fr) auto;width:100%;gap:10px;align-items:center;text-align:left;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:13px 16px}.class strong,.class .meta{display:block;overflow-wrap:anywhere}.when{font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}.class strong{font-size:18px;margin:3px 0}.chevron{font-size:26px;color:var(--muted)}.tag{display:block;font-size:13px;color:#f7c28d}.empty,.status,.hint{padding:12px;border:1px solid var(--line);border-radius:10px}.status{margin-bottom:10px}.status.warning{color:#f7c28d}#nextDate{margin-top:12px}.bottom{border-top:1px solid var(--line);margin-top:20px;padding-top:12px;font-size:13px}
 dialog{width:min(480px,calc(100% - 24px));color:var(--ink);background:#151515;border:1px solid var(--line);border-radius:14px;padding:16px}dialog::backdrop{background:#000a}dialog textarea{width:100%;min-height:104px}dialog .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 </style></head><body>
-<header><div class="head"><div class="brand">Rhythm Speaker <small>TAP DANCE STUDIO / IKEBUKURO</small></div><span class="trial">試験ページ</span></div></header>
+<header><div class="head"><div class="brand">Rhythm Speaker <small>TAP DANCE STUDIO / IKEBUKURO</small></div></div></header>
 <main class="wrap"><h1>レッスンを探す</h1><p class="lead">希望の日付を選んでください。予約はスタジオからの返信後に確定します。</p>
 <div id="status" class="status" role="status" aria-live="polite">予定を確認しています。</div>
 <button id="today" class="button alt">今日に戻る</button>
 <div id="calendarPanel"></div>
-<details><summary>条件で絞る</summary><div id="filters" class="filter"></div></details>
 <div class="actions"><h2 id="listTitle"></h2><span class="count" id="count"></span></div><section id="cards" class="cards" aria-live="polite"></section>
 <button id="nextDate" class="button alt" hidden>次の開催日を見る</button>
 <div class="bottom"><a href="https://lin.ee/zC5YLe7" target="_blank" rel="noopener">希望日時を相談する</a><p><a href="https://noritap.github.io/rhythmspeaker/schedule/">公式予約ページ</a></p></div>
@@ -34,7 +32,7 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmtDate=d=>new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short'}).format(new Date(d+'T12:00:00+09:00'));
 const todayTokyo=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo',dateStyle:'short'}).format(new Date());
-const S={type:'',teacher:'',query:'',date:todayTokyo(),all:[],info:null};
+const S={date:todayTokyo(),all:[],info:null};
 S.month=S.date.slice(0,7);
 let requestVersion=0;
 let displayedToday=todayTokyo();
@@ -59,12 +57,11 @@ async function load(){
   if(version!==requestVersion)return;
   S.info=data;S.all=data.sessions;
  }catch{if(version!==requestVersion)return;S.info={dataState:'unavailable'};}
- renderControls();render();
+ render();
 }
-function matching(){const now=Date.now();const q=S.query.normalize('NFKC').toLowerCase();return S.all.filter(x=>(!S.type||x.classType===S.type)&&(!S.teacher||x.instructorName===S.teacher)&&(!q||[x.className,x.instructorName].some(y=>String(y).normalize('NFKC').toLowerCase().includes(q)))&&Date.parse(x.date+'T'+x.end+':00+09:00')>now);}
-function renderControls(){
- const types=[...new Set(S.all.map(x=>x.classType))].sort(),teachers=[...new Set(S.all.map(x=>x.instructorName))].sort();
- $('#filters').innerHTML='<label>レッスンの種類<select id="type"><option value="">すべてのレッスン</option>'+types.map(x=>'<option value="'+esc(x)+'" '+(S.type===x?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select></label><label>先生を選ぶ<select id="teacher"><option value="">すべての先生</option>'+teachers.map(x=>'<option value="'+esc(x)+'" '+(S.teacher===x?'selected':'')+'>'+esc(x)+'</option>').join('')+'</select></label><label class="full">クラス名・先生の名前で探す<input id="query" placeholder="例：タップ、古庄" value="'+esc(S.query)+'"></label>';
+function matching(){
+ const now=Date.now();
+ return S.all.filter(x=>Date.parse(x.date+'T'+x.end+':00+09:00')>now);
 }
 function renderCalendar(){
  const panel=$('#calendarPanel');const matches=matching();const today=todayTokyo();
@@ -84,11 +81,11 @@ function render(){
  $('#listTitle').textContent=fmtDate(S.date)+' のレッスン'+(S.date===todayTokyo()?'（今日）':'');
  $('#count').textContent=S.info?.dataState==='ready'?rows.length+'件':'';
  if(S.info?.dataState==='loading'){$('#cards').replaceChildren();return;}
- if(S.info?.dataState==='unavailable'){$('#cards').innerHTML='<div class="empty"><strong>開催予定を取得できませんでした。</strong><p>現在の本番ページと公式LINEで最新情報をご確認ください。</p><a href="https://lin.ee/zC5YLe7" target="_blank" rel="noopener" class="button alt">公式LINEで相談する</a></div>';return;}
+ if(S.info?.dataState==='unavailable'){$('#cards').replaceChildren();return;}
  $('#cards').innerHTML=rows.length?rows.map(x=>{
  const label=statusLabel(x);
  return '<button class="class" data-id="'+esc(x.id)+'"><span><span class="when">'+esc(x.start)+'–'+esc(x.end)+'</span><strong>'+esc(x.className)+'</strong><span class="meta">担当：'+esc(x.instructorName)+'</span>'+(label==='開催予定'?'':'<span class="tag">'+esc(label)+'</span>')+'</span><span class="chevron" aria-hidden="true">›</span></button>';
- }).join(''):'<div class="empty">'+(S.date===todayTokyo()&&!S.query&&!S.type&&!S.teacher?'本日の残りの開催予定はありません。':'この日の該当するレッスンはありません。')+'</div>';
+ }).join(''):'<div class="empty">'+(S.date===todayTokyo()?'本日の残りの開催予定はありません。':'この日の該当するレッスンはありません。')+'</div>';
 }
 function statusLabel(s){
  if(s.publicStatus!=='CANCELLED'&&Date.parse(s.date+'T'+s.start+':00+09:00')<=Date.now())return '開催中・受付終了';
@@ -156,13 +153,6 @@ function openDetail(id){
  };
  compose.click();
 }
-$('#filters').addEventListener('change',e=>{if(e.target.id==='type')S.type=e.target.value;if(e.target.id==='teacher')S.teacher=e.target.value;render()});
-function search(e){
- if(e.target.id!=='query'||e.isComposing)return;
- S.query=e.target.value;render();
-}
-$('#filters').addEventListener('input',search);
-$('#filters').addEventListener('compositionend',search);
 function selectDate(date){
  S.date=date;S.month=date.slice(0,7);render();
 }
