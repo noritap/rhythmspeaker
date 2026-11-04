@@ -55,16 +55,16 @@ assert.doesNotMatch(source, /<div class="cf-sample" role="note">|01 \/ JOIN A CL
 assert.match(source, /スタジオから「予約確定」の返信/);
 assert.match(source, /コピーしました。次は公式LINEに貼り付けて送信してください/);
 assert.match(source, /cf-visually-hidden/);
-assert.match(source, /<h2 id="cf-find-title">開催予定から探す<\/h2>/);
+assert.match(source, /<h2 id="cf-find-title">日付から探す<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
 assert.doesNotMatch(staticPage, /掲載中のクラスは開講が決定しています|予約の流れ|JOIN A CLASS|REQUEST A LESSON/);
-assert.match(staticPage, /class-finder\.js\?v=20261104listfirst1/);
+assert.match(staticPage, /class-finder\.js\?v=20261104calendarfirst1/);
 assert.match(source, /data-cf-mode="request"/);
-assert.match(source, /view:'list',mode:'join'/);
-assert.match(source, /let cfListShown=12;/);
-assert.match(source, /selected\.slice\(0,cfListShown\)/);
-assert.match(source, /id="cf-more"/);
-assert.match(source, /visible\.map\(cfCard\)/);
+assert.match(source, /view:'calendar',mode:'join'/);
+assert.match(source, /date:cfToday\(\)/);
+assert.match(source, /selected=match\.filter\(s=>s\.date===cfState\.date\)/);
+assert.doesNotMatch(source, /id="cf-more"|data-cf-view="list"/);
+assert.match(source, /selected\.map\(cfCard\)/);
 assert.match(source, /https:\/\/lin\.ee\/zC5YLe7/);
 assert.equal(context.cfClosed(unknown), true);
 assert.equal(context.cfClosed(cancelled), true);
@@ -78,7 +78,7 @@ assert.match(source, /if\(cfClosed\(s\)\)return cfClosedReason\(s\)/);
 
 // Refresh integration and safety behavior are exercised against real DOM/fetch
 // in reservation_ux_browser_check.cjs, including a bounded request budget.
-assert.match(source, /id="cf-refresh"[^>]*hidden/);
+assert.match(source, /id="cf-refresh"[^>]*hidden/);\nassert.match(source, /<details class="cf-advanced"><summary>講師・クラスで絞り込む<\/summary>/);
 assert.match(source, /maxPerHour:20/);
 assert.match(source, /cfReconcileSelection/);
 assert.match(source, /cache:'no-store'/);
