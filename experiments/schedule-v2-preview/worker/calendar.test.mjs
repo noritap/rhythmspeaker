@@ -99,7 +99,8 @@ test('the browser admission guard rejects cancellation immediately before handof
   const html = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
   const source = html.slice(html.indexOf('async function confirmSession'), html.indexOf('function openDetail'));
   const confirm = runInNewContext(source + '\nconfirmSession', {
-    AbortSignal, fetch: () => handler(request, env)
+    AbortSignal, Date: class extends Date { static now() { return time; } },
+    fetch: () => handler(request, env)
   });
   await confirm(session);
   events = [{ ...event, summary: 'STEP🔰｜60m｜古庄｜CANCELLED' }];
@@ -127,4 +128,26 @@ test('November regression: corrected STEP and unassigned Isolation without delet
   const now = Date.parse('2026-11-04T15:30:00+09:00');
   const handler = createHandler({ now: () => now, read: async () => rows });
   assert.equal((await (await handler(request, env)).json()).sessions[0].publicStatus, 'CLOSE');
+});
+
+
+test('handoff is blocked when the clock reaches the start while the response is in flight', async () => {
+  const [session] = await publish([event]);
+  const starts = Date.parse(session.date+'T'+session.start+':00+09:00');
+  let now = starts - 1;
+  const html = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
+  const source = html.slice(html.indexOf('async function confirmSession'), html.indexOf('function openDetail'));
+  const response = row => Response.json({
+    source: 'google_calendar', dataState: 'ready', canRequest: true, sessions: [row]
+  });
+  let reply = () => response(session);
+  const confirm = runInNewContext(source + '\nconfirmSession', {
+    AbortSignal, Date: class extends Date { static now() { return now; } }, fetch: () => reply()
+  });
+  await confirm(session);
+  const closed = { ...session, publicStatus: 'CLOSE' };
+  reply = () => response(closed);
+  await assert.rejects(confirm(closed));
+  reply = () => { now = starts; return response(session); };
+  await assert.rejects(confirm(session));
 });
