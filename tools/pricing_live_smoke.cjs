@@ -23,6 +23,19 @@ async function textAt(path, stamp) {
         textAt("assets/ux-lab/app.js", stamp + "-" + attempt)
       ]);
       assert(html.includes(marker), "new pricing HTML not published yet");
+      const intro = 'レッスンは、専用ポイント「TIPS」をチャージして受講します。';
+      assert(html.includes(intro), "public HTML missing TIPS explanation");
+      assert(js.includes(intro), "SPA renderer missing TIPS explanation");
+      const introPos = html.indexOf('class="pricing-system"');
+      const summaryPos = html.indexOf('class="pricing-proof"');
+      assert(introPos >= 0 && introPos < summaryPos, "TIPS intro must precede fee summary");
+      assert.equal((html.match(/class="pricing-system-link"/g) || []).length, 1, "exactly one Wallet CTA");
+      assert(!html.includes('class="wallet-explanation"'), "stale duplicate Wallet explanation");
+      assert(js.includes('class="pricing-system-link"'), "SPA missing Wallet CTA");
+      assert(!js.includes('class="wallet-explanation"'), "SPA has duplicate Wallet info");
+      assert(html.includes('受講までの流れ'), "simplified booking sequence missing");
+      assert(html.includes('20261104pricing-wallet1'), "changed assets not versioned");
+
       assert(js.includes(marker), "new SPA pricing copy not published yet");
       assert(!js.includes("現行の正式な有効期限条件は確認が必要です"));
       assert(!html.includes("現行の正式な有効期限条件は確認が必要です"));
@@ -35,9 +48,10 @@ async function textAt(path, stamp) {
         "SPA missing plan-specific LINE links");
       const css = await textAt("assets/ux-lab/app.css", stamp + "-" + attempt);
       assert(css.includes(".pricing-faq-contact"), "FAQ visual CSS not yet live");
+      assert(css.includes(".pricing-system-link"), "Wallet intro visual CSS not yet live");
       console.log(JSON.stringify({ status: "PASS", attempts: attempt, production: root + "pricing/", checks: [
         "new public HTML", "SPA renderer", "5 FAQ answers", "3 selected-plan LINE intents",
-        "published CSS", "no expired placeholder" ] }));
+        "published CSS", "top-of-page TIPS/Wallet introduction", "no duplicate Wallet copy", "no expired placeholder" ] }));
       return;
     } catch (error) {
       last = error;
