@@ -3,9 +3,9 @@
   "sourceMode": "live",
   "dataState": "ready",
   "timezone": "Asia/Tokyo",
-  "generatedAt": "2026-11-04T18:02:52.840+09:00",
-  "lastSuccessfulSyncAt": "2026-11-04T18:02:52.840+09:00",
-  "lastAttemptAt": "2026-11-04T18:02:52.840+09:00",
+  "generatedAt": "2026-11-04T19:30:00.430+09:00",
+  "lastSuccessfulSyncAt": "2026-11-04T19:30:00.430+09:00",
+  "lastAttemptAt": "2026-11-04T19:30:00.430+09:00",
   "sessions": [
     {
       "id": "session-0ae74b9b143f15b22244925d",
@@ -54,15 +54,15 @@
       "end": "08:00",
       "classType": "ISOLATION",
       "level": "",
-      "instructorId": "calendar-teacher-e860e3cc40966d88",
-      "instructorName": "スタジオに確認",
+      "instructorId": "furusho",
+      "instructorName": "古庄里好",
       "source": "live",
-      "publicStatus": "INQUIRY_ONLY",
+      "publicStatus": "OPEN",
       "confirmedBookingCount": null,
       "bookingCountStatus": "unknown",
       "bookingCountSource": null,
       "capacity": 5,
-      "updatedAt": "2026-11-04T18:02:52.840+09:00"
+      "updatedAt": "2026-11-04T19:30:00.430+09:00"
     },
     {
       "id": "session-94088510bae750d54ec4ad26",
