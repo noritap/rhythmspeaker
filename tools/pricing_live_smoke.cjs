@@ -1,16 +1,13 @@
 "use strict";
-// Browser-independent production smoke: static Pages HTML and live JS, read-only GET only.
-// Pages deployment can lag behind the main push; retry before treating as failed.
+// Read-only published Pages smoke. Retry for asynchronous GitHub Pages release.
 const assert = require("node:assert/strict");
 const root = "https://noritap.github.io/rhythmspeaker/";
-const marker = "初めてなら、まず1,000円で体験";
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-async function textAt(path, stamp) {
-  const response = await fetch(root + path + "?pricing-smoke=" + encodeURIComponent(stamp), {
-    signal: AbortSignal.timeout(14000), cache: "no-store",
-    headers: { "Cache-Control": "no-cache" }
+async function read(path, stamp) {
+  const response = await fetch(root + path + "?pricing-v3=" + encodeURIComponent(stamp), {
+    signal: AbortSignal.timeout(14000), cache: "no-store", headers: { "Cache-Control": "no-cache" }
   });
-  assert.equal(response.ok, true, path + " HTTP " + response.status);
+  assert(response.ok, path + " HTTP " + response.status);
   return response.text();
 }
 (async () => {
@@ -18,45 +15,34 @@ async function textAt(path, stamp) {
   let last;
   for (let attempt = 1; attempt <= 24; attempt++) {
     try {
-      const [html, js] = await Promise.all([
-        textAt("pricing/", stamp + "-" + attempt),
-        textAt("assets/ux-lab/app.js", stamp + "-" + attempt)
+      const [html, js, css] = await Promise.all([
+        read("pricing/", stamp + "-" + attempt),
+        read("assets/ux-lab/app.js", stamp + "-" + attempt),
+        read("assets/ux-lab/app.css", stamp + "-" + attempt)
       ]);
-      assert(html.includes(marker), "new pricing HTML not published yet");
-      const intro = 'レッスンは、専用ポイント「TIPS」をチャージして受講します。';
-      assert(html.includes(intro), "public HTML missing TIPS explanation");
-      assert(js.includes(intro), "SPA renderer missing TIPS explanation");
-      const introPos = html.indexOf('class="pricing-system"');
-      const summaryPos = html.indexOf('class="pricing-proof"');
-      assert(introPos >= 0 && introPos < summaryPos, "TIPS intro must precede fee summary");
-      assert.equal((html.match(/class="pricing-system-link"/g) || []).length, 1, "exactly one Wallet CTA");
-      assert(!html.includes('class="wallet-explanation"'), "stale duplicate Wallet explanation");
-      assert(js.includes('class="pricing-system-link"'), "SPA missing Wallet CTA");
-      assert(!js.includes('class="wallet-explanation"'), "SPA has duplicate Wallet info");
-      assert(html.includes('受講までの流れ'), "simplified booking sequence missing");
-      assert(html.includes('20261104pricing-wallet1'), "changed assets not versioned");
-
-      assert(js.includes(marker), "new SPA pricing copy not published yet");
-      assert(!js.includes("現行の正式な有効期限条件は確認が必要です"));
-      assert(!html.includes("現行の正式な有効期限条件は確認が必要です"));
-      assert.equal((html.match(/<details><summary>/g) || []).length, 5, "static FAQ not yet updated");
-      assert(js.includes('class="pricing-faq-contact"') || js.includes('class=\"pricing-faq-contact\"'),
-        "SPA missing one support call-to-action");
-      assert.equal((html.match(/line\.me\/R\/oaMessage\/%40ypk3334t/g) || []).length, 3,
-        "missing plan-specific LINE links");
-      assert.equal((js.match(/line\.me\/R\/oaMessage\/%40ypk3334t/g) || []).length, 3,
-        "SPA missing plan-specific LINE links");
-      const css = await textAt("assets/ux-lab/app.css", stamp + "-" + attempt);
-      assert(css.includes(".pricing-faq-contact"), "FAQ visual CSS not yet live");
-      assert(css.includes(".pricing-system-link"), "Wallet intro visual CSS not yet live");
-      console.log(JSON.stringify({ status: "PASS", attempts: attempt, production: root + "pricing/", checks: [
-        "new public HTML", "SPA renderer", "5 FAQ answers", "3 selected-plan LINE intents",
-        "published CSS", "top-of-page TIPS/Wallet introduction", "no duplicate Wallet copy", "no expired placeholder" ] }));
+      assert(html.includes("20261105pricing-ux-v3"), "new public HTML not deployed");
+      assert(html.includes("初回体験の内容・申し込みへ"), "new comparison not live");
+      assert(js.includes("初回体験の内容・申し込みへ"), "SPA old copy still live");
+      assert(css.includes("Pricing UX v3"), "responsive CSS not live");
+      assert.equal((html.match(/class="pricing-entry-card /g)||[]).length, 2);
+      assert.equal((html.match(/<details><summary>/g)||[]).length, 3);
+      assert.equal((html.match(/月額契約なし/g)||[]).length, 1);
+      assert.equal((html.match(/class="text-link pricing-wallet-link"/g)||[]).length, 1);
+      assert(html.includes("スタジオから「予約確定」の返信"), "booking confirmation removed");
+      assert(!html.includes("01 / FIRST LESSON"), "old duplicated section still live");
+      for (const name of ["スタンダード10", "プレミアム25", "プレミアム50"]) {
+        assert(html.includes(name) && js.includes(name), "missing plan " + name);
+      }
+      assert.equal((html.match(/line\.me\/R\/oaMessage\/%40ypk3334t/g)||[]).length, 3, "plan LINE intents lost");
+      console.log(JSON.stringify({ status: "PASS", production: root + "pricing/", attempts: attempt, checks: [
+        "published HTML", "SPA", "CSS", "2-card prices", "3 FAQ", "no repeated monthly terms",
+        "selected-plan intents", "booking integrity"
+      ] }));
       return;
-    } catch (error) {
-      last = error;
+    } catch (err) {
+      last = err;
       if (attempt < 24) await sleep(10000);
     }
   }
-  throw last || new Error("Pricing live smoke failed");
-})().catch(error => { console.error("PRICING LIVE SMOKE FAILED", error); process.exitCode = 1; });
+  throw last;
+})().catch(err => { console.error("PRICING LIVE SMOKE FAILED", err); process.exitCode = 1; });
