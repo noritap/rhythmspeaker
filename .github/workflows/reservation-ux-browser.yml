@@ -35,8 +35,11 @@ jobs:
         run: |
           python3 -m http.server 8020 --directory .. >/tmp/reservation-ux-server.log 2>&1 &
           RESERVATION_BASE_URL=http://127.0.0.1:8020/rhythmspeaker/ RESERVATION_BEFORE_URL=http://127.0.0.1:8020/rhythmspeaker/baseline/ node tools/reservation_ux_browser_check.cjs
+          RESERVATION_BASE_URL=http://127.0.0.1:8020/rhythmspeaker/ node tools/workshop_recommendations_browser_check.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: reservation-ux-evidence
-          path: ux-evidence/reservation-v3/
+          path: |
+            ux-evidence/reservation-v3/
+            ux-evidence/workshop-recommendations/
