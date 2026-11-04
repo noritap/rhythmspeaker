@@ -62,7 +62,7 @@ function sourceContracts() {
       await page.keyboard.press("Enter");
       assert(!(await faq.evaluate(el => el.open)), "keyboard must close FAQ " + width);
       // Verify business-sensitive CTAs but never follow LINE or submit anything.
-      assert((await page.locator(".pricing-single a[href='../schedule/']").count()) === 1);
+      assert((await page.locator(".pricing-single a[href$='/schedule/']").count()) === 1);
       assert((await page.locator(".wallet-explanation a[href='https://tips-app-seven.vercel.app/']").count()) === 1);
       if (width === 390 || width === 1440) {
         await page.screenshot({ path: artifact + "/pricing-" + width + ".png", fullPage: true });
