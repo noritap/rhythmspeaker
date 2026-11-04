@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs.",
+  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350.",
   "allowedPaths": [
     "broadcast/data/episodes.json",
     "broadcast/data/people.json",
@@ -25,7 +25,8 @@
     "rss/015/index.html",
     "rss/app.js",
     "rss/theater.js",
-    "rss/index.html"
+    "rss/index.html",
+    "workshops/sakaida-koji-20261122.html"
   ],
   "blobSha1": {
     "broadcast/data/episodes.json": "c211014537fcd25a0f5088ef2acd2dd722698f9d",
@@ -50,6 +51,7 @@
     "rss/015/index.html": "ebb1e4ae3006478f7a6df2a2ad67f5a9a263e234",
     "rss/app.js": "16712066944b493b8d9a1647e48fcc62f44e8452",
     "rss/theater.js": "d2d9a397f3a03986f1e59aa6650b9a1f235d9054",
-    "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b"
+    "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b",
+    "workshops/sakaida-koji-20261122.html": "3a12cf7f8c1c5208be1618e6593417a8a3bf080c"
   }
 }
