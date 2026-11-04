@@ -58,7 +58,7 @@ assert.match(source, /cf-visually-hidden/);
 assert.match(source, /<h2 id="cf-find-title">日付から探す<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
 assert.doesNotMatch(staticPage, /掲載中のクラスは開講が決定しています|予約の流れ|JOIN A CLASS|REQUEST A LESSON/);
-assert.match(staticPage, /class-finder\.js\?v=20261104calendarfirst1/);
+assert.match(staticPage, /class-finder\.js\?v=20261104classfamily1/);
 assert.match(source, /data-cf-mode="request"/);
 assert.match(source, /view:'calendar',mode:'join'/);
 assert.match(source, /date:cfToday\(\)/);
@@ -85,3 +85,24 @@ assert.match(source, /cfReconcileSelection/);
 assert.match(source, /cache:'no-store'/);
 assert.match(source, /AbortSignal.timeout\(10_000\)/);
 console.log('Calendar OPEN/CLOSE UI and bounded public-data refresh contract passed.');
+
+const famLine = source.split('\n').find(x => x.startsWith('const cfClassFamily='));
+const typesLine = source.split('\n').find(x => x.startsWith('const cfTypes='));
+const choicesLine = source.split('\n').find(x => x.startsWith('const cfAvailableTypes='));
+assert.ok(famLine && typesLine && choicesLine);
+const familyScope = {};
+vm.createContext(familyScope);
+vm.runInContext([
+  "let finderData={sessions:[{classType:'STEP & 振付'},{classType:'STEP🟡'},{classType:'TAP初級'},{classType:'TAP応用🔵'},{classType:'BAR メソッド'}]};",
+  typesLine, famLine, choicesLine,
+  "this.types=cfAvailableTypes();",
+  "this.families=['STEP🔰','STEP🟡','STEP & 振付','TAP','Tap','TAP初級','TAP応用🔵','BAR METHOD','BAR メソッド','ISOLATION','STRETCH','HIIT'].map(cfClassFamily);",
+  "this.unknown=cfClassFamily('新しい特別クラス');",
+].join('\n'), familyScope);
+assert.deepEqual(JSON.parse(JSON.stringify(familyScope.types)),
+  ['STEP','TAP','STRETCH','ISOLATION','BAR METHOD','HIIT']);
+assert.deepEqual(JSON.parse(JSON.stringify(familyScope.families)),
+  ['STEP','STEP','STEP','TAP','TAP','TAP','TAP','BAR METHOD','BAR METHOD','ISOLATION','STRETCH','HIIT']);
+assert.equal(familyScope.unknown, 'OTHER');
+assert.match(source, /cfClassFamily\(s\.classType\)===cfState\.type/);
+assert.doesNotMatch(source, /\.\.\.\(finderData\?\.sessions\|\|\[\]\)\.map\(s=>s\.classType\)/);
