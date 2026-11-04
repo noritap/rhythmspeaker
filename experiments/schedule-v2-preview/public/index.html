@@ -91,6 +91,7 @@ function render(){
  }).join(''):'<div class="empty">'+(S.date===todayTokyo()&&!S.query&&!S.type&&!S.teacher?'本日の残りの開催予定はありません。':'この日の該当するレッスンはありません。')+'</div>';
 }
 function statusLabel(s){
+ if(s.publicStatus!=='CANCELLED'&&Date.parse(s.date+'T'+s.start+':00+09:00')<=Date.now())return '開催中・受付終了';
  return {CANCELLED:'開催中止',CLOSE:'追加受付停止',INQUIRY_ONLY:'要問い合わせ'}[s.publicStatus] ||
   (S.info?.dataState==='stale'?'更新確認が必要':'開催予定');
 }
@@ -99,7 +100,8 @@ async function confirmSession(session){
  const data=await response.json();
  const current=data.sessions?.find(row=>row.id===session.id);
  if(!response.ok||data.source!=='google_calendar'||data.dataState!=='ready'||data.canRequest!==true||
-    !current||['date','start','end','className','instructorName','publicStatus'].some(k=>current[k]!==session[k]))throw Error();
+    !current||session.publicStatus!=='OPEN'||current.publicStatus!=='OPEN'||
+    !(Date.parse(current.date+'T'+current.start+':00+09:00')>Date.now())||['date','start','end','className','instructorName','publicStatus'].some(k=>current[k]!==session[k]))throw Error();
 }
 function openDetail(id){
  const s=S.all.find(x=>x.id===id);if(!s)return;
