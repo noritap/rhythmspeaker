@@ -23,6 +23,9 @@ const context = {
 };
 vm.createContext(context);
 vm.runInContext(snippets, context, {filename: 'production-class-finder.js'});
+// Class discovery follows the approved daily publication contract.
+assert.match(source, /lastSuccessfulSyncAt\)>30\*60\*60\*1000/);
+assert.doesNotMatch(source, /lastSuccessfulSyncAt\)>3\*60\*60\*1000/);
 const lesson = {
   id: 'session-valid', source: 'live', className: 'STEP🔰',
   classType: 'STEP', level: '', date: '2026-11-05', start: '10:00',
