@@ -1,5 +1,5 @@
 {
-  "version": "1.3",
+  "version": "1.4",
   "purpose": "Public instructor/profile/TAP-style content registry for Rhythm Speaker.",
   "rules": {
     "officialInquiry": "https://lin.ee/zC5YLe7",
@@ -16,6 +16,14 @@
     "contactPolicy": {
       "instructorOfficialLine": "レッスン内容・練習・担当講師とのコミュニケーションに使用する。",
       "studioOfficialLine": "予約・変更・キャンセル・料金・事務手続きの統一窓口として使用する。"
+    },
+    "bookingInquiryPolicy": {
+      "instructorLine": "講師へのレッスン相談。正式な予約確定は講師またはスタジオの確認後。",
+      "studioEmail": "rhythmspeaker296@gmail.com",
+      "noInstructorLine": "スタジオ公式LINEまたはスタジオメールを案内する。",
+      "openDefinition": "Googleカレンダー予定名のOPENは開講確定・相乗り受講可を意味する。",
+      "capacityDefault": 10,
+      "bookingCountSource": "未実装。カレンダーの予定名だけから人数を推定しない。"
     }
   },
   "instructors": [
@@ -138,6 +146,48 @@
       "contact": {
         "line": "https://lin.ee/zC5YLe7",
         "type": "studio_official"
+      }
+    },
+    {
+      "id": "kattsun",
+      "name": "かっつん",
+      "profileStatus": "contact_only",
+      "classes": [],
+      "contact": {
+        "line": "https://lin.ee/N7D6m5Q",
+        "type": "instructor_official"
+      }
+    },
+    {
+      "id": "saito_hiroe",
+      "name": "齊藤洋映",
+      "profileStatus": "contact_only",
+      "classes": [],
+      "contact": {
+        "line": "https://lin.ee/RNgUL4U",
+        "type": "instructor_official"
+      }
+    },
+    {
+      "id": "pal",
+      "name": "PAL",
+      "profileStatus": "contact_only",
+      "classes": [],
+      "contact": {
+        "line": "https://lin.ee/XPKjw0c",
+        "type": "instructor_official"
+      }
+    },
+    {
+      "id": "nao",
+      "name": "NAO",
+      "profileStatus": "contact_only",
+      "classes": [],
+      "residenceNote": "鳥取在住（本人提供情報）",
+      "contact": {
+        "line": null,
+        "type": "studio_official",
+        "reason": "講師公式LINEを設けない運用"
       }
     }
   ]
