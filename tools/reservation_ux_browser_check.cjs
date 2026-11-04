@@ -49,7 +49,7 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
      assert(await page.locator('#cf-day-invite').isVisible());
      await page.locator('#cf-request-day').click();
      assert.equal(await page.locator('#cf-request-date').inputValue(),'2026-11-03');
-     assert.match(await page.locator('#cf-request-title').innerText(),/新しいクラスをリクエスト/);
+     assert.match(await page.locator('#cf-request-title').innerText(),/空き時間にレッスンを希望する/);
      await page.locator('#cf-request-start').fill('10:00');
      await page.locator('#cf-request-form button[type="submit"]').click();
      assert.match(await page.locator('#cf-message').inputValue(),/2026-11-03 10:00/);
