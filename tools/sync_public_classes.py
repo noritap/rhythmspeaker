@@ -151,6 +151,8 @@ def fetch_calendar(calendar_id, access_token, start, end):
         url = "https://www.googleapis.com/calendar/v3/calendars/" + quote(calendar_id, safe="") + "/events?" + urlencode(params)
         with urlopen(Request(url, headers={"Authorization": "Bearer " + access_token}), timeout=40) as response:
             payload = json.load(response)
+        if payload.get("accessRole") not in ("reader", "writer", "owner"):
+            raise RuntimeError("Calendar reader access not verified")
         if not isinstance(payload.get("items"), list):
             raise RuntimeError("Invalid Calendar API response")
         rows.extend(payload["items"])
@@ -246,10 +248,8 @@ def run():
     result, accepted = build(rows, calendar_id, session_key, catalog, old, now)
     if accepted != sum(not is_explicitly_cancelled(event) for event in rows):
         raise SystemExit("Partial projection is forbidden for the lesson calendar")
-    # Refuse an anomalous complete data loss; never replace successful data with empty
-    # on a potentially misconfigured or expired credential/calendar.
-    if old.get("sessions") and not accepted:
-        raise SystemExit("Zero approved sessions after previously populated data; refusing overwrite")
+    # A genuinely empty authenticated calendar replaces previous rows with an empty
+    # snapshot. Failed/unauthorized reads raise before any file is modified.
     target.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", dir=target.parent, encoding="utf-8", delete=False) as temp:
         json.dump(result, temp, ensure_ascii=False, indent=2)
