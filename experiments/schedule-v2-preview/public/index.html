@@ -74,12 +74,23 @@ function statusLabel(s){
  return {CANCELLED:'開催中止',CLOSE:'追加受付停止',INQUIRY_ONLY:'要問い合わせ'}[s.publicStatus] ||
   (S.info?.dataState==='stale'?'更新確認が必要':'開催予定');
 }
+async function confirmSession(session){
+ const response=await fetch('/api/classes',{cache:'no-store',signal:AbortSignal.timeout(16000)});
+ const data=await response.json();
+ const current=data.sessions?.find(row=>row.id===session.id);
+ if(!response.ok||data.source!=='google_calendar'||data.dataState!=='ready'||data.canRequest!==true||
+    !current||['date','start','end','className','instructorName','publicStatus'].some(k=>current[k]!==session[k]))throw Error();
+}
 function openDetail(id){
  const s=S.all.find(x=>x.id===id);if(!s)return;
  $('#detailTitle').textContent=s.className;
  $('#detailMeta').textContent=fmtDate(s.date)+' '+s.start+'〜'+s.end+' ／ '+s.instructorName+' ／ '+statusLabel(s);
  $('#composer').hidden=true;$('#detailActions').replaceChildren();$('#copystatus').textContent='';
  $('#detail').showModal();
+ if(s.publicStatus==='INQUIRY_ONLY'){
+  $('#detailActions').innerHTML='<a class="button alt" href="https://lin.ee/zC5YLe7" target="_blank" rel="noopener">公式LINEで相談する</a>';
+  return;
+ }
  if(s.publicStatus!=='OPEN'||S.info?.canRequest!==true)return;
  const message=['レッスンに参加したいです。','希望クラス：'+s.className,
   '希望日時：'+s.date+' '+s.start+'〜'+s.end,'担当：'+s.instructorName].join('\n');
@@ -91,25 +102,33 @@ function openDetail(id){
  compose.onclick=async()=>{
   compose.disabled=true;
   try{
-   const response=await fetch('/api/classes',{cache:'no-store',signal:AbortSignal.timeout(16000)});
-   const data=await response.json();
-   const current=data.sessions?.find(row=>row.id===s.id);
-   const validFor=60000-(Date.now()-Date.parse(data.lastSuccessfulSyncAt));
-   if(!response.ok||data.dataState!=='ready'||data.canRequest!==true||!(validFor>0)||!current||
-      ['date','start','end','className','instructorName','publicStatus'].some(k=>current[k]!==s[k]))throw Error();
+   await confirmSession(s);
    if(!$('#detail').open||!compose.isConnected)return;
    $('#composer').hidden=false;
-   $('#detailActions').innerHTML='<a class="button" href="https://lin.ee/zC5YLe7" target="_blank" rel="noopener">LINEを開く</a><a class="button alt" id="email">メールで申し込む</a>';
-   const updateEmail=()=>{$('#email').href='mailto:rhythmspeaker296@gmail.com?subject='+encodeURIComponent('レッスン参加希望')+'&body='+encodeURIComponent($('#draft').value);};
-   $('#draft').oninput=updateEmail;
-   updateEmail();
+   $('#detailActions').innerHTML='<button class="button" id="line">LINEを開く</button><button class="button alt" id="email">メールで申し込む</button>';
    const email=$('#email');
    const expire=()=>{
     if(!email.isConnected)return;
     $('#composer').hidden=true;
     $('#detailActions').textContent='予定をもう一度確認するには、詳細を開き直してください。';
    };
-   setTimeout(expire,validFor);
+   for(const link of $('#detailActions').querySelectorAll('button')){
+    link.onclick=async ()=>{
+     link.disabled=true;
+     try{
+      await confirmSession(s);
+      if($('#detail').open&&link.isConnected){
+       location.href=link===email
+        ? 'mailto:rhythmspeaker296@gmail.com?subject='+encodeURIComponent('レッスン参加希望')+'&body='+encodeURIComponent($('#draft').value)
+        : 'https://lin.ee/zC5YLe7';
+       link.disabled=false;
+      }
+     }catch{
+      if(link.isConnected)expire();
+     }
+    };
+   }
+   setTimeout(expire,60000);
    $('#draft').focus();
   }catch{compose.replaceWith('最新の予定を確認できませんでした。ページを更新してご確認ください。');}
  };
