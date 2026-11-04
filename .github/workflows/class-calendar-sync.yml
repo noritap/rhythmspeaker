@@ -13,8 +13,13 @@ on:
       - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-sync.yml"
   schedule:
-    # Best-effort quarter-hour updates. GitHub scheduled runs may be delayed or dropped;
-    # Cloudflare independent recovery remains required for reliability.
+    # The 05:00 JST daily business run explicitly reconciles the entire active
+    # two-calendar-month window and replaces one public JSON snapshot.
+    # GitHub Actions uses UTC by default: previous day 20:00 UTC = 05:00 JST.
+    - cron: "0 20 * * *"
+    # Keep intraday refreshes; the website currently fails closed when
+    # lastSuccessfulSyncAt is more than three hours old.
+    # Scheduled starts are best effort and may be delayed or omitted.
     - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
