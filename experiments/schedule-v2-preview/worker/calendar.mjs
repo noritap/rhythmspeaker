@@ -35,7 +35,7 @@ export async function project(events, calendar, secret) {
   const key = await crypto.subtle.importKey('raw', encoder.encode(secret),
     { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
   const sessions = new Map();
-  const cancelled = new Set();
+  const suppressed = new Set();
   for (const event of events) {
     if (!event.id) throw Error('Calendar event identity missing');
     const original = event.originalStartTime?.dateTime;
@@ -43,11 +43,11 @@ export async function project(events, calendar, secret) {
       original ? new Date(original).toISOString() : ''].join('\x1f');
     const digest = new Uint8Array(await crypto.subtle.sign('HMAC', key, encoder.encode(identity)));
     const id = 'session-' + Array.from(digest.slice(0, 12), x => x.toString(16).padStart(2, '0')).join('');
-    if (event.status === 'cancelled') {
-      cancelled.add(id);
+    if (event.status === 'cancelled' || ['private', 'confidential'].includes(event.visibility)) {
+      suppressed.add(id);
       continue;
     }
-    if (event.visibility === 'private' || event.visibility === 'confidential' || !event.start?.dateTime) continue;
+    if (!event.start?.dateTime || typeof event.summary !== 'string') continue;
     const summary = event.summary?.trim();
     if (!summary || summary.length > 180 || /[@＠]|https?:|www\.|(?:\d[\s()+-]*){9,}/i.test(summary)) {
       throw Error('Calendar title failed publication check');
@@ -58,8 +58,9 @@ export async function project(events, calendar, secret) {
     const duration = /^\d{2,3}\s*m$/i;
     const valid = [2, 3].includes(parts.length) && parts.every(Boolean) &&
       parts.slice(1).filter(x => duration.test(x)).length === 1;
-    const rawClass = valid ? parts[0] : 'レッスン';
-    const teacher = valid ? parts.slice(1).find(x => !duration.test(x)) : '';
+    if (!valid || !/^(?:STEP|TAP|STRETCH|ISOLATION|BAR|HIIT)(?![A-Z])/i.test(parts[0])) continue;
+    const rawClass = parts[0];
+    const teacher = parts.slice(1).find(x => !duration.test(x));
     const instructorName = teacher ? teacher.split(/[・/／]/).map(x => {
       const name = x.trim();
       return Object.hasOwn(aliases, name) ? aliases[name] : name;
@@ -75,19 +76,11 @@ export async function project(events, calendar, secret) {
     const [endDate, end] = clock.format(to).split(' ');
     if (endDate !== date || sessions.has(id)) throw Error('Conflicting lesson metadata');
     const publicStatus = ['CLOSE', 'CANCELLED'].includes(marker) ? marker :
-      valid && teacher && event.status === 'confirmed' && marker !== 'INQUIRY_ONLY' ? 'OPEN' : 'INQUIRY_ONLY';
+      teacher && event.status === 'confirmed' && marker !== 'INQUIRY_ONLY' ? 'OPEN' : 'INQUIRY_ONLY';
     sessions.set(id, { id, date, start, end, className, classType, instructorName, publicStatus });
   }
-  for (const id of cancelled) sessions.delete(id);
+  for (const id of suppressed) sessions.delete(id);
   return [...sessions.values()];
-}
-
-export function reconcile(sessions, previous, now) {
-  const ids = new Set(sessions.map(x => x.id));
-  const active = [...sessions, ...previous.filter(x => !ids.has(x.id))
-    .map(x => ({ ...x, publicStatus: 'CANCELLED' }))];
-  return active.filter(x => Date.parse(x.date + 'T' + x.end + ':00+09:00') > now)
-    .sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start) || a.id.localeCompare(b.id));
 }
 
 async function readCalendar(env, now) {
@@ -109,7 +102,8 @@ async function readCalendar(env, now) {
     if (!res.ok) throw Error('Calendar request failed');
     const payload = await res.json();
     if (!['reader', 'writer', 'owner'].includes(payload.accessRole)) throw Error('Calendar read access missing');
-    rows.push(...(payload.items ?? []));
+    if (!Array.isArray(payload.items)) throw Error('Invalid Calendar items');
+    rows.push(...payload.items);
     if (!payload.nextPageToken) return project(rows, calendar, env.RS_SESSION_ID_KEY);
     url.searchParams.set('pageToken', payload.nextPageToken);
   }
@@ -117,33 +111,25 @@ async function readCalendar(env, now) {
 }
 
 export function createHandler({ read = readCalendar, now = Date.now } = {}) {
-  let snapshot;
-  let pending;
-  return async function classes(request, env, cache) {
-    if (request.method !== 'GET') return new Response(null, { status: 405, headers: { Allow: 'GET' } });
-    const cacheKey = new Request(new URL('/.internal-schedule-cache-v1', request.url));
-    if (!snapshot && cache) {
-      try { snapshot = await (await cache.match(cacheKey))?.json(); } catch { /* Cache is optional. */ }
+  return async function classes(request, env) {
+    const headers = { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
+    if (request.method !== 'GET') return new Response(null, { status: 405, headers: { ...headers, Allow: 'GET' } });
+    const unavailable = () => Response.json({
+      source: 'google_calendar', dataState: 'unavailable', canRequest: false,
+      lastSuccessfulSyncAt: null, sessions: []
+    }, { status: 503, headers });
+    if (env.RS_PUBLICATION_APPROVED !== 'true') return unavailable();
+    try {
+      // Never serve an older projection, even on upstream failure or a cold start.
+      const rows = await read(env, now());
+      if (env.RS_PUBLICATION_APPROVED !== 'true') return unavailable();
+      const time = now();
+      const sessions = rows.filter(x => Date.parse(x.date + 'T' + x.end + ':00+09:00') > time)
+        .sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start) || a.id.localeCompare(b.id));
+      return Response.json({ source: 'google_calendar', dataState: 'ready', canRequest: true,
+        lastSuccessfulSyncAt: new Date(time).toISOString(), sessions }, { headers });
+    } catch {
+      return unavailable();
     }
-    let ready = true;
-    if (!snapshot || now() - Date.parse(snapshot.lastSuccessfulSyncAt) >= 60000) {
-      pending ??= (async () => {
-        const time = now();
-        const rows = await read(env, time);
-        snapshot = { lastSuccessfulSyncAt: new Date(time).toISOString(),
-          sessions: reconcile(rows, snapshot?.sessions ?? [], time) };
-        if (cache) {
-          try { await cache.put(cacheKey, Response.json(snapshot, { headers: { 'Cache-Control': 'max-age=86400' } })); }
-          catch { /* Keep the in-memory snapshot. */ }
-        }
-      })().finally(() => { pending = undefined; });
-      try { await pending; } catch { ready = false; }
-    }
-    const usable = snapshot && now() - Date.parse(snapshot.lastSuccessfulSyncAt) < 86400000;
-    return Response.json({
-      source: 'google_calendar', dataState: ready ? 'ready' : usable ? 'stale' : 'unavailable',
-      canRequest: ready, lastSuccessfulSyncAt: snapshot?.lastSuccessfulSyncAt ?? null,
-      sessions: usable ? snapshot.sessions.filter(x => Date.parse(x.date + 'T' + x.end + ':00+09:00') > now()) : []
-    }, { status: usable ? 200 : 503, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
   };
 }
