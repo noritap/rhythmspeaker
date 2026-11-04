@@ -32,7 +32,8 @@ vm.createContext(context);
 vm.runInContext(script,context);
 assert.equal(vm.runInContext('cfStale()',context),true);
 // Four-hour-old daily publications are expected, not an outage.
-assert.equal(vm.runInContext("Date.now()-Date.parse(finderData.lastSuccessfulSyncAt)>30*3600000",context),true);
+assert.equal(vm.runInContext("finderData.lastSuccessfulSyncAt=new Date(Date.now()-4*3600000).toISOString();cfStale()",context),false);
+vm.runInContext("finderData.lastSuccessfulSyncAt=new Date(Date.now()-31*3600000).toISOString()",context);
 assert.equal(vm.runInContext('cfSessions().length',context),0,
   'never expose stale OPEN as current available to book');
 const html=vm.runInContext('cfUnavailable()',context);
