@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350.",
+  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350. 2026-11-05: owner issued sitewide UX/UI redesign v3.0 authorizing low-risk visitor-facing copy and CTA simplification with production safety gates. STEP-specific redundant CTA/foundation copy was changed only in classes/step/index.html and pinned to this exact Git blob; pre-existing workshop/booking/financial operations, immutable baseline, and allowedPaths are unchanged. Release still depends on PR CI and six-width browser QA.",
   "allowedPaths": [
     "broadcast/data/episodes.json",
     "broadcast/data/people.json",
@@ -35,7 +35,7 @@
     "classes/bar-method/index.html": "0be3ee87bb4f60007b1763e584800db95026d9fa",
     "classes/hiit/index.html": "b50b8f49e027074c46fb884c02c52e0b55d01033",
     "classes/isolation/index.html": "fe5f917284f20f24f2da3f0c4c3db79e67cc4a09",
-    "classes/step/index.html": "3c4e674982f80a028fd68fe66ddf23559d355eca",
+    "classes/step/index.html": "e7f84cc9089cacfd2fd88e9e829d3c3c683d011a",
     "classes/stretch/index.html": "a7dde7e34fd6c51da5efeb18d39fc87e49781d26",
     "classes/tap/index.html": "acf1525b102fe9b65c6f4b91625e460862d855f5",
     "instructors/furusho/index.html": "2d4349c513a03f84c9542db41cdbf68ae941e968",
