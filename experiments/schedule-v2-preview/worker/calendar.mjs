@@ -68,7 +68,7 @@ export async function project(events, calendar, secret) {
     const standard = rawClass.replace('🔰', '').trim().toUpperCase();
     const classType = ['STEP', 'TAP', 'STRETCH', 'ISOLATION', 'BAR METHOD', 'HIIT'].includes(standard)
       ? standard : rawClass;
-    const className = rawClass.includes('🔰') && classType === 'STEP' ? 'STEP 超初級' : rawClass;
+    const className = rawClass.includes('🔰') && classType === 'STEP' ? 'STEP 超初級' : classType===standard ? standard : rawClass;
     const from = new Date(event.start.dateTime);
     const to = new Date(event.end?.dateTime);
     if (!(to > from)) throw Error('Invalid lesson times');
@@ -125,6 +125,8 @@ export function createHandler({ read = readCalendar, now = Date.now } = {}) {
       if (env.RS_PUBLICATION_APPROVED !== 'true') return unavailable();
       const time = now();
       const sessions = rows.filter(x => Date.parse(x.date + 'T' + x.end + ':00+09:00') > time)
+        .map(x => x.publicStatus==='OPEN' && Date.parse(x.date+'T'+x.start+':00+09:00')<=time
+          ? { ...x, publicStatus: 'CLOSE' } : x)
         .sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start) || a.id.localeCompare(b.id));
       return Response.json({ source: 'google_calendar', dataState: 'ready', canRequest: true,
         lastSuccessfulSyncAt: new Date(time).toISOString(), sessions }, { headers });
