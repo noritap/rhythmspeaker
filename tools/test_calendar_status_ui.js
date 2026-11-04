@@ -78,7 +78,8 @@ assert.match(source, /if\(cfClosed\(s\)\)return cfClosedReason\(s\)/);
 
 // Refresh integration and safety behavior are exercised against real DOM/fetch
 // in reservation_ux_browser_check.cjs, including a bounded request budget.
-assert.match(source, /id="cf-refresh"[^>]*hidden/);\nassert.match(source, /<details class="cf-advanced"><summary>講師・クラスで絞り込む<\/summary>/);
+assert.match(source, /id="cf-refresh"[^>]*hidden/);
+assert.match(source, /<details class="cf-advanced"><summary>講師・クラスで絞り込む<\/summary>/);
 assert.match(source, /maxPerHour:20/);
 assert.match(source, /cfReconcileSelection/);
 assert.match(source, /cache:'no-store'/);
