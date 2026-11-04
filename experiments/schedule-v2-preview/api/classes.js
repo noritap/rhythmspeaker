@@ -17,7 +17,7 @@ function publicProjection(s){
  if(!s||typeof s!=='object')return null;
  if(!/^\d{4}-\d{2}-\d{2}$/.test(s.date||'')||!/^\d\d:\d\d$/.test(s.start||'')||!/^\d\d:\d\d$/.test(s.end||''))return null;
  if(!['OPEN','CLOSE','CANCELLED','INQUIRY_ONLY'].includes(s.publicStatus))return null;
- return {id:safeString(s.id,90),date:s.date,start:s.start,end:s.end,className:safeString(s.className,90),classType:safeString(s.classType,60),instructorName:safeString(s.instructorName,70),publicStatus:s.publicStatus,source:'public_snapshot'};
+ return {id:safeString(s.id,90),date:s.date,start:s.start,end:s.end,className:safeString(s.className,90),classType:safeString(s.classType,60),instructorName:/^(OPEN|CLOSE|CANCELLED)$/i.test(s.instructorName||'')?'スタジオに確認':safeString(s.instructorName,70),publicStatus:s.publicStatus,source:'public_snapshot'};
 }
 module.exports=async function handler(req,res){
  res.setHeader('Content-Type','application/json; charset=utf-8');
