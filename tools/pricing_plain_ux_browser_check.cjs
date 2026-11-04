@@ -18,7 +18,7 @@ function sourceContracts() {
   const js = fs.readFileSync("assets/ux-lab/app.js", "utf8");
   assert(html.includes("20261105pricing-ux-v3"), "pricing asset cache stamp must change");
   for (const plan of plans) {
-    const block = html.match(new RegExp('<article class="plan-card pricing-plan" data-plan="' + plan.id + '">([\\s\\S]*?)</article>'))?.[1];
+    const block = html.match(new RegExp('<article class="plan-card" data-plan="' + plan.id + '">([\\s\\S]*?)</article>'))?.[1];
     assert(block, plan.id + " missing");
     for (const value of [plan.yen, plan.tips, plan.bonus, "通常レッスン <strong>" + plan.lessons + "回</strong>"]) {
       assert(block.includes(value), plan.id + " mismatches official Wallet master: " + value);
