@@ -31,6 +31,19 @@ for(const [path,label] of [['step','STEP'],['tap','TAP'],['stretch','STRETCH'],[
  assert.ok(html.includes('href="../../schedule/?type='+encodeURIComponent(label)+'"'),path+' must carry its class type');
  assert.match(html,/trial\/apply\/|LINEで相談/);
 }
+// STEP page UX contract: reduce repeated CTAs without removing a booking safety notice.
+const stepPage=read('classes/step/index.html');
+const stepApplyLinks=stepPage.split('href="../../trial/apply/?class=STEP"').length-1;
+assert.equal(stepApplyLinks,4,'STEP must keep nav, hero, start and footer application routes only');
+assert.doesNotMatch(stepPage,/step-level-decision|step-instructor-followup|id="method"/);
+for(const id of ['levels','start','instructors','faq','booking']){
+ assert.ok(stepPage.includes('id="'+id+'"'),'STEP keeps #'+id+' navigation destination');
+}
+assert.match(stepPage,/日時は送信時点では未確定/);
+assert.match(stepPage,/フォームを開いたら予約が確定しますか？/);
+assert.ok(stepPage.includes('href="../tap/"'),'STEP to TAP route remains');
+assert.ok(stepPage.includes('href="../../schedule/?type=STEP"'),'STEP class filter route remains');
+
 for(const [slug,teacher] of [['furusho','古庄里好'],['homma','本間茂樹'],['mifa','MiFa-san'],['niu','丹生良彬'],['okudaira','奥平崇史'],['sasasa','さささ']]){
  const html=read('instructors/'+slug+'/index.html');
  assert.ok(html.includes('href="../../schedule/?teacher='+encodeURIComponent(teacher)+'"'),slug+' must carry teacher name');
