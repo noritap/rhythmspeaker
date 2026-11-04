@@ -144,13 +144,13 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 .pricing-entry-card .button{margin-top:auto;min-height:48px;align-content:center}
 .pricing-entry-secondary{background:#22211e;color:#fff}
 .pricing-continue .pricing-grid{margin-top:22px}
-.pricing-plan h3{margin:0 0 12px}
-.pricing-plan .plan-price{margin:3px 0 10px}
-.pricing-plan .plan-count{margin:0 0 10px;padding:12px 0}
-.pricing-plan-tips{font-size:16px;font-weight:700;margin:0 0 14px;line-height:1.55}
-.pricing-plan-tips small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
-.pricing-plan .per-lesson{margin:0 0 20px}
-.pricing-plan>.text-link{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+.pricing-continue .plan-card h3{margin:0 0 12px}
+.pricing-continue .plan-card .plan-price{margin:3px 0 10px}
+.pricing-continue .plan-card .plan-count{margin:0 0 10px;padding:12px 0}
+.pricing-continue .plan-card-tips{font-size:16px;font-weight:700;margin:0 0 14px;line-height:1.55}
+.pricing-continue .plan-card-tips small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+.pricing-continue .plan-card .per-lesson{margin:0 0 20px}
+.pricing-continue .plan-card>.text-link{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-size:13px}
 .pricing-wallet-link{display:inline-flex;align-items:center;min-height:44px;margin-top:20px}
 .pricing-other p{font-size:14px}
 .pricing-questions .pricing-faq-contact{margin:20px 0 0}
@@ -162,6 +162,6 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
   .pricing-entry-card{padding:24px}
   .pricing-entry-card .button{width:100%;justify-content:center}
   .pricing-entry-price strong{font-size:49px}
-  .pricing-plan .plan-price{font-size:clamp(34px,10vw,45px)}
-  .pricing-plan-tips{font-size:14px}
+  .pricing-continue .plan-card .plan-price{font-size:clamp(34px,10vw,45px)}
+  .pricing-continue .plan-card-tips{font-size:14px}
 }
