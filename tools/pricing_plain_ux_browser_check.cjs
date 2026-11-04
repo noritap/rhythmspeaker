@@ -37,6 +37,7 @@ function sourceContracts() {
   const browser = await chromium.launch({ headless: true });
   const widths = [320, 375, 390, 430, 768, 1440];
   const reports = [];
+  let runtimeSignature;
   try {
     for (const width of widths) {
       const context = await browser.newContext({ viewport: { width, height: 810 } });
@@ -51,6 +52,11 @@ function sourceContracts() {
       assert.equal(errors.length, 0, "page javascript errors at " + width + ": " + errors.join(", "));
       assert.equal(await page.locator(".pricing-faq-contact .text-link").count(), 1);
       assert.equal(await page.locator(".plan-card a[href*='oaMessage']").count(), 3);
+      if (width === 390) runtimeSignature = await page.evaluate(() => ({
+        proof: document.querySelector(".pricing-proof")?.textContent.replace(/\s+/g, ""),
+        priceSections: [...document.querySelectorAll("main .pricing-section")].map(n => n.textContent.replace(/\s+/g, "")),
+        planLinks: [...document.querySelectorAll(".plan-card a")].map(n => n.href)
+      }));
       const links = await page.locator(".plan-card a").evaluateAll(items => items.map(a => a.href));
       assert(links.every(href => href.includes("line.me/R/oaMessage/%40ypk3334t/")));
       assert.equal(await page.getByText("有効期限は、このページでは明記していません。", { exact: false }).count(), 1);
@@ -76,10 +82,21 @@ function sourceContracts() {
       reports.push({ width, status: "PASS" });
       await context.close();
     }
+    // Prove static no-JavaScript copy agrees with the dynamically rendered content.
+    const staticContext = await browser.newContext({ viewport: { width: 390, height: 810 }, javaScriptEnabled: false });
+    const staticPage = await staticContext.newPage();
+    await staticPage.goto(base + "pricing/", { waitUntil: "domcontentloaded" });
+    const noJsSignature = await staticPage.evaluate(() => ({
+      proof: document.querySelector(".pricing-proof")?.textContent.replace(/\\s+/g, ""),
+      priceSections: [...document.querySelectorAll("main .pricing-section")].map(n => n.textContent.replace(/\\s+/g, "")),
+      planLinks: [...document.querySelectorAll(".plan-card a")].map(n => n.href)
+    }));
+    assert.deepEqual(noJsSignature, runtimeSignature, "static and JavaScript pricing output must not drift");
+    await staticContext.close();
     console.log(JSON.stringify({ status: "PASS", widths: reports, invariants: [
       "all five published prices preserved", "5 FAQ questions", "one terms CTA",
       "no internal expiry placeholder", "keyboard native FAQ", "no horizontal overflow",
-      "no browser errors", "no real external submissions" ] }));
+      "no browser errors", "static/SPA copy parity", "no real external submissions" ] }));
   } finally {
     await browser.close();
   }
