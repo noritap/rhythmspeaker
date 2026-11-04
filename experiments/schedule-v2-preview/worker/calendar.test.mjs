@@ -1,6 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createHandler, project, reconcile } from './calendar.mjs';
+import { readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
+import { createHandler, project } from './calendar.mjs';
 
 const time = Date.parse('2026-11-04T16:00:00+09:00');
 const event = {
@@ -23,7 +25,7 @@ test('JST, recurrence, change, deletion, privacy and duplicate handling', async 
   assert.equal(changed.id, first.id);
   assert.equal(changed.start, '10:00');
   for (const rows of [[], [{ ...event, status: 'cancelled' }], [{ ...event, visibility: 'private' }]]) {
-    assert.equal(reconcile(await publish(rows), [first], time)[0].publicStatus, 'CANCELLED');
+    assert.deepEqual(await publish(rows), []);
   }
   await assert.rejects(publish([event, event]), /Conflicting/);
   await assert.rejects(publish([{ ...event, summary: 'person@example.com' }]), /publication/);
@@ -34,25 +36,76 @@ test('JST, recurrence, change, deletion, privacy and duplicate handling', async 
   assert.equal(closed.publicStatus, 'CLOSE');
   assert.equal(inquiry.publicStatus, 'INQUIRY_ONLY');
 });
-test('cache, refresh failure, expiry and genuinely empty schedules', async () => {
-  let now = time, calls = 0;
-  const row = (await publish([event]))[0];
-  const handler = createHandler({ now: () => now, read: async () => {
-    if (++calls > 1) throw Error('upstream');
-    return [row];
+const request = new Request('https://lab.invalid/api/classes');
+const env = { RS_PUBLICATION_APPROVED: 'true' };
+
+test('approval revocation ignores legacy cache and blocks the calendar read', async () => {
+  let reads = 0;
+  const handler = createHandler({ now: () => time, read: async () => {
+    reads++;
+    return publish([event]);
   }});
-  const request = new Request('https://lab.invalid/api/classes');
-  assert.equal((await (await handler(request, {})).json()).dataState, 'ready');
-  now += 59000;
-  assert.equal((await (await handler(request, {})).json()).canRequest, true);
-  assert.equal(calls, 1);
-  now += 1000;
-  const stale = await (await handler(request, {})).json();
-  assert.equal(stale.dataState, 'stale');
-  assert.equal(stale.canRequest, false);
-  now += 86400000;
-  assert.equal((await handler(request, {})).status, 503);
-  const empty = await createHandler({ read: async () => [] })(request, {});
-  assert.equal(empty.status, 200);
-  assert.deepEqual((await empty.json()).sessions, []);
+  assert.equal((await handler(request, env)).status, 200);
+  const oldCache = { match() { assert.fail('Legacy cache must never be consulted'); } };
+  for (const approval of [undefined, 'false', 'TRUE']) {
+    const result = await handler(request, { RS_PUBLICATION_APPROVED: approval }, oldCache);
+    assert.equal(result.status, 503);
+    assert.equal(result.headers.get('cache-control'), 'no-store');
+    assert.deepEqual(await result.json(), {
+      source: 'google_calendar', dataState: 'unavailable', canRequest: false,
+      lastSuccessfulSyncAt: null, sessions: []
+    });
+  }
+  assert.equal(reads, 1);
+});
+
+test('warm and cold instances never replay private or deleted events', async () => {
+  let events = [event];
+  const read = async () => {
+    if (!events) throw Error('upstream');
+    return publish(events);
+  };
+  const warm = createHandler({ now: () => time, read });
+  const cold = createHandler({ now: () => time, read });
+  assert.equal((await (await warm(request, env)).json()).sessions.length, 1);
+  for (const current of [
+    [{ ...event, visibility: 'private' }], [{ ...event, visibility: 'confidential' }],
+    [{ id: event.id, status: 'cancelled' }], [], null
+  ]) {
+    events = current;
+    for (const handler of [warm, cold]) {
+      const result = await handler(request, env);
+      const body = await result.json();
+      assert.equal(result.status, current ? 200 : 503);
+      assert.deepEqual(body.sessions, []);
+      assert.doesNotMatch(JSON.stringify(body), /古庄|STEP/);
+    }
+  }
+});
+
+test('unknown events are omitted and recognized lessons follow the admission rules', async () => {
+  const titles = ['打ち合わせ', '打ち合わせ｜60m｜古庄｜OPEN', 'TAP｜古庄',
+    'TAP｜60m｜古庄', 'TAP｜60m', 'TAP｜60m｜古庄｜CANCELLED'];
+  const rows = await publish(titles.map((summary, i) => ({
+    ...event, id: String(i), recurringEventId: undefined, originalStartTime: undefined, summary
+  })));
+  assert.deepEqual(rows.map(x => x.publicStatus), ['OPEN', 'INQUIRY_ONLY', 'CANCELLED']);
+});
+
+test('the browser admission guard rejects cancellation immediately before handoff', async () => {
+  const [session] = await publish([event]);
+  let events = [event];
+  const handler = createHandler({ now: () => time, read: () => publish(events) });
+  const html = readFileSync(new URL('../public/index.html', import.meta.url), 'utf8');
+  const source = html.slice(html.indexOf('async function confirmSession'), html.indexOf('function openDetail'));
+  const confirm = runInNewContext(source + '\nconfirmSession', {
+    AbortSignal, fetch: () => handler(request, env)
+  });
+  await confirm(session);
+  events = [{ ...event, summary: 'STEP🔰｜60m｜古庄｜CANCELLED' }];
+  await assert.rejects(confirm(session));
+  events = [{ ...event, visibility: 'private' }];
+  await assert.rejects(confirm(session));
+  events = [];
+  await assert.rejects(confirm(session));
 });
