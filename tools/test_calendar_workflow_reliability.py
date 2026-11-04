@@ -21,7 +21,7 @@ PUBLIC = Path("data/class-sessions.public.json")
 class WorkflowContract(unittest.TestCase):
     def test_scheduling_gate_and_privileges(self):
         source = WORKFLOW.read_text(encoding="utf-8")
-        self.assertRegex(source, r'cron:\s*"17,47 \* \* \* \*"')
+        self.assertRegex(source, r'cron:\s*"7,22,37,52 \* \* \* \*"')
         self.assertIn("workflow_dispatch:", source)
         self.assertIn("github.ref == 'refs/heads/main'", source)
         self.assertIn("github.event_name == 'schedule'", source)
