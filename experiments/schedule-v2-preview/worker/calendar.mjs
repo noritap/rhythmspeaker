@@ -1,10 +1,17 @@
 const scope = 'https://www.googleapis.com/auth/calendar.events.readonly';
 const tokenUrl = 'https://oauth2.googleapis.com/token';
 const encoder = new TextEncoder();
-const day = 86400000;
+// The rolling public window is today through the same date two calendar months ahead.
 const clock = new Intl.DateTimeFormat('sv-SE', {
   timeZone: 'Asia/Tokyo', dateStyle: 'short', timeStyle: 'short'
 });
+export function twoMonthEndExclusive(now) {
+  const [year, month, date] = clock.format(now).slice(0, 10).split('-').map(Number);
+  const target = new Date(Date.UTC(year, month - 1 + 2, 1));
+  const finalDay = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate();
+  const exclusive = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth(), Math.min(date, finalDay) + 1));
+  return exclusive.toISOString().slice(0, 10) + 'T00:00:00+09:00';
+}
 const aliases = {
   古庄: '古庄里好', 本間: '本間茂樹', 丹生: '丹生良彬', 奥平: '奥平崇史',
   MiFa: 'MiFa-san', 'Mi Fa-san': 'MiFa-san'
@@ -55,6 +62,7 @@ export async function project(events, calendar, secret) {
     const parts = summary.split(/[|｜]/).map(x => x.trim());
     const marker = /(?:^|[|｜\s])(OPEN|CLOSE|CANCELLED|INQUIRY_ONLY)\s*$/i.exec(summary)?.[1]?.toUpperCase();
     if (/^(OPEN|CLOSE|CANCELLED|INQUIRY_ONLY)$/i.test(parts.at(-1))) parts.pop();
+    if (marker === 'CANCELLED') continue;
     const duration = /^\d{2,3}\s*m$/i;
     const valid = [2, 3].includes(parts.length) && parts.every(Boolean) &&
       parts.slice(1).filter(x => duration.test(x)).length === 1;
@@ -75,7 +83,7 @@ export async function project(events, calendar, secret) {
     const [date, start] = clock.format(from).split(' ');
     const [endDate, end] = clock.format(to).split(' ');
     if (endDate !== date || sessions.has(id)) throw Error('Conflicting lesson metadata');
-    const publicStatus = ['CLOSE', 'CANCELLED'].includes(marker) ? marker :
+    const publicStatus = marker === 'CLOSE' ? 'CLOSE' :
       teacher && event.status === 'confirmed' && marker !== 'INQUIRY_ONLY' ? 'OPEN' : 'INQUIRY_ONLY';
     sessions.set(id, { id, date, start, end, className, classType, instructorName, publicStatus });
   }
@@ -92,7 +100,7 @@ async function readCalendar(env, now) {
   const url = new URL('https://www.googleapis.com/calendar/v3/calendars/' + encodeURIComponent(calendar) + '/events');
   url.search = new URLSearchParams({ singleEvents: 'true', showDeleted: 'true', maxResults: '2500',
     timeMin: clock.format(now).slice(0, 10) + 'T00:00:00+09:00',
-    timeMax: clock.format(now + 90 * day).slice(0, 10) + 'T00:00:00+09:00',
+    timeMax: twoMonthEndExclusive(now),
     timeZone: 'Asia/Tokyo',
     fields: 'accessRole,nextPageToken,items(id,recurringEventId,originalStartTime,status,visibility,summary,start,end)' });
   const rows = [];
