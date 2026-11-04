@@ -1,0 +1,56 @@
+(function () {
+  'use strict';
+
+  const editorial = window.SHOTEN_EDITORIAL;
+  const core = window.CatalogCore;
+
+  function adapt(row) {
+    const category = editorial.categories.find(c => c.id === row.category);
+    const subcategory = category?.children.find(c => c.id === row.subcategory);
+    const link = core.safeURL(row.href, ['amazon.co.jp', 'www.amazon.co.jp']);
+    if (!subcategory || !/^RS-P\d{4,}$/.test(row.product_id) ||
+        !link || core.amazonIdentity(row.href).asin !== row.asin ||
+        link.searchParams.getAll('tag').length !== 1 || !link.searchParams.get('tag')) {
+      throw Error('Invalid Shoten catalog row');
+    }
+    if (row.approvedPhoto !== null && !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(row.approvedPhoto)) throw Error('Invalid approved photo path');
+    const purchase = {
+      kind:'AFFILIATE', href:row.href, label:'Amazonで商品を見る', rel:'noopener sponsored',
+      note:'広告リンクです。適格販売により当店が紹介料を得る場合があります。'
+    };
+    return {
+      ...row,
+      id:row.product_id, canonicalId:row.product_id, name:row.model,
+      category_name:category.name, subcategory_name:subcategory.name, identity_state:'VERIFIED',
+      master:{recommendation_reasons:row.reasons,sources:row.sources}, relatedIds:[], alternatives:[],
+      source:row.sources[0].url, purchase
+    };
+  }
+
+  async function loadShop() {
+    let products = [];
+    let loadState = 'READY';
+    try {
+      const response = await fetch('./catalog.json', {cache:'no-cache'});
+      if (!response.ok) throw Error('Cannot load Shoten catalog');
+      const snapshot = await response.json();
+      if (snapshot.schema_version !== 1 || snapshot.surface !== 'rhythmspeaker-web' ||
+          !Array.isArray(snapshot.products)) throw Error('Unsupported Shoten catalog');
+      products = snapshot.products.map(adapt);
+      if (new Set(products.map(p => p.id)).size !== products.length) throw Error('Duplicate Shoten product');
+    } catch {
+      products = [];
+      loadState = 'ERROR';
+    }
+
+    for (const product of products) {
+      product.relatedIds = products.filter(p => p.id !== product.id && p.category === product.category).map(p => p.id);
+    }
+    const articles = editorial.articles.map(a => ({
+      ...a, products:a.feature ? products.filter(p => p.category === a.category).map(p => p.id) : []
+    }));
+    return {...editorial, products, articles, loadState};
+  }
+
+  window.SHOTEN_READY = loadShop();
+})();

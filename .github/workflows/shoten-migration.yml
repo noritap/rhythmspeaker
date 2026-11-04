@@ -1,0 +1,22 @@
+name: Shoten migration checks
+on:
+  pull_request:
+    paths:
+      - 'shoten/**'
+      - 'tools/*shoten_catalog.py'
+      - '.github/workflows/shoten-migration.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: python tools/test_shoten_catalog.py
+      - run: for file in shoten/*.js; do node --check "$file" || exit 1; done
+      - run: python tools/navigation_audit.py --strict
+      - run: python tools/trial_cta_audit.py --strict
