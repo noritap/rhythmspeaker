@@ -1,0 +1,35 @@
+name: STEP published Pages live smoke
+on:
+  pull_request:
+    paths:
+      - 'tools/step_live_smoke.cjs'
+      - '.github/workflows/step-live-smoke.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'classes/step/index.html'
+      - 'tools/step_live_smoke.cjs'
+      - '.github/workflows/step-live-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  live-step:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install read-only live browser dependencies
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Verify published STEP at six widths and WCAG 2.1 AA
+        run: node tools/step_live_smoke.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: step-published-pages-evidence
+          path: ux-evidence/step-live/
