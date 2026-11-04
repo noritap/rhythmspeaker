@@ -5,10 +5,14 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const source = fs.readFileSync('assets/ux-lab/class-finder.js','utf8');
-const oneLine = name => {
-  const line = source.split('\n').find(x=>x.startsWith('function '+name+'('));
-  assert.ok(line, 'missing production function: '+name);
-  return line;
+const functionSource = name => {
+  const declaration = new RegExp('^function '+name+'\\(', 'm');
+  const start = source.search(declaration);
+  assert.ok(start >= 0, 'missing production function: '+name);
+  const remainder = source.slice(start);
+  const end = remainder.slice(1).search(/^function /m);
+  assert.ok(end >= 0, 'missing next production function: '+name);
+  return remainder.slice(0,end+1);
 };
 const stale = source.split('\n').find(x=>x.startsWith('const cfStale='));
 assert.ok(stale);
@@ -17,9 +21,9 @@ const script = [
   "let cfScenario='normal',cfDataError=false;",
   "const cfUpdated = () => 'four hours ago';",
   stale,
-  oneLine('cfSessions'),
-  oneLine('cfDataStatus'),
-  oneLine('cfUnavailable')
+  functionSource('cfSessions'),
+  functionSource('cfDataStatus'),
+  functionSource('cfUnavailable')
 ].join('\n');
 const context = {Date,structuredClone};
 vm.createContext(context);
