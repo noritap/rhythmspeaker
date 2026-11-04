@@ -43,6 +43,19 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
      assert.equal(await page.locator('[data-cf-date="2027-01-03"]').isDisabled(),true);
      await page.locator('#cf-clear-date').click();
      assert.match(await page.locator('#cf-month').innerText(),/2026年 11月/);
+     // A day without scheduled lessons still offers a contextual class request,
+     // but does not advertise the studio as available or guarantee a booking.
+     await page.locator('[data-cf-date="2026-11-03"]').click();
+     assert(await page.locator('#cf-day-invite').isVisible());
+     await page.locator('#cf-request-day').click();
+     assert.equal(await page.locator('#cf-request-date').inputValue(),'2026-11-03');
+     assert.match(await page.locator('#cf-request-title').innerText(),/新しいクラスをリクエスト/);
+     await page.locator('#cf-request-start').fill('10:00');
+     await page.locator('#cf-request-form button[type="submit"]').click();
+     assert.match(await page.locator('#cf-message').inputValue(),/2026-11-03 10:00/);
+     assert.match(await page.locator('#cf-request-form').innerText(),/予約は確定しません/);
+     await page.locator('[data-cf-mode="join"]').click();
+     await page.locator('#cf-clear-date').click();
      await page.locator('[data-cf-detail]').first().waitFor();
    }
    assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,'preview image failure');
