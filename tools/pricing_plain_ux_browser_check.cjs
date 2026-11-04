@@ -22,6 +22,14 @@ function sourceContracts() {
     assert(block.includes("line.me/R/oaMessage/%40ypk3334t/"), "Plan contact CTA must preserve selected name");
   }
   assert(html.includes("初回体験 1,000円"));
+  const explainerIndex = html.indexOf('<section class="pricing-system"');
+  const amountsIndex = html.indexOf('<div class="pricing-proof"');
+  assert(explainerIndex >= 0 && amountsIndex > explainerIndex, "TIPS/Wallet explanation must precede plans");
+  assert(html.includes('レッスンは、専用ポイント「TIPS」をチャージして受講します。'));
+  assert(html.includes('「RS Wallet」は、TIPSの残高・利用履歴を確認できるマイページです。'));
+  assert(html.includes('お問い合わせ時点ではWallet登録は不要です。'));
+  assert(!html.includes('<h2 id="pricing-tips">TIPSについて</h2>'), "repeated TIPS definition must be removed");
+  assert(html.includes('<h2 id="pricing-tips">受講までの流れ</h2>'));
   assert(html.includes("通常1回 3,500円（ビジター）"));
   assert(html.includes("3,500 TIPS"));
   assert(html.includes("400 TIPS") && html.includes("3,500 TIPS"), "rental rates must remain");
@@ -51,6 +59,14 @@ function sourceContracts() {
       assert(await page.locator("html").evaluate(el => el.scrollWidth <= el.clientWidth + 1), "horizontal page overflow " + width);
       assert.equal(errors.length, 0, "page javascript errors at " + width + ": " + errors.join(", "));
       assert.equal(await page.locator(".pricing-faq-contact .text-link").count(), 1);
+      assert.equal(await page.locator(".pricing-system").count(), 1);
+      assert.equal(await page.locator(".pricing-system h2").innerText(),
+        "レッスンは、専用ポイント「TIPS」をチャージして受講します。");
+      assert(await page.locator(".pricing-system").evaluate(el => {
+        const first = document.querySelector(".pricing-proof");
+        return !!first && el.compareDocumentPosition(first) & Node.DOCUMENT_POSITION_FOLLOWING;
+      }), "TIPS/Wallet explanation must come before pricing summary");
+      assert.equal(await page.locator(".pricing-system-link[href='https://tips-app-seven.vercel.app/']").count(), 1);
       assert.equal(await page.locator(".plan-card a[href*='oaMessage']").count(), 3);
       if (width === 390) runtimeSignature = await page.evaluate(() => ({
         proof: document.querySelector(".pricing-proof")?.textContent.replace(/\s+/g, ""),
@@ -69,7 +85,7 @@ function sourceContracts() {
       assert(!(await faq.evaluate(el => el.open)), "keyboard must close FAQ " + width);
       // Verify business-sensitive CTAs but never follow LINE or submit anything.
       assert((await page.locator(".pricing-single a[href$='/schedule/']").count()) === 1);
-      assert((await page.locator(".wallet-explanation a[href='https://tips-app-seven.vercel.app/']").count()) === 1);
+      assert((await page.locator(".pricing-system-link[href='https://tips-app-seven.vercel.app/']").count()) === 1);
       if (width === 390 || width === 1440) {
         await page.screenshot({ path: artifact + "/pricing-" + width + ".png", fullPage: true });
         await page.addScriptTag({ path: require.resolve("axe-core/axe.min.js") });
@@ -94,7 +110,7 @@ function sourceContracts() {
     assert.deepEqual(noJsSignature, runtimeSignature, "static and JavaScript pricing output must not drift");
     await staticContext.close();
     console.log(JSON.stringify({ status: "PASS", widths: reports, invariants: [
-      "all five published prices preserved", "5 FAQ questions", "one terms CTA",
+      "all five published prices preserved", "first-screen TIPS/Wallet explanation", "5 FAQ questions", "one terms CTA",
       "no internal expiry placeholder", "keyboard native FAQ", "no horizontal overflow",
       "no browser errors", "static/SPA copy parity", "no real external submissions" ] }));
   } finally {
