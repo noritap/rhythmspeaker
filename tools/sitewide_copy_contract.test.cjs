@@ -43,6 +43,13 @@ lacks('instructors/index.html', '担当クラス・指導内容は確認して�
 const app = read('assets/ux-lab/app.js');
 assert.ok(!app.includes('クラスが決まっていなくても、体験前に相談できます。'));
 assert.ok(!app.includes('最初からクラス名を知らなくても大丈夫です。'));
+has('trial/index.html', '体験申し込みへ進む');
+has('assets/ux-lab/app.js', '体験申し込みへ進む');
+assert.equal((read('trial/index.html').match(/体験申し込みへ進む/g)||[]).length,2);
+assert.equal((app.match(/体験申し込みへ進む/g)||[]).length,2);
+for (const page of pages) { lacks(page, '公式の体験申込へ進む'); lacks(page, '公式申込ページ'); }
+assert.ok(!app.includes('公式の体験申込へ進む'));
+assert.ok(!app.includes('公式申込ページ'));
 has('trial/apply/index.html', 'スタジオから「予約確定」の返信');
 has('trial/index.html', 'スタジオからの「予約確定」の返信');
 has('schedule/index.html', 'レッスン日程・参加申し込み');
