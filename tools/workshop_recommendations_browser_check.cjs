@@ -76,7 +76,7 @@ const fixture = [
     await failResponse;
     assert(await failed.locator("#rs-workshop-recommendations").isHidden(),
       "recommender must fail closed on API error");
-    assert(await failed.getByRole("button", { name: "希望日時で相談する" }).isVisible(),
+    assert(await failed.locator('[data-cf-mode="request"]').isVisible(),
       "core lesson booking must remain usable on recommendation failure");
     await failed.close();
     console.log(JSON.stringify({ outcome: "PASS", widths: [320, 375, 390, 430, 768, 1440],
