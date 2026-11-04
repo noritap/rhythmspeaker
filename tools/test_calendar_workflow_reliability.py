@@ -21,7 +21,9 @@ PUBLIC = Path("data/class-sessions.public.json")
 class WorkflowContract(unittest.TestCase):
     def test_scheduling_gate_and_privileges(self):
         source = WORKFLOW.read_text(encoding="utf-8")
-        self.assertRegex(source, r'cron:\s*"7,22,37,52 \* \* \* \*"')
+        # One daily 05:00 JST run; no quarter-hour cron.
+        self.assertNotIn('7,22,37,52', source)
+        self.assertEqual(len(re.findall(r'^\s*- cron:', source, re.M)), 1)
         # The full daily reconciliation is 05:00 JST (20:00 UTC previous day).
         self.assertRegex(source, r'cron:\s*"0 20 \* \* \*"')
         self.assertIn('two-calendar-month window', source)

@@ -2,7 +2,7 @@
 // UI-only discovery. No calendar, reservation, auth, payment or database writes.
 const cfProduction=true;
 let finderData=null, finderLoad=null, cfRefreshing=false;
-const cfStale=()=>finderData?.sourceMode==='live'&&finderData?.dataState==='ready'&&(!finderData.lastSuccessfulSyncAt||!Number.isFinite(Date.parse(finderData.lastSuccessfulSyncAt))||Date.now()-Date.parse(finderData.lastSuccessfulSyncAt)>3*60*60*1000);
+const cfStale=()=>finderData?.sourceMode==='live'&&finderData?.dataState==='ready'&&(!finderData.lastSuccessfulSyncAt||!Number.isFinite(Date.parse(finderData.lastSuccessfulSyncAt))||Date.now()-Date.parse(finderData.lastSuccessfulSyncAt)>30*60*60*1000);
 const cfToday=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
 const cfState={month:cfToday().slice(0,7),date:cfToday(),query:'',type:'',view:'calendar',mode:'join'};
 const cfNormalize=s=>String(s).normalize('NFKC').replace(/[\s　]/g,'').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
