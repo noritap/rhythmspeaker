@@ -27,10 +27,10 @@ export function decide({source, pages, runs, now}) {
   if (pagesAt === null) return {kind:'pages_invalid', dispatch:false, alert:true};
 
   const sourceAge = now - sourceAt;
-  const pagesAge = now - pagesAt;
-  if (sourceAge < CONFIG.staleMs && pagesAge < CONFIG.staleMs) {
+  if (sourceAge < CONFIG.staleMs && pagesAt === sourceAt) {
     return {kind:'healthy', dispatch:false, alert:false};
   }
+  if (pagesAt > sourceAt) return {kind:'source_behind_pages', dispatch:false, alert:true};
   if (sourceAge < CONFIG.staleMs) {
     // GitHub source is up to date. Another dispatch won't repair Pages/CDN lag.
     return {kind:'pages_lagging', dispatch:false, alert:true};
@@ -41,7 +41,7 @@ export function decide({source, pages, runs, now}) {
   // recovery merely because a developer updated the workflow.
   const productionRuns = (runs || []).filter(r =>
     (r.event === 'schedule' || r.event === 'workflow_dispatch') && r.head_branch === 'main');
-  const active = productionRuns.some(r => r.status === 'queued' || r.status === 'in_progress' || r.status === 'waiting');
+  const active = productionRuns.some(r => ['queued', 'in_progress', 'waiting', 'pending', 'requested'].includes(r.status));
   if (active) return {kind:'existing_job_active', dispatch:false, alert:true};
   const recent = productionRuns.some(r => {
     const started = Date.parse(r.created_at || '');
@@ -148,3 +148,4 @@ export default {
     return new Response('Not Found', {status:404});
   }
 };
+
