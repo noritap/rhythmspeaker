@@ -87,8 +87,8 @@ function sourceContracts() {
     const staticPage = await staticContext.newPage();
     await staticPage.goto(base + "pricing/", { waitUntil: "domcontentloaded" });
     const noJsSignature = await staticPage.evaluate(() => ({
-      proof: document.querySelector(".pricing-proof")?.textContent.replace(/\\s+/g, ""),
-      priceSections: [...document.querySelectorAll("main .pricing-section")].map(n => n.textContent.replace(/\\s+/g, "")),
+      proof: document.querySelector(".pricing-proof")?.textContent.replace(/\s+/g, ""),
+      priceSections: [...document.querySelectorAll("main .pricing-section")].map(n => n.textContent.replace(/\s+/g, "")),
       planLinks: [...document.querySelectorAll(".plan-card a")].map(n => n.href)
     }));
     assert.deepEqual(noJsSignature, runtimeSignature, "static and JavaScript pricing output must not drift");
