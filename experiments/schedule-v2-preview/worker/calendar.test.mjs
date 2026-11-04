@@ -109,3 +109,22 @@ test('the browser admission guard rejects cancellation immediately before handof
   events = [];
   await assert.rejects(confirm(session));
 });
+
+test('November regression: corrected STEP and unassigned Isolation without deleted history', async () => {
+  const make = (id, date, start, end, summary) => ({
+    id, summary, status: 'confirmed', start: { dateTime: date+'T'+start+':00+09:00' },
+    end: { dateTime: date+'T'+end+':00+09:00' }
+  });
+  const rows = await publish([
+    make('homma', '2026-11-04', '15:00', '16:00', 'STEP|本間|60m|OPEN'),
+    make('isolation', '2026-11-05', '07:00', '08:00', 'Isolation｜60m｜OPEN')
+  ]);
+  assert.deepEqual(rows.map(({ date, start, end, className, instructorName, publicStatus }) =>
+    [date, start, end, className, instructorName, publicStatus]), [
+    ['2026-11-04', '15:00', '16:00', 'STEP', '本間茂樹', 'OPEN'],
+    ['2026-11-05', '07:00', '08:00', 'ISOLATION', 'スタジオに確認', 'INQUIRY_ONLY']
+  ]);
+  const now = Date.parse('2026-11-04T15:30:00+09:00');
+  const handler = createHandler({ now: () => now, read: async () => rows });
+  assert.equal((await (await handler(request, env)).json()).sessions[0].publicStatus, 'CLOSE');
+});
