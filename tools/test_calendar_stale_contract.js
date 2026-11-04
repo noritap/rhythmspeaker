@@ -19,9 +19,9 @@ const functionSource = name => {
 const stale = source.split('\n').find(x=>x.startsWith('const cfStale='));
 assert.ok(stale);
 const script = [
-  "let finderData={sourceMode:'live',dataState:'ready',lastSuccessfulSyncAt:new Date(Date.now()-4*3600000).toISOString(),sessions:[{publicStatus:'OPEN'}]};",
+  "let finderData={sourceMode:'live',dataState:'ready',lastSuccessfulSyncAt:new Date(Date.now()-31*3600000).toISOString(),sessions:[{publicStatus:'OPEN'}]};",
   "let cfScenario='normal',cfDataError=false;",
-  "const cfUpdated = () => 'four hours ago';",
+  "const cfUpdated = () => '31 hours ago';",
   stale,
   functionSource('cfSessions'),
   functionSource('cfDataStatus'),
@@ -31,6 +31,8 @@ const context = {Date,structuredClone};
 vm.createContext(context);
 vm.runInContext(script,context);
 assert.equal(vm.runInContext('cfStale()',context),true);
+// Four-hour-old daily publications are expected, not an outage.
+assert.equal(vm.runInContext("Date.now()-Date.parse(finderData.lastSuccessfulSyncAt)>30*3600000",context),true);
 assert.equal(vm.runInContext('cfSessions().length',context),0,
   'never expose stale OPEN as current available to book');
 const html=vm.runInContext('cfUnavailable()',context);
@@ -43,4 +45,4 @@ assert.doesNotMatch(html,/参加申込受付中|今すぐ予約確定/);
 const banner=vm.runInContext('cfDataStatus()',context);
 assert.match(banner,/開催情報の同期が遅れています/);
 assert.match(banner,/最新の状態はスタジオへご確認ください/);
-console.log('Stale class schedule uses a safe LINE/email fallback, not stale OPEN bookings.');
+console.log('A missed daily sync (>30h) uses a safe LINE/email fallback, not stale OPEN bookings.');
