@@ -17,10 +17,9 @@ on:
     # two-calendar-month window and replaces one public JSON snapshot.
     # GitHub Actions uses UTC by default: previous day 20:00 UTC = 05:00 JST.
     - cron: "0 20 * * *"
-    # Keep intraday refreshes; the website currently fails closed when
-    # lastSuccessfulSyncAt is more than three hours old.
-    # Scheduled starts are best effort and may be delayed or omitted.
-    - cron: "7,22,37,52 * * * *"
+    # Daily 05:00 JST publication. On timetable changes the operator manually
+    # invokes workflow_dispatch (Actions > Secure class-calendar publication).
+    # Scheduled starts are best effort; missed runs require operational review.
   workflow_dispatch:
 
 permissions:
