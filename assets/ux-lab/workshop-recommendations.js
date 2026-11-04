@@ -62,7 +62,7 @@
     const varied = price !== null && positivePrices.some(p => p !== price);
     bottom.appendChild(element("span", "ws-reco-price", price === null ?
       "料金は詳細で確認" : new Intl.NumberFormat("ja-JP", { style: "currency", currency: "JPY", maximumFractionDigits: 0 }).format(price) + (varied ? "〜" : "")));
-    const anchor = element("a", "ws-reco-link", "内容・予約状況を見る →");
+    const anchor = element("a", "ws-reco-link", "ワークショップの詳細を見る →");
     anchor.href = new URL("../workshops/event.html?slug=" + encodeURIComponent(event.slug), document.baseURI).href;
     anchor.setAttribute("aria-label", event.title + " の内容と予約状況を見る");
     anchor.dataset.recommendationType = "workshop";
