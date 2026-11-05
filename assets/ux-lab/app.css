@@ -104,6 +104,13 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 #menu.rs-menu .rs-menu-links li{list-style:none;min-width:0;padding:0;margin:0}
 #menu.rs-menu .rs-menu-link{min-height:46px;display:flex;align-items:center;justify-content:flex-start;padding:9px 11px!important;border:1px solid transparent;text-decoration:none;background:#f6f4f0;font-size:12px;line-height:1.45;font-weight:600;white-space:normal}
 #menu.rs-menu .rs-menu-link small{font-size:10px;color:#68615c;margin:3px 0 0}
+/* Media and shopping are distinct reader decisions, not miscellaneous links. */
+#menu.rs-menu .rs-menu-group--media .rs-menu-link{background:#eef0f1}
+#menu.rs-menu .rs-menu-group--shopping .rs-menu-link{background:#f2ede4}
+#menu.rs-menu .rs-menu-group--shopping .rs-menu-link--reviewblog{background:#f2f0e9}
+#menu.rs-menu .rs-menu-group--media .rs-menu-link--tapblog{font-weight:700;border-left:2px solid #8b6c54}
+#menu.rs-menu .rs-menu-group--media .rs-menu-link,
+#menu.rs-menu .rs-menu-group--shopping .rs-menu-link{min-height:48px}
 #menu.rs-menu .rs-menu-group--member .rs-menu-link{min-height:56px;display:flex;flex-direction:column;align-items:flex-start;background:#edf0ee}
 #menu.rs-menu .rs-menu-group--member .rs-menu-link--line{background:#e7ede5}
 #menu.rs-menu .rs-menu-group--more{border-top:1px solid #d7d2ca;padding-top:13px}
