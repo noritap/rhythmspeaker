@@ -13,7 +13,11 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'×');
   assert(await menu.isVisible());
   assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),5);
+  assert.equal(await menu.locator('.rs-menu-group').count(),6);
+  assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--shopping').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
   assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-action').count(),2);
@@ -23,6 +27,8 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
   assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--goods').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
       <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
@@ -73,7 +79,7 @@ await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
 // Production may have real published classes; the old "always empty" check was obsolete.
 const visibleCards=await page.locator('[data-cf-detail]').count();
 const scheduleText=await page.locator('#cf-cards').innerText();
-assert(visibleCards>0||/開催予定を取得していません|開催情報の同期が遅れています|開催予定を更新できませんでした|開催情報を確認できませんでした/.test(scheduleText),'Expected real classes or an explicit unavailable-data state');
+assert(visibleCards>0||/開催予定を取得していません|開催情報の同期が遅れています|開催予定を更新できませんでした|開催情報を確認できませんでした|この日のクラスは見つかりませんでした/.test(scheduleText),'Expected real classes or an explicit unavailable-data state');
 assert.equal(await page.locator('#cf-scenario').count(),0);
 assert.equal(await page.locator('.lab').count(),0);
 assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'index,follow');
