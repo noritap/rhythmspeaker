@@ -37,6 +37,10 @@ MENU_GROUPS = [
         ("アクセス", "access/", "", "access"),
         ("スタジオレンタル", "rental/", "", "rental"),
     ]),
+    ("reading", "読みもの", [
+        ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
+        ("商品レビューを読む", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
+    ]),
     ("member", "会員・お問い合わせ", [
         ("マイページ", "https://tips-app-seven.vercel.app/", "RS Wallet", "wallet"),
         ("公式LINE", "https://lin.ee/zC5YLe7", "相談・変更", "line"),
