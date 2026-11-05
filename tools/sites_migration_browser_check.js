@@ -13,7 +13,9 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'×');
   assert(await menu.isVisible());
   assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),4);
+  assert.equal(await menu.locator('.rs-menu-group').count(),5);
+  assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-action').count(),2);
   assert.equal(await menu.locator('.rs-menu-link--ecosystem').count(),0,'self-link on all-services page must not be shown');
   assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
@@ -52,6 +54,7 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
   assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
   assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
+  assert.equal(await page.locator('#portal-learn a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
   assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
   const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
