@@ -62,14 +62,17 @@ class PortalContractTest(unittest.TestCase):
             expected = render_menu(prefix, current)
             self.assertEqual(html.count(expected), 1, f'{path} must match the canonical menu')
             self.assertEqual(html.count('class="rs-menu-nav"'), 1)
-            self.assertEqual(html.count('class="rs-menu-group rs-menu-group--'), 4)
+            self.assertEqual(html.count('class="rs-menu-group rs-menu-group--'), 5)
             menu = html[html.index('<div id="menu"'):html.index('</header>')]
             self.assertLess(menu.index('rs-menu-group--quick'), menu.index('rs-menu-group--lessons'))
-            self.assertLess(menu.index('rs-menu-group--lessons'), menu.index('rs-menu-group--member'))
+            self.assertLess(menu.index('rs-menu-group--lessons'), menu.index('rs-menu-group--reading'))
+            self.assertLess(menu.index('rs-menu-group--reading'), menu.index('rs-menu-group--member'))
             self.assertLess(menu.index('rs-menu-group--member'), menu.index('rs-menu-group--more'))
             self.assertIn('https://lin.ee/zC5YLe7', menu)
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
+            self.assertEqual(menu.count('https://tapdance-rhythmspeaker.hatenablog.com/'), 1)
+            self.assertEqual(menu.count('https://rhythmspeaker.hatenablog.com/'), 1)
             self.assertNotIn('class="mobile-nav-panel"', menu)
             if str(path) == 'schedule/index.html':
                 self.assertIn('class="rs-menu-action rs-menu-action--schedule" href="../schedule/" aria-current="page"', menu)
@@ -108,6 +111,8 @@ class PortalContractTest(unittest.TestCase):
         self.assertIn('<h3>オリジナルグッズ</h3>', self.html)
         self.assertIn('<h3>商品レビュー</h3>', self.html)
         self.assertIn('リズムスピーカー商店を読む', self.html)
+        self.assertIn('タップダンスの読みもの', self.html)
+        self.assertIn('https://tapdance-rhythmspeaker.hatenablog.com/', self.html)
         self.assertIn('<h2 id="portal-heading-shopping">買う・選ぶ</h2>', self.html)
         self.assertNotIn('通常クラス予約', self.html)
 
