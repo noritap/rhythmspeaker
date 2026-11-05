@@ -170,3 +170,10 @@ HANDOFFの次の送信と予約確定返信は外部で行われ、サイトか�
 - 既存のP0予約行動・内容・URLは不変。番組・音楽・教育記事はメディア群、商品購入と商品レビューは区別した買い物群に配置。
 - 記事メディアのリンクは本番として確認済みのURLのみ使用し、外部サイトの公開記事数をメニューで断定しない。
 - 共通ソース生成・CSSキャッシュ更新・320/375/390/430/768/1440pxの回帰検査を行う。
+
+## 14. Menu compactness and reopen UX (2026-11-05)
+- Right-header menu is for complete service discovery; the compact desktop header remains the fast-access area for schedule, pricing, classes, instructors and access.
+- Keep all six menu groups, all destinations, and a single shared navigation DOM on PC and mobile.
+- Reduce wasted vertical spacing without shrinking general link hit targets below 44px. Keep internal scrolling when viewport height is short.
+- Reopening the menu restores its scroll position to the beginning so schedule and trial actions remain the first choices. Escape closes and returns focus to the toggle.
+- Verify six responsive widths and both CSS and shared JS rendering with cache busting on the ten main pages.
