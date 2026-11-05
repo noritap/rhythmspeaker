@@ -140,3 +140,13 @@ RS-NAV-2の元の10行き先を削除しない。ただし、右上メニュー�
 **UX指針**: `docs/ux/RS_WEB_UX_RULES_V2.md` v2.1。
 
 これまでのRS-NAV-2の表示順に関する記述は履歴であり、新メニューの順序はこの章を優先する。
+
+## RS-NAV-3.1｜ブログ導線の追加（2026-11-05）
+
+- `tools/navigation_sync.py` に「読みもの」グループを追加。10主要ページの右上共通メニューに次の2リンクを表示する。
+  - **タップダンスを学ぶ** → `https://tapdance-rhythmspeaker.hatenablog.com/`（初心者・練習・文化の教育ブログ）
+  - **商品レビューを読む** → `https://rhythmspeaker.hatenablog.com/`（リズムスピーカー商店・商品選定記事）
+- `/ecosystem/` の LEARN カードに教育ブログへの補助リンクを追加する。既存10カードと主CTA・オリジナルグッズ（STORES）のリンク先は変更しない。
+- 外部ブログの公開状態や記事内容はこのナビゲーション契約の対象外。リンク先記事の公開可否は別途確認する。
+- ヘッダーの主要5リンクと初回体験・日程の優先順位は維持。PC・スマホ共通の単一メニューだけを生成する。
+- メニューの正本と監査：`tools/navigation_sync.py`、`tools/navigation_audit.py --strict`、`tools/test_navigation_portal.py`。

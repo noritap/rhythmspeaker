@@ -44,7 +44,7 @@ const portalItems=[
 {id:'events',name:'EVENTS',jp:'ワークショップ',desc:'特別レッスンや発表会の情報。',icon:'events',url:base+'workshops/',action:'開催予定を見る',shortcuts:[['Rhythm Speaker Show',base+'rss/']]},
 {id:'watch',name:'WATCH',jp:'番組・動画',desc:'トーク番組やタップダンスの映像。',icon:'watch',url:base+'broadcast/',action:'番組を見る',shortcuts:[['YouTube','https://www.youtube.com/channel/UCsCznku0uyE4718G5wfj_2Q']]},
 {id:'music',name:'MUSIC',jp:'音楽を聴く',desc:'Rhythm Speakerのオリジナル音楽。',icon:'music',url:base+'music/',action:'音楽作品を見る',shortcuts:[['YouTubeで聴く','https://www.youtube.com/@RhythmSpeakerMusic']]},
-{id:'learn',name:'LEARN',jp:'基礎を学ぶ',desc:'STEP・TAP・身体づくりを知る。',icon:'learn',url:'#/services?category=learn',action:'学び方を見る',shortcuts:[['STEPの基礎',base+'classes/step/'],['身体づくり','#/classes']],pending:'オンライン学習は準備中'},
+{id:'learn',name:'LEARN',jp:'基礎を学ぶ',desc:'STEP・TAP・身体づくりを知る。',icon:'learn',url:'#/services?category=learn',action:'学び方を見る',shortcuts:[['STEPの基礎',base+'classes/step/'],['身体づくり','#/classes'],['タップダンスの読みもの','https://tapdance-rhythmspeaker.hatenablog.com/']],pending:'オンライン学習は準備中'},
 {id:'shop',name:'ORIGINALS',jp:'オリジナルグッズ',desc:'リズムスピーカーのウェア・音楽・デジタル作品。',icon:'shop',url:'https://rhythmspeaker.stores.jp/?all_items=true',action:'オリジナル商品を見る',shortcuts:[]},
 {id:'magazine',name:'REVIEW',jp:'商品レビュー',desc:'リズムスピーカー商店。ダンス用品・日用品の比較と紹介。',icon:'magazine',url:'https://rhythmspeaker.hatenablog.com/',action:'リズムスピーカー商店を読む',shortcuts:[]},
 {id:'about',name:'ABOUT',jp:'教室について',desc:'教室の考え方、講師、場所。',icon:'about',url:'#/about',action:'教室を知る',shortcuts:[['古庄里好','https://noritap.github.io/furusho-official/'],['アクセス','#/access'],['よくある質問','#/faq']]},
