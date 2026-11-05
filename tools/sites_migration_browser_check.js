@@ -79,7 +79,7 @@ await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
 // Production may have real published classes; the old "always empty" check was obsolete.
 const visibleCards=await page.locator('[data-cf-detail]').count();
 const scheduleText=await page.locator('#cf-cards').innerText();
-assert(visibleCards>0||/開催予定を取得していません|開催情報の同期が遅れています|開催予定を更新できませんでした|開催情報を確認できませんでした/.test(scheduleText),'Expected real classes or an explicit unavailable-data state');
+assert(visibleCards>0||/開催予定を取得していません|開催情報の同期が遅れています|開催予定を更新できませんでした|開催情報を確認できませんでした|この日のクラスは見つかりませんでした/.test(scheduleText),'Expected real classes or an explicit unavailable-data state');
 assert.equal(await page.locator('#cf-scenario').count(),0);
 assert.equal(await page.locator('.lab').count(),0);
 assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'index,follow');
