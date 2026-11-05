@@ -13,7 +13,11 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'×');
   assert(await menu.isVisible());
   assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),5);
+  assert.equal(await menu.locator('.rs-menu-group').count(),6);
+  assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--shopping').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
   assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-action').count(),2);
@@ -23,6 +27,8 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
   assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--goods').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
       <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
