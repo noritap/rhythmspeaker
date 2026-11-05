@@ -60,6 +60,29 @@ lacks('schedule/index.html', 'TRY ANOTHER RHYTHM');
 has('assets/ux-lab/class-finder.js', 'スタジオから「予約確定」の返信');
 has('assets/ux-lab/class-finder.js', 'もう一度確認する');
 
+// Destination-label consistency: keep visible purpose and landing page name in sync.
+// The three pricing links are duplicated in static HTML and the SPA source.
+for (const [page,href] of [
+  ['index.html','pricing/'],
+  ['trial/index.html','../pricing/'],
+  ['classes/index.html','../pricing/']
+]) {
+  has(page, 'href="'+href+'">料金・通い方を見る →</a>');
+  lacks(page, '通常レッスンの料金・通い方を見る →');
+  lacks(page, '体験後の料金・通い方を見る →');
+}
+has('classes/index.html', 'href="../schedule/">レッスン日程を見る →</a>');
+lacks('classes/index.html','通常クラスの開催予定・予約相談を見る →');
+assert.equal((app.match(/href="#\/pricing">料金・通い方を見る →<\/a>/g)||[]).length, 3);
+has('assets/ux-lab/app.js','href="#/schedule">レッスン日程を見る →</a>');
+for (const term of [
+  '通常レッスンの料金・通い方を見る →',
+  '体験後の料金・通い方を見る →',
+  '通常クラスの開催予定・予約相談を見る →'
+]) assert.ok(!app.includes(term), 'SPA obsolete destination text: '+term);
+// Labels such as 「料金」 in global navigation and 「料金・通い方を確認する」
+// in contextual FAQ links are intentionally valid and not treated as drift.
+
 // Don't trade clarity for deletion of material decisions, legal/operational details.
 has('pricing/index.html', '3,500 TIPS');
 has('pricing/index.html', '1,000');
