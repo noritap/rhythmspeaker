@@ -177,3 +177,11 @@ HANDOFFの次の送信と予約確定返信は外部で行われ、サイトか�
 - Reduce wasted vertical spacing without shrinking general link hit targets below 44px. Keep internal scrolling when viewport height is short.
 - Reopening the menu restores its scroll position to the beginning so schedule and trial actions remain the first choices. Escape closes and returns focus to the toggle.
 - Verify six responsive widths and both CSS and shared JS rendering with cache busting on the ten main pages.
+
+## 15. Rental studio photo-first UX (2026-11-05)
+- 一般のレンタルスタジオ利用者を第一に、写真、時間料金、利用用途、設備、予約の順に理解できるページを構成する。
+- STARTER SUPPORTは差別化サービスとして残し、`/rental/#starter` を互換維持。詳細条件は折りたたみ、元の30%計算、Floor Time、月間枠、Zero-Profit運用の意味を維持する。
+- 練習・撮影・WS等は利用希望を確認して適用。料金3,500 TIPS/1時間と、RS利用料0円が企画全体の赤字保証ではないことを正確に書く。
+- 施設の未測定寸法・定員、未承認の備品や音響利用を断言しない。写真24枚と動画のGitHub保存ステータスは`rental/media-intake.json`で管理。実ファイルがGitHubに揃うまで壊れたsrcは出さず、既存の確認済み実写真を使う。
+- CTAは予約を即時確定したように見せない。スタジオからの明示的な確認をもって予約確定とする。
+- 本番公開後も320/375/390/430/768/1440px・画像404・メニュー・写真拡大・LINEリンクの回帰検証を必須とする。

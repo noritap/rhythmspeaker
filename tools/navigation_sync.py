@@ -21,6 +21,7 @@ PAGES = {
     Path("schedule/index.html"): "schedule/",
     Path("pricing/index.html"): "pricing/",
     Path("instructors/index.html"): "instructors/",
+    Path("rental/index.html"): "rental/",
 }
 # P0 first; other destinations are sorted by how the visitor uses them.
 # Values are (display label, route, explanatory subline, CSS role).

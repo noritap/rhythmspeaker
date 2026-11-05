@@ -58,11 +58,15 @@ for(const [key,label] of [['standard10','スタンダード10'],['premium25','�
  assert.match(card,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 }
 const rental=read('rental/index.html');
-for(const label of ['通常レンタルを相談する','STARTER SUPPORTを相談する','STARTER SUPPORTをLINEで相談する']){
- const m=rental.match(new RegExp('<a[^>]+href="([^"]+)"[^>]*>'+label+'<\\/a>'));
- assert.ok(m,label+' CTA must exist');
- assert.ok(m[1].includes('line.me/R/oaMessage/%40ypk3334t'),label+' must contain a tailored inquiry message');
+for(const label of ['通常レンタルを相談する','STARTER SUPPORTを相談する','レンタルをLINEで相談する']){
+ const m=rental.match(new RegExp('<a[^>]+href="([^"]+)"[^>]*>\\s*'+label+'(?:\\s*<span[^>]*>[\\s\\S]*?<\\/span>)?\\s*<\\/a>'));
+ assert.ok(m,label+' CTA must exist in rental-first redesign');
+ assert.ok(m[1].includes('line.me/R/oaMessage/%40ypk3334t'),label+' must retain a tailored inquiry message');
 }
+for(const anchor of ['starter','starter-detail','plans','booking','photos','access'])assert.ok(rental.includes('id="'+anchor+'"'),'rental anchor '+anchor+' must remain');
+assert.match(rental,/3,500 TIPS/);
+assert.match(rental,/対象利益の30%/);
+assert.match(rental,/企画全体の赤字/);
 
 const workshops=read('workshops/index.html');
 assert.match(workshops,/href="#explore">開催予定から探す/);

@@ -1,0 +1,235 @@
+{
+  "schema": "rhythm-speaker-rental-media/v1",
+  "updated": "2026-11-05",
+  "repository": "noritap/rhythmspeaker",
+  "destination_dir": "assets/images/studio/rental-20261105/",
+  "photo_original_count": 24,
+  "video_original": "IMG_0887.mp4",
+  "public_video_status": "hold_for_privacy_review",
+  "public_copy_status": "fallback_existing_real_photos",
+  "recommended_hero": "IMG_0873.jpeg",
+  "items": [
+    {
+      "source_name": "IMG_0863.jpeg",
+      "category": "access",
+      "priority": "access_guide",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0863.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0864.jpeg",
+      "category": "access",
+      "priority": "access_guide",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0864.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0865.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0865.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0866.jpeg",
+      "category": "access",
+      "priority": "access_guide",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0866.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0867.jpeg",
+      "category": "access",
+      "priority": "access_guide",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0867.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0868.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0868.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0869.jpeg",
+      "category": "facility_detail",
+      "priority": "gallery_candidate",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0869.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0870.jpeg",
+      "category": "studio",
+      "priority": "gallery",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0870.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0871.jpeg",
+      "category": "studio",
+      "priority": "gallery",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0871.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0872.jpeg",
+      "category": "studio",
+      "priority": "gallery",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0872.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0873.jpeg",
+      "category": "studio",
+      "priority": "hero",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0873.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": "Preferred hero: full room view"
+    },
+    {
+      "source_name": "IMG_0874.jpeg",
+      "category": "studio",
+      "priority": "gallery",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0874.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0875.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0875.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0876.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0876.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0877.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0877.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0878.jpeg",
+      "category": "facility_detail",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0878.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0879.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0879.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0880.jpeg",
+      "category": "facility_detail",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0880.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0881.jpeg",
+      "category": "facility_detail",
+      "priority": "gallery_candidate",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0881.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0882.jpeg",
+      "category": "facility_detail",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0882.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0883.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0883.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0884.jpeg",
+      "category": "studio",
+      "priority": "gallery",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0884.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": "Shoe collection: availability is not implied"
+    },
+    {
+      "source_name": "IMG_0885.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0885.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    },
+    {
+      "source_name": "IMG_0886.jpeg",
+      "category": "archive",
+      "priority": "archive",
+      "github_asset_path": "assets/images/studio/rental-20261105/IMG_0886.webp",
+      "binary_status": "pending_upload",
+      "scope": "user_supplied",
+      "note": null
+    }
+  ],
+  "policy": {
+    "real_photos_only": true,
+    "no_fake_floorplan": true,
+    "exclude_unreviewed_private_screens": true,
+    "never_label_equipment_usable_without_confirmation": true
+  }
+}

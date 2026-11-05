@@ -1,6 +1,6 @@
 /* CI regression for the new static Sites migration. No submission, auth, calendar or DB writes. */
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
-(async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/'];
+(async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/','rental/'];
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
 for(const width of [320,375,390,430,768,1440]){
@@ -99,4 +99,27 @@ await page.locator('[data-cf-mode="request"]').click();await page.locator('#cf-r
 const fixture=JSON.parse(fs.readFileSync('data/class-sessions.sample.json','utf8'));fixture.sourceMode='live';fixture.dataState='ready';fixture.lastSuccessfulSyncAt=new Date().toISOString();const fixtureDate=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(Date.now()+86400000));fixture.sessions.forEach(s=>{s.source='live';if(s.id==='demo-01'||s.id==='demo-02')s.date=fixtureDate;}); // Keep only the isolated booking fixture in the future; never publish this sample.
 await page.route('**/data/class-sessions.public.json',route=>route.fulfill({json:fixture}));await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();await page.locator('#cf-nearest').click();await page.locator('[data-cf-date="'+fixtureDate+'"]').click();assert.match(await page.locator('#cf-count').innerText(),/2件/);await page.locator('[data-cf-detail="demo-02"]').click();await page.locator('#cf-join-apply').click();assert.match(await page.locator('#cf-message').inputValue(),/本間茂樹/);assert.equal(await page.locator('.cf-contact-actions a').first().getAttribute('href'),'https://lin.ee/zC5YLe7');await page.locator('.dialog-close').click();await page.unroute('**/data/class-sessions.public.json');
 await page.goto(base+'classes/');await page.locator('[data-group="body"]').click();assert.equal(await page.locator('[data-class]:visible').count(),4);await page.goto(base+'instructors/');await page.locator('#name-search').fill('本間');assert.equal(await page.locator('[data-person]:visible').count(),1);await page.goto(base+'faq/');await page.locator('summary').first().click();assert(await page.locator('details[open]').count()>0);await page.goto(base+'trial/apply/');assert(await page.locator('#line').count()===1);
+// Rental photo-first discovery: static HTML must not be overwritten by the class SPA.
+for(const width of [320,375,390,430,768,1440]){
+  await page.setViewportSize({width,height:820});
+  await page.goto(base+'rental/');
+  await page.locator('#main h1').waitFor();
+  assert.match(await page.locator('#main h1').innerText(),/練習も、撮影も/);
+  assert.equal(await page.locator('.rl-plan').count(),2);
+  assert.equal(await page.locator('[data-rental-photo]').count(),7);
+  assert.equal(await page.locator('.rl-starter-details').count(),1);
+  assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' rental overflow');
+  assert.equal(await page.locator('img').evaluateAll(images=>images.filter(img=>img.complete&&img.naturalWidth===0).length),0,'rental image failed');
+  const toggle=page.locator('#menu-button');
+  await toggle.click();
+  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
+  assert.equal(await page.locator('#menu .rs-menu-group').count(),6);
+  await page.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+  await page.locator('[data-rental-photo]').first().click();
+  assert.equal(await page.locator('#rl-lightbox').getAttribute('aria-hidden'),'false');
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#rl-lightbox').getAttribute('aria-hidden'),'true');
+  if(width===390||width===1440)await page.screenshot({path:'ux-evidence/rental-photo-first-'+width+'.png'});
+}
 assert.deepEqual(errors,[]);fs.mkdirSync('ux-evidence',{recursive:true});await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();await page.screenshot({path:'ux-evidence/sites-migration-schedule.png',fullPage:true});await browser.close();console.log('PASS: 10 routes x6 widths, discovery/form/contact safety, preserved trial handoff. No actual send performed.');})().catch(e=>{console.error(e);process.exit(1)});
