@@ -4,7 +4,7 @@
 
 ## 対象・正式ルール
 
-- GitHub: `noritap/rhythmspeaker`, 基準main: `8e7bc7bbc3ca6ad6920636c4c84437e81e111e42`
+- GitHub: `noritap/rhythmspeaker`, 監査開始main: `8e7bc7bbc3ca6ad6920636c4c84437e81e111e42` / 実装修正を載せたmain: `36dcd16cdba7ba485f099ab13f0801bb237c987c`（PR #365の共通ナビ修正を保持）
 - `docs/seo/page-registry.json`: 公開HTML **43件**、別管理・公開対象外HTML **10件**。
 - 43公開HTMLの `<a href>` と可視テキスト、ページ内見出し、静的/SPA併存箇所（`assets/ux-lab/app.js`）をコード監査。
 - 正式名称: `docs/ux/RS_WEB_UX_RULES_V2.md` v2.1、`docs/03_NAVIGATION_REGISTRY.md`。
