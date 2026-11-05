@@ -37,8 +37,14 @@ MENU_GROUPS = [
         ("アクセス", "access/", "", "access"),
         ("スタジオレンタル", "rental/", "", "rental"),
     ]),
-    ("reading", "読みもの", [
+    ("media", "観る・聴く・学ぶ", [
+        ("番組・動画", "broadcast/", "", "broadcast"),
+        ("Rhythm Speaker Show", "rss/", "", "rss"),
+        ("音楽を聴く", "music/", "", "music"),
         ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
+    ]),
+    ("shopping", "買う・選ぶ", [
+        ("オリジナルグッズ", "https://rhythmspeaker.stores.jp/?all_items=true", "", "goods"),
         ("商品レビューを読む", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
     ]),
     ("member", "会員・お問い合わせ", [
@@ -49,8 +55,6 @@ MENU_GROUPS = [
         ("教室トップ", "", "", "home"),
         ("教室紹介", "about/", "", "about"),
         ("よくある質問", "faq/", "", "faq"),
-        ("Rhythm Speaker Show", "rss/", "", "rss"),
-        ("オリジナルグッズ", "https://rhythmspeaker.stores.jp/?all_items=true", "", "goods"),
         ("すべてのサービス", "ecosystem/", "", "ecosystem"),
     ]),
 ]
