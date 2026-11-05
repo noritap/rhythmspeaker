@@ -47,6 +47,13 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'＋');
   assert(await toggle.evaluate(el=>document.activeElement===el));
   assert(!(await menu.isVisible()));
+  // Reopening after a deep scroll must restore P0 actions, not the previous lower position.
+  await toggle.click();
+  assert(await menu.isVisible());
+  assert((await menu.evaluate(el=>el.scrollTop)) <= 8, 'reopened menu must start at its top');
+  assert(await menu.locator('.rs-menu-action--schedule').isVisible(), 'primary schedule action remains reachable');
+  await page.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
 }
 // P0 actions and separate shop/review destinations. Validate at every supported width.
 for(const width of [320,375,390,430,768,1440]){
