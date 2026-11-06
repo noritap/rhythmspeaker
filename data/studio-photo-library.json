@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "library_id": "rhythmspeaker-studio-20261107",
   "title": "Rhythm Speaker スタジオ写真ライブラリ",
-  "source": "2026-11-07 user-supplied 20 photos",
-  "status": "INDEX_ONLY_IMAGES_NOT_YET_IN_GITHUB",
+  "source": "2026-11-07 user-supplied 24 photos across two batches",
+  "status": "INDEX_ONLY_24_IMAGES_PENDING_BINARY_UPLOAD",
   "source_of_truth": "原本画像のバイナリが保存されるまでパスは予定地であり公開URLではない",
   "categories": {
     "access": "入口・地下階段・アクセス",
@@ -23,7 +23,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0863.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0863.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P2",
+      "display_slot": "ACCESS_GUIDE",
+      "content_role": "ENTRY_WAYFINDING",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0864",
@@ -37,7 +43,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0864.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0864.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P2",
+      "display_slot": "ACCESS_GUIDE",
+      "content_role": "STAIR_ROUTE",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0865",
@@ -51,7 +63,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0865.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0865.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "STAIR_CONTEXT",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0866",
@@ -65,7 +83,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0866.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0866.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P2",
+      "display_slot": "ACCESS_GUIDE",
+      "content_role": "STAIR_ROUTE",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0867",
@@ -79,7 +103,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0867.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0867.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "STAIR_CONTEXT",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0868",
@@ -93,7 +123,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0868.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0868.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "RENTAL_GALLERY",
+      "content_role": "STUDIO_APPROACH",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0869",
@@ -107,7 +143,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0869.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0869.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P2",
+      "display_slot": "FACILITY_DETAIL",
+      "content_role": "CHANGING_ROOM",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0870",
@@ -121,7 +163,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0870.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0870.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "HERO_CANDIDATE",
+      "content_role": "FLOOR_OVERVIEW",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "ENVIRONMENT_ANCHOR",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0871",
@@ -135,7 +183,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0871.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0871.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "RENTAL_GALLERY",
+      "content_role": "FLOOR_OVERVIEW",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0872",
@@ -149,7 +203,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0872.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0872.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "HERO_CANDIDATE",
+      "content_role": "MIRROR_AND_FLOOR",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "ENVIRONMENT_ANCHOR",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0873",
@@ -163,7 +223,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0873.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0873.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "HERO_CANDIDATE",
+      "content_role": "FLOOR_OVERVIEW",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "ENVIRONMENT_ANCHOR",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0874",
@@ -177,7 +243,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0874.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0874.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "COUNTER_AND_STORAGE",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0875",
@@ -191,7 +263,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0875.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0875.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "CORRIDOR_CONTEXT",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0876",
@@ -205,7 +283,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0876.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0876.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "POSTERS_AND_INTERIOR",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0877",
@@ -219,7 +303,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0877.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0877.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "RESTROOM_ROUTE",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0878",
@@ -233,7 +323,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0878.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0878.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "RESTROOM_ROUTE",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0879",
@@ -247,7 +343,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0879.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0879.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "SINK",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0880",
@@ -261,7 +363,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0880.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0880.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "RESTROOM_STORAGE",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0881",
@@ -275,7 +383,13 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0881.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0881.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "RESTROOM",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
     },
     {
       "id": "RS-STUDIO-0882",
@@ -289,7 +403,93 @@
       "intended_web_path": "assets/images/studio/library/2026-11/web/img_0882.webp",
       "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0882.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
-      "publication_review": "NOT_REVIEWED"
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "STORAGE",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
+    },
+    {
+      "id": "RS-STUDIO-0883",
+      "source_filename": "IMG_0883.JPG",
+      "category": "facility",
+      "label": "小部屋・機材収納",
+      "recommended_usage": "収納・バックヤード／制作時参照",
+      "resolution": "1536×2048",
+      "sha256_prefix": null,
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0883.JPG",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0883.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0883.webp",
+      "asset_state": "PENDING_BINARY_UPLOAD",
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "STORAGE_AND_EQUIPMENT",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
+    },
+    {
+      "id": "RS-STUDIO-0884",
+      "source_filename": "IMG_0884.JPG",
+      "category": "facility",
+      "label": "シューズ収納通路",
+      "recommended_usage": "シューズ・貸出設備の詳細",
+      "resolution": "1536×2048",
+      "sha256_prefix": null,
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0884.JPG",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0884.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0884.webp",
+      "asset_state": "PENDING_BINARY_UPLOAD",
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P2",
+      "display_slot": "FACILITY_DETAIL",
+      "content_role": "SHOE_STORAGE",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "SUPPORTING_REFERENCE",
+      "public_image_url": null
+    },
+    {
+      "id": "RS-STUDIO-0885",
+      "source_filename": "IMG_0885.JPG",
+      "category": "facility",
+      "label": "シューズ棚と小物",
+      "recommended_usage": "備品・シューズの参考／写り込み確認",
+      "resolution": "1536×2048",
+      "sha256_prefix": null,
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0885.JPG",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0885.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0885.webp",
+      "asset_state": "PENDING_BINARY_UPLOAD",
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P3",
+      "display_slot": "REFERENCE",
+      "content_role": "TAP_SHOES_AND_COUNTER",
+      "visibility_policy": "REFERENCE_ONLY",
+      "image_generation_role": "DETAIL_REFERENCE",
+      "public_image_url": null
+    },
+    {
+      "id": "RS-STUDIO-0886",
+      "source_filename": "IMG_0886.JPG",
+      "category": "studio",
+      "label": "カウンターから見たダンスフロア",
+      "recommended_usage": "空間全体・教室紹介・画像制作の背景",
+      "resolution": "2048×1536",
+      "sha256_prefix": null,
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0886.JPG",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0886.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0886.webp",
+      "asset_state": "PENDING_BINARY_UPLOAD",
+      "publication_review": "NOT_REVIEWED",
+      "priority_tier": "P1",
+      "display_slot": "HERO_CANDIDATE",
+      "content_role": "STUDIO_FROM_COUNTER",
+      "visibility_policy": "PUBLIC_AFTER_REVIEW",
+      "image_generation_role": "ENVIRONMENT_ANCHOR",
+      "public_image_url": null
     }
   ],
   "usage_rules": [
@@ -297,5 +497,48 @@
     "公開前に人物・機器の画面・私物・掲示物の権利を確認する。",
     "床面積・寸法・最大収容人数・平面図の正確な推定に使わない。",
     "ウェブページには画像のアップロードとプレビュー確認が済むまで参照を追加しない。"
-  ]
+  ],
+  "image_count": 24,
+  "presentation_strategy": {
+    "intent": "レンタル利用者の空間理解から予約相談までの負荷を最小化",
+    "tiers": {
+      "P1": "フロア全景・床・鏡。公開前の写り込み監査を通過後、レンタル主要ギャラリー・教室紹介候補",
+      "P2": "入口導線・更衣室・シューズ。設備・アクセスの詳細ページに配置。初期画面には置かない",
+      "P3": "私物・端末・ポスター・トイレ・収納など。内部参照優先。画像生成で背景構造を合わせる用途。原則一般ギャラリーには出さない"
+    },
+    "publishing_gate": [
+      "実際の画像バイナリをGitHubに格納",
+      "端末画面・私物・肖像・掲示物などを確認",
+      "小画面表示とALTを検証",
+      "個別ファイルの公開許可を記録"
+    ],
+    "ai_generation_policy": [
+      "実写の床・鏡・照明・カウンター配置などの特徴をアンカーとして保持",
+      "生徒を追加した合成画像は実際の開催記録と誤認させない表現・注記を使う",
+      "実写と合成画像は別ID・別ディレクトリに保存し原本は上書きしない"
+    ],
+    "live_gallery_sources": [
+      {
+        "role": "PRIMARY",
+        "src": "assets/images/studio/reference/studio-06.jpg",
+        "kind": "EXISTING_REPO_ASSET"
+      },
+      {
+        "role": "SECONDARY",
+        "src": "assets/images/studio/reference/studio-05.jpg",
+        "kind": "EXISTING_REPO_ASSET"
+      },
+      {
+        "role": "SUPPORTING",
+        "src": "assets/images/trial/trial-real-rental-shoes-v1.webp",
+        "kind": "EXISTING_REPO_ASSET"
+      }
+    ],
+    "future_swap_targets": [
+      "RS-STUDIO-0872",
+      "RS-STUDIO-0873",
+      "RS-STUDIO-0870",
+      "RS-STUDIO-0886"
+    ]
+  }
 }

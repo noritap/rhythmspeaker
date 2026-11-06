@@ -259,7 +259,45 @@ body[data-ux-source="sites-v6"] .rental-footer .copyright{margin:0;color:var(--m
  body[data-ux-source="sites-v6"] .rental-footer{display:block}
 }
 </style>
-<style id="rsr-clarity-v41">body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(41px,6vw,76px);max-width:790px}body[data-ux-source="sites-v6"] .rsr-lead{margin-top:20px}body[data-ux-source="sites-v6"] .rsr-booking-heading{padding-bottom:16px}@media(max-width:650px){body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(34px,10vw,50px)}body[data-ux-source="sites-v6"] .rsr-booking-heading h2{font-size:clamp(26px,7vw,36px)}}</style></head>
+<style id="rsr-clarity-v41">body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(41px,6vw,76px);max-width:790px}body[data-ux-source="sites-v6"] .rsr-lead{margin-top:20px}body[data-ux-source="sites-v6"] .rsr-booking-heading{padding-bottom:16px}@media(max-width:650px){body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(34px,10vw,50px)}body[data-ux-source="sites-v6"] .rsr-booking-heading h2{font-size:clamp(26px,7vw,36px)}}</style><style id="rsr-photo-gallery-v42">
+/* Reuse already-published photos only. Never point to pending library paths. */
+body[data-ux-source="sites-v6"] .rsr-visual-guide{background:var(--paper)}
+body[data-ux-source="sites-v6"] .rsr-visual-primary{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(210px,1fr);gap:12px;align-items:stretch}
+body[data-ux-source="sites-v6"] .rsr-visual-feature{position:relative;display:block;min-height:490px;overflow:hidden;color:#fff;background:#252525}
+body[data-ux-source="sites-v6"] .rsr-visual-feature img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0;transition:transform .25s ease}
+body[data-ux-source="sites-v6"] .rsr-visual-feature:after{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78));pointer-events:none}
+body[data-ux-source="sites-v6"] .rsr-visual-label{position:absolute;z-index:1;left:25px;right:25px;bottom:25px;display:grid;gap:8px;color:#fff}
+body[data-ux-source="sites-v6"] .rsr-visual-label strong{font-size:clamp(19px,2.2vw,28px);line-height:1.3}
+body[data-ux-source="sites-v6"] .rsr-visual-label small{letter-spacing:.15em;font-size:10px}
+body[data-ux-source="sites-v6"] .rsr-visual-label>span{font-size:12px;color:#f2efeb}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary{display:grid;grid-template-rows:1fr 1fr;gap:12px;min-height:490px}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a{position:relative;overflow:hidden;background:#252525;color:#fff;min-height:0;display:block}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.75));pointer-events:none}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a>span{position:absolute;z-index:1;bottom:18px;left:18px;right:18px;display:grid;gap:4px}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary small{font-size:10px;letter-spacing:.1em}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary strong{font-size:14px;line-height:1.5}
+body[data-ux-source="sites-v6"] .rsr-visual-primary a:hover img{transform:scale(1.02)}
+body[data-ux-source="sites-v6"] .rsr-visual-more{border-bottom:1px solid var(--border);margin-top:18px}
+body[data-ux-source="sites-v6"] .rsr-visual-more>summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:14px;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:5px 0 20px}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid a{color:var(--ink);text-decoration:none;display:grid;gap:5px;min-width:0;font-size:12px}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid img{height:145px;width:100%;object-fit:cover}
+body[data-ux-source="sites-v6"] .rsr-visual-more:focus-within{outline-offset:3px}
+@media(max-width:700px){
+ body[data-ux-source="sites-v6"] .rsr-visual-primary{grid-template-columns:1fr}
+ body[data-ux-source="sites-v6"] .rsr-visual-feature{min-height:310px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary{grid-template-rows:1fr;grid-template-columns:1fr 1fr;min-height:180px;gap:8px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary a{min-height:175px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary a>span{left:10px;right:10px;bottom:10px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary strong{font-size:12px}
+ body[data-ux-source="sites-v6"] .rsr-visual-label{left:16px;right:16px;bottom:16px}
+ body[data-ux-source="sites-v6"] .rsr-visual-more-grid{grid-template-columns:1fr 1fr}
+ body[data-ux-source="sites-v6"] .rsr-visual-more-grid img{height:125px}
+}
+@media(prefers-reduced-motion:reduce){body[data-ux-source="sites-v6"] .rsr-visual-primary img{transition:none}}
+</style>
+</head>
 <body data-ux-source="sites-v6"><a class="skip" href="#main">本文へ移動</a><header><div class="brand"><a class="brand-mark" href="../ecosystem/" aria-label="ブランドマーク：Rhythm Speaker 全サービスへ"><img src="/rhythmspeaker/logo.png" width="42" height="42" alt=""></a><a class="brand-name" href="../" aria-label="Rhythm Speaker 教室トップへ">Rhythm Speaker<small>TAP DANCE STUDIO / IKEBUKURO</small></a></div><nav aria-label="主要メニュー"><a href="../schedule/">レッスン日程</a><a href="../pricing/">料金・通い方</a><a href="../classes/">クラス</a><a href="../instructors/">講師</a><a href="../access/">アクセス</a></nav><a class="button primary nav-cta cta-nav" href="../trial/apply/">初回体験 ¥1,000 <span>↗</span></a><button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">メニュー <span aria-hidden="true">＋</span></button><div id="menu" class="rs-menu" hidden><nav class="rs-menu-nav" aria-label="すべてのページ"><section class="rs-menu-group rs-menu-group--quick" aria-label="よく使うメニュー"><p class="rs-menu-label">よく使うメニュー</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--schedule" href="../schedule/"><strong>レッスン日程</strong><small>日時・講師から探す</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--trial" href="../trial/"><strong>初回体験 ¥1,000</strong><small>初めての方はこちら</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--lessons" aria-label="教室・レッスン"><p class="rs-menu-label">教室・レッスン</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--pricing" href="../pricing/">料金</a></li><li><a class="rs-menu-link rs-menu-link--classes" href="../classes/">クラス紹介</a></li><li><a class="rs-menu-link rs-menu-link--instructors" href="../instructors/">講師紹介</a></li><li><a class="rs-menu-link rs-menu-link--workshops" href="../workshops/">ワークショップ</a></li><li><a class="rs-menu-link rs-menu-link--access" href="../access/">アクセス</a></li><li><a class="rs-menu-link rs-menu-link--rental" href="../rental/" aria-current="page">スタジオレンタル</a></li></ul></section><section class="rs-menu-group rs-menu-group--media" aria-label="観る・聴く・学ぶ"><p class="rs-menu-label">観る・聴く・学ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--broadcast" href="../broadcast/">番組・動画</a></li><li><a class="rs-menu-link rs-menu-link--rss" href="../rss/">Rhythm Speaker Show</a></li><li><a class="rs-menu-link rs-menu-link--music" href="../music/">音楽を聴く</a></li><li><a class="rs-menu-link rs-menu-link--tapblog" href="https://tapdance-rhythmspeaker.hatenablog.com/">タップダンスを学ぶ</a></li></ul></section><section class="rs-menu-group rs-menu-group--shopping" aria-label="買う・選ぶ"><p class="rs-menu-label">買う・選ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--goods" href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a></li><li><a class="rs-menu-link rs-menu-link--reviewblog" href="https://rhythmspeaker.hatenablog.com/">商品レビューを読む</a></li></ul></section><section class="rs-menu-group rs-menu-group--member" aria-label="会員・お問い合わせ"><p class="rs-menu-label">会員・お問い合わせ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--wallet" href="https://tips-app-seven.vercel.app/">マイページ<small>RS Wallet</small></a></li><li><a class="rs-menu-link rs-menu-link--line" href="https://lin.ee/zC5YLe7">公式LINE<small>相談・変更</small></a></li></ul></section><section class="rs-menu-group rs-menu-group--more" aria-label="その他のページ"><p class="rs-menu-label">その他のページ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--home" href="../">教室トップ</a></li><li><a class="rs-menu-link rs-menu-link--about" href="../about/">教室紹介</a></li><li><a class="rs-menu-link rs-menu-link--faq" href="../faq/">よくある質問</a></li><li><a class="rs-menu-link rs-menu-link--ecosystem" href="../ecosystem/">すべてのサービス</a></li></ul></section></nav></div></header><noscript><nav aria-label="サイト案内"><a href="../">教室トップ</a> <a href="../trial/">初回体験</a> <a href="../classes/">クラス</a> <a href="../about/">教室紹介</a> <a href="../workshops/">ワークショップ</a> <a href="../ecosystem/">サービス一覧</a> <a href="../faq/">FAQ</a> <a href="../access/">アクセス</a> <a href="../rss/">RSS</a> <a href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a> </nav></noscript><div class="context-nav" aria-label="パンくず"><a href="../">教室トップ</a><span aria-hidden="true">/</span><span aria-current="page">スタジオレンタル</span></div><main id="main" tabindex="-1">
     <section class="rsr-intro">
       
@@ -335,15 +373,34 @@ body[data-ux-source="sites-v6"] .rental-footer .copyright{margin:0;color:var(--m
         </form>
       </div>
     </section>
-    <section class="rsr-section" id="studio-gallery">
+    <section class="rsr-section rsr-visual-guide" id="studio-gallery" aria-labelledby="studio-gallery-title">
       <div class="rental-inner">
-        <div class="rsr-section-top"><div><p class="rsr-eyebrow">THE SPACE</p><h2>スタジオの写真</h2></div></div>
-        <div class="rsr-gallery">
-          <a href="../assets/images/studio/reference/studio-06.jpg" target="_blank" rel="noopener" class="rsr-gallery-main"><img src="../assets/images/studio/reference/studio-06.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="Rhythm Speakerのダンスフロア・室内の広角写真"><span>フロア全体を見る <span aria-hidden="true">↗</span></span></a>
-          <a href="../assets/images/studio/reference/studio-05.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-05.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="別角度から見たダンスフロアと鏡"><span>別角度から見る ↗</span></a>
-          <a href="../assets/images/trial/trial-real-rental-shoes-v1.webp" target="_blank" rel="noopener"><img src="../assets/images/trial/trial-real-rental-shoes-v1.webp" width="960" height="960" loading="lazy" decoding="async" alt="Rhythm Speakerのレンタルシューズ"><span>シューズ・用品を見る ↗</span></a>
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">THE SPACE</p><h2 id="studio-gallery-title">写真でスタジオを確認する。</h2></div></div>
+        <div class="rsr-visual-primary">
+          <a class="rsr-visual-feature" href="../assets/images/studio/reference/studio-06.jpg" target="_blank" rel="noopener">
+            <img src="../assets/images/studio/reference/studio-06.jpg" alt="Rhythm Speakerスタジオのダンスフロア全景。床の広がりと室内の様子" width="2048" height="1536" loading="lazy" decoding="async">
+            <span class="rsr-visual-label"><small>01 / DANCE FLOOR</small><strong>まずは、フロアの全体像。</strong><span>写真を拡大する ↗</span></span>
+          </a>
+          <div class="rsr-visual-secondary">
+            <a href="../assets/images/studio/reference/studio-05.jpg" target="_blank" rel="noopener">
+              <img src="../assets/images/studio/reference/studio-05.jpg" alt="スタジオの鏡とダンスフロアを別角度から写した写真" width="2048" height="1536" loading="lazy" decoding="async">
+              <span><small>02 / MIRROR & FLOOR</small><strong>鏡とフロアを別角度から ↗</strong></span>
+            </a>
+            <a href="../assets/images/trial/trial-real-rental-shoes-v1.webp" target="_blank" rel="noopener">
+              <img src="../assets/images/trial/trial-real-rental-shoes-v1.webp" alt="Rhythm Speakerのタップシューズ貸出用写真" width="960" height="960" loading="lazy" decoding="async">
+              <span><small>03 / RENTAL SHOES</small><strong>レンタルシューズを見る ↗</strong></span>
+            </a>
+          </div>
         </div>
-        <p class="rsr-footnote">写真を押すと拡大できます。設備の配置は変更される場合があります。</p>
+        <details class="rsr-visual-more">
+          <summary>スタジオを別の角度から見る <span aria-hidden="true">＋</span></summary>
+          <div class="rsr-visual-more-grid">
+            <a href="../assets/images/studio/reference/studio-02.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-02.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="スタジオ内の参考写真・別角度1"><span>スタジオ参考写真 01 ↗</span></a>
+            <a href="../assets/images/studio/reference/studio-03.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-03.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="スタジオ内の参考写真・別角度2"><span>スタジオ参考写真 02 ↗</span></a>
+            <a href="../assets/images/studio/reference/studio-04.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-04.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="スタジオ内の参考写真・別角度3"><span>スタジオ参考写真 03 ↗</span></a>
+          </div>
+        </details>
+        <p class="rsr-footnote">写真は実際のスタジオです。設備や備品の配置は変更される場合があります。</p>
       </div>
     </section>
     <section class="rsr-section rsr-muted" id="studio-spec">
