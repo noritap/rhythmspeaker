@@ -446,7 +446,7 @@
       const validatePlan=()=>{
         if(!dateInput.value||!timeInput.value)return '';
         if(dateInput.value<today()||isPastStart(dateInput.value,timeInput.value))return '過去の日時は選択できません。未来の希望日時を指定してください。';
-        if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&(!durations()||minutesOf(timeInput.value)+durations()*60>1440))return '利用時間を確認してください。日付をまたぐ利用はLINEで個別にご相談ください。';
+        if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&durations()&&minutesOf(timeInput.value)+durations()*60>1440)return '日付をまたぐ利用はLINEで個別にご相談ください。';
         if(type.value==='平日朝割引'){
           const minutes=Number(timeInput.value.slice(0,2))*60+Number(timeInput.value.slice(3,5));
           const h=durations();
