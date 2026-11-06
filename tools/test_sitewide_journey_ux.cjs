@@ -113,6 +113,21 @@ assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
 assert.match(rental,/空き状況はLINEで確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
+assert.match(rental,/class="rsr-visual-feature"/);
+assert.match(rental,/class="rsr-visual-secondary"/);
+assert.match(rental,/class="rsr-visual-more"/);
+assert.match(rental,/id="rsr-photo-gallery-v42"/);
+assert.match(rental,/assets\/images\/studio\/reference\/studio-06\.jpg/);
+assert.match(rental,/assets\/images\/studio\/reference\/studio-05\.jpg/);
+assert.doesNotMatch(rental,/library\/2026-11\/(?:web|originals)\//);
+const photoLib=JSON.parse(read('data/studio-photo-library.json'));
+assert.strictEqual(photoLib.image_count,24,'24 supplied photos must be indexed');
+assert.strictEqual(photoLib.photos.length,24,'one index per supplied photo');
+assert.strictEqual(photoLib.photos.filter(x=>x.priority_tier==='P1').length,6);
+assert.ok(photoLib.photos.every(x=>x.asset_state==='PENDING_BINARY_UPLOAD'),'do not pretend binary photos are uploaded');
+assert.ok(photoLib.photos.every(x=>x.public_image_url===null),'unpublished files must not have a public URL');
+assert.ok(photoLib.presentation_strategy.future_swap_targets.includes('RS-STUDIO-0886'));
+
 
 
 const workshops=read('workshops/index.html');
