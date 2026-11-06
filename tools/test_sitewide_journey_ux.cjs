@@ -58,14 +58,14 @@ for(const [key,label] of [['standard10','スタンダード10'],['premium25','�
  assert.match(card,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 }
 const rental=read('rental/index.html');
-for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜レンタル','¥4,000'],['シェアレンタル','¥500']]){
+for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜6時間パック','¥4,000'],['シェアレンタル','¥500']]){
  assert.ok(rental.includes(label),label+' rental plan must exist');
  assert.ok(rental.includes(price),price+' must be shown in yen');
 }
 assert.match(rental,/id="rental-request"/);
-assert.match(rental,/data-rental-choice="平日朝割引"/);
-assert.match(rental,/data-rental-choice="深夜6時間パック"/);
-assert.match(rental,/data-rental-choice="シェアレンタル"/);
+assert.match(rental,/data-plan="平日朝割引"/);
+assert.match(rental,/data-plan="深夜6時間パック"/);
+assert.match(rental,/data-plan="シェアレンタル"/);
 assert.match(rental,/validatePlan/);
 assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
@@ -76,12 +76,23 @@ assert.match(rental,/const renderCalendar=/);
 assert.match(rental,/const renderTimes=/);
 assert.match(rental,/const estimate=/);
 assert.match(rental,/const validatePlan=/);
+assert.match(rental,/const isPastStart=/);
+assert.match(rental,/jstNow/);
+assert.match(rental,/<option value="STARTER SUPPORT">/);
+assert.match(rental,/data-rental-choice="STARTER SUPPORT"/);
+assert.match(rental,/id="rental-pricing"/);
+assert.match(rental,/rsr-pricing-compact/);
+assert.match(rental,/rsr-custom-time/);
+assert.match(rental,/料金プランの詳細・利用条件/);
+assert.match(rental,/if\(p==='深夜6時間パック'&&dateInput\.value===today\(\)\)dateInput\.value=''/);
+assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
+
 assert.match(rental,/aria-pressed/);
 assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
 assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
-assert.match(rental,/空き状況は確認制/);
+assert.match(rental,/空き状況は返信で確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 
 
