@@ -74,6 +74,9 @@ for(const id of ['rental-calendar','rental-calendar-days','rental-month-label','
 }
 assert.match(rental,/const renderCalendar=/);
 assert.match(rental,/const renderTimes=/);
+assert.match(rental,/20:00','21:00','22:00/);
+assert.match(rental,/type\.value==='通常レンタル'&&minutesOf\(timeInput\.value\)\+durations\(\)\*60>1380/);
+assert.match(rental,/t==='22:00'\)duration\.value='1時間'/);
 assert.match(rental,/const estimate=/);
 assert.match(rental,/const validatePlan=/);
 assert.match(rental,/const isPastStart=/);
