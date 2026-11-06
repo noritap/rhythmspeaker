@@ -58,11 +58,17 @@ for(const [key,label] of [['standard10','スタンダード10'],['premium25','�
  assert.match(card,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 }
 const rental=read('rental/index.html');
-for(const label of ['通常レンタルを相談する','STARTER SUPPORTを相談する','STARTER SUPPORTをLINEで相談する']){
- const m=rental.match(new RegExp('<a[^>]+href="([^"]+)"[^>]*>'+label+'<\\/a>'));
- assert.ok(m,label+' CTA must exist');
- assert.ok(m[1].includes('line.me/R/oaMessage/%40ypk3334t'),label+' must contain a tailored inquiry message');
+for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜レンタル','¥4,000'],['シェアレンタル','¥500']]){
+ assert.ok(rental.includes(label),label+' rental plan must exist');
+ assert.ok(rental.includes(price),price+' must be shown in yen');
 }
+assert.match(rental,/id="rental-request"/);
+assert.match(rental,/data-rental-choice="平日朝割引"/);
+assert.match(rental,/data-rental-choice="深夜6時間パック"/);
+assert.match(rental,/data-rental-choice="シェアレンタル"/);
+assert.match(rental,/validatePlan/);
+assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
+assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
 
 const workshops=read('workshops/index.html');
 assert.match(workshops,/href="#explore">開催予定から探す/);
