@@ -71,7 +71,9 @@ assert.match(rental,/id="rsr-brand-v4"/);
 assert.match(rental,/class="context-nav"/);
 assert.match(rental,/class="brand-name"/);
 assert.match(rental,/初回体験 ¥1,000/);
-assert.match(rental,/スタジオを、<br>自由に使う。/);
+assert.match(rental,/池袋の<br>レンタルスタジオ。/);
+assert.doesNotMatch(rental,/<section class="rsr-quickbar"/);
+assert.match(rental,/日時を選んで、LINEで相談。/);
 assert.match(rental,/class="rsr-hero-media"/);
 assert.match(rental,/class="button primary rsr-submit"/);
 assert.doesNotMatch(rental,/href="\.\.\/style\.css"/);
@@ -100,7 +102,7 @@ assert.match(rental,/data-rental-choice="STARTER SUPPORT"/);
 assert.match(rental,/id="rental-pricing"/);
 assert.match(rental,/rsr-pricing-compact/);
 assert.match(rental,/rsr-custom-time/);
-assert.match(rental,/料金プランの詳細・利用条件/);
+assert.match(rental,/料金の適用条件・キャンセルについて/);
 assert.match(rental,/if\(p==='深夜6時間パック'&&dateInput\.value===today\(\)\)dateInput\.value=''/);
 assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
 
@@ -109,7 +111,7 @@ assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
 assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
-assert.match(rental,/空き状況はLINEの返信で確認/);
+assert.match(rental,/空き状況はLINEで確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 
 
