@@ -109,7 +109,7 @@ assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
 assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
-assert.match(rental,/空き状況は返信で確認/);
+assert.match(rental,/空き状況はLINEの返信で確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 
 
