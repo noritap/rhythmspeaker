@@ -447,6 +447,7 @@
         if(!dateInput.value||!timeInput.value)return '';
         if(dateInput.value<today()||isPastStart(dateInput.value,timeInput.value))return '過去の日時は選択できません。未来の希望日時を指定してください。';
         if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&durations()&&minutesOf(timeInput.value)+durations()*60>1440)return '日付をまたぐ利用はLINEで個別にご相談ください。';
+        if(type.value==='通常レンタル'&&minutesOf(timeInput.value)+durations()*60>1380)return '通常レンタルは23:00までのご利用です。終了時刻が23:00以前になるよう利用時間を変更してください。';
         if(type.value==='平日朝割引'){
           const minutes=Number(timeInput.value.slice(0,2))*60+Number(timeInput.value.slice(3,5));
           const h=durations();
@@ -488,14 +489,14 @@
         }
       };
       const renderTimes=()=>{
-        const opts=type.value==='深夜6時間パック'?['00:00']:type.value==='平日朝割引'?['07:00','08:00','09:00','10:00','11:00']:['07:00','09:00','10:00','12:00','14:00','16:00','18:00','20:00'];
+        const opts=type.value==='深夜6時間パック'?['00:00']:type.value==='平日朝割引'?['07:00','08:00','09:00','10:00','11:00']:['07:00','09:00','10:00','12:00','14:00','16:00','18:00','20:00','21:00','22:00'];
         const wrap=$('rental-time-options');wrap.replaceChildren();
         opts.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',String(timeInput.value===t));
           b.disabled=!!dateInput.value&&isPastStart(dateInput.value,t);
-          b.addEventListener('click',()=>{timeInput.value=t;renderTimes();refresh();});wrap.append(b);});
+          b.addEventListener('click',()=>{timeInput.value=t;if(type.value==='通常レンタル'&&t==='22:00')duration.value='1時間';renderTimes();refresh();});wrap.append(b);});
         timeInput.readOnly=type.value==='深夜6時間パック';
         duration.disabled=type.value==='深夜6時間パック';
-        $('rental-time-hint').textContent=type.value==='深夜6時間パック'?'選択日の0:00〜6:00（前日24:00開始）の固定パックです。':type.value==='シェアレンタル'?'シェア利用は貸切ではありません。利用条件は確認制です。':'時間枠は予約可能状況を示すものではありません。';
+        $('rental-time-hint').textContent=type.value==='深夜6時間パック'?'選択日の0:00〜6:00（前日24:00開始）の固定パックです。':type.value==='シェアレンタル'?'シェア利用は貸切ではありません。利用条件は確認制です。':'通常レンタルは23:00まで利用可能です。時刻は空き枠表示ではありません。';
       };
       const refresh=()=>{
         const e=estimate(),warn=validatePlan();
