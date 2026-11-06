@@ -69,6 +69,21 @@ assert.match(rental,/data-rental-choice="シェアレンタル"/);
 assert.match(rental,/validatePlan/);
 assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
+for(const id of ['rental-calendar','rental-calendar-days','rental-month-label','rental-prev-month','rental-next-month','rental-time-options','rental-summary-total','rental-summary-plan']){
+ assert.ok(rental.includes('id="'+id+'"'),'Rental calendar UI keeps '+id);
+}
+assert.match(rental,/const renderCalendar=/);
+assert.match(rental,/const renderTimes=/);
+assert.match(rental,/const estimate=/);
+assert.match(rental,/const validatePlan=/);
+assert.match(rental,/aria-pressed/);
+assert.match(rental,/¥3,500/);
+assert.match(rental,/¥1,500/);
+assert.match(rental,/¥4,000/);
+assert.match(rental,/¥500/);
+assert.match(rental,/空き状況は確認制/);
+assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
+
 
 const workshops=read('workshops/index.html');
 assert.match(workshops,/href="#explore">開催予定から探す/);
