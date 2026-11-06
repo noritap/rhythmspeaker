@@ -58,7 +58,7 @@ for(const [key,label] of [['standard10','スタンダード10'],['premium25','�
  assert.match(card,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 }
 const rental=read('rental/index.html');
-for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜レンタル','¥4,000'],['シェアレンタル','¥500']]){
+for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜6時間パック','¥4,000'],['シェアレンタル','¥500']]){
  assert.ok(rental.includes(label),label+' rental plan must exist');
  assert.ok(rental.includes(price),price+' must be shown in yen');
 }
