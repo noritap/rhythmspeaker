@@ -63,6 +63,20 @@ for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引',
  assert.ok(rental.includes(price),price+' must be shown in yen');
 }
 assert.match(rental,/id="rental-request"/);
+assert.match(rental,/assets\/ux-lab\/app\.css/);
+assert.match(rental,/data-ux-source="sites-v6"/);
+assert.match(rental,/id="menu-button"/);
+assert.match(rental,/id="rental-shared-navigation"/);
+assert.match(rental,/id="rsr-brand-v4"/);
+assert.match(rental,/class="context-nav"/);
+assert.match(rental,/class="brand-name"/);
+assert.match(rental,/初回体験 ¥1,000/);
+assert.match(rental,/スタジオを、<br>自由に使う。/);
+assert.match(rental,/class="rsr-hero-media"/);
+assert.match(rental,/class="button primary rsr-submit"/);
+assert.doesNotMatch(rental,/href="\.\.\/style\.css"/);
+assert.doesNotMatch(rental,/class="nav-links"/);
+
 assert.match(rental,/data-plan="平日朝割引"/);
 assert.match(rental,/data-plan="深夜6時間パック"/);
 assert.match(rental,/data-plan="シェアレンタル"/);
@@ -95,7 +109,7 @@ assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
 assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
-assert.match(rental,/空き状況は返信で確認/);
+assert.match(rental,/空き状況はLINEの返信で確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 
 
