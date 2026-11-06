@@ -63,9 +63,9 @@ for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引',
  assert.ok(rental.includes(price),price+' must be shown in yen');
 }
 assert.match(rental,/id="rental-request"/);
-assert.match(rental,/data-rental-choice="平日朝割引"/);
-assert.match(rental,/data-rental-choice="深夜6時間パック"/);
-assert.match(rental,/data-rental-choice="シェアレンタル"/);
+assert.match(rental,/data-plan="平日朝割引"/);
+assert.match(rental,/data-plan="深夜6時間パック"/);
+assert.match(rental,/data-plan="シェアレンタル"/);
 assert.match(rental,/validatePlan/);
 assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
@@ -92,7 +92,7 @@ assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
 assert.match(rental,/¥4,000/);
 assert.match(rental,/¥500/);
-assert.match(rental,/空き状況は確認制/);
+assert.match(rental,/空き状況は返信で確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 
 
