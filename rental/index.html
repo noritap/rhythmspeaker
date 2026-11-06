@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>スタジオレンタル｜通常レンタル・赤字なしレンタル STARTER SUPPORT｜Rhythm Speaker 池袋</title>
-  <meta name="description" content="Rhythm Speaker池袋スタジオのレンタル案内。通常レンタルに加え、初めてのWSや新企画を小さく始めたい方向けに、利益が出なければスタジオ利用料0円のSTARTER SUPPORTをPilot運用しています。">
+  <title>池袋のレンタルダンススタジオ｜料金・写真・利用相談｜Rhythm Speaker</title>
+  <meta name="description" content="池袋駅徒歩3分のRhythm Speakerレンタルスタジオ。実際のフロア写真・設備・通常レンタル料金・自主練習・ワークショップ支援を確認し、希望日時をLINEで相談できます。">
   <link rel="canonical" href="https://noritap.github.io/rhythmspeaker/rental/">
   <link rel="icon" type="image/png" href="../logo.png">
   <link rel="stylesheet" href="../style.css">
@@ -31,6 +31,43 @@
     @media(max-width:820px){.rental-hero{min-height:auto;background:linear-gradient(180deg,rgba(8,8,8,.78),rgba(8,8,8,.94)),url('../assets/home-hero-studio-v4.jpg') center/cover no-repeat}.rental-purpose-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rental-photo-layout{grid-template-columns:1fr}.rental-photo-layout img{height:auto;max-height:380px;object-fit:contain}.rental-purpose-card{min-height:145px}}
     @media(max-width:480px){.rental-purpose-grid{gap:.7rem}.rental-purpose-card{padding:1rem;min-height:140px}.rental-purpose-card strong{font-size:1rem}.rental-hero{padding:3.2rem 5% 3.6rem}}
   </style>
+
+  <style>
+    /* Decision-first rental design, deliberately isolated from sitewide navigation. */
+    html{scroll-behavior:smooth}
+    body{background:#fff;color:#171717}
+    .rental-inner{max-width:1160px;margin:0 auto;width:100%}
+    main [id]{scroll-margin-top:118px}
+    .rsr-intro{background:#f6f5f2;padding:1.5rem 5% 3rem}
+    .rsr-crumb{font-size:.82rem;color:#555;margin-bottom:1.4rem}.rsr-crumb a{color:inherit}
+    .rsr-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(1.3rem,4vw,4rem)}
+    .rsr-eyebrow{font:700 .73rem 'Outfit',sans-serif;letter-spacing:.17em;color:#ab2431;margin:0 0 .85rem}
+    .rsr-hero h1{font-size:clamp(2.25rem,4.2vw,4.3rem);line-height:1.18;letter-spacing:-.045em;margin:.5rem 0 1.1rem}
+    .rsr-lead{font-size:clamp(1rem,1.6vw,1.18rem);line-height:1.85;color:#383838;max-width:32rem}
+    .rsr-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0}.rsr-chips span{background:#fff;border:1px solid #ddd;padding:.4rem .68rem;border-radius:8px;font-size:.82rem}
+    .rsr-hero-actions{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:1.4rem}
+    .rsr-quiet-link{color:#333;font-weight:700;text-underline-offset:4px}
+    .rsr-hero-media{position:relative;min-width:0;overflow:hidden;border-radius:14px;box-shadow:0 22px 46px rgba(0,0,0,.12)}
+    .rsr-hero-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+    .rsr-photo-label{position:absolute;bottom:14px;left:14px;font-size:.75rem;font-weight:700;color:#fff;background:rgba(0,0,0,.72);padding:.4rem .7rem;border-radius:4px}
+    .rsr-quickbar{border-bottom:1px solid #e2e2e2;background:#fff}.rsr-quickgrid{display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:stretch;padding:1.2rem 0;gap:1.1rem}
+    .rsr-quickgrid>div{border-right:1px solid #e7e7e7;padding:.3rem .5rem}.rsr-quicklabel{display:block;color:#656565;font-size:.76rem;margin-bottom:.35rem}.rsr-quickgrid strong{display:block;font-size:1.25rem;letter-spacing:-.015em}.rsr-quickgrid strong small{font-size:.76rem}.rsr-subnote{display:block;font-size:.72rem;color:#777;margin-top:.3rem}
+    .rsr-quick-action{display:flex;align-items:center;gap:1rem;color:#fff;text-decoration:none;background:#b92331;padding:1rem 1.2rem;border-radius:9px;font-weight:700}
+    .rsr-section{padding:4.3rem 5%}.rsr-section h2{font-size:clamp(1.8rem,3.1vw,2.7rem);line-height:1.3;letter-spacing:-.02em;margin:.2rem 0 1.1rem}.rsr-section-top{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.6rem}.rsr-section-top>p{max-width:390px;color:#555;line-height:1.75;margin:0}.rsr-muted{background:#f7f7f7}
+    .rsr-gallery{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:.8rem;height:540px}
+    .rsr-gallery a{position:relative;display:block;overflow:hidden;border-radius:10px;color:white;background:#eee}
+    .rsr-gallery a:first-child{grid-row:span 2}.rsr-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}.rsr-gallery a:hover img{transform:scale(1.035)}.rsr-gallery a>span{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:2rem 1rem 1rem;font-size:.87rem;font-weight:700}
+    .rsr-footnote{font-size:.83rem;line-height:1.7;color:#686868;margin:1.1rem 0 0}.rsr-footnote a{color:#90212b;text-underline-offset:3px}
+    .rsr-facility-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem}.rsr-facility{padding:1.3rem 1.1rem;background:#fff;border:1px solid #e5e5e5;border-radius:12px}.rsr-facility-icon{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:900;color:#b92331}.rsr-facility h3{margin:.6rem 0;font-size:1.07rem}.rsr-facility p{color:#555;font-size:.9rem;line-height:1.75;margin:0}
+    .rsr-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.rsr-price-card{border:1px solid #ddd;border-radius:14px;background:#fff;padding:1.6rem;display:flex;flex-direction:column}.rsr-price-primary{border:2px solid #b92331;box-shadow:0 10px 25px rgba(0,0,0,.06)}.rsr-price-top{display:flex;align-items:center;justify-content:space-between;gap:.4rem}.rsr-price-top span{font-size:.7rem;background:#f3f3f3;border-radius:5px;padding:.25rem .5rem}.rsr-price-card h3{font-size:1.35rem;margin:.4rem 0}.rsr-largeprice{font-family:'Outfit',sans-serif;font-weight:900;font-size:2rem;margin:.7rem 0 1rem;white-space:nowrap}.rsr-largeprice small{font:700 .79rem 'Noto Sans JP',sans-serif}.rsr-price-card>p:not(.rsr-largeprice){font-size:.9rem;color:#444;line-height:1.75;margin:.15rem 0 1rem}.rsr-price-card .rsr-price-note{margin-top:auto!important;font-size:.8rem!important;color:#666!important}.rsr-outline-btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1rem;min-height:48px;border-radius:8px;color:#202020;border:1px solid #888;text-decoration:none;font-weight:700;text-align:center;background:#fff}.rsr-price-card a{margin-top:1rem}.rsr-outline-btn:hover,.rsr-outline-btn:focus-visible{border-color:#b92331;color:#b92331}
+    .rsr-booking-section{background:#131313;color:#fff}.rsr-booking-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1.5rem,5vw,5rem);align-items:start}.rsr-booking-copy h2{color:#fff}.rsr-booking-copy>p:not(.rsr-eyebrow){color:#ddd;line-height:1.8}.rsr-steps{border-top:1px solid #444;margin-top:2rem;padding-top:1rem}.rsr-steps p{display:flex;gap:1rem;align-items:baseline;color:#ddd;margin:1rem 0}.rsr-steps strong{color:#fff}.rsr-booking-copy .rsr-safety{padding:1rem;border:1px solid #444;border-radius:10px;font-size:.87rem;color:#ddd}
+    .rsr-request-form{background:#fff;color:#222;padding:1.7rem;border-radius:15px;display:grid;gap:.6rem}.rsr-request-form label{font-size:.86rem;font-weight:700;margin-top:.5rem}.rsr-request-form input,.rsr-request-form select,.rsr-request-form textarea{box-sizing:border-box;width:100%;min-width:0;min-height:48px;border:1px solid #aaa;border-radius:7px;background:#fff;color:#222;font-size:1rem;padding:.65rem .7rem;font-family:inherit}.rsr-request-form textarea{resize:vertical}.rsr-form-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.rsr-form-pair>div{min-width:0;display:grid;gap:.4rem}.rsr-submit{cursor:pointer;min-height:50px;width:100%;margin-top:.4rem}.rsr-copy-btn{border:1px solid #777;border-radius:8px;background:#fff;color:#222;min-height:46px;cursor:pointer;font-weight:700}.rsr-copy-btn:disabled{opacity:.42;cursor:not-allowed}.rsr-request-form .rsr-footnote{font-size:.76rem;margin:.35rem 0}.rsr-direct-line{color:#7f1922;font-size:.86rem;font-weight:700}.rsr-form-status{font-size:.84rem;margin:.2rem 0;color:#8b1b29;min-height:1.25rem}
+    .rsr-access-grid{display:grid;grid-template-columns:1fr .85fr;gap:2rem;align-items:center}.rsr-access-grid>div>p{color:#444;line-height:1.8}.rsr-access-grid img{width:100%;height:320px;object-fit:cover;border-radius:12px}.rsr-support-lead{max-width:770px;line-height:1.85;color:#444}.rsr-support-links{margin:1.1rem 0 2rem}.rsr-advanced{border:1px solid #ddd;background:#fff;border-radius:14px;overflow:hidden}.rsr-advanced>summary{cursor:pointer;padding:1.1rem 1.4rem;font-weight:700;display:flex;justify-content:space-between;gap:1rem;align-items:center;min-height:54px}.rsr-advanced>summary:hover{background:#f9f9f9}.rsr-advanced>summary:focus-visible{outline:3px solid #bd2734;outline-offset:-3px}.rsr-advanced[open]>summary{border-bottom:1px solid #ddd}.rsr-advanced-body .section{padding:2.5rem 5%}.rsr-advanced-body .rental-inner{max-width:950px}.rsr-advanced-body .section h2{font-size:clamp(1.45rem,2.6vw,2rem)}.rsr-advanced-body .section.dark{color:#fff}.rsr-advanced-body .section.dark h2{color:#fff}
+    @media(max-width:960px){.rsr-hero{grid-template-columns:1fr}.rsr-quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rsr-quickgrid>div{border-right:none}.rsr-quick-action{justify-content:space-between}.rsr-facility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rsr-price-grid{grid-template-columns:1fr 1fr}.rsr-booking-grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.rsr-intro{padding:1rem 5% 2.3rem}.rsr-hero h1{font-size:2.55rem}.rsr-section{padding:3.1rem 5%}.rsr-section-top{display:block}.rsr-section-top>p{max-width:none}.rsr-quickgrid{gap:.65rem}.rsr-quickgrid strong{font-size:1.05rem}.rsr-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;height:auto}.rsr-gallery a:first-child{grid-column:span 2;grid-row:auto}.rsr-gallery a{aspect-ratio:1.1}.rsr-gallery a:first-child{aspect-ratio:4/3}.rsr-gallery img{height:100%}.rsr-facility-grid{grid-template-columns:1fr 1fr;gap:.65rem}.rsr-facility{padding:1rem}.rsr-facility p{font-size:.82rem}.rsr-price-grid{grid-template-columns:1fr}.rsr-request-form{padding:1.05rem}.rsr-access-grid{grid-template-columns:1fr}.rsr-access-grid img{height:270px}.rsr-advanced-body .section{padding:2rem 4%}.rsr-advanced-body .concept-box,.rsr-advanced-body .growth,.rsr-advanced-body .guardrails,.rsr-advanced-body .time-grid,.rsr-advanced-body .area-grid,.rsr-advanced-body .contribution-grid,.rsr-advanced-body .flow{grid-template-columns:1fr}}
+    @media(max-width:380px){.rsr-hero h1{font-size:2.15rem}.rsr-quickgrid{grid-template-columns:1fr}.rsr-facility-grid{grid-template-columns:1fr}.rsr-form-pair{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rsr-gallery img{transition:none}}
+  </style>
 </head>
 <body>
   <nav>
@@ -53,58 +90,123 @@
     <a href="https://lin.ee/zC5YLe7" class="btn btn-primary cta-nav">LINEで相談</a>
   </nav>
 
-  <main>
-    <section class="rental-hero"><div class="rental-inner">
-      <div class="breadcrumb"><a href="../">教室トップ</a> / スタジオレンタル</div>
-      <p class="eyebrow">STUDIO RENTAL / IKEBUKURO</p>
-      <h1>踊る。練習する。<br>教える。撮る。</h1>
-      <p class="hero-lead">あなたの活動を、ここから。池袋のRhythm Speakerを、練習・リハーサル・ワークショップ・撮影の場所として利用できます。</p>
-      <span class="hero-highlight">通常レンタル：3,500 TIPS / 1時間</span>
-      <div class="hero-actions"><a href="#rental-purpose" class="btn btn-primary">利用方法を選ぶ</a><a href="#rental-contact" class="btn btn-secondary">希望日時を相談する</a></div>
-    </div></section>
-
-    <section class="section alt rental-anchor" id="rental-purpose"><div class="rental-inner">
-      <p class="eyebrow">HOW WILL YOU USE IT?</p><h2>何に使いますか？</h2>
-      <p class="lead">用途に合わせて、利用方法や料金を確認できます。</p>
-      <div class="rental-purpose-grid">
-        <a class="rental-purpose-card" href="#plans"><strong>個人・グループ練習</strong><span>自主練習、リハーサル、作品制作<br><span class="purpose-arrow">通常レンタルを見る →</span></span></a>
-        <a class="rental-purpose-card" href="#starter"><strong>レッスン・ワークショップ</strong><span>初開催や新しい企画の相談も<br><span class="purpose-arrow">支援制度を見る →</span></span></a>
-        <a class="rental-purpose-card" href="#plans"><strong>撮影・配信</strong><span>ダンス動画・写真・映像制作<br><span class="purpose-arrow">通常レンタルを見る →</span></span></a>
-        <a class="rental-purpose-card" href="#rental-contact"><strong>定期利用・その他</strong><span>継続利用や個別条件の相談<br><span class="purpose-arrow">日時を相談する →</span></span></a>
+  <main id="main">
+    <section class="rsr-intro">
+      <div class="rental-inner rsr-crumb"><a href="../">教室トップ</a><span aria-hidden="true"> / </span><span>スタジオレンタル</span></div>
+      <div class="rental-inner rsr-hero">
+        <div class="rsr-hero-copy">
+          <span class="rsr-eyebrow">RHYTHM SPEAKER / STUDIO RENTAL</span>
+          <h1>池袋の<br>レンタルダンススタジオ</h1>
+          <p class="rsr-lead">タップダンスの練習から、リハーサル、レッスン、撮影まで。あなたの活動に使えるスタジオ。</p>
+          <div class="rsr-chips"><span>池袋駅 西口から徒歩3分</span><span>タップダンス対応</span><span>時間貸し</span></div>
+          <div class="rsr-hero-actions"><a class="btn btn-primary" href="#rental-booking">希望日時を相談する</a><a class="rsr-quiet-link" href="#studio-gallery">写真・設備を見る ↓</a></div>
+        </div>
+        <div class="rsr-hero-media">
+          <img src="../assets/home-hero-studio-v5.jpg" width="1200" height="675" alt="Rhythm Speaker池袋スタジオの室内" decoding="async" fetchpriority="high">
+          <span class="rsr-photo-label">実際のスタジオ写真</span>
+        </div>
       </div>
-    </div></section>
-
-    <section class="section rental-anchor" id="studio-photos"><div class="rental-inner">
-      <p class="eyebrow">REAL STUDIO</p><h2>写真で見るRhythm Speaker</h2>
-      <p class="lead">実際のスタジオと設備をご覧ください。利用目的に応じたレイアウトや設備は事前にご相談いただけます。</p>
-      <div class="rental-photo-layout">
-        <figure><img src="../assets/home-hero-studio-v4.jpg" width="960" height="540" alt="Rhythm Speakerの実際のスタジオ室内" loading="lazy" decoding="async"><figcaption>スタジオ室内。練習やレッスンの利用イメージをご確認いただけます。</figcaption></figure>
-        <figure><img src="../assets/photo-library/real/studio/studio-5631.jpg" width="900" height="675" alt="Rhythm Speakerのシューズ収納と設備の一部" loading="lazy" decoding="async"><figcaption>設備の一部。シューズの利用については事前にご相談ください。</figcaption></figure>
+    </section>
+    <section class="rsr-quickbar" aria-label="レンタル基本情報">
+      <div class="rental-inner rsr-quickgrid">
+        <div><span class="rsr-quicklabel">通常レンタル</span><strong>3,500 <small>TIPS / 1時間</small></strong></div>
+        <div><span class="rsr-quicklabel">自主練習</span><strong>400 <small>TIPS / 1時間</small></strong><span class="rsr-subnote">適用条件は要確認</span></div>
+        <div><span class="rsr-quicklabel">場所</span><strong>池袋駅 徒歩3分</strong></div>
+        <a class="rsr-quick-action" href="#rental-booking">希望日時を送る <span aria-hidden="true">→</span></a>
       </div>
-    </div></section>
-
-    <section class="section alt rental-anchor" id="plans"><div class="rental-inner">
-      <h2>借りるだけ。育てながら使う。<br>2つのレンタル方法。</h2>
-      <p class="lead">練習や撮影など、通常の場所利用なら通常レンタル。初開催のWSや新しい企画を実践しながら育てたい場合はSTARTER SUPPORTが対象です。</p>
-      <div class="plan-grid">
-        <article class="plan-card">
-          <span class="plan-kicker">STANDARD RENTAL</span><h3>通常レンタル</h3><p class="price">3,500 TIPS / 1時間</p>
-          <p class="muted">個人練習、グループ練習、リハーサル、撮影、作品制作、WS準備など、通常のスタジオ利用向けです。</p>
-          <ul class="check-list"><li>空き時間から日時を相談</li><li>利用目的・時間を確認して予約確定</li><li>収益分配・事例協力は原則不要</li><li>キャンセルは原則1週間前まで</li></ul>
-          <a class="btn btn-primary" href="https://line.me/R/oaMessage/%40ypk3334t/?%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%AA%E9%80%9A%E5%B8%B8%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%EF%BC%883%2C500%20TIPS%20%2F%201%E6%99%82%E9%96%93%EF%BC%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%80%81%E5%88%A9%E7%94%A8%E7%9B%AE%E7%9A%84%E3%81%A8%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%99%82%E3%82%92%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82">通常レンタルを相談する</a>
-        </article>
-        <article class="plan-card featured rental-anchor" id="starter">
-          <span class="badge badge-accent">PILOT</span> <span class="plan-kicker">STARTER SUPPORT</span><h3>赤字なしレンタル</h3>
-          <p class="price">対象利益の30%</p>
-          <p class="muted">初めてWSを開催する方、集客実績がまだ少ない方、新しい企画を小さく試したい方向けの立ち上げ支援枠です。</p>
-          <div class="promise">対象利益 = 売上 − 事前確認した直接経費<br>対象利益が0円以下ならRS利用料 = 0円</div>
-          <ul class="check-list"><li>最初から大人数を集めなくても相談可能</li><li>利益が出ない回も一定回数は検証として扱う</li><li>開催実績・発信・コンテンツ協力は次回条件に反映</li><li>継続するほどGROWTH / PARTNERへステップアップ</li></ul>
-          <a class="btn btn-primary" href="https://line.me/R/oaMessage/%40ypk3334t/?STARTER%20SUPPORT%EF%BC%88%E8%B5%A4%E5%AD%97%E3%81%AA%E3%81%97%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%EF%BC%89%E3%81%AE%E5%AF%BE%E8%B1%A1%E6%9D%A1%E4%BB%B6%E3%81%A8%E4%BC%81%E7%94%BB%E3%83%BB%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%99%82%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82">STARTER SUPPORTを相談する</a>
-          <p class="fineprint">Pilot制度のため、利用可否・対象経費・日時・精算・協力内容は企画ごとに事前確認して確定します。</p>
-        </article>
+    </section>
+    <section class="rsr-section" id="studio-gallery">
+      <div class="rental-inner">
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">THE SPACE</p><h2>写真で、スタジオを確認する。</h2></div><p>使う場所を、借りる前に。スタジオの実写と設備の一部をご覧いただけます。</p></div>
+        <div class="rsr-gallery">
+          <a href="../assets/images/studio/reference/studio-06.jpg" target="_blank" rel="noopener" class="rsr-gallery-main"><img src="../assets/images/studio/reference/studio-06.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="Rhythm Speakerのダンスフロア・室内の広角写真"><span>フロア全体を見る <span aria-hidden="true">↗</span></span></a>
+          <a href="../assets/images/studio/reference/studio-05.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-05.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="別角度から見たダンスフロアと鏡"><span>別角度から見る ↗</span></a>
+          <a href="../assets/images/trial/trial-real-rental-shoes-v1.webp" target="_blank" rel="noopener"><img src="../assets/images/trial/trial-real-rental-shoes-v1.webp" width="960" height="960" loading="lazy" decoding="async" alt="Rhythm Speakerのレンタルシューズ"><span>シューズ・用品を見る ↗</span></a>
+        </div>
+        <p class="rsr-footnote">掲載写真は撮影時点の実景です。備品の配置・利用条件は変更される場合があります。写真を押すと拡大できます。</p>
       </div>
-    </div></section>
-
+    </section>
+    <section class="rsr-section rsr-muted" id="studio-spec">
+      <div class="rental-inner">
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">FACILITY & USE</p><h2>使える場所・設備をチェック。</h2></div><p>ダンスのための床と鏡を備えたスタジオ。撮影やワークショップなど用途に応じてご相談ください。</p></div>
+        <div class="rsr-facility-grid">
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">01</span><h3>ダンスフロア</h3><p>実際の床の状態は写真で確認できます。タップシューズや床の使用条件は事前にご相談ください。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">02</span><h3>鏡・室内設備</h3><p>鏡、受付カウンター、収納など、写真で確認できる設備があります。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">03</span><h3>レンタルシューズ</h3><p>タップシューズの貸出については、必要なサイズ・数量を事前にお問い合わせください。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">04</span><h3>撮影・イベント</h3><p>撮影機材の持込、音響利用、人数、準備・撤収時間などは用途に応じて確認します。</p></div>
+        </div>
+        <p class="rsr-footnote">床面積・最大利用人数・備品の利用可否など、掲載のない仕様はお申し込み前に確認します。未確認の数値は表示していません。</p>
+      </div>
+    </section>
+    <section class="rsr-section" id="rental-pricing">
+      <div class="rental-inner">
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">PRICE & PLANS</p><h2>利用方法と料金。</h2></div><p>まずは通常レンタル。目的に応じた練習利用や、新しい企画向けの制度もあります。</p></div>
+        <div class="rsr-price-grid">
+          <article class="rsr-price-card rsr-price-primary">
+            <div class="rsr-price-top"><p class="rsr-eyebrow">STANDARD RENTAL</p><span>基本プラン</span></div><h3>通常レンタル</h3>
+            <p class="rsr-largeprice">3,500 <small>TIPS / 1時間</small></p>
+            <p>グループ練習・リハーサル・レッスン・動画撮影などに。利用目的と希望日時を確認のうえご案内します。</p>
+            <p class="rsr-price-note">キャンセルは原則1週間前まで。収益分配・事例協力は原則不要です。</p>
+            <a href="#rental-booking" class="btn btn-primary" data-rental-choice="通常レンタル">このプランで相談する</a>
+          </article>
+          <article class="rsr-price-card">
+            <div class="rsr-price-top"><p class="rsr-eyebrow">PRACTICE</p><span>適用条件あり</span></div><h3>自主練習</h3>
+            <p class="rsr-largeprice">400 <small>TIPS / 1時間</small></p>
+            <p>公式料金ページに掲載されている練習向け料金です。対象者や利用可能時間など、適用条件を事前に確認します。</p>
+            <p class="rsr-price-note">一般のスタジオ貸切料金として自動適用されるものではありません。</p>
+            <a href="#rental-booking" class="rsr-outline-btn" data-rental-choice="自主練習（適用条件の確認）">適用条件を相談する</a>
+          </article>
+          <article class="rsr-price-card">
+            <div class="rsr-price-top"><p class="rsr-eyebrow">STARTER SUPPORT</p><span>Pilot制度</span></div><h3>初開催・企画支援</h3>
+            <p class="rsr-largeprice">30% <small>対象利益に対して</small></p>
+            <p>初めてのワークショップなどを小さく始める人へ。対象利益が0円以下ならRSスタジオ利用料は0円。</p>
+            <p class="rsr-price-note">個別審査・利用時間・予約回数・精算条件があります。</p>
+            <a href="#rental-support" class="rsr-outline-btn">制度の条件を見る</a>
+          </article>
+        </div>
+        <p class="rsr-footnote">TIPSはRhythm Speakerの専用ポイントです。上記は円額ではありません。チャージ条件・利用方法は<a href="../pricing/">料金・通い方</a>をご確認ください。</p>
+      </div>
+    </section>
+    <section class="rsr-section rsr-booking-section" id="rental-booking">
+      <div class="rental-inner rsr-booking-grid">
+        <div class="rsr-booking-copy"><p class="rsr-eyebrow">REQUEST A TIME</p><h2>希望日時を、かんたんに相談。</h2><p>利用目的と日時を選ぶだけで、公式LINEに送る相談文を作成できます。</p>
+          <div class="rsr-steps"><p><strong>01</strong> 利用内容・希望日時を選ぶ</p><p><strong>02</strong> LINEで内容を送信</p><p><strong>03</strong> スタジオからの返信で予約確定</p></div>
+          <p class="rsr-safety">空き状況のリアルタイム判定は行っていません。希望日時の送信だけで予約は成立しません。</p>
+        </div>
+        <form id="rental-request" class="rsr-request-form">
+          <label for="rental-type">利用方法</label>
+          <select id="rental-type" name="rental-type"><option value="通常レンタル">通常レンタル</option><option value="自主練習（適用条件の確認）">自主練習（適用条件の確認）</option><option value="STARTER SUPPORT">STARTER SUPPORT（企画支援）</option><option value="定期利用・その他">定期利用・その他</option></select>
+          <label for="rental-purpose-input">利用目的</label>
+          <select id="rental-purpose-input" name="purpose"><option value="練習・リハーサル">練習・リハーサル</option><option value="レッスン・ワークショップ">レッスン・ワークショップ</option><option value="撮影・配信">撮影・配信</option><option value="その他">その他</option></select>
+          <div class="rsr-form-pair">
+            <div><label for="rental-date">希望日</label><input type="date" id="rental-date" name="date" required></div>
+            <div><label for="rental-time">開始希望時刻</label><input type="time" id="rental-time" name="time" required></div>
+          </div>
+          <div class="rsr-form-pair">
+            <div><label for="rental-duration">利用時間</label><select id="rental-duration" name="duration"><option>1時間</option><option selected>2時間</option><option>3時間</option><option>4時間</option><option>それ以上（相談）</option></select></div>
+            <div><label for="rental-people">利用人数（予定）</label><input type="number" id="rental-people" name="people" min="1" max="999" placeholder="未定でも可"></div>
+          </div>
+          <label for="rental-notes">補足・相談したいこと（任意）</label><textarea id="rental-notes" rows="2" maxlength="400" placeholder="必要な設備・撮影内容・企画の概要など"></textarea>
+          <p class="rsr-form-status" id="rental-form-status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary rsr-submit">LINEで希望内容を送る</button>
+          <button type="button" class="rsr-copy-btn" id="rental-copy" disabled>相談文をコピーする</button>
+          <p class="rsr-footnote">入力内容はこのページからサーバーに保存されません。LINEで送信する内容を作成するためだけに使用します。</p>
+          <a class="rsr-direct-line" href="https://lin.ee/zC5YLe7">入力せず、公式LINEで相談する →</a>
+        </form>
+      </div>
+    </section>
+    <section class="rsr-section" id="rental-access">
+      <div class="rental-inner rsr-access-grid">
+        <div><p class="rsr-eyebrow">ACCESS</p><h2>池袋駅から徒歩3分。</h2><p>東京都豊島区西池袋3-22-10<br>大晃第7ビル B1</p><p>池袋駅 西口（中央）からアクセスできます。はじめての方は道順をご確認ください。</p><a href="../access/" class="rsr-outline-btn">写真・地図でアクセスを見る →</a></div>
+        <img src="../assets/images/trial/trial-real-studio-floor-v1.webp" width="960" height="960" loading="lazy" decoding="async" alt="Rhythm Speaker池袋スタジオのフロアと鏡">
+      </div>
+    </section>
+    <section class="rsr-section rsr-muted" id="rental-support">
+      <div class="rental-inner">
+        <p class="rsr-eyebrow">STARTER SUPPORT</p><h2>初めての企画を、小さく始める。</h2><p class="rsr-support-lead">通常レンタルとは別に、収益に連動したスタジオ利用制度をPilot運用しています。対象利益の30%をスタジオ利用料とし、対象利益が0円以下の場合はRSスタジオ利用料0円。適用条件・直接経費・利用時間などは事前確認が必要です。</p>
+        <div class="rsr-support-links"><a class="rsr-outline-btn" href="#rental-booking" data-rental-choice="STARTER SUPPORT">企画を相談する</a></div>
+        <details class="rsr-advanced"><summary>STARTER SUPPORTの詳細条件・精算例・FAQを確認する <span aria-hidden="true">＋</span></summary>
+          <div class="rsr-advanced-body">
     <section class="section"><div class="rental-inner">
       <div class="concept-box">
         <div class="concept-copy"><p class="eyebrow">WHY STARTER SUPPORT</p><h2>「安く借りる制度」ではありません。</h2><p>Rhythm Speakerの空き時間を使って、新しい講師・企画・活動が最初の一歩を踏み出し、実績を作り、次の挑戦へ進むための支援制度です。</p></div>
@@ -200,14 +302,64 @@
       </div>
     </div></section>
 
-    <section class="section alt rental-anchor" id="rental-contact"><div class="rental-inner"><div class="cta-box">
-      <p class="eyebrow">START SMALL. GROW TOGETHER.</p><h2>希望日時・利用目的をご相談ください。</h2>
-      <p>通常レンタルは利用目的・希望日時・利用人数を、STARTER SUPPORTは企画内容・参加料金も分かる範囲でお知らせください。管理側からの確定案内をもって予約成立となります。</p>
-      <div class="cta-row"><a class="btn btn-primary" href="https://line.me/R/oaMessage/%40ypk3334t/?STARTER%20SUPPORT%E3%82%92%E6%A4%9C%E8%A8%8E%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E4%BC%81%E7%94%BB%E5%86%85%E5%AE%B9%E3%83%BB%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%99%82%E3%83%BB%E5%AF%BE%E8%B1%A1%E6%9D%A1%E4%BB%B6%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82">STARTER SUPPORTをLINEで相談する</a><a class="btn btn-secondary" href="../ecosystem/">サービス一覧へ戻る</a></div>
-      <p class="fineprint">STARTER SUPPORTはPilot運用中です。公開ページの条件は運用実績に応じてVersion Updateします。</p>
-    </div></div></section>
+
+          </div>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer><div class="footer-logo"><img src="../logo.png" alt="" class="logo-img footer-logo-img"><span class="footer-logo-text">Rhythm Speaker</span></div><p class="copyright">&copy; 2026 Rhythm Speaker. All Rights Reserved.</p></footer>
+
+  <script>
+    (() => {
+      const form = document.getElementById('rental-request');
+      if (!form) return;
+      const dateInput = document.getElementById('rental-date');
+      const status = document.getElementById('rental-form-status');
+      const copy = document.getElementById('rental-copy');
+      const timezoneDay = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
+      dateInput.min = timezoneDay;
+      let draft = '';
+      const build = () => {
+        if (!dateInput.value || !document.getElementById('rental-time').value) return '';
+        const people = document.getElementById('rental-people').value;
+        const notes = document.getElementById('rental-notes').value.trim();
+        return ['Rhythm Speaker スタジオレンタルの希望日時について相談です。',
+          '利用方法：' + document.getElementById('rental-type').value,
+          '利用目的：' + document.getElementById('rental-purpose-input').value,
+          '希望日：' + dateInput.value,
+          '開始希望時刻：' + document.getElementById('rental-time').value,
+          '利用時間：' + document.getElementById('rental-duration').value,
+          '利用人数：' + (people ? people + '名' : '未定'),
+          notes ? '補足：' + notes : '',
+          '空き状況・利用条件をご確認ください。'].filter(Boolean).join('\n');
+      };
+      const refresh = () => { draft = build(); copy.disabled = !draft; status.textContent = ''; };
+      form.addEventListener('input', refresh);
+      form.addEventListener('change', refresh);
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        draft = build();
+        if (!draft) {status.textContent = '希望日と開始時刻を入力してください。';return;}
+        const url = 'https://line.me/R/oaMessage/%40ypk3334t/?' + encodeURIComponent(draft);
+        status.textContent = 'LINEで内容をご確認のうえ送信してください。送信だけでは予約確定になりません。';
+        window.location.href = url;
+      });
+      copy.addEventListener('click', async () => {
+        draft = build();
+        if (!draft) return;
+        try {await navigator.clipboard.writeText(draft);status.textContent = '相談文をコピーしました。公式LINEに貼り付けて送信してください。';}
+        catch (err) {status.textContent = 'コピーできませんでした。LINEボタンからお進みください。';}
+      });
+      document.querySelectorAll('[data-rental-choice]').forEach(el => el.addEventListener('click', () => {
+        const choice=el.getAttribute('data-rental-choice');
+        const select=document.getElementById('rental-type');
+        if ([...select.options].some(o=>o.value===choice)) select.value=choice;
+        refresh();
+      }));
+    })();
+  </script>
 </body>
 </html>
