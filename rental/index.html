@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+Rental v5.0 | source: docs/RENTAL_V5_RELEASE_SPEC_20261107.md
+This page is a consultation-first rental experience. Calendar events do not establish bookable inventory.
+New photographs require binary upload + publication approval before linking.
+-->
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -361,15 +366,15 @@ body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
               <div class="rsr-availability-intro">
                 <div>
                   <span class="rsr-availability-kicker">GOOGLE CALENDAR / WEEK VIEW</span>
-                  <h3>空き時間の目安を見る</h3>
-                  <p>スタジオの公開予定を週表示で確認し、希望日時を探せます。</p>
+                  <h3>スタジオの予定から時間を探す</h3>
+                  <p>Googleカレンダーで予定を見てから、ご希望の日時を選べます。</p>
                 </div>
-                <a class="rsr-availability-external" href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">Googleカレンダーで見る <span aria-hidden="true">↗</span></a>
+                <a class="rsr-availability-external" href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">別画面で週間予定を見る <span aria-hidden="true">↗</span></a>
               </div>
               <details class="rsr-availability-expand" id="rental-availability-preview">
-                <summary>このページで週間カレンダーを確認 <span aria-hidden="true">＋</span></summary>
+                <summary>このページに週間予定を表示 <span aria-hidden="true">＋</span></summary>
                 <div class="rsr-availability-content">
-                  <p>カレンダーに予定がない時間でも、予約可能とは限りません。希望日時は下のフォームで選び、LINEで空き状況をご確認ください。</p>
+                  <p>予定が表示されていない時間も予約可能とは限りません。候補を見つけたら下のフォームで希望日時を選び、LINEでご確認ください。</p>
                   <div class="rsr-availability-frame-wrap">
                     <iframe id="rental-google-calendar" title="Rhythm Speaker スタジオの週間予定（Googleカレンダー）" data-src="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                   </div>
@@ -674,7 +679,7 @@ body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
           b.addEventListener('click',()=>{timeInput.value=t;if(type.value==='通常レンタル'&&t==='22:00')duration.value='1時間';renderTimes();refresh();});wrap.append(b);});
         timeInput.readOnly=type.value==='深夜6時間パック';
         duration.disabled=type.value==='深夜6時間パック';
-        $('rental-time-hint').textContent=type.value==='深夜6時間パック'?'選択日の0:00〜6:00（前日24:00開始）の固定パックです。':type.value==='シェアレンタル'?'シェア利用は貸切ではありません。利用条件は確認制です。':'通常レンタルは23:00まで利用可能です。時刻は空き枠表示ではありません。';
+        $('rental-time-hint').textContent=type.value==='深夜6時間パック'?'選択日の0:00〜6:00（前日24:00開始）の固定パックです。':type.value==='平日朝割引'?'平日7:00〜12:00内の利用が割引対象です。':type.value==='シェアレンタル'?'シェア利用は貸切ではありません。利用条件は確認制です。':type.value==='通常レンタル'?'通常レンタルは23:00まで利用できます。':'日時と条件はLINEでご相談ください。';
       };
       const refresh=()=>{
         const e=estimate(),warn=validatePlan();
