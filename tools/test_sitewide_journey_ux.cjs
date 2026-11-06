@@ -63,6 +63,18 @@ for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引',
  assert.ok(rental.includes(price),price+' must be shown in yen');
 }
 assert.match(rental,/id="rental-request"/);
+assert.match(rental,/id="rental-availability"/);
+assert.match(rental,/id="rental-availability-preview"/);
+assert.match(rental,/id="rental-google-calendar"/);
+assert.match(rental,/id="rental-availability-lazy-load"/);
+assert.match(rental,/calendar\.google\.com\/calendar\/u\/0\/embed/);
+assert.match(rental,/mode=WEEK/);
+assert.match(rental,/ctz=Asia%2FTokyo/);
+assert.match(rental,/カレンダーに予定がない時間でも、予約可能とは限りません/);
+assert.match(rental,/frame\.setAttribute\('src',frame\.dataset\.src\)/);
+assert.doesNotMatch(rental,/%230B8043%22|pli=1/);
+assert.ok(rental.indexOf('id="rental-availability"')<rental.indexOf('id="rental-calendar"'),'Availability context should precede preferred-date selector');
+
 assert.match(rental,/assets\/ux-lab\/app\.css/);
 assert.match(rental,/data-ux-source="sites-v6"/);
 assert.match(rental,/id="menu-button"/);
