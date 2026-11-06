@@ -76,6 +76,17 @@ assert.match(rental,/const renderCalendar=/);
 assert.match(rental,/const renderTimes=/);
 assert.match(rental,/const estimate=/);
 assert.match(rental,/const validatePlan=/);
+assert.match(rental,/const isPastStart=/);
+assert.match(rental,/jstNow/);
+assert.match(rental,/<option value="STARTER SUPPORT">/);
+assert.match(rental,/data-rental-choice="STARTER SUPPORT"/);
+assert.match(rental,/id="rental-pricing"/);
+assert.match(rental,/rsr-pricing-compact/);
+assert.match(rental,/rsr-custom-time/);
+assert.match(rental,/料金プランの詳細・利用条件/);
+assert.match(rental,/if\(p==='深夜6時間パック'&&dateInput\.value===today\(\)\)dateInput\.value=''/);
+assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
+
 assert.match(rental,/aria-pressed/);
 assert.match(rental,/¥3,500/);
 assert.match(rental,/¥1,500/);
