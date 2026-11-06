@@ -297,6 +297,32 @@ body[data-ux-source="sites-v6"] .rsr-visual-more:focus-within{outline-offset:3px
 }
 @media(prefers-reduced-motion:reduce){body[data-ux-source="sites-v6"] .rsr-visual-primary img{transition:none}}
 </style>
+<style id="rsr-availability-calendar-style">
+/* The calendar is optional context beside the existing preferred-date selector. */
+body[data-ux-source="sites-v6"] .rsr-availability-guide{margin:0 0 2rem;border:1px solid var(--border);background:var(--paper);color:var(--ink)}
+body[data-ux-source="sites-v6"] .rsr-availability-intro{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+body[data-ux-source="sites-v6"] .rsr-availability-kicker{font-size:10px;letter-spacing:.13em;font-weight:700;color:var(--muted)}
+body[data-ux-source="sites-v6"] .rsr-availability-intro h3{font-size:clamp(16px,2vw,20px);line-height:1.4;margin:4px 0}
+body[data-ux-source="sites-v6"] .rsr-availability-intro p{font-size:12px;color:var(--muted);margin:2px 0 0;line-height:1.6}
+body[data-ux-source="sites-v6"] .rsr-availability-external{display:flex;align-items:center;gap:10px;min-height:42px;padding:8px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-availability-external:hover{background:#333}
+body[data-ux-source="sites-v6"] .rsr-availability-expand{border-top:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary{list-style:none;cursor:pointer;padding:13px 20px;font-size:12px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary::-webkit-details-marker{display:none}
+body[data-ux-source="sites-v6"] .rsr-availability-expand[open]>summary{border-bottom:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-availability-content{padding:15px 20px 20px}
+body[data-ux-source="sites-v6"] .rsr-availability-content p{font-size:12px;color:var(--muted);line-height:1.7;margin:0 0 12px}
+body[data-ux-source="sites-v6"] .rsr-availability-frame-wrap{width:100%;min-height:520px;overflow:hidden;background:#fff;border:1px solid var(--border)}
+body[data-ux-source="sites-v6"] #rental-google-calendar{width:100%;height:520px;border:0;background:white;display:block}
+body[data-ux-source="sites-v6"] .rsr-availability-fallback{margin:10px 0 0!important}
+body[data-ux-source="sites-v6"] .rsr-availability-fallback a{color:var(--ink);font-weight:700}
+@media(max-width:720px){body[data-ux-source="sites-v6"] .rsr-availability-intro{display:block;padding:16px}
+body[data-ux-source="sites-v6"] .rsr-availability-external{margin-top:12px;justify-content:center;white-space:normal}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary{padding:14px 16px}
+body[data-ux-source="sites-v6"] .rsr-availability-content{padding:14px 16px}
+body[data-ux-source="sites-v6"] .rsr-availability-frame-wrap{min-height:410px}
+body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
+</style>
 </head>
 <body data-ux-source="sites-v6"><a class="skip" href="#main">本文へ移動</a><header><div class="brand"><a class="brand-mark" href="../ecosystem/" aria-label="ブランドマーク：Rhythm Speaker 全サービスへ"><img src="/rhythmspeaker/logo.png" width="42" height="42" alt=""></a><a class="brand-name" href="../" aria-label="Rhythm Speaker 教室トップへ">Rhythm Speaker<small>TAP DANCE STUDIO / IKEBUKURO</small></a></div><nav aria-label="主要メニュー"><a href="../schedule/">レッスン日程</a><a href="../pricing/">料金・通い方</a><a href="../classes/">クラス</a><a href="../instructors/">講師</a><a href="../access/">アクセス</a></nav><a class="button primary nav-cta cta-nav" href="../trial/apply/">初回体験 ¥1,000 <span>↗</span></a><button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">メニュー <span aria-hidden="true">＋</span></button><div id="menu" class="rs-menu" hidden><nav class="rs-menu-nav" aria-label="すべてのページ"><section class="rs-menu-group rs-menu-group--quick" aria-label="よく使うメニュー"><p class="rs-menu-label">よく使うメニュー</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--schedule" href="../schedule/"><strong>レッスン日程</strong><small>日時・講師から探す</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--trial" href="../trial/"><strong>初回体験 ¥1,000</strong><small>初めての方はこちら</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--lessons" aria-label="教室・レッスン"><p class="rs-menu-label">教室・レッスン</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--pricing" href="../pricing/">料金</a></li><li><a class="rs-menu-link rs-menu-link--classes" href="../classes/">クラス紹介</a></li><li><a class="rs-menu-link rs-menu-link--instructors" href="../instructors/">講師紹介</a></li><li><a class="rs-menu-link rs-menu-link--workshops" href="../workshops/">ワークショップ</a></li><li><a class="rs-menu-link rs-menu-link--access" href="../access/">アクセス</a></li><li><a class="rs-menu-link rs-menu-link--rental" href="../rental/" aria-current="page">スタジオレンタル</a></li></ul></section><section class="rs-menu-group rs-menu-group--media" aria-label="観る・聴く・学ぶ"><p class="rs-menu-label">観る・聴く・学ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--broadcast" href="../broadcast/">番組・動画</a></li><li><a class="rs-menu-link rs-menu-link--rss" href="../rss/">Rhythm Speaker Show</a></li><li><a class="rs-menu-link rs-menu-link--music" href="../music/">音楽を聴く</a></li><li><a class="rs-menu-link rs-menu-link--tapblog" href="https://tapdance-rhythmspeaker.hatenablog.com/">タップダンスを学ぶ</a></li></ul></section><section class="rs-menu-group rs-menu-group--shopping" aria-label="買う・選ぶ"><p class="rs-menu-label">買う・選ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--goods" href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a></li><li><a class="rs-menu-link rs-menu-link--reviewblog" href="https://rhythmspeaker.hatenablog.com/">商品レビューを読む</a></li></ul></section><section class="rs-menu-group rs-menu-group--member" aria-label="会員・お問い合わせ"><p class="rs-menu-label">会員・お問い合わせ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--wallet" href="https://tips-app-seven.vercel.app/">マイページ<small>RS Wallet</small></a></li><li><a class="rs-menu-link rs-menu-link--line" href="https://lin.ee/zC5YLe7">公式LINE<small>相談・変更</small></a></li></ul></section><section class="rs-menu-group rs-menu-group--more" aria-label="その他のページ"><p class="rs-menu-label">その他のページ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--home" href="../">教室トップ</a></li><li><a class="rs-menu-link rs-menu-link--about" href="../about/">教室紹介</a></li><li><a class="rs-menu-link rs-menu-link--faq" href="../faq/">よくある質問</a></li><li><a class="rs-menu-link rs-menu-link--ecosystem" href="../ecosystem/">すべてのサービス</a></li></ul></section></nav></div></header><noscript><nav aria-label="サイト案内"><a href="../">教室トップ</a> <a href="../trial/">初回体験</a> <a href="../classes/">クラス</a> <a href="../about/">教室紹介</a> <a href="../workshops/">ワークショップ</a> <a href="../ecosystem/">サービス一覧</a> <a href="../faq/">FAQ</a> <a href="../access/">アクセス</a> <a href="../rss/">RSS</a> <a href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a> </nav></noscript><div class="context-nav" aria-label="パンくず"><a href="../">教室トップ</a><span aria-hidden="true">/</span><span aria-current="page">スタジオレンタル</span></div><main id="main" tabindex="-1">
     <section class="rsr-intro">
@@ -331,6 +357,26 @@ body[data-ux-source="sites-v6"] .rsr-visual-more:focus-within{outline-offset:3px
               <label class="rsr-sr-only" for="rental-type">利用プラン</label>
               <select id="rental-type" name="rental-type" class="rsr-sr-only"><option value="通常レンタル">通常レンタル</option><option value="平日朝割引">平日朝割引</option><option value="深夜6時間パック">深夜6時間パック</option><option value="シェアレンタル">シェアレンタル</option><option value="STARTER SUPPORT">STARTER SUPPORT（企画支援）</option><option value="定期利用・その他">定期利用・その他</option></select>
             </fieldset>
+            <div class="rsr-availability-guide" id="rental-availability">
+              <div class="rsr-availability-intro">
+                <div>
+                  <span class="rsr-availability-kicker">GOOGLE CALENDAR / WEEK VIEW</span>
+                  <h3>空き時間の目安を見る</h3>
+                  <p>スタジオの公開予定を週表示で確認し、希望日時を探せます。</p>
+                </div>
+                <a class="rsr-availability-external" href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">Googleカレンダーで見る <span aria-hidden="true">↗</span></a>
+              </div>
+              <details class="rsr-availability-expand" id="rental-availability-preview">
+                <summary>このページで週間カレンダーを確認 <span aria-hidden="true">＋</span></summary>
+                <div class="rsr-availability-content">
+                  <p>カレンダーに予定がない時間でも、予約可能とは限りません。希望日時は下のフォームで選び、LINEで空き状況をご確認ください。</p>
+                  <div class="rsr-availability-frame-wrap">
+                    <iframe id="rental-google-calendar" title="Rhythm Speaker スタジオの週間予定（Googleカレンダー）" data-src="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                  </div>
+                  <p class="rsr-availability-fallback">カレンダーが表示されない場合は、<a href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">Googleカレンダーを別タブで開いてください ↗</a></p>
+                </div>
+              </details>
+            </div>
             <div class="rsr-date-time">
               <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">02</span> 希望日を選ぶ</legend>
                 <div class="rsr-calendar" id="rental-calendar" aria-label="希望日カレンダー">
@@ -683,6 +729,11 @@ btn.addEventListener('click',()=>{const opening=panel.hidden;panel.hidden=!openi
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();close(true);}});
 document.addEventListener('click',e=>{if(!e.target.closest('header')||e.target.closest('#menu a'))close();});
 document.querySelector('.skip')?.addEventListener('click',e=>{e.preventDefault();main?.focus();main?.scrollIntoView();});
+})();
+</script>
+<script id="rental-availability-lazy-load">
+(()=>{'use strict';const details=document.getElementById('rental-availability-preview');const frame=document.getElementById('rental-google-calendar');if(!details||!frame)return;
+details.addEventListener('toggle',()=>{if(details.open&&!frame.hasAttribute('src')){frame.setAttribute('src',frame.dataset.src);}});
 })();
 </script>
 </body>
