@@ -4,7 +4,7 @@
   "count": 15,
   "publication_status": "uploaded_to_git_pending_release",
   "target_directory": "assets/images/studio/rental-2026/",
-  "note": "15 optimized real studio WebP images are stored in the GitHub work branch; release and GitHub Pages rendering require PR integration and verification.",
+  "note": "15 studio photos integrated. Three oversized WebP images have been re-optimized to meet the 400 KiB CI image limit; corrected binaries must replace originals on the same PR branch before merge.",
   "assets": [
     {
       "source_file": "IMG_0883.JPG",
@@ -12,9 +12,9 @@
       "category": "バックヤード・設備",
       "description": "スタジオ奥の収納・設備スペース",
       "alt": "スタジオ奥の収納・設備スペース",
-      "width": 1350,
-      "height": 1800,
-      "webp_bytes": 479388,
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 291092,
       "status": "uploaded_to_git"
     },
     {
@@ -78,9 +78,9 @@
       "category": "アクセス・入口",
       "description": "Queen Heart Buildingの外観と入口",
       "alt": "Queen Heart Buildingの外観と入口",
-      "width": 1350,
-      "height": 1800,
-      "webp_bytes": 551214,
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 334754,
       "status": "uploaded_to_git"
     },
     {
@@ -89,9 +89,9 @@
       "category": "アクセス・入口",
       "description": "建物正面のエントランス",
       "alt": "建物正面のエントランス",
-      "width": 1800,
-      "height": 1350,
-      "webp_bytes": 609218,
+      "width": 1600,
+      "height": 1200,
+      "webp_bytes": 376284,
       "status": "uploaded_to_git"
     },
     {
