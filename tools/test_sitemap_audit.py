@@ -10,7 +10,7 @@ import sitemap_audit as audit
 
 class SitemapRules(unittest.TestCase):
     def test_all_tracked_html_explicitly_classified(self):
-        self.assertEqual(audit.check(), (43, 10))
+        self.assertEqual(audit.check(), (48, 10))
 
     def test_essential_pages_included(self):
         routes = set(audit.load_registry()["public_html"])
@@ -35,7 +35,7 @@ class SitemapRules(unittest.TestCase):
         xml = ET.fromstring(audit.render(audit.load_registry()))
         ns = {"s": audit.XMLNS}
         locs = [e.text for e in xml.findall("s:url/s:loc", ns)]
-        self.assertEqual(len(locs), 43)
+        self.assertEqual(len(locs), 48)
         self.assertEqual(len(set(locs)), len(locs))
         self.assertTrue(all(u.startswith("https://noritap.github.io/rhythmspeaker/")
                             for u in locs))
