@@ -2,9 +2,9 @@
   "project": "Rhythm Speaker rental photo library",
   "created": "2026-11-08",
   "count": 15,
-  "publication_status": "prepared_not_uploaded",
+  "publication_status": "uploaded_to_git_pending_release",
   "target_directory": "assets/images/studio/rental-2026/",
-  "note": "The WebP files are prepared in the local approved photo pack. Do not reference them from public HTML until the binary files have been uploaded and verified on main.",
+  "note": "15 studio photos integrated. Three oversized WebP images have been re-optimized to meet the 400 KiB CI image limit; corrected binaries must replace originals on the same PR branch before merge.",
   "assets": [
     {
       "source_file": "IMG_0883.JPG",
@@ -12,10 +12,10 @@
       "category": "バックヤード・設備",
       "description": "スタジオ奥の収納・設備スペース",
       "alt": "スタジオ奥の収納・設備スペース",
-      "width": 1350,
-      "height": 1800,
-      "webp_bytes": 479388,
-      "status": "prepared_not_uploaded"
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 291092,
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_0884.JPG",
@@ -26,7 +26,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 365142,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_0885.JPG",
@@ -37,7 +37,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 263356,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_0886.JPG",
@@ -48,7 +48,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 318302,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_5633(1).JPG",
@@ -59,7 +59,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 215646,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_7330(1).JPG",
@@ -70,7 +70,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 349784,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_7489(1).jpg",
@@ -78,10 +78,10 @@
       "category": "アクセス・入口",
       "description": "Queen Heart Buildingの外観と入口",
       "alt": "Queen Heart Buildingの外観と入口",
-      "width": 1350,
-      "height": 1800,
-      "webp_bytes": 551214,
-      "status": "prepared_not_uploaded"
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 334754,
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_7490(1).jpg",
@@ -89,10 +89,10 @@
       "category": "アクセス・入口",
       "description": "建物正面のエントランス",
       "alt": "建物正面のエントランス",
-      "width": 1800,
-      "height": 1350,
-      "webp_bytes": 609218,
-      "status": "prepared_not_uploaded"
+      "width": 1600,
+      "height": 1200,
+      "webp_bytes": 376284,
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_7491(1).jpg",
@@ -103,7 +103,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 397374,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_7492(1).jpg",
@@ -114,7 +114,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 388062,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "ダンスフロア2(2).JPG",
@@ -125,7 +125,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 281380,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "ダンスフロア3(2).JPG",
@@ -136,7 +136,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 265074,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "ダンスフロア4(2).JPG",
@@ -147,7 +147,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 313876,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_0817.JPG",
@@ -158,7 +158,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 150210,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     },
     {
       "source_file": "IMG_0818.JPG",
@@ -169,7 +169,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 173436,
-      "status": "prepared_not_uploaded"
+      "status": "uploaded_to_git"
     }
   ]
 }
