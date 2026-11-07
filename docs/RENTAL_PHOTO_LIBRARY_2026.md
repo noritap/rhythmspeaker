@@ -4,7 +4,7 @@
 - Photos: 15 real facility photographs
 - Optimized format: WebP
 - Target: `assets/images/studio/rental-2026/`
-- Status: prepared; binary upload and public-page integration remain pending.
+- Status: images uploaded to GitHub work branch; rental page and five use-case pages integrated; release verification pending.
 
 ## Publication order
 
@@ -25,4 +25,4 @@
 
 ## Current limitation
 
-The 15 WebP binaries are prepared in the approved photo pack but are not yet present in the GitHub repository. The public page must not reference these paths until upload is complete.
+All 15 WebP binaries are now in the GitHub work branch. The parent rental page uses images in purpose cards and optional categorized galleries; the five use-case pages use verified real studio hero images. Public release requires passing CI, merging and validating GitHub Pages.
