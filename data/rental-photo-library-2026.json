@@ -2,9 +2,9 @@
   "project": "Rhythm Speaker rental photo library",
   "created": "2026-11-08",
   "count": 15,
-  "publication_status": "uploaded_to_git_pending_release",
+  "publication_status": "published_13_safe_images_2_withheld",
   "target_directory": "assets/images/studio/rental-2026/",
-  "note": "15 studio photos integrated. Three oversized WebP images have been re-optimized to meet the 400 KiB CI image limit; corrected binaries must replace originals on the same PR branch before merge.",
+  "note": "Thirteen photos are published. Two original reception-area photos were removed from the public repository due to visible Wi-Fi credentials. Their earlier Git history may retain the data; rotate access credentials and do not republish unredacted copies.",
   "assets": [
     {
       "source_file": "IMG_0883.JPG",
@@ -15,7 +15,7 @@
       "width": 1200,
       "height": 1600,
       "webp_bytes": 291092,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_0884.JPG",
@@ -26,7 +26,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 365142,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_0885.JPG",
@@ -37,7 +37,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 263356,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_0886.JPG",
@@ -48,7 +48,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 318302,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_5633(1).JPG",
@@ -59,7 +59,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 215646,
-      "status": "uploaded_to_git"
+      "status": "withheld_sensitive_information"
     },
     {
       "source_file": "IMG_7330(1).JPG",
@@ -70,7 +70,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 349784,
-      "status": "uploaded_to_git"
+      "status": "withheld_sensitive_information"
     },
     {
       "source_file": "IMG_7489(1).jpg",
@@ -81,7 +81,7 @@
       "width": 1200,
       "height": 1600,
       "webp_bytes": 334754,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_7490(1).jpg",
@@ -92,7 +92,7 @@
       "width": 1600,
       "height": 1200,
       "webp_bytes": 376284,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_7491(1).jpg",
@@ -103,7 +103,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 397374,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_7492(1).jpg",
@@ -114,7 +114,7 @@
       "width": 1350,
       "height": 1800,
       "webp_bytes": 388062,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "ダンスフロア2(2).JPG",
@@ -125,7 +125,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 281380,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "ダンスフロア3(2).JPG",
@@ -136,7 +136,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 265074,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "ダンスフロア4(2).JPG",
@@ -147,7 +147,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 313876,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_0817.JPG",
@@ -158,7 +158,7 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 150210,
-      "status": "uploaded_to_git"
+      "status": "published"
     },
     {
       "source_file": "IMG_0818.JPG",
@@ -169,7 +169,9 @@
       "width": 1800,
       "height": 1350,
       "webp_bytes": 173436,
-      "status": "uploaded_to_git"
+      "status": "published"
     }
-  ]
+  ],
+  "public_count": 13,
+  "withheld_count": 2
 }
