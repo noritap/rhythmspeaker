@@ -18,16 +18,16 @@ Scope: Rhythm Speaker公式Webで使用する池袋スタジオの実景・ス�
 
 提供された以下の写真6枚はGitHubの作業ブランチへimport済み。マージ後にmain上の正式参照素材として使用する。
 
-| ID | 提供ファイル | Repository path（import済み） | 主な用途 |
+| ID | 写真タイトル（内容が分かる名前） | Repository path | 主な用途 |
 | --- | --- | --- | --- |
-| RS-STUDIO-01 | 1200×630｜HP シェア用.002.png | `assets/images/studio/reference/studio-01.png` | 鏡・フロア・受付を含む実景 |
-| RS-STUDIO-02 | IBJLA2401CUQX6{…}.jpg | `assets/images/studio/reference/studio-02.jpg` | 旧撮影・別時点の室内参考 |
-| RS-STUDIO-03 | ダンスフロア.JPG | `assets/images/studio/reference/studio-03.jpg` | スクリーン・受付側の構成 |
-| RS-STUDIO-04 | ダンスフロア2.JPG | `assets/images/studio/reference/studio-04.jpg` | 壁面・鏡・室内の位置関係 |
-| RS-STUDIO-05 | ダンスフロア3.JPG | `assets/images/studio/reference/studio-05.jpg` | 広角・フロア・鏡面 |
-| RS-STUDIO-06 | ダンスフロア4.JPG | `assets/images/studio/reference/studio-06.jpg` | 正面広角・室内の位置関係 |
+| RS-STUDIO-01 | スタジオ内観・フロア／鏡／受付（シェア用） | `assets/images/studio/reference/studio-interior-share-image-floor-mirror-reception.png` | OG画像・教室紹介・スタジオ全体の説明 |
+| RS-STUDIO-02 | スタジオ内観・旧撮影アーカイブ | `assets/images/studio/reference/studio-interior-archive-older-view.jpg` | 撮影時期の違いを含む内部参照。現況の断定には使わない |
+| RS-STUDIO-03 | ダンスフロア・スクリーン／受付側 | `assets/images/studio/reference/studio-screen-and-reception-side-view.jpg` | 設備・受付側の空間説明 |
+| RS-STUDIO-04 | ダンスフロア・鏡のある壁面 | `assets/images/studio/reference/studio-dance-floor-mirror-wall-view.jpg` | 鏡・壁面・フロアの構成説明 |
+| RS-STUDIO-05 | ダンスフロア・鏡の広角写真 | `assets/images/studio/reference/studio-wide-angle-dance-floor-and-mirror.jpg` | レンタル／教室紹介の別角度写真 |
+| RS-STUDIO-06 | ダンスフロア・正面からの広角全景 | `assets/images/studio/reference/studio-front-wide-angle-dance-floor-overview.jpg` | レンタル／教室紹介の主要写真 |
 
-Asset status: `ACTIVE / VERIFIED ON FEATURE BRANCH`。2026-09-25、GitHub上で6ファイルの存在とファイルサイズを確認。`main`反映・公開利用はPRマージ後に別途確認する。
+Asset status: `ACTIVE / VERIFIED ON MAIN`。2026-11-08、6ファイルを内容別の説明的ファイル名へ整理。ファイル名変更は同一Git blobの移動で行い、画像バイナリは変更していない。
 
 ## 4. Image Creation Rules
 
@@ -63,3 +63,14 @@ Asset status: `ACTIVE / VERIFIED ON FEATURE BRANCH`。2026-09-25、GitHub上で6
 - `docs/03_TRIAL_PHOTO_USAGE_SPEC.md`：レンタル用品の実物証拠写真、配置、表示品質
 - `PROJECT_PROFILE.md`：公式Webの上位Image PolicyとProduction保護
 - `README.md`：運用入口
+
+
+## 8. Studio Photo File Naming / Storage Rules
+
+- ファイル名は英小文字のASCII kebab-caseとし、`studio-01` のような連番だけの名前を新規採用しない。
+- `studio-[content]-[view-or-purpose].[ext]` を基本とし、写真の主題・視点・用途がファイル名から分かるようにする。
+- 原本のカメラファイル名は台帳の `source_filename` に保持し、リネーム後も元ID（RS-STUDIO-xxxx）で追跡できるようにする。
+- 原本・Web掲載用WebP・サムネイルは同じ説明的basenameを使い、保存階層で区別する。
+- 画像を実際に確認できていない場合は、説明を推測で確定せず `UNVERIFIED` とする。
+- 用途は `data/studio-photo-library.json` のタイトル・説明・推奨用途・公開状態を正本とする。
+- 24枚の2026-11写真は原本バイナリが未登録のため、説明的な保存予定名のみを台帳に設定する。実ファイルの保存完了とは扱わない。

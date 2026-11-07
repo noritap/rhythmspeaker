@@ -19,9 +19,9 @@
       "recommended_usage": "アクセス・入口案内",
       "resolution": "1536×2048",
       "sha256_prefix": "b9399df49d7ec6ff",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0863.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0863.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0863.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/building-ground-floor-glass-entry-and-brick-stairs.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/building-ground-floor-glass-entry-and-brick-stairs.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/building-ground-floor-glass-entry-and-brick-stairs.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -36,7 +36,8 @@
       "visual_review_notes_ja": "写真に自転車が一部写る。場所と導線説明用。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "building-ground-floor-glass-entry-and-brick-stairs"
     },
     {
       "id": "RS-STUDIO-0864",
@@ -46,9 +47,9 @@
       "recommended_usage": "アクセス・階段案内",
       "resolution": "1536×2048",
       "sha256_prefix": "88dec2c71dead893",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0864.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0864.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0864.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/basement-brick-stairs-from-top.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/basement-brick-stairs-from-top.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/basement-brick-stairs-from-top.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -63,7 +64,8 @@
       "visual_review_notes_ja": "階段の実景。段差の説明に有用。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "basement-brick-stairs-from-top"
     },
     {
       "id": "RS-STUDIO-0865",
@@ -73,9 +75,9 @@
       "recommended_usage": "アクセス・補足",
       "resolution": "1536×2048",
       "sha256_prefix": "2fc76fa7d1f605ea",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0865.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0865.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0865.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/basement-staircase-brick-wall-detail.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/basement-staircase-brick-wall-detail.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/basement-staircase-brick-wall-detail.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -90,7 +92,8 @@
       "visual_review_notes_ja": "接写で動線が伝わりにくい。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "basement-staircase-brick-wall-detail"
     },
     {
       "id": "RS-STUDIO-0866",
@@ -100,9 +103,9 @@
       "recommended_usage": "アクセス・階段案内",
       "resolution": "1536×2048",
       "sha256_prefix": "b3a5a3ad87066293",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0866.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0866.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0866.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/basement-stairs-midway-down.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/basement-stairs-midway-down.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/basement-stairs-midway-down.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -117,7 +120,8 @@
       "visual_review_notes_ja": "入口から下階への雰囲気。荷物の写り込みあり。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "basement-stairs-midway-down"
     },
     {
       "id": "RS-STUDIO-0867",
@@ -127,9 +131,9 @@
       "recommended_usage": "アクセス・通路案内",
       "resolution": "1536×2048",
       "sha256_prefix": "3935856b9e3b1c5e",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0867.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0867.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0867.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/basement-corridor-leading-to-studio.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/basement-corridor-leading-to-studio.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/basement-corridor-leading-to-studio.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -144,7 +148,8 @@
       "visual_review_notes_ja": "利用者の私物・荷物が目立つ。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "basement-corridor-leading-to-studio"
     },
     {
       "id": "RS-STUDIO-0868",
@@ -154,9 +159,9 @@
       "recommended_usage": "レンタル・ギャラリー",
       "resolution": "1536×2048",
       "sha256_prefix": "174b1e2ca034b1d6",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0868.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0868.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0868.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/studio-entrance-foyer-reception-and-dance-floor.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/studio-entrance-foyer-reception-and-dance-floor.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/studio-entrance-foyer-reception-and-dance-floor.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -171,7 +176,8 @@
       "visual_review_notes_ja": "左手にロッカールームのドア。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "studio-entrance-foyer-reception-and-dance-floor"
     },
     {
       "id": "RS-STUDIO-0869",
@@ -181,9 +187,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "f07b90902d3f4c4a",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0869.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0869.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0869.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/changing-room-clothes-rack-and-chair.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/changing-room-clothes-rack-and-chair.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/changing-room-clothes-rack-and-chair.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -198,7 +204,8 @@
       "visual_review_notes_ja": "ドア越しに更衣室を撮影。床と鏡の写真ではない。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "changing-room-clothes-rack-and-chair"
     },
     {
       "id": "RS-STUDIO-0870",
@@ -208,9 +215,9 @@
       "recommended_usage": "レンタル・教室紹介・ギャラリー",
       "resolution": "2048×1536",
       "sha256_prefix": "d7ef69fd6411a451",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0870.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0870.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0870.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/dance-floor-wide-view-mirror-from-reception.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/dance-floor-wide-view-mirror-from-reception.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/dance-floor-wide-view-mirror-from-reception.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P1",
@@ -225,7 +232,8 @@
       "visual_review_notes_ja": "フロアの広さ・鏡・受付位置関係が伝わる。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "dance-floor-wide-view-mirror-from-reception"
     },
     {
       "id": "RS-STUDIO-0871",
@@ -235,9 +243,9 @@
       "recommended_usage": "レンタル・ギャラリー",
       "resolution": "1536×2048",
       "sha256_prefix": "765c1a87ce151bc6",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0871.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0871.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0871.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/dance-floor-mirror-and-seating-side-view.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/dance-floor-mirror-and-seating-side-view.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/dance-floor-mirror-and-seating-side-view.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P1",
@@ -252,7 +260,8 @@
       "visual_review_notes_ja": "縦写真。モバイルのビジュアル向け。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "dance-floor-mirror-and-seating-side-view"
     },
     {
       "id": "RS-STUDIO-0872",
@@ -262,9 +271,9 @@
       "recommended_usage": "レンタル・教室紹介",
       "resolution": "1536×2048",
       "sha256_prefix": "8c4a297bb4a3285c",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0872.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0872.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0872.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/dance-floor-and-mirror-alternate-angle.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/dance-floor-and-mirror-alternate-angle.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/dance-floor-and-mirror-alternate-angle.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P1",
@@ -279,7 +288,8 @@
       "visual_review_notes_ja": "床と鏡を優先した構図。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "dance-floor-and-mirror-alternate-angle"
     },
     {
       "id": "RS-STUDIO-0873",
@@ -289,9 +299,9 @@
       "recommended_usage": "レンタル・ギャラリー",
       "resolution": "2048×1536",
       "sha256_prefix": "7c0d2114ae306b4b",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0873.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0873.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0873.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/dance-floor-view-toward-reception-and-bench.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/dance-floor-view-toward-reception-and-bench.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/dance-floor-view-toward-reception-and-bench.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P1",
@@ -306,7 +316,8 @@
       "visual_review_notes_ja": "0870とは逆方向の広角。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "dance-floor-view-toward-reception-and-bench"
     },
     {
       "id": "RS-STUDIO-0874",
@@ -316,9 +327,9 @@
       "recommended_usage": "設備案内",
       "resolution": "2048×1536",
       "sha256_prefix": "075114c96ecb92d1",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0874.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0874.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0874.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/reception-counter-desk-computer-and-equipment.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/reception-counter-desk-computer-and-equipment.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/reception-counter-desk-computer-and-equipment.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -333,7 +344,8 @@
       "visual_review_notes_ja": "画面や私物が写り込む可能性。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "reception-counter-desk-computer-and-equipment"
     },
     {
       "id": "RS-STUDIO-0875",
@@ -343,9 +355,9 @@
       "recommended_usage": "設備案内・通路",
       "resolution": "1536×2048",
       "sha256_prefix": "0a3d2023b2be1cf7",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0875.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0875.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0875.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/corridor-next-to-reception-counter.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/corridor-next-to-reception-counter.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/corridor-next-to-reception-counter.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -360,7 +372,8 @@
       "visual_review_notes_ja": "備品・私物が目立つ。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "corridor-next-to-reception-counter"
     },
     {
       "id": "RS-STUDIO-0876",
@@ -370,9 +383,9 @@
       "recommended_usage": "教室紹介・雰囲気",
       "resolution": "1536×2048",
       "sha256_prefix": "4246d69bbe00bf19",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0876.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0876.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0876.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/interior-wall-posters-certificates-and-body-chart.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/interior-wall-posters-certificates-and-body-chart.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/interior-wall-posters-certificates-and-body-chart.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -387,7 +400,8 @@
       "visual_review_notes_ja": "掲示物の権利・個人情報を確認。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "interior-wall-posters-certificates-and-body-chart"
     },
     {
       "id": "RS-STUDIO-0877",
@@ -397,9 +411,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "e34a61bd6b375187",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0877.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0877.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0877.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/restroom-entrance-closed-door.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/restroom-entrance-closed-door.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/restroom-entrance-closed-door.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -414,7 +428,8 @@
       "visual_review_notes_ja": "一般ギャラリー不要。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "restroom-entrance-closed-door"
     },
     {
       "id": "RS-STUDIO-0878",
@@ -424,9 +439,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "97291fabee320295",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0878.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0878.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0878.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/restroom-entrance-open-door.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/restroom-entrance-open-door.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/restroom-entrance-open-door.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -441,7 +456,8 @@
       "visual_review_notes_ja": "一般ギャラリー不要。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "restroom-entrance-open-door"
     },
     {
       "id": "RS-STUDIO-0879",
@@ -451,9 +467,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "7aa5b2e0e7ec543c",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0879.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0879.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0879.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/restroom-sink-and-decorative-mirror.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/restroom-sink-and-decorative-mirror.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/restroom-sink-and-decorative-mirror.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -468,7 +484,8 @@
       "visual_review_notes_ja": "一般ギャラリー不要。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "restroom-sink-and-decorative-mirror"
     },
     {
       "id": "RS-STUDIO-0880",
@@ -478,9 +495,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "98ab6b67b1f84a46",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0880.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0880.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0880.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/restroom-storage-supplies.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/restroom-storage-supplies.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/restroom-storage-supplies.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -495,7 +512,8 @@
       "visual_review_notes_ja": "顧客向けには優先しない。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "restroom-storage-supplies"
     },
     {
       "id": "RS-STUDIO-0881",
@@ -505,9 +523,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "654500dd5acf71f0",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0881.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0881.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0881.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/restroom-fixtures-and-tiled-interior.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/restroom-fixtures-and-tiled-interior.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/restroom-fixtures-and-tiled-interior.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -522,7 +540,8 @@
       "visual_review_notes_ja": "一般ギャラリー不要。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "restroom-fixtures-and-tiled-interior"
     },
     {
       "id": "RS-STUDIO-0882",
@@ -532,9 +551,9 @@
       "recommended_usage": "設備案内",
       "resolution": "1536×2048",
       "sha256_prefix": "a446e29bb48cefdb",
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0882.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0882.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0882.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/small-storage-space-next-to-restroom.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/small-storage-space-next-to-restroom.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/small-storage-space-next-to-restroom.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -549,7 +568,8 @@
       "visual_review_notes_ja": "衣類等の私物が写る。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "small-storage-space-next-to-restroom"
     },
     {
       "id": "RS-STUDIO-0883",
@@ -559,9 +579,9 @@
       "recommended_usage": "収納・バックヤード／制作時参照",
       "resolution": "1536×2048",
       "sha256_prefix": null,
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0883.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0883.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0883.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/backroom-equipment-and-clothing-storage.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/backroom-equipment-and-clothing-storage.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/backroom-equipment-and-clothing-storage.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -576,7 +596,8 @@
       "visual_review_notes_ja": "公開非推奨。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "backroom-equipment-and-clothing-storage"
     },
     {
       "id": "RS-STUDIO-0884",
@@ -586,9 +607,9 @@
       "recommended_usage": "シューズ・貸出設備の詳細",
       "resolution": "1536×2048",
       "sha256_prefix": null,
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0884.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0884.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0884.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/tap-shoe-box-storage-corridor.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/tap-shoe-box-storage-corridor.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/tap-shoe-box-storage-corridor.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P3",
@@ -603,7 +624,8 @@
       "visual_review_notes_ja": "箱の個別ラベル、機器、私物が写る。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "tap-shoe-box-storage-corridor"
     },
     {
       "id": "RS-STUDIO-0885",
@@ -613,9 +635,9 @@
       "recommended_usage": "備品・シューズの参考／写り込み確認",
       "resolution": "1536×2048",
       "sha256_prefix": null,
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0885.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0885.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0885.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/tap-shoes-arranged-on-wooden-shelf.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/tap-shoes-arranged-on-wooden-shelf.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/tap-shoes-arranged-on-wooden-shelf.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -630,7 +652,8 @@
       "visual_review_notes_ja": "貸出シューズの紹介向け。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "tap-shoes-arranged-on-wooden-shelf"
     },
     {
       "id": "RS-STUDIO-0886",
@@ -640,9 +663,9 @@
       "recommended_usage": "空間全体・教室紹介・画像制作の背景",
       "resolution": "2048×1536",
       "sha256_prefix": null,
-      "intended_original_path": "assets/images/studio/library/2026-11/originals/IMG_0886.JPG",
-      "intended_web_path": "assets/images/studio/library/2026-11/web/img_0886.webp",
-      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/img_0886.webp",
+      "intended_original_path": "assets/images/studio/library/2026-11/originals/dance-floor-wide-view-from-reception-counter.jpg",
+      "intended_web_path": "assets/images/studio/library/2026-11/web/dance-floor-wide-view-from-reception-counter.webp",
+      "intended_thumbnail_path": "assets/images/studio/library/2026-11/thumbnails/dance-floor-wide-view-from-reception-counter.webp",
       "asset_state": "PENDING_BINARY_UPLOAD",
       "publication_review": "NOT_REVIEWED",
       "priority_tier": "P2",
@@ -657,7 +680,8 @@
       "visual_review_notes_ja": "PC・書類等が前景にあり、一般掲載時はトリミング要。",
       "review_method": "SOURCE_IMAGE_CONTACT_SHEET_20261107",
       "review_status": "VISUAL_CONTENT_CHECKED_NOT_PUBLICATION_APPROVED",
-      "published_on_site": false
+      "published_on_site": false,
+      "recommended_filename": "dance-floor-wide-view-from-reception-counter"
     }
   ],
   "usage_rules": [
@@ -688,12 +712,12 @@
     "live_gallery_sources": [
       {
         "role": "PRIMARY",
-        "src": "assets/images/studio/reference/studio-06.jpg",
+        "src": "assets/images/studio/reference/studio-front-wide-angle-dance-floor-overview.jpg",
         "kind": "EXISTING_REPO_ASSET"
       },
       {
         "role": "SECONDARY",
-        "src": "assets/images/studio/reference/studio-05.jpg",
+        "src": "assets/images/studio/reference/studio-wide-angle-dance-floor-and-mirror.jpg",
         "kind": "EXISTING_REPO_ASSET"
       },
       {
@@ -712,5 +736,89 @@
     ]
   },
   "visual_inventory_review": "2026-11-07 visual check of all 24 source images",
-  "image_label_policy": "画像が実際にロードされるまでは新写真の用途名・ALTを適用しない。旧画像の説明は旧画像に一致させる。"
+  "image_label_policy": "画像が実際にロードされるまでは新写真の用途名・ALTを適用しない。旧画像の説明は旧画像に一致させる。",
+  "existing_repository_assets": [
+    {
+      "id": "RS-STUDIO-01",
+      "title": "スタジオ内観・フロア／鏡／受付（シェア用）",
+      "file": "studio-interior-share-image-floor-mirror-reception.png",
+      "path": "assets/images/studio/reference/studio-interior-share-image-floor-mirror-reception.png",
+      "content": "鏡・フロア・受付を含むスタジオ実景のシェア用画像",
+      "recommended_usage": [
+        "OG画像",
+        "教室紹介",
+        "スタジオ全体の説明"
+      ],
+      "asset_state": "STORED_ON_MAIN"
+    },
+    {
+      "id": "RS-STUDIO-02",
+      "title": "スタジオ内観・旧撮影アーカイブ",
+      "file": "studio-interior-archive-older-view.jpg",
+      "path": "assets/images/studio/reference/studio-interior-archive-older-view.jpg",
+      "content": "旧撮影・別時点の室内参考写真",
+      "recommended_usage": [
+        "内部参照",
+        "撮影時期の比較"
+      ],
+      "asset_state": "STORED_ON_MAIN",
+      "notes": "現在の設備配置を示す証拠として単独使用しない"
+    },
+    {
+      "id": "RS-STUDIO-03",
+      "title": "ダンスフロア・スクリーン／受付側",
+      "file": "studio-screen-and-reception-side-view.jpg",
+      "path": "assets/images/studio/reference/studio-screen-and-reception-side-view.jpg",
+      "content": "スクリーン・受付側の構成",
+      "recommended_usage": [
+        "設備説明",
+        "受付側の空間説明"
+      ],
+      "asset_state": "STORED_ON_MAIN"
+    },
+    {
+      "id": "RS-STUDIO-04",
+      "title": "ダンスフロア・鏡のある壁面",
+      "file": "studio-dance-floor-mirror-wall-view.jpg",
+      "path": "assets/images/studio/reference/studio-dance-floor-mirror-wall-view.jpg",
+      "content": "壁面・鏡・室内の位置関係",
+      "recommended_usage": [
+        "鏡・壁面・フロアの説明"
+      ],
+      "asset_state": "STORED_ON_MAIN"
+    },
+    {
+      "id": "RS-STUDIO-05",
+      "title": "ダンスフロア・鏡の広角写真",
+      "file": "studio-wide-angle-dance-floor-and-mirror.jpg",
+      "path": "assets/images/studio/reference/studio-wide-angle-dance-floor-and-mirror.jpg",
+      "content": "広角・フロア・鏡面",
+      "recommended_usage": [
+        "レンタル写真",
+        "教室紹介",
+        "別角度ギャラリー"
+      ],
+      "asset_state": "STORED_ON_MAIN"
+    },
+    {
+      "id": "RS-STUDIO-06",
+      "title": "ダンスフロア・正面からの広角全景",
+      "file": "studio-front-wide-angle-dance-floor-overview.jpg",
+      "path": "assets/images/studio/reference/studio-front-wide-angle-dance-floor-overview.jpg",
+      "content": "正面広角・室内の位置関係",
+      "recommended_usage": [
+        "レンタル主要写真",
+        "教室紹介",
+        "スタジオ全景"
+      ],
+      "asset_state": "STORED_ON_MAIN"
+    }
+  ],
+  "naming_policy": {
+    "format": "descriptive-ascii-kebab-case",
+    "principle": "ファイル名から写真の内容・視点・用途が分かる",
+    "original_camera_filename": "source_filenameに保持",
+    "web_variants": "原本・web・thumbnailで同一basenameを使用",
+    "asset_truth": "PENDING_BINARY_UPLOADは保存予定名であり実ファイル保存済みを意味しない"
+  }
 }
