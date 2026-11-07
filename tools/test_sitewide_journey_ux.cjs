@@ -147,6 +147,27 @@ assert.strictEqual(photoLib.photos.filter(x=>x.priority_tier==='P1').length,6);
 assert.ok(photoLib.photos.every(x=>x.asset_state==='PENDING_BINARY_UPLOAD'),'do not pretend binary photos are uploaded');
 assert.ok(photoLib.photos.every(x=>x.public_image_url===null),'unpublished files must not have a public URL');
 assert.ok(photoLib.presentation_strategy.future_swap_targets.includes('RS-STUDIO-0886'));
+const publicPhotos=JSON.parse(read('data/studio-photo-library-public.json'));
+assert.deepStrictEqual(publicPhotos.published,{},'Do not expose unuploaded photos as published');
+assert.match(rental,/data-studio-photo-id="0870"/);
+assert.match(rental,/data-studio-photo-id="0872"/);
+assert.match(rental,/data-studio-photo-id="0873"/);
+assert.match(rental,/data-studio-photo-id="0863"/);
+assert.match(rental,/data-studio-photo-id="0864"/);
+assert.match(rental,/data-studio-photo-id="0869"/);
+assert.match(rental,/assets\/js\/studio-photo-library\.js/);
+const about=read('about/index.html');
+assert.match(about,/id="studio-photo-story"/);
+assert.match(about,/data-studio-photo-id="0870"/);
+assert.match(about,/data-studio-photo-id="0873"/);
+assert.match(about,/data-studio-photo-id="0869"/);
+assert.match(about,/assets\/js\/studio-photo-library\.js/);
+const studioLoader=read('assets/js/studio-photo-library.js');
+assert.match(studioLoader,/studio-photo-library-public\.json/);
+assert.match(studioLoader,/probe\.onload/);
+assert.match(studioLoader,/if\(typeof entry!=='string'/);
+assert.match(read('docs/STUDIO_PHOTO_V6_IMPLEMENTATION_20261107.md'),/6枚のコミットと本番URL検証/);
+
 
 
 
