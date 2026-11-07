@@ -80,8 +80,8 @@
       ]
     },
     {
-      "id": "studio-5631",
-      "path": "assets/photo-library/real/studio/studio-5631.jpg",
+      "id": "tap-shoes-storage-detail-on-shelf",
+      "path": "assets/photo-library/real/studio/tap-shoes-storage-detail-on-shelf.jpg",
       "type": "real",
       "category": "studio",
       "verified": true,
@@ -92,7 +92,9 @@
         "shoes",
         "editorial-detail"
       ],
-      "notes": "Actual Rhythm Speaker shoe-storage/detail scene. Good for studio culture, equipment and editorial detail; not a full-room overview."
+      "notes": "Actual Rhythm Speaker shoe-storage/detail scene. Good for studio culture, equipment and editorial detail; not a full-room overview.",
+      "title": "タップシューズ収納・棚のディテール",
+      "description": "タップシューズや関連備品を収納した棚の写真。スタジオ設備・貸出シューズ・道具の紹介に利用。"
     }
   ],
   "pending_ingestion_categories": [
