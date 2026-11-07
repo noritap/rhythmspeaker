@@ -166,7 +166,7 @@ const studioLoader=read('assets/js/studio-photo-library.js');
 assert.match(studioLoader,/studio-photo-library-public\.json/);
 assert.match(studioLoader,/probe\.onload/);
 assert.match(studioLoader,/if\(typeof entry!=='string'/);
-assert.match(read('docs/STUDIO_PHOTO_V6_IMPLEMENTATION_20261107.md'),/画像が実際に表示されたかどうか/);
+assert.match(read('docs/STUDIO_PHOTO_V6_IMPLEMENTATION_20261107.md'),/6枚のコミットと本番URL検証/);
 
 
 
