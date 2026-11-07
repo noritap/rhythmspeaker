@@ -1,3 +1,4 @@
+import re
 """Protect the single shared menu and the nine doors' approved destinations."""
 import unittest
 from html.parser import HTMLParser
@@ -50,7 +51,7 @@ class PortalContractTest(unittest.TestCase):
         self.assertIn('DUPLICATE_LEGACY_NAV', portal_problems(self.html + '<ul class="nav-links"><li>old</li></ul>'))
 
     def test_reordered_or_duplicate_item_is_detected(self):
-        bad = self.html.replace('>レッスン日程</strong>', '>アクセス</strong>', 1)
+        bad = self.html.replace('>レッスン予約</strong>', '>アクセス</strong>', 1)
         self.assertIn('PRIORITY_MENU_CONTENT_OR_ORDER_DRIFT', portal_problems(bad))
 
     def test_priority_menu_is_unique_and_action_first(self):
@@ -62,29 +63,31 @@ class PortalContractTest(unittest.TestCase):
             expected = render_menu(prefix, current)
             self.assertEqual(html.count(expected), 1, f'{path} must match the canonical menu')
             self.assertEqual(html.count('class="rs-menu-nav"'), 1)
-            self.assertEqual(html.count('class="rs-menu-group rs-menu-group--'), 6)
             menu = html[html.index('<div id="menu"'):html.index('</header>')]
-            self.assertLess(menu.index('rs-menu-group--quick'), menu.index('rs-menu-group--lessons'))
-            self.assertLess(menu.index('rs-menu-group--lessons'), menu.index('rs-menu-group--media'))
-            self.assertLess(menu.index('rs-menu-group--media'), menu.index('rs-menu-group--shopping'))
-            self.assertLess(menu.index('rs-menu-group--shopping'), menu.index('rs-menu-group--member'))
-            self.assertLess(menu.index('rs-menu-group--member'), menu.index('rs-menu-group--more'))
+            self.assertEqual(
+                re.findall(r'class="rs-menu-group rs-menu-group--(\w+)"', menu),
+                ['quick', 'services', 'member', 'support', 'lessons', 'media', 'more'],
+            )
+            self.assertEqual(
+                re.findall(r'class="rs-menu-action rs-menu-action--(\w+)"', menu),
+                ['schedule', 'trial', 'rental', 'goods', 'wallet', 'line', 'access', 'faq'],
+            )
             self.assertIn('https://lin.ee/zC5YLe7', menu)
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
             self.assertIn('class="rs-menu-link rs-menu-link--broadcast"', menu)
             self.assertIn('class="rs-menu-link rs-menu-link--music"', menu)
             self.assertEqual(menu.count('class="rs-menu-link rs-menu-link--rss"'), 1)
-            self.assertEqual(menu.count('class="rs-menu-link rs-menu-link--goods"'), 1)
+            self.assertEqual(menu.count('class="rs-menu-action rs-menu-action--goods"'), 1)
             self.assertEqual(menu.count('https://tapdance-rhythmspeaker.hatenablog.com/'), 1)
             self.assertEqual(menu.count('https://rhythmspeaker.hatenablog.com/'), 1)
             self.assertNotIn('class="mobile-nav-panel"', menu)
-            if str(path) == 'schedule/index.html':
-                self.assertIn('class="rs-menu-action rs-menu-action--schedule" href="../schedule/" aria-current="page"', menu)
-                self.assertLess(menu.index('rs-menu-action--schedule'), menu.index('rs-menu-action--trial'))
-                self.assertEqual(menu.count('class="rs-menu-action rs-menu-action--schedule"'), 1)
-            elif current != 'schedule/':
-                self.assertEqual(menu.count('aria-current="page"'), 0)
+            current_actions = {'schedule/': 'schedule', 'trial/': 'trial', 'rental/': 'rental',
+                               'access/': 'access', 'faq/': 'faq'}
+            role = current_actions.get(current)
+            if role:
+                self.assertIn(f'rs-menu-action--{role}" href="../{current}" aria-current="page"', menu)
+            self.assertEqual(menu.count('aria-current="page"'), int(role is not None))
         self.assertNotIn('href="./" class="rs-menu-link--ecosystem"', self.html)
         self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
@@ -112,7 +115,7 @@ class PortalContractTest(unittest.TestCase):
     def test_primary_routes_and_shop_review_distinction(self):
         self.assertIn('class="portal-quick-card portal-quick-card--trial" href="../trial/"', self.html)
         self.assertIn('class="portal-quick-card portal-quick-card--schedule" href="../schedule/"', self.html)
-        self.assertIn('>レッスン日程</strong>', self.html)
+        self.assertIn('>レッスン予約</strong>', self.html)
         self.assertIn('<h3>オリジナルグッズ</h3>', self.html)
         self.assertIn('<h3>商品レビュー</h3>', self.html)
         self.assertIn('リズムスピーカー商店を読む', self.html)

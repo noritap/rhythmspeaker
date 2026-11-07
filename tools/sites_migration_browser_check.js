@@ -1,6 +1,6 @@
 /* CI regression for the new static Sites migration. No submission, auth, calendar or DB writes. */
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
-(async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/'];
+(async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/','rental/'];
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
 for(const width of [320,375,390,430,768,1440]){
@@ -13,30 +13,39 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'×');
   assert(await menu.isVisible());
   assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),6);
+  assert.equal(await menu.locator('.rs-menu-group').count(),7);
   assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group--shopping').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--services').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
   assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-action').count(),2);
+  assert.equal(await menu.locator('.rs-menu-action').count(),8);
   assert.equal(await menu.locator('.rs-menu-link--ecosystem').count(),0,'self-link on all-services page must not be shown');
   assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
   assert.equal(await menu.locator('a[href$="trial/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
   assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-link--goods').count(),1);
+  assert.equal(await menu.locator('.rs-menu-action--goods').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
       <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
   assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
-  // Test the last link remains scroll-reachable on a short viewport.
-  assert(await menu.locator('.rs-menu-link--goods').isVisible());
-  await menu.locator('.rs-menu-link--goods').scrollIntoViewIfNeeded();
-  assert(await menu.locator('.rs-menu-link--goods').isVisible());
+  const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
+  assert.equal(await topCards.count(), 4);
+  const panel = await menu.boundingBox();
+  for (const card of await topCards.all()) {
+    const box = await card.boundingBox();
+    assert(box && box.height >= 44 && box.y + box.height <= panel.y + panel.height,
+      `primary card must fit above the fold at ${width}px`);
+  }
+  assert(await topCards.first().evaluate(el => el === document.activeElement));
+  const last = menu.locator('.rs-menu-link--reviewblog');
+  await last.scrollIntoViewIfNeeded();
+  assert((await menu.evaluate(el => el.scrollTop)) > 0, 'lower destinations are scroll reachable');
+  await topCards.first().scrollIntoViewIfNeeded();
   if(width===390||width===1440){
     fs.mkdirSync('ux-evidence',{recursive:true});
     await page.screenshot({path:'ux-evidence/priority-menu-'+width+'.png'});
@@ -81,7 +90,7 @@ for(const width of [320,375,390,430,768,1440]){
   if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
 }
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
-await page.goto(base);await page.locator('header nav[aria-label="主要メニュー"] a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('header nav[aria-label="主要メニュー"] a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
+await page.goto(base);await page.locator('#menu-button').click();await page.locator('#menu a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('#menu-button').click();await page.locator('#menu a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
 await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
 // Production may have real published classes; the old "always empty" check was obsolete.
 const visibleCards=await page.locator('[data-cf-detail]').count();
