@@ -6,7 +6,7 @@
 const images=[...document.querySelectorAll('img[data-studio-photo-id]')];
 if(!images.length)return;
 const root='/rhythmspeaker/';
-const allowed=/^assets\/images\/studio\/library\/2026-11\/web\/img_\d{4}\.webp$/;
+const allowed=/^assets\/images\/studio\/library\/2026-11\/web\/(?:img_\d{4}|[a-z0-9]+(?:-[a-z0-9]+)*)\.webp$/;
 fetch(root+'data/studio-photo-library-public.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('manifest');return r.json()})
 .then(manifest=>{
  const published=manifest.published||{};
