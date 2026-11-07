@@ -120,7 +120,7 @@ def main():
     if args.base:
         rename_output = run("git", "diff", "--name-status", "--find-renames", f"{args.base}...HEAD")
         for line in rename_output.splitlines():
-            fields = line.split("\\t")
+            fields = line.split("\t")
             if fields and fields[0].startswith("R") and len(fields) == 3:
                 renamed_destinations.add(fields[2])
 
