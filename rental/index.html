@@ -328,6 +328,17 @@ body[data-ux-source="sites-v6"] .rsr-availability-content{padding:14px 16px}
 body[data-ux-source="sites-v6"] .rsr-availability-frame-wrap{min-height:410px}
 body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
 </style>
+<style id="rsr-floorplan-v1-style">
+body[data-ux-source="sites-v6"] .rsr-floorplan-section{background:var(--paper);border-top:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-floorplan-frame{border:1px solid var(--border);padding:clamp(8px,1.5vw,18px);background:#fff}
+body[data-ux-source="sites-v6"] .rsr-floorplan-frame[hidden]{display:none}
+body[data-ux-source="sites-v6"] #studio-floorplan-expand{display:block;outline-offset:4px}
+body[data-ux-source="sites-v6"] #studio-floorplan-image{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff}
+body[data-ux-source="sites-v6"] .rsr-floorplan-caption{color:var(--muted);font-size:12px;line-height:1.7;margin:12px 5px 0}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable{border:1px solid var(--border);background:#faf9f6;padding:16px 20px}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable[hidden]{display:none}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable p{margin:0;font-size:13px;color:var(--muted)}
+</style>
 </head>
 <body data-ux-source="sites-v6"><a class="skip" href="#main">本文へ移動</a><header><div class="brand"><a class="brand-mark" href="../ecosystem/" aria-label="ブランドマーク：Rhythm Speaker 全サービスへ"><img src="/rhythmspeaker/logo.png" width="42" height="42" alt=""></a><a class="brand-name" href="../" aria-label="Rhythm Speaker 教室トップへ">Rhythm Speaker<small>TAP DANCE STUDIO / IKEBUKURO</small></a></div><nav aria-label="主要メニュー"><a href="../schedule/">レッスン日程</a><a href="../pricing/">料金・通い方</a><a href="../classes/">クラス</a><a href="../instructors/">講師</a><a href="../access/">アクセス</a></nav><a class="button primary nav-cta cta-nav" href="../trial/apply/">初回体験 ¥1,000 <span>↗</span></a><button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">メニュー <span aria-hidden="true">＋</span></button><div id="menu" class="rs-menu" hidden><nav class="rs-menu-nav" aria-label="すべてのページ"><section class="rs-menu-group rs-menu-group--quick" aria-label="よく使うメニュー"><p class="rs-menu-label">よく使うメニュー</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--schedule" href="../schedule/"><strong>レッスン日程</strong><small>日時・講師から探す</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--trial" href="../trial/"><strong>初回体験 ¥1,000</strong><small>初めての方はこちら</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--lessons" aria-label="教室・レッスン"><p class="rs-menu-label">教室・レッスン</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--pricing" href="../pricing/">料金</a></li><li><a class="rs-menu-link rs-menu-link--classes" href="../classes/">クラス紹介</a></li><li><a class="rs-menu-link rs-menu-link--instructors" href="../instructors/">講師紹介</a></li><li><a class="rs-menu-link rs-menu-link--workshops" href="../workshops/">ワークショップ</a></li><li><a class="rs-menu-link rs-menu-link--access" href="../access/">アクセス</a></li><li><a class="rs-menu-link rs-menu-link--rental" href="../rental/" aria-current="page">スタジオレンタル</a></li></ul></section><section class="rs-menu-group rs-menu-group--media" aria-label="観る・聴く・学ぶ"><p class="rs-menu-label">観る・聴く・学ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--broadcast" href="../broadcast/">番組・動画</a></li><li><a class="rs-menu-link rs-menu-link--rss" href="../rss/">Rhythm Speaker Show</a></li><li><a class="rs-menu-link rs-menu-link--music" href="../music/">音楽を聴く</a></li><li><a class="rs-menu-link rs-menu-link--tapblog" href="https://tapdance-rhythmspeaker.hatenablog.com/">タップダンスを学ぶ</a></li></ul></section><section class="rs-menu-group rs-menu-group--shopping" aria-label="買う・選ぶ"><p class="rs-menu-label">買う・選ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--goods" href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a></li><li><a class="rs-menu-link rs-menu-link--reviewblog" href="https://rhythmspeaker.hatenablog.com/">商品レビューを読む</a></li></ul></section><section class="rs-menu-group rs-menu-group--member" aria-label="会員・お問い合わせ"><p class="rs-menu-label">会員・お問い合わせ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--wallet" href="https://tips-app-seven.vercel.app/">マイページ<small>RS Wallet</small></a></li><li><a class="rs-menu-link rs-menu-link--line" href="https://lin.ee/zC5YLe7">公式LINE<small>相談・変更</small></a></li></ul></section><section class="rs-menu-group rs-menu-group--more" aria-label="その他のページ"><p class="rs-menu-label">その他のページ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--home" href="../">教室トップ</a></li><li><a class="rs-menu-link rs-menu-link--about" href="../about/">教室紹介</a></li><li><a class="rs-menu-link rs-menu-link--faq" href="../faq/">よくある質問</a></li><li><a class="rs-menu-link rs-menu-link--ecosystem" href="../ecosystem/">すべてのサービス</a></li></ul></section></nav></div></header><noscript><nav aria-label="サイト案内"><a href="../">教室トップ</a> <a href="../trial/">初回体験</a> <a href="../classes/">クラス</a> <a href="../about/">教室紹介</a> <a href="../workshops/">ワークショップ</a> <a href="../ecosystem/">サービス一覧</a> <a href="../faq/">FAQ</a> <a href="../access/">アクセス</a> <a href="../rss/">RSS</a> <a href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a> </nav></noscript><div class="context-nav" aria-label="パンくず"><a href="../">教室トップ</a><span aria-hidden="true">/</span><span aria-current="page">スタジオレンタル</span></div><main id="main" tabindex="-1">
     <section class="rsr-intro">
@@ -452,6 +463,23 @@ body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
           </div>
         </details>
         <p class="rsr-footnote">掲載写真は実際のスタジオです。公開前の確認を通過した追加写真は順次反映されます。</p>
+      </div>
+    </section>
+    <section class="rsr-section rsr-floorplan-section" id="studio-floorplan" aria-labelledby="studio-floorplan-title">
+      <div class="rental-inner">
+        <div class="rsr-section-top">
+          <div><p class="rsr-eyebrow">FLOOR PLAN / B1F</p><h2 id="studio-floorplan-title">スタジオの間取り・設備</h2></div>
+          <p>ダンスフロア、鏡、受付、更衣スペースなどの位置関係を確認できます。</p>
+        </div>
+        <div class="rsr-floorplan-frame" id="studio-floorplan-frame" hidden>
+          <a id="studio-floorplan-expand" href="../assets/images/studio/floorplan/rhythm-speaker-b1f-floorplan-v1.webp" target="_blank" rel="noopener noreferrer" aria-label="スタジオ平面図を別画面で拡大する">
+            <img id="studio-floorplan-image" alt="Rhythm Speaker池袋スタジオ地下1階の概略平面図。ダンスフロア、鏡、受付カウンター、更衣室、トイレ、階段および主な設備の位置" width="1920" height="1080" loading="lazy" decoding="async">
+          </a>
+          <p class="rsr-floorplan-caption">画像をタップすると拡大します。図面は概略図です。実際の寸法・備品配置は現況をご確認ください。</p>
+        </div>
+        <div class="rsr-floorplan-unavailable" id="studio-floorplan-unavailable" role="status">
+          <p>スタジオ平面図は掲載準備中です。室内の様子は上の写真をご確認ください。</p>
+        </div>
       </div>
     </section>
     <section class="rsr-section rsr-muted" id="studio-spec">
@@ -741,5 +769,18 @@ document.querySelector('.skip')?.addEventListener('click',e=>{e.preventDefault()
 details.addEventListener('toggle',()=>{if(details.open&&!frame.hasAttribute('src')){frame.setAttribute('src',frame.dataset.src);}});
 })();
 </script>
-<script defer src="../assets/js/studio-photo-library.js?v=20261107"></script></body>
+<script defer src="../assets/js/studio-photo-library.js?v=20261107"></script><script id="rental-floorplan-release-gate">
+(()=>{'use strict';
+const frame=document.getElementById('studio-floorplan-frame');
+const pending=document.getElementById('studio-floorplan-unavailable');
+const img=document.getElementById('studio-floorplan-image');
+if(!frame||!pending||!img)return;
+const asset='../assets/images/studio/floorplan/rhythm-speaker-b1f-floorplan-v1.webp';
+const probe=new Image();
+probe.onload=()=>{img.src=asset;frame.hidden=false;pending.hidden=true;};
+probe.onerror=()=>{frame.hidden=true;pending.hidden=false;};
+probe.src=asset;
+})();
+</script>
+</body>
 </html>
