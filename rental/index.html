@@ -303,6 +303,14 @@ body[data-ux-source="sites-v6"] .rsr-visual-more:focus-within{outline-offset:3px
 @media(prefers-reduced-motion:reduce){body[data-ux-source="sites-v6"] .rsr-visual-primary img{transition:none}}
 </style>
 <style id="rsr-availability-calendar-style">
+/* Date-first rental flow: one use-mode decision, automatic plan selection */
+.rsr-use-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rsr-mode-option{cursor:pointer;border:1px solid #a9a9a9;border-radius:12px;background:#fff;color:#222;padding:15px 12px;min-height:58px;font:inherit;font-weight:750;text-align:center}
+.rsr-mode-option small{display:block;font-size:11px;font-weight:500}
+.rsr-mode-option.is-selected{border:2px solid #b92331;background:#fff4f4}
+.rsr-mode-option:focus-visible{outline:3px solid #b92331;outline-offset:2px}
+@media(max-width:375px){.rsr-use-mode{gap:8px}.rsr-mode-option{padding:12px 6px}}
+
 /* Rental v2: optional calendar and clearer booking controls */
 body[data-ux-source="sites-v6"] .rsr-availability-optional{margin:0 0 1.5rem}
 body[data-ux-source="sites-v6"] .rsr-availability-toggle{list-style:none;cursor:pointer;padding:15px 20px;font-weight:750;display:flex;justify-content:space-between;align-items:center;min-height:48px}
@@ -402,14 +410,13 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         </div>
         <form id="rental-request" class="rsr-booking-app">
           <div class="rsr-booking-main">
-            <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">01</span> 利用プランを選ぶ</legend>
-              <div class="rsr-plan-picker" id="rental-plan-picker" aria-label="レンタルプラン">
-                <button type="button" class="rsr-plan-option is-selected" data-plan="通常レンタル" aria-pressed="true"><span>通常レンタル</span><strong>¥3,500<small> / 時間</small></strong></button>
-                <button type="button" class="rsr-plan-option" data-plan="平日朝割引" aria-pressed="false"><span>平日朝割引</span><strong>¥1,500<small> / 時間</small></strong><em>平日 7〜12時</em></button>
-                <button type="button" class="rsr-plan-option" data-plan="深夜6時間パック" aria-pressed="false"><span>深夜6時間</span><strong>¥4,000<small> / 6時間</small></strong><em>0〜6時固定</em></button>
-                <button type="button" class="rsr-plan-option" data-plan="シェアレンタル" aria-pressed="false"><span>シェア</span><strong>¥500<small> / 時間</small></strong><em>貸切ではありません</em></button>
+            <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">01</span> どう使いますか？</legend>
+              <div class="rsr-use-mode" role="group" aria-label="利用方法">
+                <button type="button" class="rsr-mode-option is-selected" data-use-mode="private" aria-pressed="true">貸切で使う</button>
+                <button type="button" class="rsr-mode-option" data-use-mode="share" aria-pressed="false">シェアで使う <small>貸切ではありません</small></button>
               </div>
-              <label class="rsr-sr-only" for="rental-type">利用プラン</label>
+              <p class="rsr-calendar-caption">日時を選ぶと料金が自動で決まります。</p>
+              <label class="rsr-sr-only" for="rental-type">適用プラン</label>
               <select id="rental-type" name="rental-type" class="rsr-sr-only"><option value="通常レンタル">通常レンタル</option><option value="平日朝割引">平日朝割引</option><option value="深夜6時間パック">深夜6時間パック</option><option value="シェアレンタル">シェアレンタル</option><option value="STARTER SUPPORT">STARTER SUPPORT（企画支援）</option><option value="定期利用・その他">定期利用・その他</option></select>
             </fieldset>
             <details class="rsr-availability-guide rsr-availability-optional" id="rental-availability"><summary class="rsr-availability-toggle">スタジオの予定を見る <span aria-hidden="true">＋</span></summary>
@@ -433,7 +440,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
               </details>
             </details>
             <div class="rsr-date-time">
-              <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">02</span> 希望日を選ぶ</legend>
+              <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">02</span> いつ使いますか？</legend>
                 <div class="rsr-calendar" id="rental-calendar" aria-label="希望日カレンダー">
                   <div class="rsr-calendar-head"><strong id="rental-month-label" aria-live="polite"></strong><div class="rsr-calendar-arrows"><button type="button" id="rental-prev-month" aria-label="前月">←</button><button type="button" id="rental-next-month" aria-label="翌月">→</button></div></div>
                   <div class="rsr-calendar-week" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
@@ -442,7 +449,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
                 </div>
                 <label class="rsr-sr-only" for="rental-date">希望日</label><input type="date" id="rental-date" name="date" class="rsr-sr-only" required>
               </fieldset>
-              <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">03</span> 時刻と利用時間</legend>
+              <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">03</span> 開始時刻・利用時間</legend>
                 <p class="rsr-mini-label">開始希望時刻</p><div class="rsr-time-options" id="rental-time-options" role="group" aria-label="開始希望時刻"></div>
                 <details class="rsr-custom-time"><summary>別の開始時刻を希望する</summary><label for="rental-time" class="rsr-mini-label">開始時刻（30分単位）</label><input id="rental-time" name="time" type="time" required step="1800"></details>
                 <label for="rental-duration" class="rsr-mini-label">利用時間</label>
@@ -697,6 +704,16 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       const isPastStart=(d,t)=>d===today()&&minutesOf(t)<=jstNow();
       const isSupport=()=>type.value==='STARTER SUPPORT';
       const isOther=()=>type.value==='定期利用・その他';
+      let useMode='private',specialChoice=false;
+      const autoPlan=()=>{
+        if(specialChoice)return;
+        const h=durations(),start=minutesOf(timeInput.value),end=start+h*60;
+        const p=useMode==='share'?'シェアレンタル':
+          dateInput.value&&timeInput.value==='00:00'&&h===6?'深夜6時間パック':
+          dateInput.value&&timeInput.value&&h&&inMorning(dateInput.value)&&start>=420&&end<=720?'平日朝割引':'通常レンタル';
+        type.value=p;
+        document.querySelectorAll('[data-use-mode]').forEach(b=>{const selected=b.dataset.useMode===useMode;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));});
+      };
       const dateLabel=d=>d?new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short'}).format(parseDay(d)):'日付を選択';
       let month=today().slice(0,7),draft='';
       dateInput.min=today();
@@ -709,6 +726,8 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       const validatePlan=()=>{
         if(!dateInput.value||!timeInput.value)return '';
         if(dateInput.value<today()||isPastStart(dateInput.value,timeInput.value))return '過去の日時は選択できません。未来の希望日時を指定してください。';
+        if(!isSupport()&&!isOther()&&!durations())return '利用時間を選んでください。';
+        if(!isSupport()&&!isOther()&&timeInput.value==='00:00'&&type.value!=='深夜6時間パック')return '深夜0:00開始は6時間パックのみです。';
         if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&durations()&&minutesOf(timeInput.value)+durations()*60>1440)return '日付をまたぐ利用はLINEで個別にご相談ください。';
         if(type.value==='通常レンタル'&&minutesOf(timeInput.value)+durations()*60>1380)return '通常レンタルは23:00までのご利用です。終了時刻が23:00以前になるよう利用時間を変更してください。';
         if(type.value==='平日朝割引'){
@@ -744,22 +763,24 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const b=document.createElement('button');b.type='button';b.textContent=String(n);
           b.setAttribute('aria-label',dateLabel(d)+'を希望日として選ぶ');
           b.setAttribute('aria-pressed',String(dateInput.value===d));
-          const disabled=d<today()||(type.value==='平日朝割引'&&!inMorning(d))||(type.value==='深夜6時間パック'&&d===today()&&jstNow()>0);
+          const disabled=d<today();
           b.disabled=disabled;
           if(d===today())b.classList.add('is-today');
-          b.addEventListener('click',()=>{dateInput.value=d;renderCalendar();refresh();});
+          b.addEventListener('click',()=>{dateInput.value=d;autoPlan();renderCalendar();renderTimes();refresh();});
           wrap.append(b);
         }
       };
       const renderTimes=()=>{
-        const opts=type.value==='深夜6時間パック'?['00:00']:type.value==='平日朝割引'?['07:00','08:00','09:00','10:00','11:00']:['07:00','09:00','10:00','12:00','14:00','16:00','18:00','20:00','21:00','22:00'];
+        const opts=['00:00','07:00','08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00'];
         const wrap=$('rental-time-options');wrap.replaceChildren();
-        opts.forEach(t=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',String(timeInput.value===t));
-          b.disabled=!!dateInput.value&&isPastStart(dateInput.value,t);
-          b.addEventListener('click',()=>{timeInput.value=t;if(type.value==='通常レンタル'&&t==='22:00')duration.value='1時間';renderTimes();refresh();});wrap.append(b);});
-        timeInput.readOnly=type.value==='深夜6時間パック';
-        duration.disabled=type.value==='深夜6時間パック';
-        $('rental-time-hint').textContent=type.value==='深夜6時間パック'?'選択日の0:00〜6:00（前日24:00開始）の固定パックです。':type.value==='平日朝割引'?'平日7:00〜12:00内の利用が割引対象です。':type.value==='シェアレンタル'?'シェア利用は貸切ではありません。利用条件は確認制です。':type.value==='通常レンタル'?'通常レンタルは23:00まで利用できます。':'日時と条件はLINEでご相談ください。';
+        opts.forEach(t=>{
+          const b=document.createElement('button');b.type='button';b.textContent=t;b.setAttribute('aria-pressed',String(timeInput.value===t));
+          const end=minutesOf(t)+durations()*60;
+          b.disabled=!!dateInput.value&&isPastStart(dateInput.value,t)||(!specialChoice&&useMode==='private'&&(t==='00:00'&&durations()!==6||t!=='00:00'&&end>1380));
+          b.addEventListener('click',()=>{timeInput.value=t;autoPlan();renderTimes();refresh();});wrap.append(b);
+        });
+        timeInput.readOnly=false;duration.disabled=false;
+        $('rental-time-hint').textContent=isSupport()||isOther()?'日時と条件はLINEでご相談ください。':useMode==='share'?'シェア利用は貸切ではありません。':type.value==='深夜6時間パック'?'0:00〜6:00の固定パックです。':'通常レンタルは23:00まで。平日朝7:00〜12:00は割引料金です。';
       };
       const refresh=()=>{
         const e=estimate(),warn=validatePlan();
@@ -773,22 +794,17 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         draft=build();copy.disabled=!draft||!!warn;
       };
       const selectPlan=p=>{
-        type.value=p;
-        if(p==='深夜6時間パック'){timeInput.value='00:00';duration.value='6時間';}
-        else {duration.disabled=false;if(timeInput.value==='00:00')timeInput.value='';if(duration.value==='6時間')duration.value='2時間';}
-        if(p==='平日朝割引'&&dateInput.value&&!inMorning(dateInput.value))dateInput.value='';
-        if(p==='深夜6時間パック'&&dateInput.value===today())dateInput.value='';
-        if((isSupport()||isOther())&&timeInput.value==='00:00')timeInput.value='';
-        document.querySelectorAll('[data-plan]').forEach(b=>{const selected=b.dataset.plan===p;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));});
-        if(dateInput.value)month=dateInput.value.slice(0,7);
-        renderCalendar();renderTimes();refresh();
+        specialChoice=p==='STARTER SUPPORT'||p==='定期利用・その他';
+        if(specialChoice)type.value=p;
+        else useMode=p==='シェアレンタル'?'share':'private';
+        autoPlan();renderCalendar();renderTimes();refresh();
       };
-      document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>selectPlan(b.dataset.plan)));
-      document.querySelectorAll('[data-rental-choice]').forEach(a=>a.addEventListener('click',()=>{selectPlan(a.dataset.rentalChoice);}));
+      document.querySelectorAll('[data-use-mode]').forEach(b=>b.addEventListener('click',()=>{specialChoice=false;useMode=b.dataset.useMode;autoPlan();renderCalendar();renderTimes();refresh();}));
+      document.querySelectorAll('[data-rental-choice]').forEach(a=>a.addEventListener('click',()=>selectPlan(a.dataset.rentalChoice)));
       $('rental-prev-month').addEventListener('click',()=>{month=shiftMonth(month,-1);renderCalendar();});
       $('rental-next-month').addEventListener('click',()=>{month=shiftMonth(month,1);renderCalendar();});
-      form.addEventListener('input',()=>{renderCalendar();renderTimes();refresh();});
-      form.addEventListener('change',()=>{renderCalendar();renderTimes();refresh();});
+      form.addEventListener('input',()=>{autoPlan();renderCalendar();renderTimes();refresh();});
+      form.addEventListener('change',()=>{autoPlan();renderCalendar();renderTimes();refresh();});
       form.addEventListener('submit',e=>{
         e.preventDefault();if(!dateInput.value||!timeInput.value){status.textContent='希望日と開始時刻を選択してください。';$('rental-calendar').scrollIntoView({block:'center',behavior:'smooth'});return;}
         duration.disabled=false;
@@ -803,7 +819,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         try{await navigator.clipboard.writeText(draft);status.textContent='相談文をコピーしました。LINEに貼り付けて送信してください。';}
         catch(err){status.textContent='コピーできませんでした。LINEボタンからお進みください。';}
       });
-      selectPlan('通常レンタル');
+      autoPlan();renderCalendar();renderTimes();refresh();
     })();
   </script>
 <script id="rental-shared-navigation">

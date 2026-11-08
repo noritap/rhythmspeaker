@@ -58,10 +58,12 @@ for(const [key,label] of [['standard10','スタンダード10'],['premium25','�
  assert.match(card,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 }
 const rental=read('rental/index.html');
-for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引','¥1,500'],['深夜6時間パック','¥4,000'],['シェアレンタル','¥500']]){
- assert.ok(rental.includes(label),label+' rental plan must exist');
- assert.ok(rental.includes(price),price+' must be shown in yen');
+for(const label of ['通常レンタル','平日朝割引','深夜6時間パック','シェアレンタル']){
+ assert.ok(rental.includes(label),label+' automatic rental rate must exist');
 }
+assert.match(rental,/data-use-mode="private"/);
+assert.match(rental,/data-use-mode="share"/);
+assert.match(rental,/const autoPlan=/);
 assert.match(rental,/id="rental-request"/);
 assert.match(rental,/id="rental-availability"/);
 assert.match(rental,/rsr-availability-optional/);
@@ -71,8 +73,8 @@ assert.match(rental,/id="rental-availability-lazy-load"/);
 assert.match(rental,/スタジオの予定を見る/);
 assert.match(rental,/このページで予定を見る/);
 assert.match(rental,/Googleカレンダーを開く/);
-assert.match(rental,/type\.value==='平日朝割引'\?'平日7:00〜12:00内の利用が割引対象です/);
-assert.match(rental,/type\.value==='通常レンタル'\?'通常レンタルは23:00まで利用できます/);
+assert.match(rental,/inMorning\(dateInput\.value\)/);
+assert.match(rental,/通常レンタルは23:00まで/);
 assert.match(read('docs/RENTAL_V5_RELEASE_SPEC_20261107.md'),/予約成立条件/);
 assert.match(read('docs/RENTAL_V5_RELEASE_SPEC_20261107.md'),/追加24枚のGitHub画像バイナリは未アップロード/);
 
@@ -100,9 +102,9 @@ assert.match(rental,/class="button primary rsr-submit"/);
 assert.doesNotMatch(rental,/href="\.\.\/style\.css"/);
 assert.doesNotMatch(rental,/class="nav-links"/);
 
-assert.match(rental,/data-plan="平日朝割引"/);
-assert.match(rental,/data-plan="深夜6時間パック"/);
-assert.match(rental,/data-plan="シェアレンタル"/);
+assert.match(rental,/data-use-mode="private"/);
+assert.match(rental,/type.value===\x27深夜6時間パック\x27/);
+assert.match(rental,/data-use-mode="share"/);
 assert.match(rental,/validatePlan/);
 assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
@@ -113,7 +115,7 @@ assert.match(rental,/const renderCalendar=/);
 assert.match(rental,/const renderTimes=/);
 assert.match(rental,/20:00','21:00','22:00/);
 assert.match(rental,/type\.value==='通常レンタル'&&minutesOf\(timeInput\.value\)\+durations\(\)\*60>1380/);
-assert.match(rental,/t==='22:00'\)duration\.value='1時間'/);
+assert.match(rental,/end>1380/);
 assert.match(rental,/const estimate=/);
 assert.match(rental,/const validatePlan=/);
 assert.match(rental,/const isPastStart=/);
@@ -124,14 +126,14 @@ assert.match(rental,/id="rental-pricing"/);
 assert.match(rental,/rsr-pricing-compact/);
 assert.match(rental,/rsr-custom-time/);
 assert.match(rental,/料金の適用条件・キャンセルについて/);
-assert.match(rental,/if\(p==='深夜6時間パック'&&dateInput\.value===today\(\)\)dateInput\.value=''/);
+assert.match(rental,/timeInput.value==='00:00'&&h===6/);
 assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
 
 assert.match(rental,/aria-pressed/);
-assert.match(rental,/¥3,500/);
-assert.match(rental,/¥1,500/);
-assert.match(rental,/¥4,000/);
-assert.match(rental,/¥500/);
+assert.match(rental,/'通常レンタル':3500/);
+assert.match(rental,/'平日朝割引':1500/);
+assert.match(rental,/'深夜6時間パック':4000/);
+assert.match(rental,/'シェアレンタル':500/);
 assert.match(rental,/空き状況はLINEで確認/);
 assert.ok(rental.indexOf('id="rental-booking"')<rental.indexOf('id="studio-gallery"'),'Booking must precede long gallery');
 assert.match(rental,/id="studio-floorplan"/);
