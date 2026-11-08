@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<!--
+Rental v5.0 | source: docs/RENTAL_V5_RELEASE_SPEC_20261107.md
+This page is a consultation-first rental experience. Calendar events do not establish bookable inventory.
+New photographs require binary upload + publication approval before linking.
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>池袋のレンタルダンススタジオ｜料金・写真・利用相談｜Rhythm Speaker</title>
+  <meta name="description" content="池袋駅徒歩3分のRhythm Speakerレンタルスタジオ。実際のフロア写真・設備・一般向け円建て料金・平日朝割引・深夜パック・シェアレンタルを確認し、希望日時をLINEで相談できます。">
+  <meta name="robots" content="noindex,follow">
+  <link rel="icon" type="image/png" href="../logo.png">
+  <link rel="stylesheet" href="../assets/ux-lab/app.css?v=20261108menupriority1">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body{padding-top:80px;background:#fff}.rental-inner{max-width:1080px;margin:0 auto}.rental-hero{padding:5.5rem 5% 4.8rem;background:radial-gradient(circle at 85% 15%,rgba(255,255,255,.08),transparent 26%),linear-gradient(135deg,#101010,#252525);color:#fff}.eyebrow{font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:700;letter-spacing:.17em;color:#aaa}.rental-hero h1{font-size:clamp(2.25rem,5.5vw,4.7rem);line-height:1.06;margin:.85rem 0 1.2rem;max-width:900px}.rental-hero .hero-lead{max-width:780px;color:#ddd;font-size:clamp(1rem,2vw,1.16rem);line-height:1.9}.hero-highlight{display:inline-block;margin-top:1.15rem;padding:.55rem .85rem;border:1px solid rgba(255,255,255,.24);border-radius:999px;font-weight:700;font-size:.92rem;background:rgba(255,255,255,.06)}.hero-actions,.cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}.hero-actions .btn-secondary,.cta-row .btn-secondary{background:transparent}.breadcrumb{font-size:.85rem;margin-bottom:1.45rem}.breadcrumb a{color:#fff}.section{padding:4.7rem 5%}.section.alt{background:#f7f7f7}.section.dark{background:#151515;color:#fff}.section h2{font-size:clamp(1.8rem,3.3vw,2.9rem);line-height:1.25;margin:0 0 1rem}.lead{max-width:800px;color:#555;line-height:1.9;margin:0 0 2rem}.section.dark .lead{color:#ccc}.value-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#e1e1e1;border:1px solid #e1e1e1;border-radius:18px;overflow:hidden;margin-top:-1.2rem;position:relative;z-index:2}.value-item{background:#fff;padding:1.5rem}.value-number{font-family:'Outfit',sans-serif;font-weight:900;font-size:1.75rem;display:block}.value-item strong{display:block;margin:.25rem 0 .4rem}.value-item p{margin:0;color:#666;font-size:.9rem;line-height:1.65}.plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}.plan-card{border:1px solid #e2e2e2;border-radius:20px;padding:2rem;background:#fff}.plan-card.featured{border:2px solid var(--accent-color);box-shadow:0 14px 34px rgba(0,0,0,.09)}.plan-kicker{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.13em;color:#777}.plan-card h3{font-size:1.65rem;margin:.55rem 0}.price{font-size:1.35rem;font-weight:900;margin:.9rem 0}.muted{color:#666;line-height:1.8}.check-list{padding-left:1.2rem;margin:1.2rem 0}.check-list li{margin:.55rem 0;line-height:1.65}.badge{display:inline-block;padding:.3rem .68rem;border-radius:999px;background:#f2f2f2;font-size:.78rem;font-weight:700}.badge-accent{background:#fff0f1;color:#b41722}.promise{margin-top:1.15rem;padding:1.1rem 1.2rem;background:#fff6f7;border-radius:12px;border-left:4px solid var(--accent-color);font-weight:700;line-height:1.7}.concept-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:1.3rem;align-items:stretch}.concept-copy,.concept-points{border-radius:20px;padding:2rem}.concept-copy{background:#111;color:#fff}.concept-copy p{color:#d5d5d5;line-height:1.9}.concept-points{background:#fff;border:1px solid #e3e3e3}.concept-points ul{margin:0;padding-left:1.2rem}.concept-points li{margin:.75rem 0;line-height:1.7}.compare{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e4e4e4}.compare th,.compare td{padding:1rem;border-bottom:1px solid #e7e7e7;text-align:left;vertical-align:top;line-height:1.6}.compare th{background:#f5f5f5}.table-wrap{overflow-x:auto;border-radius:14px}.time-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.time-card{border:1px solid #e3e3e3;border-radius:18px;padding:1.45rem;background:#fff}.time-card .fee{font-family:'Outfit',sans-serif;font-size:1.35rem;font-weight:900}.time-card .minutes{font-size:2rem;font-weight:900;margin:.5rem 0}.time-card p{color:#666;margin:0;line-height:1.65}.area-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.1rem}.area-card{border-radius:18px;padding:1.5rem;background:#fff;border:1px solid #e3e3e3}.area-card h3{margin:.15rem 0 .65rem}.area-card p{margin:0;color:#666;line-height:1.75}.area-card.floor{border-top:4px solid var(--accent-color)}.area-card.common{border-top:4px solid #222}.example-box{margin-top:1.2rem;border-radius:14px;background:#f4f4f4;padding:1.25rem 1.4rem;line-height:1.8}.growth{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem}.growth-card{background:#fff;border:1px solid #e3e3e3;border-radius:18px;padding:1.5rem;position:relative}.growth-card:not(:last-child):after{content:'→';position:absolute;right:-.8rem;top:50%;transform:translateY(-50%);font-size:1.4rem;font-weight:900;color:#aaa;z-index:2}.growth-card h3{margin:.35rem 0 .5rem}.growth-card p{margin:0;color:#666;line-height:1.7;font-size:.94rem}.guardrails{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem;margin-top:1.4rem}.guardrail{background:#fff;border:1px solid #e3e3e3;border-radius:14px;padding:1.2rem}.guardrail strong{font-size:1.25rem;display:block}.guardrail span{display:block;color:#666;font-size:.9rem;margin-top:.25rem}.contribution-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.contribution-card{background:#202020;border:1px solid #343434;border-radius:18px;padding:1.6rem}.contribution-card h3{margin:.25rem 0 .65rem}.contribution-card p{color:#cfcfcf;line-height:1.75;margin:.25rem 0}.contribution-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}.contribution-tags span{font-size:.78rem;border:1px solid #444;border-radius:999px;padding:.35rem .6rem;color:#ddd}.credit-box{margin-top:1.2rem;border:1px solid #3b3b3b;border-radius:18px;padding:1.55rem;background:#0e0e0e}.credit-box strong{font-size:1.1rem}.credit-box p{color:#ccc;line-height:1.8;margin:.55rem 0 0}.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;counter-reset:step}.flow-item{background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:1.25rem}.flow-item:before{counter-increment:step;content:"STEP " counter(step);display:block;font-family:'Outfit',sans-serif;font-size:.74rem;letter-spacing:.12em;color:var(--accent-color);font-weight:700;margin-bottom:.5rem}.flow-item h3{font-size:1rem;margin:.2rem 0}.flow-item p{font-size:.9rem;color:#666;margin:.45rem 0 0;line-height:1.65}.support-note{padding:1.35rem 1.5rem;border-left:4px solid var(--accent-color);background:#fff6f7;border-radius:10px;margin-top:1.5rem;line-height:1.75}.faq{display:grid;gap:.8rem}.faq details{border:1px solid #e2e2e2;border-radius:14px;padding:1rem 1.2rem;background:#fff}.faq summary{cursor:pointer;font-weight:700}.faq p{color:#555;margin:.8rem 0 0;line-height:1.75}.cta-box{background:#111;color:#fff;border-radius:22px;padding:2.2rem}.cta-box h2{margin-top:0}.cta-box p{color:#ddd;max-width:780px;line-height:1.8}.fineprint{font-size:.83rem;color:#777;margin-top:1rem;line-height:1.65}.section.dark .fineprint{color:#aaa}@media(max-width:820px){body{padding-top:112px}.value-strip,.plan-grid,.concept-box,.time-grid,.area-grid,.growth,.guardrails,.contribution-grid,.flow{grid-template-columns:1fr}.value-strip{margin-top:0}.growth-card:not(:last-child):after{content:'↓';right:auto;left:50%;top:auto;bottom:-1.15rem;transform:translateX(-50%)}.compare{font-size:.88rem}.compare th,.compare td{padding:.72rem}.hero-actions,.cta-row{flex-direction:column;align-items:stretch}.hero-actions .btn,.cta-row .btn{width:100%}.section{padding:3.6rem 5%}.rental-hero{padding-top:4rem}}
+
+    /* Rental photo-first UX 2026-11-06: preserve all existing rental agreements below. */
+    .rental-hero{background:linear-gradient(90deg,rgba(8,8,8,.94) 0%,rgba(8,8,8,.78) 52%,rgba(8,8,8,.34) 100%),url('../assets/home-hero-studio-v4.jpg') center/cover no-repeat;min-height:520px;display:flex;align-items:center}
+    .rental-hero h1{max-width:760px;line-height:1.18}
+    .rental-hero .hero-lead{max-width:670px;color:#f0f0f0}
+    .rental-hero .hero-highlight{margin-top:1rem}
+    .rental-purpose-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+    .rental-purpose-card{display:flex;flex-direction:column;justify-content:space-between;gap:1.4rem;padding:1.35rem;text-decoration:none;color:#171717;background:#fff;border:1px solid #dedede;border-radius:17px;min-height:150px;transition:border-color .15s,transform .15s}
+    .rental-purpose-card:hover,.rental-purpose-card:focus-visible{border-color:#bd1928;transform:translateY(-2px)}
+    .rental-purpose-card strong{font-size:1.14rem;line-height:1.45}
+    .rental-purpose-card span{color:#555;font-size:.9rem;line-height:1.6}
+    .rental-purpose-card .purpose-arrow{font-weight:700;color:#b41722}
+    .rental-photo-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:1rem}
+    .rental-photo-layout figure{margin:0;min-width:0;border-radius:18px;overflow:hidden;background:#f0f0f0}
+    .rental-photo-layout img{display:block;width:100%;height:320px;object-fit:cover}
+    .rental-photo-layout figcaption{padding:.9rem 1rem;color:#444;font-size:.9rem;line-height:1.6}
+    .rental-anchor{scroll-margin-top:125px}
+    @media(max-width:820px){.rental-hero{min-height:auto;background:linear-gradient(180deg,rgba(8,8,8,.78),rgba(8,8,8,.94)),url('../assets/home-hero-studio-v4.jpg') center/cover no-repeat}.rental-purpose-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rental-photo-layout{grid-template-columns:1fr}.rental-photo-layout img{height:auto;max-height:380px;object-fit:contain}.rental-purpose-card{min-height:145px}}
+    @media(max-width:480px){.rental-purpose-grid{gap:.7rem}.rental-purpose-card{padding:1rem;min-height:140px}.rental-purpose-card strong{font-size:1rem}.rental-hero{padding:3.2rem 5% 3.6rem}}
+  </style>
+
+  <style>
+    /* Decision-first rental design, deliberately isolated from sitewide navigation. */
+    html{scroll-behavior:smooth}
+    body{background:#fff;color:#171717}
+    .rental-inner{max-width:1160px;margin:0 auto;width:100%}
+    main [id]{scroll-margin-top:118px}
+    .rsr-intro{background:#f6f5f2;padding:1.5rem 5% 3rem}
+    .rsr-crumb{font-size:.82rem;color:#555;margin-bottom:1.4rem}.rsr-crumb a{color:inherit}
+    .rsr-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(1.3rem,4vw,4rem)}
+    .rsr-eyebrow{font:700 .73rem 'Outfit',sans-serif;letter-spacing:.17em;color:#ab2431;margin:0 0 .85rem}
+    .rsr-hero h1{font-size:clamp(2.25rem,4.2vw,4.3rem);line-height:1.18;letter-spacing:-.045em;margin:.5rem 0 1.1rem}
+    .rsr-lead{font-size:clamp(1rem,1.6vw,1.18rem);line-height:1.85;color:#383838;max-width:32rem}
+    .rsr-chips{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0}.rsr-chips span{background:#fff;border:1px solid #ddd;padding:.4rem .68rem;border-radius:8px;font-size:.82rem}
+    .rsr-hero-actions{display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;margin-top:1.4rem}
+    .rsr-quiet-link{color:#333;font-weight:700;text-underline-offset:4px}
+    .rsr-hero-media{position:relative;min-width:0;overflow:hidden;border-radius:14px;box-shadow:0 22px 46px rgba(0,0,0,.12)}
+    .rsr-hero-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+    .rsr-photo-label{position:absolute;bottom:14px;left:14px;font-size:.75rem;font-weight:700;color:#fff;background:rgba(0,0,0,.72);padding:.4rem .7rem;border-radius:4px}
+    .rsr-quickbar{border-bottom:1px solid #e2e2e2;background:#fff}.rsr-quickgrid{display:grid;grid-template-columns:1fr 1fr 1fr auto;align-items:stretch;padding:1.2rem 0;gap:1.1rem}
+    .rsr-quickgrid>div{border-right:1px solid #e7e7e7;padding:.3rem .5rem}.rsr-quicklabel{display:block;color:#656565;font-size:.76rem;margin-bottom:.35rem}.rsr-quickgrid strong{display:block;font-size:1.25rem;letter-spacing:-.015em}.rsr-quickgrid strong small{font-size:.76rem}.rsr-subnote{display:block;font-size:.72rem;color:#777;margin-top:.3rem}
+    .rsr-quick-action{display:flex;align-items:center;gap:1rem;color:#fff;text-decoration:none;background:#b92331;padding:1rem 1.2rem;border-radius:9px;font-weight:700}
+    .rsr-section{padding:4.3rem 5%}.rsr-section h2{font-size:clamp(1.8rem,3.1vw,2.7rem);line-height:1.3;letter-spacing:-.02em;margin:.2rem 0 1.1rem}.rsr-section-top{display:flex;justify-content:space-between;gap:2rem;align-items:end;margin-bottom:1.6rem}.rsr-section-top>p{max-width:390px;color:#555;line-height:1.75;margin:0}.rsr-muted{background:#f7f7f7}
+    .rsr-gallery{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:.8rem;height:540px}
+    .rsr-gallery a{position:relative;display:block;overflow:hidden;border-radius:10px;color:white;background:#eee}
+    .rsr-gallery a:first-child{grid-row:span 2}.rsr-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}.rsr-gallery a:hover img{transform:scale(1.035)}.rsr-gallery a>span{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.7));padding:2rem 1rem 1rem;font-size:.87rem;font-weight:700}
+    .rsr-footnote{font-size:.83rem;line-height:1.7;color:#686868;margin:1.1rem 0 0}.rsr-footnote a{color:#90212b;text-underline-offset:3px}
+    .rsr-facility-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.9rem}.rsr-facility{padding:1.3rem 1.1rem;background:#fff;border:1px solid #e5e5e5;border-radius:12px}.rsr-facility-icon{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:900;color:#b92331}.rsr-facility h3{margin:.6rem 0;font-size:1.07rem}.rsr-facility p{color:#555;font-size:.9rem;line-height:1.75;margin:0}
+    .rsr-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}.rsr-price-card{border:1px solid #ddd;border-radius:14px;background:#fff;padding:1.6rem;display:flex;flex-direction:column}.rsr-price-primary{border:2px solid #b92331;box-shadow:0 10px 25px rgba(0,0,0,.06)}.rsr-price-top{display:flex;align-items:center;justify-content:space-between;gap:.4rem}.rsr-price-top span{font-size:.7rem;background:#f3f3f3;border-radius:5px;padding:.25rem .5rem}.rsr-price-card h3{font-size:1.35rem;margin:.4rem 0}.rsr-largeprice{font-family:'Outfit',sans-serif;font-weight:900;font-size:2rem;margin:.7rem 0 1rem;white-space:nowrap}.rsr-largeprice small{font:700 .79rem 'Noto Sans JP',sans-serif}.rsr-price-card>p:not(.rsr-largeprice){font-size:.9rem;color:#444;line-height:1.75;margin:.15rem 0 1rem}.rsr-price-card .rsr-price-note{margin-top:auto!important;font-size:.8rem!important;color:#666!important}.rsr-outline-btn{display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1rem;min-height:48px;border-radius:8px;color:#202020;border:1px solid #888;text-decoration:none;font-weight:700;text-align:center;background:#fff}.rsr-price-card a{margin-top:1rem}.rsr-outline-btn:hover,.rsr-outline-btn:focus-visible{border-color:#b92331;color:#b92331}
+    .rsr-booking-section{background:#131313;color:#fff}.rsr-booking-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(1.5rem,5vw,5rem);align-items:start}.rsr-booking-copy h2{color:#fff}.rsr-booking-copy>p:not(.rsr-eyebrow){color:#ddd;line-height:1.8}.rsr-steps{border-top:1px solid #444;margin-top:2rem;padding-top:1rem}.rsr-steps p{display:flex;gap:1rem;align-items:baseline;color:#ddd;margin:1rem 0}.rsr-steps strong{color:#fff}.rsr-booking-copy .rsr-safety{padding:1rem;border:1px solid #444;border-radius:10px;font-size:.87rem;color:#ddd}
+    .rsr-request-form{background:#fff;color:#222;padding:1.7rem;border-radius:15px;display:grid;gap:.6rem}.rsr-request-form label{font-size:.86rem;font-weight:700;margin-top:.5rem}.rsr-request-form input,.rsr-request-form select,.rsr-request-form textarea{box-sizing:border-box;width:100%;min-width:0;min-height:48px;border:1px solid #aaa;border-radius:7px;background:#fff;color:#222;font-size:1rem;padding:.65rem .7rem;font-family:inherit}.rsr-request-form textarea{resize:vertical}.rsr-form-pair{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.rsr-form-pair>div{min-width:0;display:grid;gap:.4rem}.rsr-submit{cursor:pointer;min-height:50px;width:100%;margin-top:.4rem}.rsr-copy-btn{border:1px solid #777;border-radius:8px;background:#fff;color:#222;min-height:46px;cursor:pointer;font-weight:700}.rsr-copy-btn:disabled{opacity:.42;cursor:not-allowed}.rsr-request-form .rsr-footnote{font-size:.76rem;margin:.35rem 0}.rsr-direct-line{color:#7f1922;font-size:.86rem;font-weight:700}.rsr-form-status{font-size:.84rem;margin:.2rem 0;color:#8b1b29;min-height:1.25rem}
+    .rsr-access-grid{display:grid;grid-template-columns:1fr .85fr;gap:2rem;align-items:center}.rsr-access-grid>div>p{color:#444;line-height:1.8}.rsr-access-grid img{width:100%;height:320px;object-fit:cover;border-radius:12px}.rsr-support-lead{max-width:770px;line-height:1.85;color:#444}.rsr-support-links{margin:1.1rem 0 2rem}.rsr-advanced{border:1px solid #ddd;background:#fff;border-radius:14px;overflow:hidden}.rsr-advanced>summary{cursor:pointer;padding:1.1rem 1.4rem;font-weight:700;display:flex;justify-content:space-between;gap:1rem;align-items:center;min-height:54px}.rsr-advanced>summary:hover{background:#f9f9f9}.rsr-advanced>summary:focus-visible{outline:3px solid #bd2734;outline-offset:-3px}.rsr-advanced[open]>summary{border-bottom:1px solid #ddd}.rsr-advanced-body .section{padding:2.5rem 5%}.rsr-advanced-body .rental-inner{max-width:950px}.rsr-advanced-body .section h2{font-size:clamp(1.45rem,2.6vw,2rem)}.rsr-advanced-body .section.dark{color:#fff}.rsr-advanced-body .section.dark h2{color:#fff}
+    .rsr-alternative{border-top:1px solid #ddd;margin-top:.5rem;padding-top:.7rem}.rsr-alternative summary{font-size:.86rem;cursor:pointer;font-weight:700}.rsr-alt-links{display:grid;gap:.5rem;margin-top:.7rem}.rsr-alt-links a{font-size:.83rem;line-height:1.6;color:#8b1b29}
+    @media(max-width:960px){.rsr-hero{grid-template-columns:1fr}.rsr-quickgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rsr-quickgrid>div{border-right:none}.rsr-quick-action{justify-content:space-between}.rsr-facility-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rsr-price-grid{grid-template-columns:1fr 1fr}.rsr-booking-grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.rsr-intro{padding:1rem 5% 2.3rem}.rsr-hero h1{font-size:2.55rem}.rsr-section{padding:3.1rem 5%}.rsr-section-top{display:block}.rsr-section-top>p{max-width:none}.rsr-quickgrid{gap:.65rem}.rsr-quickgrid strong{font-size:1.05rem}.rsr-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;height:auto}.rsr-gallery a:first-child{grid-column:span 2;grid-row:auto}.rsr-gallery a{aspect-ratio:1.1}.rsr-gallery a:first-child{aspect-ratio:4/3}.rsr-gallery img{height:100%}.rsr-facility-grid{grid-template-columns:1fr 1fr;gap:.65rem}.rsr-facility{padding:1rem}.rsr-facility p{font-size:.82rem}.rsr-price-grid{grid-template-columns:1fr}.rsr-request-form{padding:1.05rem}.rsr-access-grid{grid-template-columns:1fr}.rsr-access-grid img{height:270px}.rsr-advanced-body .section{padding:2rem 4%}.rsr-advanced-body .concept-box,.rsr-advanced-body .growth,.rsr-advanced-body .guardrails,.rsr-advanced-body .time-grid,.rsr-advanced-body .area-grid,.rsr-advanced-body .contribution-grid,.rsr-advanced-body .flow{grid-template-columns:1fr}}
+    @media(max-width:380px){.rsr-hero h1{font-size:2.15rem}.rsr-quickgrid{grid-template-columns:1fr}.rsr-facility-grid{grid-template-columns:1fr}.rsr-form-pair{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rsr-gallery img{transition:none}}
+  </style>
+
+  <style>
+    /* Rental v3: single decision surface, calendar-first, standalone CSS scoped to booking */
+    .rsr-booking-section{background:#f6f5f2;color:#1d1e1e;padding-top:3.4rem;padding-bottom:4.2rem}
+    .rsr-booking-heading{display:flex;justify-content:space-between;align-items:end;gap:1.5rem;margin-bottom:1.4rem}
+    .rsr-booking-heading h2{margin:.3rem 0 .5rem;font-size:clamp(1.7rem,3.2vw,2.7rem);color:#171717}
+    .rsr-booking-heading p:not(.rsr-eyebrow){margin:0;color:#555}
+    .rsr-booking-status{border:1px solid #d6d2c9;padding:.55rem .8rem;border-radius:999px;font-size:.78rem;color:#53524f;white-space:nowrap}
+    .rsr-booking-app{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(285px,.9fr);background:#fff;border:1px solid #deddd9;border-radius:16px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.035);align-items:start}
+    .rsr-booking-main{padding:clamp(1.15rem,2.8vw,2rem);min-width:0}
+    .rsr-booking-fieldset{border:0;padding:0;margin:0 0 1.8rem;min-width:0}
+    .rsr-booking-fieldset legend{font-size:1.06rem;font-weight:800;margin-bottom:1rem;width:100%;color:#202020}
+    .rsr-step-index{display:inline-grid;place-items:center;background:#212121;color:white;border-radius:6px;font:700 .72rem 'Outfit',sans-serif;width:26px;height:26px;margin-right:.45rem}
+    .rsr-plan-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+    .rsr-plan-option{border:1px solid #d9d9d7;border-radius:10px;background:#fff;display:flex;flex-direction:column;gap:.28rem;align-items:start;text-align:left;padding:1rem;min-height:104px;cursor:pointer;color:#202020;font:inherit}
+    .rsr-plan-option>span{font-size:.85rem;font-weight:750}.rsr-plan-option strong{font:800 clamp(1.2rem,2vw,1.6rem) 'Outfit',sans-serif;white-space:nowrap}
+    .rsr-plan-option small{font:500 .72rem 'Noto Sans JP',sans-serif}.rsr-plan-option em{font-size:.73rem;color:#666;font-style:normal}
+    .rsr-plan-option:hover{border-color:#ba2434}.rsr-plan-option.is-selected{border:2px solid #b92331;background:#fff8f8;padding:calc(1rem - 1px)}
+    .rsr-date-time{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:1.5rem}
+    .rsr-calendar{border:1px solid #e1e1dd;border-radius:12px;padding:.95rem;background:#fff}
+    .rsr-calendar-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:1.1rem}
+    .rsr-calendar-head strong{font-size:1.05rem}
+    .rsr-calendar-arrows{display:flex;gap:.4rem}
+    .rsr-calendar-arrows button{background:#f3f3f2;color:#222;border:0;border-radius:7px;min-width:38px;min-height:38px;cursor:pointer}
+    .rsr-calendar-arrows button:disabled{opacity:.32;cursor:default}
+    .rsr-calendar-week,.rsr-calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;text-align:center}
+    .rsr-calendar-week span{font-size:.74rem;color:#777;padding:.4rem 0}
+    .rsr-calendar-days button,.rsr-calendar-days span{width:100%;height:39px;display:grid;place-items:center;border:0;border-radius:7px;background:transparent;font:600 .88rem 'Outfit',sans-serif;color:#333;min-width:0}
+    .rsr-calendar-days button{cursor:pointer}.rsr-calendar-days button:hover{background:#f0eded}
+    .rsr-calendar-days button:disabled{color:#c6c6c6;cursor:default}
+    .rsr-calendar-days button[aria-pressed=true]{color:#fff;background:#b92331}
+    .rsr-calendar-days button.is-today:not([aria-pressed=true]){box-shadow:inset 0 0 0 1px #999}
+    .rsr-calendar-caption{font-size:.73rem;line-height:1.55;color:#777;margin:.8rem 0 0}
+    .rsr-time-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem;margin:.5rem 0 1rem}
+    .rsr-time-options button{min-height:40px;padding:.45rem .25rem;background:#fff;border:1px solid #ddd;border-radius:7px;color:#222;cursor:pointer}
+    .rsr-time-options button[aria-pressed=true]{background:#212121;color:#fff;border-color:#212121}
+    .rsr-mini-label{font-size:.76rem;font-weight:700;color:#444;margin:.7rem 0 .35rem}
+    .rsr-booking-fieldset input[type=time],.rsr-booking-fieldset select{box-sizing:border-box;width:100%;min-height:44px;border:1px solid #ccc;border-radius:7px;padding:.55rem;background:#fff;color:#222;font:inherit}
+    .rsr-booking-aside{min-width:0;padding:1.65rem;background:#fdfdfc;border-left:1px solid #e5e4e0;position:sticky;top:115px}
+    .rsr-booking-summary h3{font-size:1.4rem;margin:.25rem 0 1.1rem}
+    .rsr-booking-summary dl{margin:0}.rsr-booking-summary dl>div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid #eaeae6;padding:.8rem 0;font-size:.83rem}
+    .rsr-booking-summary dt{color:#777}.rsr-booking-summary dd{text-align:right;margin:0;font-weight:700;max-width:65%}
+    .rsr-estimate{margin:1.2rem 0;border-radius:10px;background:#f0efeb;padding:1.1rem;display:flex;flex-direction:column;gap:.25rem}
+    .rsr-estimate span{font-size:.78rem;color:#555}.rsr-estimate strong{font:900 2.2rem 'Outfit',sans-serif}.rsr-estimate small{font-size:.75rem;color:#666}
+    .rsr-summary-disclaimer,.rsr-booking-small{font-size:.74rem;line-height:1.75;color:#777}
+    .rsr-extra-fields{border-top:1px solid #e0e0dc;border-bottom:1px solid #e0e0dc;margin:1rem 0;padding:.75rem 0}
+    .rsr-extra-fields summary{font-weight:700;font-size:.83rem;cursor:pointer}.rsr-extra-fields summary span{font-weight:400;color:#888;font-size:.73rem;margin-left:.2rem}
+    .rsr-extra-inner{display:grid;gap:.45rem;padding:.9rem 0}
+    .rsr-extra-inner label{font-size:.76rem;font-weight:700;margin-top:.4rem}
+    .rsr-extra-inner select,.rsr-extra-inner input,.rsr-extra-inner textarea{width:100%;box-sizing:border-box;min-height:42px;border:1px solid #ccc;border-radius:7px;padding:.6rem;background:#fff;color:#222;font:inherit}
+    .rsr-booking-aside .rsr-submit{width:100%;min-height:50px}
+    .rsr-booking-aside .rsr-copy-btn{margin-top:.55rem;width:100%}
+    .rsr-booking-aside .rsr-direct-line{display:block;margin-top:.8rem;font-size:.78rem;text-align:center}
+    .rsr-form-status{font-size:.78rem;color:#a31a2c;line-height:1.5;margin:.7rem 0}
+    .rsr-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    .rsr-booking-app button:focus-visible,.rsr-booking-app input:focus-visible,.rsr-booking-app select:focus-visible,.rsr-booking-app summary:focus-visible{outline:3px solid #b92331;outline-offset:3px}
+    @media(max-width:940px){.rsr-booking-app{grid-template-columns:1fr}.rsr-booking-aside{position:static;border-left:0;border-top:1px solid #e5e4e0}.rsr-booking-heading{align-items:start;flex-direction:column}.rsr-date-time{grid-template-columns:1fr 1fr}}
+    @media(max-width:580px){.rsr-date-time{grid-template-columns:1fr}.rsr-booking-main{padding:1rem}.rsr-booking-aside{padding:1.2rem}.rsr-plan-option{padding:.8rem;min-height:95px}.rsr-plan-option.is-selected{padding:calc(.8rem - 1px)}.rsr-plan-option strong{font-size:1.25rem}.rsr-booking-section{padding:2.6rem 4%}.rsr-calendar-days button,.rsr-calendar-days span{height:43px}}
+    @media(prefers-reduced-motion:reduce){.rsr-booking-app *{scroll-behavior:auto}}
+  </style>
+<style>
+/* Rental v3.1: emphasize a single decision area; preserve sitewide navigation. */
+.rsr-pricing-compact{padding-top:2.2rem;padding-bottom:2.2rem;background:#f7f7f7}
+.rsr-rules{background:white;border:1px solid #e5e4e1;border-radius:13px;overflow:hidden}
+.rsr-rules>summary{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.2rem 1.5rem;cursor:pointer;list-style:none}
+.rsr-rules>summary::-webkit-details-marker{display:none}
+.rsr-rules>summary strong{display:block;font-size:1.05rem}
+.rsr-rules>summary small{display:block;color:#666;font-size:.78rem;line-height:1.6;margin-top:.3rem}
+.rsr-rules[open]>summary{border-bottom:1px solid #e5e4e1}
+.rsr-rules-content{padding:1rem 1.5rem 1.5rem}
+.rsr-rules-content dl{margin:0}.rsr-rules-content dl>div{padding:.9rem 0;border-bottom:1px solid #eee}
+.rsr-rules-content dt{font-weight:800;margin-bottom:.25rem}.rsr-rules-content dd{margin:0;color:#555;line-height:1.7}
+.rsr-rules-content p{font-size:.84rem;color:#666;line-height:1.7}
+.rsr-rules-content .rsr-outline-btn{margin-top:.5rem}
+.rsr-time-notice{font-weight:400;color:#777;font-size:.7rem}
+.rsr-custom-time{margin:.7rem 0 1rem;border:1px solid #ddd;border-radius:7px;padding:.65rem .8rem}
+.rsr-custom-time summary{font-size:.79rem;font-weight:700;cursor:pointer}
+.rsr-custom-time input{margin-top:.4rem}
+.rsr-estimate strong{font-size:clamp(1.4rem,2vw,2rem)}
+.rsr-time-options button:disabled{opacity:.3;cursor:not-allowed;background:#f3f3f3}
+.rsr-calendar-days button:disabled{opacity:.5}
+@media(max-width:580px){.rsr-rules>summary{padding:1rem}.rsr-rules-content{padding:1rem}.rsr-booking-heading h2{font-size:1.75rem}}
+</style>
+
+<style id="rsr-brand-v4">
+/* Rental brand alignment v4: draw typography, header, colors and buttons from official app.css. */
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body[data-ux-source="sites-v6"]{padding-top:0!important;background:var(--paper);font-family:Arial,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;color:var(--ink);line-height:1.8}
+body[data-ux-source="sites-v6"]>header{position:relative;z-index:20}
+body[data-ux-source="sites-v6"]>header .brand{font-size:20px}
+body[data-ux-source="sites-v6"] .context-nav{border-bottom:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .context-nav span[aria-current="page"]{font-weight:700}
+body[data-ux-source="sites-v6"] .rental-inner{max-width:1180px;margin:0 auto}
+body[data-ux-source="sites-v6"] .rsr-intro .rsr-hero{max-width:none;width:100%;margin:0}
+body[data-ux-source="sites-v6"] .rsr-intro{padding:0;background:var(--paper)}
+body[data-ux-source="sites-v6"] .rsr-hero{position:relative;min-height:clamp(420px,54vw,600px);display:flex;align-items:center;overflow:hidden;padding:clamp(52px,8vw,100px) var(--space);color:#fff;background:#171717}
+body[data-ux-source="sites-v6"] .rsr-hero-copy{position:relative;z-index:2;max-width:680px}
+body[data-ux-source="sites-v6"] .rsr-hero-media{position:absolute;inset:0;z-index:0;border-radius:0;overflow:hidden}
+body[data-ux-source="sites-v6"] .rsr-hero-media:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,12,.82),rgba(12,12,12,.52) 55%,rgba(12,12,12,.2));pointer-events:none}
+body[data-ux-source="sites-v6"] .rsr-hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 48%;border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-hero-media .rsr-photo-label{z-index:2;bottom:18px;right:var(--space);left:auto;background:transparent;color:#fff;letter-spacing:.15em;font:10px/1.5 Arial,sans-serif}
+body[data-ux-source="sites-v6"] .rsr-eyebrow{color:#a52335;font:700 11px/1.5 Arial,sans-serif;letter-spacing:.18em;margin:0 0 16px}
+body[data-ux-source="sites-v6"] .rsr-hero .rsr-eyebrow{color:#e9dfc6}
+body[data-ux-source="sites-v6"] .rsr-hero h1{color:#fff;font-size:clamp(40px,6vw,75px);letter-spacing:-.06em;line-height:1.12;margin:0 0 22px}
+body[data-ux-source="sites-v6"] .rsr-lead{color:#f0eee9;line-height:1.9;font-size:clamp(14px,1.5vw,17px);max-width:480px}
+body[data-ux-source="sites-v6"] .rsr-chips{margin:20px 0 8px}
+body[data-ux-source="sites-v6"] .rsr-chips span{color:#f5f2eb;background:transparent;border:1px solid #ffffff70;border-radius:0;font-size:11px;padding:6px 11px}
+body[data-ux-source="sites-v6"] .rsr-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:28px}
+body[data-ux-source="sites-v6"] .rsr-main-cta{background:#f5f2eb;color:#191918;border-color:#f5f2eb;border-radius:0;min-height:54px}
+body[data-ux-source="sites-v6"] .rsr-quiet-link{color:#fff;text-decoration:none;border-bottom:1px solid #fff;padding:10px 0;border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-quickbar{background:var(--paper);border-bottom:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-quickgrid{padding:19px 0;gap:0}
+body[data-ux-source="sites-v6"] .rsr-quickgrid>div{padding:8px 20px;border-right:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-quickgrid>div:first-child{padding-left:0}
+body[data-ux-source="sites-v6"] .rsr-quicklabel{font-size:11px;color:var(--muted)}
+body[data-ux-source="sites-v6"] .rsr-quickgrid strong{font-size:15px;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-quick-action{background:var(--ink);color:#fff;border-radius:0;padding:10px 22px;min-height:52px}
+body[data-ux-source="sites-v6"] .rsr-section{padding:clamp(50px,6vw,90px) var(--space)}
+body[data-ux-source="sites-v6"] .rsr-section h2{font-size:clamp(28px,3.5vw,44px);letter-spacing:-.04em;line-height:1.3;color:var(--ink)}
+body[data-ux-source="sites-v6"] .rsr-muted{background:#eae7df}
+body[data-ux-source="sites-v6"] .rsr-booking-section{background:var(--paper);color:var(--ink);padding-top:clamp(40px,5vw,70px)}
+body[data-ux-source="sites-v6"] .rsr-booking-heading{padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:24px}
+body[data-ux-source="sites-v6"] .rsr-booking-heading h2{font-size:clamp(30px,3.5vw,45px);letter-spacing:-.045em}
+body[data-ux-source="sites-v6"] .rsr-booking-heading p:not(.rsr-eyebrow){color:var(--muted);font-size:14px}
+body[data-ux-source="sites-v6"] .rsr-booking-status{border:0;border-left:2px solid var(--ink);border-radius:0;padding:8px 0 8px 12px;color:var(--muted);font-size:12px;white-space:normal}
+body[data-ux-source="sites-v6"] .rsr-booking-app{border:1px solid var(--border);border-radius:0;box-shadow:none;background:#fff;grid-template-columns:minmax(0,1.62fr) minmax(285px,.9fr)}
+body[data-ux-source="sites-v6"] .rsr-booking-main{padding:clamp(22px,3.8vw,46px)}
+body[data-ux-source="sites-v6"] .rsr-booking-fieldset legend{color:var(--ink);font-weight:700;letter-spacing:-.015em}
+body[data-ux-source="sites-v6"] .rsr-step-index{background:var(--ink);border-radius:0;width:29px;height:29px}
+body[data-ux-source="sites-v6"] .rsr-plan-option{border:1px solid var(--border);border-radius:0;background:#fff;min-height:100px;padding:15px;transition:background .15s,border-color .15s}
+body[data-ux-source="sites-v6"] .rsr-plan-option:hover{border-color:var(--ink);background:#f5f2eb}
+body[data-ux-source="sites-v6"] .rsr-plan-option.is-selected{border:2px solid var(--ink);background:var(--paper);padding:14px}
+body[data-ux-source="sites-v6"] .rsr-plan-option strong{font:700 clamp(19px,2vw,25px) Arial,sans-serif}
+body[data-ux-source="sites-v6"] .rsr-plan-option small{font-family:inherit}
+body[data-ux-source="sites-v6"] .rsr-calendar{border:1px solid var(--border);border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-calendar-arrows button{border:1px solid var(--border);border-radius:0;background:var(--paper);color:var(--ink)}
+body[data-ux-source="sites-v6"] .rsr-calendar-days button{border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-calendar-days button[aria-pressed="true"]{background:var(--ink);color:#fff}
+body[data-ux-source="sites-v6"] .rsr-calendar-days button:hover:not([aria-pressed="true"]){background:var(--paper)}
+body[data-ux-source="sites-v6"] .rsr-time-options button{border:1px solid var(--border);border-radius:0;background:#fff;color:var(--ink)}
+body[data-ux-source="sites-v6"] .rsr-time-options button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:white}
+body[data-ux-source="sites-v6"] .rsr-booking-fieldset input[type="time"],body[data-ux-source="sites-v6"] .rsr-booking-fieldset select{border-radius:0;border:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-custom-time{border-radius:0;border-color:var(--border)}
+body[data-ux-source="sites-v6"] .rsr-booking-aside{border-left:1px solid var(--border);background:#f7f5f0;padding:clamp(22px,3vw,36px);position:static}
+body[data-ux-source="sites-v6"] .rsr-estimate{background:#eae7df;border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-estimate strong{font-family:Arial,sans-serif;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-booking-summary dl>div{border-bottom-color:var(--border)}
+body[data-ux-source="sites-v6"] .rsr-booking-aside .rsr-submit{border-radius:0;background:var(--ink);color:white;display:flex;justify-content:space-between;text-align:left;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-booking-aside .rsr-submit:hover{background:#343433}
+body[data-ux-source="sites-v6"] .rsr-copy-btn{border-radius:0;border:1px solid var(--border);background:#fff;color:var(--ink);min-height:45px}
+body[data-ux-source="sites-v6"] .rsr-rules,body[data-ux-source="sites-v6"] .rsr-advanced{border-radius:0;border-color:var(--border)}
+body[data-ux-source="sites-v6"] .rsr-pricing-compact{background:var(--paper)}
+body[data-ux-source="sites-v6"] .rsr-gallery a{border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-facility{border-radius:0;border-color:var(--border)}
+body[data-ux-source="sites-v6"] .rsr-outline-btn{border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-access-grid img{border-radius:0}
+body[data-ux-source="sites-v6"] #rental-support{border-top:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-advanced-body .section{padding:2.5rem 5%}
+body[data-ux-source="sites-v6"] .rsr-advanced-body .concept-copy,body[data-ux-source="sites-v6"] .rsr-advanced-body .concept-points{border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-advanced-body .time-card,body[data-ux-source="sites-v6"] .rsr-advanced-body .area-card,body[data-ux-source="sites-v6"] .rsr-advanced-body .growth-card{border-radius:0}
+body[data-ux-source="sites-v6"] .rsr-calendar-caption{font-size:12px;line-height:1.6}
+body[data-ux-source="sites-v6"] a:focus-visible,body[data-ux-source="sites-v6"] button:focus-visible,body[data-ux-source="sites-v6"] summary:focus-visible{outline:3px solid #86713f;outline-offset:3px}
+body[data-ux-source="sites-v6"] .rental-footer{padding:36px var(--space);border-top:1px solid var(--border);background:var(--paper);display:flex;justify-content:space-between;gap:18px;align-items:center}
+body[data-ux-source="sites-v6"] .rental-footer .brand-name{font-weight:700}
+body[data-ux-source="sites-v6"] .rental-footer .copyright{margin:0;color:var(--muted);font-size:12px}
+@media(max-width:960px){
+ body[data-ux-source="sites-v6"] .rsr-quickgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ body[data-ux-source="sites-v6"] .rsr-quickgrid>div{border-right:0}
+ body[data-ux-source="sites-v6"] .rsr-booking-app{grid-template-columns:1fr}
+ body[data-ux-source="sites-v6"] .rsr-booking-aside{border-left:0;border-top:1px solid var(--border)}
+}
+@media(max-width:650px){
+ body[data-ux-source="sites-v6"] .rsr-hero{min-height:530px;padding:58px 20px 70px}
+ body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(36px,9vw,48px)}
+ body[data-ux-source="sites-v6"] .rsr-hero .rsr-lead{font-size:14px}
+ body[data-ux-source="sites-v6"] .rsr-chips span{font-size:10px;padding:5px 7px}
+ body[data-ux-source="sites-v6"] .rsr-quickgrid{grid-template-columns:1fr 1fr;padding:15px 0;gap:8px}
+ body[data-ux-source="sites-v6"] .rsr-quickgrid>div{padding:6px}
+ body[data-ux-source="sites-v6"] .rsr-quickgrid strong{font-size:12px}
+ body[data-ux-source="sites-v6"] .rsr-quick-action{grid-column:span 2;text-align:center;justify-content:center}
+ body[data-ux-source="sites-v6"] .rsr-booking-heading{display:block}
+ body[data-ux-source="sites-v6"] .rsr-booking-status{margin-top:12px}
+ body[data-ux-source="sites-v6"] .rsr-section{padding:50px 20px}
+ body[data-ux-source="sites-v6"] .rsr-plan-option{min-height:105px;padding:12px}
+ body[data-ux-source="sites-v6"] .rsr-plan-option.is-selected{padding:11px}
+ body[data-ux-source="sites-v6"] .rsr-booking-main{padding:18px}
+ body[data-ux-source="sites-v6"] .rsr-date-time{grid-template-columns:1fr}
+ body[data-ux-source="sites-v6"] .rental-footer{display:block}
+}
+</style>
+<style id="rsr-clarity-v41">body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(41px,6vw,76px);max-width:790px}body[data-ux-source="sites-v6"] .rsr-lead{margin-top:20px}body[data-ux-source="sites-v6"] .rsr-booking-heading{padding-bottom:16px}@media(max-width:650px){body[data-ux-source="sites-v6"] .rsr-hero h1{font-size:clamp(34px,10vw,50px)}body[data-ux-source="sites-v6"] .rsr-booking-heading h2{font-size:clamp(26px,7vw,36px)}}</style><style id="rsr-photo-gallery-v42">
+/* Reuse already-published photos only. Never point to pending library paths. */
+body[data-ux-source="sites-v6"] .rsr-visual-guide{background:var(--paper)}
+body[data-ux-source="sites-v6"] .rsr-visual-primary{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(210px,1fr);gap:12px;align-items:stretch}
+body[data-ux-source="sites-v6"] .rsr-visual-feature{position:relative;display:block;min-height:490px;overflow:hidden;color:#fff;background:#252525}
+body[data-ux-source="sites-v6"] .rsr-visual-feature img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0;transition:transform .25s ease}
+body[data-ux-source="sites-v6"] .rsr-visual-feature:after{content:'';position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78));pointer-events:none}
+body[data-ux-source="sites-v6"] .rsr-visual-label{position:absolute;z-index:1;left:25px;right:25px;bottom:25px;display:grid;gap:8px;color:#fff}
+body[data-ux-source="sites-v6"] .rsr-visual-label strong{font-size:clamp(19px,2.2vw,28px);line-height:1.3}
+body[data-ux-source="sites-v6"] .rsr-visual-label small{letter-spacing:.15em;font-size:10px}
+body[data-ux-source="sites-v6"] .rsr-visual-label>span{font-size:12px;color:#f2efeb}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary{display:grid;grid-template-rows:1fr 1fr;gap:12px;min-height:490px}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a{position:relative;overflow:hidden;background:#252525;color:#fff;min-height:0;display:block}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.75));pointer-events:none}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary a>span{position:absolute;z-index:1;bottom:18px;left:18px;right:18px;display:grid;gap:4px}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary small{font-size:10px;letter-spacing:.1em}
+body[data-ux-source="sites-v6"] .rsr-visual-secondary strong{font-size:14px;line-height:1.5}
+body[data-ux-source="sites-v6"] .rsr-visual-primary a:hover img{transform:scale(1.02)}
+body[data-ux-source="sites-v6"] .rsr-visual-more{border-bottom:1px solid var(--border);margin-top:18px}
+body[data-ux-source="sites-v6"] .rsr-visual-more>summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:14px 0;font-size:14px;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:5px 0 20px}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid a{color:var(--ink);text-decoration:none;display:grid;gap:5px;min-width:0;font-size:12px}
+body[data-ux-source="sites-v6"] .rsr-visual-more-grid img{height:145px;width:100%;object-fit:cover}
+body[data-ux-source="sites-v6"] .rsr-visual-more:focus-within{outline-offset:3px}
+@media(max-width:700px){
+ body[data-ux-source="sites-v6"] .rsr-visual-primary{grid-template-columns:1fr}
+ body[data-ux-source="sites-v6"] .rsr-visual-feature{min-height:310px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary{grid-template-rows:1fr;grid-template-columns:1fr 1fr;min-height:180px;gap:8px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary a{min-height:175px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary a>span{left:10px;right:10px;bottom:10px}
+ body[data-ux-source="sites-v6"] .rsr-visual-secondary strong{font-size:12px}
+ body[data-ux-source="sites-v6"] .rsr-visual-label{left:16px;right:16px;bottom:16px}
+ body[data-ux-source="sites-v6"] .rsr-visual-more-grid{grid-template-columns:1fr 1fr}
+ body[data-ux-source="sites-v6"] .rsr-visual-more-grid img{height:125px}
+}
+@media(prefers-reduced-motion:reduce){body[data-ux-source="sites-v6"] .rsr-visual-primary img{transition:none}}
+</style>
+<style id="rsr-availability-calendar-style">
+/* Date-first rental flow: one use-mode decision, automatic plan selection */
+.rsr-use-mode{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rsr-mode-option{cursor:pointer;border:1px solid #a9a9a9;border-radius:12px;background:#fff;color:#222;padding:15px 12px;min-height:58px;font:inherit;font-weight:750;text-align:center}
+.rsr-mode-option small{display:block;font-size:11px;font-weight:500}
+.rsr-mode-option.is-selected{border:2px solid #b92331;background:#fff4f4}
+.rsr-mode-option:focus-visible{outline:3px solid #b92331;outline-offset:2px}
+@media(max-width:375px){.rsr-use-mode{gap:8px}.rsr-mode-option{padding:12px 6px}}
+
+/* Rental v2: optional calendar and clearer booking controls */
+body[data-ux-source="sites-v6"] .rsr-availability-optional{margin:0 0 1.5rem}
+body[data-ux-source="sites-v6"] .rsr-availability-toggle{list-style:none;cursor:pointer;padding:15px 20px;font-weight:750;display:flex;justify-content:space-between;align-items:center;min-height:48px}
+body[data-ux-source="sites-v6"] .rsr-availability-toggle::-webkit-details-marker{display:none}
+body[data-ux-source="sites-v6"] .rsr-availability-optional[open]>.rsr-availability-toggle{border-bottom:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-availability-optional .rsr-availability-intro{flex-wrap:wrap}
+body[data-ux-source="sites-v6"] .rsr-availability-optional .rsr-availability-intro p{font-size:13px;line-height:1.6}
+body[data-ux-source="sites-v6"] .rsr-availability-toggle:focus-visible{outline:3px solid #b92331;outline-offset:2px}
+
+/* The calendar is optional context beside the existing preferred-date selector. */
+body[data-ux-source="sites-v6"] .rsr-availability-guide{margin:0 0 2rem;border:1px solid var(--border);background:var(--paper);color:var(--ink)}
+body[data-ux-source="sites-v6"] .rsr-availability-intro{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+body[data-ux-source="sites-v6"] .rsr-availability-kicker{font-size:10px;letter-spacing:.13em;font-weight:700;color:var(--muted)}
+body[data-ux-source="sites-v6"] .rsr-availability-intro h3{font-size:clamp(16px,2vw,20px);line-height:1.4;margin:4px 0}
+body[data-ux-source="sites-v6"] .rsr-availability-intro p{font-size:12px;color:var(--muted);margin:2px 0 0;line-height:1.6}
+body[data-ux-source="sites-v6"] .rsr-availability-external{display:flex;align-items:center;gap:10px;min-height:42px;padding:8px 14px;border:1px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;white-space:nowrap;font-size:12px;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-availability-external:hover{background:#333}
+body[data-ux-source="sites-v6"] .rsr-availability-expand{border-top:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary{list-style:none;cursor:pointer;padding:13px 20px;font-size:12px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary::-webkit-details-marker{display:none}
+body[data-ux-source="sites-v6"] .rsr-availability-expand[open]>summary{border-bottom:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-availability-content{padding:15px 20px 20px}
+body[data-ux-source="sites-v6"] .rsr-availability-content p{font-size:12px;color:var(--muted);line-height:1.7;margin:0 0 12px}
+body[data-ux-source="sites-v6"] .rsr-availability-frame-wrap{width:100%;min-height:520px;overflow:hidden;background:#fff;border:1px solid var(--border)}
+body[data-ux-source="sites-v6"] #rental-google-calendar{width:100%;height:520px;border:0;background:white;display:block}
+body[data-ux-source="sites-v6"] .rsr-availability-fallback{margin:10px 0 0!important}
+body[data-ux-source="sites-v6"] .rsr-availability-fallback a{color:var(--ink);font-weight:700}
+@media(max-width:720px){body[data-ux-source="sites-v6"] .rsr-availability-intro{display:block;padding:16px}
+body[data-ux-source="sites-v6"] .rsr-availability-external{margin-top:12px;justify-content:center;white-space:normal}
+body[data-ux-source="sites-v6"] .rsr-availability-expand>summary{padding:14px 16px}
+body[data-ux-source="sites-v6"] .rsr-availability-content{padding:14px 16px}
+body[data-ux-source="sites-v6"] .rsr-availability-frame-wrap{min-height:410px}
+body[data-ux-source="sites-v6"] #rental-google-calendar{height:410px}}
+</style>
+<style id="rsr-floorplan-v1-style">
+body[data-ux-source="sites-v6"] .rsr-floorplan-section{background:var(--paper);border-top:1px solid var(--border)}
+body[data-ux-source="sites-v6"] .rsr-floorplan-frame{border:1px solid var(--border);padding:clamp(8px,1.5vw,18px);background:#fff}
+body[data-ux-source="sites-v6"] .rsr-floorplan-frame[hidden]{display:none}
+body[data-ux-source="sites-v6"] #studio-floorplan-expand{display:block;outline-offset:4px}
+body[data-ux-source="sites-v6"] #studio-floorplan-image{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fff}
+body[data-ux-source="sites-v6"] .rsr-floorplan-caption{color:var(--muted);font-size:12px;line-height:1.7;margin:12px 5px 0}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable{border:1px solid var(--border);background:#faf9f6;padding:16px 20px}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable[hidden]{display:none}
+body[data-ux-source="sites-v6"] .rsr-floorplan-unavailable p{margin:0;font-size:13px;color:var(--muted)}
+</style>
+<style id="rental-purpose-verified-photo-style">
+body[data-ux-source="sites-v6"] .rental-purpose-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+body[data-ux-source="sites-v6"] .rental-purpose-card{display:block;overflow:hidden;padding:0;min-height:0;transition:box-shadow .2s,transform .2s}
+body[data-ux-source="sites-v6"] .rental-purpose-card:hover,body[data-ux-source="sites-v6"] .rental-purpose-card:focus-visible{box-shadow:0 8px 30px rgba(0,0,0,.1)}
+body[data-ux-source="sites-v6"] .rental-purpose-photo{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;background:#f2f2f2}
+body[data-ux-source="sites-v6"] .rental-purpose-photo--backstage{object-position:76% center}
+body[data-ux-source="sites-v6"] .rental-purpose-content{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:15px 16px 18px;color:#222}
+body[data-ux-source="sites-v6"] .rental-purpose-content strong{font-size:1.12rem;line-height:1.45}
+body[data-ux-source="sites-v6"] .rental-purpose-content>span{font-size:.88rem;line-height:1.6}
+body[data-ux-source="sites-v6"] .rental-purpose-content .purpose-arrow{margin-top:6px;color:#a71e2d;font-weight:700}
+body[data-ux-source="sites-v6"] .rsr-rental-photo-group{margin-top:0}
+body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{border-radius:8px;overflow:hidden}
+@media(max-width:760px){body[data-ux-source="sites-v6"] .rental-purpose-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}body[data-ux-source="sites-v6"] .rental-purpose-content{padding:12px}body[data-ux-source="sites-v6"] .rental-purpose-content strong{font-size:1rem}body[data-ux-source="sites-v6"] .rental-purpose-photo{aspect-ratio:1/1}}
+@media(max-width:380px){body[data-ux-source="sites-v6"] .rental-purpose-grid{grid-template-columns:1fr}body[data-ux-source="sites-v6"] .rental-purpose-photo{aspect-ratio:16/9}}
+</style>
+<style id="rental-concept-photo-disclosure">.rental-photo-disclosure{display:block;font-size:11px;font-weight:400;line-height:1.5;color:#666;margin-top:7px}</style>
+</head>
+<body data-ux-source="sites-v6"><a class="skip" href="#main">本文へ移動</a><header><div class="brand"><a class="brand-mark" href="../ecosystem/" aria-label="ブランドマーク：Rhythm Speaker 全サービスへ"><img src="/rhythmspeaker/logo.png" width="42" height="42" alt=""></a><a class="brand-name" href="../" aria-label="Rhythm Speaker 教室トップへ">Rhythm Speaker<small>TAP DANCE STUDIO / IKEBUKURO</small></a></div><nav aria-label="主要メニュー"><a href="../schedule/">レッスン日程</a><a href="../pricing/">料金・通い方</a><a href="../classes/">クラス</a><a href="../instructors/">講師</a><a href="../access/">アクセス</a></nav><a class="button primary nav-cta cta-nav" href="../trial/apply/">初回体験 ¥1,000 <span>↗</span></a><button id="menu-button" class="menu-button" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く">メニュー <span aria-hidden="true">＋</span></button><div id="menu" class="rs-menu" hidden><nav class="rs-menu-nav" aria-label="すべてのページ"><section class="rs-menu-group rs-menu-group--quick" aria-label="よく使うメニュー"><p class="rs-menu-label">よく使うメニュー</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--schedule" href="../schedule/"><strong>レッスン予約</strong><small>開催日程・講師から探す</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--trial" href="../trial/"><strong>初回体験 ¥1,000</strong><small>初めての方はこちら</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--services" aria-label="レンタル・グッズ"><p class="rs-menu-label">レンタル・グッズ</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--rental" href="../rental/" aria-current="page"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v11H3zM9 21v-7h6v7"/></svg><strong>スタジオレンタル</strong><small>空き時間・料金・予約</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--goods" href="https://rhythmspeaker.stores.jp/?all_items=true"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16l1 13H3zM8 9V6a4 4 0 0 1 8 0v3"/></svg><strong>グッズを買う</strong><small>Rhythm Speaker オリジナル商品</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--member" aria-label="会員の方へ"><p class="rs-menu-label">会員の方へ</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--wallet" href="https://tips-app-seven.vercel.app/"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><strong>マイページ <em>RS Wallet</em></strong><small>残高・レッスン利用・会員情報</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--support" aria-label="お問い合わせ・ご案内"><p class="rs-menu-label">お問い合わせ・ご案内</p><div class="rs-menu-primary"><a class="rs-menu-action rs-menu-action--line" href="https://lin.ee/zC5YLe7"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11a9 8 0 0 1-9 8H9l-5 3 1-6a9 8 0 1 1 16-5Z"/></svg><strong>お問い合わせ・相談</strong><small>質問・予約・変更はこちら</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--access" href="../access/"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0Z"/><circle cx="12" cy="9" r="2"/></svg><strong>アクセス</strong><small>池袋駅からの行き方</small><span aria-hidden="true">↗</span></a><a class="rs-menu-action rs-menu-action--faq" href="../faq/"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3c-1 .5-1 1-1 2m0 3h.01"/></svg><strong>よくある質問</strong><small>初めての方の疑問を解決</small><span aria-hidden="true">↗</span></a></div></section><section class="rs-menu-group rs-menu-group--lessons" aria-label="教室・レッスン"><p class="rs-menu-label">教室・レッスン</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--pricing" href="../pricing/">料金・通い方</a></li><li><a class="rs-menu-link rs-menu-link--classes" href="../classes/">クラス紹介</a></li><li><a class="rs-menu-link rs-menu-link--instructors" href="../instructors/">講師紹介</a></li><li><a class="rs-menu-link rs-menu-link--workshops" href="../workshops/">ワークショップ</a></li></ul></section><section class="rs-menu-group rs-menu-group--media" aria-label="観る・聴く・学ぶ"><p class="rs-menu-label">観る・聴く・学ぶ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--broadcast" href="../broadcast/">番組・動画</a></li><li><a class="rs-menu-link rs-menu-link--rss" href="../rss/">Rhythm Speaker Show</a></li><li><a class="rs-menu-link rs-menu-link--music" href="../music/">音楽を聴く</a></li><li><a class="rs-menu-link rs-menu-link--tapblog" href="https://tapdance-rhythmspeaker.hatenablog.com/">タップダンスを学ぶ</a></li></ul></section><section class="rs-menu-group rs-menu-group--more" aria-label="その他のページ"><p class="rs-menu-label">その他のページ</p><ul class="rs-menu-links"><li><a class="rs-menu-link rs-menu-link--home" href="../">教室トップ</a></li><li><a class="rs-menu-link rs-menu-link--about" href="../about/">教室紹介</a></li><li><a class="rs-menu-link rs-menu-link--ecosystem" href="../ecosystem/">全サービス</a></li><li><a class="rs-menu-link rs-menu-link--reviewblog" href="https://rhythmspeaker.hatenablog.com/">商品レビューを読む</a></li></ul></section></nav></div></header><noscript><nav aria-label="サイト案内"><a href="../">教室トップ</a> <a href="../trial/">初回体験</a> <a href="../classes/">クラス</a> <a href="../about/">教室紹介</a> <a href="../workshops/">ワークショップ</a> <a href="../ecosystem/">サービス一覧</a> <a href="../faq/">FAQ</a> <a href="../access/">アクセス</a> <a href="../rss/">RSS</a> <a href="https://rhythmspeaker.stores.jp/?all_items=true">オリジナルグッズ</a> </nav></noscript><div class="context-nav" aria-label="パンくず"><a href="../">教室トップ</a><span aria-hidden="true">/</span><span aria-current="page">スタジオレンタル</span></div><main id="main" tabindex="-1">
+    <section class="rsr-intro">
+      
+      <div class="rental-inner rsr-hero">
+        <div class="rsr-hero-copy">
+          <span class="rsr-eyebrow">RHYTHM SPEAKER / STUDIO RENTAL</span>
+          <h1>池袋の<br>レンタルスタジオ。</h1>
+          <p class="rsr-lead">ダンスの練習、リハーサル、レッスン、撮影に。池袋駅徒歩3分。</p>
+          <div class="rsr-hero-actions"><a class="button primary rsr-main-cta" href="#rental-market-title">利用目的から選ぶ <span aria-hidden="true">↗</span></a><a class="rsr-quiet-link" href="#studio-gallery">スタジオの写真を見る <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="rsr-hero-media">
+          <img data-studio-photo-id="0873" data-studio-photo-alt="Rhythm Speaker池袋スタジオの床と鏡を映した広角写真" src="../assets/home-hero-studio-v5.jpg" width="1200" height="675" alt="Rhythm Speaker池袋スタジオの室内" decoding="async" fetchpriority="high">
+          <span class="rsr-photo-label">RHYTHM SPEAKER / IKEBUKURO</span>
+        </div>
+      </div>
+    </section>
+    <section class="rsr-section rsr-market-entry" aria-labelledby="rental-market-title">
+      <div class="rental-inner">
+        <p class="rsr-eyebrow">FIND YOUR USE</p>
+        <div class="rsr-section-top"><div><h2 id="rental-market-title">目的から選ぶ。</h2></div><p>目的に合う利用方法を選んでください。</p></div>
+        <div class="rental-purpose-grid">
+          <a class="rental-purpose-card" href="dance/"><img class="rental-purpose-photo" src="../assets/images/studio/edited/rhythm-speaker-tap-rehearsal-concept-v1.webp" alt="Rhythm Speakerスタジオ写真をもとに制作した、3人がタップダンスを練習する演出イメージ" width="1448" height="1086" loading="lazy" decoding="async"><span class="rental-purpose-content"><strong>ダンスの練習・リハーサル</strong><span>個人練習やグループ練習、本番前のリハーサルに。</span><span class="purpose-arrow">練習利用を見る ↗</span></span></a>
+          <a class="rental-purpose-card" href="backstage/"><img class="rental-purpose-photo rental-purpose-photo--backstage" src="../assets/images/studio/edited/rhythm-speaker-event-backstage-concept-v1.webp" alt="ソファで身支度を整える出演者と受付で準備するスタッフを描いた演出イメージ" width="1672" height="941" loading="lazy" decoding="async"><span class="rental-purpose-content"><strong>イベントの控え室・準備</strong><span>出演前の着替えや準備、スタッフの待機場所に。</span><span class="purpose-arrow">控え室利用を見る ↗</span></span></a>
+          <a class="rental-purpose-card" href="creator/"><img class="rental-purpose-photo" src="../assets/images/studio/rental-2026/studio-floor-wide-with-desk.webp" alt="鏡のあるダンスフロアと受付側の様子" width="1800" height="1350" loading="lazy" decoding="async"><span class="rental-purpose-content"><strong>撮影・制作・作業</strong><span>動画撮影や作品制作、パソコン作業に。</span><span class="purpose-arrow">撮影・制作利用を見る ↗</span></span></a>
+          <a class="rental-purpose-card" href="workshop/"><img class="rental-purpose-photo" src="../assets/images/studio/rental-2026/dance-floor-screen-storage.webp" alt="スクリーンと収納棚のあるダンスフロア" width="1800" height="1350" loading="lazy" decoding="async"><span class="rental-purpose-content"><strong>レッスン・ワークショップ</strong><span>ダンスレッスンや講座、ワークショップの開催に。</span><span class="purpose-arrow">レッスン利用を見る ↗</span></span></a>
+          
+        </div>
+        <h3 class="rsr-method-heading" style="margin-top:2rem">利用方法から選ぶ。</h3><div class="rental-purpose-grid"><a class="rental-purpose-card" href="night/"><span class="rental-purpose-content"><strong>深夜パック</strong><span>翌日0時〜6時・貸切6時間4,000円。</span><span class="purpose-arrow">深夜パックを見る ↗</span></span></a><a class="rental-purpose-card" href="share/"><span class="rental-purpose-content"><strong>シェア利用</strong><span>空き時間に自主練。</span><span class="purpose-arrow">当日の予定を見る ↗</span></span></a><a class="rental-purpose-card" href="coworking/"><span class="rental-purpose-content"><strong>コワーキング</strong><span>空き時間に作業。</span><span class="purpose-arrow">当日の予定を見る ↗</span></span></a></div>
+        <p class="rsr-footnote">料金・利用条件は各詳細ページをご確認ください。写真の一部は利用イメージです。</p>
+      </div>
+    </section>
+    <section class="rsr-section rsr-booking-section" id="rental-booking"><div class="rental-inner"><p class="rsr-eyebrow">STUDIO AVAILABILITY</p><h2>スタジオの予定を見る。</h2><p>レッスンやレンタルの予定を確認できます。予定がない時間も利用確約ではありません。</p><div class="rsr-availability-frame-wrap"><iframe id="rental-google-calendar" title="Rhythm Speaker スタジオの週間予定" src="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" loading="lazy" style="width:100%;min-height:540px;border:0" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><p><a class="button primary" href="booking.html#rental-booking">貸切の日時・料金を確認する ↗</a></p><p><a href="https://lin.ee/zC5YLe7">空き状況をLINEで相談する ↗</a></p></div></section>
+    <section class="rsr-section rsr-visual-guide" id="studio-gallery" aria-labelledby="studio-gallery-title">
+      <div class="rental-inner">
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">THE SPACE</p><h2 id="studio-gallery-title">スタジオの写真</h2></div></div>
+        <div class="rsr-visual-primary">
+          <a class="rsr-visual-feature" data-studio-photo-link="0870" href="../assets/images/studio/reference/studio-front-wide-angle-dance-floor-overview.jpg" target="_blank" rel="noopener">
+            <img data-studio-photo-id="0870" data-studio-photo-alt="広角のRhythm Speakerスタジオ全景。タップダンス用の床と大きな鏡" src="../assets/images/studio/reference/studio-front-wide-angle-dance-floor-overview.jpg" alt="Rhythm Speakerスタジオのダンスフロア全景。床の広がりと室内の様子" width="2048" height="1536" loading="lazy" decoding="async">
+            <span class="rsr-visual-label"><small>01 / DANCE FLOOR</small><strong>ダンスフロア全景</strong><span>写真を拡大する ↗</span></span>
+          </a>
+          <div class="rsr-visual-secondary">
+            <a data-studio-photo-link="0872" href="../assets/images/studio/reference/studio-wide-angle-dance-floor-and-mirror.jpg" target="_blank" rel="noopener">
+              <img data-studio-photo-id="0872" data-studio-photo-alt="Rhythm Speakerの鏡とダンスフロア。実際の配置を別方向から確認できる写真" src="../assets/images/studio/reference/studio-wide-angle-dance-floor-and-mirror.jpg" alt="スタジオの鏡とダンスフロアを別角度から写した写真" width="2048" height="1536" loading="lazy" decoding="async">
+              <span><small>02 / MIRROR & FLOOR</small><strong>鏡とダンスフロア ↗</strong></span>
+            </a>
+            <a href="../assets/images/trial/trial-real-rental-shoes-v1.webp" target="_blank" rel="noopener">
+              <img src="../assets/images/trial/trial-real-rental-shoes-v1.webp" alt="Rhythm Speakerのタップシューズ貸出用写真" width="960" height="960" loading="lazy" decoding="async">
+              <span><small>03 / RENTAL SHOES</small><strong>レンタルシューズ ↗</strong></span>
+            </a>
+          </div>
+        </div>
+        <details class="rsr-visual-more">
+          <summary>フロアを別の角度から見る <span aria-hidden="true">＋</span></summary>
+          <div class="rsr-visual-more-grid">
+            <a data-studio-photo-link="0873" href="../assets/images/studio/reference/studio-interior-archive-older-view.jpg" target="_blank" rel="noopener"><img data-studio-photo-id="0873" data-studio-photo-alt="Rhythm Speakerスタジオのフロアを別角度から写した実写" src="../assets/images/studio/reference/studio-interior-archive-older-view.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="スタジオ内のダンスフロアと鏡を別の角度から見た写真"><span>スタジオの別角度 ↗</span></a>
+            <a href="../assets/images/studio/reference/studio-dance-floor-mirror-wall-view.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-dance-floor-mirror-wall-view.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="鏡のある壁側から見たRhythm Speakerのダンスフロア"><span>鏡側から見たフロア ↗</span></a>
+            <a href="../assets/images/studio/reference/studio-screen-and-reception-side-view.jpg" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-screen-and-reception-side-view.jpg" width="2048" height="1536" loading="lazy" decoding="async" alt="スタジオのスクリーンと受付側の設備"><span>スクリーン・受付側 ↗</span></a>
+            <a href="../assets/images/studio/reference/studio-interior-share-image-floor-mirror-reception.png" target="_blank" rel="noopener"><img src="../assets/images/studio/reference/studio-interior-share-image-floor-mirror-reception.png" width="1600" height="1200" loading="lazy" decoding="async" alt="ダンスフロア、鏡、受付スペースを含むスタジオ内観"><span>フロアと受付スペース ↗</span></a>
+          </div>
+        </details>
+        <details class="rsr-visual-more rsr-rental-photo-group"><summary>フロアの様子をもっと見る <span aria-hidden="true">＋</span></summary><div class="rsr-visual-more-grid"><a href="../assets/images/studio/rental-2026/dance-floor-mirror-wide-02.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/dance-floor-mirror-wide-02.webp" alt="別角度から見た鏡張りのダンスフロア" width="1800" height="1350" loading="lazy" decoding="async"><span>別角度から見た鏡張りのダンスフロア ↗</span></a>
+<a href="../assets/images/studio/rental-2026/studio-floor-wide-with-desk.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/studio-floor-wide-with-desk.webp" alt="鏡のあるダンスフロアと受付側の様子" width="1800" height="1350" loading="lazy" decoding="async"><span>鏡のあるダンスフロアと受付側の様子 ↗</span></a>
+<a href="../assets/images/studio/rental-2026/dance-floor-screen-storage.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/dance-floor-screen-storage.webp" alt="スクリーンと収納棚のあるダンスフロア" width="1800" height="1350" loading="lazy" decoding="async"><span>スクリーンと収納棚のあるダンスフロア ↗</span></a></div></details>
+        <details class="rsr-visual-more rsr-rental-photo-group"><summary>貸出シューズ・収納を見る <span aria-hidden="true">＋</span></summary><div class="rsr-visual-more-grid"><a href="../assets/images/studio/rental-2026/tap-shoes-size-collection.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/tap-shoes-size-collection.webp" alt="サイズ表示付きで並ぶ貸出タップシューズ" width="1800" height="1350" loading="lazy" decoding="async"><span>サイズ表示付きで並ぶ貸出タップシューズ ↗</span></a>
+<a href="../assets/images/studio/rental-2026/tap-shoes-shelf-detail.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/tap-shoes-shelf-detail.webp" alt="棚に保管されたタップシューズ" width="1350" height="1800" loading="lazy" decoding="async"><span>棚に保管されたタップシューズ ↗</span></a>
+<a href="../assets/images/studio/rental-2026/tap-shoes-and-studio-drawings.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/tap-shoes-and-studio-drawings.webp" alt="タップシューズとスタジオに飾られた手描きカード" width="1800" height="1350" loading="lazy" decoding="async"><span>タップシューズとスタジオに飾られた手描きカード ↗</span></a>
+</div></details>
+        <details class="rsr-visual-more rsr-rental-photo-group"><summary>受付・設備・共有スペースを見る <span aria-hidden="true">＋</span></summary><div class="rsr-visual-more-grid"><a href="../assets/images/studio/rental-2026/storage-equipment-closet.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/storage-equipment-closet.webp" alt="スタジオ奥の収納・設備スペース" width="1350" height="1800" loading="lazy" decoding="async"><span>スタジオ奥の収納・設備スペース ↗</span></a></div></details>
+        <details class="rsr-visual-more rsr-rental-photo-group"><summary>建物の入口・地下への道順を見る <span aria-hidden="true">＋</span></summary><div class="rsr-visual-more-grid"><a href="../assets/images/studio/rental-2026/building-entrance-exterior.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/building-entrance-exterior.webp" alt="Queen Heart Buildingの外観と入口" width="1350" height="1800" loading="lazy" decoding="async"><span>Queen Heart Buildingの外観と入口 ↗</span></a>
+<a href="../assets/images/studio/rental-2026/building-entrance-front.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/building-entrance-front.webp" alt="建物正面のエントランス" width="1800" height="1350" loading="lazy" decoding="async"><span>建物正面のエントランス ↗</span></a>
+<a href="../assets/images/studio/rental-2026/building-directory-sign.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/building-directory-sign.webp" alt="建物入口のフロア案内板とRhythm Speakerの表示" width="1350" height="1800" loading="lazy" decoding="async"><span>建物入口のフロア案内板とRhythm Speakerの表示 ↗</span></a>
+<a href="../assets/images/studio/rental-2026/basement-stairway-entry.webp" target="_blank" rel="noopener"><img src="../assets/images/studio/rental-2026/basement-stairway-entry.webp" alt="Rhythm Speakerへ続く地下入口の階段" width="1350" height="1800" loading="lazy" decoding="async"><span>Rhythm Speakerへ続く地下入口の階段 ↗</span></a></div></details>
+        <p class="rsr-footnote">掲載写真はRhythm Speakerの実際のスタジオです。撮影時期により家具・設備の配置が異なる場合があります。</p>
+      </div>
+    </section>
+    <section class="rsr-section rsr-floorplan-section" id="studio-floorplan" aria-labelledby="studio-floorplan-title">
+      <div class="rental-inner">
+        <div class="rsr-section-top">
+          <div><p class="rsr-eyebrow">FLOOR PLAN / B1F</p><h2 id="studio-floorplan-title">スタジオの間取り・設備</h2></div>
+          <p>ダンスフロア、鏡、受付、更衣スペースなどの位置関係を確認できます。</p>
+        </div>
+        <div class="rsr-floorplan-frame" id="studio-floorplan-frame" hidden>
+          <a id="studio-floorplan-expand" href="../assets/images/studio/floorplan/rhythm-speaker-b1f-floorplan-v1.webp" target="_blank" rel="noopener noreferrer" aria-label="スタジオ平面図を別画面で拡大する">
+            <img id="studio-floorplan-image" alt="Rhythm Speaker池袋スタジオ地下1階の概略平面図。ダンスフロア、鏡、受付カウンター、更衣室、トイレ、階段および主な設備の位置" width="1920" height="1080" loading="lazy" decoding="async">
+          </a>
+          <p class="rsr-floorplan-caption">画像をタップすると拡大します。図面は概略図です。実際の寸法・備品配置は現況をご確認ください。</p>
+        </div>
+        <div class="rsr-floorplan-unavailable" id="studio-floorplan-unavailable" role="status">
+          <p>スタジオ平面図は掲載準備中です。室内の様子は上の写真をご確認ください。</p>
+        </div>
+      </div>
+    </section>
+    <section class="rsr-section rsr-muted" id="studio-spec">
+      <div class="rental-inner">
+        <div class="rsr-section-top"><div><p class="rsr-eyebrow">FACILITY & USE</p><h2>設備と利用用途</h2></div></div>
+        <div class="rsr-facility-grid">
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">01</span><h3>ダンスフロア</h3><p>実際の床の状態は写真で確認できます。タップシューズや床の使用条件は事前にご相談ください。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">02</span><h3>鏡・室内設備</h3><p>鏡、受付カウンター、収納など、写真で確認できる設備があります。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">03</span><h3>レンタルシューズ</h3><p>タップシューズの貸出については、必要なサイズ・数量を事前にお問い合わせください。</p></div>
+          <div class="rsr-facility"><span class="rsr-facility-icon" aria-hidden="true">04</span><h3>撮影・イベント</h3><p>撮影機材の持込、音響利用、人数、準備・撤収時間などは用途に応じて確認します。</p></div>
+        </div>
+        <p class="rsr-footnote">掲載のない設備・利用条件はお問い合わせください。</p>
+      </div>
+    </section>
+    <section class="rsr-section rsr-pricing-compact" id="rental-pricing">
+      <div class="rental-inner">
+        <details class="rsr-rules">
+          <summary><span><strong>料金の適用条件・キャンセルについて</strong></span><span aria-hidden="true">＋</span></summary>
+          <div class="rsr-rules-content">
+            <dl>
+              <div><dt>通常レンタル</dt><dd>貸切利用。23:00までに終了する時間でご相談ください。</dd></div>
+              <div><dt>平日朝割引</dt><dd>平日7:00〜12:00内の利用限定です。</dd></div>
+              <div><dt>深夜6時間パック</dt><dd>希望日の0:00〜6:00（前日の24:00から）。カレンダーでは0:00が始まる日を選択してください。</dd></div>
+              <div><dt>シェアレンタル</dt><dd>他の利用者と共用するプランです。貸切ではありません。</dd></div>
+            </dl>
+            <p>通常レンタルのキャンセルは原則1週間前まで。ご予約・お支払い条件はスタッフからの返信でご案内します。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+    <section class="rsr-section" id="rental-access">
+      <div class="rental-inner rsr-access-grid">
+        <div><p class="rsr-eyebrow">ACCESS</p><h2>アクセス</h2><p>東京都豊島区西池袋3-22-10<br>大晃第7ビル B1</p><p>池袋駅 西口（中央）から徒歩3分。</p><a href="../access/" class="rsr-outline-btn">写真・地図でアクセスを見る →</a></div>
+        <img src="../assets/images/trial/trial-real-studio-floor-v1.webp" width="960" height="960" loading="lazy" decoding="async" alt="Rhythm Speaker池袋スタジオのフロアと鏡">
+      </div>
+    </section>
+    <section class="rsr-section rsr-muted" id="rental-support">
+      <div class="rental-inner">
+        <p class="rsr-eyebrow">STARTER SUPPORT</p><h2>初めての企画を応援します。</h2><p class="rsr-support-lead">ワークショップやイベントを始めたい方へ。対象利益の30%を利用料とする特別な制度です。適用条件は事前に確認します。</p>
+        <div class="rsr-support-links"><a class="rsr-outline-btn" href="#rental-booking" data-rental-choice="STARTER SUPPORT">企画を相談する</a></div>
+        <details class="rsr-advanced"><summary>STARTER SUPPORTの詳しい条件を見る <span aria-hidden="true">＋</span></summary>
+          <div class="rsr-advanced-body">
+    <section class="section"><div class="rental-inner">
+      <div class="concept-box">
+        <div class="concept-copy"><p class="eyebrow">WHY STARTER SUPPORT</p><h2>「安く借りる制度」ではありません。</h2><p>Rhythm Speakerの空き時間を使って、新しい講師・企画・活動が最初の一歩を踏み出し、実績を作り、次の挑戦へ進むための支援制度です。</p></div>
+        <div class="concept-points"><ul><li><strong>利用者：</strong>固定スタジオ代の先払いリスクを小さくできる</li><li><strong>Rhythm Speaker：</strong>新しい企画・人・コンテンツ・紹介が生まれる</li><li><strong>双方：</strong>開催実績と信頼関係を積み上げ、より大きな活動へ進める</li></ul><div class="support-note"><strong>大切にしていること</strong><br>空いている時間を無制限に安く貸すのではなく、お互いに価値が残る関係を育てることを前提にしています。</div></div>
+      </div>
+    </div></section>
+
+    <section class="section alt"><div class="rental-inner">
+      <h2>参加料金に合わせて、ダンスフロアを使えます。</h2>
+      <p class="lead">STARTERでは、総滞在時間ではなく「ダンスフロアを占有する時間」を基準にします。参加料金と企画規模に合わせて、無理のないFloor Timeを設定します。</p>
+      <div class="time-grid">
+        <div class="time-card"><div class="fee">参加費 〜1,000円</div><div class="minutes">60分</div><p>ダンスフロア占有時間の標準上限。</p></div>
+        <div class="time-card"><div class="fee">参加費 1,001〜2,000円</div><div class="minutes">90分</div><p>小規模WSなどの標準的な利用イメージ。</p></div>
+        <div class="time-card"><div class="fee">参加費 2,001円〜</div><div class="minutes">120分</div><p>STARTERの自動適用上限。120分超は個別相談。</p></div>
+      </div>
+      <div class="area-grid">
+        <div class="area-card floor"><span class="plan-kicker">FLOOR TIME</span><h3>時間制限の対象</h3><p>WS、レッスン、リハーサルなど、ダンスフロアを専有して使う時間です。</p></div>
+        <div class="area-card common"><span class="plan-kicker">COMMON AREA</span><h3>原則Floor Timeに含めません</h3><p>更衣室、カウンター、受付、精算、待機など。他の利用者や通常営業を妨げない範囲で利用できます。</p></div>
+      </div>
+      <div class="example-box"><strong>例：参加費2,000円・80分WSの場合</strong><br>着替え・受付 → ダンスフロア90分以内 → 終了後の着替え・精算。スタジオ滞在が100分程度でも、Floor Timeが90分以内なら運用できます。</div>
+      <p class="fineprint">時間区分はPilot運用中です。長時間イベントや特殊な企画は、内容・利用実績・他予約への影響を確認して個別に判断します。</p>
+    </div></section>
+
+    <section class="section"><div class="rental-inner">
+      <h2>STARTERは、使うほど自由になる制度です。</h2>
+      <p class="lead">単純な利用回数ではなく、開催実績、連絡・精算の信頼性、企画の成長、Rhythm Speakerへの発信・コンテンツ協力などを見ながら関係性を育てます。</p>
+      <div class="growth">
+        <div class="growth-card"><span class="plan-kicker">LEVEL 1</span><h3>STARTER</h3><p>初開催・活動初期。まず小さく企画を実施し、実績を作る段階。</p></div>
+        <div class="growth-card"><span class="plan-kicker">LEVEL 2</span><h3>GROWTH</h3><p>継続実績と信頼ができ、利用時間・予約条件・告知支援などを広げていく段階。</p></div>
+        <div class="growth-card"><span class="plan-kicker">LEVEL 3+</span><h3>PARTNER</h3><p>共同宣伝、定期企画、コラボレーションなど、より大きな相乗効果を目指す段階。</p></div>
+      </div>
+      <div class="guardrails" aria-label="STARTER基本予約ルール">
+        <div class="guardrail"><strong>月2回まで</strong><span>STARTERの基本利用枠</span></div>
+        <div class="guardrail"><strong>予約1件ずつ</strong><span>同時に大量の枠を確保しない</span></div>
+        <div class="guardrail"><strong>30日先まで</strong><span>STARTERの基本予約範囲</span></div>
+      </div>
+      <p class="fineprint">上記はSTARTER Pilotの基本条件です。実績・信頼・貢献内容によって、今後の利用条件を広げます。</p>
+    </div></section>
+
+    <section class="section dark"><div class="rental-inner">
+      <p class="eyebrow">CONTENT CONTRIBUTION</p><h2>動画を作る。SNSで広げる。<br>その協力も、スタジオへの価値です。</h2>
+      <p class="lead">Rhythm Speakerへの還元は現金だけではありません。実際に使える動画や写真、レッスンコンテンツ、ご自身のSNSでの発信なども「Contribution」として評価し、次回以降の利用条件へ反映します。</p>
+      <div class="contribution-grid">
+        <div class="contribution-card"><h3>コンテンツを納品</h3><p>スタジオレンタルCM、WSダイジェスト、初心者向けレッスン、講師紹介、Shorts / Reels、写真、B-rollなど。</p><div class="contribution-tags"><span>CM</span><span>Lesson</span><span>Shorts</span><span>Reels</span><span>Photo</span><span>Raw素材</span></div></div>
+        <div class="contribution-card"><h3>自分のSNSで発信</h3><p>Instagram、TikTok、YouTube、Facebookなどで、WSやスタジオ、STARTER SUPPORTを実際に紹介・投稿する協力。</p><div class="contribution-tags"><span>Instagram</span><span>TikTok</span><span>YouTube</span><span>Facebook</span><span>Share</span></div></div>
+      </div>
+      <div class="credit-box"><strong>協力実績は、次回の利用条件に反映します。</strong><p>内容・品質・本数・再利用性・実際の公開実績・継続的な協力に応じて、Floor Timeの緩和、月間利用枠、予約条件、利用料の減額、承認済みの無料スタジオ利用などへ反映します。高品質な動画コンテンツなど、Rhythm Speaker側に大きな資産価値が残る場合は、スタジオを無料提供するオプションもあります。</p></div>
+      <p class="fineprint">Contribution特典は「作る予定」ではなく、事前に内容を確認し、実際に納品・公開された実績をもとに適用します。公開・再利用する写真や動画は、必要な権利・同意範囲を確認します。</p>
+    </div></section>
+
+    <section class="section alt"><div class="rental-inner">
+      <h2>料金は、開催結果を見て精算します。</h2>
+      <p class="lead">特別な直接経費がない場合、参加費2,000円なら下のようになります。</p>
+      <div class="table-wrap"><table class="compare">
+        <thead><tr><th>参加人数</th><th>売上</th><th>RS利用料 30%</th><th>主催者側に残る金額</th></tr></thead>
+        <tbody><tr><td>0名</td><td>0円</td><td>0円</td><td>0円</td></tr><tr><td>1名</td><td>2,000円</td><td>600円</td><td>1,400円</td></tr><tr><td>2名</td><td>4,000円</td><td>1,200円</td><td>2,800円</td></tr><tr><td>3名</td><td>6,000円</td><td>1,800円</td><td>4,200円</td></tr><tr><td>4名</td><td>8,000円</td><td>2,400円</td><td>5,600円</td></tr><tr><td>5名</td><td>10,000円</td><td>3,000円</td><td>7,000円</td></tr></tbody>
+      </table></div>
+      <p class="fineprint">広告費・印刷費など、その企画のためだけに発生する直接経費がある場合は開催前に確認し、対象となる経費を差し引いてから対象利益を計算します。本人の通常交通費・食費・本人講師料などは原則として直接経費に含めません。</p>
+    </div></section>
+
+    <section class="section"><div class="rental-inner">
+      <h2>利益が出ない回も、3回までは検証できます。</h2>
+      <p class="lead">同一企画で対象利益が0円以下になった開催はZero-Profit Useとして記録します。失敗を一度で終わらせず、少数回の実践から改善するための仕組みです。</p>
+      <div class="support-note"><strong>Zero-Profit 3回ルール</strong><br>1回目：継続可 ／ 2回目：継続可 ／ 3回目：継続可＋改善レビュー。4回目は自動承認せず、企画改善、GROWTH、通常レンタル、別の利用方法などを一緒に検討します。</div>
+    </div></section>
+
+    <section class="section alt"><div class="rental-inner">
+      <h2>相談から開催、その先まで。</h2>
+      <div class="flow">
+        <div class="flow-item"><h3>LINEで相談</h3><p>「初めてWSをやりたい」くらいの段階でも大丈夫です。</p></div>
+        <div class="flow-item"><h3>企画を整理</h3><p>内容、対象、参加料金、人数、Floor Time、希望日時を確認します。</p></div>
+        <div class="flow-item"><h3>条件を確認</h3><p>精算方法、直接経費、シューズ、事例・発信協力などを確認します。</p></div>
+        <div class="flow-item"><h3>予約確定</h3><p>空き時間と照合し、管理側からの確定案内で予約成立です。</p></div>
+        <div class="flow-item"><h3>募集・開催</h3><p>参加者を募集して実施。必要に応じて写真・動画も残します。</p></div>
+        <div class="flow-item"><h3>精算・次のLevelへ</h3><p>売上、運営、発信・納品実績を確認し、次回条件へ反映します。</p></div>
+      </div>
+      <p class="fineprint">カレンダー上で空いていても予約確定ではありません。利用種別・日時・目的・条件を確認し、管理側からの確定案内をもって予約確定となります。</p>
+    </div></section>
+
+    <section class="section"><div class="rental-inner">
+      <h2>よくある質問</h2>
+      <div class="faq">
+        <details><summary>初めてWSを開催するのですが利用できますか？</summary><p>はい。初開催はSTARTER SUPPORTの主な対象です。内容が完全に決まっていなくても、企画を整理するところから相談できます。</p></details>
+        <details><summary>参加者が集まらなかった場合、本当にスタジオ利用料は0円ですか？</summary><p>事前確認した計算上の対象利益が0円以下であれば、Rhythm Speakerへのスタジオ利用料は0円です。ただし交通費など主催者側で発生するその他の費用まで0円になることを保証する制度ではありません。</p></details>
+        <details><summary>何時間でも0円で使えるのですか？</summary><p>いいえ。STARTERは安価な長時間レンタル制度ではありません。参加料金に応じたFloor Time上限があり、STARTERの自動適用は最大120分です。長時間企画は個別に相談します。</p></details>
+        <details><summary>更衣や受付の時間もFloor Timeに入りますか？</summary><p>更衣室・カウンター・受付・精算などのCommon Area利用は、他利用者や通常営業を妨げない範囲で原則Floor Timeに含めません。</p></details>
+        <details><summary>STARTERは何回まで予約できますか？</summary><p>基本は月2回まで、同時に確保できる将来予約は1件、予約可能範囲は30日先までです。利用実績・信頼・協力内容によって条件を広げます。</p></details>
+        <details><summary>写真や動画の提供は必須ですか？</summary><p>名前・写真・動画などの公開協力は範囲を確認して進めます。協力いただいた実績は次回条件に反映します。匿名の参加人数・売上などは、制度改善のための実績データとして扱う場合があります。</p></details>
+        <details><summary>動画を作れば無料で借りられますか？</summary><p>事前に納品内容・品質・本数・利用範囲などを確認し、Rhythm Speaker側に十分な資産価値があると判断した企画では無料提供も可能です。単に「作る予定」だけで自動的に無料になる制度ではありません。</p></details>
+        <details><summary>自分のSNSで紹介することも評価されますか？</summary><p>はい。Instagram、TikTok、YouTube、Facebookなどで実際に投稿・紹介していただいた実績もContributionとして次回条件に反映します。</p></details>
+        <details><summary>タップシューズを持っていない参加者がいても大丈夫ですか？</summary><p>Rhythm Speakerにはレンタルシューズがあります。必要数やサイズは参加者が決まり次第、事前に相談してください。</p></details>
+        <details><summary>通常レンタルのキャンセルはいつまでですか？</summary><p>原則として1週間前までです。STARTER SUPPORTはPilot運用のため、予約確定時にその企画の条件を確認します。</p></details>
+      </div>
+    </div></section>
+
+
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rental-footer"><div><strong class="brand-name">Rhythm Speaker</strong><small> TAP DANCE STUDIO / IKEBUKURO</small></div><p class="copyright">&copy; 2026 Rhythm Speaker. All Rights Reserved.</p></footer>
+
+  <script>
+    (() => {
+      'use strict';
+      const form=document.getElementById('rental-request');
+      if(!form)return;
+      const $=id=>document.getElementById(id);
+      const dateInput=$('rental-date'),timeInput=$('rental-time'),duration=$('rental-duration'),type=$('rental-type');
+      const status=$('rental-form-status'),copy=$('rental-copy');
+      const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      const parseDay=s=>new Date(s+'T12:00:00+09:00');
+      const shiftMonth=(m,n)=>{const [y,mo]=m.split('-').map(Number);return new Date(Date.UTC(y,mo-1+n,1)).toISOString().slice(0,7)};
+      const prices={'通常レンタル':3500,'平日朝割引':1500,'深夜6時間パック':4000,'シェアレンタル':500};
+      const durations=()=>{const h=Number.parseInt(duration.value,10);return Number.isFinite(h)?h:0};
+      const inMorning=d=>{const w=parseDay(d).getUTCDay();return w!==0&&w!==6};
+      const jstNow=()=>{const pieces=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());const values=Object.fromEntries(pieces.map(p=>[p.type,p.value]));return Number(values.hour)*60+Number(values.minute);};
+      const minutesOf=t=>t?Number(t.slice(0,2))*60+Number(t.slice(3,5)):0;
+      const isPastStart=(d,t)=>d===today()&&minutesOf(t)<=jstNow();
+      const isSupport=()=>type.value==='STARTER SUPPORT';
+      const isOther=()=>type.value==='定期利用・その他';
+      let useMode='private',specialChoice=false;
+      const isNightSelection=()=>timeInput.value==='00:00'&&useMode==='private'&&!specialChoice;
+      const nextDay=d=>{const [y,m,n]=d.split('-').map(Number);return new Date(Date.UTC(y,m-1,n+1)).toISOString().slice(0,10);};
+      const nightRange=()=>dateInput.value?dateLabel(dateInput.value)+'の深夜（'+nextDay(dateInput.value)+' 00:00〜06:00）':'選択日の翌日 00:00〜06:00';
+      const autoPlan=()=>{
+        if(specialChoice)return;
+        const h=durations(),start=minutesOf(timeInput.value),end=start+h*60;
+        const p=useMode==='share'?'シェアレンタル':
+          dateInput.value&&isNightSelection()?'深夜6時間パック':
+          dateInput.value&&timeInput.value&&h&&inMorning(dateInput.value)&&start>=420&&end<=720?'平日朝割引':'通常レンタル';
+        type.value=p;
+        document.querySelectorAll('[data-use-mode]').forEach(b=>{const selected=b.dataset.useMode===useMode;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));});
+      };
+      const dateLabel=d=>d?new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',weekday:'short'}).format(parseDay(d)):'日付を選択';
+      let month=today().slice(0,7),draft='';
+      dateInput.min=today();
+      const estimate=()=>{
+        const h=durations(),p=prices[type.value];
+        if(!p||(!h&&type.value!=='深夜6時間パック'))return {total:'要相談',detail:isSupport()?'企画内容・収益に応じて個別相談':'利用条件を確認'};
+        if(type.value==='深夜6時間パック')return {total:'¥4,000',detail:'選択日の翌日0:00〜6:00 / 6時間'};
+        return {total:'¥'+(p*h).toLocaleString('ja-JP'),detail:'¥'+p.toLocaleString('ja-JP')+' × '+h+'時間'};
+      };
+      const validatePlan=()=>{
+        if(!dateInput.value||!timeInput.value)return '';
+        if(dateInput.value<today()||(!isNightSelection()&&isPastStart(dateInput.value,timeInput.value)))return '過去の日時は選択できません。未来の希望日時を指定してください。';
+        if(!isSupport()&&!isOther()&&!durations())return '利用時間を選んでください。';
+        if(!isSupport()&&!isOther()&&timeInput.value==='00:00'&&type.value!=='深夜6時間パック')return '深夜0:00開始は6時間パックのみです。';
+        if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&durations()&&minutesOf(timeInput.value)+durations()*60>1440)return '日付をまたぐ利用はLINEで個別にご相談ください。';
+        if(type.value==='通常レンタル'&&minutesOf(timeInput.value)+durations()*60>1380)return '通常レンタルは23:00までのご利用です。終了時刻が23:00以前になるよう利用時間を変更してください。';
+        if(type.value==='平日朝割引'){
+          const minutes=Number(timeInput.value.slice(0,2))*60+Number(timeInput.value.slice(3,5));
+          const h=durations();
+          if(!inMorning(dateInput.value)||minutes<420||!h||minutes+h*60>720)return '平日朝割引は平日7:00〜12:00内の利用のみ対象です。';
+        }
+        if(type.value==='深夜6時間パック'&&(timeInput.value!=='00:00'||duration.value!=='6時間'))return '深夜パックは選択日の翌日0:00〜6:00の6時間固定です。';
+        return '';
+      };
+      const build=()=>{
+        if(!dateInput.value||!timeInput.value)return '';
+        const people=$('rental-people').value,notes=$('rental-notes').value.trim();
+        const e=estimate();
+        return ['Rhythm Speaker スタジオレンタルの希望日時について相談です。',
+          '利用方法：'+type.value,'料金目安：'+e.total+'（'+e.detail+'）',
+          '希望日：'+dateInput.value+(type.value==='深夜6時間パック'?'（選択日の夜）':''),'実際の利用日時：'+(type.value==='深夜6時間パック'?nextDay(dateInput.value)+' 00:00〜06:00':dateInput.value+' '+timeInput.value),
+          '利用時間：'+duration.value,'利用目的：'+$('rental-purpose-input').value,
+          '利用人数：'+(people?people+'名':'未定'),notes?'補足：'+notes:'',
+          type.value==='深夜6時間パック'?'深夜利用の日付（翌日0:00開始）を必ずご確認ください。':'',
+          '空き状況・料金・利用条件をご確認ください。予約は返信後に確定することを理解しています。'].filter(Boolean).join('\n');
+      };
+      const renderCalendar=()=>{
+        $('rental-month-label').textContent=month.slice(0,4)+'年 '+Number(month.slice(5))+'月';
+        $('rental-prev-month').disabled=month<=today().slice(0,7);
+        const [year,mo]=month.split('-').map(Number);
+        const first=new Date(Date.UTC(year,mo-1,1)).getUTCDay();
+        const padding=(first+6)%7;
+        const last=new Date(Date.UTC(year,mo,0)).getUTCDate();
+        const wrap=$('rental-calendar-days');wrap.replaceChildren();
+        for(let i=0;i<padding;i++){const blank=document.createElement('span');blank.setAttribute('aria-hidden','true');wrap.append(blank);}
+        for(let n=1;n<=last;n++){
+          const d=month+'-'+String(n).padStart(2,'0');
+          const b=document.createElement('button');b.type='button';b.textContent=String(n);
+          b.setAttribute('aria-label',dateLabel(d)+'を希望日として選ぶ');
+          b.setAttribute('aria-pressed',String(dateInput.value===d));
+          const disabled=d<today();
+          b.disabled=disabled;
+          if(d===today())b.classList.add('is-today');
+          b.addEventListener('click',()=>{dateInput.value=d;autoPlan();renderCalendar();renderTimes();refresh();});
+          wrap.append(b);
+        }
+      };
+      const renderTimes=()=>{
+        const previous=timeInput.value;
+        const options=[{value:'',label:'開始時刻を選択'}];
+
+        for(let minutes=420;minutes<=1320;minutes+=30){
+          const t=String(Math.floor(minutes/60)).padStart(2,'0')+':'+String(minutes%60).padStart(2,'0');
+          options.push({value:t,label:t});
+        }
+        if(useMode==='private'&&!specialChoice)options.push({value:'00:00',label:'翌日0時〜6時（深夜パック）'});
+        timeInput.replaceChildren();
+        options.forEach(o=>{
+          const el=document.createElement('option');el.value=o.value;el.textContent=o.label;
+          const end=minutesOf(o.value)+durations()*60;
+          el.disabled=!!o.value&&(
+            (!!dateInput.value&&o.value!=='00:00'&&isPastStart(dateInput.value,o.value))||
+            (!specialChoice&&useMode==='private'&&o.value!=='00:00'&&end>1380)
+          );
+          timeInput.append(el);
+        });
+        timeInput.value=previous;
+        if(timeInput.value!==previous)timeInput.value='';
+        if(isNightSelection())duration.value='6時間';
+        duration.disabled=isNightSelection();
+        $('rental-time-hint').textContent=isSupport()||isOther()?'日時と条件はLINEでご相談ください。':useMode==='share'?'シェア利用は貸切ではありません。':type.value==='深夜6時間パック'?'選択日の翌日0:00〜6:00。利用時間は自動で6時間になります。':'通常レンタルは23:00まで。平日朝7:00〜12:00は割引料金です。';
+      };
+      const refresh=()=>{
+        const e=estimate(),warn=validatePlan();
+        const ready=!!dateInput.value&&!!timeInput.value&&!warn;
+        $('rental-summary-plan').textContent=type.value;
+        $('rental-summary-date').textContent=dateInput.value?(type.value==='深夜6時間パック'?nightRange():dateLabel(dateInput.value)+(timeInput.value?' '+timeInput.value:' 時刻未選択')):'日付・時刻を選択';
+        $('rental-summary-duration').textContent=duration.value;
+        $('rental-summary-total').textContent=ready?e.total:'日時を選択';
+        $('rental-summary-unit').textContent=ready?e.detail:'日付と時刻を選ぶと料金を表示';
+        status.textContent=warn;
+        draft=build();copy.disabled=!draft||!!warn;
+      };
+      const selectPlan=p=>{
+        specialChoice=p==='STARTER SUPPORT'||p==='定期利用・その他';
+        if(specialChoice)type.value=p;
+        else useMode=p==='シェアレンタル'?'share':'private';
+        autoPlan();renderCalendar();renderTimes();refresh();
+      };
+      document.querySelectorAll('[data-use-mode]').forEach(b=>b.addEventListener('click',()=>{specialChoice=false;useMode=b.dataset.useMode;if(useMode==='share'&&timeInput.value==='00:00')timeInput.value='';autoPlan();renderCalendar();renderTimes();refresh();}));
+      document.querySelectorAll('[data-rental-choice]').forEach(a=>a.addEventListener('click',()=>selectPlan(a.dataset.rentalChoice)));
+      $('rental-prev-month').addEventListener('click',()=>{month=shiftMonth(month,-1);renderCalendar();});
+      $('rental-next-month').addEventListener('click',()=>{month=shiftMonth(month,1);renderCalendar();});
+      const onBookingChange=()=>{
+        if(isNightSelection())duration.value='6時間';
+        autoPlan();renderCalendar();renderTimes();refresh();
+      };
+      form.addEventListener('input',onBookingChange);
+      form.addEventListener('change',onBookingChange);
+      form.addEventListener('submit',e=>{
+        e.preventDefault();if(!dateInput.value||!timeInput.value){status.textContent='希望日と開始時刻を選択してください。';$('rental-calendar').scrollIntoView({block:'center',behavior:'smooth'});return;}
+        duration.disabled=false;
+        if(!form.reportValidity()){duration.disabled=isNightSelection();return;}
+        duration.disabled=isNightSelection();
+        const warn=validatePlan();if(warn){status.textContent=warn;return;}
+        draft=build();status.textContent='LINEで内容をご確認のうえ送信してください。送信だけでは予約確定になりません。';
+        window.location.href='https://line.me/R/oaMessage/%40ypk3334t/?'+encodeURIComponent(draft);
+      });
+      copy.addEventListener('click',async()=>{
+        if(!draft||validatePlan())return;
+        try{await navigator.clipboard.writeText(draft);status.textContent='相談文をコピーしました。LINEに貼り付けて送信してください。';}
+        catch(err){status.textContent='コピーできませんでした。LINEボタンからお進みください。';}
+      });
+      autoPlan();renderCalendar();renderTimes();refresh();
+    })();
+  </script>
+<script id="rental-shared-navigation">
+(()=>{'use strict';const btn=document.getElementById('menu-button'),panel=document.getElementById('menu'),main=document.getElementById('main');
+if(!btn||!panel)return;
+const close=(focus=false)=>{panel.hidden=true;btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','メニューを開く');const mark=btn.querySelector('span');if(mark)mark.textContent='＋';if(focus)btn.focus();};
+btn.addEventListener('click',()=>{const opening=panel.hidden;panel.hidden=!opening;btn.setAttribute('aria-expanded',String(opening));btn.setAttribute('aria-label',opening?'メニューを閉じる':'メニューを開く');const mark=btn.querySelector('span');if(mark)mark.textContent=opening?'×':'＋';if(opening){panel.scrollTop=0;panel.querySelector('a')?.focus();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){e.preventDefault();close(true);}});
+document.addEventListener('click',e=>{if(!e.target.closest('header')||e.target.closest('#menu a'))close();});
+document.querySelector('.skip')?.addEventListener('click',e=>{e.preventDefault();main?.focus();main?.scrollIntoView();});
+})();
+</script>
+<script id="rental-availability-lazy-load">
+(()=>{'use strict';const details=document.getElementById('rental-availability-preview');const frame=document.getElementById('rental-google-calendar');if(!details||!frame)return;
+details.addEventListener('toggle',()=>{if(details.open&&!frame.hasAttribute('src')){frame.setAttribute('src',frame.dataset.src);}});
+})();
+</script>
+<script defer src="../assets/js/studio-photo-library.js?v=20261107"></script><script id="rental-floorplan-release-gate">
+(()=>{'use strict';
+const frame=document.getElementById('studio-floorplan-frame');
+const pending=document.getElementById('studio-floorplan-unavailable');
+const img=document.getElementById('studio-floorplan-image');
+if(!frame||!pending||!img)return;
+const asset='../assets/images/studio/floorplan/rhythm-speaker-b1f-floorplan-v1.webp';
+const probe=new Image();
+probe.onload=()=>{img.src=asset;frame.hidden=false;pending.hidden=true;};
+probe.onerror=()=>{frame.hidden=true;pending.hidden=false;};
+probe.src=asset;
+})();
+</script>
+</body>
+</html>
