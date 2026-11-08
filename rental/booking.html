@@ -540,7 +540,11 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const disabled=d<today();
           b.disabled=disabled;
           if(d===today())b.classList.add('is-today');
-          b.addEventListener('click',()=>{dateInput.value=d;autoPlan();renderCalendar();renderTimes();refresh();});
+          b.addEventListener('click',()=>{dateInput.value=d;const purpose=new URLSearchParams(location.search).get('purpose');
+      if(purpose==='night'){dateInput.value=today();duration.value='6時間';}
+      autoPlan();renderCalendar();renderTimes();
+      if(purpose==='night'){timeInput.value='00:00';autoPlan();renderTimes();}
+      refresh();});
           wrap.append(b);
         }
       };
