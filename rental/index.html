@@ -782,7 +782,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const t=String(Math.floor(minutes/60)).padStart(2,'0')+':'+String(minutes%60).padStart(2,'0');
           options.push({value:t,label:t});
         }
-        options.push({value:'00:00',label:'深夜パック（翌日0:00〜6:00）'});
+        if(useMode==='private'&&!specialChoice)options.push({value:'00:00',label:'深夜パック（翌日0:00〜6:00）'});
         timeInput.replaceChildren();
         options.forEach(o=>{
           const el=document.createElement('option');el.value=o.value;el.textContent=o.label;
@@ -816,7 +816,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         else useMode=p==='シェアレンタル'?'share':'private';
         autoPlan();renderCalendar();renderTimes();refresh();
       };
-      document.querySelectorAll('[data-use-mode]').forEach(b=>b.addEventListener('click',()=>{specialChoice=false;useMode=b.dataset.useMode;autoPlan();renderCalendar();renderTimes();refresh();}));
+      document.querySelectorAll('[data-use-mode]').forEach(b=>b.addEventListener('click',()=>{specialChoice=false;useMode=b.dataset.useMode;if(useMode==='share'&&timeInput.value==='00:00')timeInput.value='';autoPlan();renderCalendar();renderTimes();refresh();}));
       document.querySelectorAll('[data-rental-choice]').forEach(a=>a.addEventListener('click',()=>selectPlan(a.dataset.rentalChoice)));
       $('rental-prev-month').addEventListener('click',()=>{month=shiftMonth(month,-1);renderCalendar();});
       $('rental-next-month').addEventListener('click',()=>{month=shiftMonth(month,1);renderCalendar();});
