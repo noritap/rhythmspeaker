@@ -64,12 +64,13 @@ for(const [label,price] of [['通常レンタル','¥3,500'],['平日朝割引',
 }
 assert.match(rental,/id="rental-request"/);
 assert.match(rental,/id="rental-availability"/);
+assert.match(rental,/rsr-availability-optional/);
 assert.match(rental,/id="rental-availability-preview"/);
 assert.match(rental,/id="rental-google-calendar"/);
 assert.match(rental,/id="rental-availability-lazy-load"/);
-assert.match(rental,/スタジオの予定から時間を探す/);
-assert.match(rental,/このページに週間予定を表示/);
-assert.match(rental,/別画面で週間予定を見る/);
+assert.match(rental,/スタジオの予定を見る/);
+assert.match(rental,/このページで予定を見る/);
+assert.match(rental,/Googleカレンダーを開く/);
 assert.match(rental,/type\.value==='平日朝割引'\?'平日7:00〜12:00内の利用が割引対象です/);
 assert.match(rental,/type\.value==='通常レンタル'\?'通常レンタルは23:00まで利用できます/);
 assert.match(read('docs/RENTAL_V5_RELEASE_SPEC_20261107.md'),/予約成立条件/);
