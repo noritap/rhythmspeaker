@@ -127,7 +127,10 @@ assert.match(rental,/rsr-pricing-compact/);
 assert.match(rental,/<option selected>1時間<\/option>/);
 assert.match(rental,/開始希望時刻（30分単位）/);
 assert.match(rental,/料金の適用条件・キャンセルについて/);
-assert.match(rental,/timeInput.value==='00:00'&&h===6/);
+assert.match(rental,/const isNightSelection=/);
+assert.match(rental,/if\(isNightSelection\(\)\)duration.value='6時間'/);
+assert.match(rental,/nextDay\(dateInput.value\)\+' 00:00〜06:00'/);
+assert.match(rental,/深夜パック（翌日0:00〜6:00）/);
 assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
 
 assert.match(rental,/aria-pressed/);
