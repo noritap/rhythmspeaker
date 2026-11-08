@@ -151,7 +151,7 @@ assert.match(landing,/rhythm-speaker-b1f-floorplan-v1\.webp/);
 assert.match(landing,/probe\.onload=\(\)=>\{img\.src=asset;frame\.hidden=false;pending\.hidden=true/);
 assert.match(landing,/probe\.onerror=\(\)=>\{frame\.hidden=true;pending\.hidden=false/);
 assert.ok(landing.indexOf('id="studio-gallery"')<landing.indexOf('id="studio-floorplan"'));
-assert.ok(rental.indexOf('id="studio-floorplan"')<rental.indexOf('id="studio-spec"'));
+assert.ok(landing.indexOf('id="studio-floorplan"')<landing.indexOf('id="studio-spec"'));
 const floorplanDoc=read('docs/STUDIO_FLOORPLAN_V1_20261107.md');
 assert.match(floorplanDoc,/画像バイナリはこのPRには含まれません/);
 assert.match(floorplanDoc,/1920×1080px/);
