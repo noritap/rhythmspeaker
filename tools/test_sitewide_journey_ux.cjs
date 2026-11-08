@@ -108,12 +108,12 @@ assert.match(rental,/data-use-mode="share"/);
 assert.match(rental,/validatePlan/);
 assert.match(rental,/line\.me\/R\/oaMessage\/%40ypk3334t/);
 assert.doesNotMatch(rental,/3,500 TIPS|400 TIPS/);
-for(const id of ['rental-calendar','rental-calendar-days','rental-month-label','rental-prev-month','rental-next-month','rental-time-options','rental-summary-total','rental-summary-plan']){
+for(const id of ['rental-calendar','rental-calendar-days','rental-month-label','rental-prev-month','rental-next-month','rental-time','rental-summary-total','rental-summary-plan']){
  assert.ok(rental.includes('id="'+id+'"'),'Rental calendar UI keeps '+id);
 }
 assert.match(rental,/const renderCalendar=/);
 assert.match(rental,/const renderTimes=/);
-assert.match(rental,/20:00','21:00','22:00/);
+assert.match(rental,/minutes<=1320;minutes\+=30/);
 assert.match(rental,/type\.value==='通常レンタル'&&minutesOf\(timeInput\.value\)\+durations\(\)\*60>1380/);
 assert.match(rental,/end>1380/);
 assert.match(rental,/const estimate=/);
@@ -124,7 +124,8 @@ assert.match(rental,/<option value="STARTER SUPPORT">/);
 assert.match(rental,/data-rental-choice="STARTER SUPPORT"/);
 assert.match(rental,/id="rental-pricing"/);
 assert.match(rental,/rsr-pricing-compact/);
-assert.match(rental,/rsr-custom-time/);
+assert.match(rental,/<option selected>1時間<\/option>/);
+assert.match(rental,/開始希望時刻（30分単位）/);
 assert.match(rental,/料金の適用条件・キャンセルについて/);
 assert.match(rental,/timeInput.value==='00:00'&&h===6/);
 assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
