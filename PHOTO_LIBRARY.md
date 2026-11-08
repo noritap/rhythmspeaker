@@ -38,3 +38,6 @@ Any ChatGPT/Codex session working on a Rhythm Speaker website should search for 
 This repository is the canonical store. Existing approved web assets are cataloged first. Raw photos uploaded in chats are to be normalized and ingested here in small timeout-safe batches. New uploads should be added to this library rather than left only in a conversation.
 
 Machine-readable catalog: `assets/photo-library/photo-library.json`
+
+## 公開用の演出イメージ
+- **イベントの控え室・準備 v1** — `assets/images/studio/edited/rhythm-speaker-event-backstage-concept-v1.webp`（1672 × 941）。実際のスタジオ内観をもとにした、ユーザー採用済みの加工画像（添付原本 `image(9).png`）。レンタル総合ページの控え室カードと `/rental/backstage/` のメイン画像に使用し、「写真をもとにした演出イメージ」と明記する。実際の利用風景や備品の提供条件を示す写真としては扱わない。
