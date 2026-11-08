@@ -788,7 +788,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const el=document.createElement('option');el.value=o.value;el.textContent=o.label;
           const end=minutesOf(o.value)+durations()*60;
           el.disabled=!!o.value&&(
-            (!!dateInput.value&&isPastStart(dateInput.value,o.value))||
+            (!!dateInput.value&&o.value!=='00:00'&&isPastStart(dateInput.value,o.value))||
             (!specialChoice&&useMode==='private'&&o.value!=='00:00'&&end>1380)
           );
           timeInput.append(el);
