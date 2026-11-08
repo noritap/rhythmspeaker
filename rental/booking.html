@@ -607,7 +607,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         duration.disabled=isNightSelection();
         const warn=validatePlan();if(warn){status.textContent=warn;return;}
         draft=build();status.textContent='LINEで内容をご確認のうえ送信してください。送信だけでは予約確定になりません。';
-        window.location.href='https://line.me/R/oaMessage/%40ypk3334t/?'+encodeURIComponent(draft);
+        const lineUrl='https://line.me/R/oaMessage/%40ypk3334t/?'+encodeURIComponent(draft);if(window.parent!==window&&new URLSearchParams(location.search).get('embed')==='1'){window.parent.postMessage({type:'rs-rental-line-redirect',url:lineUrl},location.origin)}else window.location.href=lineUrl;
       });
       copy.addEventListener('click',async()=>{
         if(!draft||validatePlan())return;
