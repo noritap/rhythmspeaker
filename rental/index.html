@@ -763,7 +763,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const b=document.createElement('button');b.type='button';b.textContent=String(n);
           b.setAttribute('aria-label',dateLabel(d)+'を希望日として選ぶ');
           b.setAttribute('aria-pressed',String(dateInput.value===d));
-          const disabled=d<today()||(type.value==='平日朝割引'&&!inMorning(d))||(type.value==='深夜6時間パック'&&d===today()&&jstNow()>0);
+          const disabled=d<today();
           b.disabled=disabled;
           if(d===today())b.classList.add('is-today');
           b.addEventListener('click',()=>{dateInput.value=d;autoPlan();renderCalendar();renderTimes();refresh();});
