@@ -21,12 +21,8 @@
       "title": "トイレ"
     },
     {
-      "file": "reception.webp",
+      "file": "../verified-20261108/web/dance-floor-reception-and-lounge.webp",
       "title": "受付"
-    },
-    {
-      "file": "studio-detail-a.webp",
-      "title": ""
     },
     {
       "file": "studio-detail-b.webp",
@@ -53,5 +49,5 @@
       "title": ""
     }
   ],
-  "privacy": "Wi-Fi credentials and screen content blurred in reception and studio-detail-a images"
+  "privacy": "No Wi-Fi credential signage is included in the published gallery assets. Existing verified reception-side photo is reused."
 }
