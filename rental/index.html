@@ -705,11 +705,14 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       const isSupport=()=>type.value==='STARTER SUPPORT';
       const isOther=()=>type.value==='定期利用・その他';
       let useMode='private',specialChoice=false;
+      const isNightSelection=()=>timeInput.value==='00:00'&&useMode==='private'&&!specialChoice;
+      const nextDay=d=>{const [y,m,n]=d.split('-').map(Number);return new Date(Date.UTC(y,m-1,n+1)).toISOString().slice(0,10);};
+      const nightRange=()=>dateInput.value?dateLabel(dateInput.value)+'の深夜（'+nextDay(dateInput.value)+' 00:00〜06:00）':'選択日の翌日 00:00〜06:00';
       const autoPlan=()=>{
         if(specialChoice)return;
         const h=durations(),start=minutesOf(timeInput.value),end=start+h*60;
         const p=useMode==='share'?'シェアレンタル':
-          dateInput.value&&timeInput.value==='00:00'&&h===6?'深夜6時間パック':
+          dateInput.value&&isNightSelection()?'深夜6時間パック':
           dateInput.value&&timeInput.value&&h&&inMorning(dateInput.value)&&start>=420&&end<=720?'平日朝割引':'通常レンタル';
         type.value=p;
         document.querySelectorAll('[data-use-mode]').forEach(b=>{const selected=b.dataset.useMode===useMode;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));});
@@ -720,12 +723,12 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       const estimate=()=>{
         const h=durations(),p=prices[type.value];
         if(!p||(!h&&type.value!=='深夜6時間パック'))return {total:'要相談',detail:isSupport()?'企画内容・収益に応じて個別相談':'利用条件を確認'};
-        if(type.value==='深夜6時間パック')return {total:'¥4,000',detail:'24:00〜翌6:00 / 6時間'};
+        if(type.value==='深夜6時間パック')return {total:'¥4,000',detail:'選択日の翌日0:00〜6:00 / 6時間'};
         return {total:'¥'+(p*h).toLocaleString('ja-JP'),detail:'¥'+p.toLocaleString('ja-JP')+' × '+h+'時間'};
       };
       const validatePlan=()=>{
         if(!dateInput.value||!timeInput.value)return '';
-        if(dateInput.value<today()||isPastStart(dateInput.value,timeInput.value))return '過去の日時は選択できません。未来の希望日時を指定してください。';
+        if(dateInput.value<today()||(!isNightSelection()&&isPastStart(dateInput.value,timeInput.value)))return '過去の日時は選択できません。未来の希望日時を指定してください。';
         if(!isSupport()&&!isOther()&&!durations())return '利用時間を選んでください。';
         if(!isSupport()&&!isOther()&&timeInput.value==='00:00'&&type.value!=='深夜6時間パック')return '深夜0:00開始は6時間パックのみです。';
         if(!isSupport()&&!isOther()&&type.value!=='深夜6時間パック'&&durations()&&minutesOf(timeInput.value)+durations()*60>1440)return '日付をまたぐ利用はLINEで個別にご相談ください。';
@@ -735,7 +738,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const h=durations();
           if(!inMorning(dateInput.value)||minutes<420||!h||minutes+h*60>720)return '平日朝割引は平日7:00〜12:00内の利用のみ対象です。';
         }
-        if(type.value==='深夜6時間パック'&&(timeInput.value!=='00:00'||duration.value!=='6時間'))return '深夜6時間パックは希望日の午前0:00開始・6時間固定です。';
+        if(type.value==='深夜6時間パック'&&(timeInput.value!=='00:00'||duration.value!=='6時間'))return '深夜パックは選択日の翌日0:00〜6:00の6時間固定です。';
         return '';
       };
       const build=()=>{
@@ -744,9 +747,10 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
         const e=estimate();
         return ['Rhythm Speaker スタジオレンタルの希望日時について相談です。',
           '利用方法：'+type.value,'料金目安：'+e.total+'（'+e.detail+'）',
-          '希望日：'+dateInput.value+(type.value==='深夜6時間パック'?'（当日0:00〜6:00 / 前日24:00から）':''),'開始希望時刻：'+timeInput.value,
+          '希望日：'+dateInput.value+(type.value==='深夜6時間パック'?'（選択日の夜）':''),'実際の利用日時：'+(type.value==='深夜6時間パック'?nextDay(dateInput.value)+' 00:00〜06:00':dateInput.value+' '+timeInput.value),
           '利用時間：'+duration.value,'利用目的：'+$('rental-purpose-input').value,
           '利用人数：'+(people?people+'名':'未定'),notes?'補足：'+notes:'',
+          type.value==='深夜6時間パック'?'深夜利用の日付（翌日0:00開始）を必ずご確認ください。':'',
           '空き状況・料金・利用条件をご確認ください。予約は返信後に確定することを理解しています。'].filter(Boolean).join('\n');
       };
       const renderCalendar=()=>{
@@ -773,31 +777,33 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       const renderTimes=()=>{
         const previous=timeInput.value;
         const options=[{value:'',label:'開始時刻を選択'}];
-        options.push({value:'00:00',label:'00:00（深夜6時間）'});
+
         for(let minutes=420;minutes<=1320;minutes+=30){
           const t=String(Math.floor(minutes/60)).padStart(2,'0')+':'+String(minutes%60).padStart(2,'0');
           options.push({value:t,label:t});
         }
+        options.push({value:'00:00',label:'深夜パック（翌日0:00〜6:00）'});
         timeInput.replaceChildren();
         options.forEach(o=>{
           const el=document.createElement('option');el.value=o.value;el.textContent=o.label;
           const end=minutesOf(o.value)+durations()*60;
           el.disabled=!!o.value&&(
             (!!dateInput.value&&isPastStart(dateInput.value,o.value))||
-            (!specialChoice&&useMode==='private'&&(o.value==='00:00'&&durations()!==6||o.value!=='00:00'&&end>1380))
+            (!specialChoice&&useMode==='private'&&o.value!=='00:00'&&end>1380)
           );
           timeInput.append(el);
         });
         timeInput.value=previous;
         if(timeInput.value!==previous)timeInput.value='';
-        duration.disabled=false;
-        $('rental-time-hint').textContent=isSupport()||isOther()?'日時と条件はLINEでご相談ください。':useMode==='share'?'シェア利用は貸切ではありません。':type.value==='深夜6時間パック'?'0:00〜6:00の固定パックです。':'通常レンタルは23:00まで。平日朝7:00〜12:00は割引料金です。';
+        if(isNightSelection())duration.value='6時間';
+        duration.disabled=isNightSelection();
+        $('rental-time-hint').textContent=isSupport()||isOther()?'日時と条件はLINEでご相談ください。':useMode==='share'?'シェア利用は貸切ではありません。':type.value==='深夜6時間パック'?'選択日の翌日0:00〜6:00。利用時間は自動で6時間になります。':'通常レンタルは23:00まで。平日朝7:00〜12:00は割引料金です。';
       };
       const refresh=()=>{
         const e=estimate(),warn=validatePlan();
         const ready=!!dateInput.value&&!!timeInput.value&&!warn;
         $('rental-summary-plan').textContent=type.value;
-        $('rental-summary-date').textContent=dateInput.value?dateLabel(dateInput.value)+(timeInput.value?' '+timeInput.value:' 時刻未選択'):'日付・時刻を選択';
+        $('rental-summary-date').textContent=dateInput.value?(type.value==='深夜6時間パック'?nightRange():dateLabel(dateInput.value)+(timeInput.value?' '+timeInput.value:' 時刻未選択')):'日付・時刻を選択';
         $('rental-summary-duration').textContent=duration.value;
         $('rental-summary-total').textContent=ready?e.total:'日時を選択';
         $('rental-summary-unit').textContent=ready?e.detail:'日付と時刻を選ぶと料金を表示';
@@ -814,13 +820,17 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
       document.querySelectorAll('[data-rental-choice]').forEach(a=>a.addEventListener('click',()=>selectPlan(a.dataset.rentalChoice)));
       $('rental-prev-month').addEventListener('click',()=>{month=shiftMonth(month,-1);renderCalendar();});
       $('rental-next-month').addEventListener('click',()=>{month=shiftMonth(month,1);renderCalendar();});
-      form.addEventListener('input',()=>{autoPlan();renderCalendar();renderTimes();refresh();});
-      form.addEventListener('change',()=>{autoPlan();renderCalendar();renderTimes();refresh();});
+      const onBookingChange=()=>{
+        if(isNightSelection())duration.value='6時間';
+        autoPlan();renderCalendar();renderTimes();refresh();
+      };
+      form.addEventListener('input',onBookingChange);
+      form.addEventListener('change',onBookingChange);
       form.addEventListener('submit',e=>{
         e.preventDefault();if(!dateInput.value||!timeInput.value){status.textContent='希望日と開始時刻を選択してください。';$('rental-calendar').scrollIntoView({block:'center',behavior:'smooth'});return;}
         duration.disabled=false;
-        if(!form.reportValidity()){if(type.value==='深夜6時間パック')duration.disabled=true;return;}
-        if(type.value==='深夜6時間パック')duration.disabled=true;
+        if(!form.reportValidity()){duration.disabled=isNightSelection();return;}
+        duration.disabled=isNightSelection();
         const warn=validatePlan();if(warn){status.textContent=warn;return;}
         draft=build();status.textContent='LINEで内容をご確認のうえ送信してください。送信だけでは予約確定になりません。';
         window.location.href='https://line.me/R/oaMessage/%40ypk3334t/?'+encodeURIComponent(draft);
