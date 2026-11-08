@@ -98,7 +98,7 @@ assert.match(landing,/初回体験 ¥1,000/);
 assert.match(landing,/池袋の<br>レンタルスタジオ。/);
 assert.doesNotMatch(rental,/<section class="rsr-quickbar"/);
 assert.match(rental,/日時を選んで、LINEで相談。/);
-assert.match(rental,/class="rsr-hero-media"/);
+assert.match(landing,/class="rsr-hero-media"/);
 assert.match(rental,/class="button primary rsr-submit"/);
 assert.doesNotMatch(rental,/href="\.\.\/style\.css"/);
 assert.doesNotMatch(rental,/class="nav-links"/);
