@@ -131,6 +131,7 @@ assert.match(rental,/const isNightSelection=/);
 assert.match(rental,/if\(isNightSelection\(\)\)duration.value='6時間'/);
 assert.match(rental,/nextDay\(dateInput.value\)\+' 00:00〜06:00'/);
 assert.match(rental,/深夜パック（翌日0:00〜6:00）/);
+assert.match(rental,/o.value!=='00:00'&&isPastStart\(dateInput.value,o.value\)/);
 assert.ok(!rental.includes('class="rsr-price-card"'), 'Remove duplicate plan cards from the primary rental journey');
 
 assert.match(rental,/aria-pressed/);
