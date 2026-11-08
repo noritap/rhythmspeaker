@@ -782,7 +782,7 @@ body[data-ux-source="sites-v6"] .rsr-rental-photo-group .rsr-visual-more-grid a{
           const t=String(Math.floor(minutes/60)).padStart(2,'0')+':'+String(minutes%60).padStart(2,'0');
           options.push({value:t,label:t});
         }
-        if(useMode==='private'&&!specialChoice)options.push({value:'00:00',label:'深夜パック（翌日0:00〜6:00）'});
+        if(useMode==='private'&&!specialChoice)options.push({value:'00:00',label:'翌日0時〜6時（深夜パック）'});
         timeInput.replaceChildren();
         options.forEach(o=>{
           const el=document.createElement('option');el.value=o.value;el.textContent=o.label;
