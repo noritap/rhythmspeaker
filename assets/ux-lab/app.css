@@ -190,3 +190,8 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
   .pricing-continue .plan-card .plan-price{font-size:clamp(34px,10vw,45px)}
   .pricing-plan-tips{font-size:14px}
 }
+
+.portal-area .portal-purpose{margin:0 0 24px;padding:0;border:0}
+.portal-area .portal-purpose a{min-height:44px}
+.portal-area [id^="portal-heading-"]{scroll-margin-top:100px}
+body:has(main .portal-intro) .footer-portal{display:none}
