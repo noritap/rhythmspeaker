@@ -10,7 +10,7 @@ import sitemap_audit as audit
 
 class SitemapRules(unittest.TestCase):
     def test_all_tracked_html_explicitly_classified(self):
-        self.assertEqual(audit.check(), (51, 10))
+        self.assertEqual(audit.check(), (51, 11))
 
     def test_essential_pages_included(self):
         routes = set(audit.load_registry()["public_html"])

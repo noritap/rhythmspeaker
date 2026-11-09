@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'ecosystem/index.html'
+      - 'rental/index.html'
+      - 'rental/booking.html'
+      - 'tools/sites_migration_browser_check.js'
       - 'trial/apply/index.html'
       - 'classes/index.html'
       - 'classes/**'
