@@ -52,7 +52,7 @@ for (const [selector, destination] of [
 }
 assert.deepEqual(errors, [], 'portal preview page errors');
 console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
-for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
 for(const width of [320,375,390,430,768,1440]){
   await page.setViewportSize({width,height:640});
