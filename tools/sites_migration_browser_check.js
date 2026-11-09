@@ -44,6 +44,26 @@ for(const width of [320,375,390,430,768,1024,1440]){
   assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
   const purpose = page.locator('.portal-purpose a');
   assert.equal(await purpose.count(),6);
+  const contactContrast = await page.locator('#portal-contact').evaluate(card=>{
+    const luminance = color => {
+      const channels = color.match(/[\d.]+/g).slice(0,3).map(n=>Number(n)/255);
+      const linear = channels.map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);
+      return linear[0]*0.2126+linear[1]*0.7152+linear[2]*0.0722;
+    };
+    const bg = luminance(getComputedStyle(card).backgroundColor);
+    return [...card.querySelectorAll('h3,p,a,svg,.portal-action>span')].map(el=>{
+      const fg = luminance(getComputedStyle(el).color);
+      return (Math.max(bg,fg)+0.05)/(Math.min(bg,fg)+0.05);
+    });
+  });
+  assert(contactContrast.every(ratio=>ratio>=4.5), 'contact contrast at '+width);
+  for(const link of await purpose.all()){
+    const rect=await link.boundingBox();
+    assert(rect && rect.height>=44, 'purpose tap target at '+width);
+  }
+  await purpose.first().focus();
+  assert(await purpose.first().evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).outlineStyle!=='none'));
+
   await purpose.filter({hasText:'スタジオを使う'}).press('Enter');
   await page.waitForURL(base+'ecosystem/#portal-heading-rental');
   assert(await page.locator('#portal-heading-rental').evaluate(el=>{
