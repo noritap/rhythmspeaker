@@ -612,7 +612,11 @@ const morningGallerySlides=[
 {src:'../assets/images/studio/rental-2026/rental-morning-yoga-approved-20261109.webp',title:'朝ヨガ'},
 {src:'../assets/images/studio/rental-2026/rental-morning-pilates-approved-20261109.webp',title:'ピラティス'}
 ];
-const sceneLabelsByPlan={'通常レンタル':['ダンス練習','動画撮影','控え室'],'平日朝割引':['ストレッチ','朝ヨガ','ピラティス']};
+const shareGallerySlides=[
+{src:planPhotos['シェアレンタル'],title:'自主練習'},
+{src:'../assets/images/studio/rental-2026/rental-share-coworking-approved-20261109.webp',title:'PC作業・コワーキング'}
+];
+const sceneLabelsByPlan={'通常レンタル':['ダンス練習','動画撮影','控え室'],'平日朝割引':['ストレッチ','朝ヨガ','ピラティス'],'シェアレンタル':['自主練習','コワーキング']};
 const getSceneLabels=()=>sceneLabelsByPlan[detailPlan]||[];
 rentalSceneTabs.replaceChildren(...sceneLabelsByPlan['通常レンタル'].map((label,i)=>{
 const button=document.createElement('button');button.type='button';button.className='rsr-scene-tab';button.id='rental-scene-tab-'+i;button.setAttribute('role','tab');button.setAttribute('aria-controls','rental-gallery');button.textContent=label;
@@ -624,8 +628,8 @@ const rentalGallery=document.getElementById('rental-gallery');
 const galleryPhoto=document.getElementById('rental-dialog-photo');
 let galleryIndex=0;
 const renderRentalGallery=()=>{
-const multi=detailPlan==='通常レンタル'||detailPlan==='平日朝割引';
-const slides=detailPlan==='通常レンタル'?rentalGallerySlides:detailPlan==='平日朝割引'?morningGallerySlides:[{src:planPhotos[detailPlan],title:''}];
+const multi=detailPlan==='通常レンタル'||detailPlan==='平日朝割引'||detailPlan==='シェアレンタル';
+const slides=detailPlan==='通常レンタル'?rentalGallerySlides:detailPlan==='平日朝割引'?morningGallerySlides:detailPlan==='シェアレンタル'?shareGallerySlides:[{src:planPhotos[detailPlan],title:''}];
 const labels=getSceneLabels();
 for(const [i,tab] of [...rentalSceneTabs.children].entries())tab.textContent=labels[i]||'';
 const slide=slides[galleryIndex]||slides[0];
