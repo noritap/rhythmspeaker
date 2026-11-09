@@ -607,19 +607,27 @@ const rentalGallerySlides=[
 {src:'../assets/images/studio/rental-2026/rental-event-backstage-approved-20261109.webp',title:'イベント控え室・準備'}
 ];
 const rentalSceneTabs=document.getElementById('rental-scene-tabs');
-const rentalSceneLabels=['ダンス練習','動画撮影','控え室'];
-rentalSceneTabs.replaceChildren(...rentalSceneLabels.map((label,i)=>{
+const morningGallerySlides=[
+{src:planPhotos['平日朝割引'],title:'ストレッチ'},
+{src:'../assets/images/studio/rental-2026/rental-morning-yoga-approved-20261109.webp',title:'朝ヨガ'},
+{src:'../assets/images/studio/rental-2026/rental-morning-pilates-approved-20261109.webp',title:'ピラティス'}
+];
+const sceneLabelsByPlan={'通常レンタル':['ダンス練習','動画撮影','控え室'],'平日朝割引':['ストレッチ','朝ヨガ','ピラティス']};
+const getSceneLabels=()=>sceneLabelsByPlan[detailPlan]||[];
+rentalSceneTabs.replaceChildren(...sceneLabelsByPlan['通常レンタル'].map((label,i)=>{
 const button=document.createElement('button');button.type='button';button.className='rsr-scene-tab';button.id='rental-scene-tab-'+i;button.setAttribute('role','tab');button.setAttribute('aria-controls','rental-gallery');button.textContent=label;
 button.addEventListener('click',()=>{galleryIndex=i;renderRentalGallery()});
-button.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='Home'||e.key==='End'){e.preventDefault();galleryIndex=e.key==='Home'?0:e.key==='End'?rentalSceneLabels.length-1:(i+(e.key==='ArrowRight'?1:-1)+rentalSceneLabels.length)%rentalSceneLabels.length;renderRentalGallery();rentalSceneTabs.children[galleryIndex].focus()}});
+button.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='Home'||e.key==='End'){e.preventDefault();galleryIndex=e.key==='Home'?0:e.key==='End'?getSceneLabels().length-1:(i+(e.key==='ArrowRight'?1:-1)+getSceneLabels().length)%getSceneLabels().length;renderRentalGallery();rentalSceneTabs.children[galleryIndex].focus()}});
 return button;
 }));
 const rentalGallery=document.getElementById('rental-gallery');
 const galleryPhoto=document.getElementById('rental-dialog-photo');
 let galleryIndex=0;
 const renderRentalGallery=()=>{
-const multi=detailPlan==='通常レンタル';
-const slides=multi?rentalGallerySlides:[{src:planPhotos[detailPlan],title:''}];
+const multi=detailPlan==='通常レンタル'||detailPlan==='平日朝割引';
+const slides=detailPlan==='通常レンタル'?rentalGallerySlides:detailPlan==='平日朝割引'?morningGallerySlides:[{src:planPhotos[detailPlan],title:''}];
+const labels=getSceneLabels();
+for(const [i,tab] of [...rentalSceneTabs.children].entries())tab.textContent=labels[i]||'';
 const slide=slides[galleryIndex]||slides[0];
 galleryPhoto.src=slide.src;
 galleryPhoto.alt=multi?slide.title+'の利用イメージ（AI制作画像を含みます）':planInfo[detailPlan].title+'の利用イメージ（Rhythm Speakerスタジオ）';
@@ -630,7 +638,7 @@ document.getElementById('rental-dialog-examples').hidden=multi;
 document.getElementById('rental-gallery-title').textContent=slide.title;
 document.getElementById('rental-gallery-count').textContent=multi?(galleryIndex+1)+' / '+slides.length:'';
 };
-const moveRentalGallery=delta=>{if(detailPlan!=='通常レンタル')return;galleryIndex=(galleryIndex+delta+rentalGallerySlides.length)%rentalGallerySlides.length;renderRentalGallery()};
+const moveRentalGallery=delta=>{const length=getSceneLabels().length;if(!length)return;galleryIndex=(galleryIndex+delta+length)%length;renderRentalGallery()};
 rentalGallery.querySelector('.rsr-gallery-prev').addEventListener('click',()=>moveRentalGallery(-1));
 rentalGallery.querySelector('.rsr-gallery-next').addEventListener('click',()=>moveRentalGallery(1));
 rentalGallery.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();moveRentalGallery(e.key==='ArrowRight'?1:-1)}});
