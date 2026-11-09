@@ -1,6 +1,24 @@
 /* CI regression for the new static Sites migration. No submission, auth, calendar or DB writes. */
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/','rental/'];
+// Current rental contract. Select an actual future date without sending a LINE message.
+await page.setViewportSize({width:390,height:850});
+await page.goto(base+'rental/');
+const rentalMenu = page.locator('#menu-button');
+await rentalMenu.click();
+assert(await page.locator('#menu .rs-menu-action--wallet').isVisible());
+await page.locator('#menu a').first().press('Escape');
+assert.equal(await rentalMenu.getAttribute('aria-expanded'),'false');
+const booking = page.frameLocator('#rental-booking-frame');
+await booking.locator('#rental-next-month').click();
+await booking.locator('#rental-calendar-days button:enabled').first().click();
+await booking.locator('#rental-time').selectOption('14:00');
+assert.equal(await booking.locator('#rental-summary-total').innerText(),'¥3,500');
+await booking.locator('[data-booking-plan="シェアレンタル"]').click();
+await booking.locator('#rental-time').selectOption('14:00');
+assert.equal(await booking.locator('#rental-summary-total').innerText(),'¥500');
+assert.match(await booking.locator('.rsr-booking-small').innerText(),/返信で確定/);
+console.log('Rental preview: mobile menu, embedded dates and private/share estimates passed');
 // P0 actions and separate shop/review destinations. Validate at every supported width.
 for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:900});

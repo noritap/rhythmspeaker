@@ -55,6 +55,7 @@
     "workshops/sakaida-koji-20261122.html"
   ],
   "excluded_html": {
+    "rental/legacy.html": "noindex: legacy rental and STARTER SUPPORT reference",
     "instructor-registration/index.html": "noindex: instructor profile intake",
     "instructor-submit/index.html": "noindex: instructor information submission",
     "rss-theater/index.html": "noindex: duplicate RSS preview; canonical official page is /rss/",

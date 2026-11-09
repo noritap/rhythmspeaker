@@ -123,8 +123,8 @@ def main() -> int:
         menu = render_menu(prefix, current)
         # Exact bounded replacement; never change booking content or footer.
         updated, count = re.subn(
-            r'<button id="menu-button".*?</header>',
-            lambda _: menu + '</header>',
+            r'<button id="menu-button".*?</nav></div>(?=[\s\S]*?</header>)',
+            lambda _: menu,
             source,
             count=1,
             flags=re.S,
