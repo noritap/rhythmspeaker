@@ -1,7 +1,58 @@
 /* CI regression for the new static Sites migration. No submission, auth, calendar or DB writes. */
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/','rental/'];
-for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+// P0 actions and separate shop/review destinations. Validate at every supported width.
+for(const width of [320,375,390,430,768,1024,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.goto(base+'ecosystem/');
+  await page.locator('.portal-quick-card--schedule').waitFor();
+  assert.equal(await page.locator('.portal-tile').count(),12,'twelve service cards');
+  assert.equal(await page.locator('.portal-section').count(),6,'six purpose-based sections');
+  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
+  assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
+  assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
+  assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
+  assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
+  assert.equal(await page.locator('#portal-learn a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
+  assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
+  assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
+  const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
+  assert(first&&secondary&&first.y<secondary.y,'quick actions must appear above secondary services');
+  assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' portal overflow');
+  for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
+    assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
+  }
+  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
+  assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
+  const purpose = page.locator('.portal-purpose a');
+  assert.equal(await purpose.count(),6);
+  await purpose.filter({hasText:'スタジオを使う'}).press('Enter');
+  await page.waitForURL(base+'ecosystem/#portal-heading-rental');
+  assert(await page.locator('#portal-heading-rental').evaluate(el=>{
+    const top=el.getBoundingClientRect().top;
+    return top>=0 && top<innerHeight;
+  }), 'section jump scrolls to rental');
+  await page.goBack();
+  await page.waitForURL(base+'ecosystem/');
+  if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
+}
+
+for (const [selector, destination] of [
+  ['.portal-quick-card--trial', 'trial/'],
+  ['.portal-quick-card--schedule', 'schedule/'],
+  ['#portal-rental .portal-main', 'rental/#price'],
+  ['#portal-watch .portal-main', 'broadcast/'],
+  ['#portal-show .portal-main', 'rss/'],
+  ['#portal-music .portal-main', 'music/'],
+  ['#portal-learn .portal-main', 'classes/step/'],
+]) {
+  await page.goto(base+'ecosystem/');
+  await page.locator(selector).click();
+  await page.waitForURL(base+destination);
+}
+assert.deepEqual(errors, [], 'portal preview page errors');
+console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
+for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
 for(const width of [320,375,390,430,768,1440]){
   await page.setViewportSize({width,height:640});
@@ -63,31 +114,6 @@ for(const width of [320,375,390,430,768,1440]){
   assert(await menu.locator('.rs-menu-action--schedule').isVisible(), 'primary schedule action remains reachable');
   await page.keyboard.press('Escape');
   assert.equal(await toggle.getAttribute('aria-expanded'),'false');
-}
-// P0 actions and separate shop/review destinations. Validate at every supported width.
-for(const width of [320,375,390,430,768,1440]){
-  await page.setViewportSize({width,height:900});
-  await page.goto(base+'ecosystem/');
-  await page.locator('.portal-quick-card--schedule').waitFor();
-  assert.equal(await page.locator('.portal-tile').count(),10,'exactly ten service cards');
-  assert.equal(await page.locator('.portal-section').count(),4,'four purpose-based sections');
-  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
-  assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
-  assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
-  assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
-  assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
-  assert.equal(await page.locator('#portal-learn a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
-  assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
-  const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
-  assert(first&&secondary&&first.y<secondary.y,'quick actions must appear above secondary services');
-  assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' portal overflow');
-  for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
-    assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
-  }
-  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
-  assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
-  if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
 }
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
 await page.goto(base);await page.locator('#menu-button').click();await page.locator('#menu a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('#menu-button').click();await page.locator('#menu a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);

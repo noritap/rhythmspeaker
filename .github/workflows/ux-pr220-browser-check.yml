@@ -3,6 +3,7 @@ name: UX PR 220 browser check
 on:
   pull_request:
     paths:
+      - 'ecosystem/index.html'
       - 'trial/apply/index.html'
       - 'classes/index.html'
       - 'classes/**'
@@ -11,6 +12,7 @@ on:
       - 'classes/style.css'
       - 'tools/class_filter_check.js'
       - 'tools/ux_pr220_browser_check.js'
+      - 'tools/sites_migration_browser_check.js'
       - 'tools/ux_diagnostics.js'
       - '.github/workflows/ux-pr220-browser-check.yml'
   workflow_dispatch:

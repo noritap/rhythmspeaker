@@ -91,17 +91,16 @@ class PortalContractTest(unittest.TestCase):
         self.assertNotIn('href="./" class="rs-menu-link--ecosystem"', self.html)
         self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
-    def test_ten_categories_have_headings_and_safe_destinations(self):
+    def test_service_cards_have_headings_and_safe_destinations(self):
         p = Cards()
         p.feed(self.html)
-        self.assertEqual(len(p.cards), 10)
+        self.assertEqual(len(p.cards), 12)
         expected = [
-            '../', '../workshops/', '../broadcast/', '../music/',
-            '../ecosystem/?category=learn',
+            '../classes/', '../workshops/', '../rental/#price',
+            '../broadcast/', '../rss/', '../music/', '../classes/step/',
             'https://rhythmspeaker.stores.jp/?all_items=true',
             'https://rhythmspeaker.hatenablog.com/',
-            '../about/', 'https://tips-app-seven.vercel.app/',
-            'https://lin.ee/zC5YLe7',
+            'https://tips-app-seven.vercel.app/', 'https://lin.ee/zC5YLe7', '../about/',
         ]
         for card, main in zip(p.cards, expected):
             self.assertEqual(card['main'], [main])
@@ -109,8 +108,8 @@ class PortalContractTest(unittest.TestCase):
             self.assertLessEqual(len(card['links']) - len(card['main']), 5)
         self.assertNotIn('../schedule/', p.cards[0]['links'])  # primary schedule is already the top action
         self.assertIn('../classes/', p.cards[0]['links'])
-        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[7]['links'])
-        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[9]['links'])
+        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[11]['links'])
+        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[10]['links'])
 
     def test_primary_routes_and_shop_review_distinction(self):
         self.assertIn('class="portal-quick-card portal-quick-card--trial" href="../trial/"', self.html)
@@ -121,7 +120,7 @@ class PortalContractTest(unittest.TestCase):
         self.assertIn('リズムスピーカー商店を読む', self.html)
         self.assertIn('タップダンスの読みもの', self.html)
         self.assertIn('https://tapdance-rhythmspeaker.hatenablog.com/', self.html)
-        self.assertIn('<h2 id="portal-heading-shopping">買う・選ぶ</h2>', self.html)
+        self.assertIn('<h2 id="portal-heading-shopping">グッズ・商品レビュー</h2>', self.html)
         self.assertNotIn('通常クラス予約', self.html)
 
     def test_all_first_party_link_targets_exist(self):
@@ -149,7 +148,7 @@ class PortalContractTest(unittest.TestCase):
         p = Sprite(); p.feed(self.html)
         if 'data-ux-source="sites-v6"' in self.html:
             self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
-            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),10)
+            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),12)
             return
         self.assertEqual(len(p.sprites), 1)
         self.assertEqual(p.sprites[0].get('width'), '0')
