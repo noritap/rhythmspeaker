@@ -411,14 +411,14 @@ body[data-ux-source="sites-v6"] .rsr-availability-simple-link:focus-visible{outl
               <label class="rsr-sr-only" for="rental-type">適用プラン</label>
               <select id="rental-type" name="rental-type" class="rsr-sr-only"><option value="通常レンタル">通常レンタル</option><option value="平日朝割引">平日朝割引</option><option value="深夜6時間パック">深夜6時間パック</option><option value="シェアレンタル">シェアレンタル</option><option value="STARTER SUPPORT">STARTER SUPPORT（企画支援）</option><option value="定期利用・その他">定期利用・その他</option></select>
             </fieldset>
-            <div class="rsr-availability-simple"><a class="rsr-availability-simple-link" href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">空き時間を見る <span aria-hidden="true">↗</span></a></div>
+            <div class="rsr-availability-simple"><a class="rsr-availability-simple-link" href="https://calendar.google.com/calendar/u/0/embed?height=600&amp;wkst=2&amp;bgcolor=%23ffffff&amp;ctz=Asia%2FTokyo&amp;title=%E3%83%AA%E3%82%BA%E3%83%A0%E3%82%B9%E3%83%94%E3%83%BC%E3%82%AB%E3%83%BC%E3%83%AC%E3%83%B3%E3%82%BF%E3%83%AB%E3%82%AB%E3%83%AC%E3%83%B3%E3%83%80%E3%83%BC&amp;mode=WEEK&amp;src=cmh5dGhtc3BlYWtlcjI5NkBnbWFpbC5jb20&amp;src=NmYzamRjdTRjaWdnOGJmbzM2a3VnbTBiczRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23039BE5&amp;color=%23A79B8E&amp;color=%230B8043" target="_blank" rel="noopener noreferrer">スタジオの予定を見る <span aria-hidden="true">↗</span></a></div>
             <div class="rsr-date-time">
               <fieldset class="rsr-booking-fieldset"><legend><span class="rsr-step-index">02</span> いつ使いますか？</legend>
                 <div class="rsr-calendar" id="rental-calendar" aria-label="希望日カレンダー">
                   <div class="rsr-calendar-head"><strong id="rental-month-label" aria-live="polite"></strong><div class="rsr-calendar-arrows"><button type="button" id="rental-prev-month" aria-label="前月">←</button><button type="button" id="rental-next-month" aria-label="翌月">→</button></div></div>
                   <div class="rsr-calendar-week" aria-hidden="true"><span>月</span><span>火</span><span>水</span><span>木</span><span>金</span><span>土</span><span>日</span></div>
                   <div class="rsr-calendar-days" id="rental-calendar-days" role="group" aria-label="日付を選択"></div>
-                  <p class="rsr-calendar-caption">空き状況はLINEで確認します。</p>
+                  <p class="rsr-calendar-caption">カレンダーは予定の目安です。利用できるかはLINEで確認します。</p>
                 </div>
                 <label class="rsr-sr-only" for="rental-date">希望日</label><input type="date" id="rental-date" name="date" class="rsr-sr-only" required>
               </fieldset>
@@ -440,13 +440,13 @@ body[data-ux-source="sites-v6"] .rsr-availability-simple-link:focus-visible{outl
             </div>
             <details class="rsr-extra-fields"><summary>利用目的・人数・補足を入力 <span>任意</span></summary>
               <div class="rsr-extra-inner">
-                <label for="rental-purpose-input">利用目的</label><select id="rental-purpose-input" name="purpose"><option value="練習・リハーサル">練習・リハーサル</option><option value="レッスン・ワークショップ">レッスン・ワークショップ</option><option value="撮影・配信">撮影・配信</option><option value="その他">その他</option></select>
+                <label for="rental-purpose-input">利用目的</label><select id="rental-purpose-input" name="purpose"><option value="練習・リハーサル">練習・リハーサル</option><option value="レッスン・ワークショップ">レッスン・ワークショップ</option><option value="撮影・配信">撮影・配信</option><option value="PC作業・コワーキング">PC作業・コワーキング</option><option value="その他">その他</option></select>
                 <label for="rental-people">利用人数（予定）</label><input type="number" id="rental-people" name="people" min="1" max="999" placeholder="未定でも可">
                 <label for="rental-notes">補足（任意）</label><textarea id="rental-notes" rows="2" maxlength="400" placeholder="設備・人数・利用目的など"></textarea>
               </div>
             </details>
             <p class="rsr-form-status" id="rental-form-status" aria-live="polite"></p>
-            <button type="submit" class="button primary rsr-submit">この内容でLINE相談 →</button>
+            <button type="submit" class="button primary rsr-submit">この内容でLINEに相談する →</button>
             <button type="button" class="rsr-copy-btn" id="rental-copy" disabled>相談文をコピー</button>
             <p class="rsr-booking-small">予約はスタジオからの返信で確定します。</p>
             <a class="rsr-direct-line" href="https://lin.ee/zC5YLe7">日時が未定の方はLINEで直接相談 ↗</a>
@@ -596,7 +596,7 @@ body[data-ux-source="sites-v6"] .rsr-availability-simple-link:focus-visible{outl
 '通常レンタル':{title:'通常貸切',lead:'自分たちだけでスタジオを使いたい方へ。',examples:['ダンスの個人・グループ練習','レッスンやリハーサル','動画撮影・制作'],condition:'原則23:00までの貸切利用。'},
 '平日朝割引':{title:'平日朝割',lead:'朝の時間を有効に使いたい方へ。',examples:['出勤前の練習','朝の個人レッスン','少人数のリハーサル'],condition:'平日7:00〜12:00内に収まる貸切利用が対象。'},
 '深夜6時間パック':{title:'深夜パック',lead:'深夜にまとまった時間を確保したい方へ。',examples:['集中練習','長時間リハーサル','制作・準備作業'],condition:'選択日の翌日0:00〜6:00、6時間固定。'},
-'シェアレンタル':{title:'シェア利用',lead:'空き時間に気軽に自主練したい方へ。',examples:['個人の反復練習','短時間の自主練'],condition:'貸切ではありません。初回利用は事前にご連絡ください。'}};
+'シェアレンタル':{title:'シェア利用',lead:'空き時間に自主練やPC作業をしたい方へ。',examples:['個人の反復練習','短時間の自主練'],condition:'貸切ではありません。初回利用は事前にご連絡ください。'}};
 const choosePlan=p=>{if(!planInfo[p])return;preferredPlan=p;specialChoice=false;useMode=p==='シェアレンタル'?'share':'private';if(p==='深夜6時間パック'){duration.value='6時間';timeInput.value='00:00'}else if(p==='平日朝割引'){if(!timeInput.value||timeInput.value==='00:00')timeInput.value='07:00';if(durations()>5)duration.value='1時間'}else if(timeInput.value==='00:00'){timeInput.value=''};autoPlan();renderCalendar();renderTimes();autoPlan();refresh();document.querySelectorAll('[data-booking-plan]').forEach(b=>{const active=b.dataset.bookingPlan===p;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active))})};
 document.querySelectorAll('[data-booking-plan]').forEach(b=>b.addEventListener('click',()=>choosePlan(b.dataset.bookingPlan)));
 const planPhotos={"通常レンタル":"../assets/images/studio/rental-2026/rental-private-rehearsal-refined-20261109.webp","平日朝割引":"../assets/images/studio/rental-2026/rental-weekday-morning-stretch-20261109.webp","深夜6時間パック":"../assets/images/studio/rental-2026/rental-midnight-session-20261109.webp","シェアレンタル":"../assets/images/studio/rental-2026/rental-share-independent-practice-20261109.webp"};
@@ -631,7 +631,7 @@ const renderRentalGallery=()=>{
 const multi=detailPlan==='通常レンタル'||detailPlan==='平日朝割引'||detailPlan==='シェアレンタル';
 const slides=detailPlan==='通常レンタル'?rentalGallerySlides:detailPlan==='平日朝割引'?morningGallerySlides:detailPlan==='シェアレンタル'?shareGallerySlides:[{src:planPhotos[detailPlan],title:''}];
 const labels=getSceneLabels();
-for(const [i,tab] of [...rentalSceneTabs.children].entries())tab.textContent=labels[i]||'';
+for(const [i,tab] of [...rentalSceneTabs.children].entries()){tab.textContent=labels[i]||'';tab.hidden=i>=labels.length;}
 const slide=slides[galleryIndex]||slides[0];
 galleryPhoto.src=slide.src;
 galleryPhoto.alt=multi?slide.title+'の利用イメージ（AI制作画像を含みます）':planInfo[detailPlan].title+'の利用イメージ（Rhythm Speakerスタジオ）';
