@@ -3,6 +3,7 @@ name: UX PR 220 browser check
 on:
   pull_request:
     paths:
+      - 'index.html'
       - 'trial/apply/index.html'
       - 'classes/index.html'
       - 'classes/**'

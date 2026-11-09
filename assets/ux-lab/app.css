@@ -190,3 +190,9 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
   .pricing-continue .plan-card .plan-price{font-size:clamp(34px,10vw,45px)}
   .pricing-plan-tips{font-size:14px}
 }
+
+/* Keep both home actions visible on compact phone screens. */
+@media(max-width:700px){
+  .hero-v2.home-hero{min-height:clamp(430px,72svh,590px)}
+  .hero-v2.home-hero .hero-copy{padding-top:48px;padding-bottom:34px}
+}

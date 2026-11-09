@@ -1,9 +1,43 @@
 /* CI regression for the new static Sites migration. No submission, auth, calendar or DB writes. */
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 (async()=>{const browser=await chromium.launch({headless:true});const page=await browser.newPage();const base='http://127.0.0.1:8002/rhythmspeaker/';const errors=[];page.on('pageerror',e=>errors.push(e.message));const routes=['','trial/','schedule/','pricing/','classes/','instructors/','about/','access/','faq/','ecosystem/','rental/'];
-for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+for(const width of [320,375,390,430,768,1024,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,`${route} image failure`);}}
+// Home actions stay visible on a short phone viewport and lead to distinct tasks.
+for (const width of [320, 375, 390, 430, 768, 1024, 1440]) {
+  await page.setViewportSize({ width, height: width <= 430 ? 568 : 900 });
+  await page.goto(base);
+  const primary = page.locator('.home-hero .hero-primary');
+  const secondary = page.locator('.home-hero .hero-secondary');
+  assert.match(await page.locator('main h1').innerText(), /池袋の\s*タップダンス教室/);
+  assert.equal(await primary.evaluate(a => new URL(a.href).pathname), '/rhythmspeaker/trial/');
+  assert.equal(await secondary.evaluate(a => new URL(a.href).pathname), '/rhythmspeaker/schedule/');
+  for (const action of [primary, secondary]) {
+    const box = await action.boundingBox();
+    assert(box && box.height >= 44 && box.x >= 0 && box.x + box.width <= width &&
+      box.y + box.height <= page.viewportSize().height, `home action fits at ${width}px`);
+  }
+}
+await page.goto(base);
+await page.locator('.home-hero .hero-primary').click();
+await page.waitForURL(base+'trial/');
+await page.locator('main a[href$="trial/apply/"]').first().click();
+await page.waitForURL(base+'trial/apply/');
+assert(await page.locator('#line').isVisible());
+await page.goto(base);
+await page.locator('.home-hero .hero-secondary').click();
+await page.waitForURL(base+'schedule/');
+await page.locator('#cf-calendar').waitFor();
+await page.goBack();
+await page.waitForURL(base);
+await page.locator('.home-hero .hero-primary').waitFor();
+const question = page.locator('main details summary').first();
+await question.press('Enter');
+assert(await question.evaluate(el => el.parentElement.open));
+await question.press('Enter');
+assert(!(await question.evaluate(el => el.parentElement.open)));
+
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
-for(const width of [320,375,390,430,768,1440]){
+for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:640});
   await page.goto(base+'ecosystem/');
   const toggle=page.locator('#menu-button'),menu=page.locator('#menu');
@@ -65,7 +99,7 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.getAttribute('aria-expanded'),'false');
 }
 // P0 actions and separate shop/review destinations. Validate at every supported width.
-for(const width of [320,375,390,430,768,1440]){
+for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:900});
   await page.goto(base+'ecosystem/');
   await page.locator('.portal-quick-card--schedule').waitFor();
