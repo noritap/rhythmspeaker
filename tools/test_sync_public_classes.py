@@ -2,12 +2,12 @@
 import copy
 import sys
 import unittest
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from sync_public_classes import build, identity, normalize, two_month_window_end
+from sync_public_classes import build, current_day_window_start, identity, normalize, two_month_window_end
 
 PEOPLE = {"instructors": [
     {"id": "homma", "name": "本間茂樹", "classes": ["STEP", "TAP"],
@@ -28,6 +28,49 @@ def fixture(**changes):
 
 
 class CalendarSyncContract(unittest.TestCase):
+    def test_current_day_window_start_keeps_past_classes_until_midnight_jst(self):
+        tz = ZoneInfo("Asia/Tokyo")
+        for hour in (4, 9, 15, 23):
+            with self.subTest(hour=hour):
+                now = datetime(2026, 11, 10, hour, 37, 28, tzinfo=tz)
+                self.assertEqual(
+                    current_day_window_start(now).isoformat(),
+                    "2026-11-10T00:00:00+09:00",
+                )
+                self.assertLess(current_day_window_start(now), now)
+        tomorrow = datetime(2026, 11, 11, 0, 1, tzinfo=tz)
+        self.assertEqual(
+            current_day_window_start(tomorrow).isoformat(),
+            "2026-11-11T00:00:00+09:00",
+        )
+        utc_time = datetime(2026, 11, 9, 23, 15, tzinfo=timezone.utc)
+        self.assertEqual(
+            current_day_window_start(utc_time).isoformat(),
+            "2026-11-10T00:00:00+09:00",
+        )
+
+    def test_all_same_day_classes_survive_morning_and_evening_projection(self):
+        tz = ZoneInfo("Asia/Tokyo")
+        events = [
+            fixture(
+                id=f"lesson-{hour}",
+                start={"dateTime": f"2026-11-10T{hour:02d}:00:00+09:00"},
+                end={"dateTime": f"2026-11-10T{hour + 1:02d}:00:00+09:00"},
+            ) for hour in (7, 8, 11, 16, 18)
+        ]
+        morning, _ = build(events, "calendar", KEY, PEOPLE, {}, datetime(2026, 11, 10, 9, tzinfo=tz))
+        evening, _ = build(events, "calendar", KEY, PEOPLE, morning, datetime(2026, 11, 10, 23, tzinfo=tz))
+        for snapshot in (morning, evening):
+            self.assertEqual(len(snapshot["sessions"]), len(events))
+            self.assertEqual(
+                sorted(row["start"] for row in snapshot["sessions"]),
+                ["07:00", "08:00", "11:00", "16:00", "18:00"],
+            )
+        self.assertEqual(
+            sorted(row["id"] for row in morning["sessions"]),
+            sorted(row["id"] for row in evening["sessions"]),
+        )
+
     def test_class_specific_capacity(self):
         catalog = {"instructors": [{"id": "furusho", "name": "古庄里好",
             "classes": ["STEP", "TAP", "STRETCH", "ISOLATION", "BAR METHOD", "HIIT"],
