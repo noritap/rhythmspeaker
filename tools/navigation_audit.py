@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
-from navigation_sync import PAGES, render_menu
+from navigation_sync import PAGES, page_prefix, render_menu
 
 
 def menu_problems(text: str, prefix: str, current: str) -> list[str]:
@@ -35,7 +35,7 @@ def audit(root: Path) -> list[tuple[str, str, list[str]]]:
         if not target.exists():
             problems.append((str(page), "menu", ["FILE_MISSING"]))
             continue
-        prefix = "" if page == Path("index.html") else "../"
+        prefix = page_prefix(page)
         issues = menu_problems(target.read_text(encoding="utf-8"), prefix, current)
         if issues:
             problems.append((str(page), "menu", issues))
@@ -49,7 +49,7 @@ def main() -> int:
     args = parser.parse_args()
     issues = audit(args.root)
     if not issues:
-        print(f"NAVIGATION AUDIT: PASS ({len(PAGES)} primary routes)")
+        print(f"NAVIGATION AUDIT: PASS ({len(PAGES)} shared menu pages)")
         return 0
     print("NAVIGATION AUDIT: DRIFT DETECTED")
     for page, surface, problems in issues:

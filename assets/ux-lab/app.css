@@ -89,67 +89,45 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 @media(max-width:700px){.portal-section .portal-main>p{font-size:13px}.portal-section .portal-shortcuts a{font-size:12px}}
 
 /* Shared navigation ordered by visitor intent. */
-#menu.rs-menu{position:absolute;top:calc(100% - 1px);right:clamp(10px,3vw,45px);z-index:25;width:min(540px,calc(100vw - 20px));max-height:min(82dvh,740px);overflow-y:auto;overscroll-behavior:contain;padding:16px 18px;background:#fff;border:1px solid #d2ccc1;box-shadow:0 18px 55px #0002;scrollbar-gutter:stable}
+html:has(#menu.rs-menu:not([hidden])){overflow:hidden}
+body:has(#menu.rs-menu:not([hidden])) > :is(main,footer){pointer-events:none}
+#menu.rs-menu{position:absolute;top:calc(100% - 1px);right:clamp(10px,3vw,45px);z-index:25;width:min(540px,calc(100vw - 20px));max-height:calc(100dvh - 105px);overflow:auto;overscroll-behavior:contain;padding:12px;background:#fff;border:1px solid #d2ccc1;box-shadow:0 18px 55px #0002}
 #menu.rs-menu .rs-menu-nav{display:block}
-#menu.rs-menu .rs-menu-group{margin:0 0 13px}
-#menu.rs-menu .rs-menu-group:last-child{margin-bottom:0}
-#menu.rs-menu .rs-menu-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:#666059;margin:0 0 6px;line-height:1.5}
-#menu.rs-menu .rs-menu-primary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-#menu.rs-menu .rs-menu-action{position:relative;min-height:100px;padding:13px 32px 13px 14px;min-width:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start;justify-content:flex-start;text-decoration:none;color:#171717;background:#f1e4dd;border:1px solid #c8b8af;border-radius:3px;line-height:1.35}
+#menu.rs-menu .rs-menu-group + .rs-menu-group{margin-top:8px}
+#menu.rs-menu .rs-menu-label{font-size:12px;font-weight:700;color:#666059;margin:0 0 4px;line-height:1.4}
+#menu.rs-menu :is(.rs-menu-primary,.rs-menu-links){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 6px}
+#menu.rs-menu .rs-menu-action{position:relative;min-height:62px;padding:8px 25px 8px 10px;min-width:0;display:flex;flex-direction:column;gap:2px;justify-content:center;text-decoration:none;color:#171717;background:#f1e4dd;border:1px solid #c8b8af;border-radius:3px;line-height:1.35}
 #menu.rs-menu .rs-menu-action--schedule{background:#171717;color:#fff;border-color:#171717}
-#menu.rs-menu .rs-menu-action>strong{font-size:17px;font-weight:700;letter-spacing:-.035em}
-#menu.rs-menu .rs-menu-action>small{font-size:12px;line-height:1.45;color:inherit;opacity:.88;font-weight:400;margin:0}
-#menu.rs-menu .rs-menu-action>span{position:absolute;right:11px;bottom:10px;font-size:14px}
-#menu.rs-menu .rs-menu-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 8px;list-style:none;margin:0;padding:0}
-#menu.rs-menu .rs-menu-links li{list-style:none;min-width:0;padding:0;margin:0}
-#menu.rs-menu .rs-menu-link{min-height:46px;display:flex;align-items:center;justify-content:flex-start;padding:9px 11px!important;border:1px solid transparent;text-decoration:none;background:#f6f4f0;font-size:12px;line-height:1.45;font-weight:600;white-space:normal}
-#menu.rs-menu .rs-menu-action svg{grid-area:icon;align-self:start}
-#menu.rs-menu .rs-menu-group--services .rs-menu-action,
-#menu.rs-menu .rs-menu-group--member .rs-menu-action,
-#menu.rs-menu .rs-menu-group--support .rs-menu-action{
-  min-height:72px;display:grid;align-content:center;align-items:start;
-  grid-template-columns:20px minmax(0,1fr);grid-template-areas:"icon title" "icon detail";
-  column-gap:8px;row-gap:3px;background:#f6f4f0;border-color:#d6d2c8
-}
-#menu.rs-menu .rs-menu-action strong{grid-area:title;overflow-wrap:anywhere}
-#menu.rs-menu .rs-menu-action small{grid-area:detail;overflow-wrap:anywhere}
-#menu.rs-menu .rs-menu-group--services strong,
-#menu.rs-menu .rs-menu-group--member strong{font-size:15px}
-#menu.rs-menu .rs-menu-group--member .rs-menu-primary{grid-template-columns:minmax(0,1fr)}
-#menu.rs-menu .rs-menu-group--member .rs-menu-action{background:#edf0ee}
-#menu.rs-menu .rs-menu-action em{font-style:normal;font-size:11px;font-weight:600;margin-inline-start:4px}
-#menu.rs-menu .rs-menu-group--support .rs-menu-primary{grid-template-columns:repeat(3,minmax(0,1fr))}
-#menu.rs-menu .rs-menu-group--support .rs-menu-action{min-height:68px;background:#fff;padding-right:10px}
-#menu.rs-menu .rs-menu-group--support strong{font-size:13px}
-#menu.rs-menu .rs-menu-group--support .rs-menu-action>span{display:none}
+#menu.rs-menu .rs-menu-action>strong{font-size:16px;font-weight:700}
+#menu.rs-menu .rs-menu-action>small{font-size:12px;color:inherit}
+#menu.rs-menu .rs-menu-action>span{position:absolute;right:8px;bottom:8px;font-size:13px}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:52px;display:grid;grid-template-columns:18px minmax(0,1fr);align-items:center;column-gap:6px;padding:6px 8px;background:#f6f4f0;border-color:#d6d2c8}
+#menu.rs-menu .rs-menu-group--services strong{font-size:14px}
+#menu.rs-menu .rs-menu-group--services svg{width:18px;height:18px}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action>span{display:none}
+#menu.rs-menu .rs-menu-action em{display:block;font-style:normal;font-size:11px;font-weight:600}
+#menu.rs-menu .rs-menu-links{list-style:none;margin:0;padding:0}
+#menu.rs-menu .rs-menu-links li{min-width:0;margin:0}
+#menu.rs-menu .rs-menu-link{min-height:44px;display:flex;align-items:center;padding:6px 8px;border:1px solid transparent;text-decoration:none;background:#f6f4f0;font-size:13px;line-height:1.4;font-weight:600}
 #menu.rs-menu .rs-menu-group--media .rs-menu-link{background:#eef0f1}
-#menu.rs-menu .rs-menu-group--media .rs-menu-link--tapblog{font-weight:700;border-left:2px solid #8b6c54}
-#menu.rs-menu .rs-menu-group--more{border-top:1px solid #d7d2ca;padding-top:10px}
-#menu.rs-menu .rs-menu-group--more .rs-menu-link{min-height:44px;background:transparent;color:#514d47;font-weight:500}
-#menu.rs-menu .rs-menu-group--more .rs-menu-link--ecosystem{color:#151515;font-weight:700;background:#eeeae3}
+#menu.rs-menu .rs-menu-group--blogs .rs-menu-link,
+#menu.rs-menu .rs-menu-link--access{background:#eeeae3}
 #menu.rs-menu a:hover,
 #menu.rs-menu .rs-menu-group .rs-menu-action:hover{background:#e9e1d5;color:#121212;border-color:#b5ac9f}
 #menu.rs-menu .rs-menu-group .rs-menu-action--schedule:hover{background:#353535;color:#fff}
-#menu.rs-menu a:focus-visible{outline:3px solid #ac603c;outline-offset:2px}
-#menu.rs-menu .rs-menu-nav:focus{outline:none}
+#menu.rs-menu a:focus-visible{outline:3px solid #ac603c;outline-offset:-3px}
+#menu.rs-menu a[aria-current="page"]{text-decoration:underline;text-underline-offset:3px}
 .menu-button[aria-expanded="true"]{font-weight:700}
 @media(max-width:700px){
-  #menu.rs-menu{right:10px;padding:15px;width:calc(100vw - 20px);max-height:calc(100dvh - 84px)}
-  #menu.rs-menu .rs-menu-action{min-height:88px;padding:10px 26px 10px 10px}
-  #menu.rs-menu .rs-menu-action>strong{font-size:16px}
-  #menu.rs-menu .rs-menu-links{gap:3px 6px}
-  #menu.rs-menu .rs-menu-link{min-height:46px;font-size:12px;padding:10px!important}
-  #menu.rs-menu .rs-menu-group:not(:last-child){margin-bottom:12px}
-  #menu.rs-menu .rs-menu-group--support .rs-menu-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #menu.rs-menu .rs-menu-group--services .rs-menu-action{grid-template-areas:"icon title" "detail detail"}
-  #menu.rs-menu .rs-menu-group--services strong{font-size:14px}
+  #menu.rs-menu{right:10px;padding:8px;max-height:calc(100dvh - 84px)}
+  #menu.rs-menu .rs-menu-action{padding-right:10px}
+  #menu.rs-menu .rs-menu-group--quick .rs-menu-action>span{display:none}
 }
-@media(max-width:340px){
-  #menu.rs-menu .rs-menu-group .rs-menu-primary{grid-template-columns:minmax(0,1fr)}
-  #menu.rs-menu .rs-menu-group--quick .rs-menu-action{min-height:65px}
-  #menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:60px;grid-template-areas:"icon title" "icon detail"}
+@media(max-width:360px){
+  #menu.rs-menu .rs-menu-action>strong{font-size:13px}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-primary{grid-template-columns:1fr}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:44px}
 }
-
 
 /* Pricing UX v3 — compact first-screen comparison and predictable reading order. */
 .pricing-system{display:block;max-width:1320px;margin:0 auto 16px;padding:18px var(--space);border-left:3px solid var(--brand);background:#f2eee5}

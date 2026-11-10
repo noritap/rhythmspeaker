@@ -78,7 +78,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
 for (const [selector, destination] of [
   ['.portal-quick-card--trial', 'trial/'],
   ['.portal-quick-card--schedule', 'schedule/'],
-  ['#portal-rental .portal-main', 'rental/#price'],
+  ['#portal-rental .portal-main', 'rental/'],
   ['#portal-watch .portal-main', 'broadcast/'],
   ['#portal-show .portal-main', 'rss/'],
   ['#portal-music .portal-main', 'music/'],
@@ -92,7 +92,7 @@ assert.deepEqual(errors, [], 'portal preview page errors');
 console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
-for(const width of [320,375,390,430,768,1440]){
+for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:640});
   await page.goto(base+'ecosystem/');
   const toggle=page.locator('#menu-button'),menu=page.locator('#menu');
@@ -102,15 +102,16 @@ for(const width of [320,375,390,430,768,1440]){
   assert.equal(await toggle.locator('span').innerText(),'×');
   assert(await menu.isVisible());
   assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),7);
+  assert.equal(await menu.locator('.rs-menu-group').count(),6);
   assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--services').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
   assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-action').count(),8);
-  assert.equal(await menu.locator('.rs-menu-link--ecosystem').count(),0,'self-link on all-services page must not be shown');
+  assert.equal(await menu.locator('.rs-menu-action').count(),6);
+  assert.equal(await menu.locator('.rs-menu-link--ecosystem[aria-current="page"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
   assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
   assert.equal(await menu.locator('a[href$="trial/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
@@ -123,7 +124,7 @@ for(const width of [320,375,390,430,768,1440]){
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
   assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
   const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
-  assert.equal(await topCards.count(), 4);
+  assert.equal(await topCards.count(), 6);
   const panel = await menu.boundingBox();
   for (const card of await topCards.all()) {
     const box = await card.boundingBox();
@@ -131,10 +132,14 @@ for(const width of [320,375,390,430,768,1440]){
       `primary card must fit above the fold at ${width}px`);
   }
   assert(await topCards.first().evaluate(el => el === document.activeElement));
-  const last = menu.locator('.rs-menu-link--reviewblog');
-  await last.scrollIntoViewIfNeeded();
-  assert((await menu.evaluate(el => el.scrollTop)) > 0, 'lower destinations are scroll reachable');
-  await topCards.first().scrollIntoViewIfNeeded();
+  assert.equal(await menu.evaluate(el => el.scrollWidth <= el.clientWidth), true);
+  assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).overflowY), 'hidden');
+  for (const link of await menu.locator('a').all()) {
+    assert(await link.evaluate(el => el === document.activeElement && el.offsetHeight >= 44 && el.offsetWidth >= 44));
+    await page.keyboard.press('Tab');
+  }
+  assert(!(await menu.isVisible()), 'focus leaving the menu closes it');
+  await toggle.click();
   if(width===390||width===1440){
     fs.mkdirSync('ux-evidence',{recursive:true});
     await page.screenshot({path:'ux-evidence/priority-menu-'+width+'.png'});
