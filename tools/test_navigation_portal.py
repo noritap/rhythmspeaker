@@ -118,7 +118,7 @@ class PortalContractTest(unittest.TestCase):
         self.assertIn('https://rhythmspeaker.hatenablog.com/', self.html)
         self.assertIn('<h2 id="portal-heading-shopping">グッズを買う</h2>', self.html)
         self.assertLess(self.html.index('class="portal-quick"'), self.html.index('class="portal-blog-feature"'))
-        self.assertLess(self.html.index('class="portal-blog-feature"'), self.html.index('class="portal-purpose"'))
+        self.assertLess(self.html.index('class="portal-blog-feature"'), self.html.index('class="portal-purpose portal-shortcuts"'))
         self.assertEqual(self.html.count('class="portal-blog-feature"'), 1)
         self.assertNotIn('portal-tile--magazine', self.html)
         self.assertNotIn('通常クラス予約', self.html)
