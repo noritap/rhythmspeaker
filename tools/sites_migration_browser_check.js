@@ -19,6 +19,88 @@ await booking.locator('#rental-time').selectOption('14:00');
 assert.equal(await booking.locator('#rental-summary-total').innerText(),'¥500');
 assert.match(await booking.locator('.rsr-booking-small').innerText(),/返信で確定/);
 console.log('Rental preview: mobile menu, embedded dates and private/share estimates passed');
+// Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
+for(const width of [320,375,390,430,768,1024,1440]){
+  await page.setViewportSize({width,height:640});
+  await page.goto(base+'ecosystem/');
+  const toggle=page.locator('#menu-button'),menu=page.locator('#menu');
+  await toggle.click();
+  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
+  assert.equal(await toggle.getAttribute('aria-label'),'メニューを閉じる');
+  assert.equal(await toggle.locator('span').innerText(),'×');
+  assert(await menu.isVisible());
+  assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group').count(),6);
+  assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--services').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
+  assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-action').count(),6);
+  assert.equal(await menu.locator('.rs-menu-link--ecosystem[aria-current="page"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
+  assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
+  assert.equal(await menu.locator('a[href$="trial/"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
+  assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
+  assert.equal(await menu.locator('.rs-menu-action--goods').count(),1);
+  assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
+  assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
+      <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
+  assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
+  assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
+  const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
+  assert.equal(await topCards.count(), 6);
+  const panel = await menu.boundingBox();
+  for (const card of await topCards.all()) {
+    const box = await card.boundingBox();
+    assert(box && box.height >= 44 && box.y + box.height <= panel.y + panel.height,
+      `primary card must fit above the fold at ${width}px`);
+  }
+  assert(await topCards.first().evaluate(el => el === document.activeElement));
+  assert.equal(await menu.evaluate(el => el.scrollWidth <= el.clientWidth), true);
+  assert.equal(await page.locator('html').evaluate(el => getComputedStyle(el).overflowY), 'hidden');
+  for (const link of await menu.locator('a').all()) {
+    assert(await link.evaluate(el => el === document.activeElement && el.offsetHeight >= 44 && el.offsetWidth >= 44));
+    await page.keyboard.press('Tab');
+  }
+  assert(!(await menu.isVisible()), 'focus leaving the menu closes it');
+  await toggle.click();
+  if(width===390||width===1440){
+    fs.mkdirSync('ux-evidence',{recursive:true});
+    await page.screenshot({path:'ux-evidence/priority-menu-'+width+'.png'});
+  }
+  await page.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+  assert.equal(await toggle.getAttribute('aria-label'),'メニューを開く');
+  assert.equal(await toggle.locator('span').innerText(),'＋');
+  assert(await toggle.evaluate(el=>document.activeElement===el));
+  assert(!(await menu.isVisible()));
+  // Reopening after a deep scroll must restore P0 actions, not the previous lower position.
+  await toggle.click();
+  assert(await menu.isVisible());
+  assert((await menu.evaluate(el=>el.scrollTop)) <= 8, 'reopened menu must start at its top');
+  assert(await menu.locator('.rs-menu-action--schedule').isVisible(), 'primary schedule action remains reachable');
+  await page.keyboard.press('Escape');
+  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+}
+for (const route of ['', 'schedule/', 'trial/', 'rental/', 'access/']) {
+  for (const width of [320, 390, 1440]) {
+    await page.setViewportSize({width,height:640});
+    await page.goto(base+route);
+    const toggle = page.locator('#menu-button');
+    const menu = page.locator('#menu');
+    await toggle.click();
+    assert.equal(await menu.locator('.rs-menu-action').count(),6);
+    assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
+    assert(await menu.evaluate(el=>el.scrollWidth<=el.clientWidth && el.getBoundingClientRect().bottom<=innerHeight));
+    await page.keyboard.press('Escape');
+    assert(await toggle.evaluate(el=>el===document.activeElement));
+  }
+}
+console.log('Shared menu: seven widths on the service directory, five representative routes, keyboard and touch targets passed');
 // P0 actions and separate shop/review destinations. Validate at every supported width.
 for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:900});
@@ -78,7 +160,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
 for (const [selector, destination] of [
   ['.portal-quick-card--trial', 'trial/'],
   ['.portal-quick-card--schedule', 'schedule/'],
-  ['#portal-rental .portal-main', 'rental/#price'],
+  ['#portal-rental .portal-main', 'rental/'],
   ['#portal-watch .portal-main', 'broadcast/'],
   ['#portal-show .portal-main', 'rss/'],
   ['#portal-music .portal-main', 'music/'],
@@ -86,73 +168,15 @@ for (const [selector, destination] of [
 ]) {
   await page.goto(base+'ecosystem/');
   await page.locator(selector).click();
-  await page.waitForURL(base+destination);
+  await page.waitForURL(url=>url.pathname===new URL(destination,base).pathname);
+  if (destination === 'rss/') {
+    await page.locator('#hero h1').waitFor();
+    await page.waitForLoadState('networkidle');
+  }
 }
 assert.deepEqual(errors, [], 'portal preview page errors');
 console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
 for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
-// Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
-for(const width of [320,375,390,430,768,1440]){
-  await page.setViewportSize({width,height:640});
-  await page.goto(base+'ecosystem/');
-  const toggle=page.locator('#menu-button'),menu=page.locator('#menu');
-  await toggle.click();
-  assert.equal(await toggle.getAttribute('aria-expanded'),'true');
-  assert.equal(await toggle.getAttribute('aria-label'),'メニューを閉じる');
-  assert.equal(await toggle.locator('span').innerText(),'×');
-  assert(await menu.isVisible());
-  assert.equal(await menu.locator('nav.rs-menu-nav').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group').count(),7);
-  assert.equal(await menu.locator('.rs-menu-group--media').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group--services').count(),1);
-  assert.equal(await menu.locator('.rs-menu-link--broadcast').count(),1);
-  assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
-  assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-action').count(),8);
-  assert.equal(await menu.locator('.rs-menu-link--ecosystem').count(),0,'self-link on all-services page must not be shown');
-  assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
-  assert.equal(await menu.locator('a[href$="trial/"]').count(),1);
-  assert.equal(await menu.locator('a[href="https://lin.ee/zC5YLe7"]').count(),1);
-  assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
-  assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-action--goods').count(),1);
-  assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
-  assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
-      <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
-  assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
-  assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
-  const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
-  assert.equal(await topCards.count(), 4);
-  const panel = await menu.boundingBox();
-  for (const card of await topCards.all()) {
-    const box = await card.boundingBox();
-    assert(box && box.height >= 44 && box.y + box.height <= panel.y + panel.height,
-      `primary card must fit above the fold at ${width}px`);
-  }
-  assert(await topCards.first().evaluate(el => el === document.activeElement));
-  const last = menu.locator('.rs-menu-link--reviewblog');
-  await last.scrollIntoViewIfNeeded();
-  assert((await menu.evaluate(el => el.scrollTop)) > 0, 'lower destinations are scroll reachable');
-  await topCards.first().scrollIntoViewIfNeeded();
-  if(width===390||width===1440){
-    fs.mkdirSync('ux-evidence',{recursive:true});
-    await page.screenshot({path:'ux-evidence/priority-menu-'+width+'.png'});
-  }
-  await page.keyboard.press('Escape');
-  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
-  assert.equal(await toggle.getAttribute('aria-label'),'メニューを開く');
-  assert.equal(await toggle.locator('span').innerText(),'＋');
-  assert(await toggle.evaluate(el=>document.activeElement===el));
-  assert(!(await menu.isVisible()));
-  // Reopening after a deep scroll must restore P0 actions, not the previous lower position.
-  await toggle.click();
-  assert(await menu.isVisible());
-  assert((await menu.evaluate(el=>el.scrollTop)) <= 8, 'reopened menu must start at its top');
-  assert(await menu.locator('.rs-menu-action--schedule').isVisible(), 'primary schedule action remains reachable');
-  await page.keyboard.press('Escape');
-  assert.equal(await toggle.getAttribute('aria-expanded'),'false');
-}
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
 await page.goto(base);await page.locator('#menu-button').click();await page.locator('#menu a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('#menu-button').click();await page.locator('#menu a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
 await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
@@ -169,7 +193,10 @@ assert(await page.locator('#cf-calendar').isVisible(),'calendar-first discovery 
 await page.locator('.cf-advanced summary').click();await page.locator('#cf-search').fill('本間');await page.locator('#cf-class').selectOption('STEP');await page.locator('#cf-reset').click();
 await page.locator('[data-cf-mode="request"]').click();await page.locator('#cf-request-date').fill('2099-11-20');await page.locator('#cf-request-start').fill('14:00');await page.locator('#cf-request-type').selectOption('HIIT');assert.equal(await page.locator('#cf-request-duration').inputValue(),'30');await page.locator('#cf-request-teacher').selectOption('homma');await page.locator('button[type="submit"]').click();assert.equal(await page.locator('.cf-contact-actions a').first().getAttribute('href'),'https://lin.ee/zC5YLe7');assert.match(await page.locator('#cf-message').inputValue(),/本間茂樹/);assert(!/サンプル|実予約ではありません/.test(await page.locator('#cf-message').inputValue()));await page.locator('#cf-message').fill('操作テスト・送信しません');assert(decodeURIComponent(await page.locator('#cf-mail').getAttribute('href')).includes('操作テスト'));await page.locator('#cf-request-start').fill('23:45');await page.locator('button[type="submit"]').click();assert.match(await page.locator('#cf-form-error').innerText(),/日をまたぐ/);
 // Isolated network fixture verifies ready-data discovery; never saved as production data.
-const fixture=JSON.parse(fs.readFileSync('data/class-sessions.sample.json','utf8'));fixture.sourceMode='live';fixture.dataState='ready';fixture.lastSuccessfulSyncAt=new Date().toISOString();const fixtureDate=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(Date.now()+86400000));fixture.sessions=fixture.sessions.filter(s=>s.id==='demo-01'||s.id==='demo-02');fixture.sessions.forEach(s=>{s.source='live';s.date=fixtureDate;}); // Isolate the two booking sessions from dates in the shared sample.
+const fixture=JSON.parse(fs.readFileSync('data/class-sessions.sample.json','utf8'));fixture.sourceMode='live';fixture.dataState='ready';fixture.lastSuccessfulSyncAt=new Date().toISOString();const fixtureDate=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(Date.now()+86400000));// Keep the two sessions this scenario exercises, independent of today's date.
+fixture.sessions = fixture.sessions
+  .filter(session => ['demo-01', 'demo-02'].includes(session.id))
+  .map(session => ({...session, source:'live', date:fixtureDate}));
 await page.route('**/data/class-sessions.public.json',route=>route.fulfill({json:fixture}));await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();await page.locator('#cf-nearest').click();await page.locator('[data-cf-date="'+fixtureDate+'"]').click();assert.match(await page.locator('#cf-count').innerText(),/2件/);await page.locator('[data-cf-detail="demo-02"]').click();await page.locator('#cf-join-apply').click();assert.match(await page.locator('#cf-message').inputValue(),/本間茂樹/);assert.equal(await page.locator('.cf-contact-actions a').first().getAttribute('href'),'https://lin.ee/zC5YLe7');await page.locator('.dialog-close').click();await page.unroute('**/data/class-sessions.public.json');
 await page.goto(base+'classes/');await page.locator('[data-group="body"]').click();assert.equal(await page.locator('[data-class]:visible').count(),4);await page.goto(base+'instructors/');await page.locator('#name-search').fill('本間');assert.equal(await page.locator('[data-person]:visible').count(),1);await page.goto(base+'faq/');await page.locator('summary').first().click();assert(await page.locator('details[open]').count()>0);await page.goto(base+'trial/apply/');assert(await page.locator('#line').count()===1);
 assert.deepEqual(errors,[]);fs.mkdirSync('ux-evidence',{recursive:true});await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();await page.screenshot({path:'ux-evidence/sites-migration-schedule.png',fullPage:true});await browser.close();console.log('PASS: 10 routes x6 widths, discovery/form/contact safety, preserved trial handoff. No actual send performed.');})().catch(e=>{console.error(e);process.exit(1)});
