@@ -202,3 +202,30 @@ header{position:sticky;top:0;z-index:20}#menu{max-height:calc(100svh - 110px);ov
 }
 .portal-area [id^="portal-heading-"]{scroll-margin-top:100px}
 body:has(main .portal-intro) .footer-portal{display:none}
+
+/* Unified navigation v2.1: compact primary actions and paired Taputaro blogs. */
+#menu.rs-menu{padding:12px 14px;max-height:min(82dvh,740px)}
+#menu.rs-menu .rs-menu-group{margin-bottom:10px}
+#menu.rs-menu .rs-menu-label{margin-bottom:4px}
+#menu.rs-menu .rs-menu-primary{gap:6px}
+#menu.rs-menu .rs-menu-group--quick .rs-menu-action{min-height:74px;padding:10px 28px 10px 12px;gap:3px}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:54px;padding:9px 10px;grid-template-columns:20px minmax(0,1fr);grid-template-areas:"icon title";align-items:center;column-gap:8px;row-gap:0}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action strong{font-size:13px;line-height:1.4;overflow-wrap:normal;word-break:normal}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action em{display:block;margin:0;font-size:10px}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action>span{display:none}
+#menu.rs-menu .rs-menu-group--services .rs-menu-action--wallet{background:#edf0ee}
+#menu.rs-menu .rs-menu-links{gap:4px 6px}
+#menu.rs-menu .rs-menu-link{min-height:44px;padding:8px 10px!important;overflow-wrap:normal;word-break:normal}
+#menu.rs-menu .rs-menu-group--blogs .rs-menu-link{background:#f2eae3;border-left:2px solid #8b6c54}
+#menu.rs-menu .rs-menu-group--more .rs-menu-link--access{background:#eeeae3;color:#151515;font-weight:700}
+@media(max-width:700px){
+  #menu.rs-menu{padding:11px;max-height:calc(100dvh - 84px)}
+  #menu.rs-menu .rs-menu-group--quick .rs-menu-action{min-height:70px}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-primary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:52px;grid-template-areas:"icon title";padding:8px}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-action strong{font-size:12px}
+}
+@media(max-width:340px){
+  #menu.rs-menu .rs-menu-group--services .rs-menu-primary{grid-template-columns:1fr}
+  #menu.rs-menu .rs-menu-group--services .rs-menu-action{min-height:48px}
+}
