@@ -180,3 +180,12 @@ body:has(#menu.rs-menu:not([hidden])) > :is(main,footer){pointer-events:none}
 }
 .portal-area [id^="portal-heading-"]{scroll-margin-top:100px}
 body:has(main .portal-intro) .footer-portal{display:none}
+
+/* RS menu v3: action cards, editorial links, and quiet secondary navigation. */
+#menu.rs-menu .rs-menu-group--blogs{padding:8px;border:1px solid #e1d7ca;background:#faf7f2;border-radius:4px}
+#menu.rs-menu .rs-menu-group--blogs .rs-menu-link{min-height:48px;background:#fff;border:1px solid #e4dbcf;border-radius:3px;padding:9px 10px;font-size:13px}
+#menu.rs-menu .rs-menu-group--blogs .rs-menu-link:hover{background:#f0e8dc}
+#menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more) .rs-menu-link{background:transparent;border:0;border-radius:3px;min-height:44px;padding:8px 6px;font-size:13px;line-height:1.45;font-weight:600;justify-content:space-between;gap:6px}
+#menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more) .rs-menu-link::after{content:'›';font-size:17px;color:#77716b;font-weight:400;flex:none}
+#menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more){border-top:1px solid #e7e2d9;padding-top:7px}
+#menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more) .rs-menu-link:hover{background:#f4f0e9}
