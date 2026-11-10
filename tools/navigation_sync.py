@@ -36,7 +36,7 @@ MENU_GROUPS = [
         ("マイページ", "https://tips-app-seven.vercel.app/", "残高・レッスン利用・会員情報", "wallet"),
     ]),
     ("support", "お問い合わせ・ご案内", [
-        ("お問い合わせ・相談", "https://lin.ee/zC5YLe7", "質問・予約・変更はこちら", "line"),
+        ("お問い合わせ", "https://lin.ee/zC5YLe7", "質問・予約・変更はこちら", "line"),
         ("アクセス", "access/", "池袋駅からの行き方", "access"),
         ("よくある質問", "faq/", "初めての方の疑問を解決", "faq"),
     ]),
@@ -50,18 +50,21 @@ MENU_GROUPS = [
         ("番組・動画", "broadcast/", "", "broadcast"),
         ("Rhythm Speaker Show", "rss/", "", "rss"),
         ("音楽を聴く", "music/", "", "music"),
+            ]),
+    ("blogs", "タプ太郎の毎日ブログ", [
         ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
+        ("商品レビュー", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
     ]),
     ("more", "その他のページ", [
         ("教室トップ", "", "", "home"),
         ("教室紹介", "about/", "", "about"),
         ("全サービス", "ecosystem/", "", "ecosystem"),
-        ("商品レビューを読む", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
-    ]),
+            ]),
 ]
 
 
 CARD_GROUPS = {"quick", "services", "member", "support"}
+# Compact utility cards and blog links retain their existing destinations.
 ICON_PATHS = {
     "rental": '<path d="M3 10l9-7 9 7v11H3zM9 21v-7h6v7"/>',
     "goods": '<path d="M4 8h16l1 13H3zM8 9V6a4 4 0 0 1 8 0v3"/>',
