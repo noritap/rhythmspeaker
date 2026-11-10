@@ -19,78 +19,6 @@ await booking.locator('#rental-time').selectOption('14:00');
 assert.equal(await booking.locator('#rental-summary-total').innerText(),'¥500');
 assert.match(await booking.locator('.rsr-booking-small').innerText(),/返信で確定/);
 console.log('Rental preview: mobile menu, embedded dates and private/share estimates passed');
-// P0 actions and separate shop/review destinations. Validate at every supported width.
-for(const width of [320,375,390,430,768,1024,1440]){
-  await page.setViewportSize({width,height:900});
-  await page.goto(base+'ecosystem/');
-  await page.locator('.portal-quick-card--schedule').waitFor();
-  assert.equal(await page.locator('.portal-tile').count(),12,'twelve service cards');
-  assert.equal(await page.locator('.portal-section').count(),6,'six purpose-based sections');
-  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
-  assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
-  assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
-  assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
-  assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
-  assert.equal(await page.locator('#portal-learn a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
-  assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
-  const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
-  assert(first&&secondary&&first.y<secondary.y,'quick actions must appear above secondary services');
-  assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' portal overflow');
-  for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
-    assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
-  }
-  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
-  assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
-  const purpose = page.locator('.portal-purpose a');
-  assert.equal(await purpose.count(),6);
-  const contactContrast = await page.locator('#portal-contact').evaluate(card=>{
-    const luminance = color => {
-      const channels = color.match(/[\d.]+/g).slice(0,3).map(n=>Number(n)/255);
-      const linear = channels.map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);
-      return linear[0]*0.2126+linear[1]*0.7152+linear[2]*0.0722;
-    };
-    const bg = luminance(getComputedStyle(card).backgroundColor);
-    return [...card.querySelectorAll('h3,p,a,svg,.portal-action>span')].map(el=>{
-      const fg = luminance(getComputedStyle(el).color);
-      return (Math.max(bg,fg)+0.05)/(Math.min(bg,fg)+0.05);
-    });
-  });
-  assert(contactContrast.every(ratio=>ratio>=4.5), 'contact contrast at '+width);
-  for(const link of await purpose.all()){
-    const rect=await link.boundingBox();
-    assert(rect && rect.height>=44, 'purpose tap target at '+width);
-  }
-  await purpose.first().focus();
-  assert(await purpose.first().evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).outlineStyle!=='none'));
-
-  await purpose.filter({hasText:'スタジオを使う'}).press('Enter');
-  await page.waitForURL(base+'ecosystem/#portal-heading-rental');
-  assert(await page.locator('#portal-heading-rental').evaluate(el=>{
-    const top=el.getBoundingClientRect().top;
-    return top>=0 && top<innerHeight;
-  }), 'section jump scrolls to rental');
-  await page.goBack();
-  await page.waitForURL(base+'ecosystem/');
-  if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
-}
-
-for (const [selector, destination] of [
-  ['.portal-quick-card--trial', 'trial/'],
-  ['.portal-quick-card--schedule', 'schedule/'],
-  ['#portal-rental .portal-main', 'rental/'],
-  ['#portal-watch .portal-main', 'broadcast/'],
-  ['#portal-show .portal-main', 'rss/'],
-  ['#portal-music .portal-main', 'music/'],
-  ['#portal-learn .portal-main', 'classes/step/'],
-]) {
-  await page.goto(base+'ecosystem/');
-  await page.locator(selector).click();
-  await page.waitForURL(base+destination);
-}
-assert.deepEqual(errors, [], 'portal preview page errors');
-console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
-for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
 // Purpose-ranked shared header: visible hierarchy, keyboard return, reachability, and scroll.
 for(const width of [320,375,390,430,768,1024,1440]){
   await page.setViewportSize({width,height:640});
@@ -158,6 +86,93 @@ for(const width of [320,375,390,430,768,1024,1440]){
   await page.keyboard.press('Escape');
   assert.equal(await toggle.getAttribute('aria-expanded'),'false');
 }
+for (const route of ['', 'schedule/', 'trial/', 'rental/', 'access/']) {
+  for (const width of [320, 390, 1440]) {
+    await page.setViewportSize({width,height:640});
+    await page.goto(base+route);
+    const toggle = page.locator('#menu-button');
+    const menu = page.locator('#menu');
+    await toggle.click();
+    assert.equal(await menu.locator('.rs-menu-action').count(),6);
+    assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
+    assert(await menu.evaluate(el=>el.scrollWidth<=el.clientWidth && el.getBoundingClientRect().bottom<=innerHeight));
+    await page.keyboard.press('Escape');
+    assert(await toggle.evaluate(el=>el===document.activeElement));
+  }
+}
+console.log('Shared menu: seven widths on the service directory, five representative routes, keyboard and touch targets passed');
+// P0 actions and separate shop/review destinations. Validate at every supported width.
+for(const width of [320,375,390,430,768,1024,1440]){
+  await page.setViewportSize({width,height:900});
+  await page.goto(base+'ecosystem/');
+  await page.locator('.portal-quick-card--schedule').waitFor();
+  assert.equal(await page.locator('.portal-tile').count(),12,'twelve service cards');
+  assert.equal(await page.locator('.portal-section').count(),6,'six purpose-based sections');
+  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
+  assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
+  assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
+  assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
+  assert.equal(await page.locator('#portal-magazine .portal-main').getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
+  assert.equal(await page.locator('#portal-learn a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
+  assert.match(await page.locator('#portal-shop').innerText(),/オリジナルグッズ/);
+  assert.match(await page.locator('#portal-magazine').innerText(),/商品レビュー/);
+  const first=await page.locator('.portal-quick').boundingBox(),secondary=await page.locator('.portal-section').first().boundingBox();
+  assert(first&&secondary&&first.y<secondary.y,'quick actions must appear above secondary services');
+  assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' portal overflow');
+  for(const selector of ['.portal-quick-card--trial','.portal-quick-card--schedule','#portal-shop .portal-main','#portal-magazine .portal-main']){
+    assert(await page.locator(selector).isVisible(),selector+' must be visible at '+width);
+  }
+  const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
+  assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
+  const purpose = page.locator('.portal-purpose a');
+  assert.equal(await purpose.count(),6);
+  const contactContrast = await page.locator('#portal-contact').evaluate(card=>{
+    const luminance = color => {
+      const channels = color.match(/[\d.]+/g).slice(0,3).map(n=>Number(n)/255);
+      const linear = channels.map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);
+      return linear[0]*0.2126+linear[1]*0.7152+linear[2]*0.0722;
+    };
+    const bg = luminance(getComputedStyle(card).backgroundColor);
+    return [...card.querySelectorAll('h3,p,a,svg,.portal-action>span')].map(el=>{
+      const fg = luminance(getComputedStyle(el).color);
+      return (Math.max(bg,fg)+0.05)/(Math.min(bg,fg)+0.05);
+    });
+  });
+  assert(contactContrast.every(ratio=>ratio>=4.5), 'contact contrast at '+width);
+  for(const link of await purpose.all()){
+    const rect=await link.boundingBox();
+    assert(rect && rect.height>=44, 'purpose tap target at '+width);
+  }
+  await purpose.first().focus();
+  assert(await purpose.first().evaluate(el=>el.matches(':focus-visible')&&getComputedStyle(el).outlineStyle!=='none'));
+
+  await purpose.filter({hasText:'スタジオを使う'}).press('Enter');
+  await page.waitForURL(base+'ecosystem/#portal-heading-rental');
+  assert(await page.locator('#portal-heading-rental').evaluate(el=>{
+    const top=el.getBoundingClientRect().top;
+    return top>=0 && top<innerHeight;
+  }), 'section jump scrolls to rental');
+  await page.goBack();
+  await page.waitForURL(base+'ecosystem/');
+  if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
+}
+
+for (const [selector, destination] of [
+  ['.portal-quick-card--trial', 'trial/'],
+  ['.portal-quick-card--schedule', 'schedule/'],
+  ['#portal-rental .portal-main', 'rental/'],
+  ['#portal-watch .portal-main', 'broadcast/'],
+  ['#portal-show .portal-main', 'rss/'],
+  ['#portal-music .portal-main', 'music/'],
+  ['#portal-learn .portal-main', 'classes/step/'],
+]) {
+  await page.goto(base+'ecosystem/');
+  await page.locator(selector).click();
+  await page.waitForURL(url=>url.pathname===new URL(destination,base).pathname);
+}
+assert.deepEqual(errors, [], 'portal preview page errors');
+console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
+for(const width of [320,375,390,430,768,1440]){await page.setViewportSize({width,height:900});for(const route of routes){const r=await page.goto(base+route);assert(r.ok(),route);await page.locator('main h1').waitFor();if(route==='schedule/')await page.locator('#cf-calendar').waitFor();assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),`${width} ${route} overflow`);assert.deepEqual(await page.locator('img[src]').evaluateAll(es=>es.filter(e=>e.getAttribute('src')?.trim()&&e.complete&&e.naturalWidth===0).map(e=>e.currentSrc||e.getAttribute('src'))),[],`${route} image failure`);}}
 // Sequential SPA navigation must freeze static header/footer URLs before the pathname changes.
 await page.goto(base);await page.locator('#menu-button').click();await page.locator('#menu a[href$="schedule/"]').click();await page.locator('#cf-calendar').waitFor();await page.locator('#menu-button').click();await page.locator('#menu a[href$="pricing/"]').click();await page.waitForURL(base+'pricing/');await page.locator('summary').first().waitFor();await page.locator('footer a[href$="faq/"]').click();await page.waitForURL(base+'faq/');await page.locator('.brand-mark').click();await page.waitForURL(base+'ecosystem/');await page.locator('.brand-name').click();await page.waitForURL(base);
 await page.goto(base+'schedule/');await page.locator('#cf-calendar').waitFor();
