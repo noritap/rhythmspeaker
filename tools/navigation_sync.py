@@ -43,6 +43,10 @@ MENU_GROUPS = [
         ("マイページ", "https://tips-app-seven.vercel.app/", "", "wallet"),
         ("お問い合わせ", "https://lin.ee/zC5YLe7", "", "line"),
     ]),
+    ("blogs", "タプ太郎の毎日ブログ", [
+        ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
+        ("商品レビュー", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
+    ]),
     ("lessons", "教室・レッスン", [
         ("料金・通い方", "pricing/", "", "pricing"),
         ("クラス紹介", "classes/", "", "classes"),
@@ -53,10 +57,6 @@ MENU_GROUPS = [
         ("番組・動画", "broadcast/", "", "broadcast"),
         ("Rhythm Speaker Show", "rss/", "", "rss"),
         ("音楽を聴く", "music/", "", "music"),
-    ]),
-    ("blogs", "タプ太郎の毎日ブログ", [
-        ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
-        ("商品レビュー", "https://rhythmspeaker.hatenablog.com/", "", "reviewblog"),
     ]),
     ("more", "ご案内", [
         ("アクセス", "access/", "", "access"),
@@ -137,8 +137,8 @@ def main() -> int:
         )
         if count != 1:
             raise SystemExit(f"menu boundary missing: {path}")
-        updated = re.sub(r'(?<=assets/ux-lab/app.css)(?:\?[^"]*)?(?=")', '?v=20261111menucompact', updated)
-        updated = re.sub(r'(?<=assets/ux-lab/app.js)(?:\?[^"]*)?(?=")', '?v=20261111menucompact', updated)
+        updated = re.sub(r'(?<=assets/ux-lab/app.css)(?:\?[^"]*)?(?=")', '?v=20261111menulevel3', updated)
+        updated = re.sub(r'(?<=assets/ux-lab/app.js)(?:\?[^"]*)?(?=")', '?v=20261111menulevel3', updated)
         if updated != source:
             path.write_text(updated, encoding="utf-8")
             changed += 1
