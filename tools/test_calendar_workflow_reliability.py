@@ -21,12 +21,16 @@ PUBLIC = Path("data/class-sessions.public.json")
 class WorkflowContract(unittest.TestCase):
     def test_scheduling_gate_and_privileges(self):
         source = WORKFLOW.read_text(encoding="utf-8")
-        # One daily 05:00 JST run; no quarter-hour cron.
+        # Four JST daily opportunities; no quarter-hour cron.
         self.assertNotIn('7,22,37,52', source)
-        self.assertEqual(len(re.findall(r'^\s*- cron:', source, re.M)), 1)
-        # The full daily reconciliation is 05:00 JST (20:00 UTC previous day).
-        self.assertRegex(source, r'cron:\s*"0 20 \* \* \*"')
-        self.assertIn('two-calendar-month window', source)
+        scheduled = re.findall(r'^\s*- cron:\s*"([^"]+)"', source, re.M)
+        self.assertEqual(scheduled, [
+            "10 15 * * *",  # 00:10 JST (previous UTC day)
+            "0 20 * * *",   # 05:00 JST (previous UTC day)
+            "0 3 * * *",    # 12:00 JST
+            "0 9 * * *",    # 18:00 JST
+        ])
+        self.assertIn('00:00 Asia/Tokyo', source)
         self.assertIn("workflow_dispatch:", source)
         self.assertIn("github.ref == 'refs/heads/main'", source)
         self.assertIn("github.event_name == 'schedule'", source)
