@@ -161,6 +161,11 @@ def fetch_calendar(calendar_id, access_token, start, end):
             return rows
 
 
+def current_day_window_start(now):
+    """Inclusive local-day boundary for complete same-day lesson publication."""
+    return now.astimezone(TZ).replace(hour=0, minute=0, second=0, microsecond=0)
+
+
 def two_month_window_end(now):
     """Exclusive end at midnight after the same local date two calendar months ahead."""
     month_index = now.year * 12 + now.month - 1 + 2
@@ -241,7 +246,7 @@ def run():
     creds.refresh(AuthRequest())
     now = datetime.now(TZ)
     calendar_id = os.environ["RS_LESSON_CALENDAR_ID"]
-    rows = fetch_calendar(calendar_id, creds.token, now, two_month_window_end(now))
+    rows = fetch_calendar(calendar_id, creds.token, current_day_window_start(now), two_month_window_end(now))
     target = Path(args.output)
     old = json.loads(target.read_text()) if target.exists() else {}
     catalog = json.loads((ROOT / "instructors/instructor-catalog.json").read_text())
