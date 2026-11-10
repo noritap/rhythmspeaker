@@ -189,3 +189,33 @@ body:has(main .portal-intro) .footer-portal{display:none}
 #menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more) .rs-menu-link::after{content:'›';font-size:17px;color:#77716b;font-weight:400;flex:none}
 #menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more){border-top:1px solid #e7e2d9;padding-top:7px}
 #menu.rs-menu :is(.rs-menu-group--lessons,.rs-menu-group--media,.rs-menu-group--more) .rs-menu-link:hover{background:#f4f0e9}
+
+/* Ecosystem v3.4: priority actions, featured daily blogs, compact purpose links. */
+body:has(.portal-blog-feature) .portal-area{background:#111110;color:#f6f3ed}
+body:has(.portal-blog-feature) .portal-intro{padding-bottom:30px}
+body:has(.portal-blog-feature) .portal-intro h1{margin:8px 0 12px}
+body:has(.portal-blog-feature) .portal-lead{color:#d4cec4}
+body:has(.portal-blog-feature) .portal-quick{margin-bottom:22px}
+body:has(.portal-blog-feature) .portal-quick-card{min-height:120px;padding:20px;justify-content:center;gap:10px}
+body:has(.portal-blog-feature) .portal-quick-card--schedule{background:#292929;color:#fff;border-color:#555}
+body:has(.portal-blog-feature) .portal-quick-card--trial{background:#f0e0d8;color:#191918;border-color:#f0e0d8}
+body:has(.portal-blog-feature) .portal-quick-card>strong{font-size:clamp(18px,2.5vw,28px)}
+body:has(.portal-blog-feature) .portal-quick-card>small{margin-top:0}
+.portal-blog-feature{padding:22px;margin-bottom:24px;background:#211914;border:1px solid #74533e;border-radius:8px;scroll-margin-top:100px}
+.portal-blog-feature h2{font-size:clamp(20px,2.5vw,27px);margin:0 0 16px;color:#f4e3d7}
+.portal-blog-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.portal-blog-grid a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:78px;padding:16px;background:#3b302a;color:#fff;border:1px solid #695347;border-radius:6px;font-weight:700;font-size:clamp(13px,1.6vw,17px);line-height:1.45}
+.portal-blog-grid a:hover{background:#514037;text-decoration:none}
+body:has(.portal-blog-feature) .portal-purpose{margin-bottom:30px}
+body:has(.portal-blog-feature) .portal-area .portal-purpose a{background:#222;color:#f5f3ed;border-color:#555}
+body:has(.portal-blog-feature) .portal-area .portal-purpose a:hover{background:#333}
+body:has(.portal-blog-feature) .portal-section{margin-bottom:30px}
+body:has(.portal-blog-feature) .portal-section>.portal-grid{gap:12px}
+body:has(.portal-blog-feature) .portal-section .portal-tile{background:#242424;color:#f5f3ed;border-color:#4b4b4b;padding:16px}
+body:has(.portal-blog-feature) .portal-section .portal-tile-head{border-color:#555}
+body:has(.portal-blog-feature) .portal-section .portal-main>p{color:#d2d2d2}
+body:has(.portal-blog-feature) .portal-section .portal-shortcuts{border-color:#555}
+body:has(.portal-blog-feature) .portal-section .portal-shortcuts a{color:#e2e2e2;font-size:13px}
+body:has(.portal-blog-feature) .portal-section .portal-action>span{color:#e9cbb8}
+body:has(.portal-blog-feature) .portal-section--support .portal-tile--contact{background:#34302d}
+@media(max-width:700px){.portal-blog-feature{padding:16px}.portal-blog-grid{gap:8px}.portal-blog-grid a{padding:12px;min-height:78px}body:has(.portal-blog-feature) .portal-quick-card{padding:13px;min-height:106px}body:has(.portal-blog-feature) .portal-quick-card>strong{font-size:clamp(16px,4.6vw,23px)}body:has(.portal-blog-feature) .portal-quick-card>small{font-size:11px}}
