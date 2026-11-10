@@ -47,7 +47,7 @@ const portalItems=[
 {id:'watch',jp:'番組・動画',desc:'トーク番組やタップダンスの映像。',icon:'watch',url:base+'broadcast/',action:'番組を見る',shortcuts:[['YouTube','https://www.youtube.com/channel/UCsCznku0uyE4718G5wfj_2Q']]},
 {id:'music',jp:'音楽を聴く',desc:'Rhythm Speakerのオリジナル音楽。',icon:'music',url:base+'music/',action:'音楽作品を見る',shortcuts:[['YouTubeで聴く','https://www.youtube.com/@RhythmSpeakerMusic']]},
 {id:'learn',jp:'タップダンスの基礎を学ぶ',desc:'初めての方向けのSTEPと、練習に役立つ読みもの。',icon:'learn',url:base+'classes/step/',action:'STEPの基礎を見る',shortcuts:[['タップダンスの読みもの','https://tapdance-rhythmspeaker.hatenablog.com/']]},
-{id:'shop',jp:'オリジナルグッズ',desc:'リズムスピーカーのウェア・音楽・デジタル作品。',icon:'shop',url:'https://rhythmspeaker.stores.jp/?all_items=true',action:'オリジナル商品を見る',shortcuts:[]},
+{id:'shop',jp:'オリジナルグッズ',desc:'リズムスピーカーのウェア・音楽・デジタル作品。',icon:'shop',url:'https://rhythmspeaker.stores.jp/?all_items=true',action:'オリジナル商品を見る',shortcuts:[['リズムスピーカー商店で商品を探す',base+'shoten/']]},
 {id:'magazine',jp:'商品レビュー',desc:'リズムスピーカー商店。ダンス用品・日用品の比較と紹介。',icon:'magazine',url:'https://rhythmspeaker.hatenablog.com/',action:'リズムスピーカー商店を読む',shortcuts:[]},
 {id:'about',jp:'教室について',desc:'教室の考え方、講師、場所。',icon:'about',url:'#/about',action:'教室を知る',shortcuts:[['古庄里好','https://noritap.github.io/furusho-official/'],['アクセス','#/access'],['よくある質問','#/faq']]},
 {id:'wallet',jp:'マイページ',desc:'レッスン用ポイントの残高や利用履歴を確認できます。',icon:'wallet',url:'https://tips-app-seven.vercel.app/',action:'RS Walletを開く',shortcuts:[],utility:true},
