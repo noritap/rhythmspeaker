@@ -169,6 +169,10 @@ for (const [selector, destination] of [
   await page.goto(base+'ecosystem/');
   await page.locator(selector).click();
   await page.waitForURL(url=>url.pathname===new URL(destination,base).pathname);
+  if (destination === 'rss/') {
+    await page.locator('#hero h1').waitFor();
+    await page.waitForLoadState('networkidle');
+  }
 }
 assert.deepEqual(errors, [], 'portal preview page errors');
 console.log('Portal preview: seven viewport sizes, keyboard section jumps and seven service clicks passed');
