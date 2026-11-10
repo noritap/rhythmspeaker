@@ -43,11 +43,45 @@ lacks('instructors/index.html', '担当クラス・指導内容は確認して�
 const app = read('assets/ux-lab/app.js');
 assert.ok(!app.includes('クラスが決まっていなくても、体験前に相談できます。'));
 assert.ok(!app.includes('最初からクラス名を知らなくても大丈夫です。'));
+has('trial/index.html', '体験申し込みへ進む');
+has('assets/ux-lab/app.js', '体験申し込みへ進む');
+assert.equal((read('trial/index.html').match(/体験申し込みへ進む/g)||[]).length,2);
+assert.equal((app.match(/体験申し込みへ進む/g)||[]).length,2);
+for (const page of pages) { lacks(page, '公式の体験申込へ進む'); lacks(page, '公式申込ページ'); }
+assert.ok(!app.includes('公式の体験申込へ進む'));
+assert.ok(!app.includes('公式申込ページ'));
 has('trial/apply/index.html', 'スタジオから「予約確定」の返信');
 has('trial/index.html', 'スタジオからの「予約確定」の返信');
-has('schedule/index.html', '開催予定から選ぶ');
+has('schedule/index.html', 'レッスン日程・参加申し込み');
+has('schedule/index.html', '空き時間にレッスンを希望する →');
+has('schedule/index.html', '希望の日時から、新しいレッスンの開催を相談できます。');
+lacks('schedule/index.html', '開催予定から選ぶ');
+lacks('schedule/index.html', 'TRY ANOTHER RHYTHM');
 has('assets/ux-lab/class-finder.js', 'スタジオから「予約確定」の返信');
 has('assets/ux-lab/class-finder.js', 'もう一度確認する');
+
+// Destination-label consistency: keep visible purpose and landing page name in sync.
+// The three pricing links are duplicated in static HTML and the SPA source.
+for (const [page,href] of [
+  ['index.html','pricing/'],
+  ['trial/index.html','../pricing/'],
+  ['classes/index.html','../pricing/']
+]) {
+  has(page, 'href="'+href+'">料金・通い方を見る →</a>');
+  lacks(page, '通常レッスンの料金・通い方を見る →');
+  lacks(page, '体験後の料金・通い方を見る →');
+}
+has('classes/index.html', 'href="../schedule/">レッスン日程を見る →</a>');
+lacks('classes/index.html','通常クラスの開催予定・予約相談を見る →');
+assert.equal((app.match(/href="#\/pricing">料金・通い方を見る →<\/a>/g)||[]).length, 3);
+has('assets/ux-lab/app.js','href="#/schedule">レッスン日程を見る →</a>');
+for (const term of [
+  '通常レッスンの料金・通い方を見る →',
+  '体験後の料金・通い方を見る →',
+  '通常クラスの開催予定・予約相談を見る →'
+]) assert.ok(!app.includes(term), 'SPA obsolete destination text: '+term);
+// Labels such as 「料金」 in global navigation and 「料金・通い方を確認する」
+// in contextual FAQ links are intentionally valid and not treated as drift.
 
 // Don't trade clarity for deletion of material decisions, legal/operational details.
 has('pricing/index.html', '3,500 TIPS');
@@ -57,7 +91,9 @@ has('access/index.html', '西池袋3-22-10');
 has('trial/apply/index.html', 'https://line.me/R/oaMessage/%40ypk3334t/');
 has('instructors/homma/index.html', 'https://lin.ee/zC5YLe7');
 has('instructors/homma/index.html', 'https://lin.ee/7Dk4s8o');
-has('rental/index.html', '30%');
+has('rental/index.html', 'STARTER SUPPORT');
+has('rental/index.html', 'href="./legacy.html"');
+has('rental/legacy.html', '30%');
 has('workshops/event.html', '予約を受け付けました');
 has('instructor-registration/index.html', '個人情報');
 has('classes/step/index.html', 'STEP超初級');

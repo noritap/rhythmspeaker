@@ -155,3 +155,25 @@ HANDOFFの次の送信と予約確定返信は外部で行われ、サイトか�
 - `/workshops/` の自己リンクをページ内の開催情報検索へ置換する。Workshop Managerの実予約フォーム、Supabase/RLS/個人情報・キャンセル処理には触れない。
 - `tools/test_sitewide_journey_ux.cjs` と専用CIで差分の契約を検証。サイト移植監査は不変の基準hashを保持し、今回変更した保護HTMLのみ `docs/sites-migration/approved-content-revisions.json` にGit Blob SHAを明示して監査する。
 - 実ブラウザ操作・LINEの外部アプリ動作・予約率向上は、単体契約CIがPASSしても独立した受入検証を必要とする。
+
+## 12. Reading navigation supplement (2026-11-05)
+
+- 右上の単一共通メニューに「読みもの」2リンクを追加する：`タップダンスを学ぶ`（教育ブログ）と `商品レビューを読む`（商店記事）。
+- 体験・日程のP0と料金・講師等の教室導線は変更しない。記事メディアを体験申込み・物販購入と混同させない。
+- `/ecosystem/` のLEARNカードには教育ブログへの補助リンクを追加し、元の基礎案内と10カードを保持する。
+- STORESの `オリジナルグッズ` は自社販売先、商店ブログの `商品レビューを読む` は読みものとして区別する。
+- 静的HTMLと `assets/ux-lab/app.js` の再描画が食い違わないよう両方を更新し、ブラウザキャッシュ用のJSバージョンを更新する。
+
+## 13. 3VC menu discovery (2026-11-05)
+
+- メニューは「よく使う」「教室・レッスン」「観る・聴く・学ぶ」「買う・選ぶ」「会員・お問い合わせ」「その他のページ」の6分類。
+- 既存のP0予約行動・内容・URLは不変。番組・音楽・教育記事はメディア群、商品購入と商品レビューは区別した買い物群に配置。
+- 記事メディアのリンクは本番として確認済みのURLのみ使用し、外部サイトの公開記事数をメニューで断定しない。
+- 共通ソース生成・CSSキャッシュ更新・320/375/390/430/768/1440pxの回帰検査を行う。
+
+## 14. Menu compactness and reopen UX (2026-11-05)
+- Right-header menu is for complete service discovery; the compact desktop header remains the fast-access area for schedule, pricing, classes, instructors and access.
+- Keep all six menu groups, all destinations, and a single shared navigation DOM on PC and mobile.
+- Reduce wasted vertical spacing without shrinking general link hit targets below 44px. Keep internal scrolling when viewport height is short.
+- Reopening the menu restores its scroll position to the beginning so schedule and trial actions remain the first choices. Escape closes and returns focus to the toggle.
+- Verify six responsive widths and both CSS and shared JS rendering with cache busting on the ten main pages.

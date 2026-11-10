@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs.",
+  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350. 2026-11-05: owner issued sitewide UX/UI redesign v3.0 authorizing low-risk visitor-facing copy and CTA simplification with production safety gates. STEP-specific redundant CTA/foundation copy was changed only in classes/step/index.html and pinned to this exact Git blob; pre-existing workshop/booking/financial operations, immutable baseline, and allowedPaths are unchanged. Release still depends on PR CI and six-width browser QA. The STEP 390px accessibility QA additionally identified a low-contrast summary label; the fix is in the already-allowed STEP HTML only while the protected hero-photo.css stays identical to baseline. Full STEP 2.1AA light-surface contrast fixes for section kickers and level numbers/tags, within the same HTML blob, are included in this updated exact pin. Final STEP accessibility reduction also removes three decorative level numbers and their redundant English level tags. They were not needed to distinguish the Japanese level headings. Last STEP AA fix targets only the two public primary application CTAs on pale backgrounds with dark burgundy.",
   "allowedPaths": [
     "broadcast/data/episodes.json",
     "broadcast/data/people.json",
@@ -25,7 +25,8 @@
     "rss/015/index.html",
     "rss/app.js",
     "rss/theater.js",
-    "rss/index.html"
+    "rss/index.html",
+    "workshops/sakaida-koji-20261122.html"
   ],
   "blobSha1": {
     "broadcast/data/episodes.json": "c211014537fcd25a0f5088ef2acd2dd722698f9d",
@@ -34,7 +35,7 @@
     "classes/bar-method/index.html": "0be3ee87bb4f60007b1763e584800db95026d9fa",
     "classes/hiit/index.html": "b50b8f49e027074c46fb884c02c52e0b55d01033",
     "classes/isolation/index.html": "fe5f917284f20f24f2da3f0c4c3db79e67cc4a09",
-    "classes/step/index.html": "3c4e674982f80a028fd68fe66ddf23559d355eca",
+    "classes/step/index.html": "35c26f262ce4a31c861092b68a2de442c5938b49",
     "classes/stretch/index.html": "a7dde7e34fd6c51da5efeb18d39fc87e49781d26",
     "classes/tap/index.html": "acf1525b102fe9b65c6f4b91625e460862d855f5",
     "instructors/furusho/index.html": "2d4349c513a03f84c9542db41cdbf68ae941e968",
@@ -50,6 +51,7 @@
     "rss/015/index.html": "ebb1e4ae3006478f7a6df2a2ad67f5a9a263e234",
     "rss/app.js": "16712066944b493b8d9a1647e48fcc62f44e8452",
     "rss/theater.js": "d2d9a397f3a03986f1e59aa6650b9a1f235d9054",
-    "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b"
+    "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b",
+    "workshops/sakaida-koji-20261122.html": "3a12cf7f8c1c5208be1618e6593417a8a3bf080c"
   }
 }

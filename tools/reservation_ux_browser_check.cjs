@@ -23,6 +23,41 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
    await page.route('**/data/class-sessions.public.json*',async r=>{requests++;if(hold)await new Promise(resolve=>release=resolve);if(fail)return r.abort();await r.fulfill({json:payload});});
    const contactRequests=[];await context.route('https://lin.ee/**',r=>{contactRequests.push(r.request().url());return r.abort();});
    await page.goto(base+'schedule/');await page.locator('[data-cf-detail]').first().waitFor();
+   if(width===390){
+     // Calendar-only primary journey, alternate enquiry and rolling two-month limits.
+     assert.equal(await page.locator('[data-cf-mode="join"]').isHidden(),true);
+     assert.equal(await page.locator('[data-cf-mode="request"]').isVisible(),true);
+     assert.equal(await page.locator('#cf-prev').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2026-11-01"]').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2026-11-02"]').isEnabled(),true);
+     await page.locator('[data-cf-mode="request"]').click();
+     await page.locator('#cf-request-date').waitFor();
+     assert.equal(await page.locator('[data-cf-mode="request"]').isHidden(),true);
+     await page.locator('[data-cf-mode="join"]').click();
+     await page.locator('#cf-calendar').waitFor();
+     await page.locator('#cf-next').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2026年 12月/);
+     await page.locator('#cf-next').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2027年 1月/);
+     assert.equal(await page.locator('#cf-next').isDisabled(),true);
+     assert.equal(await page.locator('[data-cf-date="2027-01-03"]').isDisabled(),true);
+     await page.locator('#cf-clear-date').click();
+     assert.match(await page.locator('#cf-month').innerText(),/2026年 11月/);
+     // A day without scheduled lessons still offers a contextual class request,
+     // but does not advertise the studio as available or guarantee a booking.
+     await page.locator('[data-cf-date="2026-11-03"]').click();
+     assert(await page.locator('#cf-day-invite').isVisible());
+     await page.locator('#cf-request-day').click();
+     assert.equal(await page.locator('#cf-request-date').inputValue(),'2026-11-03');
+     assert.match(await page.locator('#cf-request-title').innerText(),/空き時間にレッスンを希望する/);
+     await page.locator('#cf-request-start').fill('10:00');
+     await page.locator('#cf-request-form button[type="submit"]').click();
+     assert.match(await page.locator('#cf-message').inputValue(),/2026-11-03 10:00/);
+     assert.match(await page.locator('#cf-request-form').innerText(),/予約は確定しません/);
+     await page.locator('[data-cf-mode="join"]').click();
+     await page.locator('#cf-clear-date').click();
+     await page.locator('[data-cf-detail]').first().waitFor();
+   }
    assert(await page.locator('#cf-refresh').isHidden(),'normal retry must be hidden');assert.equal(await page.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length),0,'preview image failure');
    await page.locator('[data-cf-detail]').first().click();await page.locator('#cf-join-apply').waitFor();
    assert.equal(await page.locator('#detail a[href$="classes/"]').count(),0,'no forced class-page departure');
@@ -76,10 +111,10 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
     page.once('dialog',d=>d.accept());await page.locator('#cf-review-updated').click();await page.locator('#cf-join-apply').click();assert((await page.locator('#cf-message').inputValue()).includes('16:00'));assert(!(await page.locator('#cf-message').inputValue()).includes('保持テスト'));
     for(const state of ['CANCELLED','INQUIRY_ONLY']){payload.sessions[1].publicStatus=state;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());payload.sessions[1].publicStatus='OPEN';await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();}
     payload.sessions[1].bookingCountStatus='known';payload.sessions[1].bookingCountSource='fixture';payload.sessions[1].confirmedBookingCount=payload.sessions[1].capacity;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());payload=fixture();await page.locator('#cf-retry-selection').click();
-    // Fresh direct URL, missing class, stale data, network failure: all safe and retryable.
+    // Fresh direct URL, missing class, missed-daily-sync (>30h), network failure.
     await page.goto(base+'schedule/?class=session-ux-fixture-0&step=apply');await page.locator('#cf-message').waitFor();assert.equal(await page.locator('#cf-back-detail').count(),1);
     payload.sessions=[];await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
-    payload=fixture();payload.lastSuccessfulSyncAt='2026-11-02T00:00:00+09:00';await page.locator('#cf-retry-selection').click();assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
+    payload=fixture();payload.lastSuccessfulSyncAt='2026-10-31T00:00:00+09:00';await page.locator('#cf-retry-selection').click();assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());
     payload=fixture();await page.locator('#cf-retry-selection').click();await page.locator('#cf-message').waitFor();fail=true;await page.evaluate(()=>cfRefreshPublished(true));assert(await page.locator('[data-flow="UNAVAILABLE"]').isVisible());assert(await page.getByRole('link',{name:'スタジオ公式LINEで相談する ↗'}).isVisible());
     fail=false;await page.locator('#cf-retry-selection').click();await page.locator('#cf-copy').waitFor();
     // A second click must not escape while first-click revalidation is pending.

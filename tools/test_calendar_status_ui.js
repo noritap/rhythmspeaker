@@ -23,6 +23,9 @@ const context = {
 };
 vm.createContext(context);
 vm.runInContext(snippets, context, {filename: 'production-class-finder.js'});
+// Class discovery follows the approved daily publication contract.
+assert.match(source, /lastSuccessfulSyncAt\)>30\*60\*60\*1000/);
+assert.doesNotMatch(source, /lastSuccessfulSyncAt\)>3\*60\*60\*1000/);
 const lesson = {
   id: 'session-valid', source: 'live', className: 'STEP🔰',
   classType: 'STEP', level: '', date: '2026-11-05', start: '10:00',
@@ -39,26 +42,26 @@ assert.equal(context.cfStatusText(closed), '追加受付なし');
 assert.match(context.cfClosedReason(closed), /相乗り受講の追加申し込みは受け付けていません/);
 assert.match(context.cfCard(closed), /追加受付なし/);
 assert.match(context.cfCard(closed), /詳細を見る/);
-assert.doesNotMatch(context.cfCard(closed), /詳細・参加申込へ/);
+assert.doesNotMatch(context.cfCard(closed), /詳細・申し込み/);
 assert.doesNotMatch(context.cfCard(closed), /満席/);
 assert.doesNotMatch(context.cfCard(closed), /開講中止/);
 assert.equal(context.cfClosed(open), false);
-assert.match(context.cfCard(open), /詳細・参加申込へ/);
+assert.match(context.cfCard(open), /詳細・申し込み/);
 assert.doesNotMatch(context.cfCard(open), /参加申込受付中|定員10名|参加可否|予約人数|更新：/);
 assert.match(context.cfCard(closed), /追加受付なし/);
 assert.equal(context.cfStatusText(open), '参加申込受付中');
 assert.match(context.cfCount(open), /定員10名｜参加可否はお申し込み後にご案内/);
 assert.doesNotMatch(context.cfCard(open), /未連携|カレンダー掲載クラス|更新：/);
-assert.match(source, /<strong>開催予定から選ぶ<\/strong>/);
-assert.match(source, /<strong>希望日時で相談する<\/strong>/);
+assert.match(source, /← レッスン日程に戻る/);
+assert.match(source, /空き時間にレッスンを希望する →/);
 assert.doesNotMatch(source, /<div class="cf-sample" role="note">|01 \/ JOIN A CLASS|02 \/ REQUEST A LESSON|<div class="cf-policy">/);
 assert.match(source, /スタジオから「予約確定」の返信/);
 assert.match(source, /コピーしました。次は公式LINEに貼り付けて送信してください/);
 assert.match(source, /cf-visually-hidden/);
-assert.match(source, /<h2 id="cf-find-title">日付から探す<\/h2>/);
+assert.match(source, /<h2 id="cf-find-title" tabindex="-1">開催日を選ぶ<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
 assert.doesNotMatch(staticPage, /掲載中のクラスは開講が決定しています|予約の流れ|JOIN A CLASS|REQUEST A LESSON/);
-assert.match(staticPage, /class-finder\.js\?v=20261104calendarfirst1/);
+assert.match(staticPage, /class-finder\.js\?v=20261105opentime1/);
 assert.match(source, /data-cf-mode="request"/);
 assert.match(source, /view:'calendar',mode:'join'/);
 assert.match(source, /date:cfToday\(\)/);
@@ -72,7 +75,7 @@ assert.equal(context.cfStatusText(cancelled), '開講中止');
 assert.doesNotMatch(context.cfCard(open), /cf-label|サンプル/);
 assert.ok(context.cfCard(closed).includes('詳細を見る'));
 assert.match(source, /aria-describedby="cf-calendar-key-help"/);
-assert.match(source, /日付の件数はクラス数です/);
+assert.match(source, /日付の件数は開催クラス数です/);
 assert.match(source, /\['OPEN','CLOSE','INQUIRY_ONLY','CANCELLED'\]\.includes\(s\.publicStatus\)/);
 assert.match(source, /if\(cfClosed\(s\)\)return cfClosedReason\(s\)/);
 
@@ -85,3 +88,62 @@ assert.match(source, /cfReconcileSelection/);
 assert.match(source, /cache:'no-store'/);
 assert.match(source, /AbortSignal.timeout\(10_000\)/);
 console.log('Calendar OPEN/CLOSE UI and bounded public-data refresh contract passed.');
+
+const famLine = source.split('\n').find(x => x.startsWith('const cfClassFamily='));
+const typesLine = source.split('\n').find(x => x.startsWith('const cfTypes='));
+const choicesLine = source.split('\n').find(x => x.startsWith('const cfAvailableTypes='));
+assert.ok(famLine && typesLine && choicesLine);
+const familyScope = {};
+vm.createContext(familyScope);
+vm.runInContext([
+  "let finderData={sessions:[{classType:'STEP & 振付'},{classType:'STEP🟡'},{classType:'TAP初級'},{classType:'TAP応用🔵'},{classType:'BAR メソッド'}]};",
+  typesLine, famLine, choicesLine,
+  "this.types=cfAvailableTypes();",
+  "this.families=['STEP🔰','STEP🟡','STEP & 振付','TAP','Tap','TAP初級','TAP応用🔵','BAR METHOD','BAR メソッド','ISOLATION','STRETCH','HIIT'].map(cfClassFamily);",
+  "this.unknown=cfClassFamily('新しい特別クラス');",
+].join('\n'), familyScope);
+assert.deepEqual(JSON.parse(JSON.stringify(familyScope.types)),
+  ['STEP','TAP','STRETCH','ISOLATION','BAR METHOD','HIIT']);
+assert.deepEqual(JSON.parse(JSON.stringify(familyScope.families)),
+  ['STEP','STEP','STEP','TAP','TAP','TAP','TAP','BAR METHOD','BAR METHOD','ISOLATION','STRETCH','HIIT']);
+assert.equal(familyScope.unknown, 'OTHER');
+assert.match(source, /cfClassFamily\(s\.classType\)===cfState\.type/);
+assert.doesNotMatch(source, /\.\.\.\(finderData\?\.sessions\|\|\[\]\)\.map\(s=>s\.classType\)/);
+
+/* VC2 calendar bounds and conversion edge-case contracts. */
+const calendarScope={cfToday:()=> '2026-11-04',Date};vm.createContext(calendarScope);
+const helperLines=source.split('\n').filter(s=>s.startsWith('const cfCalendar'));
+assert.equal(helperLines.length,3);
+vm.runInContext(helperLines.join('\n')+"\nthis.end=cfCalendarEnd;this.day=cfCalendarDayAllowed;this.month=cfCalendarMonthAllowed;",calendarScope);
+assert.equal(calendarScope.end('2026-11-04'),'2027-01-04');
+assert.equal(calendarScope.end('2026-12-31'),'2027-02-28');
+assert.equal(calendarScope.day('2027-01-05','2026-11-04'),false);
+assert.equal(calendarScope.day('2026-11-03','2026-11-04'),false);
+assert.equal(calendarScope.day('2027-01-04','2026-11-04'),true);
+assert.equal(calendarScope.month('2027-02','2026-11-04'),false);
+assert.equal(calendarScope.month('2026-11','2026-11-04'),true);
+assert.match(source,/cfCalendarMonthAllowed\(month\)/);
+assert.match(source,/data-cf-date]:not\(\[disabled\]\)/);
+assert.match(source,/id="cf-results-jump"/);
+assert.match(staticPage,/レッスン日程・参加申し込み/);
+assert.doesNotMatch(staticPage,/<div class="cf-intro">/);
+assert.doesNotMatch(staticPage,/<a class="crumb"/);
+assert.doesNotMatch(staticPage,/TRY ANOTHER RHYTHM/);
+
+/* New-class discovery does not imply an available or confirmed booking slot. */
+assert.match(staticPage, /cf-offer-copy/);
+assert.match(source, /function cfSwitchMode\(mode,fromSelectedDay=false\)/);
+assert.match(source, /cfDraft.date=cfCalendarDayAllowed\(cfState.date\)\?cfState.date:cfToday\(\)/);
+assert.match(source, /id="cf-day-invite" hidden/);
+assert.match(source, /id="cf-request-day"/);
+assert.match(source, /cfSwitchMode\('request',true\)/);
+assert.match(source, /空き時間・講師の都合は確認後にご案内/);
+assert.match(source, /この時点では予約は確定しません/);
+assert.doesNotMatch(source, /id="cf-empty-request"/);
+
+assert.match(staticPage,/空き時間にレッスンを。/);
+assert.match(staticPage,/希望の日時から、新しいレッスンの開催を相談できます。/);
+assert.match(source,/空き時間にレッスンを希望する/);
+assert.match(source,/この日にレッスンを希望する →/);
+assert.match(source,/希望内容を確認する →/);
+assert.doesNotMatch(staticPage,/新しいクラスをリクエスト →/);

@@ -22,5 +22,8 @@ jobs:
         run: |
           node --check assets/ux-lab/class-finder.js
           node --check assets/ux-lab/app.js
+          node --check assets/ux-lab/workshop-recommendations.js
       - name: Check public customer journeys
         run: node tools/test_sitewide_journey_ux.cjs
+      - name: Check public workshop recommendations
+        run: node --test tools/test_workshop_recommendations.cjs

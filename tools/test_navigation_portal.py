@@ -1,3 +1,4 @@
+import re
 """Protect the single shared menu and the nine doors' approved destinations."""
 import unittest
 from html.parser import HTMLParser
@@ -50,7 +51,7 @@ class PortalContractTest(unittest.TestCase):
         self.assertIn('DUPLICATE_LEGACY_NAV', portal_problems(self.html + '<ul class="nav-links"><li>old</li></ul>'))
 
     def test_reordered_or_duplicate_item_is_detected(self):
-        bad = self.html.replace('>レッスン日程</strong>', '>アクセス</strong>', 1)
+        bad = self.html.replace('>レッスン予約</strong>', '>アクセス</strong>', 1)
         self.assertIn('PRIORITY_MENU_CONTENT_OR_ORDER_DRIFT', portal_problems(bad))
 
     def test_priority_menu_is_unique_and_action_first(self):
@@ -62,29 +63,44 @@ class PortalContractTest(unittest.TestCase):
             expected = render_menu(prefix, current)
             self.assertEqual(html.count(expected), 1, f'{path} must match the canonical menu')
             self.assertEqual(html.count('class="rs-menu-nav"'), 1)
-            self.assertEqual(html.count('class="rs-menu-group rs-menu-group--'), 4)
             menu = html[html.index('<div id="menu"'):html.index('</header>')]
-            self.assertLess(menu.index('rs-menu-group--quick'), menu.index('rs-menu-group--lessons'))
-            self.assertLess(menu.index('rs-menu-group--lessons'), menu.index('rs-menu-group--member'))
-            self.assertLess(menu.index('rs-menu-group--member'), menu.index('rs-menu-group--more'))
+            self.assertEqual(
+                re.findall(r'class="rs-menu-group rs-menu-group--(\w+)"', menu),
+                ['quick', 'services', 'member', 'support', 'lessons', 'media', 'more'],
+            )
+            self.assertEqual(
+                re.findall(r'class="rs-menu-action rs-menu-action--(\w+)"', menu),
+                ['schedule', 'trial', 'rental', 'goods', 'wallet', 'line', 'access', 'faq'],
+            )
             self.assertIn('https://lin.ee/zC5YLe7', menu)
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
+            self.assertIn('class="rs-menu-link rs-menu-link--broadcast"', menu)
+            self.assertIn('class="rs-menu-link rs-menu-link--music"', menu)
+            self.assertEqual(menu.count('class="rs-menu-link rs-menu-link--rss"'), 1)
+            self.assertEqual(menu.count('class="rs-menu-action rs-menu-action--goods"'), 1)
+            self.assertEqual(menu.count('https://tapdance-rhythmspeaker.hatenablog.com/'), 1)
+            self.assertEqual(menu.count('https://rhythmspeaker.hatenablog.com/'), 1)
             self.assertNotIn('class="mobile-nav-panel"', menu)
+            current_actions = {'schedule/': 'schedule', 'trial/': 'trial', 'rental/': 'rental',
+                               'access/': 'access', 'faq/': 'faq'}
+            role = current_actions.get(current)
+            if role:
+                self.assertIn(f'rs-menu-action--{role}" href="../{current}" aria-current="page"', menu)
+            self.assertEqual(menu.count('aria-current="page"'), int(role is not None))
         self.assertNotIn('href="./" class="rs-menu-link--ecosystem"', self.html)
         self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
-    def test_ten_categories_have_headings_and_safe_destinations(self):
+    def test_service_cards_have_headings_and_safe_destinations(self):
         p = Cards()
         p.feed(self.html)
-        self.assertEqual(len(p.cards), 10)
+        self.assertEqual(len(p.cards), 12)
         expected = [
-            '../', '../workshops/', '../broadcast/', '../music/',
-            '../ecosystem/?category=learn',
+            '../classes/', '../workshops/', '../rental/#price',
+            '../broadcast/', '../rss/', '../music/', '../classes/step/',
             'https://rhythmspeaker.stores.jp/?all_items=true',
             'https://rhythmspeaker.hatenablog.com/',
-            '../about/', 'https://tips-app-seven.vercel.app/',
-            'https://lin.ee/zC5YLe7',
+            'https://tips-app-seven.vercel.app/', 'https://lin.ee/zC5YLe7', '../about/',
         ]
         for card, main in zip(p.cards, expected):
             self.assertEqual(card['main'], [main])
@@ -92,17 +108,19 @@ class PortalContractTest(unittest.TestCase):
             self.assertLessEqual(len(card['links']) - len(card['main']), 5)
         self.assertNotIn('../schedule/', p.cards[0]['links'])  # primary schedule is already the top action
         self.assertIn('../classes/', p.cards[0]['links'])
-        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[7]['links'])
-        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[9]['links'])
+        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[11]['links'])
+        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[10]['links'])
 
     def test_primary_routes_and_shop_review_distinction(self):
         self.assertIn('class="portal-quick-card portal-quick-card--trial" href="../trial/"', self.html)
         self.assertIn('class="portal-quick-card portal-quick-card--schedule" href="../schedule/"', self.html)
-        self.assertIn('>レッスン日程</strong>', self.html)
+        self.assertIn('>レッスン予約</strong>', self.html)
         self.assertIn('<h3>オリジナルグッズ</h3>', self.html)
         self.assertIn('<h3>商品レビュー</h3>', self.html)
         self.assertIn('リズムスピーカー商店を読む', self.html)
-        self.assertIn('<h2 id="portal-heading-shopping">買う・選ぶ</h2>', self.html)
+        self.assertIn('タップダンスの読みもの', self.html)
+        self.assertIn('https://tapdance-rhythmspeaker.hatenablog.com/', self.html)
+        self.assertIn('<h2 id="portal-heading-shopping">グッズ・商品レビュー</h2>', self.html)
         self.assertNotIn('通常クラス予約', self.html)
 
     def test_all_first_party_link_targets_exist(self):
@@ -130,7 +148,7 @@ class PortalContractTest(unittest.TestCase):
         p = Sprite(); p.feed(self.html)
         if 'data-ux-source="sites-v6"' in self.html:
             self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
-            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),10)
+            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),12)
             return
         self.assertEqual(len(p.sprites), 1)
         self.assertEqual(p.sprites[0].get('width'), '0')

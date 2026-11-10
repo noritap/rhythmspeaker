@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "source": "User-uploaded studio photos, visually verified 2026-11-08",
+  "photos": [
+    {
+      "slug": "dance-floor-reception-and-lounge",
+      "title": "ダンスフロア・受付側",
+      "category": "studio",
+      "source": "IMG_0873(1).JPG",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/dance-floor-reception-and-lounge.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/dance-floor-reception-and-lounge.webp",
+      "sha256_original": "7c0d2114ae306b4b22ead78917deebdfca431f7150d45f19872a0118eced44f1"
+    },
+    {
+      "slug": "dance-floor-screen-and-mirror",
+      "title": "ダンスフロア・スクリーン側",
+      "category": "studio",
+      "source": "IMG_0917(1).JPG",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/dance-floor-screen-and-mirror.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/dance-floor-screen-and-mirror.webp",
+      "sha256_original": "78453daf45aea23963fd039e36ba258e73967ef1c7f00413f26d8c033f2e5412"
+    },
+    {
+      "slug": "dance-floor-full-mirror",
+      "title": "ダンスフロア・大型ミラー側",
+      "category": "studio",
+      "source": "ダンスフロア2(1).JPG",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/dance-floor-full-mirror.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/dance-floor-full-mirror.webp",
+      "sha256_original": "95bb2767f3497678ed7e2a0e7fb4c1ce262ce2e06db91854ff826441eec594d8"
+    },
+    {
+      "slug": "screen-and-storage",
+      "title": "スクリーンと収納棚",
+      "category": "studio",
+      "source": "IMG_0908(1).JPG",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/screen-and-storage.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/screen-and-storage.webp",
+      "sha256_original": "228ccc6f90570cd591aef75776e60a3c61ad16f02936d136c67112f92f0c4c27"
+    },
+    {
+      "slug": "changing-room",
+      "title": "更衣室",
+      "category": "facility",
+      "source": "IMG_0913(1).JPG",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/changing-room.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/changing-room.webp",
+      "sha256_original": "7eae944922c7c1908934f14cfa34de1f8401a9dafc8175ccd26efac2b63f41a8"
+    },
+    {
+      "slug": "building-entrance",
+      "title": "ビル入口",
+      "category": "access",
+      "source": "IMG_7490.jpg",
+      "original": "assets/images/studio/rental-2026/verified-20261108/original/building-entrance.jpg",
+      "web": "assets/images/studio/rental-2026/verified-20261108/web/building-entrance.webp",
+      "sha256_original": "bd96f364967586bc99ee1be99575abb47c57488041e3a94ab023d0cfdf032529"
+    }
+  ]
+}

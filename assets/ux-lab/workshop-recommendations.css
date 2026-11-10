@@ -1,0 +1,19 @@
+.ws-reco[hidden]{display:none!important}
+.ws-reco{max-width:1240px;margin:0 auto 88px;padding:0 5%;color:#191918}
+.ws-reco-head{border-top:1px solid #c9c3b8;padding-top:36px}
+.ws-reco-eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;color:#765e38;margin:0 0 12px}
+.ws-reco-head h2{font-size:clamp(24px,3vw,36px);line-height:1.35;margin:0 0 12px}
+.ws-reco-head>p:last-child{font-size:15px;line-height:1.9;color:#55514a;margin:0 0 24px}
+.ws-reco-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ws-reco-card{display:flex;flex-direction:column;min-width:0;border:1px solid #d3cdc2;background:#fff;padding:24px;gap:12px}
+.ws-reco-date{display:block;width:max-content;background:#eee9de;color:#26231e;font-size:14px;font-weight:800;padding:8px 11px}
+.ws-reco-tag{font-size:11px;font-weight:700;letter-spacing:.09em;color:#846938;margin:0}
+.ws-reco-name{font-size:clamp(18px,2vw,23px);line-height:1.5;overflow-wrap:anywhere;margin:0}
+.ws-reco-teacher{margin:0;font-size:14px;color:#55514a}
+.ws-reco-card-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:auto;padding-top:12px}
+.ws-reco-price{font-size:16px;font-weight:800}
+.ws-reco-link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#191918;color:#fff;padding:11px 15px;text-decoration:none;font-size:14px;font-weight:750}
+.ws-reco-link:hover{background:#514530;color:#fff}
+.ws-reco-link:focus-visible{outline:3px solid #9f372d;outline-offset:4px}
+.ws-reco-note{margin:16px 0 0;font-size:12px;line-height:1.8;color:#575249}
+@media(max-width:720px){.ws-reco{margin-bottom:70px}.ws-reco-grid{grid-template-columns:1fr}.ws-reco-card{padding:19px}.ws-reco-card-bottom{align-items:stretch}.ws-reco-link{width:100%}}

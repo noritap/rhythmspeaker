@@ -114,10 +114,22 @@ def main():
         for issue in current:
             if (issue[2], issue[3]) not in baseline:
                 new_issues.append(issue)
+    # A pure rename preserves the exact existing binary; do not reclassify it
+    # as a newly introduced oversized image merely because its path changed.
+    renamed_destinations = set()
+    if args.base:
+        rename_output = run("git", "diff", "--name-status", "--find-renames", f"{args.base}...HEAD")
+        for line in rename_output.splitlines():
+            fields = line.split("\t")
+            if fields and fields[0].startswith("R") and len(fields) == 3:
+                renamed_destinations.add(fields[2])
+
     oversized = []
     for p in changes:
         file = ROOT / p
-        if file.is_file() and file.suffix.lower() in EXT and not p.as_posix().startswith(EXCLUDED):
+        if (file.is_file() and file.suffix.lower() in EXT
+                and not p.as_posix().startswith(EXCLUDED)
+                and p.as_posix() not in renamed_destinations):
             if file.stat().st_size > LIMIT:
                 oversized.append((p.as_posix(), file.stat().st_size))
     result = {

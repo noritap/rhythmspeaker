@@ -1,0 +1,177 @@
+{
+  "project": "Rhythm Speaker rental photo library",
+  "created": "2026-11-08",
+  "count": 15,
+  "publication_status": "published_13_safe_images_2_withheld",
+  "target_directory": "assets/images/studio/rental-2026/",
+  "note": "Thirteen photos are published. Two original reception-area photos were removed from the public repository due to visible Wi-Fi credentials. Their earlier Git history may retain the data; rotate access credentials and do not republish unredacted copies.",
+  "assets": [
+    {
+      "source_file": "IMG_0883.JPG",
+      "webp_file": "assets/images/studio/rental-2026/storage-equipment-closet.webp",
+      "category": "バックヤード・設備",
+      "description": "スタジオ奥の収納・設備スペース",
+      "alt": "スタジオ奥の収納・設備スペース",
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 291092,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_0884.JPG",
+      "webp_file": "assets/images/studio/rental-2026/shoe-storage-and-service-corridor.webp",
+      "category": "シューズ・収納",
+      "description": "貸出シューズ棚と準備スペース",
+      "alt": "貸出シューズ棚と準備スペース",
+      "width": 1350,
+      "height": 1800,
+      "webp_bytes": 365142,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_0885.JPG",
+      "webp_file": "assets/images/studio/rental-2026/tap-shoes-shelf-detail.webp",
+      "category": "シューズ・収納",
+      "description": "棚に保管されたタップシューズ",
+      "alt": "棚に保管されたタップシューズ",
+      "width": 1350,
+      "height": 1800,
+      "webp_bytes": 263356,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_0886.JPG",
+      "webp_file": "assets/images/studio/rental-2026/studio-floor-wide-with-desk.webp",
+      "category": "ダンスフロア",
+      "description": "鏡のあるダンスフロアと受付側の様子",
+      "alt": "鏡のあるダンスフロアと受付側の様子",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 318302,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_5633(1).JPG",
+      "webp_file": "assets/images/studio/rental-2026/reception-counter-front.webp",
+      "category": "受付・共有スペース",
+      "description": "受付カウンターと共有スペース",
+      "alt": "受付カウンターと共有スペース",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 215646,
+      "status": "withheld_sensitive_information"
+    },
+    {
+      "source_file": "IMG_7330(1).JPG",
+      "webp_file": "assets/images/studio/rental-2026/corridor-and-restroom-access.webp",
+      "category": "受付・共有スペース",
+      "description": "スタジオ内の通路とトイレへの動線",
+      "alt": "スタジオ内の通路とトイレへの動線",
+      "width": 1350,
+      "height": 1800,
+      "webp_bytes": 349784,
+      "status": "withheld_sensitive_information"
+    },
+    {
+      "source_file": "IMG_7489(1).jpg",
+      "webp_file": "assets/images/studio/rental-2026/building-entrance-exterior.webp",
+      "category": "アクセス・入口",
+      "description": "Queen Heart Buildingの外観と入口",
+      "alt": "Queen Heart Buildingの外観と入口",
+      "width": 1200,
+      "height": 1600,
+      "webp_bytes": 334754,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_7490(1).jpg",
+      "webp_file": "assets/images/studio/rental-2026/building-entrance-front.webp",
+      "category": "アクセス・入口",
+      "description": "建物正面のエントランス",
+      "alt": "建物正面のエントランス",
+      "width": 1600,
+      "height": 1200,
+      "webp_bytes": 376284,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_7491(1).jpg",
+      "webp_file": "assets/images/studio/rental-2026/building-directory-sign.webp",
+      "category": "アクセス・入口",
+      "description": "建物入口のフロア案内板とRhythm Speakerの表示",
+      "alt": "建物入口のフロア案内板とRhythm Speakerの表示",
+      "width": 1350,
+      "height": 1800,
+      "webp_bytes": 397374,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_7492(1).jpg",
+      "webp_file": "assets/images/studio/rental-2026/basement-stairway-entry.webp",
+      "category": "アクセス・入口",
+      "description": "Rhythm Speakerへ続く地下入口の階段",
+      "alt": "Rhythm Speakerへ続く地下入口の階段",
+      "width": 1350,
+      "height": 1800,
+      "webp_bytes": 388062,
+      "status": "published"
+    },
+    {
+      "source_file": "ダンスフロア2(2).JPG",
+      "webp_file": "assets/images/studio/rental-2026/dance-floor-mirror-wide-01.webp",
+      "category": "ダンスフロア",
+      "description": "鏡とダンスフロアの全景",
+      "alt": "鏡とダンスフロアの全景",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 281380,
+      "status": "published"
+    },
+    {
+      "source_file": "ダンスフロア3(2).JPG",
+      "webp_file": "assets/images/studio/rental-2026/dance-floor-mirror-wide-02.webp",
+      "category": "ダンスフロア",
+      "description": "別角度から見た鏡張りのダンスフロア",
+      "alt": "別角度から見た鏡張りのダンスフロア",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 265074,
+      "status": "published"
+    },
+    {
+      "source_file": "ダンスフロア4(2).JPG",
+      "webp_file": "assets/images/studio/rental-2026/dance-floor-screen-storage.webp",
+      "category": "ダンスフロア",
+      "description": "スクリーンと収納棚のあるダンスフロア",
+      "alt": "スクリーンと収納棚のあるダンスフロア",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 313876,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_0817.JPG",
+      "webp_file": "assets/images/studio/rental-2026/tap-shoes-and-studio-drawings.webp",
+      "category": "シューズ・スタジオ文化",
+      "description": "タップシューズとスタジオに飾られた手描きカード",
+      "alt": "タップシューズとスタジオに飾られた手描きカード",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 150210,
+      "status": "published"
+    },
+    {
+      "source_file": "IMG_0818.JPG",
+      "webp_file": "assets/images/studio/rental-2026/tap-shoes-size-collection.webp",
+      "category": "シューズ・収納",
+      "description": "サイズ表示付きで並ぶ貸出タップシューズ",
+      "alt": "サイズ表示付きで並ぶ貸出タップシューズ",
+      "width": 1800,
+      "height": 1350,
+      "webp_bytes": 173436,
+      "status": "published"
+    }
+  ],
+  "public_count": 13,
+  "withheld_count": 2
+}

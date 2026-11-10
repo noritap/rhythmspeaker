@@ -13,9 +13,14 @@ on:
       - "assets/ux-lab/class-finder.js"
       - ".github/workflows/class-calendar-sync.yml"
   schedule:
-    # Best-effort quarter-hour updates. GitHub scheduled runs may be delayed or dropped;
-    # Cloudflare independent recovery remains required for reliability.
-    - cron: "7,22,37,52 * * * *"
+    # Four daily refresh opportunities. GitHub Actions cron is UTC;
+    # the calendar projection always fetches from 00:00 Asia/Tokyo.
+    - cron: "10 15 * * *" # 00:10 JST (previous UTC day)
+    - cron: "0 20 * * *"  # 05:00 JST (previous UTC day)
+    - cron: "0 3 * * *"   # 12:00 JST
+    - cron: "0 9 * * *"   # 18:00 JST
+    # Scheduled starts are best effort and can be delayed or skipped.
+    # On timetable changes the operator may still use workflow_dispatch.
   workflow_dispatch:
 
 permissions:

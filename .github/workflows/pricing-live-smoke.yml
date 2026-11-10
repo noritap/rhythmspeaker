@@ -1,0 +1,35 @@
+name: Pricing public Pages live smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pricing/**'
+      - 'assets/ux-lab/app.js'
+      - 'assets/ux-lab/app.css'
+      - 'tools/pricing_live_smoke.cjs'
+      - '.github/workflows/pricing-live-smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify GitHub Pages published pricing and SPA rendering source
+        run: node tools/pricing_live_smoke.cjs
+      - name: Install browser for published viewport and keyboard smoke
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+      - name: Verify published browser UI at six widths, accessibility, and static parity
+        run: RS_PRICING_BASE_URL=https://noritap.github.io/rhythmspeaker/ node tools/pricing_plain_ux_browser_check.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pricing-v3-live-browser-evidence
+          path: ux-evidence/pricing-plain/
