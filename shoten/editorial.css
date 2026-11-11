@@ -364,3 +364,10 @@ body { background: var(--edition-paper); }
 .shoten-studio-story h2{font-size:clamp(1.3rem,3vw,1.85rem);line-height:1.4;margin:10px 0}
 .shoten-studio-story p:last-child{line-height:1.85;max-width:68ch}
 @media(max-width:480px){.shoten-gallery{gap:4px}.shoten-gallery-thumb{padding:2px}.shoten-studio-story{padding:18px}}
+
+/* Store/blog crosslinks v1 */
+.shoten-blog-promo,.shoten-external-reading{margin-block:28px;padding:clamp(18px,3vw,32px);background:#f4f1e8;border-radius:16px}
+.shoten-blog-promo h2,.shoten-external-reading h2{margin:8px 0 12px}
+.shoten-blog-promo p,.shoten-external-reading p{line-height:1.75}
+.shoten-external-reading .button{white-space:normal;text-align:left;line-height:1.6}
+@media(max-width:760px){.external-blog-nav{font-size:.82rem}.shoten-external-reading .button{display:inline-flex}}
