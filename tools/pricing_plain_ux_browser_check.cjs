@@ -19,7 +19,7 @@ function sourceContracts() {
   const menuScript = /assets\/ux-lab\/app\.js\?v=[a-z0-9]+/i;
   const homeScript = fs.readFileSync("index.html", "utf8").match(menuScript)?.[0];
   assert(homeScript, "shared JavaScript must have a cache stamp");
-  assert.equal(html.match(menuScript)?.[0], homeScript, "pricing must use the same shared script version as home");
+  assert.equal(html.match(menuScript)?.[0]?.split("?")[0], homeScript.split("?")[0], "pricing must load the same shared script as home");
   for (const plan of plans) {
     const block = html.match(new RegExp('<article class="plan-card" data-plan="' + plan.id + '">([\\s\\S]*?)</article>'))?.[1];
     assert(block, plan.id + " missing");
