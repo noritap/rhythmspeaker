@@ -19,5 +19,7 @@ jobs:
           python-version: "3.12"
       - name: Compile conversion report utility
         run: python -m py_compile tools/trial_conversion_report.py
+      - name: Test conversion report unknown handling
+        run: python -m unittest discover -s tests -p 'test_trial_conversion_report.py'
       - name: Validate aggregate baseline schema
         run: python tools/trial_conversion_report.py data/trial_conversion_baseline.csv
