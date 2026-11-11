@@ -27,7 +27,7 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "robot-vacuums",
           "name": "ロボット掃除機"
-        }
+        },{"id":"food","name":"食品・飲みもの"},{"id":"supplies","name":"日用品・スタジオ用品"}
       ]
     },
     {
@@ -41,7 +41,7 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "wireless-headphones",
           "name": "ワイヤレスヘッドホン"
-        }
+        },{"id":"smart","name":"スマート家電"}
       ]
     },
     {
@@ -59,7 +59,7 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "dc-power",
           "name": "USB・DC電源"
-        }
+        },{"id":"wear","name":"衣類・ウェア"}
       ]
     }
   ],
