@@ -364,3 +364,13 @@ body { background: var(--edition-paper); }
 .shoten-studio-story h2{font-size:clamp(1.3rem,3vw,1.85rem);line-height:1.4;margin:10px 0}
 .shoten-studio-story p:last-child{line-height:1.85;max-width:68ch}
 @media(max-width:480px){.shoten-gallery{gap:4px}.shoten-gallery-thumb{padding:2px}.shoten-studio-story{padding:18px}}
+
+/* Store/blog crosslinks v1 */
+.shoten-blog-promo,.shoten-external-reading{margin-block:28px;padding:clamp(18px,3vw,32px);background:#f4f1e8;border-radius:16px}
+.shoten-blog-promo h2,.shoten-external-reading h2{margin:8px 0 12px}
+.shoten-blog-promo p,.shoten-external-reading p{line-height:1.75}
+.shoten-external-reading .button{white-space:normal;text-align:left;line-height:1.6}
+@media(max-width:760px){.external-blog-nav{font-size:.82rem}.shoten-external-reading .button{display:inline-flex}}
+
+/* Shared-site navigation pattern on store top bar */
+.private-bar{position:relative;z-index:50}.shop-portal-wrap{position:relative;letter-spacing:normal}.shop-portal-toggle{padding:4px 8px;font-size:12px;font-weight:700;white-space:nowrap}.shop-portal-toggle span{font-size:19px;margin-left:10px}.shop-portal-menu{position:absolute;right:0;top:calc(100% + 8px);width:min(460px,calc(100vw - 20px));max-height:min(78vh,760px);overflow-y:auto;overscroll-behavior:contain;background:#fff;color:#222;box-shadow:0 12px 32px #0003;border:1px solid #dedbd4;padding:14px;z-index:90;font-size:12px}.shop-portal-menu[hidden]{display:none}.shop-portal-label{font-weight:700;color:#68645e;font-size:11px;border-top:1px solid #e7e2db;margin:10px 0 5px;padding-top:9px}.shop-portal-label:first-child{border:0;margin-top:0;padding-top:0}.shop-portal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.shop-portal-grid a{display:flex;align-items:center;min-height:44px;padding:9px;background:#f8f7f4;border:1px solid #e0d9d0;border-radius:3px;font-weight:700;line-height:1.4}.shop-portal-grid a:hover{background:#ede8e1}.shop-portal-quick a{flex-direction:column;align-items:flex-start}.shop-portal-quick a:first-child{background:#242424;color:#fff}.shop-portal-quick a:nth-child(2){background:#f3e7e1}.shop-portal-quick small{font-size:10px;font-weight:400}@media(max-width:600px){.private-bar{padding:0 12px}.private-bar>span:nth-child(2){display:none}.shop-portal-menu{right:-8px}}
