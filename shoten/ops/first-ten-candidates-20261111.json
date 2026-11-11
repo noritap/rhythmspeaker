@@ -7,9 +7,9 @@
       "name": "ode オーガニックコーヒー エチオピア 1kg",
       "priority": 1,
       "planning_score": 94,
-      "status": "AWAITING_AFFILIATE_AND_IDENTITY_VERIFICATION",
-      "asin": null,
-      "affiliate_url": null,
+      "status": "AFFILIATE_LINK_SUPPLIED_PENDING_REDIRECT_ASIN_AND_IMAGE_CHECK",
+      "asin": "B094W5FQFT",
+      "affiliate_url": "https://link.amazon/B05yTjh2L",
       "affiliate_verified": false,
       "image_rights_verified": false,
       "source": "ユーザー提供Amazonビジネス再び購入一覧（2026-11-11）",
@@ -49,9 +49,9 @@
       "name": "Sports Research オーガニックMCTオイル 1183mL",
       "priority": 4,
       "planning_score": 89,
-      "status": "AWAITING_AFFILIATE_AND_IDENTITY_VERIFICATION",
+      "status": "AFFILIATE_LINK_SUPPLIED_PENDING_REDIRECT_ASIN_AND_IMAGE_CHECK",
       "asin": null,
-      "affiliate_url": null,
+      "affiliate_url": "https://link.amazon/B04nlb51W",
       "affiliate_verified": false,
       "image_rights_verified": false,
       "source": "ユーザー提供Amazonビジネス再び購入一覧（2026-11-11）",
@@ -133,14 +133,28 @@
       "name": "D.IIZOO スウェットパンツ D1128A",
       "priority": 10,
       "planning_score": 83,
-      "status": "AWAITING_AFFILIATE_AND_IDENTITY_VERIFICATION",
+      "status": "AFFILIATE_LINK_SUPPLIED_PENDING_REDIRECT_ASIN_AND_IMAGE_CHECK",
       "asin": null,
-      "affiliate_url": null,
+      "affiliate_url": "https://link.amazon/B0g8JbhLR",
       "affiliate_verified": false,
       "image_rights_verified": false,
       "source": "ユーザー提供Amazonビジネス再び購入一覧（2026-11-11）",
       "article_status": "NOT_STARTED",
       "publication_status": "NOT_PUBLISHED"
+    }
+  ],
+  "additional_linked_candidates": [
+    {
+      "name": "カンロ 健康のど飴たたかうマヌカハニー 80g×6袋",
+      "affiliate_url": "https://link.amazon/B06b50wVG",
+      "asin": null,
+      "status": "PENDING_REDIRECT_ASIN_AND_IMAGE_CHECK"
+    },
+    {
+      "name": "フォンテラ グラスフェッドバター 業務用5kg",
+      "affiliate_url": "https://link.amazon/B0auWii67",
+      "asin": null,
+      "status": "PENDING_REDIRECT_ASIN_AND_IMAGE_CHECK"
     }
   ]
 }
