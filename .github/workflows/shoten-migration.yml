@@ -4,6 +4,7 @@ on:
     paths:
       - 'shoten/**'
       - 'tools/*shoten_catalog.py'
+      - 'tools/validate_shoten_product_ops.py'
       - '.github/workflows/shoten-migration.yml'
 permissions:
   contents: read
@@ -17,6 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: '22'}
       - run: python tools/test_shoten_catalog.py
+      - run: python tools/validate_shoten_product_ops.py
       - run: for file in shoten/*.js; do node --check "$file" || exit 1; done
       - run: python tools/navigation_audit.py --strict
       - run: python tools/trial_cta_audit.py --strict
