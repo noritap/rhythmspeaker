@@ -1,6 +1,53 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "6bcd8414c41d53e0a37e7c67e43a0775df127550",
-  "products": []
+  "source_sha": "150661b0b3a12007047312db3b559d38ad07fdf6",
+  "products": [
+    {
+      "product_id": "RS-P0001",
+      "asin": "B0GYSGM9NC",
+      "brand": "SwitchBot",
+      "model": "K11+ Pro",
+      "formal_name": "SwitchBot K11+ Pro",
+      "category": "home",
+      "subcategory": "robot-vacuums",
+      "kind": "ロボット掃除機",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "家具の間や狭い場所を掃除したい人",
+        "集じんの手間を減らしたい人",
+        "小型のロボット掃除機を探している人"
+      ],
+      "eyebrow": "直径24.8cmのコンパクト設計に最大12,000Paの吸引力。家具の間まで掃除しやすいロボット掃除機。",
+      "summary": "本体と自動集じんステーションの省スペース性。使い捨てシートでの拭き掃除にも対応。",
+      "good": "家具の間や狭い場所を掃除したい人・集じんの手間を減らしたい人・小型のロボット掃除機を探している人",
+      "caution": "水拭きは使い捨てシート式で、自動モップ洗浄・乾燥は非搭載・約45dBは静音モードの値。集じん時は大きな音がするというレビューあり・段差や最大吸引時の稼働時間には利用者レビューで懸念あり・価格・レビュー件数は変動するため固定表示を避ける",
+      "highlight": "家具の間や狭い場所を掃除したい人・集じんの手間を減らしたい人・小型のロボット掃除機を探している人",
+      "date": "2026-11-11",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "家具の間や狭い場所を掃除したい人・集じんの手間を減らしたい人・小型のロボット掃除機を探している人",
+        "主な仕様": "本体と自動集じんステーションの省スペース性。使い捨てシートでの拭き掃除にも対応。"
+      },
+      "reasons": [
+        "本体と自動集じんステーションの省スペース性。使い捨てシートでの拭き掃除にも対応。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.switchbot.jp/products/switchbot-robot-vacuum-cleaner-k11-pro",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0GYSGM9NC",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B01BvACr5",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": "noritap0a1-22"
+    }
+  ]
 }
