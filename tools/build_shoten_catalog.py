@@ -157,7 +157,10 @@ def project(export_rows, source_dir, shop, source_sha, limit):
             "good": good, "caution": caution, "highlight": good, "date": checked,
             "specs": {}, "comparison": {"選ぶ基準": good, "主な仕様": editorial["why_recommend"]},
             "reasons": [editorial["why_recommend"]], "sources": sources, "href": row["affiliate_url"],
-            "approvedPhoto": photo_path(row, product, shop),\n            "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT" if owner_verified_short_link(link, asin, surface.get("tracking_id")) else "AMAZON_DIRECT",\n            "ownerVerifiedShortLink": owner_verified_short_link(link, asin, surface.get("tracking_id")),\n            "trackingId": surface.get("tracking_id")
+            "approvedPhoto": photo_path(row, product, shop),
+            "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT" if owner_verified_short_link(link, asin, surface.get("tracking_id")) else "AMAZON_DIRECT",
+            "ownerVerifiedShortLink": owner_verified_short_link(link, asin, surface.get("tracking_id")),
+            "trackingId": surface.get("tracking_id")
         })
     if len(snapshot["products"]) > limit:
         raise ValueError("Approved export exceeds the explicitly authorized publication count")
