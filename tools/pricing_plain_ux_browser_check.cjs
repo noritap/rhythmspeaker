@@ -29,7 +29,7 @@ function sourceContracts() {
     assert(block.includes("line.me/R/oaMessage/%40ypk3334t/"), plan.id + " lost selected-plan LINE intent");
     assert(js.includes(plan.yen) && js.includes(plan.tips) && js.includes(plan.bonus), "SPA plan drift " + plan.id);
   }
-  assert(html.indexOf('class="pricing-system"') > html.indexOf('class="pricing-entry-grid"'), "pricing should show prices before system details");
+  assert(html.indexOf('class="section pricing-section pricing-system"') > html.indexOf('class="pricing-entry-grid"'), "pricing should show prices before system details");
   assert.equal((html.match(/class="pricing-entry-card /g)||[]).length, 2, "first/normal fees should be in two cards");
   assert.equal((html.match(/<details><summary>/g)||[]).length, 3, "remove duplicated monthly/booking FAQ entries");
   assert.equal((html.match(/月額契約なし/g)||[]).length, 1, "monthly terms must not be duplicated");
