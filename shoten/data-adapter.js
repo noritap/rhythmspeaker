@@ -15,7 +15,7 @@
       /^[A-Za-z0-9_-]+-22$/.test(row.trackingId || '');
     const directAffiliate = !!link && core.amazonIdentity(row.href).asin === row.asin &&
       link.searchParams.getAll('tag').length === 1 && !!link.searchParams.get('tag');
-    if (!subcategory || !/^RS-P\\d{4,}$/.test(row.product_id) ||
+    if (!subcategory || !/^RS-P\d{4,}$/.test(row.product_id) ||
         !(directAffiliate || shortAffiliate)) {
       throw Error('Invalid Shoten catalog row');
     }
