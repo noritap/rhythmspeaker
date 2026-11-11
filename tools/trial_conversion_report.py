@@ -36,16 +36,18 @@ FORBIDDEN_COLUMNS = {
 }
 
 
-def rate(numerator: int, denominator: int) -> str:
-    if denominator <= 0:
+def rate(numerator: int | None, denominator: int | None) -> str:
+    if numerator is None or denominator is None or denominator <= 0:
         return "N/A"
     return f"{numerator / denominator * 100:.1f}%"
 
 
-def parse_nonnegative_int(value: str, *, row_number: int, column: str) -> int:
+def parse_nonnegative_int(value: str | None, *, row_number: int, column: str) -> int | None:
+    if value is None:
+        raise ValueError(f"row {row_number}: missing {column}")
     text = value.strip()
     if not text:
-        return 0
+        return None  # An unobserved count is not a measured zero.
     try:
         number = int(text)
     except ValueError as exc:
@@ -71,33 +73,40 @@ def load(path: Path) -> tuple[list[dict[str, str]], list[str]]:
     return rows, fieldnames
 
 
-def aggregate(rows: list[dict[str, str]]) -> tuple[dict[str, int], dict[str, dict[str, int]]]:
-    total = defaultdict(int)
-    by_page: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+def aggregate(rows: list[dict[str, str]]) -> tuple[dict[str, int | None], dict[str, dict[str, int | None]]]:
+    total: dict[str, int | None] = {}
+    by_page: dict[str, dict[str, int | None]] = defaultdict(dict)
 
     for index, row in enumerate(rows, start=2):
         page = row["page_path"].strip() or "(unknown)"
         for column in NUMERIC_COLUMNS:
             value = parse_nonnegative_int(row[column], row_number=index, column=column)
-            total[column] += value
-            by_page[page][column] += value
+            for bucket in (total, by_page[page]):
+                previous = bucket.get(column, 0)
+                bucket[column] = (
+                    None if previous is None or value is None else previous + value
+                )
 
-    return dict(total), {page: dict(values) for page, values in by_page.items()}
+    return total, dict(by_page)
 
 
-def print_metrics(label: str, values: dict[str, int]) -> None:
-    page_views = values.get("page_views", 0)
-    clicks = values.get("line_cta_clicks", 0)
-    inquiries = values.get("line_inquiries", 0)
-    bookings = values.get("trial_bookings", 0)
-    visits = values.get("trial_visits", 0)
+def show(value: int | None) -> str:
+    return "UNKNOWN" if value is None else str(value)
+
+
+def print_metrics(label: str, values: dict[str, int | None]) -> None:
+    page_views = values.get("page_views")
+    clicks = values.get("line_cta_clicks")
+    inquiries = values.get("line_inquiries")
+    bookings = values.get("trial_bookings")
+    visits = values.get("trial_visits")
 
     print(label)
-    print(f"  page_views={page_views}")
-    print(f"  line_cta_clicks={clicks} | line_ctr={rate(clicks, page_views)}")
-    print(f"  line_inquiries={inquiries} | inquiry_rate={rate(inquiries, clicks)}")
-    print(f"  trial_bookings={bookings} | booking_rate={rate(bookings, inquiries)}")
-    print(f"  trial_visits={visits} | visit_rate={rate(visits, bookings)}")
+    print(f"  page_views={show(page_views)}")
+    print(f"  line_cta_clicks={show(clicks)} | line_ctr={rate(clicks, page_views)}")
+    print(f"  line_inquiries={show(inquiries)} | inquiry_rate={rate(inquiries, clicks)}")
+    print(f"  trial_bookings={show(bookings)} | booking_rate={rate(bookings, inquiries)}")
+    print(f"  trial_visits={show(visits)} | visit_rate={rate(visits, bookings)}")
     print(f"  visit_conversion={rate(visits, page_views)}")
 
 
