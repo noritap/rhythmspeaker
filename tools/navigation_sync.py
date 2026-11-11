@@ -138,7 +138,7 @@ def main() -> int:
         if count != 1:
             raise SystemExit(f"menu boundary missing: {path}")
         updated = re.sub(r'(?<=assets/ux-lab/app.css)(?:\?[^"]*)?(?=")', '?v=20261111menulevel3', updated)
-        updated = re.sub(r'(?<=assets/ux-lab/app.js)(?:\?[^"]*)?(?=")', '?v=20261111menulevel3', updated)
+        updated = re.sub(r'(?<=assets/ux-lab/app.js)(?:\?[^"]*)?(?=")', '?v=20261111homejourney' if path == Path('index.html') else '?v=20261111menulevel3', updated)
         if updated != source:
             path.write_text(updated, encoding="utf-8")
             changed += 1
