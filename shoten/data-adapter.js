@@ -22,15 +22,15 @@
     if (row.approvedPhoto !== null && !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(row.approvedPhoto)) throw Error('Invalid approved photo path');
     if (row.gallery !== undefined && (!Array.isArray(row.gallery) || row.gallery.length > 5 || row.gallery.some(item => !item || typeof item.alt !== 'string' || !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(item.src)))) throw Error('Invalid product gallery');
     const purchase = {
-      kind:'AFFILIATE', href:row.href, label:'Amazonで商品を見る', rel:'noopener sponsored',
-      note:'広告リンクです。適格販売により当店が紹介料を得る場合があります。'
+      kind:pending?'PENDING':'AFFILIATE', href:pending?null:row.href, label:pending?'購入リンク準備中':'Amazonで商品を見る', rel:'noopener sponsored',
+      note:pending?'商品と購入先の照合が完了するまで購入リンクを表示しません。':'広告リンクです。適格販売により当店が紹介料を得る場合があります。'
     };
     return {
       ...row,
       id:row.product_id, canonicalId:row.product_id, name:row.model,
-      category_name:category.name, subcategory_name:subcategory.name, identity_state:'VERIFIED',
+      category_name:category.name, subcategory_name:subcategory.name, identity_state:pending?'UNKNOWN':'VERIFIED',
       master:{recommendation_reasons:row.reasons,sources:row.sources}, relatedIds:[], alternatives:[],
-      source:row.sources[0].url, purchase
+      source:row.sources[0]?.url || null, purchase
     };
   }
 
