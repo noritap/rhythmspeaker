@@ -37,8 +37,8 @@ async function waitForRelease() {
 
 (async () => {
   const {html, js, css, attempt} = await waitForRelease();
-  assert(html.includes("初回体験の内容・申し込みへ"), "new comparison not live");
-  assert(js.includes("初回体験の内容・申し込みへ"), "SPA old copy still live");
+  assert(html.includes("1回から、自分のペースで通えます。"), "new comparison not live");
+  assert(js.includes("1回から、自分のペースで通えます。"), "SPA old copy still live");
   assert(css.includes("Pricing UX v3"), "responsive CSS not live");
   assert.equal((html.match(/class="pricing-entry-card /g)||[]).length, 2);
   assert.equal((html.match(/<details><summary>/g)||[]).length, 3);
