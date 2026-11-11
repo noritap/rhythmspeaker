@@ -20,6 +20,7 @@
   $('#affiliate-disclosure').textContent = disclosure;
   let compare = [];
   try { const saved = JSON.parse(localStorage.getItem('rs-shop-compare-v1') || '[]'); if (Array.isArray(saved)) compare = [...new Set(saved)].filter(id => byId(id)).slice(0,3); } catch (_) {}
+  if (!canCompare) compare = [];
   const emptyFilters = () => ({q:'',category:'all',subcategory:'all',purpose:'all',verified:'all',sort:'editor'});
   let filter = emptyFilters();
   let articleFilter = {q:'', category:'all'};
@@ -54,16 +55,16 @@
   const failedMedia=new Set();
   function productVisual(p,loading='lazy') {
     const m=displayMedia(p),photo=m.mode!=='ILLUSTRATION'&&!failedMedia.has(m.url);
-    const image=photo?`<img class="product-photo" src="${esc(m.url)}" alt="${esc(p.formal_name)}" data-product-photo="true" loading="${loading}" referrerpolicy="no-referrer">`:`<div class="photo-pending"><strong>${esc(p.name)}</strong><span>写真を確認中</span></div>`;
+    const image=photo?`<img class="product-photo" src="${esc(m.url)}" alt="${esc(p.formal_name)}" data-product-photo="true" loading="${loading}" referrerpolicy="no-referrer">`:`<div class="photo-pending"><strong>${esc(p.name)}</strong><span>商品画像準備中</span></div>`;
     return `<div class="product-media" data-product-media="${p.id}" data-mode="${photo?m.mode:'ILLUSTRATION'}" data-quality="${m.quality||''}">${image}</div>`;
   }
-  function mediaLabel(p){const m=displayMedia(p);return m.mode==='ILLUSTRATION'||failedMedia.has(m.url)?'写真を確認中':m.label;}
+  function mediaLabel(p){const m=displayMedia(p);return m.mode==='ILLUSTRATION'||failedMedia.has(m.url)?'商品画像準備中':m.label;}
   function restoreMedia(el,p) {
     const card=el.closest('.product-card'),detail=el.closest('.detail-image'),feature=el.closest('.edition-pick');
     el.outerHTML=productVisual(p);
     if(card){card.querySelector('.image-caption').textContent=mediaLabel(p);}
-    if(detail)detail.querySelector('[data-media-caption]').textContent='写真を確認中';
-    if(feature)feature.querySelector('.edition-source').textContent='写真を確認中';
+    if(detail)detail.querySelector('[data-media-caption]').textContent='商品画像準備中';
+    if(feature)feature.querySelector('.edition-source').textContent='商品画像準備中';
   }
   document.addEventListener('error',e=>{if(e.target instanceof HTMLImageElement&&e.target.matches('img[data-product-photo]')){failedMedia.add(e.target.getAttribute('src'));const el=e.target.closest('[data-product-media]'),p=byId(el?.dataset.productMedia);if(p)restoreMedia(el,p);}},true);
   const subcategoryName=p=>category(p.category).children.find(c=>c.id===p.subcategory)?.name||'';
