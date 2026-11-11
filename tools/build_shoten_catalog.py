@@ -127,7 +127,8 @@ def project(export_rows, source_dir, shop, source_sha, limit):
             or not link.get("verified_at") or link.get("generated_by") not in {"SITESTRIPE", "MOBILE_GETLINK", "AMAZON_OFFICIAL_OTHER", "CREATORS_API", "PA_API"}
             or link.get("special_link") != row["affiliate_url"]
             or link.get("tracking_id") != surface.get("tracking_id")
-            or not (verified_special_link(row["affiliate_url"], asin, surface.get("tracking_id"))\n                    or owner_verified_short_link(link, asin, surface.get("tracking_id")))
+            or not (verified_special_link(row["affiliate_url"], asin, surface.get("tracking_id"))
+                    or owner_verified_short_link(link, asin, surface.get("tracking_id")))
             or pid in used_ids or asin in used_asins
         ):
             raise ValueError("Commerce approval, identity or Special Link mismatch")
