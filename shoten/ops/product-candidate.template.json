@@ -1,0 +1,29 @@
+{
+  "product_id": "RS-P0002",
+  "status": "CANDIDATE",
+  "formal_name": "",
+  "brand": "",
+  "model": "",
+  "asin": "",
+  "category": "",
+  "subcategory": "",
+  "used_at_studio": false,
+  "usage_evidence": "未使用・調査のみ",
+  "score": {
+    "reader_value": 0,
+    "information_reliability": 0,
+    "purchase_intent": 0,
+    "originality": 0,
+    "maintenance_efficiency": 0
+  },
+  "score_evidence": "",
+  "manufacturer_sources": [],
+  "amazon_associates_url": "",
+  "amazon_link_verified_by_owner": false,
+  "verified_target_asin": "",
+  "photos": [],
+  "photo_rights_confirmed": false,
+  "article_url": "",
+  "checked_at": "",
+  "notes": "採点80点以上でも必須検品と本人承認が必要"
+}
