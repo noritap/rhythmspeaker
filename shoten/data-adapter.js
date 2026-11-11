@@ -8,9 +8,15 @@
     const category = editorial.categories.find(c => c.id === row.category);
     const subcategory = category?.children.find(c => c.id === row.subcategory);
     const link = core.safeURL(row.href, ['amazon.co.jp', 'www.amazon.co.jp']);
+    const shortAffiliate = row.affiliateLinkKind === 'AMAZON_OFFICIAL_SHORT' &&
+      row.ownerVerifiedShortLink === true &&
+      /^https:\/\/link\.amazon\/[A-Za-z0-9]+$/.test(row.href) &&
+      /^[A-Z0-9]{10}$/.test(row.asin) &&
+      /^[A-Za-z0-9_-]+-22$/.test(row.trackingId || '');
+    const directAffiliate = !!link && core.amazonIdentity(row.href).asin === row.asin &&
+      link.searchParams.getAll('tag').length === 1 && !!link.searchParams.get('tag');
     if (!subcategory || !/^RS-P\d{4,}$/.test(row.product_id) ||
-        !link || core.amazonIdentity(row.href).asin !== row.asin ||
-        link.searchParams.getAll('tag').length !== 1 || !link.searchParams.get('tag')) {
+        !(directAffiliate || shortAffiliate)) {
       throw Error('Invalid Shoten catalog row');
     }
     if (row.approvedPhoto !== null && !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(row.approvedPhoto)) throw Error('Invalid approved photo path');

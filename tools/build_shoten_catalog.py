@@ -50,6 +50,20 @@ def verified_special_link(url, asin, tracking_id):
     return bool(re.fullmatch(r"[A-Za-z0-9_-]+", tracking_id or "")) and query.get("tag") == [tracking_id]
 
 
+def owner_verified_short_link(link, asin, tracking_id):
+    """Only a specific owner-attested Amazon-issued short link may be published."""
+    url = link.get("special_link")
+    parts = secure_url(url)
+    return bool(
+        parts and parts.hostname == "link.amazon" and not parts.query and not parts.fragment
+        and re.fullmatch(r"/[A-Za-z0-9]+", parts.path)
+        and link.get("generated_by") in {"SITESTRIPE", "MOBILE_GETLINK", "AMAZON_OFFICIAL_OTHER"}
+        and link.get("verification_method") == "OWNER_CONFIRMED_AMAZON_ISSUED_AND_CHROME_DESTINATION"
+        and link.get("source_page_url") == f"https://www.amazon.co.jp/dp/{asin}"
+        and link.get("tracking_id") == tracking_id
+    )
+
+
 def photo_path(export, product, shop):
     image = export.get("image") or {}
     original = product.get("image") or {}
@@ -110,10 +124,10 @@ def project(export_rows, source_dir, shop, source_sha, limit):
                        and a.get("decision") == "APPROVED" for a in approvals)
             or link.get("product_id") != pid or link.get("surface_id") != SURFACE_ID
             or link.get("status") != "VERIFIED" or not link.get("verification_method")
-            or not link.get("verified_at") or link.get("generated_by") not in {"SITESTRIPE", "CREATORS_API", "PA_API"}
+            or not link.get("verified_at") or link.get("generated_by") not in {"SITESTRIPE", "MOBILE_GETLINK", "AMAZON_OFFICIAL_OTHER", "CREATORS_API", "PA_API"}
             or link.get("special_link") != row["affiliate_url"]
             or link.get("tracking_id") != surface.get("tracking_id")
-            or not verified_special_link(row["affiliate_url"], asin, surface.get("tracking_id"))
+            or not (verified_special_link(row["affiliate_url"], asin, surface.get("tracking_id"))\n                    or owner_verified_short_link(link, asin, surface.get("tracking_id")))
             or pid in used_ids or asin in used_asins
         ):
             raise ValueError("Commerce approval, identity or Special Link mismatch")
@@ -142,7 +156,7 @@ def project(export_rows, source_dir, shop, source_sha, limit):
             "good": good, "caution": caution, "highlight": good, "date": checked,
             "specs": {}, "comparison": {"選ぶ基準": good, "主な仕様": editorial["why_recommend"]},
             "reasons": [editorial["why_recommend"]], "sources": sources, "href": row["affiliate_url"],
-            "approvedPhoto": photo_path(row, product, shop)
+            "approvedPhoto": photo_path(row, product, shop),\n            "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT" if owner_verified_short_link(link, asin, surface.get("tracking_id")) else "AMAZON_DIRECT",\n            "ownerVerifiedShortLink": owner_verified_short_link(link, asin, surface.get("tracking_id")),\n            "trackingId": surface.get("tracking_id")
         })
     if len(snapshot["products"]) > limit:
         raise ValueError("Approved export exceeds the explicitly authorized publication count")

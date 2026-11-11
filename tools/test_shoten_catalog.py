@@ -97,6 +97,24 @@ class TestShotenCatalog(unittest.TestCase):
             with self.subTest(link=link):
                 self.assertFalse(verified_special_link(link, asin, "fixture-only"))
 
+    def test_owner_attested_amazon_short_link(self):
+        item = fixture()
+        short = "https://link.amazon/B01BvACr5"
+        item["affiliate_links"].update({
+            "special_link": short,
+            "generated_by": "AMAZON_OFFICIAL_OTHER",
+            "verification_method": "OWNER_CONFIRMED_AMAZON_ISSUED_AND_CHROME_DESTINATION",
+            "source_page_url": "https://www.amazon.co.jp/dp/" + item["products"]["asin"],
+        })
+        item["row"]["affiliate_url"] = short
+        row, = self.run_projection(item)
+        self.assertEqual(row["href"], short)
+        self.assertTrue(row["ownerVerifiedShortLink"])
+        self.assertEqual(row["affiliateLinkKind"], "AMAZON_OFFICIAL_SHORT")
+        item["affiliate_links"]["source_page_url"] = "https://www.amazon.co.jp/dp/WRONG00000"
+        with self.assertRaisesRegex(ValueError, "Special Link"):
+            self.run_projection(item)
+
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
         asset = "./assets/products/sample.webp"
