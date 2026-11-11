@@ -20,6 +20,7 @@
       throw Error('Invalid Shoten catalog row');
     }
     if (row.approvedPhoto !== null && !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(row.approvedPhoto)) throw Error('Invalid approved photo path');
+    if (row.gallery !== undefined && (!Array.isArray(row.gallery) || row.gallery.length > 5 || row.gallery.some(item => !item || typeof item.alt !== 'string' || !/^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(item.src)))) throw Error('Invalid product gallery');
     const purchase = {
       kind:'AFFILIATE', href:row.href, label:'Amazonで商品を見る', rel:'noopener sponsored',
       note:'広告リンクです。適格販売により当店が紹介料を得る場合があります。'

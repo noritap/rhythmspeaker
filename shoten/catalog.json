@@ -47,7 +47,30 @@
       "approvedPhoto": "./assets/products/rs-p0001-k11-pro-ivory.webp",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": "noritap0a1-22"
+      "trackingId": "noritap0a1-22",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0001-k11-pro-ivory.webp",
+          "alt": "K11+ Pro 本体と自動集じんステーション"
+        },
+        {
+          "src": "./assets/products/rs-p0001-k11-pro-under-chair.webp",
+          "alt": "椅子の下に入るコンパクトなK11+ Pro"
+        },
+        {
+          "src": "./assets/products/rs-p0001-k11-pro-placement.webp",
+          "alt": "省スペースで置けるK11+ Pro"
+        },
+        {
+          "src": "./assets/products/rs-p0001-k11-pro-quiet.webp",
+          "alt": "K11+ Proの静音設計を紹介する画像"
+        },
+        {
+          "src": "./assets/products/rs-p0001-k11-pro-station.webp",
+          "alt": "K11+ Proの小型自動集じんステーション"
+        }
+      ],
+      "studioIntro": "タップダンススタジオ「Rhythm Speaker」でも使っている、頼れるお掃除ロボット。人が出入りするスタジオでは、床をきれいに保つことが大切です。レッスンの準備や片付けで忙しい日々の掃除をサポートしてくれます。直径約24.8cmのコンパクトな本体と省スペースの自動集じんステーションが魅力。掃除をすべて任せるのではなく、毎日の負担を少し軽くしてくれる道具としてご紹介します。"
     }
   ]
 }
