@@ -20,7 +20,7 @@ const personCard=p=>`<article class="card person" data-person="${p.id}">${image(
 // Render the same price-first content as pricing/index.html for SPA routes.
 // All outbound internal URLs are root-absolute to work from any current pathname.
 // Pricing SPA shares visitor-facing wording and plan links with pricing/index.html.
-function pricing(){return `<section class="page-head"><p class="eyebrow">PRICING & LESSON PLANS</p><h1>料金・通い方</h1><p>入会金0円・月額契約なし。自分のペースで通えます。</p></section>
+function pricing(){return `<section class="page-head"><p class="eyebrow">PRICING & LESSON PLANS</p><h1>料金・通い方</h1><p>1回から、自分のペースで通えます。</p></section>
 
 <div class="pricing-proof"><span>入会金0円</span><span>月額契約なし</span><span>1回から利用OK</span></div>
 <div class="pricing-entry-grid">
