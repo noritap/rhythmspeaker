@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "product_id": "RS-P0007",
+  "status": "IDENTITY_AND_IMAGE_REVIEW",
+  "formal_name": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
+  "brand": "by Amazon",
+  "manufacturer": "伊藤忠リーテイルリンク（第三者掲載情報による、一次資料未確認）",
+  "category": "home",
+  "subcategory": "consumables",
+  "kind": "取っ手付きごみ袋",
+  "purpose": "routine",
+  "existing_upstream_id_preserved": true,
+  "existing_owner_affiliate_url_on_file": true,
+  "affiliate_registration_owner_action_required": false,
+  "affiliate_url_handling": "Already submitted by owner in separate link registration workflow; do not request again or write affiliate URL here.",
+  "product_identity": {
+    "manufacturer_page_verified": false,
+    "amazon_direct_page_verified": false,
+    "amazon_product_page_url_candidate": "https://www.amazon.co.jp/dp/B089TGWXZS",
+    "amazon_product_url_status": "SECONDARY_MATCH_ONLY_NOT_INDEPENDENTLY_VERIFIED",
+    "amazon_shortlink_destination": "OWNER_ATTESTED_IN_EXISTING_AFFILIATE_WORKFLOW; not independently reverified"
+  },
+  "specs_from_secondary_sources": {
+    "capacity_l": 45,
+    "package_count": 100,
+    "color": "半透明",
+    "material": "高密度ポリエチレン（HDPE）",
+    "thickness_mm": 0.015,
+    "bag_dimensions_mm": {
+      "height": 800,
+      "body_width": 400,
+      "gusset": 250
+    },
+    "handles": true
+  },
+  "specs_verification_note": "Secondary marketplace listings agree. Manufacturer/Amazon first-party product data not independently retrieved; do not claim manufacturer-confirmed specifications.",
+  "editorial": {
+    "eyebrow": "取っ手付きで結びやすい、45L・100枚入りの半透明ごみ袋。",
+    "summary": "日々のごみ捨てで使う45Lの取っ手付きごみ袋。100枚入りで補充回数を減らせるため、家庭やスタジオなどで継続的に使用する消耗品の候補です。",
+    "good": "ごみ袋をまとめて補充したい方・取っ手を結んで持ち運びたい方・45L容量を普段使いする方",
+    "caution": "メーカー仕様の一次確認が未完了です。薄手タイプのため重いごみや鋭利なものには注意。自治体のごみ袋指定やゴミ箱の寸法と合うか購入前に確認してください。使用経験は確認できないため主張しません。",
+    "comparison": {
+      "容量": "45L",
+      "入数": "100枚",
+      "形状": "取っ手付き",
+      "材質": "HDPE（第三者掲載情報）",
+      "厚み": "0.015mm（第三者掲載情報）"
+    },
+    "personal_use_status": "NOT_CLAIMED"
+  },
+  "sources": [
+    {
+      "url": "https://ymall.jp/store/luckycart/b089tgwxzs-20260513/",
+      "source_type": "SECONDARY_MARKETPLACE_LISTING",
+      "role": "Spec and formal name cross-check"
+    },
+    {
+      "url": "https://www.amazon-hikaku.com/b089tgwxzs/",
+      "source_type": "SECONDARY_AGGREGATOR",
+      "role": "Cross-check; editorial scores and current pricing not used"
+    }
+  ],
+  "image_assets": [],
+  "image_rights_status": "NO_LICENSED_PRODUCT_IMAGE_RECORDED",
+  "image_alt_draft": "by Amazon 45L 100枚入り取っ手付きごみ袋の商品パッケージ（写真確保時に実物照合）",
+  "publication_cta_enabled": false,
+  "ready_for_affiliate_link": false,
+  "remaining_gates": [
+    "Confirm same product and variant against Amazon primary listing using existing owner link evidence or authorized catalog record",
+    "Confirm formal specification in first-party source",
+    "Acquire and verify one republishable product image with rights evidence",
+    "Link registration workflow resolves existing internal identifier/tracking separately"
+  ],
+  "checked_at": "2026-11-13",
+  "note": "Preparation only. Existing owner-supplied affiliate link is already handled in link-registration chat. No changes to upstream ledger, main, or public catalog."
+}
