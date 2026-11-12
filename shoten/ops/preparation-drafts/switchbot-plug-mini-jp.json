@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "status": "IMAGE_AND_ID_REVIEW",
+  "ready_for_affiliate_link": false,
+  "product_id": null,
+  "id_policy": "Not present in current upstream data/products.json. Allocate unused ID through canonical upstream master, never repurpose RS-P0003/0004/0006.",
+  "formal_name": "SwitchBot プラグミニ（JP）通常版 1個",
+  "brand": "SwitchBot",
+  "model": "W2001400",
+  "variant": "日本用／HomeKit非対応の通常版",
+  "category": "home",
+  "subcategory": "smart-home",
+  "kind": "Wi-Fiスマートプラグ",
+  "purpose": "time",
+  "personal_use_status": "NOT_CLAIMED",
+  "manufacturer_specs": {
+    "rated_voltage": "100V AC",
+    "max_current_a": 15,
+    "max_power_w": 1500,
+    "frequency": "50/60Hz",
+    "wifi": "2.4GHz (IEEE 802.11 b/g/n)",
+    "bluetooth": "Bluetooth Low Energy",
+    "size_discrepancy_note": "Manufacturer product and support pages report differing third dimension (39mm vs 59mm). Do not print dimensions until resolved.",
+    "n_polarized_socket_required": true,
+    "hub_required": false,
+    "energy_monitoring": true
+  },
+  "amazon_product_page_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
+  "amazon_url_status": "MANUFACTURER_LINK_CONFIRMED_HISTORICAL_CURRENT_LIVE_DETAIL_NOT_CHECKED",
+  "amazon_source": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
+  "editorial": {
+    "eyebrow": "Wi-Fiにつないで、身近な家電の電源操作や消費電力の確認ができるスマートプラグ。",
+    "summary": "SwitchBot プラグミニ（JP）は、スマートフォンから電源のオン・オフやスケジュール設定ができる、国内100V向けのスマートプラグ。Wi-Fi 2.4GHzに対応し、専用ハブなしで操作できます。対応機器の電力使用状況を確認したい方にもおすすめの候補です。",
+    "good_for": [
+      "照明や対応家電の電源を外出先から操作したい人",
+      "電力使用状況の把握を始めたい人",
+      "スマートホームを小さく始めたい人"
+    ],
+    "limitations": [
+      "N極対応（幅広差し込み口）のコンセント・延長コードが必要",
+      "定格1500W・15Aを超えて使用しない",
+      "電源復帰後に自動起動すると危険な熱器具・医療機器などには使用しない",
+      "Wi-Fi 5GHzのみのネットワーク環境では利用できない",
+      "HomeKit対応版とは別製品。画像・Amazon商品の同一性に注意",
+      "本人の使用実績は確認していない"
+    ],
+    "comparison": {
+      "定格電力": "1500W",
+      "通信": "Wi-Fi 2.4GHz / Bluetooth Low Energy",
+      "ハブ": "不要",
+      "電力計測": "対応",
+      "コンセント": "N極対応が必要"
+    }
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://www.switchbot.jp/products/switchbot-plug-mini",
+      "label": "公式製品・安全上の注意",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://support.switch-bot.com/hc/ja/articles/5267434363543-SwitchBot-%E3%83%97%E3%83%A9%E3%82%B0%E3%83%9F%E3%83%8B-SwitchBot%E3%83%97%E3%83%A9%E3%82%B0%E3%81%A8%E3%81%AE%E7%9B%B8%E9%81%95%E7%82%B9%E3%81%AF%E4%BD%95%E3%81%A7%E3%81%97%E3%82%87%E3%81%86%E3%81%8B",
+      "label": "SwitchBot official variant comparison",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image_assets": [],
+  "image_rights_status": "UNVERIFIED; do not copy manufacturer/Amazon photos to repository",
+  "image_source_strategy": "Owner original product photo or manufacturer licensed asset; alternatively Amazon-authorized image URL via permitted affiliate technology, not downloaded/rehosted",
+  "publication_cta_enabled": false,
+  "remaining_preparation_gates": [
+    "Reserve canonical unused ID in upstream ledger",
+    "License-cleared or authorized product image and display verification",
+    "Current Amazon listing identity and availability check for ordinary JP model"
+  ],
+  "checked_at": "2026-11-13",
+  "notes": "Recommendation candidate only, not robot vacuum. Main and production unchanged."
+}
