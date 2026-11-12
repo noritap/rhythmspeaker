@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "candidate_key": "owner-025",
+  "product_id": null,
+  "status": "AMAZON_AND_ID_REVIEW",
+  "content_status": "CONTENT_READY",
+  "ready_for_affiliate_link": false,
+  "owner_selection": "OWNER_INVENTORY",
+  "owner_use_evidence": "NOT_CLAIMED",
+  "brand": "Anker",
+  "formal_name": "Anker Prime Charger (160W, 3 Ports) シルバー",
+  "model": "A2687N41",
+  "color": "シルバー",
+  "kind": "USB-C急速充電器",
+  "category": "work-proposed",
+  "category_state": "PROPOSED_NOT_APPROVED",
+  "amazon_product_page_url": null,
+  "amazon_candidate_url_unverified": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
+  "amazon_evidence": "Third-party RiverPrice associates this ASIN with the silver 160W 3-port model. Direct Amazon.co.jp page retrieval unavailable; not accepted as exact live verification.",
+  "amazon_url_status": "AMAZON_PRIMARY_MATCH_PENDING",
+  "manufacturer_specs": {
+    "ports": "USB-C × 3",
+    "total_max_output_w": 160,
+    "single_port_max_output_w": 140,
+    "dimensions_mm": [
+      65,
+      52,
+      35
+    ],
+    "weight_g_approx": 220,
+    "display": "タッチ式ディスプレイ",
+    "usb_c_cable_included": false
+  },
+  "editorial": {
+    "title": "Anker Prime Charger 160W｜高出力3ポート充電器",
+    "catchline": "ノートPCもスマホも、3ポートでまとめて充電。",
+    "summary": "Anker Prime Charger (160W, 3 Ports)は、USB-Cを3ポート搭載し、合計最大160W出力に対応するコンパクトな急速充電器です。単ポートでは最大140Wに対応し、ノートPCとスマートフォンなどを持ち歩く人に便利。タッチ式ディスプレイで充電状態も確認できます。接続機器とケーブルの対応規格を確認して選びましょう。",
+    "why_recommend": "複数端末を持ち歩く人が最大出力・携帯性・ポート数を比較しやすい。",
+    "good_for": [
+      "ノートPCとスマートフォンの充電器をまとめたい人",
+      "USB-C機器を複数持つ人",
+      "外出先で出力状態を確認したい人"
+    ],
+    "cautions": [
+      "最大出力は接続数・機器・ケーブルに依存",
+      "USB-Cケーブルは別売り",
+      "充電中の本体発熱に注意",
+      "実使用レビューではない"
+    ],
+    "compare_points": [
+      "総出力160W",
+      "USB-C 3ポート",
+      "約220g"
+    ],
+    "tags": [
+      "充電器",
+      "USB-C",
+      "仕事道具",
+      "出張"
+    ],
+    "seasonal_features": [
+      "新生活",
+      "年末の持ち物整理"
+    ]
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://www.ankerjapan.com/products/a2687",
+      "role": "PRIMARY",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://service.anker.com/product-description/a08J1000000YpQ6IAK?recordId=a08J1000000YpQ6IAK",
+      "role": "PRIMARY",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "secondary_sources": [
+    {
+      "url": "https://riverprice.com/jp/product/B0F2MRRKH7/anker-prime-charger",
+      "role": "AMAZON_VARIANT_SECONDARY_ONLY",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "image": {
+    "approvedPhoto": null,
+    "gallery": [],
+    "image_status": "IMAGE_OPTIONAL_PENDING"
+  },
+  "remaining_gates": [
+    "Verify exact silver A2687N41 Amazon.co.jp listing via primary Amazon or manufacturer link",
+    "Approve mapping to existing official category or category extension",
+    "Assign and register unique canonical product ID upstream",
+    "Run compatibility validation"
+  ],
+  "last_verified": "2026-11-13",
+  "publication_gate": "PROHIBITED_THIS_CHAT"
+}
