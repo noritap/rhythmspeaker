@@ -115,7 +115,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   assert.equal(await page.locator('.rs-eco-blog-grid a').first().getAttribute('href'),'https://tapdance-rhythmspeaker.hatenablog.com/');
   assert.equal(await page.locator('.rs-eco-blog-grid a').last().getAttribute('href'),'https://rhythmspeaker.hatenablog.com/');
   assert(await page.locator('html').evaluate(e=>e.scrollWidth<=e.clientWidth),width+' ecosystem overflow');
-  assert.equal(await page.locator('.rs-eco-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\\s+/).length),2);
+  assert.equal(await page.locator('.rs-eco-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length),2);
   const groups=page.locator('.rs-eco-group');
   for(let i=0;i<5;i++){
     const group=groups.nth(i);
