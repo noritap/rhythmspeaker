@@ -5,36 +5,36 @@
   "handoff_target": "AMAZON_AFFILIATE_LINK_REGISTRATION_CHAT",
   "scope": "PREPARATION_BRANCH_ONLY",
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS/data/products.json",
-  "source_of_truth_updated": false,
-  "summary": "Upstream-compatible two-row import payload has been prepared with collision-free ID proposals and verified source URLs, but the canonical upstream repo has not been modified. They remain CONTENT_READY/ID_REVIEW, not READY.",
+  "source_of_truth_updated": true,
+  "summary": "Both products have canonical upstream IDs registered on main after upstream PR #18 squash merge. Both are READY_FOR_AFFILIATE_LINK, photographs optional, and require only owner-issued official Amazon Associates special links before link-registration and publication workflows.",
   "products": [
     {
       "product": "EcoFlow DELTA 3 Classic 1024Wh",
       "candidate_local_id": "RS-P0014",
-      "canonical_product_id": null,
+      "canonical_product_id": "RS-P0014",
       "model": "EF-DL3-C",
       "category": "outdoor",
       "amazon_regular_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
       "amazon_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html",
       "manufacturer_spec_source": "https://jp.ecoflow.com/products/delta-3-classic",
       "draft_path": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
-      "status": "UPSTREAM_PR_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "image_status": "IMAGE_OPTIONAL_PENDING",
-      "required_ai_next_step": "Review and merge upstream PR #18 in permitted workflow, fetch canonical main product IDs, set READY. Photo optional."
+      "required_ai_next_step": "Owner: generate official Amazon Associates special URL for this exact product. Link-registration chat: attach exact link with existing canonical ID; preserve approval/publishing safety gates."
     },
     {
       "product": "SwitchBot プラグミニ（JP）通常版 1個",
       "candidate_local_id": "RS-P0015",
-      "canonical_product_id": null,
+      "canonical_product_id": "RS-P0015",
       "model": "W2001400",
       "category": "home",
       "amazon_regular_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
       "amazon_source": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
       "manufacturer_spec_source": "https://www.switchbot.jp/products/switchbot-plug-mini",
       "draft_path": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
-      "status": "UPSTREAM_PR_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "image_status": "IMAGE_OPTIONAL_PENDING",
-      "required_ai_next_step": "Review and merge upstream PR #18 in permitted workflow, fetch canonical main product IDs, set READY. Photo optional."
+      "required_ai_next_step": "Owner: generate official Amazon Associates special URL for this exact product. Link-registration chat: attach exact link with existing canonical ID; preserve approval/publishing safety gates."
     }
   ],
   "security": [
@@ -48,7 +48,7 @@
     "regular_url_identity": "PASS (manufacturer press link)",
     "sku_differences": "PASS (standalone EcoFlow; ordinary/non-HomeKit SwitchBot)",
     "id_uniqueness": "PRELIMINARY_RESERVED_LOCALLY_NOT_CANONICAL",
-    "json_saved_retrieval": "PASS_IN_PRIOR_TURN",
+    "json_saved_retrieval": "PENDING_LAST_READ",
     "catalog_compatibility": "NOT_TESTED",
     "main_deploy": "NOT_PERFORMED",
     "upstream_import_payload": "PREPARED_AND_LOCAL_CHECKS_PASSED",
@@ -57,19 +57,20 @@
     "canonical_id_assignment": "NOT_PERFORMED",
     "upstream_branch_write": "COMPLETED",
     "upstream_branch_readback": "PASS",
-    "upstream_pr": "OPEN_REVIEW",
-    "upstream_main_registration": "PENDING"
+    "upstream_pr": "MERGED",
+    "upstream_main_registration": "VERIFIED",
+    "canonical_ids": "RS-P0014/RS-P0015"
   },
   "upstream_import_proposal": "shoten/ops/preparation-batches/BATCH-20261113-01-UPSTREAM-IMPORT-PROPOSAL.json",
   "latest_proposal_validation_at": "2026-11-13",
   "upstream_registration": {
     "branch": "work/shoten-product-id-registration-20261113",
-    "commit": "e521c6221f59fdefca3c9f30159fedc6445e7b8a",
+    "commit": "dc7489ba10ffc5698928035ac65cdb78489af32e",
     "pr_url": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
     "branch_ids_registered": [
       "RS-P0014",
       "RS-P0015"
     ],
-    "main_merged": false
+    "main_merged": true
   }
 }
