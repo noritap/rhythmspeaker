@@ -17,10 +17,10 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "IDENTITY_REVIEW": 11,
+    "IDENTITY_REVIEW": 10,
     "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
     "READY_FOR_AFFILIATE_LINK": 6,
-    "CATEGORY_REVIEW": 2
+    "CATEGORY_REVIEW": 3
   },
   "entries": [
     {
@@ -233,15 +233,15 @@
     },
     {
       "candidate_key": "owner-010",
-      "product_id": null,
-      "formal_name": "HARNEY & SONS バニラ系紅茶",
+      "product_id": "RS-P0022",
+      "formal_name": "HARNEY & SONS Vanilla Loose Leaf 112g",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -258,18 +258,24 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "net_weight_g": 112,
+        "package": "ルースリーフ",
+        "brewing": "100℃3分",
+        "caffeine": "有"
+      },
+      "source_urls": [
+        "https://www.harney.jp/products/vanilla-loose-leaf"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Food category approved mapping"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "owner_variant_note": "Editorially selected exact variant; owner's actual purchased package remains unknown",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-011",
@@ -889,7 +895,7 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 9,
+  "completed_content_ready_count": 10,
   "new_ready_count": 7,
   "candidate_id_map": [
     {
@@ -920,20 +926,22 @@
   "current_rule_version": "v5.1_URL_OPTIONAL",
   "last_run": {
     "date": "2026-11-13",
-    "policy": "v5.1",
-    "new_upstream_ids": [
+    "upstream_main_registered": [
       "RS-P0020",
-      "RS-P0021"
+      "RS-P0021",
+      "RS-P0022"
     ],
-    "new_ready_ids": [
+    "new_ready": [
       "RS-P0020"
     ],
-    "registered_not_ready": [
-      "RS-P0021"
+    "category_pending": [
+      "RS-P0021",
+      "RS-P0022"
     ],
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/21",
-    "main_refetched": true,
-    "qa": "JSON and prior-record preservation / ID uniqueness checked; remote suite not executed",
-    "next": "Remaining identity review owner-005,008,010,011,012,013,014,017,018,022,024. Food and apparel category proposals remain unapproved."
+    "prs": [
+      "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/21",
+      "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/22"
+    ],
+    "notes": "Manufacturer-led SKU selection does not establish owner's original color/size/pack. Confirm only when owner link is registered, do not fabricate. 20 entries preserved."
   }
 }
