@@ -12,7 +12,8 @@
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 20
+    "batch_preparation_rows": 20,
+    "new_content_ready_from_priority_batch": 2
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -154,7 +155,7 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Continue v5 production, matching 20 batch candidates to manufacturer SKU/official Amazon URLs and canonical IDs. Verify and increment CONTENT_READY only after source-backed completion; do not count saved drafts as publication.",
+  "next_best_action": "Registration chat: reconcile and formally assign candidate RS-P0014 and RS-P0015 in external canonical product master; then mark both READY_FOR_AFFILIATE_LINK. No photo required. No main merge.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -191,9 +192,9 @@
     "target_count": 20,
     "saved_rows": 20,
     "new_ready": 0,
-    "content_ready_verified": 0,
-    "missing_critical": 20,
-    "mode": "PHOTO_OPTIONAL_PREPARATION_RECORDS",
+    "content_ready_verified": 2,
+    "missing_critical": 18,
+    "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
     "qa": {
       "json_parse": "PASS",
@@ -201,7 +202,11 @@
       "unique_candidate_key": "PASS",
       "required_fields": "PASS",
       "official_catalog_compatibility": "NOT_TESTED",
-      "amazon_id_verification": "INCOMPLETE"
+      "amazon_id_verification": "INCOMPLETE",
+      "manufacturer_specs": "PASS_FOR_2",
+      "amazon_url_mapping": "PASS_FOR_2",
+      "canonical_ids": "NOT_ASSIGNED_IN_UPSTREAM",
+      "repo_write": "PREPARATION_ONLY"
     },
     "category_distribution": {
       "home": 4,
@@ -211,5 +216,33 @@
       "work-proposed": 3,
       "outdoor": 2
     }
+  },
+  "priority_batch_20261113_01": {
+    "target_items": [
+      "EcoFlow DELTA 3 Classic（1024Wh）",
+      "SwitchBot プラグミニ（JP）通常版 1個"
+    ],
+    "result": "TWO_CONTENT_READY_CANONICAL_ID_REGISTRATION_REQUIRED",
+    "content_ready_count": 2,
+    "ready_for_affiliate_link_count": 0,
+    "proposed_id_pairs": [
+      {
+        "candidate": "RS-P0014",
+        "product": "EcoFlow DELTA 3 Classic（1024Wh）",
+        "canonical_registered": false
+      },
+      {
+        "candidate": "RS-P0015",
+        "product": "SwitchBot プラグミニ（JP）通常版 1個",
+        "canonical_registered": false
+      }
+    ],
+    "amazon_urls": [
+      "https://www.amazon.co.jp/dp/B0G8DVFCPP",
+      "https://www.amazon.co.jp/dp/B09PYLWNGV"
+    ],
+    "handoff": "shoten/ops/preparation-batches/BATCH-20261113-01-ID-HANDOFF.json",
+    "remaining_gate": "Canonical IDs must be assigned in external product-master repository during authorized registration workflow; no external write authorized for this turn",
+    "photo_gate": false
   }
 }
