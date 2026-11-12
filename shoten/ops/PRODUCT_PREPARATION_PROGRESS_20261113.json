@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "updated_at": "2026-11-13",
-  "source_policy": "shoten/ops/PRODUCT_PREPARATION_CHAT_V2.md",
+  "source_policy": "shoten/ops/PRODUCT_PREPARATION_CHAT_V4.md",
   "reference_branch": "work/shoten-product-preparation-20261113",
   "counts": {
     "target": 35,
@@ -138,7 +138,7 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Recheck candidates ignoring photos as a blocker, prioritize existing requested products and finalize canonical IDs, same-SKU Amazon URLs, spec and content; let link registration/publication workflows validate final link and photo-less UI.",
+  "next_best_action": "Perform one isolated image-null catalog validation/test, recover owner-provided candidate list from prior attachments, and prioritize existing requested items. Photos do not block READY. Canonical IDs and matching Amazon URLs remain required.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -153,5 +153,8 @@
   "image_policy": "TEXT_FIRST_IMAGE_OPTIONAL",
   "photo_missing_is_ready_blocker": false,
   "readiness_update": "READY requires valid canonical product ID, product identity, Amazon normal URL, editorial copy and compatible candidate data. Product image may be null; affiliate URL is last owner step. On photo-less listing, downstream display and validator must be tested.",
-  "policy_revision": "2026-11-13 text-first user directive; image still must be licensed if provided"
+  "policy_revision": "2026-11-13 text-first user directive; image still must be licensed if provided",
+  "v4_approved_at": "2026-11-13",
+  "v4_adoption_status": "ADOPTED_ON_WORKING_BRANCH",
+  "v4_first_gate": "RUN_IMAGELESS_UNIT_AND_CATALOG_VALIDATION"
 }
