@@ -1,0 +1,50 @@
+{
+  "product_id": "RS-P0013",
+  "status": "CANDIDATE",
+  "formal_name": "Anker Solix C300 Portable Power Station ブラック",
+  "brand": "Anker",
+  "model": "Solix C300 Portable Power Station (A1722511)",
+  "asin": "B0D5XGP6CW",
+  "category": "outdoor",
+  "subcategory": "ac-power",
+  "used_at_studio": false,
+  "usage_evidence": "未使用・メーカー公式仕様と国内販売情報の調査のみ",
+  "score": {
+    "reader_value": 27,
+    "information_reliability": 25,
+    "purchase_intent": 18,
+    "originality": 12,
+    "maintenance_efficiency": 9,
+    "total": 91
+  },
+  "score_evidence": "既存商店の読みもの『同じ288Whでも違う。電源選びは端子から』と直接連動。AC×3、USB-C×3、USB-A×1、シガーソケット×1の8ポート、288Wh、定格300W、約4.1kg、AC充電最短約68分。ノートPCや小型機器の給電、停電・屋外撮影・スタジオの補助電源など用途を説明しやすい。メーカー一次情報で仕様確認可能。競合比較が容易で読者価値が高い。",
+  "manufacturer_sources": [
+    {
+      "url": "https://www.ankerjapan.com/products/a1722",
+      "label": "Anker Japan公式商品ページ・仕様・型番"
+    },
+    {
+      "url": "https://www.ankerjapan.com/pages/solix-a1722",
+      "label": "Anker Japan公式比較・利用シーン・ポート構成"
+    },
+    {
+      "url": "https://www.ksdenki.com/shop/g/g4571411221019/",
+      "label": "国内販売店・ブラックA1722511/JAN/仕様照合"
+    }
+  ],
+  "amazon_associates_url": "",
+  "amazon_link_verified_by_owner": false,
+  "verified_target_asin": "B0D5XGP6CW",
+  "photos": [
+    {
+      "url": "https://www.ankerjapan.com/cdn/shop/files/A1722511_listing_product_392f4dc9-7562-415b-9930-d535c5d54350.jpg?v=1766050723&width=1200",
+      "source_page": "https://www.ankerjapan.com/products/a1722",
+      "alt": "Anker Solix C300 Portable Power Station ブラック A1722511"
+    }
+  ],
+  "photo_rights_confirmed": true,
+  "photo_rights_note": "ユーザーよりネット上の商品写真の掲載許可を包括的に確認済み。画像出典はAnker Japan公式商品ページ。",
+  "article_url": "",
+  "checked_at": "2026-11-13",
+  "notes": "候補採点91点。正式掲載にはユーザーがAmazonアソシエイトの短縮URLを取得し、リンク先ASINがB0D5XGP6CWであることを確認して提供する必要がある。未確認のためcatalog.jsonには未登録。"
+}
