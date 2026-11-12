@@ -9,8 +9,9 @@
     "upstream_product_records": 9,
     "upstream_affiliate_link_records": 6,
     "new_ready_for_affiliate_link": 0,
-    "preparation_draft_files": 5,
-    "hold_draft_files": 1
+    "preparation_draft_files": 6,
+    "hold_draft_files": 1,
+    "owner_backlog_candidate_lines": 35
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -135,10 +136,24 @@
         "Licensed photo and display verification"
       ],
       "image_status": "IMAGE_OPTIONAL_PENDING"
+    },
+    {
+      "id": null,
+      "name": "Shokz OpenDots 2 ブラック",
+      "kind": "PREPARATION_INCOMPLETE_OWNER_INTERESTED",
+      "affiliate_received": false,
+      "content_status": "CONTENT_READY",
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "missing": [
+        "Official canonical ID",
+        "Amazon normal URL for specific black SKU",
+        "Category schema extension and compatibility test"
+      ],
+      "draft": "shoten/ops/preparation-drafts/shokz-opendots-2-black.json"
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Perform one isolated image-null catalog validation/test, recover owner-provided candidate list from prior attachments, and prioritize existing requested items. Photos do not block READY. Canonical IDs and matching Amazon URLs remain required.",
+  "next_best_action": "Deduplicate owner backlog; verify exact Amazon single-variant pages and canonical IDs for past owner-selected products; run photo-optional regression test; do not publish or merge.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -156,5 +171,17 @@
   "policy_revision": "2026-11-13 text-first user directive; image still must be licensed if provided",
   "v4_approved_at": "2026-11-13",
   "v4_adoption_status": "ADOPTED_ON_WORKING_BRANCH",
-  "v4_first_gate": "RUN_IMAGELESS_UNIT_AND_CATALOG_VALIDATION"
+  "v4_first_gate": "RUN_IMAGELESS_UNIT_AND_CATALOG_VALIDATION",
+  "owner_candidate_inventory": {
+    "path": "shoten/ops/OWNER_REQUESTED_PRODUCT_INVENTORY_20261113.json",
+    "candidate_lines": 35,
+    "unique_sku_status": "NOT_YET_DEDUPED_OR_VARIANT_CONFIRMED",
+    "new_items_ready": 0,
+    "notes": "35 candidate lines include broad families, overlap and unresolved variants; not 35 distinct approved products."
+  },
+  "test_updates": {
+    "regression_file": "tools/test_shoten_text_first.py",
+    "execution": "NOT_YET_EXECUTED",
+    "photo_null_validator_change": "PRESENT_ON_WORK_BRANCH"
+  }
 }
