@@ -247,6 +247,76 @@
           "alt": "Soundcore H30i ブラックの商品写真"
         }
       ]
+    },
+    {
+      "product_id": "RS-P0014",
+      "publicationStatus": "LINK_PENDING",
+      "asin": "B0DHZZ394W",
+      "brand": "EcoFlow",
+      "model": "RIVER 3 Plus（通常モデル）",
+      "formal_name": "EcoFlow RIVER 3 Plus ポータブル電源",
+      "category": "outdoor",
+      "subcategory": "ac-power",
+      "kind": "ポータブル電源",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "防災",
+        "ポータブル電源",
+        "屋外での電源確保"
+      ],
+      "eyebrow": "停電への備えにも、屋外での小型機器の給電にも。286Wh・定格600Wの使いやすいポータブル電源。",
+      "summary": "約4.7kgで持ち運びやすく、AC3口とUSBポートを備える。家庭の備えや屋外での撮影・音響機材の補助電源を検討する人に、容量と出力のバランスが分かりやすい1台。",
+      "good": "スマートフォン・ノートPCの電源を確保したい人・小型音響機器や撮影機材を屋外で使う人・災害対策用のコンパクトな蓄電池を探す人",
+      "caution": "実際の稼働時間は接続機器の消費電力・変換損失で変わる・AC定格600Wを超える機器の動作は保証しない・容量を拡張するには別売りの専用バッテリーが必要・航空機への持ち込みなど輸送制限を事前に確認・製品写真ではなくオリジナル仕様イラストを使用",
+      "highlight": "286Wh・定格600W・約4.7kg",
+      "date": "2026-11-13",
+      "specs": {
+        "容量": "286Wh",
+        "定格AC出力": "600W",
+        "重量": "約4.7kg"
+      },
+      "comparison": {
+        "選ぶ基準": "携帯性と定格出力のバランス",
+        "主な仕様": "286Wh・定格600W・約4.7kg"
+      },
+      "reasons": [
+        "約4.7kgで持ち運びやすく、AC3口とUSBポートを備える。家庭の備えや屋外での撮影・音響機材の補助電源を検討する人に、容量と出力のバランスが分かりやすい1台。"
+      ],
+      "sources": [
+        {
+          "url": "https://jp.ecoflow.com/products/river-3-plus-portable-power-station",
+          "label": "EcoFlow公式：RIVER 3 Plus、容量・出力・充電仕様"
+        },
+        {
+          "url": "https://www.biccamera.com/bc/item/13659986/",
+          "label": "国内小売店：EFRIVER3PLUS-JP-CBOXの型番・重量・仕様"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0DHZZ394W",
+          "label": "Amazon.co.jp通常商品ページ（非アフィリエイト）"
+        }
+      ],
+      "href": "https://link.amazon/B0ab3Xl2K",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "approvedPhoto": "./assets/products/rs-p0014-river3-plus-guide.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0014-river3-plus-guide.svg",
+          "alt": "EcoFlow RIVER 3 Plus のメーカー公表仕様を整理した独自案内イラスト。製品写真ではありません。"
+        }
+      ],
+      "imageSource": {
+        "source_name": "Original first-party educational illustration",
+        "source_page": "https://jp.ecoflow.com/products/river-3-plus-portable-power-station",
+        "source_image_url": null,
+        "verified_model": "EcoFlow RIVER 3 Plus standard",
+        "owner_permission": "ORIGINAL_OWNED",
+        "checked_at": "2026-11-13"
+      },
+      "stagingNote": "Affiliate URL owner-confirmed for product destination. Issuance method and actual tracking tag not independently recorded. No public CTA or display until release gate completed."
     }
   ]
 }
