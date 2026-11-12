@@ -19,7 +19,8 @@
   "status_distribution": {
     "AMAZON_REVIEW": 6,
     "IDENTITY_REVIEW": 11,
-    "ID_REVIEW": 3
+    "CATEGORY_COMPATIBILITY_REVIEW": 1,
+    "ID_REVIEW": 2
   },
   "entries": [
     {
@@ -702,12 +703,12 @@
     },
     {
       "candidate_key": "owner-025",
-      "product_id": null,
+      "product_id": "RS-P0016",
       "formal_name": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
       "owner_class": "C",
       "category": "work-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "ID_REVIEW",
+      "status": "CATEGORY_COMPATIBILITY_REVIEW",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
       "amazon_product_url_status": "MANUFACTURER_LINK_CONFIRMED",
@@ -739,14 +740,14 @@
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/anker-prime-charger-160w-silver.json",
       "remaining_gates": [
-        "Upstream PR #19 integration and canonical main recheck",
         "Official website category mapping from proposed work",
         "Catalog validator compatibility test"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
       "publication_state": "PREPARATION_ONLY",
-      "upstream_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/19"
+      "upstream_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/19",
+      "upstream_registration_status": "MERGED_MAIN_VERIFIED"
     },
     {
       "candidate_key": "owner-026",
@@ -867,5 +868,5 @@
     }
   ],
   "last_execution_at": "2026-11-13",
-  "execution_note": "Owner-025 Anker: manufacturer spec and manufacturer Amazon purchase link verified, draft saved; canonical registration PR #19 open, not merged, site category mapping and validator pending. No additional READY claimed."
+  "execution_note": "RS-P0016 merged to upstream main via PR #19, main re-read verified. Content complete but READY withheld for site category mapping and compatibility test. No affiliate link or public CTA touched."
 }
