@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "ID_REVIEW",
+  "status": "UPSTREAM_PR_REVIEW",
   "ready_for_affiliate_link": false,
   "product_id": null,
   "id_policy": "Not present in current upstream data/products.json. Allocate unused ID through canonical upstream master, never repurpose RS-P0003/0004/0006.",
@@ -87,13 +87,13 @@
   "image_source_strategy": "Owner original product photo or manufacturer licensed asset; alternatively Amazon-authorized image URL via permitted affiliate technology, not downloaded/rehosted",
   "publication_cta_enabled": false,
   "remaining_preparation_gates": [
-    "Formal canonical ID registration in noritap/AMAZON_COMMERCE_DATA_OS (external write outside current scope)"
+    "Upstream PR #18 merge and main re-fetch of canonical product IDs"
   ],
   "checked_at": "2026-11-13",
   "notes": "Recommendation candidate only, not robot vacuum. Main and production unchanged.",
   "content_status": "CONTENT_READY",
   "proposed_local_product_id": "RS-P0015",
-  "proposed_id_scope": "RESERVED_FOR_RECONCILIATION_ON_PREPARATION_BRANCH_ONLY_NOT_CANONICAL_UPSTREAM",
+  "proposed_id_scope": "UPSTREAM_FEATURE_BRANCH_PR18_NOT_YET_MAIN_CANONICAL",
   "id_reservation_evidence": {
     "candidate": "RS-P0015",
     "checked_upstream_ids": [
@@ -108,7 +108,11 @@
       "RS-P0013"
     ],
     "github_default_branch_search": "NO_MATCH_FOUND",
-    "canonical_registered": false
+    "canonical_registered": false,
+    "upstream_feature_branch": "work/shoten-product-id-registration-20261113",
+    "upstream_feature_branch_record_added": true,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
+    "upstream_main_merged": false
   },
   "verified_manufacturer_model_code": "W2001400",
   "canonical_category": "home",
@@ -137,5 +141,5 @@
     "https://prtimes.jp/main/html/rd/p/000000033.000057002.html"
   ],
   "current_amazon_stock_status": "UNVERIFIED; do not promise availability",
-  "ready_reason": "Not READY until canonical upstream ID registration; photo is NOT a gate."
+  "ready_reason": "Confirmed written to upstream PR branch, but not in canonical main. No photo blocker."
 }
