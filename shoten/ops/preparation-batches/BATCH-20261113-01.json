@@ -19,9 +19,8 @@
   "status_distribution": {
     "IDENTITY_REVIEW": 7,
     "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
-    "READY_FOR_AFFILIATE_LINK": 7,
-    "CATEGORY_REVIEW": 3,
-    "CANONICAL_PR_PENDING": 2
+    "READY_FOR_AFFILIATE_LINK": 9,
+    "CATEGORY_REVIEW": 3
   },
   "entries": [
     {
@@ -538,7 +537,7 @@
       "owner_class": "A",
       "category": "work-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "CANONICAL_PR_PENDING",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
@@ -569,16 +568,15 @@
         "https://www.ankerjapan.com/products/b2692"
       ],
       "previous_detail_draft": null,
-      "remaining_gates": [
-        "Canonical PR #25 merge/main reread"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
       "category_site_root_mapping": "sound",
       "owner_variant_note": "Editorially selected exact variant; not confirmed as owner's previously purchased item",
-      "canonical_registered_in_upstream_main": false,
-      "canonical_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25"
+      "canonical_registered_in_upstream_main": true,
+      "canonical_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
+      "canonical_registration_status": "MERGED_MAIN_REFETCH_VERIFIED"
     },
     {
       "candidate_key": "owner-018",
@@ -587,7 +585,7 @@
       "owner_class": "A",
       "category": "work-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "CANONICAL_PR_PENDING",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
@@ -618,16 +616,15 @@
         "https://www.elecom.co.jp/products/AD-DTH.html"
       ],
       "previous_detail_draft": null,
-      "remaining_gates": [
-        "Canonical PR #25 merge/main reread"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
       "category_site_root_mapping": "sound",
       "owner_variant_note": "Editorially selected exact variant; not confirmed as owner's previously purchased item",
-      "canonical_registered_in_upstream_main": false,
-      "canonical_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25"
+      "canonical_registered_in_upstream_main": true,
+      "canonical_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
+      "canonical_registration_status": "MERGED_MAIN_REFETCH_VERIFIED"
     },
     {
       "candidate_key": "owner-021",
@@ -917,7 +914,7 @@
     }
   ],
   "completed_content_ready_count": 13,
-  "new_ready_count": 8,
+  "new_ready_count": 10,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
@@ -947,13 +944,20 @@
   "current_rule_version": "v5.1_URL_OPTIONAL",
   "last_run": {
     "date": "2026-11-13",
-    "new_canonical_pr": [
+    "new_upstream_ids": [
       "RS-P0024",
       "RS-P0025"
     ],
-    "new_ready_ids": [],
-    "pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
-    "main_merge": "PENDING",
-    "notes": "Manufacturer-verified selected variants in PR; no owner exact purchase claim; Amazon normal URL optional."
+    "new_ready_ids": [
+      "RS-P0024",
+      "RS-P0025"
+    ],
+    "new_ready": 2,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
+    "upstream_main_merge": "CONFIRMED",
+    "upstream_main_count": 21,
+    "remaining_identity_review": 7,
+    "remaining_category_review": 3,
+    "verification": "JSON parse, unique canonical IDs, non-destructive pre-existing records, upstream main reread; site CTA test not run"
   }
 }
