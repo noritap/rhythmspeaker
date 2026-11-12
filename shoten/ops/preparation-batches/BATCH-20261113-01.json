@@ -5,7 +5,7 @@
   "selected_count": 20,
   "owner_first": true,
   "photo_optional": true,
-  "status": "TWO_PRIORITY_PRODUCTS_CONTENT_READY_CANONICAL_ID_PENDING",
+  "status": "TWO_PRODUCTS_REGISTERED_IN_UPSTREAM_REVIEW_PR",
   "scope": "PREPARATION_NOT_LIVE_CATALOG",
   "note": "20 data rows are drafted and saved, not 20 published products or 20 READY. Existing detail drafts are referenced rather than duplicated as separate canonical products. Unknown Amazon URLs and manufacturer specifications remain explicitly unresolved.",
   "category_distribution": {
@@ -753,7 +753,7 @@
       "owner_class": "E",
       "category": "outdoor",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "ID_REVIEW",
+      "status": "UPSTREAM_PR_REVIEW",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
       "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
@@ -784,7 +784,7 @@
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
       "remaining_gates": [
-        "Upstream canonical ID assignment/reconciliation"
+        "Upstream PR #18 reviewed and merged; canonical main ID verified"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -793,7 +793,10 @@
       "canonical_category": "outdoor",
       "proposed_local_product_id": "RS-P0014",
       "proposed_id_is_official": false,
-      "photo_optional": true
+      "photo_optional": true,
+      "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
+      "upstream_branch_record_added": true,
+      "upstream_main_merged": false
     },
     {
       "candidate_key": "owner-027",
@@ -802,7 +805,7 @@
       "owner_class": "E",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "ID_REVIEW",
+      "status": "UPSTREAM_PR_REVIEW",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
       "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
@@ -834,7 +837,7 @@
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
       "remaining_gates": [
-        "Upstream canonical ID assignment/reconciliation"
+        "Upstream PR #18 reviewed and merged; canonical main ID verified"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -843,7 +846,10 @@
       "canonical_category": "home",
       "proposed_local_product_id": "RS-P0015",
       "proposed_id_is_official": false,
-      "photo_optional": true
+      "photo_optional": true,
+      "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
+      "upstream_branch_record_added": true,
+      "upstream_main_merged": false
     }
   ],
   "completed_content_ready_count": 2,
