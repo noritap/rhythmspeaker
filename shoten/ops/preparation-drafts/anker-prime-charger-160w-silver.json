@@ -15,10 +15,10 @@
   "kind": "USB-C急速充電器",
   "category": "work-proposed",
   "category_state": "PROPOSED_NOT_APPROVED",
-  "amazon_product_page_url": null,
+  "amazon_product_page_url": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
   "amazon_candidate_url_unverified": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
-  "amazon_evidence": "Third-party RiverPrice associates this ASIN with the silver 160W 3-port model. Direct Amazon.co.jp page retrieval unavailable; not accepted as exact live verification.",
-  "amazon_url_status": "AMAZON_PRIMARY_MATCH_PENDING",
+  "amazon_evidence": "Anker Japan official product page Amazonで購入 link points to ASIN B0F2MRRKH7; stripped third-party affiliate query for internal ordinary-product URL. Direct Amazon browsing returned 503, but manufacturer link validates product identity.",
+  "amazon_url_status": "MANUFACTURER_LINK_CONFIRMED",
   "manufacturer_specs": {
     "ports": "USB-C × 3",
     "total_max_output_w": 160,
@@ -74,6 +74,11 @@
       "url": "https://service.anker.com/product-description/a08J1000000YpQ6IAK?recordId=a08J1000000YpQ6IAK",
       "role": "PRIMARY",
       "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://www.ankerjapan.com/products/a2687",
+      "role": "PRIMARY_AMAZON_PURCHASE_LINK",
+      "checked_at": "2026-11-13"
     }
   ],
   "secondary_sources": [
@@ -89,7 +94,6 @@
     "image_status": "IMAGE_OPTIONAL_PENDING"
   },
   "remaining_gates": [
-    "Verify exact silver A2687N41 Amazon.co.jp listing via primary Amazon or manufacturer link",
     "Approve mapping to existing official category or category extension",
     "Assign and register unique canonical product ID upstream",
     "Run compatibility validation"
