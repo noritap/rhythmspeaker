@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "product_id": "RS-P0013",
+  "status": "AMAZON_AND_IMAGE_REVIEW",
+  "ready_for_affiliate_link": false,
+  "formal_name": "Shokz OpenFit Pro ホワイト",
+  "brand": "Shokz",
+  "model": "OpenFit Pro",
+  "color": "ホワイト",
+  "domestic_product_code": "SKZ-EP-000063",
+  "category": "sound",
+  "subcategory": "open-ear-earphones",
+  "kind": "オープンイヤー型ワイヤレスイヤホン",
+  "purpose": "focus",
+  "manufacturer_specs": {
+    "form": "耳掛け式オープンイヤー",
+    "focus_mode": "ノイズ低減に対応",
+    "playback_hours_single_focus_off_approx": 12,
+    "playback_hours_case_focus_off_approx": 50,
+    "playback_hours_single_focus_on_approx": 6,
+    "playback_hours_case_focus_on_approx": 24,
+    "fast_charge": "10分で約4時間使用（メーカー公表条件）",
+    "charging": "USB-C／ワイヤレス充電",
+    "water_dust_resistance": "イヤホンIP55",
+    "bluetooth": "6.1"
+  },
+  "editorial": {
+    "eyebrow": "耳をふさがず、音楽にも周囲の気配にも向き合える。フォーカスモード搭載のオープンイヤーイヤホン。",
+    "summary": "Shokz OpenFit Proは、耳をふさがない装着方式にフォーカスモード（ノイズ低減）を搭載。屋外で周囲の音も把握しながら使いたい人や、移動中・仕事中の音楽と通話を両立したい人の比較候補です。ホワイトは国内品番SKZ-EP-000063。",
+    "good_for": [
+      "耳をふさがないイヤホンを選びたい人",
+      "作業中の音楽と通話の両立を重視する人",
+      "充電ケース込みの長時間利用を重視する人"
+    ],
+    "cautions": [
+      "フォーカスモードは周囲の音を完全に遮断する機能ではない",
+      "最大50時間はフォーカスモード無効、充電ケース併用時。オン時は最大24時間",
+      "IP55はイヤホンの防塵・防水指標で完全防水を意味しない",
+      "装着感・音漏れ・騒音低減の実使用効果は未検証",
+      "本人使用を主張しない",
+      "価格・在庫の固定掲載を避ける"
+    ],
+    "comparison": {
+      "装着方式": "耳掛け・オープンイヤー",
+      "ノイズ低減": "フォーカスモード",
+      "再生時間": "単体最大12時間／ケース併用最大50時間（フォーカスモード無効）",
+      "充電": "USB-C、ワイヤレス充電",
+      "防塵防水": "イヤホンIP55"
+    }
+  },
+  "sources": [
+    {
+      "url": "https://jp.shokz.com/products/openfit-pro",
+      "role": "manufacturer_official_specs",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://jp.shokz.com/pages/openfit-pro",
+      "role": "manufacturer_official_technical_details",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://www.biccamera.com/bc/item/14979392/",
+      "role": "third_party_domestic_white_variant_code",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://www.ksdenki.com/shop/g/g4571604941502/",
+      "role": "third_party_white_variant_crosscheck",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "amazon_product_page_url": null,
+  "amazon_url_status": "NOT_CONFIRMED_EXACT_WHITE_VARIANT",
+  "existing_owner_affiliate_link_status": "RECEIVED_IN_UPSTREAM; DO_NOT_REQUEST_AGAIN",
+  "existing_owner_short_link": "https://link.amazon/B0eNbBVpP",
+  "upstream_identity_status": "EXISTING_ID_USED; INTERNAL_AMAZON_IDENTIFIER_PENDING",
+  "image_assets": [],
+  "image_source_candidate": "https://jp.shokz.com/products/openfit-pro",
+  "image_rights_status": "UNVERIFIED_NO_REPUBLICATION_LICENSE_OR_OWNER_ORIGINAL_FILE",
+  "image_alt_draft": "Shokz OpenFit Pro ホワイトのイヤホンと充電ケース",
+  "publication_cta_enabled": false,
+  "remaining_gates": [
+    "Exact Amazon Japan single product URL and white variant internally verified",
+    "Licensed or owner-provided product photo stored and display checked",
+    "Resolve existing upstream internal product identifier mismatch if any"
+  ],
+  "checked_at": "2026-11-13",
+  "notes": "Existing owner's affiliate link is already received. Do not request a duplicate. Branch-only preparation; no main merge or production changes."
+}
