@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "UPSTREAM_PR_REVIEW",
-  "product_id": null,
-  "id_policy": "Upstream data/products.json has IDs 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0012, 0013. No duplicate EcoFlow DELTA 3 Classic found in those records. No ID assigned; upstream ID allocation and approval are deferred to link-registration workflow.",
+  "status": "READY_FOR_AFFILIATE_LINK",
+  "product_id": "RS-P0014",
+  "id_policy": "Canonical upstream product ID confirmed on main after PR #18 merged 2026-11-13.",
   "formal_name": "EcoFlow DELTA 3 Classic（1024Wh）",
   "brand": "EcoFlow",
   "model": "DELTA 3 Classic",
@@ -72,10 +72,8 @@
   "image_rights_status": "IMAGE_OPTIONAL_PENDING: no photo needed for content readiness",
   "image_alt_draft": "EcoFlow DELTA 3 Classic ポータブル電源本体",
   "publication_cta_enabled": false,
-  "ready_for_affiliate_link": false,
-  "remaining_preparation_gates": [
-    "Upstream PR #18 merge and main re-fetch of canonical product IDs"
-  ],
+  "ready_for_affiliate_link": true,
+  "remaining_preparation_gates": [],
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json",
   "checked_at": "2026-11-13",
   "notes": "Not a public catalog record. No main merge or production publication. Existing Anker Solix entries must not be silently repurposed.",
@@ -89,7 +87,7 @@
   "sources_last_checked": "2026-11-13",
   "content_status": "CONTENT_READY",
   "proposed_local_product_id": "RS-P0014",
-  "proposed_id_scope": "UPSTREAM_FEATURE_BRANCH_PR18_NOT_YET_MAIN_CANONICAL",
+  "proposed_id_scope": "NOW_CANONICAL",
   "id_reservation_evidence": {
     "candidate": "RS-P0014",
     "checked_upstream_ids": [
@@ -104,11 +102,11 @@
       "RS-P0013"
     ],
     "github_default_branch_search": "NO_MATCH_FOUND",
-    "canonical_registered": false,
+    "canonical_registered": true,
     "upstream_feature_branch": "work/shoten-product-id-registration-20261113",
     "upstream_feature_branch_record_added": true,
     "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
-    "upstream_main_merged": false
+    "upstream_main_merged": true
   },
   "verified_manufacturer_model_code": "EF-DL3-C",
   "canonical_category": "outdoor",
@@ -140,5 +138,6 @@
     "https://prtimes.jp/main/html/rd/p/000000254.000050601.html"
   ],
   "current_amazon_stock_status": "UNVERIFIED; do not promise availability",
-  "ready_reason": "Confirmed written to upstream PR branch, but not in canonical main. No photo blocker."
+  "ready_reason": "Canonical product ID, manufacturer specifications, editorial, existing category and manufacturer-linked Amazon ordinary URL verified. Photo optional; only owner affiliate special link remains.",
+  "canonical_registered": true
 }
