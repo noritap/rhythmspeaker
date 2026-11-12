@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-13",
+  "source_policy": "shoten/ops/PRODUCT_PREPARATION_CHAT_V2.md",
+  "reference_branch": "work/shoten-product-preparation-20261113",
+  "counts": {
+    "target": 35,
+    "main_catalog_products": 4,
+    "upstream_product_records": 9,
+    "upstream_affiliate_link_records": 6,
+    "new_ready_for_affiliate_link": 0,
+    "preparation_draft_files": 5,
+    "hold_draft_files": 1
+  },
+  "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
+  "products": [
+    {
+      "id": "RS-P0001",
+      "name": "SwitchBot K11+ Pro",
+      "kind": "PUBLISHED_CATALOG_RECORD",
+      "source": "main catalog",
+      "affiliate_received": true,
+      "preparation_action": "Do not redo published preparation without discrepancy"
+    },
+    {
+      "id": "RS-P0002",
+      "name": "Sony WH-CH730N ブラック",
+      "kind": "PUBLISHED_CATALOG_RECORD",
+      "source": "main catalog",
+      "affiliate_received": true
+    },
+    {
+      "id": "RS-P0005",
+      "name": "audio-technica ATH-M20xBT ブラック",
+      "kind": "PUBLISHED_CATALOG_RECORD",
+      "source": "main catalog",
+      "affiliate_received": true
+    },
+    {
+      "id": "RS-P0012",
+      "name": "Soundcore H30i ブラック",
+      "kind": "PUBLISHED_CATALOG_RECORD",
+      "source": "main catalog",
+      "affiliate_received": true
+    },
+    {
+      "id": "RS-P0003",
+      "name": "Anker Solix C300",
+      "kind": "LEGACY_CANDIDATE",
+      "decision": "NOT_PRIORITY_POWER_ECOFLOW_PREFERRED",
+      "affiliate_received": false
+    },
+    {
+      "id": "RS-P0006",
+      "name": "Anker Solix C300 DC",
+      "kind": "LEGACY_CANDIDATE",
+      "decision": "NOT_PRIORITY_POWER_ECOFLOW_PREFERRED",
+      "affiliate_received": false
+    },
+    {
+      "id": "RS-P0004",
+      "name": "Eufy Omni C20",
+      "kind": "HOLD_POLICY_NON_RECOMMENDED",
+      "decision": "COMPARISON_ONLY",
+      "draft": "shoten/ops/preparation-drafts/rs-p0004-eufy-omni-c20-hold.json"
+    },
+    {
+      "id": "RS-P0007",
+      "name": "by Amazon とって付きごみ袋45L 100枚",
+      "kind": "PREPARATION_INCOMPLETE_AFFILIATE_RECEIVED",
+      "affiliate_received": true,
+      "missing": [
+        "Amazon primary matching evidence",
+        "Licensed product image",
+        "First party specification"
+      ],
+      "draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json"
+    },
+    {
+      "id": "RS-P0013",
+      "name": "Shokz OpenFit Pro ホワイト",
+      "kind": "PREPARATION_INCOMPLETE_AFFILIATE_RECEIVED",
+      "affiliate_received": true,
+      "missing": [
+        "Exact Amazon Japan white variant listing",
+        "Licensed product image",
+        "Internal identity record"
+      ],
+      "draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json"
+    },
+    {
+      "id": null,
+      "name": "EcoFlow DELTA 3 Classic",
+      "kind": "PREPARATION_INCOMPLETE",
+      "affiliate_received": false,
+      "amazon_product_page_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
+      "amazon_url_evidence": "Manufacturer press release identified standalone model",
+      "maker_direct_store_status": "SOLD_OUT_SHOWN_2026_11_13",
+      "amazon_stock_status": "UNKNOWN",
+      "missing": [
+        "Canonical unique ID assignment",
+        "Licensed photo and rendered display"
+      ],
+      "draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json"
+    },
+    {
+      "id": null,
+      "name": "SwitchBot プラグミニ JP 通常版",
+      "kind": "PREPARATION_INCOMPLETE",
+      "affiliate_received": false,
+      "amazon_product_page_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
+      "amazon_url_evidence": "Historical manufacturer-linked listing; live matching still pending",
+      "missing": [
+        "Canonical unique ID assignment",
+        "Licensed photo and display verification",
+        "Current Amazon matching"
+      ],
+      "draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json"
+    }
+  ],
+  "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
+  "next_best_action": "Prioritize legal, model-matched product image path across incomplete candidates; then canonical ID allocation in upstream authorized workflow. Continue preparing candidates while blocked; never invent READY."
+}
