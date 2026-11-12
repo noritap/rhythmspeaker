@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "ASSET_AND_AMAZON_REVIEW",
+  "status": "AMAZON_AND_IMAGE_REVIEW",
   "product_id": null,
-  "id_policy": "Existing RS-P0003 and RS-P0006 are Anker products. Do not overwrite/reassign. Allocate only after reconciliation against upstream master.",
+  "id_policy": "Upstream data/products.json has IDs 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0012, 0013. No duplicate EcoFlow DELTA 3 Classic found in those records. No ID assigned; upstream ID allocation and approval are deferred to link-registration workflow.",
   "formal_name": "EcoFlow DELTA 3 Classic (1024Wh)",
   "brand": "EcoFlow",
   "model": "DELTA 3 Classic",
@@ -28,23 +28,47 @@
   "editorial": {
     "eyebrow": "1024Whの容量と定格1500W出力。停電への備えやアウトドアで使えるポータブル電源。",
     "summary": "ACコンセント3口とUSB-C 2口、USB-A 1口を備え、家庭の非常用電源や屋外での機器利用を検討する人の比較候補。メーカー公表値で約12.1kg、AC充電は満充電まで約60分。",
-    "good_for": ["災害時にスマートフォンや小型家電の電源を備えたい人", "車で運べるアウトドア用電源を探す人", "AC出力1500W級の製品を比較したい人"],
-    "caution": ["重量は約12.1kgあり、徒歩での長距離携行には不向き", "X-Boost 2000Wは全機器の正常動作を保証する数値ではない", "定格容量の全量をAC機器へ取り出せるわけではない", "10ms切替を根拠に生命維持装置などに使えるとは説明しない", "実機使用・耐久性は未検証", "販売価格・在庫は変動するため固定掲載しない"],
-    "comparison": {"battery_capacity": "1024Wh", "rated_output": "1500W", "weight": "約12.1kg", "charging": "AC満充電約60分（メーカー公表）"}
+    "good_for": [
+      "災害時にスマートフォンや小型家電の電源を備えたい人",
+      "車で運べるアウトドア用電源を探す人",
+      "AC出力1500W級の製品を比較したい人"
+    ],
+    "caution": [
+      "重量は約12.1kgあり、徒歩での長距離携行には不向き",
+      "X-Boost 2000Wは全機器の正常動作を保証する数値ではない",
+      "定格容量の全量をAC機器へ取り出せるわけではない",
+      "10ms切替を根拠に生命維持装置などに使えるとは説明しない",
+      "実機使用・耐久性は未検証",
+      "販売価格・在庫は変動するため固定掲載しない"
+    ],
+    "comparison": {
+      "battery_capacity": "1024Wh",
+      "rated_output": "1500W",
+      "weight": "約12.1kg",
+      "charging": "AC満充電約60分（メーカー公表）"
+    }
   },
   "manufacturer_sources": [
-    {"url": "https://jp.ecoflow.com/products/delta-3-classic", "label": "EcoFlow公式製品ページ・仕様表", "checked_at": "2026-11-13"}
+    {
+      "url": "https://jp.ecoflow.com/products/delta-3-classic",
+      "label": "EcoFlow Japan official specifications",
+      "checked_at": "2026-11-13"
+    }
   ],
   "amazon_product_page_url": null,
-  "amazon_url_review": "Exact Japanese Amazon product listing for the standalone model and variant not independently confirmed; do not fabricate /dp/ URL.",
+  "amazon_url_review": "2026-11-13: Exact amazon.co.jp standalone DELTA 3 Classic (1024Wh) item page not verified. Search surfaced different DELTA variants and bundles, none accepted as match.",
   "affiliate_url": null,
   "image_assets": [],
   "image_candidate_source": "https://jp.ecoflow.com/products/delta-3-classic",
-  "image_rights_status": "UNVERIFIED; manufacturer product page images are not automatically licensed for republishing",
+  "image_rights_status": "UNVERIFIED: EcoFlow official images are visible but no republication license or owner-provided original asset recorded; do not scrape/use as published images.",
   "image_alt_draft": "EcoFlow DELTA 3 Classic ポータブル電源本体",
   "publication_cta_enabled": false,
   "ready_for_affiliate_link": false,
-  "remaining_preparation_gates": ["商品IDの上流採番・重複照合", "日本Amazonで販売される同一型番・単品ページURL確認", "利用可能な商品画像と権利根拠、画像表示確認"],
+  "remaining_preparation_gates": [
+    "Upstream product ID reservation without overwriting existing IDs",
+    "Exact Japanese Amazon product detail page for standalone model",
+    "Licensed product image asset + verified match and display"
+  ],
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json",
   "checked_at": "2026-11-13",
   "notes": "Not a public catalog record. No main merge or production publication. Existing Anker Solix entries must not be silently repurposed."
