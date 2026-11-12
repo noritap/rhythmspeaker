@@ -103,7 +103,7 @@
       <div class="edition-tools">
         ${searchMarkup()}
         <nav class="purpose-links" aria-label="目的から商品を探す">
-          ${[...new Set(products.map(p=>p.purpose))].map(id=>({time:'家事を時短',focus:'音に集中',carry:'外出・備え'}[id]?'<a href="#/products?purpose='+id+'>'+({time:'家事を時短',focus:'音に集中',carry:'外出・備え'}[id])+' <span aria-hidden="true">↗</span></a>':'').join('')}
+          ${[...new Set(products.map(p=>p.purpose))].map(id=>{const label={time:'家事を時短',focus:'音に集中',carry:'外出・備え'}[id];return label?`<a href="#/products?purpose=${id}">${label} <span aria-hidden="true">↗</span></a>`:'';}).join('')}
         </nav>
       </div>
     </section>`;
