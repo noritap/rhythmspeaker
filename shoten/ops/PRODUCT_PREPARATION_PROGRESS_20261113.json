@@ -8,7 +8,7 @@
     "main_catalog_products": 4,
     "upstream_product_records": 9,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 0,
+    "new_ready_for_affiliate_link": 2,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
@@ -155,7 +155,7 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Review upstream Amazon Commerce PR #18; merge if authorized, then re-fetch canonical main and promote RS-P0014/RS-P0015 to READY. No website main merge or publication.",
+  "next_best_action": "Next phase-1 call: process remaining batch items and new batch candidates in 20-product lots without pausing for each ID; finish canonical registration/READY during same call whenever authorized. Affiliate and site publication are separate chats.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -191,7 +191,7 @@
     "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
     "target_count": 20,
     "saved_rows": 20,
-    "new_ready": 0,
+    "new_ready": 2,
     "content_ready_verified": 2,
     "missing_critical": 18,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
@@ -224,7 +224,7 @@
     ],
     "result": "TWO_CONTENT_READY_CANONICAL_ID_REGISTRATION_REQUIRED",
     "content_ready_count": 2,
-    "ready_for_affiliate_link_count": 0,
+    "ready_for_affiliate_link_count": 2,
     "proposed_id_pairs": [
       {
         "candidate": "RS-P0014",
@@ -242,7 +242,7 @@
       "https://www.amazon.co.jp/dp/B09PYLWNGV"
     ],
     "handoff": "shoten/ops/preparation-batches/BATCH-20261113-01-ID-HANDOFF.json",
-    "remaining_gate": "Review/merge upstream PR #18 and verify IDs on upstream main; then mark READY.",
+    "remaining_gate": "Only owner-issued Amazon affiliate links to be attached in separate link registration chat. Product photos remain optional.",
     "photo_gate": false,
     "upstream_import_proposal": "shoten/ops/preparation-batches/BATCH-20261113-01-UPSTREAM-IMPORT-PROPOSAL.json",
     "canonical_import_records_prepared": 2,
@@ -251,7 +251,11 @@
     "upstream_product_ids_last_verified": "2026-11-13",
     "upstream_branch_registration_count": 2,
     "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
-    "upstream_pr_status": "OPEN",
-    "upstream_main_registration_count": 0
+    "upstream_pr_status": "MERGED",
+    "upstream_main_registration_count": 2,
+    "canonical_ids": [
+      "RS-P0014",
+      "RS-P0015"
+    ]
   }
 }
