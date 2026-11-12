@@ -48,7 +48,8 @@
       "name": "Anker Solix C300",
       "kind": "LEGACY_CANDIDATE",
       "decision": "NOT_PRIORITY_POWER_ECOFLOW_PREFERRED",
-      "affiliate_received": false
+      "affiliate_received": false,
+      "notes": "Existing upstream ID stays for C300; separate legacy Anker candidate incorrectly uses Shokz RS-P0013; see collision audit."
     },
     {
       "id": "RS-P0006",
@@ -86,7 +87,13 @@
         "Licensed product image",
         "Internal identity record"
       ],
-      "draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json"
+      "draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json",
+      "id_conflict": {
+        "status": "CONFIRMED_LEGACY_CANDIDATE_COLLISION",
+        "conflicting_file": "shoten/ops/candidates/RS-P0013-anker-solix-c300.json",
+        "resolution": "UPSTREAM_SHOKZ_ID_PREVAILS; DO_NOT_USE_FOR_ANKER",
+        "audit": "shoten/ops/RS_P0013_ID_COLLISION_AND_IMAGE_RIGHTS_AUDIT_20261113.md"
+      }
     },
     {
       "id": null,
@@ -119,5 +126,16 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Prioritize legal, model-matched product image path across incomplete candidates; then canonical ID allocation in upstream authorized workflow. Continue preparing candidates while blocked; never invent READY."
+  "next_best_action": "Resolve legally reusable photos for specific promising candidates using genuinely user-owned originals or directly licensed manufacturer assets, and canonical upstream ID reservation by authorized workflow. Shokz RS-P0013 legacy collision is documented; do not overwrite.",
+  "image_licensing_audit": {
+    "verified_date": "2026-11-13",
+    "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
+    "decision": "NO_NEW_LICENSED_IMAGE",
+    "amazon_policy": "Do not download Amazon images or re-host; official image URL under permitted tools subject to rules",
+    "evidence_urls": [
+      "https://affiliate.amazon.co.jp/help/node/topic/GKT6X2R3NGW5V23K",
+      "https://affiliate.amazon.co.jp/help/operating/policies"
+    ],
+    "audit": "shoten/ops/RS_P0013_ID_COLLISION_AND_IMAGE_RIGHTS_AUDIT_20261113.md"
+  }
 }
