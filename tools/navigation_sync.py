@@ -62,6 +62,7 @@ MENU_GROUPS = [
         ("アクセス", "access/", "", "access"),
         ("よくある質問", "faq/", "", "faq"),
         ("教室紹介", "about/", "", "about"),
+        ("リズムスピーカー商店", "shoten/", "", "shoten"),
         ("全サービス", "ecosystem/", "", "ecosystem"),
     ]),
 ]
