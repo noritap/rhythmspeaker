@@ -11,7 +11,8 @@
     "new_ready_for_affiliate_link": 0,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
-    "owner_backlog_candidate_lines": 35
+    "owner_backlog_candidate_lines": 35,
+    "batch_preparation_rows": 20
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -153,7 +154,7 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Deduplicate owner backlog; verify exact Amazon single-variant pages and canonical IDs for past owner-selected products; run photo-optional regression test; do not publish or merge.",
+  "next_best_action": "Continue v5 production, matching 20 batch candidates to manufacturer SKU/official Amazon URLs and canonical IDs. Verify and increment CONTENT_READY only after source-backed completion; do not count saved drafts as publication.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -183,5 +184,32 @@
     "regression_file": "tools/test_shoten_text_first.py",
     "execution": "NOT_YET_EXECUTED",
     "photo_null_validator_change": "PRESENT_ON_WORK_BRANCH"
+  },
+  "active_batch": {
+    "batch_id": "BATCH-20261113-01",
+    "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
+    "target_count": 20,
+    "saved_rows": 20,
+    "new_ready": 0,
+    "content_ready_verified": 0,
+    "missing_critical": 20,
+    "mode": "PHOTO_OPTIONAL_PREPARATION_RECORDS",
+    "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
+    "qa": {
+      "json_parse": "PASS",
+      "entry_count": "PASS",
+      "unique_candidate_key": "PASS",
+      "required_fields": "PASS",
+      "official_catalog_compatibility": "NOT_TESTED",
+      "amazon_id_verification": "INCOMPLETE"
+    },
+    "category_distribution": {
+      "home": 4,
+      "sound": 2,
+      "food-proposed": 6,
+      "apparel-proposed": 3,
+      "work-proposed": 3,
+      "outdoor": 2
+    }
   }
 }
