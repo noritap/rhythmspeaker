@@ -5,7 +5,7 @@
   "selected_count": 20,
   "owner_first": true,
   "photo_optional": true,
-  "status": "SAVED_PREPARATION_BATCH",
+  "status": "TWO_PRIORITY_PRODUCTS_CONTENT_READY_CANONICAL_ID_PENDING",
   "scope": "PREPARATION_NOT_LIVE_CATALOG",
   "note": "20 data rows are drafted and saved, not 20 published products or 20 READY. Existing detail drafts are referenced rather than duplicated as separate canonical products. Unknown Amazon URLs and manufacturer specifications remain explicitly unresolved.",
   "category_distribution": {
@@ -749,14 +749,14 @@
     {
       "candidate_key": "owner-026",
       "product_id": null,
-      "formal_name": "EcoFlow DELTA 3 Classic",
+      "formal_name": "EcoFlow DELTA 3 Classic（1024Wh）",
       "owner_class": "E",
       "category": "outdoor",
       "category_state": "EXISTING_ROOT_CATEGORY",
       "status": "ID_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
-      "amazon_product_url_status": "MANUFACTURER_REFERENCED_HISTORICAL_LINK",
+      "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -776,30 +776,36 @@
       "specifications": {
         "capacity_wh": 1024,
         "ac_rated_w": 1500,
-        "weight_kg": 12.1
+        "weight_kg": 12.1,
+        "rated_ac_jp_w": 1500
       },
       "source_urls": [
         "https://jp.ecoflow.com/products/delta-3-classic"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定"
+        "Upstream canonical ID assignment/reconciliation"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "verified_manufacturer_model": "EF-DL3-C",
+      "canonical_category": "outdoor",
+      "proposed_local_product_id": "RS-P0014",
+      "proposed_id_is_official": false,
+      "photo_optional": true
     },
     {
       "candidate_key": "owner-027",
       "product_id": null,
-      "formal_name": "SwitchBot プラグミニ JP",
+      "formal_name": "SwitchBot プラグミニ（JP）通常版 1個",
       "owner_class": "E",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
       "status": "ID_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
-      "amazon_product_url_status": "MANUFACTURER_REFERENCED_HISTORICAL_LINK",
+      "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -819,18 +825,39 @@
       "specifications": {
         "rated_w": 1500,
         "max_current_a": 15,
-        "wifi": "2.4GHz"
+        "wifi": "2.4GHz",
+        "voltage_v": 100,
+        "max_power_w": 1500
       },
       "source_urls": [
         "https://www.switchbot.jp/products/switchbot-plug-mini"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定"
+        "Upstream canonical ID assignment/reconciliation"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "verified_manufacturer_model": "W2001400",
+      "canonical_category": "home",
+      "proposed_local_product_id": "RS-P0015",
+      "proposed_id_is_official": false,
+      "photo_optional": true
+    }
+  ],
+  "completed_content_ready_count": 2,
+  "new_ready_count": 0,
+  "candidate_id_map": [
+    {
+      "candidate_key": "owner-026",
+      "proposed_local_id": "RS-P0014",
+      "canonical_registered": false
+    },
+    {
+      "candidate_key": "owner-027",
+      "proposed_local_id": "RS-P0015",
+      "canonical_registered": false
     }
   ]
 }
