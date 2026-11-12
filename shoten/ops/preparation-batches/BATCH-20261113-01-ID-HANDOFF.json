@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-13",
+  "batch_id": "BATCH-20261113-01",
+  "handoff_target": "AMAZON_AFFILIATE_LINK_REGISTRATION_CHAT",
+  "scope": "PREPARATION_BRANCH_ONLY",
+  "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS/data/products.json",
+  "source_of_truth_updated": false,
+  "summary": "Two selected items have manufacturer-backed specifications, validated regular Amazon product URL mapping, editorial text and existing site category; photo is optional. Their branch-scoped proposed ID slots are not canonically registered and therefore are NOT READY_FOR_AFFILIATE_LINK.",
+  "products": [
+    {
+      "product": "EcoFlow DELTA 3 Classic 1024Wh",
+      "candidate_local_id": "RS-P0014",
+      "canonical_product_id": null,
+      "model": "EF-DL3-C",
+      "category": "outdoor",
+      "amazon_regular_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
+      "amazon_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html",
+      "manufacturer_spec_source": "https://jp.ecoflow.com/products/delta-3-classic",
+      "draft_path": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
+      "status": "CONTENT_READY_ID_REVIEW",
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "required_ai_next_step": "Check current upstream IDs; assign canonical product ID in upstream authorized workflow; reconcile branch candidate; then mark READY and request user to generate official associate URL."
+    },
+    {
+      "product": "SwitchBot プラグミニ（JP）通常版 1個",
+      "candidate_local_id": "RS-P0015",
+      "canonical_product_id": null,
+      "model": "W2001400",
+      "category": "home",
+      "amazon_regular_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
+      "amazon_source": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
+      "manufacturer_spec_source": "https://www.switchbot.jp/products/switchbot-plug-mini",
+      "draft_path": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
+      "status": "CONTENT_READY_ID_REVIEW",
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "required_ai_next_step": "Check current upstream IDs; assign canonical product ID in upstream authorized workflow; reconcile branch candidate; then mark READY and request user to generate official associate URL."
+    }
+  ],
+  "security": [
+    "No owner-approved affiliate URL received for these two items; no purchase CTA enabled.",
+    "Do not confuse Amazon regular URLs with special links.",
+    "Do not write external canonical repo without explicit permission and reconciliation.",
+    "Do not main-merge or publish in this chat."
+  ],
+  "qa": {
+    "manufacturer_specs": "PASS (official sources)",
+    "regular_url_identity": "PASS (manufacturer press link)",
+    "sku_differences": "PASS (standalone EcoFlow; ordinary/non-HomeKit SwitchBot)",
+    "id_uniqueness": "PRELIMINARY_RESERVED_LOCALLY_NOT_CANONICAL",
+    "json_saved_retrieval": "PENDING_FINAL_READBACK",
+    "catalog_compatibility": "NOT_TESTED",
+    "main_deploy": "NOT_PERFORMED"
+  }
+}
