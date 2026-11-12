@@ -155,7 +155,7 @@
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "On explicit authorization for external repository write, safely re-fetch noritap/AMAZON_COMMERCE_DATA_OS/data/products.json, recheck IDs and ASINs, append import proposal records, run upstream validator, fetch canonical registered IDs, then mark both READY. Main merge and publication remain prohibited.",
+  "next_best_action": "Review upstream Amazon Commerce PR #18; merge if authorized, then re-fetch canonical main and promote RS-P0014/RS-P0015 to READY. No website main merge or publication.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -242,12 +242,16 @@
       "https://www.amazon.co.jp/dp/B09PYLWNGV"
     ],
     "handoff": "shoten/ops/preparation-batches/BATCH-20261113-01-ID-HANDOFF.json",
-    "remaining_gate": "Canonical IDs must be assigned in external product-master repository during authorized registration workflow; no external write authorized for this turn",
+    "remaining_gate": "Review/merge upstream PR #18 and verify IDs on upstream main; then mark READY.",
     "photo_gate": false,
     "upstream_import_proposal": "shoten/ops/preparation-batches/BATCH-20261113-01-UPSTREAM-IMPORT-PROPOSAL.json",
     "canonical_import_records_prepared": 2,
     "canonical_import_records_written": 0,
     "upstream_category_mapping": "CHECKED",
-    "upstream_product_ids_last_verified": "2026-11-13"
+    "upstream_product_ids_last_verified": "2026-11-13",
+    "upstream_branch_registration_count": 2,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
+    "upstream_pr_status": "OPEN",
+    "upstream_main_registration_count": 0
   }
 }
