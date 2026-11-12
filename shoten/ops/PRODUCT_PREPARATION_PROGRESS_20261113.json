@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 12,
+    "upstream_product_records": 15,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 2,
+    "new_ready_for_affiliate_link": 6,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 3
+    "new_content_ready_from_priority_batch": 7
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -191,9 +191,9 @@
     "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
     "target_count": 20,
     "saved_rows": 20,
-    "new_ready": 2,
+    "new_ready": 6,
     "content_ready_verified": 7,
-    "missing_critical": 18,
+    "missing_critical": 14,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
     "qa": {
@@ -201,12 +201,12 @@
       "entry_count": "PASS",
       "unique_candidate_key": "PASS",
       "required_fields": "PASS",
-      "official_catalog_compatibility": "NOT_TESTED",
+      "official_catalog_compatibility": "NOT_TESTED_SEPARATE_CHAT",
       "amazon_id_verification": "INCOMPLETE",
       "manufacturer_specs": "PASS_FOR_2",
       "amazon_url_mapping": "PASS_FOR_2",
-      "canonical_ids": "NOT_ASSIGNED_IN_UPSTREAM",
-      "repo_write": "PREPARATION_ONLY"
+      "canonical_ids": "3_NEW_IDS_UPSTREAM_MAIN_VERIFIED",
+      "repo_write": "UPSTREAM_MAIN_3_ITEMS_MERGED"
     },
     "category_distribution": {
       "home": 4,
@@ -216,10 +216,10 @@
       "work-proposed": 3,
       "outdoor": 2
     },
-    "status": "IN_PROGRESS_FOUR_DRAFTS_UPDATED_NO_NEW_READY",
+    "status": "SIX_READY_INCLUDING_ONE_ALREADY_LINKED",
     "new_content_ready_this_execution": 4,
     "upstream_new_canonical_registered_this_execution": 1,
-    "unresolved_count": 18
+    "unresolved_count": 14
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -349,21 +349,35 @@
   "latest_execution": {
     "date": "2026-11-13",
     "batch": "BATCH-20261113-01",
-    "session_type": "CONTINUE",
-    "manufacturer_editorial_completed": 4,
-    "manufacturer_editorial_completed_candidates": [
-      "owner-006",
-      "owner-007",
-      "owner-009",
-      "owner-016"
+    "source": "USER_APPROVED_AMAZON_URL_OPTIONAL",
+    "new_canonical_ids": [
+      "RS-P0017",
+      "RS-P0018",
+      "RS-P0019"
     ],
-    "new_ready": 0,
-    "new_canonical_registered": 0,
-    "upstream_product_records": 12,
-    "remaining_batch_not_ready": 18,
-    "primary_amazon_exact_sku_urls_confirmed_this_run": 0,
-    "automated_catalog_compatibility_test": "NOT_EXECUTED",
-    "notes": "Four product drafts updated, persisted and checked in preparation branch; no Amazon exact SKU link was fabricated. RS-P0016 was previously merged, not counted again."
+    "new_ready_since_previous_status": [
+      "RS-P0013",
+      "RS-P0016",
+      "RS-P0017",
+      "RS-P0018"
+    ],
+    "ready_batch_total": 6,
+    "of_which_affiliate_already_received": [
+      "RS-P0013"
+    ],
+    "upstream_product_records": 15,
+    "upstream_pr_merged": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/20",
+    "url_requirement": "OPTIONAL_NULL_ALLOWED",
+    "site_publication": "NOT_IN_SCOPE",
+    "automated_test": "NOT_EXECUTED",
+    "checks": [
+      "Upstream main re-read count 15",
+      "Prior 12 unchanged",
+      "3 unique new canonical IDs",
+      "JSON parsed on save and refetch",
+      "No affiliate or public catalog edited"
+    ],
+    "next": "Resolve 11 identity-review records; category decision for tea; deliver URL-optional READY IDs to affiliate chat."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
@@ -384,5 +398,6 @@
     "new_ready_from_optimization": 0,
     "saved_on_work_branch": true,
     "scope": "No public catalog or CTA changes"
-  }
+  },
+  "policy_version": "v5.1_URL_OPTIONAL_AFFILIATE_LINK_CANONICAL"
 }
