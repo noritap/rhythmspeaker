@@ -123,7 +123,13 @@
         "verified_model": "SONY WH-CH730N ブラック",
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
-      }
+      },
+      "gallery": [
+        {
+          "src": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+          "alt": "SONY WH-CH730N ブラックの商品写真"
+        }
+      ]
     },
     {
       "product_id": "RS-P0005",
@@ -175,7 +181,13 @@
         "verified_model": "audio-technica ATH-M20xBT ブラック（国内正規品）",
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
-      }
+      },
+      "gallery": [
+        {
+          "src": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+          "alt": "audio-technica ATH-M20xBT ブラックの商品写真"
+        }
+      ]
     },
     {
       "product_id": "RS-P0012",
@@ -228,7 +240,13 @@
         "verified_model": "Soundcore H30i ブラック（A3012Z11）",
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
-      }
+      },
+      "gallery": [
+        {
+          "src": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+          "alt": "Soundcore H30i ブラックの商品写真"
+        }
+      ]
     }
   ]
 }
