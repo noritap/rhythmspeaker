@@ -63,14 +63,14 @@
     {
       "candidate_key": "owner-006",
       "product_id": "RS-P0013",
-      "formal_name": "Shokz OpenFit Pro ホワイト",
+      "formal_name": "Shokz OpenFit Pro ホワイト（SKZ-EP-000063）",
       "owner_class": "C",
       "category": "sound",
       "category_state": "EXISTING_ROOT_CATEGORY",
       "status": "AMAZON_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -87,11 +87,15 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
+      "specifications": {
+        "japan_sku": "SKZ-EP-000063"
+      },
       "source_urls": [],
       "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json",
       "remaining_gates": [
-        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+        "Exact matching Amazon.co.jp URL",
+        "Category compatibility test",
+        "Canonical registration if absent"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -100,14 +104,14 @@
     {
       "candidate_key": "owner-007",
       "product_id": null,
-      "formal_name": "Shokz OpenDots 2 ブラック",
+      "formal_name": "Shokz OpenDots 2 ブラック（SKZ-EP-000069）",
       "owner_class": "C",
       "category": "sound",
       "category_state": "EXISTING_ROOT_CATEGORY",
       "status": "AMAZON_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -124,12 +128,15 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
+      "specifications": {
+        "japan_sku": "SKZ-EP-000069"
+      },
       "source_urls": [],
       "previous_detail_draft": "shoten/ops/preparation-drafts/shokz-opendots-2-black.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+        "Exact matching Amazon.co.jp URL",
+        "Category compatibility test",
+        "Canonical registration if absent"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -178,14 +185,14 @@
     {
       "candidate_key": "owner-009",
       "product_id": null,
-      "formal_name": "HARNEY & SONS ホット・シナモン・スパイス",
+      "formal_name": "HARNEY & SONS Hot Cinnamon Spice Classic 20サシェ缶（40g）",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
       "status": "AMAZON_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -203,16 +210,18 @@
         ]
       },
       "specifications": {
-        "blend": "紅茶・オレンジピール・シナモン・クローブ"
+        "blend": "紅茶・オレンジピール・シナモン・クローブ",
+        "package": "20サシェ入り缶",
+        "net_weight_g": 40
       },
       "source_urls": [
         "https://www.harney.jp/collections/hot-cinnamon"
       ],
-      "previous_detail_draft": null,
+      "previous_detail_draft": "shoten/ops/preparation-drafts/harney-hot-cinnamon-spice-classic-20-sachets.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定",
-        "正式カテゴリ体系との整合"
+        "Exact matching Amazon.co.jp URL",
+        "Category compatibility test",
+        "Canonical registration if absent"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -461,14 +470,14 @@
     {
       "candidate_key": "owner-016",
       "product_id": null,
-      "formal_name": "SESAME タッチ2 Pro",
+      "formal_name": "CANDY HOUSE SESAMEタッチ2Pro（充電式電池／CR123A対応版）",
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
       "status": "AMAZON_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -486,17 +495,18 @@
         ]
       },
       "specifications": {
-        "auth": "指紋・ICカード・暗証番号",
+        "auth": "指紋・暗証番号・ICカード",
         "pin_max_digits": 16,
         "fingerprints": 100
       },
       "source_urls": [
         "https://jp.candyhouse.co/products/sesame-touch-pro"
       ],
-      "previous_detail_draft": null,
+      "previous_detail_draft": "shoten/ops/preparation-drafts/sesame-touch-2-pro.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+        "Exact matching Amazon.co.jp URL",
+        "Category compatibility test",
+        "Canonical registration if absent"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
@@ -868,5 +878,17 @@
     }
   ],
   "last_execution_at": "2026-11-13",
-  "execution_note": "RS-P0016 merged to upstream main via PR #19, main re-read verified. Content complete but READY withheld for site category mapping and compatibility test. No affiliate link or public CTA touched."
+  "execution_note": "RS-P0016 merged to upstream main via PR #19, main re-read verified. Content complete but READY withheld for site category mapping and compatibility test. No affiliate link or public CTA touched.",
+  "current_run": {
+    "date": "2026-11-13",
+    "manufacturer_drafts_completed": [
+      "owner-009",
+      "owner-016",
+      "owner-006",
+      "owner-007"
+    ],
+    "new_ready": 0,
+    "new_canonical_registered": 0,
+    "notes": "Four owner-first drafts were completed/updated and saved; exact Amazon matching unavailable. Existing RS-P0016 remains registered but catalog category QA pending. Amazon listings not invented."
+  }
 }
