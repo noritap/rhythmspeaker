@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "150661b0b3a12007047312db3b559d38ad07fdf6",
+  "source_sha": "df8421d4187e8c85cedbeed8d510cf1dcb08fb7c",
   "products": [
     {
       "product_id": "RS-P0001",
