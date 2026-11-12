@@ -257,5 +257,89 @@
       "RS-P0014",
       "RS-P0015"
     ]
+  },
+  "image_batch_20261113_01": {
+    "scope": "IMAGE_RIGHTS_AND_ASSET_AUDIT_ONLY",
+    "date": "2026-11-13",
+    "source": "upstream data/products.json + data/assets.json; main shoten/catalog.json; branch image rights policy",
+    "target": 20,
+    "canonical_products_checked": 11,
+    "upstream_image_assets": 0,
+    "existing_catalog_image_references": 4,
+    "image_approved_this_batch": 0,
+    "image_registered_this_batch": 0,
+    "image_verified_this_batch": 0,
+    "records": [
+      {
+        "product_id": "RS-P0001",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "existing_catalog_image_reference": true,
+        "reason": "Existing local image and gallery; original photography/license evidence not yet corroborated"
+      },
+      {
+        "product_id": "RS-P0002",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": true,
+        "reason": "Third-party retailer hosted image; USER_CONFIRMED alone is not third-party reuse license"
+      },
+      {
+        "product_id": "RS-P0005",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": true,
+        "reason": "Third-party retailer hosted image; USER_CONFIRMED alone is not third-party reuse license"
+      },
+      {
+        "product_id": "RS-P0012",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": true,
+        "reason": "Third-party retailer hosted image; USER_CONFIRMED alone is not third-party reuse license"
+      },
+      {
+        "product_id": "RS-P0003",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "No licensed product-identical image or acceptable API-based image provision documented"
+      },
+      {
+        "product_id": "RS-P0004",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "No licensed product-identical image or acceptable API-based image provision documented"
+      },
+      {
+        "product_id": "RS-P0006",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "No licensed product-identical image or acceptable API-based image provision documented"
+      },
+      {
+        "product_id": "RS-P0007",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "Exact SKU identity and licensed image missing"
+      },
+      {
+        "product_id": "RS-P0013",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "Licensed matching white-variant image missing; legacy ID collision segregated"
+      },
+      {
+        "product_id": "RS-P0014",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "No licensed product-identical image or acceptable API-based image provision documented"
+      },
+      {
+        "product_id": "RS-P0015",
+        "status": "IMAGE_HOLD",
+        "existing_catalog_image_reference": false,
+        "reason": "No licensed product-identical image or acceptable API-based image provision documented"
+      }
+    ],
+    "next": "Recheck only when owner-original photo, manufacturer reuse license, or compliant Amazon image access evidence becomes available; do not reupload retailer/Amazon page images",
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_master_changed": false
   }
 }
