@@ -4,7 +4,7 @@
   "candidate_key": "owner-007",
   "product_id": null,
   "id_state": "UNASSIGNED_UPSTREAM_CANONICAL",
-  "status": "AMAZON_AND_ID_REVIEW",
+  "status": "AMAZON_REVIEW",
   "content_status": "CONTENT_READY",
   "ready_for_affiliate_link": false,
   "owner_selection": "INTERESTED",
@@ -13,13 +13,13 @@
   "subcategory_proposal": "open-ear-earphones",
   "active_site_subcategory_warning": "shoten/editorial.js current sound only wireless-headphones: catalog taxonomy expansion required in registration/publication workflow",
   "brand": "Shokz",
-  "formal_name": "Shokz OpenDots 2 ブラック",
+  "formal_name": "Shokz OpenDots 2 ブラック（SKZ-EP-000069）",
   "model": "OpenDots 2",
   "color": "ブラック",
   "domestic_model": "SKZ-EP-000069",
   "kind": "イヤーカフ型オープンイヤー完全ワイヤレスイヤホン",
   "amazon_product_page_url": null,
-  "amazon_url_status": "NOT_VERIFIED_IN_JP_EXACT_BLACK_VARIANT",
+  "amazon_url_status": "EXACT_VARIANT_Amazon_JP_URL_NOT_VERIFIED",
   "amazon_lookup_note": "User-uploaded Amazon product excerpt confirms model existence, but no safely derived regular DP url without exact item evidence.",
   "affiliate_link_status": "NOT_RECEIVED",
   "manufacturer_specs": {
@@ -30,29 +30,36 @@
     "battery_case_total_max_hours": 40,
     "quick_charge": "5分の充電で最大2時間の再生",
     "wireless_charge": "Qi対応",
-    "water_resistance": "イヤホンIP57",
+    "water_resistance": "本体IP57",
     "bluetooth": "6.1",
     "earbud_weight_g": 6.4,
     "multipoint": true,
-    "controls": "タップ・つまみ操作"
+    "controls": "タップ・つまみ操作",
+    "japan_sku": "SKZ-EP-000069",
+    "type": "イヤーカフ型オープンイヤー",
+    "battery_total_max_hours": 40,
+    "weight_per_ear_g": 6.4
   },
   "editorial": {
-    "title": "Shokz OpenDots 2 ブラック｜耳をふさがないイヤーカフ型イヤホン",
-    "catchline": "耳をふさがず、音楽も周囲の気配も楽しむ。",
-    "summary": "Shokz OpenDots 2は、耳に挟むイヤーカフ型のオープンイヤーイヤホン。片耳約6.4gの軽量設計で、周囲の音を把握しながら音楽や通話を楽しめます。メーカー公表で単体最大10時間、ケース併用最大40時間の再生に対応。日常の移動や作業、軽い運動で耳をふさぎたくない人の比較候補です。",
-    "why_recommend": "装着方式、操作性、充電性能、耳の防水規格という比較軸が明確。本人が掲載に関心を示したモデル。",
+    "title": "Shokz OpenDots 2 ブラック｜耳をふさがないイヤーカフ型",
+    "catchline": "軽い付け心地で、街でも仕事場でも音楽を。",
+    "summary": "Shokz OpenDots 2は、耳をふさがないイヤーカフ型のワイヤレスイヤホンです。片耳約6.4gの軽量設計に、Bassphere 2.0とDolby Audioを搭載。メーカー公表でイヤホン単体最大10時間、ケース込み最大40時間の再生に対応します。周囲の音に気づける装着方式を選びたい人は、耳との相性や音漏れも確認して選びましょう。",
+    "why_recommend": "メーカー仕様を比較し、利用場面と合う条件を紹介する。",
     "good_for": [
       "イヤーカフ型で耳をふさぎたくない人",
       "周囲の音を聞きながら音楽・通話を使いたい人",
       "小型・軽量な完全ワイヤレスイヤホンを探す人"
     ],
     "cautions": [
-      "オープンイヤー型のため騒がしい場所での音の聞こえ方は密閉型と異なる",
-      "音漏れや装着感は耳の形と環境で異なる",
-      "最大再生時間はメーカー所定条件の値",
-      "IP57はイヤホン本体の仕様であり充電ケースの防水性能ではない",
-      "所有者の実使用レビューではない",
-      "通常Amazon URLと正式IDは未確定"
+      "屋外では安全を優先し音量に注意",
+      "IP57はイヤホン本体の仕様",
+      "使用感は本人未確認",
+      "ブラック以外のカラーと混同しない"
+    ],
+    "tags": [
+      "イヤーカフ",
+      "オープンイヤー",
+      "通勤"
     ]
   },
   "image": {
@@ -64,24 +71,18 @@
     {
       "url": "https://jp.shokz.com/products/opendots-2",
       "role": "PRIMARY",
-      "confirmed_at": "2026-11-13"
+      "checked_at": "2026-11-13"
     },
     {
-      "url": "https://jp.shokz.com/pages/opendots-2",
-      "role": "PRIMARY",
-      "confirmed_at": "2026-11-13"
-    },
-    {
-      "url": "https://www.ksdenki.com/item?sku=4571604941595",
-      "role": "JAPANESE_BLACK_SKU_CROSSCHECK",
-      "confirmed_at": "2026-11-13"
+      "url": "https://kakaku.com/shopitem/1824/CategoryCD%3D2046/ItemCD%3D2046CS/",
+      "role": "JAPAN_VARIANT_SECONDARY",
+      "checked_at": "2026-11-13"
     }
   ],
   "remaining_gates": [
-    "Official canonical product ID reservation",
-    "Same variant Amazon.co.jp normal product URL verified",
-    "Active site subcategory mapping (no invalid publishing category)",
-    "Automated catalog compatibility test"
+    "Exact matching Amazon.co.jp normal product URL",
+    "Formal canonical product ID if not existing",
+    "Upstream product master and category compatibility validation"
   ],
   "last_verified": "2026-11-13",
   "publication_gate": "PROHIBITED_THIS_CHAT"
