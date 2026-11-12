@@ -130,18 +130,13 @@ for(const width of [320,375,390,430,768,1024,1440]){
   }
   const group=groups.nth(0);
   await group.locator('summary').click();
-  assert.equal(await group.locator('a[href="../classes/"]').count(),1);
+  assert.equal(await group.locator('a[href$="/classes/"]').count(),1);
   await group.locator('summary').click();
   if(width===390||width===1440){fs.mkdirSync('ux-evidence',{recursive:true});await page.screenshot({path:'ux-evidence/ecosystem-'+width+'.png',fullPage:true});}
 }
-for(const [selector,destination] of [
-  ['.rs-eco-quick-grid a[href="../trial/"]','trial/'],
-  ['.rs-eco-quick-grid a[href="../schedule/"]','schedule/'],
-  ['.rs-eco-quick-grid a[href="../rental/"]','rental/'],
-  ['.rs-eco-quick-grid a[href="../shoten/"]','shoten/'],
-]){
+for(const [index,destination] of ['trial/','schedule/','rental/','shoten/'].entries()){
   await page.goto(base+'ecosystem/');
-  await page.locator(selector).click();
+  await page.locator('.rs-eco-quick-grid a').nth(index).click();
   await page.waitForURL(url=>url.pathname===new URL(destination,base).pathname);
 }
 assert.deepEqual(errors,[],'compact ecosystem preview errors');
