@@ -17,10 +17,9 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "AMAZON_REVIEW": 2,
+    "IDENTITY_REVIEW": 13,
     "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
     "READY_FOR_AFFILIATE_LINK": 5,
-    "IDENTITY_REVIEW": 11,
     "CATEGORY_REVIEW": 1
   },
   "entries": [
@@ -31,7 +30,7 @@
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "AMAZON_REVIEW",
+      "status": "IDENTITY_REVIEW",
       "content_status": "EDITORIAL_DRAFTED",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
@@ -55,11 +54,13 @@
       "source_urls": [],
       "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json",
       "remaining_gates": [
-        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+        "Resolve exactly which 45L / 100-sheet package is owner-selected; manufacturer/retailer variant",
+        "Existing owner-issued affiliate link must be retained and checked in ③, not reissued"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "handoff_note": "Prior Amazon normal URL review no longer blocks ①; this remains on hold because exact package identity is not established."
     },
     {
       "candidate_key": "owner-006",
@@ -437,7 +438,7 @@
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "AMAZON_REVIEW",
+      "status": "IDENTITY_REVIEW",
       "content_status": "EDITORIAL_DRAFTED",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
@@ -463,12 +464,13 @@
       ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+        "Confirm SESAME 5 physical unit/variation and manufacturer specifications",
+        "Canonical ID registration"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "handoff_note": "Amazon normal URL is optional; product variation and manufacturer checks remain."
     },
     {
       "candidate_key": "owner-016",
@@ -915,6 +917,6 @@
       "RS-P0015"
     ],
     "ready_total_including_affiliate_received": 6,
-    "notes": "Owner-issued affiliate already exists for RS-P0013; do not request again. New upstream 3; tea stays CATEGORY_REVIEW. Public subcategory and affiliate CTA in ③④."
+    "notes": "URL optional gate applied to all entries; former Amazon-only blockers reclassified by genuine identity gaps. RS-P0019 food classification still unapproved."
   }
 }
