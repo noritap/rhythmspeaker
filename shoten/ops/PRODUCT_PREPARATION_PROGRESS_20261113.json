@@ -515,5 +515,37 @@
     "affiliate_links_changed": false,
     "upstream_master_changed": false,
     "next_trigger": "Owner-created matching photograph, written shop-specific commercial license or Amazon compliant API image access; process future canonical products without revisiting unchanged holds"
+  },
+  "image_batch_20261113_04": {
+    "date": "2026-11-13",
+    "target": 20,
+    "scope": "NEW_PRODUCT_IMAGE_SOURCE_AND_RIGHTS_CHECK",
+    "upstream_product_count": 19,
+    "upstream_asset_count": 0,
+    "new_products_checked": 1,
+    "product_ids": [
+      "RS-P0023"
+    ],
+    "image_source_found": 1,
+    "image_rights_verified": 0,
+    "image_registered": 0,
+    "image_verified": 0,
+    "records": [
+      {
+        "product_id": "RS-P0023",
+        "name": "Honda N-VAN ユーティリティフック ノブタイプ ブラック 2個セット",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://www.honda.co.jp/ACCESS/n-van/interior/utilityhook/",
+        "model": "08L96-TXA-012A",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Honda official product photo is shown but shop-specific reproduction/storage/processing permission is unverified"
+      }
+    ],
+    "prior_hold_conditions_unchanged": true,
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_changed": false,
+    "next_trigger": "Original owner photograph or commercial reuse approval from rights holder"
   }
 }
