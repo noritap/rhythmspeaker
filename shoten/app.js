@@ -9,7 +9,7 @@
   const byId = id => products.find(p => p.id === id);
   const core = window.CatalogCore;
   const displayMedia = p => p.approvedPhoto
-    ? {mode:'LOCAL_PHOTO',url:p.approvedPhoto,label:'掲載許諾を確認した写真'}
+    ? {mode:'LOCAL_PHOTO',url:p.approvedPhoto,label:'商品画像'}
     : {mode:'ILLUSTRATION'};
   const commerceStatus = p => p.purchase.kind === 'AFFILIATE' ? '広告リンク確認済み' : '購入リンク確認中';
   const canCompare = products.length >= 2;

@@ -45,11 +45,22 @@ def validate(data, root=ASSET):
         if approved and not any(item.get("src") == approved for item in photos if isinstance(item, dict)):
             errors.append(f"{prefix}: approvedPhoto missing from gallery")
         for item in photos:
-            if not isinstance(item, dict) or not isinstance(item.get("src"), str) or not PATTERN.fullmatch(item["src"]) or not isinstance(item.get("alt"), str) or not item["alt"].strip():
+            if not isinstance(item, dict) or not isinstance(item.get("src"), str) or not isinstance(item.get("alt"), str) or not item["alt"].strip():
                 errors.append(f"{prefix}: invalid gallery item")
                 continue
-            if not (root / item["src"]).is_file():
-                errors.append(f"{prefix}: missing image {item['src']}")
+            src = item["src"]
+            if PATTERN.fullmatch(src):
+                if not (root / src).is_file():
+                    errors.append(f"{prefix}: missing image {src}")
+                continue
+            remote = urlsplit(src)
+            allowed_remote = remote.scheme == "https" and (
+                (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
+                (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
+                (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
+            )
+            if not allowed_remote:
+                errors.append(f"{prefix}: invalid gallery image URL")
         blog = p.get("blogArticle")
         if blog is not None:
             if not isinstance(blog, dict) or not isinstance(blog.get("title"), str) or not blog["title"].strip() or not isinstance(blog.get("url"), str) or not blog["url"].startswith("https://rhythmspeaker.hatenablog.com/entry/"):
