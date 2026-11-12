@@ -71,5 +71,12 @@
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json",
   "checked_at": "2026-11-13",
   "notes": "Not a public catalog record. No main merge or production publication. Existing Anker Solix entries must not be silently repurposed.",
-  "amazon_url_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html"
+  "amazon_url_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html",
+  "availability_review": {
+    "manufacturer_direct_store": "SOLD_OUT_ON_PRODUCT_PAGE",
+    "manufacturer_checked_at": "2026-11-13",
+    "amazon_inventory": "UNVERIFIED",
+    "decision": "Do not mislabel Amazon availability from manufacturer's direct shop; refrain from fixed price or stock copy."
+  },
+  "sources_last_checked": "2026-11-13"
 }
