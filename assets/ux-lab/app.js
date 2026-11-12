@@ -62,7 +62,7 @@ const portalGroups=[
   ['スタジオを使う',['rental'],'rental'],
   ['観る・聴く',['watch','show','music'],'media'],
   ['STEPの基礎を学ぶ',['learn'],'learn'],
-  ['グッズを買う',['shop'],'shopping'],
+  ['グッズを買う',['shop','magazine'],'shopping'],
   ['会員・ご案内',['wallet','contact','about'],'support'],
 ];
 function services(params=new URLSearchParams()){if(params.get('category')==='learn')return head('LEARN / LEARNING GUIDE','やりたいことに、<br>学び方を合わせる。','基礎を順番に学ぶSTEP、表現を深めるTAP、身体づくり。確認できているクラスから選べます。')+`<section class="section finder"><div class="entry-grid"><a class="entry" href="${base}classes/step/"><strong>STEPの基礎を学ぶ</strong></a></div></section>`;return `<section class="portal-intro"><div><h1>すべてのサービス</h1><p class="portal-lead">タップダンスを習う、スタジオを使う、商品を探す。Rhythm Speakerでできることをご紹介します。</p></div></section>

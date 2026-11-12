@@ -108,7 +108,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   await page.locator('.portal-quick-card--schedule').waitFor();
   assert.equal(await page.locator('.portal-tile').count(),12,'twelve service cards');
   assert.equal(await page.locator('.portal-section').count(),6,'six purpose-based sections');
-  assert.equal(await page.locator('.portal-quick-card').count(),2,'two high-priority entry points');
+  assert.equal(await page.locator('.portal-quick-card').count(),4,'four high-priority entry points');
   assert.equal(new URL(await page.locator('.portal-quick-card--trial').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/trial/');
   assert.equal(new URL(await page.locator('.portal-quick-card--schedule').getAttribute('href'),base+'ecosystem/').pathname,'/rhythmspeaker/schedule/');
   assert.equal(await page.locator('#portal-shop .portal-main').getAttribute('href'),'https://rhythmspeaker.stores.jp/?all_items=true');
@@ -125,7 +125,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
   assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
   const purpose = page.locator('.portal-purpose a');
-  assert.equal(await purpose.count(),6);
+  assert.equal(await purpose.count(),5);
   const contactContrast = await page.locator('#portal-contact').evaluate(card=>{
     const luminance = color => {
       const channels = color.match(/[\d.]+/g).slice(0,3).map(n=>Number(n)/255);
