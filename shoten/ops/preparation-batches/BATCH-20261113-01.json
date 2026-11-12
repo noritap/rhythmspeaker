@@ -1,0 +1,836 @@
+{
+  "schema_version": 1,
+  "batch_id": "BATCH-20261113-01",
+  "target_count": 20,
+  "selected_count": 20,
+  "owner_first": true,
+  "photo_optional": true,
+  "status": "SAVED_PREPARATION_BATCH",
+  "scope": "PREPARATION_NOT_LIVE_CATALOG",
+  "note": "20 data rows are drafted and saved, not 20 published products or 20 READY. Existing detail drafts are referenced rather than duplicated as separate canonical products. Unknown Amazon URLs and manufacturer specifications remain explicitly unresolved.",
+  "category_distribution": {
+    "home": 4,
+    "sound": 2,
+    "food-proposed": 6,
+    "apparel-proposed": 3,
+    "work-proposed": 3,
+    "outdoor": 2
+  },
+  "status_distribution": {
+    "AMAZON_REVIEW": 7,
+    "IDENTITY_REVIEW": 11,
+    "ID_REVIEW": 2
+  },
+  "entries": [
+    {
+      "candidate_key": "owner-005",
+      "product_id": "RS-P0007",
+      "formal_name": "by Amazon とって付きごみ袋 45L 100枚",
+      "owner_class": "A",
+      "category": "home",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": "https://www.amazon.co.jp/dp/B089TGWXZS",
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "by Amazon とって付きごみ袋 45L 100枚",
+        "summary": "毎日のごみ出しに。45L・100枚の取っ手付き袋は、結びやすさとストックのしやすさを重視する人の候補です。袋の厚さや自治体の分別ルールを確認して選びましょう。",
+        "why_recommend": "毎日のごみ出しに。45L・100枚の取っ手付き袋は、結びやすさとストックのしやすさを重視する人の候補です。袋の厚さや自治体の分別ルールを確認して選びましょう。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "袋の厚み・サイズ・半透明仕様は商品の正式表示に照合する",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json",
+      "remaining_gates": [
+        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-006",
+      "product_id": "RS-P0013",
+      "formal_name": "Shokz OpenFit Pro ホワイト",
+      "owner_class": "C",
+      "category": "sound",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "Shokz OpenFit Pro ホワイト",
+        "summary": "耳をふさがず音楽や通話を楽しめる、フォーカスモード搭載のオープンイヤーイヤホン。仕事中や移動中に周囲の気配を把握したい人向けです。",
+        "why_recommend": "耳をふさがず音楽や通話を楽しめる、フォーカスモード搭載のオープンイヤーイヤホン。仕事中や移動中に周囲の気配を把握したい人向けです。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "最大再生時間はフォーカスモードのオン・オフで異なる",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json",
+      "remaining_gates": [
+        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-007",
+      "product_id": null,
+      "formal_name": "Shokz OpenDots 2 ブラック",
+      "owner_class": "C",
+      "category": "sound",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "Shokz OpenDots 2 ブラック",
+        "summary": "耳に挟むイヤーカフ型で、耳をふさがず音楽や通話を楽しめるShokzのワイヤレスイヤホン。装着感や操作方式を比較したい方の候補です。",
+        "why_recommend": "耳に挟むイヤーカフ型で、耳をふさがず音楽や通話を楽しめるShokzのワイヤレスイヤホン。装着感や操作方式を比較したい方の候補です。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "ケース込みの最大再生時間はメーカー条件下の公表値",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": "shoten/ops/preparation-drafts/shokz-opendots-2-black.json",
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-008",
+      "product_id": null,
+      "formal_name": "ODE エチオピア コーヒー 1kg",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "ODE エチオピア コーヒー 1kg",
+        "summary": "ODEのエチオピア産コーヒー。香りや焙煎度、豆・粉の形態、1kgの包装単位を確認して、日常的にコーヒーを淹れる人に紹介します。",
+        "why_recommend": "ODEのエチオピア産コーヒー。香りや焙煎度、豆・粉の形態、1kgの包装単位を確認して、日常的にコーヒーを淹れる人に紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "商品ブランドと正確な焙煎・包装形態が未確認",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-009",
+      "product_id": null,
+      "formal_name": "HARNEY & SONS ホット・シナモン・スパイス",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "HARNEY & SONS ホット・シナモン・スパイス",
+        "summary": "シナモンやオレンジ、クローブの香りが特徴的なHarney & Sonsの紅茶。ストレートはもちろん、ミルクを加えても楽しめます。",
+        "why_recommend": "シナモンやオレンジ、クローブの香りが特徴的なHarney & Sonsの紅茶。ストレートはもちろん、ミルクを加えても楽しめます。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "ティーバッグ・サシェ缶・リーフなど容量違いを混同しない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {
+        "blend": "紅茶・オレンジピール・シナモン・クローブ"
+      },
+      "source_urls": [
+        "https://www.harney.jp/collections/hot-cinnamon"
+      ],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-010",
+      "product_id": null,
+      "formal_name": "HARNEY & SONS バニラ系紅茶",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "HARNEY & SONS バニラ系紅茶",
+        "summary": "Harney & Sonsのバニラ系フレーバーティー。香りや紅茶のベース、カフェインの有無は製品ごとに異なるため、正確なフレーバー名を確認して紹介します。",
+        "why_recommend": "Harney & Sonsのバニラ系フレーバーティー。香りや紅茶のベース、カフェインの有無は製品ごとに異なるため、正確なフレーバー名を確認して紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "フレーバー名と内容量の特定が必要",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-011",
+      "product_id": null,
+      "formal_name": "MCTオイル 1183mL",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "MCTオイル 1183mL",
+        "summary": "飲み物や料理に混ぜて使うMCTオイル。容量1183mLの候補について、原料、原産国、栄養表示と保存方法を確認してから紹介します。",
+        "why_recommend": "飲み物や料理に混ぜて使うMCTオイル。容量1183mLの候補について、原料、原産国、栄養表示と保存方法を確認してから紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "摂取による健康効果を保証しない。初回摂取量・体調に注意",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-012",
+      "product_id": null,
+      "formal_name": "マヌカハニー 80g×6（または関連のど飴）",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "マヌカハニー 80g×6（または関連のど飴）",
+        "summary": "小分けで使いやすいマヌカハニー候補。80g×6などセット構成や品質指標を確かめ、味・容量・保管方法で比較できるようにします。",
+        "why_recommend": "小分けで使いやすいマヌカハニー候補。80g×6などセット構成や品質指標を確かめ、味・容量・保管方法で比較できるようにします。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "乳児にはちみつを与えない。UMF/MGO値を推測しない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-013",
+      "product_id": null,
+      "formal_name": "フォンテラ バター 5kg",
+      "owner_class": "A",
+      "category": "food-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "フォンテラ バター 5kg",
+        "summary": "業務用の大容量バターを検討する人向けのフォンテラ商品。食塩の有無、ブロック構成、要冷蔵・冷凍などの取り扱いと配送条件が重要です。",
+        "why_recommend": "業務用の大容量バターを検討する人向けのフォンテラ商品。食塩の有無、ブロック構成、要冷蔵・冷凍などの取り扱いと配送条件が重要です。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "5kgのセット・個包装を正確に確認する",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-014",
+      "product_id": null,
+      "formal_name": "D.IIZOO D1128A パンツ",
+      "owner_class": "A",
+      "category": "apparel-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "D.IIZOO D1128A パンツ",
+        "summary": "D.IIZOOのパンツ。シルエット、サイズ表、素材と洗濯表示を確認し、動きやすさや普段着との兼用を検討する人向けに紹介します。",
+        "why_recommend": "D.IIZOOのパンツ。シルエット、サイズ表、素材と洗濯表示を確認し、動きやすさや普段着との兼用を検討する人向けに紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "カラー・サイズの未確定段階でフィット感を保証しない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-015",
+      "product_id": null,
+      "formal_name": "SESAME 5 スマートロック",
+      "owner_class": "A",
+      "category": "home",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "SESAME 5 スマートロック",
+        "summary": "既存の鍵を活用してスマートフォンから施解錠するスマートロック。対応サムターンやドアへの取り付け条件を確認し、日常の出入りを便利にしたい人向けに紹介します。",
+        "why_recommend": "既存の鍵を活用してスマートフォンから施解錠するスマートロック。対応サムターンやドアへの取り付け条件を確認し、日常の出入りを便利にしたい人向けに紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "使用環境によって追加アクセサリーや通信機器が必要",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [
+        "https://jp.candyhouse.co/apps/help-center"
+      ],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-016",
+      "product_id": null,
+      "formal_name": "SESAME タッチ2 Pro",
+      "owner_class": "A",
+      "category": "home",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "SESAME タッチ2 Pro",
+        "summary": "SESAME対応の暗証番号・指紋・ICカード操作をまとめられるタッチ2 Pro。家族やスタッフの出入りの運用に向いているか、対応SESAME本体と電池方式を確認します。",
+        "why_recommend": "SESAME対応の暗証番号・指紋・ICカード操作をまとめられるタッチ2 Pro。家族やスタッフの出入りの運用に向いているか、対応SESAME本体と電池方式を確認します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "旧世代のSESAMEとの互換性に注意",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {
+        "auth": "指紋・ICカード・暗証番号",
+        "pin_max_digits": 16,
+        "fingerprints": 100
+      },
+      "source_urls": [
+        "https://jp.candyhouse.co/products/sesame-touch-pro"
+      ],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-017",
+      "product_id": null,
+      "formal_name": "45W USB充電器",
+      "owner_class": "A",
+      "category": "work-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "45W USB充電器",
+        "summary": "45WクラスのUSB充電器。スマートフォンや小型PCの充電用途を想定し、PD対応・端子数・対応電圧・安全認証を比較して紹介します。",
+        "why_recommend": "45WクラスのUSB充電器。スマートフォンや小型PCの充電用途を想定し、PD対応・端子数・対応電圧・安全認証を比較して紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "45Wは候補仕様。メーカー・型番・単一/複数ポート出力未確定",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-018",
+      "product_id": null,
+      "formal_name": "DVI-HDMI変換アダプター",
+      "owner_class": "A",
+      "category": "work-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "DVI-HDMI変換アダプター",
+        "summary": "DVI映像出力をHDMI入力へつなぐ変換アダプター候補。端子形状と映像の方向、音声の有無を確認してから紹介します。",
+        "why_recommend": "DVI映像出力をHDMI入力へつなぐ変換アダプター候補。端子形状と映像の方向、音声の有無を確認してから紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "方向やDVIの種類によって接続できない。型番を確認する",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-021",
+      "product_id": null,
+      "formal_name": "カジメイク 2203",
+      "owner_class": "A",
+      "category": "apparel-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "カジメイク 2203",
+        "summary": "カジメイクの2203型番候補。用途・素材・サイズを公式資料で照合したうえで、日常や屋外の着用シーンに沿って紹介します。",
+        "why_recommend": "カジメイクの2203型番候補。用途・素材・サイズを公式資料で照合したうえで、日常や屋外の着用シーンに沿って紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "型番だけで商品種別を推定しない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-022",
+      "product_id": null,
+      "formal_name": "NYANDELMO 靴カバー",
+      "owner_class": "A",
+      "category": "apparel-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "NYANDELMO 靴カバー",
+        "summary": "靴を汚れや水から守るためのNYANDELMO靴カバー候補。素材、対応靴サイズ、滑り止め、使い捨て/再利用方式を照合して紹介します。",
+        "why_recommend": "靴を汚れや水から守るためのNYANDELMO靴カバー候補。素材、対応靴サイズ、滑り止め、使い捨て/再利用方式を照合して紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "床・雨天時の滑りやすさに注意。具体製品の照合待ち",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-024",
+      "product_id": null,
+      "formal_name": "N-VAN 車内フック",
+      "owner_class": "C",
+      "category": "outdoor",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "IDENTITY_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "N-VAN 車内フック",
+        "summary": "N-VAN車内の荷物整理に役立つフック候補。取り付け場所、耐荷重、固定方式と走行時の安全性を確認して紹介します。",
+        "why_recommend": "N-VAN車内の荷物整理に役立つフック候補。取り付け場所、耐荷重、固定方式と走行時の安全性を確認して紹介します。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "エアバッグや視界、積載固定に影響する部位へ取り付けない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {},
+      "source_urls": [],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "メーカー・製品仕様の確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-025",
+      "product_id": null,
+      "formal_name": "Anker Prime Charger 160W",
+      "owner_class": "C",
+      "category": "work-proposed",
+      "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
+      "status": "AMAZON_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": null,
+      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "Anker Prime Charger 160W",
+        "summary": "最大160Wを3ポートで分配できるAnker Prime Charger。充電する機器が増えたときのデスク周りや外出先の電源整理に使える候補です。",
+        "why_recommend": "最大160Wを3ポートで分配できるAnker Prime Charger。充電する機器が増えたときのデスク周りや外出先の電源整理に使える候補です。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "単一ポート最大140Wと複数ポート合計160Wを混同しない",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {
+        "ports": 3,
+        "max_single_port_w": 140,
+        "total_output_w": 160,
+        "model": "A2687N41（シルバー）"
+      },
+      "source_urls": [
+        "https://www.ankerjapan.com/products/a2687"
+      ],
+      "previous_detail_draft": null,
+      "remaining_gates": [
+        "正式商品IDの安全な確定",
+        "型番・カラーに一致する日本Amazon通常商品URLを確定",
+        "正式カテゴリ体系との整合"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-026",
+      "product_id": null,
+      "formal_name": "EcoFlow DELTA 3 Classic",
+      "owner_class": "E",
+      "category": "outdoor",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "ID_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
+      "amazon_product_url_status": "MANUFACTURER_REFERENCED_HISTORICAL_LINK",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "EcoFlow DELTA 3 Classic",
+        "summary": "EcoFlow DELTA 3 Classicは1024Whの容量と定格1500WのAC出力を持つポータブル電源。防災やスタジオの補助電源、屋外利用の比較候補です。",
+        "why_recommend": "EcoFlow DELTA 3 Classicは1024Whの容量と定格1500WのAC出力を持つポータブル電源。防災やスタジオの補助電源、屋外利用の比較候補です。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "使用機器の定格と消費電力を確認。約12.1kg",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {
+        "capacity_wh": 1024,
+        "ac_rated_w": 1500,
+        "weight_kg": 12.1
+      },
+      "source_urls": [
+        "https://jp.ecoflow.com/products/delta-3-classic"
+      ],
+      "previous_detail_draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
+      "remaining_gates": [
+        "正式商品IDの安全な確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    },
+    {
+      "candidate_key": "owner-027",
+      "product_id": null,
+      "formal_name": "SwitchBot プラグミニ JP",
+      "owner_class": "E",
+      "category": "home",
+      "category_state": "EXISTING_ROOT_CATEGORY",
+      "status": "ID_REVIEW",
+      "content_status": "EDITORIAL_DRAFTED",
+      "amazon_product_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
+      "amazon_product_url_status": "MANUFACTURER_REFERENCED_HISTORICAL_LINK",
+      "amazon_candidate_secondary_url": null,
+      "approvedPhoto": null,
+      "gallery": [],
+      "image_status": "IMAGE_OPTIONAL_PENDING",
+      "editorial": {
+        "title": "SwitchBot プラグミニ JP",
+        "summary": "SwitchBotプラグミニ（JP）はWi-Fi経由で電源のオン・オフやスケジュール操作ができるスマートプラグ。家電の消し忘れを減らしたい人の候補です。",
+        "why_recommend": "SwitchBotプラグミニ（JP）はWi-Fi経由で電源のオン・オフやスケジュール操作ができるスマートプラグ。家電の消し忘れを減らしたい人の候補です。",
+        "good_for": [
+          "商品用途と利用環境が合う人"
+        ],
+        "cautions": [
+          "N極対応コンセントが必要。15A/1500W超過禁止",
+          "実使用レビューの追加は本人確認後"
+        ]
+      },
+      "specifications": {
+        "rated_w": 1500,
+        "max_current_a": 15,
+        "wifi": "2.4GHz"
+      },
+      "source_urls": [
+        "https://www.switchbot.jp/products/switchbot-plug-mini"
+      ],
+      "previous_detail_draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
+      "remaining_gates": [
+        "正式商品IDの安全な確定"
+      ],
+      "verified_at": "2026-11-13",
+      "ready_for_affiliate_link": false,
+      "publication_state": "PREPARATION_ONLY"
+    }
+  ]
+}
