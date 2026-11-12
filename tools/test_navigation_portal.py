@@ -90,38 +90,64 @@ class PortalContractTest(unittest.TestCase):
         self.assertNotIn('>すべてのサービス</a>', self.html[self.html.index('id="menu"'):self.html.index('</header>')])
 
     def test_service_cards_have_headings_and_safe_destinations(self):
-        p = Cards()
+        """The compact menu must retain distinct, safe destination links."""
+        from html.parser import HTMLParser
+        class Compact(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.groups = 0
+                self.links = []
+                self.in_summary = False
+                self.summaries = []
+            def handle_starttag(self, tag, attrs):
+                a = dict(attrs)
+                if tag == 'details' and 'rs-eco-group' in a.get('class','').split():
+                    self.groups += 1
+                if tag == 'summary':
+                    self.in_summary = True
+                if tag == 'a':
+                    self.links.append(a.get('href'))
+            def handle_data(self, data):
+                if self.in_summary:
+                    self.summaries.append(data.strip())
+            def handle_endtag(self, tag):
+                if tag == 'summary':
+                    self.in_summary = False
+        p = Compact()
         p.feed(self.html)
-        self.assertEqual(len(p.cards), 11)
-        expected = [
-            '../classes/', '../workshops/', '../rental/',
+        self.assertEqual(p.groups, 5)
+        self.assertEqual([x for x in p.summaries if x], [
+            '教室・レッスン', 'スタジオを使う', '観る・聴く',
+            'グッズ・学び', '会員・ご案内'
+        ])
+        for destination in (
+            '../classes/', '../workshops/', '../rental/', '../rental/share/',
             '../broadcast/', '../rss/', '../music/', '../classes/step/',
             'https://rhythmspeaker.stores.jp/?all_items=true',
-            'https://tips-app-seven.vercel.app/', 'https://lin.ee/zC5YLe7', '../about/',
-        ]
-        for card, main in zip(p.cards, expected):
-            self.assertEqual(card['main'], [main])
-            self.assertEqual(card['h3'], 1)
-            self.assertLessEqual(len(card['links']) - len(card['main']), 5)
-        self.assertNotIn('../schedule/', p.cards[0]['links'])  # primary schedule is already the top action
-        self.assertIn('../classes/', p.cards[0]['links'])
-        self.assertIn('https://noritap.github.io/furusho-official/', p.cards[10]['links'])
-        self.assertIn('mailto:rhythmspeaker296@gmail.com', p.cards[9]['links'])
+            'https://tips-app-seven.vercel.app/', 'https://lin.ee/zC5YLe7',
+            '../about/', 'https://noritap.github.io/furusho-official/',
+            'mailto:rhythmspeaker296@gmail.com'
+        ):
+            self.assertIn(destination, p.links)
+        self.assertEqual(self.html.count('class="rs-eco-group"'), 5)
 
     def test_primary_routes_and_shop_review_distinction(self):
-        self.assertIn('class="portal-quick-card portal-quick-card--trial" href="../trial/"', self.html)
-        self.assertIn('class="portal-quick-card portal-quick-card--schedule" href="../schedule/"', self.html)
-        self.assertIn('>レッスン予約</strong>', self.html)
-        self.assertIn('<h3>グッズを見る</h3>', self.html)
-        self.assertIn('<h2 id="portal-blogs-title">タプ太郎の毎日ブログ</h2>', self.html)
-        self.assertIn('https://tapdance-rhythmspeaker.hatenablog.com/', self.html)
-        self.assertIn('https://rhythmspeaker.hatenablog.com/', self.html)
-        self.assertIn('<h2 id="portal-heading-shopping">グッズを買う</h2>', self.html)
-        self.assertLess(self.html.index('class="portal-quick"'), self.html.index('class="portal-blog-feature"'))
-        self.assertLess(self.html.index('class="portal-blog-feature"'), self.html.index('class="portal-purpose portal-shortcuts"'))
-        self.assertEqual(self.html.count('class="portal-blog-feature"'), 1)
-        self.assertNotIn('portal-tile--magazine', self.html)
-        self.assertNotIn('通常クラス予約', self.html)
+        self.assertIn('class="rs-eco-quick-grid"', self.html)
+        self.assertIn('class="rs-eco-blog-grid"', self.html)
+        self.assertIn('<h2 id="rs-eco-blogs-title">タプ太郎の毎日ブログ</h2>', self.html)
+        self.assertEqual(self.html.count('class="rs-eco-quick-grid"'), 1)
+        self.assertEqual(self.html.count('class="rs-eco-blog-grid"'), 1)
+        self.assertEqual(self.html.count('class="rs-eco-accordion"'), 1)
+        quick = self.html.split('class="rs-eco-quick-grid"', 1)[1].split('</div>', 1)[0]
+        self.assertEqual(quick.count('<a href='), 4)
+        for url in ('../trial/', '../schedule/', '../rental/', '../shoten/'):
+            self.assertIn(f'href="{url}"', quick)
+        blogs = self.html.split('class="rs-eco-blog-grid"', 1)[1].split('</div>', 1)[0]
+        self.assertIn('https://tapdance-rhythmspeaker.hatenablog.com/', blogs)
+        self.assertIn('https://rhythmspeaker.hatenablog.com/', blogs)
+        self.assertLess(self.html.index('class="rs-eco-quick-grid"'), self.html.index('class="rs-eco-blog-grid"'))
+        self.assertLess(self.html.index('class="rs-eco-blog-grid"'), self.html.index('class="rs-eco-accordion"'))
+        self.assertNotIn('class="portal-purpose portal-shortcuts"', self.html)
 
     def test_all_first_party_link_targets_exist(self):
         class Links(HTMLParser):
@@ -137,22 +163,19 @@ class PortalContractTest(unittest.TestCase):
                 target = (ROOT / 'ecosystem' / urlsplit(href).path).resolve()
                 self.assertTrue((target / 'index.html').is_file(), href)
 
-    def test_icon_sprite_has_no_layout_box_even_without_css(self):
-        class Sprite(HTMLParser):
-            def __init__(self):
-                super().__init__(); self.sprites = []
-            def handle_starttag(self, tag, attrs):
-                attrs = dict(attrs)
-                if tag == 'svg' and 'eco-sr' in attrs.get('class', '').split():
-                    self.sprites.append(attrs)
-        p = Sprite(); p.feed(self.html)
-        if 'data-ux-source="sites-v6"' in self.html:
-            self.assertEqual(len(p.sprites),0)  # Inline scoped icons; no hidden sprite needed.
-            self.assertEqual(self.html.count('aria-hidden="true" fill="none"'),11)
-            return
-        self.assertEqual(len(p.sprites), 1)
-        self.assertEqual(p.sprites[0].get('width'), '0')
-        self.assertEqual(p.sprites[0].get('height'), '0')
+    def test_compact_menu_is_accessible_without_javascript(self):
+        # Native details/summary works with keyboard and without JS.
+        self.assertEqual(self.html.count('<details class="rs-eco-group"'), 5)
+        self.assertEqual(self.html.count('<summary>'), 5)
+        self.assertEqual(self.html.count('</details>'), 5)
+        self.assertIn('@media(max-width:600px)', self.html)
+        self.assertIn('@media(prefers-reduced-motion:reduce)', self.html)
+        self.assertIn('.rs-eco-group summary::-webkit-details-marker', self.html)
+        self.assertIn('id="portal-heading-blogs"', self.html)
+        self.assertIn('id="portal-heading-lessons"', self.html)
+        self.assertIn('id="portal-heading-rental"', self.html)
+        self.assertIn('id="portal-heading-media"', self.html)
+        self.assertIn('id="portal-heading-support"', self.html)
 
 
 if __name__ == '__main__':
