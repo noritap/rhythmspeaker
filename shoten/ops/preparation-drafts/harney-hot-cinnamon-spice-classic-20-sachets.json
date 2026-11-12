@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "candidate_key": "owner-009",
+  "product_id": null,
+  "formal_name": "HARNEY & SONS Hot Cinnamon Spice Classic 20サシェ缶（40g）",
+  "brand": "HARNEY & SONS",
+  "category": "food-proposed",
+  "manufacturer_specs": {
+    "package": "Classic Collection 20サシェ缶",
+    "net_weight_g": 40,
+    "sachet_count": 20,
+    "ingredients": "紅茶、オレンジピール、シナモン、クローブ、香料",
+    "caffeine": "有",
+    "brewing": "100℃ 3分"
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://www.harney.jp/products/hot-cinnamon-spice-classic",
+      "role": "PRIMARY",
+      "checked_at": "2026-11-13"
+    },
+    {
+      "url": "https://www.harney.jp/collections/hot-cinnamon",
+      "role": "PRIMARY",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "editorial": {
+    "title": "ハーニー＆サンズ ホット・シナモン・スパイス Classic｜20サシェ缶",
+    "catchline": "スパイスとオレンジが華やかに香る、定番フレーバーティー。",
+    "summary": "シナモン、オレンジピール、クローブを紅茶に合わせた、ハーニー＆サンズのホット・シナモン・スパイス。Classic Collectionの20サシェ入り缶は、毎日楽しむ人にも贈り物を探す人にも比較しやすい40g入りです。メーカー案内では100℃のお湯で約3分抽出。甘味料を加える前に、香りとスパイスの風味を楽しめます。",
+    "why_recommend": "メーカー仕様を比較し、利用場面と合う条件を紹介する。",
+    "good_for": [
+      "用途に合う製品を選びたい人"
+    ],
+    "cautions": [
+      "カフェインを含む",
+      "原材料に香料を含む",
+      "同名商品のリーフ・HT缶・デカフェと混同しない",
+      "個人の実使用感を記載しない"
+    ],
+    "tags": [
+      "紅茶",
+      "シナモン",
+      "冬の飲み物"
+    ]
+  },
+  "content_status": "CONTENT_READY",
+  "status": "AMAZON_REVIEW",
+  "ready_for_affiliate_link": false,
+  "amazon_product_page_url": null,
+  "amazon_url_status": "EXACT_VARIANT_Amazon_JP_URL_NOT_VERIFIED",
+  "image": {
+    "approvedPhoto": null,
+    "gallery": [],
+    "image_status": "IMAGE_OPTIONAL_PENDING"
+  },
+  "remaining_gates": [
+    "Exact matching Amazon.co.jp normal product URL",
+    "Formal canonical product ID if not existing",
+    "Upstream product master and category compatibility validation"
+  ],
+  "last_verified": "2026-11-13"
+}
