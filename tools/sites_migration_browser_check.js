@@ -125,7 +125,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   const quickLayout=await page.locator('.portal-quick-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.trim().split(/\s+/).length);
   assert.equal(quickLayout,width<=700?1:2,'responsive P0 layout at '+width);
   const purpose = page.locator('.portal-purpose a');
-  assert.equal(await purpose.count(),6);
+  assert.equal(await purpose.count(),5);
   const contactContrast = await page.locator('#portal-contact').evaluate(card=>{
     const luminance = color => {
       const channels = color.match(/[\d.]+/g).slice(0,3).map(n=>Number(n)/255);
