@@ -110,12 +110,26 @@
       "ownerVerifiedShortLink": true,
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "trackingId": "rsshop-hatenablg-22",
-      "approvedPhoto": null,
+      "approvedPhoto": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
       "comparison": {
         "選ぶ基準": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
         "主な仕様": "約207g・NC ON最大50時間／OFF最大75時間"
       },
-      "specs": {}
+      "specs": {},
+      "imageSource": {
+        "source_name": "PB Tech product listing",
+        "source_page": "https://www.pbtech.co.nz/product/HSTSNY01730/Sony-WH-CH730N-Wireless-Over-Ear-Noise-Cancelling",
+        "source_image_url": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+        "verified_model": "SONY WH-CH730N ブラック",
+        "owner_permission": "USER_CONFIRMED",
+        "checked_at": "2026-11-13"
+      },
+      "gallery": [
+        {
+          "src": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+          "alt": "SONY WH-CH730N ブラックの商品写真"
+        }
+      ]
     },
     {
       "product_id": "RS-P0005",
@@ -154,12 +168,26 @@
       "ownerVerifiedShortLink": true,
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "trackingId": "rsshop-hatenablg-22",
-      "approvedPhoto": null,
+      "approvedPhoto": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
       "comparison": {
         "選ぶ基準": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
         "主な仕様": "約216g・音楽再生最大約60時間"
       },
-      "specs": {}
+      "specs": {},
+      "imageSource": {
+        "source_name": "JB Hi-Fi product listing",
+        "source_page": "https://www.jbhifi.com.au/products/audio-technica-ath-m20xbt-wireless-over-ear-headphones-black",
+        "source_image_url": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+        "verified_model": "audio-technica ATH-M20xBT ブラック（国内正規品）",
+        "owner_permission": "USER_CONFIRMED",
+        "checked_at": "2026-11-13"
+      },
+      "gallery": [
+        {
+          "src": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+          "alt": "audio-technica ATH-M20xBT ブラックの商品写真"
+        }
+      ]
     },
     {
       "product_id": "RS-P0012",
@@ -199,12 +227,26 @@
       "ownerVerifiedShortLink": true,
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "trackingId": "rsshop-hatenablg-22",
-      "approvedPhoto": null,
+      "approvedPhoto": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
       "comparison": {
         "選ぶ基準": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
         "主な仕様": "約183g・音楽再生最大70時間・ANC非対応"
       },
-      "specs": {}
+      "specs": {},
+      "imageSource": {
+        "source_name": "Lulu Hypermarket product listing; same H30i black model",
+        "source_page": "https://gcc.luluhypermarket.com/en-ae/anker-soundcore-h30i-onear-wireless-headphone-black-a3012h11/p/2230666/",
+        "source_image_url": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+        "verified_model": "Soundcore H30i ブラック（A3012Z11）",
+        "owner_permission": "USER_CONFIRMED",
+        "checked_at": "2026-11-13"
+      },
+      "gallery": [
+        {
+          "src": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+          "alt": "Soundcore H30i ブラックの商品写真"
+        }
+      ]
     }
   ]
 }
