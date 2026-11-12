@@ -58,22 +58,32 @@ function portalIcon(id){const paths={studio:'<path d="m5 19 7-14 7 14M8 14h8M4 2
 function portalCard(c){return `<article class="portal-tile portal-tile--${c.id}${c.utility?' portal-utility':''}" id="portal-${c.id}"><div class="portal-tile-head">${portalIcon(c.icon)}</div><a class="portal-main" href="${esc(c.url)}"><h3>${c.jp}</h3><p>${c.desc}</p><span class="portal-action">${c.action} <span aria-hidden="true">↗</span></span></a>${c.shortcuts.length?`<nav class="portal-shortcuts" aria-label="${c.jp}の関連リンク">${c.shortcuts.map(([label,url])=>`<a href="${esc(url)}">${label}<span aria-hidden="true">↗</span></a>`).join('')}</nav>`:''}</article>`}
 function portalGroup(title,ids,group){const items=ids.map(id=>portalItems.find(c=>c.id===id));return `<section class="portal-section portal-section--${group}" aria-labelledby="portal-heading-${group}"><h2 id="portal-heading-${group}">${title}</h2><div class="portal-grid portal-grid--${group}">${items.map(portalCard).join('')}</div></section>`}
 const portalGroups=[
-  ['タップダンスを習う',['studio','events'],'lessons'],
+  ['教室・レッスン',['studio','events'],'lessons'],
   ['スタジオを使う',['rental'],'rental'],
   ['観る・聴く',['watch','show','music'],'media'],
-  ['基礎を学ぶ',['learn'],'learn'],
-  ['グッズ・商品レビュー',['shop','magazine'],'shopping'],
-  ['会員・お問い合わせ',['wallet','contact','about'],'support'],
+  ['STEPの基礎を学ぶ',['learn'],'learn'],
+  ['グッズを買う',['shop'],'shopping'],
+  ['会員・ご案内',['wallet','contact','about'],'support'],
 ];
-function services(params=new URLSearchParams()){if(params.get('category')==='learn')return head('LEARN / LEARNING GUIDE','やりたいことに、<br>学び方を合わせる。','基礎を順番に学ぶSTEP、表現を深めるTAP、身体づくり。確認できているクラスから選べます。')+`<section class="section finder"><div class="entry-grid"><a class="entry" href="${base}classes/step/"><span class="num">01 / STEP</span><strong>基礎から順番に学ぶ</strong><p>未経験の方はSTEP 超初級から。</p><span class="arrow">↗</span></a><a class="entry" href="${base}classes/tap/"><span class="num">02 / TAP</span><strong>踊り・表現を深める</strong><p>学んだ基礎を音楽や振付へ広げます。</p><span class="arrow">↗</span></a><a class="entry" href="#/classes"><span class="num">03 / BODY</span><strong>身体の使い方を学ぶ</strong><p>柔軟性・身体操作・軸・体力から選べます。</p><span class="arrow">↗</span></a></div><div class="recommend" style="margin-top:30px"><strong>オンライン学習の専用サイトは準備中です。</strong><p>この案内は現在のクラスへの入口です。教材販売やオンライン受講の申込機能はありません。</p></div><a class="text-link" href="#/services">← サービス一覧へ戻る</a></section>${finalCTA()}`;return `<section class="portal-intro"><div><h1>すべてのサービス</h1><p class="portal-lead">タップダンスを習う、スタジオを使う、音楽や映像を楽しむ。目的に合うサービスを探せます。</p></div></section>
+function services(params=new URLSearchParams()){if(params.get('category')==='learn')return head('LEARN / LEARNING GUIDE','やりたいことに、<br>学び方を合わせる。','基礎を順番に学ぶSTEP、表現を深めるTAP、身体づくり。確認できているクラスから選べます。')+`<section class="section finder"><div class="entry-grid"><a class="entry" href="${base}classes/step/"><strong>STEPの基礎を学ぶ</strong></a></div></section>`;return `<section class="portal-intro"><div><h1>すべてのサービス</h1><p class="portal-lead">タップダンスを習う、スタジオを使う、商品を探す。Rhythm Speakerでできることをご紹介します。</p></div></section>
 <section class="section portal-area">
-  <nav class="portal-purpose portal-shortcuts" aria-label="目的から探す">
-    ${portalGroups.map(([title,,group])=>`<a href="#portal-heading-${group}">${title}<span aria-hidden="true">↓</span></a>`).join('')}
-  </nav>
-  <section class="portal-quick" aria-labelledby="portal-quick-title"><h2 id="portal-quick-title">まずはこちら</h2><div class="portal-quick-grid">
-    <a class="portal-quick-card portal-quick-card--trial" href="#/trial"><span>初めての方</span><strong>初回体験 <em>¥1,000</em></strong><small>体験の内容・申込方法を見る <span aria-hidden="true">↗</span></small></a>
-    <a class="portal-quick-card portal-quick-card--schedule" href="#/schedule"><span>レッスンに参加する方</span><strong>レッスン日程</strong><small>日時・講師から探す <span aria-hidden="true">↗</span></small></a>
+  <section class="portal-quick" aria-label="まずはこちら"><div class="portal-quick-grid">
+    <a class="portal-quick-card portal-quick-card--trial" href="${base}trial/"><strong>初回体験 <em>¥1,000</em></strong><small>初めての方・体験内容を見る <span aria-hidden="true">↗</span></small></a>
+    <a class="portal-quick-card portal-quick-card--schedule" href="${base}schedule/"><strong>レッスン予約</strong><small>開催日程から探す <span aria-hidden="true">↗</span></small></a>
+    <a class="portal-quick-card portal-quick-card--rental" href="${base}rental/"><strong>スタジオレンタル</strong><small>料金・空き時間・予約を見る <span aria-hidden="true">↗</span></small></a>
+    <a class="portal-quick-card portal-quick-card--store" href="${base}shoten/"><strong>リズムスピーカー商店</strong><small>おすすめ商品を探す <span aria-hidden="true">↗</span></small></a>
   </div></section>
+  <section class="portal-blog-feature" id="portal-heading-blogs" aria-labelledby="portal-blogs-title"><h2 id="portal-blogs-title">タプ太郎の毎日ブログ</h2><div class="portal-blog-grid">
+    <a href="https://tapdance-rhythmspeaker.hatenablog.com/">タップダンスを学ぶ <span aria-hidden="true">↗</span></a>
+    <a href="https://rhythmspeaker.hatenablog.com/">商品レビュー <span aria-hidden="true">↗</span></a>
+  </div></section>
+  <nav class="portal-purpose portal-shortcuts" aria-label="目的から探す">
+    <a href="#portal-heading-lessons">教室・レッスン<span aria-hidden="true">↓</span></a>
+    <a href="#portal-heading-rental">スタジオを使う<span aria-hidden="true">↓</span></a>
+    <a href="#portal-heading-blogs">毎日ブログ<span aria-hidden="true">↓</span></a>
+    <a href="#portal-heading-media">観る・聴く<span aria-hidden="true">↓</span></a>
+    <a href="#portal-heading-support">会員・ご案内<span aria-hidden="true">↓</span></a>
+  </nav>
   ${portalGroups.map(group=>portalGroup(...group)).join('')}
 </section>`}
 function classDetailPage(c){const people=data.people.filter(p=>p.classes.includes(c.name));return head('CLASS DETAIL',c.name+'｜クラス内容・担当講師','レッスンの内容と担当講師を確認できます。')+`<section class="section finder split">${image(c.photo,c.name+'クラス識別画像')}<div><h2>${c.id==='step'?'初めての方は、STEP超初級から。':c.name+'で学ぶこと'}</h2><p>${esc(c.desc)}</p>${c.id==='step'?'<p>超初級では基本の立ち方や音の出し方から。初級では基本ステップを組み合わせます。どちらが合うか迷ったら、経験を伝えてご相談ください。</p>':''}<div class="actions">${link('#/schedule?type='+encodeURIComponent(c.name),'このクラスの開催予定を見る')}${link('#/instructors?class='+encodeURIComponent(c.name),'担当講師を比較する')}${link(base+'trial/apply/?class='+encodeURIComponent(c.name),'このクラスの体験を申し込む','text-link')}</div><p class="note">体験申し込みフォームへ移動します。送信後に日時を調整します。</p><a class="text-link" href="#/classes">← クラス一覧へ戻る</a></div></section><section class="section white">${sectionHead('INSTRUCTORS','このクラスを担当する講師')}<div class="grid">${people.map(personCard).join('')}</div></section>${finalCTA()}`}
