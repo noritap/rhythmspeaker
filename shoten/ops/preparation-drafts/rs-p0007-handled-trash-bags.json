@@ -18,8 +18,21 @@
     "manufacturer_page_verified": false,
     "amazon_direct_page_verified": false,
     "amazon_product_page_url_candidate": "https://www.amazon.co.jp/dp/B089TGWXZS",
-    "amazon_product_url_status": "SECONDARY_MATCH_ONLY_NOT_INDEPENDENTLY_VERIFIED",
-    "amazon_shortlink_destination": "OWNER_ATTESTED_IN_EXISTING_AFFILIATE_WORKFLOW; not independently reverified"
+    "amazon_product_url_status": "INDEPENDENT_SECONDARY_CROSSCHECKS_MATCH_EXACT_NAME_AND_45L_100_COUNT_AMAZON_DIRECT_BLOCKED",
+    "amazon_shortlink_destination": "OWNER_ATTESTED_IN_EXISTING_AFFILIATE_WORKFLOW; not independently reverified",
+    "amazon_product_page_corroboration": [
+      {
+        "url": "https://ymall.jp/store/luckycart/b089tgwxzs-20260513/",
+        "type": "SELLER_PRODUCT_RECORD",
+        "note": "Exact brand name and dimensions matched"
+      },
+      {
+        "url": "https://omocoro.jp/bros/kiji/587957/",
+        "type": "INDEPENDENT_EDITORIAL_ARTICLE",
+        "note": "Exact 45L 100-count item referenced; external owner's usage is not evidence of current user's usage"
+      }
+    ],
+    "amazon_direct_page_access_attempt": "2026-11-13; inaccessible via research browser, do not equate external citations with primary Amazon confirmation"
   },
   "specs_from_secondary_sources": {
     "capacity_l": 45,
@@ -67,10 +80,10 @@
   "publication_cta_enabled": false,
   "ready_for_affiliate_link": false,
   "remaining_gates": [
-    "Confirm same product and variant against Amazon primary listing using existing owner link evidence or authorized catalog record",
-    "Confirm formal specification in first-party source",
-    "Acquire and verify one republishable product image with rights evidence",
-    "Link registration workflow resolves existing internal identifier/tracking separately"
+    "Amazon primary match through authorized source / existing owner link record",
+    "Rights-cleared product photo with actual asset/display validation",
+    "Manufacturer/Amazon first-party specification verification",
+    "Link-registry internal identifier and tracking checks remain in registration workflow"
   ],
   "checked_at": "2026-11-13",
   "note": "Preparation only. Existing owner-supplied affiliate link is already handled in link-registration chat. No changes to upstream ledger, main, or public catalog."
