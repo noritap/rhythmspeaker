@@ -42,6 +42,8 @@ def validate(data, root=ASSET):
             errors.append(f"{prefix}: gallery must contain at most 5 images")
             photos = []
         approved = p.get("approvedPhoto")
+        if not isinstance(approved, str) or not approved.strip():
+            errors.append(f"{prefix}: approved product photo is required")
         if approved and not any(item.get("src") == approved for item in photos if isinstance(item, dict)):
             errors.append(f"{prefix}: approvedPhoto missing from gallery")
         for item in photos:
