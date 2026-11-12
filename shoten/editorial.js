@@ -41,6 +41,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "wireless-headphones",
           "name": "ワイヤレスヘッドホン"
+        },
+        {
+          "id": "open-ear-earphones",
+          "name": "オープンイヤーイヤホン"
         }
       ]
     },
