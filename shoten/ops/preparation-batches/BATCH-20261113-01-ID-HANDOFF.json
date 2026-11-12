@@ -6,7 +6,7 @@
   "scope": "PREPARATION_BRANCH_ONLY",
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS/data/products.json",
   "source_of_truth_updated": false,
-  "summary": "Two selected items have manufacturer-backed specifications, validated regular Amazon product URL mapping, editorial text and existing site category; photo is optional. Their branch-scoped proposed ID slots are not canonically registered and therefore are NOT READY_FOR_AFFILIATE_LINK.",
+  "summary": "Upstream-compatible two-row import payload has been prepared with collision-free ID proposals and verified source URLs, but the canonical upstream repo has not been modified. They remain CONTENT_READY/ID_REVIEW, not READY.",
   "products": [
     {
       "product": "EcoFlow DELTA 3 Classic 1024Wh",
@@ -48,8 +48,14 @@
     "regular_url_identity": "PASS (manufacturer press link)",
     "sku_differences": "PASS (standalone EcoFlow; ordinary/non-HomeKit SwitchBot)",
     "id_uniqueness": "PRELIMINARY_RESERVED_LOCALLY_NOT_CANONICAL",
-    "json_saved_retrieval": "PENDING_FINAL_READBACK",
+    "json_saved_retrieval": "PASS_IN_PRIOR_TURN",
     "catalog_compatibility": "NOT_TESTED",
-    "main_deploy": "NOT_PERFORMED"
-  }
+    "main_deploy": "NOT_PERFORMED",
+    "upstream_import_payload": "PREPARED_AND_LOCAL_CHECKS_PASSED",
+    "canonical_category_mapping": "CHECKED_AGAINST_UPSTREAM",
+    "upstream_write": "NOT_PERFORMED",
+    "canonical_id_assignment": "NOT_PERFORMED"
+  },
+  "upstream_import_proposal": "shoten/ops/preparation-batches/BATCH-20261113-01-UPSTREAM-IMPORT-PROPOSAL.json",
+  "latest_proposal_validation_at": "2026-11-13"
 }
