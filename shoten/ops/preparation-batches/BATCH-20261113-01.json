@@ -5,7 +5,7 @@
   "selected_count": 20,
   "owner_first": true,
   "photo_optional": true,
-  "status": "TWO_PRODUCTS_REGISTERED_IN_UPSTREAM_REVIEW_PR",
+  "status": "TWO_PRIORITY_PRODUCTS_READY_FOR_AFFILIATE_LINK",
   "scope": "PREPARATION_NOT_LIVE_CATALOG",
   "note": "20 data rows are drafted and saved, not 20 published products or 20 READY. Existing detail drafts are referenced rather than duplicated as separate canonical products. Unknown Amazon URLs and manufacturer specifications remain explicitly unresolved.",
   "category_distribution": {
@@ -748,12 +748,12 @@
     },
     {
       "candidate_key": "owner-026",
-      "product_id": null,
+      "product_id": "RS-P0014",
       "formal_name": "EcoFlow DELTA 3 Classic（1024Wh）",
       "owner_class": "E",
       "category": "outdoor",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "UPSTREAM_PR_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
       "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
@@ -783,29 +783,28 @@
         "https://jp.ecoflow.com/products/delta-3-classic"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
-      "remaining_gates": [
-        "Upstream PR #18 reviewed and merged; canonical main ID verified"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
       "verified_manufacturer_model": "EF-DL3-C",
       "canonical_category": "outdoor",
       "proposed_local_product_id": "RS-P0014",
-      "proposed_id_is_official": false,
+      "proposed_id_is_official": true,
       "photo_optional": true,
       "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
       "upstream_branch_record_added": true,
-      "upstream_main_merged": false
+      "upstream_main_merged": true,
+      "canonical_product_id": "RS-P0014"
     },
     {
       "candidate_key": "owner-027",
-      "product_id": null,
+      "product_id": "RS-P0015",
       "formal_name": "SwitchBot プラグミニ（JP）通常版 1個",
       "owner_class": "E",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "UPSTREAM_PR_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
       "amazon_product_url_status": "MANUFACTURER_REFERENCED_PRODUCT_MATCHED_CURRENT_STOCK_UNKNOWN",
@@ -836,34 +835,33 @@
         "https://www.switchbot.jp/products/switchbot-plug-mini"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
-      "remaining_gates": [
-        "Upstream PR #18 reviewed and merged; canonical main ID verified"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
       "verified_manufacturer_model": "W2001400",
       "canonical_category": "home",
       "proposed_local_product_id": "RS-P0015",
-      "proposed_id_is_official": false,
+      "proposed_id_is_official": true,
       "photo_optional": true,
       "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
       "upstream_branch_record_added": true,
-      "upstream_main_merged": false
+      "upstream_main_merged": true,
+      "canonical_product_id": "RS-P0015"
     }
   ],
   "completed_content_ready_count": 2,
-  "new_ready_count": 0,
+  "new_ready_count": 2,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
       "proposed_local_id": "RS-P0014",
-      "canonical_registered": false
+      "canonical_registered": true
     },
     {
       "candidate_key": "owner-027",
       "proposed_local_id": "RS-P0015",
-      "canonical_registered": false
+      "canonical_registered": true
     }
   ]
 }
