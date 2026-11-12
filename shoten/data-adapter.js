@@ -19,7 +19,7 @@
         !(directAffiliate || shortAffiliate)) {
       throw Error('Invalid Shoten catalog row');
     }
-    const validPhoto = value => /^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$/.test(value) || /^https:\/\/(?:www\.pbtech\.co\.nz\/imgprod\/|www\.jbhifi\.com\.au\/cdn\/shop\/products\/|bf1af2\.akinoncloudcdn\.com\/products\/)[A-Za-z0-9_./?=&%-]+$/.test(value);
+    const validPhoto = value => /^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif|svg)$/.test(value) || /^https:\/\/(?:www\.pbtech\.co\.nz\/imgprod\/|www\.jbhifi\.com\.au\/cdn\/shop\/products\/|bf1af2\.akinoncloudcdn\.com\/products\/)[A-Za-z0-9_./?=&%-]+$/.test(value);
     if (row.approvedPhoto !== null && !validPhoto(row.approvedPhoto)) throw Error('Invalid approved photo URL');
     if (row.gallery !== undefined && (!Array.isArray(row.gallery) || row.gallery.length > 5 || row.gallery.some(item => !item || typeof item.alt !== 'string' || !validPhoto(item.src)))) throw Error('Invalid product gallery');
     const purchase = {
