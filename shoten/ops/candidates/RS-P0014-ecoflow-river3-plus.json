@@ -1,6 +1,6 @@
 {
   "product_id": "RS-P0014",
-  "status": "READY_FOR_AFFILIATE_LINK",
+  "status": "AFFILIATE_LINK_REGISTERED_PENDING_PUBLICATION_CHECK",
   "formal_name": "EcoFlow RIVER 3 Plus ポータブル電源（通常モデル・ブラック）",
   "brand": "EcoFlow",
   "model": "EFRIVER3PLUS-JP-CBOX",
@@ -33,8 +33,8 @@
     }
   ],
   "amazon_product_url": "https://www.amazon.co.jp/dp/B0DHZZ394W",
-  "amazon_associates_url": "",
-  "amazon_link_verified_by_owner": false,
+  "amazon_associates_url": "https://link.amazon/B0ab3Xl2K",
+  "amazon_link_verified_by_owner": true,
   "verified_target_asin": "B0DHZZ394W",
   "specifications": {
     "capacity": "286Wh",
@@ -75,20 +75,23 @@
   "catalog_draft": {
     "product_id": "RS-P0014",
     "category": "outdoor",
-    "subcategory": "portable-power",
+    "subcategory": "ac-power",
     "formal_name": "EcoFlow RIVER 3 Plus",
     "image": "./assets/products/rs-p0014-river3-plus-guide.svg",
     "purchase_cta_enabled": false,
-    "affiliateLinkKind": null,
-    "ownerVerifiedShortLink": false
+    "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+    "ownerVerifiedShortLink": true
   },
   "article_url": "",
   "checked_at": "2026-11-13",
   "handoff": {
-    "target": "affiliate-link-registration-chat",
-    "remaining_owner_action": "対象Amazon商品ページで正式アソシエイト短縮リンクを取得して商品IDとともに渡す",
-    "publication": "DO_NOT_PUBLISH",
-    "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json in preparation PR"
+    "target": "publication-chat-after-validation",
+    "remaining_owner_action": "NONE_FOR_LINK_DESTINATION",
+    "publication": "DO_NOT_PUBLISH_UNTIL_LINK_TRACKING_AND_RELEASE_GATES_RESOLVED",
+    "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json in preparation PR",
+    "catalog_path": "shoten/catalog.json",
+    "public_pr": 519,
+    "commerce_pr": 17
   },
   "notes": "通常モデル。Wirelessバージョン・Max・Max Plus、旧RIVER Plusと混同しない。アフィリエイトURL未取得。商店公開用catalog.jsonには追加しない。"
 }
