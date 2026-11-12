@@ -17,10 +17,11 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "AMAZON_REVIEW": 6,
+    "AMAZON_REVIEW": 2,
+    "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
+    "READY_FOR_AFFILIATE_LINK": 5,
     "IDENTITY_REVIEW": 11,
-    "CATEGORY_COMPATIBILITY_REVIEW": 1,
-    "ID_REVIEW": 2
+    "CATEGORY_REVIEW": 1
   },
   "entries": [
     {
@@ -67,10 +68,10 @@
       "owner_class": "C",
       "category": "sound",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "AMAZON_REVIEW",
+      "status": "AFFILIATE_LINK_ALREADY_RECEIVED",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -92,26 +93,26 @@
       },
       "source_urls": [],
       "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json",
-      "remaining_gates": [
-        "Exact matching Amazon.co.jp URL",
-        "Category compatibility test",
-        "Canonical registration if absent"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "ready_for_affiliate_link": true,
+      "publication_state": "PREPARATION_ONLY",
+      "affiliate_link_already_received": true,
+      "category_site_root_mapping": "sound",
+      "handoff_note": "Previously owner-issued affiliate link exists in upstream links; no new link request. Exact white variant already owner-attested; ③ takes final identity link gate.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-007",
-      "product_id": null,
+      "product_id": "RS-P0017",
       "formal_name": "Shokz OpenDots 2 ブラック（SKZ-EP-000069）",
       "owner_class": "C",
       "category": "sound",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "AMAZON_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -133,14 +134,14 @@
       },
       "source_urls": [],
       "previous_detail_draft": "shoten/ops/preparation-drafts/shokz-opendots-2-black.json",
-      "remaining_gates": [
-        "Exact matching Amazon.co.jp URL",
-        "Category compatibility test",
-        "Canonical registration if absent"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "ready_for_affiliate_link": true,
+      "publication_state": "PREPARATION_ONLY",
+      "affiliate_link_already_received": false,
+      "category_site_root_mapping": "sound",
+      "handoff_note": "Manufacturer verified black SKU; canonical main merged PR #20; URL not required in phase ①.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-008",
@@ -184,15 +185,15 @@
     },
     {
       "candidate_key": "owner-009",
-      "product_id": null,
+      "product_id": "RS-P0019",
       "formal_name": "HARNEY & SONS Hot Cinnamon Spice Classic 20サシェ缶（40g）",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "AMAZON_REVIEW",
+      "status": "CATEGORY_REVIEW",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -219,13 +220,15 @@
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/harney-hot-cinnamon-spice-classic-20-sachets.json",
       "remaining_gates": [
-        "Exact matching Amazon.co.jp URL",
-        "Category compatibility test",
-        "Canonical registration if absent"
+        "Approved formal category mapping before READY"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "affiliate_link_already_received": false,
+      "category_site_root_mapping": "food-proposed",
+      "handoff_note": "Confirmed Classic 20 sachet 40g; food is not currently a formal site root, so keep hold pending approved mapping.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-010",
@@ -469,15 +472,15 @@
     },
     {
       "candidate_key": "owner-016",
-      "product_id": null,
+      "product_id": "RS-P0018",
       "formal_name": "CANDY HOUSE SESAMEタッチ2Pro（充電式電池／CR123A対応版）",
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "AMAZON_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "EXACT_SKU_AMAZON_URL_PENDING",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -503,14 +506,14 @@
         "https://jp.candyhouse.co/products/sesame-touch-pro"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/sesame-touch-2-pro.json",
-      "remaining_gates": [
-        "Exact matching Amazon.co.jp URL",
-        "Category compatibility test",
-        "Canonical registration if absent"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "ready_for_affiliate_link": true,
+      "publication_state": "PREPARATION_ONLY",
+      "affiliate_link_already_received": false,
+      "category_site_root_mapping": "home",
+      "handoff_note": "Manufacturer verified Touch 2 Pro rechargeable/CR123A variant; canonical main merged PR #20.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-017",
@@ -718,10 +721,10 @@
       "owner_class": "C",
       "category": "work-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "CATEGORY_COMPATIBILITY_REVIEW",
+      "status": "READY_FOR_AFFILIATE_LINK",
       "content_status": "CONTENT_READY",
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
-      "amazon_product_url_status": "MANUFACTURER_LINK_CONFIRMED",
+      "amazon_product_url_status": "EXISTING_VERIFIED_VALUE_RETAINED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -749,15 +752,16 @@
         "https://www.ankerjapan.com/products/a2687"
       ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/anker-prime-charger-160w-silver.json",
-      "remaining_gates": [
-        "Official website category mapping from proposed work",
-        "Catalog validator compatibility test"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
       "upstream_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/19",
-      "upstream_registration_status": "MERGED_MAIN_VERIFIED"
+      "upstream_registration_status": "MERGED_MAIN_VERIFIED",
+      "affiliate_link_already_received": false,
+      "category_site_root_mapping": "sound",
+      "handoff_note": "Official site sound root is 音楽・しごと. Mapping is a proposal pending ④ implementation, not a new approved category.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-026",
@@ -863,8 +867,8 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 3,
-  "new_ready_count": 2,
+  "completed_content_ready_count": 7,
+  "new_ready_count": 4,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
@@ -890,5 +894,27 @@
     "new_ready": 0,
     "new_canonical_registered": 0,
     "notes": "Four owner-first drafts were completed/updated and saved; exact Amazon matching unavailable. Existing RS-P0016 remains registered but catalog category QA pending. Amazon listings not invented."
+  },
+  "current_rule_version": "v5.1_URL_OPTIONAL",
+  "last_run": {
+    "date": "2026-11-13",
+    "new_upstream_product_ids": [
+      "RS-P0017",
+      "RS-P0018",
+      "RS-P0019"
+    ],
+    "upstream_merged_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/20",
+    "new_ready_since_previous_batch_state": [
+      "RS-P0013",
+      "RS-P0016",
+      "RS-P0017",
+      "RS-P0018"
+    ],
+    "previously_ready": [
+      "RS-P0014",
+      "RS-P0015"
+    ],
+    "ready_total_including_affiliate_received": 6,
+    "notes": "Owner-issued affiliate already exists for RS-P0013; do not request again. New upstream 3; tea stays CATEGORY_REVIEW. Public subcategory and affiliate CTA in ③④."
   }
 }
