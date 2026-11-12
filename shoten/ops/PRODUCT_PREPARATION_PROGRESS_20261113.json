@@ -399,5 +399,51 @@
     "saved_on_work_branch": true,
     "scope": "No public catalog or CTA changes"
   },
-  "policy_version": "v5.1_URL_OPTIONAL_AFFILIATE_LINK_CANONICAL"
+  "policy_version": "v5.1_URL_OPTIONAL_AFFILIATE_LINK_CANONICAL",
+  "image_batch_20261113_02": {
+    "scope": "NEW_CANONICAL_IDS_RIGHTS_SCREEN",
+    "date": "2026-11-13",
+    "target": 20,
+    "upstream_products_current": 15,
+    "upstream_images_current": 0,
+    "new_since_batch_01": 4,
+    "ids": [
+      "RS-P0016",
+      "RS-P0017",
+      "RS-P0018",
+      "RS-P0019"
+    ],
+    "images_registered": 0,
+    "images_verified": 0,
+    "rights_cleared": 0,
+    "records": [
+      {
+        "product_id": "RS-P0016",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "evidence": "https://www.anker-in.com/media",
+        "reason": "Anker media library exists, no explicit shop-product-card license verified"
+      },
+      {
+        "product_id": "RS-P0017",
+        "status": "IMAGE_HOLD",
+        "evidence": "https://jp.shokz.com/products/opendots-2",
+        "reason": "Official image exists but commercial reuse/hosting permission not established"
+      },
+      {
+        "product_id": "RS-P0018",
+        "status": "IMAGE_REJECTED",
+        "evidence": "https://jp.candyhouse.co/pages/presskit",
+        "reason": "Press kit restricts commercial secondary reuse; obtain explicit written permission for shop use"
+      },
+      {
+        "product_id": "RS-P0019",
+        "status": "IMAGE_HOLD",
+        "reason": "No authenticated owner photograph or cleared reuse license presented"
+      }
+    ],
+    "prior_hold_research_reused": true,
+    "main_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_changed": false
+  }
 }
