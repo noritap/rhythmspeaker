@@ -445,5 +445,80 @@
     "main_changed": false,
     "affiliate_links_changed": false,
     "upstream_changed": false
+  },
+  "image_batch_20261113_03": {
+    "date": "2026-11-13",
+    "scope": "NEW_CANONICAL_IDS_AND_RIGHTS_POLICY_CHECK",
+    "target": 20,
+    "canonical_products_current": 18,
+    "upstream_asset_records_current": 0,
+    "new_product_ids": [
+      "RS-P0020",
+      "RS-P0021",
+      "RS-P0022"
+    ],
+    "new_product_count": 3,
+    "rights_approved_this_batch": 0,
+    "registered_products_this_batch": 0,
+    "verified_products_this_batch": 0,
+    "records": [
+      {
+        "product_id": "RS-P0020",
+        "status": "IMAGE_HOLD",
+        "reason": "CANDY HOUSE commercial secondary reuse restrictions; no product-card license",
+        "evidence": "https://jp.candyhouse.co/pages/presskit"
+      },
+      {
+        "product_id": "RS-P0021",
+        "status": "IMAGE_HOLD",
+        "reason": "Exact black M size product photograph without independent licensed source",
+        "evidence": null
+      },
+      {
+        "product_id": "RS-P0022",
+        "status": "IMAGE_HOLD",
+        "reason": "HARNEY & SONS has wholesale media asset provision with brand guidelines, not a grant for this Amazon affiliate catalog",
+        "evidence": "https://www.harney.jp/pages/wholesale-inquires"
+      }
+    ],
+    "rights_findings": [
+      {
+        "brand": "Anker",
+        "policy": "Official Japan terms prohibit content copying/commercial republication without specific consent; image request route available",
+        "sources": [
+          "https://www.ankerjapan.com/pages/terms",
+          "https://www.ankerjapan.com/pages/contact"
+        ],
+        "affected_products": [
+          "RS-P0003",
+          "RS-P0006",
+          "RS-P0012",
+          "RS-P0016"
+        ]
+      },
+      {
+        "brand": "CANDY HOUSE",
+        "policy": "Press kit permits some editorial product introductions but excludes commercial secondary uses; affiliate shop card needs separate permission",
+        "source": "https://jp.candyhouse.co/pages/presskit",
+        "affected_products": [
+          "RS-P0018",
+          "RS-P0020"
+        ]
+      },
+      {
+        "brand": "HARNEY & SONS",
+        "policy": "Wholesale channel offers branded image assets and guidelines to eligible trade partners, not automatically licensed for third-party Amazon affiliate catalog",
+        "source": "https://www.harney.jp/pages/wholesale-inquires",
+        "affected_products": [
+          "RS-P0019",
+          "RS-P0022"
+        ]
+      }
+    ],
+    "prior_batches_reused": true,
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_master_changed": false,
+    "next_trigger": "Owner-created matching photograph, written shop-specific commercial license or Amazon compliant API image access; process future canonical products without revisiting unchanged holds"
   }
 }
