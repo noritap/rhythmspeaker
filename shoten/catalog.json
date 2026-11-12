@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "df8421d4187e8c85cedbeed8d510cf1dcb08fb7c",
+  "source_sha": "783e39885cd5f5caacfa6dce8ba8cea73c4a148d",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -71,6 +71,185 @@
         }
       ],
       "studioIntro": "タップダンススタジオ「Rhythm Speaker」でも使っている、頼れるお掃除ロボット。人が出入りするスタジオでは、床をきれいに保つことが大切です。レッスンの準備や片付けで忙しい日々の掃除をサポートしてくれます。直径約24.8cmのコンパクトな本体と省スペースの自動集じんステーションが魅力。掃除をすべて任せるのではなく、毎日の負担を少し軽くしてくれる道具としてご紹介します。"
+    },
+    {
+      "product_id": "RS-P0002",
+      "asin": "B0HGL62XSW",
+      "brand": "SONY",
+      "model": "WH-CH730N ブラック",
+      "formal_name": "SONY WH-CH730N ブラック",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "purpose": "focus",
+      "tint": "blue",
+      "href": "https://link.amazon/B04tr6V2F",
+      "eyebrow": "約207gの軽量設計。ノイズキャンセリングONで最大50時間、OFFで最大75時間再生。",
+      "summary": "WH-CH720Nの後継モデル。折りたたみ式で持ち運びやすく、日常の音楽や仕事に使いやすいヘッドホン。",
+      "good": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
+      "caution": "再生時間は設定・音量・使用環境で変わります。装着感・音質・通話品質は実機未検証です。",
+      "highlight": "約207g・NC ON最大50時間／OFF最大75時間",
+      "tags": [
+        "古庄おすすめ",
+        "ノイズキャンセリング",
+        "軽量",
+        "長時間再生"
+      ],
+      "date": "2026-11-12",
+      "reasons": [
+        "軽さとノイズキャンセリング、再生時間のバランスで選びたい人向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.sony.jp/headphone/products/WH-CH730N/",
+          "label": "SONY公式製品情報"
+        }
+      ],
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true,
+      "ownerVerifiedShortLink": true,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "trackingId": "rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "comparison": {
+        "選ぶ基準": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
+        "主な仕様": "約207g・NC ON最大50時間／OFF最大75時間"
+      },
+      "specs": {}
+    },
+    {
+      "product_id": "RS-P0005",
+      "asin": null,
+      "brand": "audio-technica",
+      "model": "ATH-M20xBT ブラック",
+      "formal_name": "audio-technica ATH-M20xBT ブラック（国内正規品）",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "purpose": "focus",
+      "tint": "blue",
+      "href": "https://link.amazon/B0bxnL3vi",
+      "eyebrow": "音楽再生最大約60時間。ワイヤレスで音楽や作業用音声を楽しみたい人の候補。",
+      "summary": "メーカー公表の質量は216g。長い再生時間を重視する人に向く、シンプルなBluetoothヘッドホン。",
+      "good": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
+      "caution": "使用可能時間は条件で変わります。音質・装着感・遅延は実機未検証です。",
+      "highlight": "約216g・音楽再生最大約60時間",
+      "tags": [
+        "古庄おすすめ",
+        "長時間再生",
+        "ワイヤレス"
+      ],
+      "date": "2026-11-12",
+      "reasons": [
+        "長時間再生を重視する人の比較候補として選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.audio-technica.co.jp/product/ATH-M20xBT/",
+          "label": "audio-technica公式製品情報"
+        }
+      ],
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true,
+      "ownerVerifiedShortLink": true,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "trackingId": "rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "comparison": {
+        "選ぶ基準": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
+        "主な仕様": "約216g・音楽再生最大約60時間"
+      },
+      "specs": {}
+    },
+    {
+      "product_id": "RS-P0012",
+      "asin": null,
+      "brand": "Anker / Soundcore",
+      "model": "Soundcore H30i ブラック",
+      "formal_name": "Soundcore H30i ブラック（A3012Z11）",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "purpose": "focus",
+      "tint": "blue",
+      "href": "https://link.amazon/B0ihtnUrW",
+      "eyebrow": "約183gの軽量設計。音楽再生最大70時間に対応するオンイヤーヘッドホン。",
+      "summary": "軽さと充電頻度の少なさを重視する人向け。アクティブノイズキャンセリングは非対応です。",
+      "good": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
+      "caution": "アクティブノイズキャンセリング非対応。オンイヤー方式の装着感は試着で確認してください。再生時間は使用環境で変わります。",
+      "highlight": "約183g・音楽再生最大70時間・ANC非対応",
+      "tags": [
+        "古庄おすすめ",
+        "軽量",
+        "長時間再生",
+        "ANC非対応"
+      ],
+      "date": "2026-11-12",
+      "reasons": [
+        "軽量性と長時間再生を重視する人の比較候補として選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/a3012",
+          "label": "Anker Japan公式製品情報"
+        }
+      ],
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true,
+      "ownerVerifiedShortLink": true,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "trackingId": "rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "comparison": {
+        "選ぶ基準": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
+        "主な仕様": "約183g・音楽再生最大70時間・ANC非対応"
+      },
+      "specs": {}
+    },
+    {
+      "product_id": "RS-P0013",
+      "asin": null,
+      "brand": "Shokz",
+      "model": "OpenFit Pro ホワイト",
+      "formal_name": "Shokz OpenFit Pro ホワイト",
+      "category": "sound",
+      "subcategory": "open-ear-earphones",
+      "kind": "オープンイヤーイヤホン",
+      "purpose": "carry",
+      "tint": "blue",
+      "href": "https://link.amazon/B0eNbBVpP",
+      "eyebrow": "耳を塞がないオープンイヤー設計。フォーカスモードと最大50時間のケース併用再生に対応。",
+      "summary": "周囲の気配を保ちながら音楽や通話を使いたい人向け。Bluetooth 6.1、IP55、ワイヤレス充電に対応。",
+      "good": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生を重視する人",
+      "caution": "オープンイヤー型のため密閉型ヘッドホンと聴こえ方が異なります。再生時間はフォーカスモードの有無などで変わります。",
+      "highlight": "最大50時間（ケース併用・フォーカスモードOFF）・Bluetooth 6.1・IP55",
+      "tags": [
+        "古庄おすすめ",
+        "オープンイヤー",
+        "周囲の音を保つ",
+        "運動・移動"
+      ],
+      "date": "2026-11-12",
+      "reasons": [
+        "耳を塞がない開放感と、周囲の音への配慮を重視する人向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://jp.shokz.com/products/openfit-pro",
+          "label": "Shokz公式製品情報"
+        }
+      ],
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true,
+      "ownerVerifiedShortLink": true,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "trackingId": "rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "comparison": {
+        "選ぶ基準": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生を重視する人",
+        "主な仕様": "最大50時間（ケース併用・フォーカスモードOFF）・Bluetooth 6.1・IP55"
+      },
+      "specs": {}
     }
   ]
 }
