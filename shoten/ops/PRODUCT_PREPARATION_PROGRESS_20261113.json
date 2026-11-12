@@ -72,10 +72,13 @@
       "affiliate_received": true,
       "missing": [
         "Amazon primary matching evidence",
-        "Licensed product image",
         "First party specification"
       ],
-      "draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json"
+      "draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json",
+      "optional_backlog": [
+        "Licensed product image"
+      ],
+      "image_status": "IMAGE_OPTIONAL_PENDING"
     },
     {
       "id": "RS-P0013",
@@ -84,7 +87,6 @@
       "affiliate_received": true,
       "missing": [
         "Exact Amazon Japan white variant listing",
-        "Licensed product image",
         "Internal identity record"
       ],
       "draft": "shoten/ops/preparation-drafts/rs-p0013-shokz-openfit-pro-white.json",
@@ -93,7 +95,11 @@
         "conflicting_file": "shoten/ops/candidates/RS-P0013-anker-solix-c300.json",
         "resolution": "UPSTREAM_SHOKZ_ID_PREVAILS; DO_NOT_USE_FOR_ANKER",
         "audit": "shoten/ops/RS_P0013_ID_COLLISION_AND_IMAGE_RIGHTS_AUDIT_20261113.md"
-      }
+      },
+      "optional_backlog": [
+        "Licensed product image"
+      ],
+      "image_status": "IMAGE_OPTIONAL_PENDING"
     },
     {
       "id": null,
@@ -105,10 +111,13 @@
       "maker_direct_store_status": "SOLD_OUT_SHOWN_2026_11_13",
       "amazon_stock_status": "UNKNOWN",
       "missing": [
-        "Canonical unique ID assignment",
+        "Canonical unique ID assignment"
+      ],
+      "draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
+      "optional_backlog": [
         "Licensed photo and rendered display"
       ],
-      "draft": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json"
+      "image_status": "IMAGE_OPTIONAL_PENDING"
     },
     {
       "id": null,
@@ -119,14 +128,17 @@
       "amazon_url_evidence": "Historical manufacturer-linked listing; live matching still pending",
       "missing": [
         "Canonical unique ID assignment",
-        "Licensed photo and display verification",
         "Current Amazon matching"
       ],
-      "draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json"
+      "draft": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
+      "optional_backlog": [
+        "Licensed photo and display verification"
+      ],
+      "image_status": "IMAGE_OPTIONAL_PENDING"
     }
   ],
   "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
-  "next_best_action": "Resolve legally reusable photos for specific promising candidates using genuinely user-owned originals or directly licensed manufacturer assets, and canonical upstream ID reservation by authorized workflow. Shokz RS-P0013 legacy collision is documented; do not overwrite.",
+  "next_best_action": "Recheck candidates ignoring photos as a blocker, prioritize existing requested products and finalize canonical IDs, same-SKU Amazon URLs, spec and content; let link registration/publication workflows validate final link and photo-less UI.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
     "legacy_candidate_claim": "Generic owner confirmation of online manufacturer photographs is not proof of copyright holder's reuse license",
@@ -137,5 +149,9 @@
       "https://affiliate.amazon.co.jp/help/operating/policies"
     ],
     "audit": "shoten/ops/RS_P0013_ID_COLLISION_AND_IMAGE_RIGHTS_AUDIT_20261113.md"
-  }
+  },
+  "image_policy": "TEXT_FIRST_IMAGE_OPTIONAL",
+  "photo_missing_is_ready_blocker": false,
+  "readiness_update": "READY requires valid canonical product ID, product identity, Amazon normal URL, editorial copy and compatible candidate data. Product image may be null; affiliate URL is last owner step. On photo-less listing, downstream display and validator must be tested.",
+  "policy_revision": "2026-11-13 text-first user directive; image still must be licensed if provided"
 }
