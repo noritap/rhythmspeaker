@@ -119,7 +119,7 @@
     },
     {
       "product_id": "RS-P0005",
-      "asin": null,
+      "asin": "B09QMCFQJL",
       "brand": "audio-technica",
       "model": "ATH-M20xBT ブラック",
       "formal_name": "audio-technica ATH-M20xBT ブラック（国内正規品）",
@@ -163,7 +163,7 @@
     },
     {
       "product_id": "RS-P0012",
-      "asin": null,
+      "asin": "B0CGV29VG4",
       "brand": "Anker / Soundcore",
       "model": "Soundcore H30i ブラック",
       "formal_name": "Soundcore H30i ブラック（A3012Z11）",
@@ -203,51 +203,6 @@
       "comparison": {
         "選ぶ基準": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
         "主な仕様": "約183g・音楽再生最大70時間・ANC非対応"
-      },
-      "specs": {}
-    },
-    {
-      "product_id": "RS-P0013",
-      "asin": null,
-      "brand": "Shokz",
-      "model": "OpenFit Pro ホワイト",
-      "formal_name": "Shokz OpenFit Pro ホワイト",
-      "category": "sound",
-      "subcategory": "open-ear-earphones",
-      "kind": "オープンイヤーイヤホン",
-      "purpose": "carry",
-      "tint": "blue",
-      "href": "https://link.amazon/B0eNbBVpP",
-      "eyebrow": "耳を塞がないオープンイヤー設計。フォーカスモードと最大50時間のケース併用再生に対応。",
-      "summary": "周囲の気配を保ちながら音楽や通話を使いたい人向け。Bluetooth 6.1、IP55、ワイヤレス充電に対応。",
-      "good": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生を重視する人",
-      "caution": "オープンイヤー型のため密閉型ヘッドホンと聴こえ方が異なります。再生時間はフォーカスモードの有無などで変わります。",
-      "highlight": "最大50時間（ケース併用・フォーカスモードOFF）・Bluetooth 6.1・IP55",
-      "tags": [
-        "古庄おすすめ",
-        "オープンイヤー",
-        "周囲の音を保つ",
-        "運動・移動"
-      ],
-      "date": "2026-11-12",
-      "reasons": [
-        "耳を塞がない開放感と、周囲の音への配慮を重視する人向け。"
-      ],
-      "sources": [
-        {
-          "url": "https://jp.shokz.com/products/openfit-pro",
-          "label": "Shokz公式製品情報"
-        }
-      ],
-      "curationLabel": "古庄おすすめ",
-      "ownerConfirmedProductIdentity": true,
-      "ownerVerifiedShortLink": true,
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "trackingId": "rsshop-hatenablg-22",
-      "approvedPhoto": null,
-      "comparison": {
-        "選ぶ基準": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生を重視する人",
-        "主な仕様": "最大50時間（ケース併用・フォーカスモードOFF）・Bluetooth 6.1・IP55"
       },
       "specs": {}
     }
