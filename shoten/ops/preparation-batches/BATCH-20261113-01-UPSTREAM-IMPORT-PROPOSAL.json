@@ -22,7 +22,7 @@
       "product_name": "DELTA 3 Classic（1024Wh）",
       "category_ids": [
         "outdoor",
-        "ac-power"
+        "disaster-prep"
       ],
       "amazon_product_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
       "editorial": {
@@ -65,8 +65,7 @@
       "brand": "SwitchBot",
       "product_name": "プラグミニ（JP）通常版 1個（W2001400）",
       "category_ids": [
-        "life",
-        "smart-home"
+        "life"
       ],
       "amazon_product_url": "https://www.amazon.co.jp/dp/B09PYLWNGV",
       "editorial": {
@@ -104,5 +103,6 @@
         "observed_at": "2026-11-13"
       }
     }
-  ]
+  ],
+  "category_mapping_note": "Canonical upstream category IDs are different from shop UI category IDs. Keep existing upstream IDs: outdoor/disaster-prep for EcoFlow, life for plug; site UI categories remain outdoor/home respectively."
 }
