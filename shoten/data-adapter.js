@@ -11,7 +11,8 @@
     const shortAffiliate = row.affiliateLinkKind === 'AMAZON_OFFICIAL_SHORT' &&
       row.ownerVerifiedShortLink === true &&
       /^https:\/\/link\.amazon\/[A-Za-z0-9]+$/.test(row.href) &&
-      /^[A-Z0-9]{10}$/.test(row.asin) &&
+      (row.asin == null || /^[A-Z0-9]{10}$/.test(row.asin)) &&
+      row.ownerConfirmedProductIdentity === true &&
       /^[A-Za-z0-9_-]+-22$/.test(row.trackingId || '');
     const directAffiliate = !!link && core.amazonIdentity(row.href).asin === row.asin &&
       link.searchParams.getAll('tag').length === 1 && !!link.searchParams.get('tag');
