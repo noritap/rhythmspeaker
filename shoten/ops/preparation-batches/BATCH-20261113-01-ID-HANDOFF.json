@@ -18,9 +18,9 @@
       "amazon_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html",
       "manufacturer_spec_source": "https://jp.ecoflow.com/products/delta-3-classic",
       "draft_path": "shoten/ops/preparation-drafts/ecoflow-delta-3-classic.json",
-      "status": "CONTENT_READY_ID_REVIEW",
+      "status": "UPSTREAM_PR_REVIEW",
       "image_status": "IMAGE_OPTIONAL_PENDING",
-      "required_ai_next_step": "Check current upstream IDs; assign canonical product ID in upstream authorized workflow; reconcile branch candidate; then mark READY and request user to generate official associate URL."
+      "required_ai_next_step": "Review and merge upstream PR #18 in permitted workflow, fetch canonical main product IDs, set READY. Photo optional."
     },
     {
       "product": "SwitchBot プラグミニ（JP）通常版 1個",
@@ -32,9 +32,9 @@
       "amazon_source": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
       "manufacturer_spec_source": "https://www.switchbot.jp/products/switchbot-plug-mini",
       "draft_path": "shoten/ops/preparation-drafts/switchbot-plug-mini-jp.json",
-      "status": "CONTENT_READY_ID_REVIEW",
+      "status": "UPSTREAM_PR_REVIEW",
       "image_status": "IMAGE_OPTIONAL_PENDING",
-      "required_ai_next_step": "Check current upstream IDs; assign canonical product ID in upstream authorized workflow; reconcile branch candidate; then mark READY and request user to generate official associate URL."
+      "required_ai_next_step": "Review and merge upstream PR #18 in permitted workflow, fetch canonical main product IDs, set READY. Photo optional."
     }
   ],
   "security": [
@@ -54,8 +54,22 @@
     "upstream_import_payload": "PREPARED_AND_LOCAL_CHECKS_PASSED",
     "canonical_category_mapping": "CHECKED_AGAINST_UPSTREAM",
     "upstream_write": "NOT_PERFORMED",
-    "canonical_id_assignment": "NOT_PERFORMED"
+    "canonical_id_assignment": "NOT_PERFORMED",
+    "upstream_branch_write": "COMPLETED",
+    "upstream_branch_readback": "PASS",
+    "upstream_pr": "OPEN_REVIEW",
+    "upstream_main_registration": "PENDING"
   },
   "upstream_import_proposal": "shoten/ops/preparation-batches/BATCH-20261113-01-UPSTREAM-IMPORT-PROPOSAL.json",
-  "latest_proposal_validation_at": "2026-11-13"
+  "latest_proposal_validation_at": "2026-11-13",
+  "upstream_registration": {
+    "branch": "work/shoten-product-id-registration-20261113",
+    "commit": "e521c6221f59fdefca3c9f30159fedc6445e7b8a",
+    "pr_url": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/18",
+    "branch_ids_registered": [
+      "RS-P0014",
+      "RS-P0015"
+    ],
+    "main_merged": false
+  }
 }
