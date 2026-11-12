@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "record_type": "PREPARATION_DRAFT",
+  "candidate_key": "owner-016",
+  "product_id": null,
+  "formal_name": "CANDY HOUSE SESAMEタッチ2Pro（充電式電池／CR123A対応版）",
+  "brand": "CANDY HOUSE",
+  "category": "home",
+  "manufacturer_specs": {
+    "auth": "暗証番号・指紋・ICカード",
+    "password_length_max": 16,
+    "password_count_max": 100,
+    "fingerprint_count_max": 100,
+    "card_count_max": 1000,
+    "dimensions_mm": [
+      90,
+      47.6,
+      28.1
+    ],
+    "weight_with_two_batteries_g": 115.5,
+    "battery_options": "CANDY HOUSE充電式リチウム電池／CR123A"
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://jp.candyhouse.co/products/sesame-touch-pro",
+      "role": "PRIMARY",
+      "checked_at": "2026-11-13"
+    }
+  ],
+  "editorial": {
+    "title": "SESAMEタッチ2Pro｜指紋・暗証番号・ICカードで解錠",
+    "catchline": "鍵を出す手間を減らす、スマートロック用の認証デバイス。",
+    "summary": "SESAMEタッチ2Proは、指紋・暗証番号・ICカードを使って対応SESAMEを解錠できる認証デバイスです。最大16桁の暗証番号、100件の指紋登録、1000件のカード登録に対応。スマートフォンを取り出さずに出入りしたい家庭や仕事場の比較候補です。導入前に、使用中のSESAMEとの互換性、設置場所、電池方式を確認しましょう。",
+    "why_recommend": "メーカー仕様を比較し、利用場面と合う条件を紹介する。",
+    "good_for": [
+      "用途に合う製品を選びたい人"
+    ],
+    "cautions": [
+      "スマートロック本体は別途必要",
+      "互換性は組み合わせと世代による",
+      "登録可能件数と実際の運用可能人数は異なる",
+      "本人使用感は未確認"
+    ],
+    "tags": [
+      "スマートロック",
+      "防犯",
+      "生活"
+    ]
+  },
+  "content_status": "CONTENT_READY",
+  "status": "AMAZON_REVIEW",
+  "ready_for_affiliate_link": false,
+  "amazon_product_page_url": null,
+  "amazon_url_status": "EXACT_VARIANT_Amazon_JP_URL_NOT_VERIFIED",
+  "image": {
+    "approvedPhoto": null,
+    "gallery": [],
+    "image_status": "IMAGE_OPTIONAL_PENDING"
+  },
+  "remaining_gates": [
+    "Exact matching Amazon.co.jp normal product URL",
+    "Formal canonical product ID if not existing",
+    "Upstream product master and category compatibility validation"
+  ],
+  "last_verified": "2026-11-13"
+}
