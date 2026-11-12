@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 19,
+    "upstream_product_records": 21,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 8,
+    "new_ready_for_affiliate_link": 10,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 11
+    "new_content_ready_from_priority_batch": 13
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -191,9 +191,9 @@
     "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
     "target_count": 20,
     "saved_rows": 20,
-    "new_ready": 8,
-    "content_ready_verified": 11,
-    "missing_critical": 12,
+    "new_ready": 10,
+    "content_ready_verified": 13,
+    "missing_critical": 10,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
     "qa": {
@@ -216,10 +216,10 @@
       "work-proposed": 3,
       "outdoor": 2
     },
-    "status": "EIGHT_READY_THREE_CATEGORY_REVIEW_NINE_IDENTITY_REVIEW",
+    "status": "TEN_READY_THREE_CATEGORY_REVIEW_SEVEN_IDENTITY_REVIEW",
     "new_content_ready_this_execution": 4,
     "upstream_new_canonical_registered_this_execution": 1,
-    "unresolved_count": 12
+    "unresolved_count": 10
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -349,30 +349,33 @@
   "latest_execution": {
     "date": "2026-11-13",
     "batch": "BATCH-20261113-01",
-    "added_canonical_ids": [
-      "RS-P0023"
+    "new_upstream_product_ids": [
+      "RS-P0024",
+      "RS-P0025"
     ],
     "new_ready_ids": [
-      "RS-P0023"
+      "RS-P0024",
+      "RS-P0025"
     ],
-    "upstream_main_products": 19,
-    "ready_total": 8,
-    "content_ready_total": 11,
+    "ready_total": 10,
+    "upstream_total": 21,
+    "content_ready_total": 13,
+    "nonready": 10,
+    "identity_review": 7,
     "category_review": 3,
-    "identity_review": 9,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/23",
-    "manufacturer_primary": "https://www.honda.co.jp/ACCESS/n-van/interior/utilityhook/",
-    "seller_availability": "Amazon availability for genuine Honda part not verified; handoff to affiliate chat",
-    "remaining": "9 items need exact identity; 3 need formal category mapping",
+    "pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
+    "source_evidence": [
+      "https://www.ankerjapan.com/products/b2692",
+      "https://www.elecom.co.jp/products/AD-DTH.html"
+    ],
     "checks": {
-      "github_main_merge": "PASS",
       "json_parse": "PASS",
       "unique_ids": "PASS",
       "prior_records_unchanged": "PASS",
-      "browser_publication": "NOT_IN_SCOPE",
-      "automated_test": "NOT_EXECUTED"
+      "main_reread": "PASS",
+      "site_catalog_validator": "NOT_EXECUTED"
     },
-    "notes": "Selected variant not claimed as owner's original purchased item. URL remains optional null."
+    "note": "Owner topic rather than exact owner purchased SKU; no claims of owner usage. Affiliate link pending on these editorially chosen variants."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
