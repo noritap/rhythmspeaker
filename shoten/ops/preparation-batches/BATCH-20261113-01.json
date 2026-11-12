@@ -17,9 +17,9 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "AMAZON_REVIEW": 7,
+    "AMAZON_REVIEW": 6,
     "IDENTITY_REVIEW": 11,
-    "ID_REVIEW": 2
+    "ID_REVIEW": 3
   },
   "entries": [
     {
@@ -703,14 +703,14 @@
     {
       "candidate_key": "owner-025",
       "product_id": null,
-      "formal_name": "Anker Prime Charger 160W",
+      "formal_name": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
       "owner_class": "C",
       "category": "work-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "AMAZON_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
-      "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "status": "ID_REVIEW",
+      "content_status": "CONTENT_READY",
+      "amazon_product_url": "https://www.amazon.co.jp/dp/B0F2MRRKH7",
+      "amazon_product_url_status": "MANUFACTURER_LINK_CONFIRMED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -728,23 +728,25 @@
         ]
       },
       "specifications": {
-        "ports": 3,
-        "max_single_port_w": 140,
-        "total_output_w": 160,
-        "model": "A2687N41（シルバー）"
+        "model": "A2687N41",
+        "ports": "USB-C×3",
+        "total_output_max_w": 160,
+        "single_output_max_w": 140,
+        "weight_g_approx": 220
       },
       "source_urls": [
         "https://www.ankerjapan.com/products/a2687"
       ],
-      "previous_detail_draft": null,
+      "previous_detail_draft": "shoten/ops/preparation-drafts/anker-prime-charger-160w-silver.json",
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定",
-        "正式カテゴリ体系との整合"
+        "Upstream PR #19 integration and canonical main recheck",
+        "Official website category mapping from proposed work",
+        "Catalog validator compatibility test"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "upstream_registration_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/19"
     },
     {
       "candidate_key": "owner-026",
@@ -850,7 +852,7 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 2,
+  "completed_content_ready_count": 3,
   "new_ready_count": 2,
   "candidate_id_map": [
     {
@@ -863,5 +865,7 @@
       "proposed_local_id": "RS-P0015",
       "canonical_registered": true
     }
-  ]
+  ],
+  "last_execution_at": "2026-11-13",
+  "execution_note": "Owner-025 Anker: manufacturer spec and manufacturer Amazon purchase link verified, draft saved; canonical registration PR #19 open, not merged, site category mapping and validator pending. No additional READY claimed."
 }
