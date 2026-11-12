@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-11-13",
+  "workflow": "shoten/ops/PRODUCT_PREPARATION_CHAT_V4.md",
+  "stage": "OWNER_REQUESTED_CANDIDATE_RECOVERY",
+  "count": 35,
+  "counts": {
+    "published": 4,
+    "owner_requested_not_published": 29
+  },
+  "notice": "This is an intent-inventory, NOT 35 verified SKUs. Some entries are umbrella/variant placeholders. A=previous purchase/reorder context, not guaranteed proof of actually used product; C=owner interest; D=existing catalog; E=proposed supplemental. No unsupported ASIN/URLs fabricated.",
+  "source_descriptions": [
+    "Prior conversation user-supplied Amazon purchases/reorder excerpts and owner interest list from November 2026",
+    "Current conversation and GitHub canonical products",
+    "Uploaded Amazon product page excerpt for Shokz OpenFit Pro and OpenDots 2"
+  ],
+  "active_catalog_categories": [
+    "home",
+    "sound",
+    "outdoor"
+  ],
+  "pending_categories_note": "Current shoten/editorial.js has only 3 formal categories; 7x5 is target, not current validated taxonomy. Proposed category names MUST NOT be inserted into catalog before category design approval.",
+  "records": [
+    {
+      "candidate_key": "owner-001",
+      "product_id": "RS-P0001",
+      "product_name": "SwitchBot K11+ Pro",
+      "origin_class": "D",
+      "category_id_or_proposal": "home",
+      "status": "PUBLISHED",
+      "photo_optional": true,
+      "priority": 0
+    },
+    {
+      "candidate_key": "owner-002",
+      "product_id": "RS-P0002",
+      "product_name": "SONY WH-CH730N ブラック",
+      "origin_class": "D",
+      "category_id_or_proposal": "sound",
+      "status": "PUBLISHED",
+      "photo_optional": true,
+      "priority": 0
+    },
+    {
+      "candidate_key": "owner-003",
+      "product_id": "RS-P0005",
+      "product_name": "audio-technica ATH-M20xBT ブラック",
+      "origin_class": "D",
+      "category_id_or_proposal": "sound",
+      "status": "PUBLISHED",
+      "photo_optional": true,
+      "priority": 0
+    },
+    {
+      "candidate_key": "owner-004",
+      "product_id": "RS-P0012",
+      "product_name": "Soundcore H30i ブラック",
+      "origin_class": "D",
+      "category_id_or_proposal": "sound",
+      "status": "PUBLISHED",
+      "photo_optional": true,
+      "priority": 0
+    },
+    {
+      "candidate_key": "owner-005",
+      "product_id": "RS-P0007",
+      "product_name": "by Amazon とって付きごみ袋 45L 100枚",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "AFFILIATE_RECEIVED_NEEDS_IDENTITY",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-006",
+      "product_id": "RS-P0013",
+      "product_name": "Shokz OpenFit Pro ホワイト",
+      "origin_class": "C",
+      "category_id_or_proposal": "sound",
+      "status": "AFFILIATE_RECEIVED_NEEDS_AMAZON_PAGE",
+      "photo_optional": true,
+      "priority": 2
+    },
+    {
+      "candidate_key": "owner-007",
+      "product_id": null,
+      "product_name": "Shokz OpenDots 2 ブラック",
+      "origin_class": "C",
+      "category_id_or_proposal": "sound",
+      "status": "MANUFACTURER_SPEC_VERIFIED_AMAZON_URL_PENDING",
+      "photo_optional": true,
+      "priority": 2
+    },
+    {
+      "candidate_key": "owner-008",
+      "product_id": null,
+      "product_name": "ODE エチオピア コーヒー 1kg",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "VARIANT_MATCH_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-009",
+      "product_id": null,
+      "product_name": "HARNEY & SONS ホット・シナモン・スパイス",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "PACKAGE_VARIANT_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-010",
+      "product_id": null,
+      "product_name": "HARNEY & SONS バニラ系紅茶",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "FLAVOR_VARIANT_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-011",
+      "product_id": null,
+      "product_name": "MCTオイル 1183mL",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "BRAND_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-012",
+      "product_id": null,
+      "product_name": "マヌカハニー 80g×6（または関連のど飴）",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-013",
+      "product_id": null,
+      "product_name": "フォンテラ バター 5kg",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_VARIANT_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-014",
+      "product_id": null,
+      "product_name": "D.IIZOO D1128A パンツ",
+      "origin_class": "A",
+      "category_id_or_proposal": "apparel-proposed",
+      "status": "SIZE_COLOR_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-015",
+      "product_id": null,
+      "product_name": "SESAME 5 スマートロック",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "MODEL_SPEC_REVIEW",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-016",
+      "product_id": null,
+      "product_name": "SESAME タッチ2 Pro",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "MODEL_SPEC_REVIEW",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-017",
+      "product_id": null,
+      "product_name": "45W USB充電器",
+      "origin_class": "A",
+      "category_id_or_proposal": "work-proposed",
+      "status": "BRAND_MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-018",
+      "product_id": null,
+      "product_name": "DVI-HDMI変換アダプター",
+      "origin_class": "A",
+      "category_id_or_proposal": "work-proposed",
+      "status": "BRAND_MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-019",
+      "product_id": null,
+      "product_name": "インダストリアル照明",
+      "origin_class": "C",
+      "category_id_or_proposal": "home",
+      "status": "MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 2
+    },
+    {
+      "candidate_key": "owner-020",
+      "product_id": null,
+      "product_name": "シーリングファンライト",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-021",
+      "product_id": null,
+      "product_name": "カジメイク 2203",
+      "origin_class": "A",
+      "category_id_or_proposal": "apparel-proposed",
+      "status": "MANUFACTURER_MODEL_MATCH_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-022",
+      "product_id": null,
+      "product_name": "NYANDELMO 靴カバー",
+      "origin_class": "A",
+      "category_id_or_proposal": "apparel-proposed",
+      "status": "MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-023",
+      "product_id": null,
+      "product_name": "APM 養生テープ",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-024",
+      "product_id": null,
+      "product_name": "N-VAN 車内フック",
+      "origin_class": "C",
+      "category_id_or_proposal": "outdoor",
+      "status": "MODEL_PENDING",
+      "photo_optional": true,
+      "priority": 2
+    },
+    {
+      "candidate_key": "owner-025",
+      "product_id": null,
+      "product_name": "Anker Prime Charger 160W",
+      "origin_class": "C",
+      "category_id_or_proposal": "work-proposed",
+      "status": "MODEL_REVIEW",
+      "photo_optional": true,
+      "priority": 2
+    },
+    {
+      "candidate_key": "owner-026",
+      "product_id": null,
+      "product_name": "EcoFlow DELTA 3 Classic",
+      "origin_class": "E",
+      "category_id_or_proposal": "outdoor",
+      "status": "AMAZON_IDENTIFIED_ID_PENDING",
+      "photo_optional": true,
+      "priority": 3
+    },
+    {
+      "candidate_key": "owner-027",
+      "product_id": null,
+      "product_name": "SwitchBot プラグミニ JP",
+      "origin_class": "E",
+      "category_id_or_proposal": "home",
+      "status": "AMAZON_IDENTIFIED_ID_PENDING",
+      "photo_optional": true,
+      "priority": 3
+    },
+    {
+      "candidate_key": "owner-028",
+      "product_id": null,
+      "product_name": "Harney & Sons 各種その他フレーバー",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "FLAVORS_TO_SPLIT_ON_VERIFIED_PRODUCTS",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-029",
+      "product_id": null,
+      "product_name": "マヌカハニー のど飴",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-030",
+      "product_id": null,
+      "product_name": "澤井珈琲",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-031",
+      "product_id": null,
+      "product_name": "小豆",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-032",
+      "product_id": null,
+      "product_name": "玄米",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-033",
+      "product_id": null,
+      "product_name": "ブルーベリー",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-034",
+      "product_id": null,
+      "product_name": "クリームチーズ",
+      "origin_class": "A",
+      "category_id_or_proposal": "food-proposed",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    },
+    {
+      "candidate_key": "owner-035",
+      "product_id": null,
+      "product_name": "トイレットペーパー",
+      "origin_class": "A",
+      "category_id_or_proposal": "home",
+      "status": "EXACT_ITEM_PENDING",
+      "photo_optional": true,
+      "priority": 1
+    }
+  ]
+}
