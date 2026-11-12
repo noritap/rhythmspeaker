@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 9,
+    "upstream_product_records": 12,
     "upstream_affiliate_link_records": 6,
     "new_ready_for_affiliate_link": 2,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 2
+    "new_content_ready_from_priority_batch": 3
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -215,7 +215,11 @@
       "apparel-proposed": 3,
       "work-proposed": 3,
       "outdoor": 2
-    }
+    },
+    "status": "IN_PROGRESS_2_EXISTING_READY_1_NEW_CANONICAL_CANDIDATE",
+    "new_content_ready_this_execution": 1,
+    "upstream_new_canonical_registered_this_execution": 1,
+    "unresolved_count": 18
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -341,5 +345,21 @@
     "production_changed": false,
     "affiliate_links_changed": false,
     "upstream_master_changed": false
+  },
+  "latest_execution": {
+    "date": "2026-11-13",
+    "batch": "BATCH-20261113-01",
+    "new_upstream_product_ids": [
+      "RS-P0016"
+    ],
+    "new_ready": 0,
+    "new_content_ready": 1,
+    "upstream_merged_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/19",
+    "upstream_main_reverified": true,
+    "category_mapping": "PENDING",
+    "amazon_verified_method": "manufacturer_official_purchase_link",
+    "image_null": true,
+    "automated_test_execution": "NOT_EXECUTED",
+    "description": "Owner-025 Anker Prime Charger 160W: draft and manufacturer specs saved; canonical upstream record merged as CANDIDATE; READY withheld due to official site category mapping and automated compatibility validation."
   }
 }
