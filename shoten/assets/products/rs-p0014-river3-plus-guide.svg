@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">EcoFlow RIVER 3 Plus 商品紹介用オリジナル案内図</title>
+<desc id="d">286Wh、定格600W、約4.7kgを示す商品案内イラスト。実際の製品写真ではありません。</desc>
+<defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#16342e"/><stop offset="1" stop-color="#0e2220"/></linearGradient></defs>
+<rect width="1200" height="675" fill="#f4f3ec"/><rect x="35" y="34" width="1130" height="606" rx="28" fill="#ffffff"/>
+<rect x="75" y="74" width="1050" height="72" rx="16" fill="url(#g)"/>
+<text x="107" y="122" font-family="Noto Sans CJK JP, sans-serif" font-weight="700" font-size="34" fill="#ffffff">EcoFlow RIVER 3 Plus</text>
+<text x="82" y="194" font-family="Noto Sans CJK JP, sans-serif" font-size="25" fill="#43574d">コンパクトなポータブル電源　｜　メーカー公表仕様</text>
+<g transform="translate(110 240)">
+<rect x="15" y="34" width="340" height="248" rx="35" fill="#3a4544"/>
+<path d="M47 35 Q56 0 110 0 H264 Q316 0 323 35" fill="none" stroke="#3a4544" stroke-width="26" stroke-linecap="round"/>
+<rect x="42" y="65" width="282" height="178" rx="20" fill="#1c2828"/>
+<rect x="60" y="86" width="120" height="58" rx="8" fill="#9edac9"/>
+<text x="76" y="124" font-family="sans-serif" font-size="24" fill="#14352c">286 Wh</text>
+<g stroke="#acc3bb" fill="none" stroke-width="5"><circle cx="229" cy="119" r="25"/><circle cx="290" cy="119" r="25"/><rect x="74" y="174" width="56" height="37" rx="8"/><rect x="161" y="174" width="56" height="37" rx="8"/></g>
+</g>
+<g font-family="Noto Sans CJK JP, sans-serif">
+<rect x="534" y="245" width="255" height="118" rx="18" fill="#e9f4ef"/><text x="562" y="292" font-size="19" fill="#3a5a4c">バッテリー容量</text><text x="562" y="337" font-size="39" font-weight="700" fill="#17372d">286Wh</text>
+<rect x="813" y="245" width="273" height="118" rx="18" fill="#e9f4ef"/><text x="842" y="292" font-size="19" fill="#3a5a4c">AC定格出力</text><text x="842" y="337" font-size="39" font-weight="700" fill="#17372d">600W</text>
+<rect x="534" y="381" width="255" height="118" rx="18" fill="#eef2f6"/><text x="562" y="428" font-size="19" fill="#51606d">本体重量</text><text x="562" y="473" font-size="39" font-weight="700" fill="#1f3747">約4.7kg</text>
+<rect x="813" y="381" width="273" height="118" rx="18" fill="#eef2f6"/><text x="842" y="428" font-size="19" fill="#51606d">AC充電</text><text x="842" y="473" font-size="38" font-weight="700" fill="#1f3747">約60分</text>
+<text x="83" y="581" font-size="17" fill="#666f69">※ 実製品写真ではありません。仕様案内用の独自制作イラストです。</text>
+<text x="83" y="609" font-size="16" fill="#666f69">製品仕様出典：EcoFlow Japan公式　｜　X-Boost・容量拡張は条件により異なります。</text>
+</g></svg>

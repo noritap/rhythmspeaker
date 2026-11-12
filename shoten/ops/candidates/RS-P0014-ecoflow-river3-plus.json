@@ -1,0 +1,97 @@
+{
+  "product_id": "RS-P0014",
+  "status": "AFFILIATE_LINK_REGISTERED_PENDING_PUBLICATION_CHECK",
+  "formal_name": "EcoFlow RIVER 3 Plus ポータブル電源（通常モデル・ブラック）",
+  "brand": "EcoFlow",
+  "model": "EFRIVER3PLUS-JP-CBOX",
+  "asin": "B0DHZZ394W",
+  "category": "outdoor",
+  "subcategory": "portable-power",
+  "used_at_studio": false,
+  "usage_evidence": "メーカー公式仕様と国内販売情報の調査のみ。本人使用・所有は未確認。",
+  "score": {
+    "reader_value": 28,
+    "information_reliability": 24,
+    "purchase_intent": 18,
+    "originality": 12,
+    "maintenance_efficiency": 9,
+    "total": 91
+  },
+  "score_evidence": "防災・屋外の小型電源として用途が明確。EcoFlow優先方針に合致し、メーカー公式仕様・国内型番・Amazon商品URLを照合。価格や在庫は変動するため固定紹介しない。",
+  "manufacturer_sources": [
+    {
+      "url": "https://jp.ecoflow.com/products/river-3-plus-portable-power-station",
+      "label": "EcoFlow公式：RIVER 3 Plus、容量・出力・充電仕様"
+    },
+    {
+      "url": "https://www.biccamera.com/bc/item/13659986/",
+      "label": "国内小売店：EFRIVER3PLUS-JP-CBOXの型番・重量・仕様"
+    },
+    {
+      "url": "https://www.amazon.co.jp/dp/B0DHZZ394W",
+      "label": "Amazon.co.jp通常商品ページ（非アフィリエイト）"
+    }
+  ],
+  "amazon_product_url": "https://www.amazon.co.jp/dp/B0DHZZ394W",
+  "amazon_associates_url": "https://link.amazon/B0ab3Xl2K",
+  "amazon_link_verified_by_owner": true,
+  "verified_target_asin": "B0DHZZ394W",
+  "specifications": {
+    "capacity": "286Wh",
+    "ac_rated": "600W",
+    "x_boost": "最大900W（対応する機器・動作条件に制限あり）",
+    "weight": "約4.7kg",
+    "dimensions": "約234×232×146mm",
+    "ports": "AC×3、USB-A×2、USB-C×1、シガーソケット×1",
+    "ac_charge": "約60分（メーカー公表条件）",
+    "battery": "リン酸鉄リチウムイオン電池"
+  },
+  "editorial": {
+    "short_copy": "停電への備えにも、屋外での小型機器の給電にも。286Wh・定格600Wの使いやすいポータブル電源。",
+    "why_recommend": "約4.7kgで持ち運びやすく、AC3口とUSBポートを備える。家庭の備えや屋外での撮影・音響機材の補助電源を検討する人に、容量と出力のバランスが分かりやすい1台。",
+    "good_for": [
+      "スマートフォン・ノートPCの電源を確保したい人",
+      "小型音響機器や撮影機材を屋外で使う人",
+      "災害対策用のコンパクトな蓄電池を探す人"
+    ],
+    "limitations": [
+      "実際の稼働時間は接続機器の消費電力・変換損失で変わる",
+      "AC定格600Wを超える機器の動作は保証しない",
+      "容量を拡張するには別売りの専用バッテリーが必要",
+      "航空機への持ち込みなど輸送制限を事前に確認",
+      "製品写真ではなくオリジナル仕様イラストを使用"
+    ]
+  },
+  "photos": [
+    {
+      "path": "shoten/assets/products/rs-p0014-river3-plus-guide.svg",
+      "kind": "ORIGINAL_ILLUSTRATION",
+      "alt": "EcoFlow RIVER 3 Plusの容量286Wh、定格600W、約4.7kgを示す独自制作の仕様案内イラスト（製品写真ではありません）",
+      "rights_evidence": "AIがこのプロジェクト向けに新規作成したSVG。メーカー画像や第三者写真の転載は禁止転載なし。正確な外観の再現ではないことを注記。"
+    }
+  ],
+  "photo_rights_confirmed": true,
+  "photo_rights_note": "独自制作SVGのみ。メーカーの実写写真についてはライセンス未取得のため使用しない。実物画像が後から必要な場合は別途確認。",
+  "catalog_draft": {
+    "product_id": "RS-P0014",
+    "category": "outdoor",
+    "subcategory": "ac-power",
+    "formal_name": "EcoFlow RIVER 3 Plus",
+    "image": "./assets/products/rs-p0014-river3-plus-guide.svg",
+    "purchase_cta_enabled": false,
+    "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+    "ownerVerifiedShortLink": true
+  },
+  "article_url": "",
+  "checked_at": "2026-11-13",
+  "handoff": {
+    "target": "publication-chat-after-validation",
+    "remaining_owner_action": "NONE_FOR_LINK_DESTINATION",
+    "publication": "DO_NOT_PUBLISH_UNTIL_LINK_TRACKING_AND_RELEASE_GATES_RESOLVED",
+    "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json in preparation PR",
+    "catalog_path": "shoten/catalog.json",
+    "public_pr": 519,
+    "commerce_pr": 17
+  },
+  "notes": "通常モデル。Wirelessバージョン・Max・Max Plus、旧RIVER Plusと混同しない。アフィリエイトURL未取得。商店公開用catalog.jsonには追加しない。"
+}

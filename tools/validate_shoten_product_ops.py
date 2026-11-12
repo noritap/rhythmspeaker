@@ -8,7 +8,7 @@ from urllib.parse import urlsplit, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "shoten/catalog.json"
 ASSET = ROOT / "shoten"
-PATTERN = re.compile(r"^\./assets/products/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$")
+PATTERN = re.compile(r"^\./assets/products/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif|svg)$")
 ID = re.compile(r"^RS-P\d{4,}$")
 ASIN = re.compile(r"^[A-Z0-9]{10}$")
 
@@ -27,6 +27,25 @@ def validate(data, root=ASSET):
         for key in ("brand", "model", "formal_name", "summary", "caution"):
             if not isinstance(p.get(key), str) or not p[key].strip():
                 errors.append(f"{prefix}: missing {key}")
+        if p.get("publicationStatus") == "LINK_PENDING":
+            # Staged records are explicitly excluded from the buyer-facing adapter.
+            # Require a concrete owner-supplied URL, but do not infer its tracking tag.
+            if not re.fullmatch(r"https://link\.amazon/[A-Za-z0-9]+", p.get("href", "")):
+                errors.append(f"{prefix}: pending link must use Amazon-issued short-link format")
+            if p.get("trackingId") is not None:
+                errors.append(f"{prefix}: pending link must not invent a tracking tag")
+            if p.get("ownerVerifiedShortLink") is not True:
+                errors.append(f"{prefix}: pending link needs owner attestation")
+            if p.get("approvedPhoto") != "./assets/products/rs-p0014-river3-plus-guide.svg":
+                errors.append(f"{prefix}: staged product image mismatch")
+            local = root / p.get("approvedPhoto", "")
+            if not local.is_file() or local.is_symlink():
+                errors.append(f"{prefix}: missing staged image")
+            else:
+                svg = local.read_text(encoding="utf-8")
+                if any(bad in svg.lower() for bad in ("<script", "foreignobject", "onload=", "onerror=", "<image", "javascript:", "xlink:href=", "<iframe")):
+                    errors.append(f"{prefix}: unsafe staged SVG")
+            continue
         href = p.get("href", "")
         try:
             u = urlsplit(href)
