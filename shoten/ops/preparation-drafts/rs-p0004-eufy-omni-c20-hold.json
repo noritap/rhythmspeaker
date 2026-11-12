@@ -4,9 +4,9 @@
   "formal_name": "Eufy Robot Vacuum Omni C20 ブラック",
   "brand": "Eufy (Anker)",
   "model": "T2280511",
-  "status": "HOLD_DISCONTINUED",
+  "status": "HOLD_POLICY_NON_RECOMMENDED",
   "recommended_for_new_35_lineup": false,
-  "reason": "Anker Japan official product page says Omni C20 has been discontinued and directs customers to its successor Omni C28; do not recommend discontinued item for new seasonal store lineup without explicit stock and rationale.",
+  "reason": "Owner directive 2026-11-13: recommend SwitchBot robot vacuums only, until owner changes policy. Eufy Omni C20 is also listed as discontinued by maker. Retain solely as comparison/verification reference.",
   "category": "home",
   "subcategory": "robot-vacuums",
   "kind": "ロボット掃除機",
@@ -49,10 +49,12 @@
   "replacement_candidate": {
     "name": "Eufy Robot Vacuum Omni C28",
     "url": "https://www.ankerjapan.com/collections/robotcleaner",
-    "status": "RESEARCH_ONLY_NO_ID_REASSIGNMENT"
+    "status": "RESEARCH_ONLY_NOT_RECOMMENDED_UNDER_OWNER_POLICY"
   },
   "ready_for_affiliate_link": false,
   "publication_cta_enabled": false,
   "notes": "Existing upstream product ID must not be reassigned to C28. Upstream data is not changed. No main merge or publication.",
-  "checked_at": "2026-11-13"
+  "checked_at": "2026-11-13",
+  "use_scope": "COMPARISON_AND_VERIFICATION_ONLY",
+  "policy_reference": "shoten/ops/ROBOT_VACUUM_RECOMMENDATION_POLICY_V1.md"
 }
