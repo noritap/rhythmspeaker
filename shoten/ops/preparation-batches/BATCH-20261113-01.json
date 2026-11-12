@@ -17,10 +17,10 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "IDENTITY_REVIEW": 13,
+    "IDENTITY_REVIEW": 11,
     "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
-    "READY_FOR_AFFILIATE_LINK": 5,
-    "CATEGORY_REVIEW": 1
+    "READY_FOR_AFFILIATE_LINK": 6,
+    "CATEGORY_REVIEW": 2
   },
   "entries": [
     {
@@ -433,15 +433,15 @@
     },
     {
       "candidate_key": "owner-015",
-      "product_id": null,
-      "formal_name": "SESAME 5 スマートロック",
+      "product_id": "RS-P0020",
+      "formal_name": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）",
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -458,19 +458,30 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
+      "specifications": {
+        "color": "Black",
+        "jan": "860013658250",
+        "weight_g_with_battery": 140,
+        "dimensions_mm": [
+          92.7,
+          57,
+          41.7
+        ],
+        "power": "CR123A×2",
+        "battery_life": "メーカー公表1年以上"
+      },
       "source_urls": [
-        "https://jp.candyhouse.co/apps/help-center"
+        "https://jp.candyhouse.co/products/sesame5?variant=40074599792703"
       ],
       "previous_detail_draft": null,
-      "remaining_gates": [
-        "Confirm SESAME 5 physical unit/variation and manufacturer specifications",
-        "Canonical ID registration"
-      ],
+      "remaining_gates": [],
       "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
-      "handoff_note": "Amazon normal URL is optional; product variation and manufacturer checks remain."
+      "handoff_note": "Amazon normal URL is optional; product variation and manufacturer checks remain.",
+      "category_site_root_mapping": "home",
+      "owner_variant_note": "Black was selected as the listing variant, not verified as the owner's previously purchased color.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-016",
@@ -599,15 +610,15 @@
     },
     {
       "candidate_key": "owner-021",
-      "product_id": null,
-      "formal_name": "カジメイク 2203",
+      "product_id": "RS-P0021",
+      "formal_name": "カジメイク2203 ナイロンヤッケ ブラック M（2203-91-M）",
       "owner_class": "A",
       "category": "apparel-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -624,18 +635,27 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "material": "ナイロン100%",
+        "color": "ブラック",
+        "size": "M",
+        "item_code": "2203-91-M",
+        "finish": "はっ水加工",
+        "waterproof": false
+      },
+      "source_urls": [
+        "https://www.orange-book.com/ja/c/products/index.html?itemCd=220391M+++++++++++++++++++++++2018",
+        "https://www.kajimeiku.co.jp/"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "型番・カラーに一致する日本Amazon通常商品URLを確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Official apparel category adoption or approved mapping"
       ],
       "verified_at": "2026-11-13",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "owner_variant_note": "Black M selected for precise draft; owner's previously purchased color/size is not verified.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-022",
@@ -869,8 +889,8 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 7,
-  "new_ready_count": 4,
+  "completed_content_ready_count": 9,
+  "new_ready_count": 7,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
@@ -900,23 +920,20 @@
   "current_rule_version": "v5.1_URL_OPTIONAL",
   "last_run": {
     "date": "2026-11-13",
-    "new_upstream_product_ids": [
-      "RS-P0017",
-      "RS-P0018",
-      "RS-P0019"
+    "policy": "v5.1",
+    "new_upstream_ids": [
+      "RS-P0020",
+      "RS-P0021"
     ],
-    "upstream_merged_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/20",
-    "new_ready_since_previous_batch_state": [
-      "RS-P0013",
-      "RS-P0016",
-      "RS-P0017",
-      "RS-P0018"
+    "new_ready_ids": [
+      "RS-P0020"
     ],
-    "previously_ready": [
-      "RS-P0014",
-      "RS-P0015"
+    "registered_not_ready": [
+      "RS-P0021"
     ],
-    "ready_total_including_affiliate_received": 6,
-    "notes": "URL optional gate applied to all entries; former Amazon-only blockers reclassified by genuine identity gaps. RS-P0019 food classification still unapproved."
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/21",
+    "main_refetched": true,
+    "qa": "JSON and prior-record preservation / ID uniqueness checked; remote suite not executed",
+    "next": "Remaining identity review owner-005,008,010,011,012,013,014,017,018,022,024. Food and apparel category proposals remain unapproved."
   }
 }
