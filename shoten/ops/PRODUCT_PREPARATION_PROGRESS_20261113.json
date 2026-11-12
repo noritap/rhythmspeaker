@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 15,
+    "upstream_product_records": 17,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 6,
+    "new_ready_for_affiliate_link": 7,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 7
+    "new_content_ready_from_priority_batch": 9
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -191,9 +191,9 @@
     "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
     "target_count": 20,
     "saved_rows": 20,
-    "new_ready": 6,
-    "content_ready_verified": 7,
-    "missing_critical": 14,
+    "new_ready": 7,
+    "content_ready_verified": 9,
+    "missing_critical": 13,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
     "qa": {
@@ -216,10 +216,10 @@
       "work-proposed": 3,
       "outdoor": 2
     },
-    "status": "SIX_READY_INCLUDING_ONE_ALREADY_LINKED",
+    "status": "SEVEN_READY_TWENTY_BATCH_THIRTEEN_PENDING",
     "new_content_ready_this_execution": 4,
     "upstream_new_canonical_registered_this_execution": 1,
-    "unresolved_count": 14
+    "unresolved_count": 13
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -349,35 +349,31 @@
   "latest_execution": {
     "date": "2026-11-13",
     "batch": "BATCH-20261113-01",
-    "source": "USER_APPROVED_AMAZON_URL_OPTIONAL",
-    "new_canonical_ids": [
-      "RS-P0017",
-      "RS-P0018",
-      "RS-P0019"
+    "new_upstream_product_ids": [
+      "RS-P0020",
+      "RS-P0021"
     ],
-    "new_ready_since_previous_status": [
-      "RS-P0013",
-      "RS-P0016",
-      "RS-P0017",
-      "RS-P0018"
+    "new_ready_ids": [
+      "RS-P0020"
     ],
-    "ready_batch_total": 6,
-    "of_which_affiliate_already_received": [
-      "RS-P0013"
+    "new_content_ready_ids": [
+      "RS-P0020",
+      "RS-P0021"
     ],
-    "upstream_product_records": 15,
-    "upstream_pr_merged": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/20",
-    "url_requirement": "OPTIONAL_NULL_ALLOWED",
-    "site_publication": "NOT_IN_SCOPE",
-    "automated_test": "NOT_EXECUTED",
-    "checks": [
-      "Upstream main re-read count 15",
-      "Prior 12 unchanged",
-      "3 unique new canonical IDs",
-      "JSON parsed on save and refetch",
-      "No affiliate or public catalog edited"
-    ],
-    "next": "Resolve 11 identity-review records; category decision for tea; deliver URL-optional READY IDs to affiliate chat."
+    "existing_ready_count_before": 6,
+    "ready_total": 7,
+    "unresolved_count": 13,
+    "upstream_main_products": 17,
+    "pr_merged": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/21",
+    "source_note": "SESAME5 Black variant verified on manufacturer official site. Kajimeiku 2203 Black M variant verified via distributor with manufacturer identified; both are selected variants, not proof of the owner's purchased size/color.",
+    "checks": {
+      "json_parse": "PASS",
+      "unique_product_ids": "PASS",
+      "prior_15_non_destructive": "PASS",
+      "upstream_main_refetch": "PASS",
+      "published_catalog_validator": "NOT_EXECUTED",
+      "no_affiliate_or_public_site_changes": true
+    }
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
