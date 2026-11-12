@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "IMAGE_AND_ID_REVIEW",
+  "status": "ID_REVIEW",
   "ready_for_affiliate_link": false,
   "product_id": null,
   "id_policy": "Not present in current upstream data/products.json. Allocate unused ID through canonical upstream master, never repurpose RS-P0003/0004/0006.",
-  "formal_name": "SwitchBot プラグミニ（JP）通常版 1個",
+  "formal_name": "SwitchBot プラグミニ（JP）通常版・1個",
   "brand": "SwitchBot",
   "model": "W2001400",
   "variant": "日本用／HomeKit非対応の通常版",
@@ -30,8 +30,8 @@
   "amazon_url_status": "MANUFACTURER_LINK_CONFIRMED_HISTORICAL_CURRENT_LIVE_DETAIL_NOT_CHECKED",
   "amazon_source": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
   "editorial": {
-    "eyebrow": "Wi-Fiにつないで、身近な家電の電源操作や消費電力の確認ができるスマートプラグ。",
-    "summary": "SwitchBot プラグミニ（JP）は、スマートフォンから電源のオン・オフやスケジュール設定ができる、国内100V向けのスマートプラグ。Wi-Fi 2.4GHzに対応し、専用ハブなしで操作できます。対応機器の電力使用状況を確認したい方にもおすすめの候補です。",
+    "eyebrow": "電源を遠隔操作して、消費電力も確認。ハブ不要のSwitchBotスマートプラグ。",
+    "summary": "SwitchBot プラグミニ（JP）は、スマートフォンで電源のオン・オフやスケジュールを管理できるスマートプラグ。国内100V用で、Wi-Fi 2.4GHzに対応。ハブなしで遠隔操作でき、消費電力の確認にも使えます。差し込み口はN極対応が必要で、定格は最大15A・1,500W。HomeKit対応版とは別商品なので、購入時は通常版の仕様を確認してください。",
     "good_for": [
       "照明や対応家電の電源を外出先から操作したい人",
       "電力使用状況の把握を始めたい人",
@@ -51,7 +51,24 @@
       "ハブ": "不要",
       "電力計測": "対応",
       "コンセント": "N極対応が必要"
-    }
+    },
+    "title": "SwitchBot プラグミニ（JP）通常版・1個",
+    "tags": [
+      "スマートホーム",
+      "家電管理",
+      "節電の見える化",
+      "Wi-Fiプラグ"
+    ],
+    "caution": [
+      "N極対応（幅広差し込み口）のコンセント・延長コードが必要",
+      "定格1500W・15Aを超えて使用しない",
+      "電源復帰後に自動起動すると危険な熱器具・医療機器などには使用しない",
+      "Wi-Fi 5GHzのみのネットワーク環境では利用できない",
+      "HomeKit対応版とは別製品。画像・Amazon商品の同一性に注意",
+      "本人の使用実績は確認していない",
+      "Amazon側の在庫・販売価格は未確認。商品紹介では固定表示しない",
+      "本人の実使用経験は未確認"
+    ]
   },
   "manufacturer_sources": [
     {
@@ -66,14 +83,59 @@
     }
   ],
   "image_assets": [],
-  "image_rights_status": "UNVERIFIED; do not copy manufacturer/Amazon photos to repository",
+  "image_rights_status": "IMAGE_OPTIONAL_PENDING: no photo needed for content readiness",
   "image_source_strategy": "Owner original product photo or manufacturer licensed asset; alternatively Amazon-authorized image URL via permitted affiliate technology, not downloaded/rehosted",
   "publication_cta_enabled": false,
   "remaining_preparation_gates": [
-    "Reserve canonical unused ID in upstream ledger",
-    "License-cleared or authorized product image and display verification",
-    "Current Amazon listing identity and availability check for ordinary JP model"
+    "Formal canonical ID registration in noritap/AMAZON_COMMERCE_DATA_OS (external write outside current scope)"
   ],
   "checked_at": "2026-11-13",
-  "notes": "Recommendation candidate only, not robot vacuum. Main and production unchanged."
+  "notes": "Recommendation candidate only, not robot vacuum. Main and production unchanged.",
+  "content_status": "CONTENT_READY",
+  "proposed_local_product_id": "RS-P0015",
+  "proposed_id_scope": "RESERVED_FOR_RECONCILIATION_ON_PREPARATION_BRANCH_ONLY_NOT_CANONICAL_UPSTREAM",
+  "id_reservation_evidence": {
+    "candidate": "RS-P0015",
+    "checked_upstream_ids": [
+      "RS-P0001",
+      "RS-P0002",
+      "RS-P0003",
+      "RS-P0004",
+      "RS-P0005",
+      "RS-P0006",
+      "RS-P0007",
+      "RS-P0012",
+      "RS-P0013"
+    ],
+    "github_default_branch_search": "NO_MATCH_FOUND",
+    "canonical_registered": false
+  },
+  "verified_manufacturer_model_code": "W2001400",
+  "canonical_category": "home",
+  "image_status": "IMAGE_OPTIONAL_PENDING",
+  "approvedPhoto": null,
+  "gallery": [],
+  "affiliate_url": null,
+  "manufacturer_specifications_verified": {
+    "rated_voltage": "AC 100V",
+    "rated_current_a": 15,
+    "rated_power_w": 1500,
+    "wifi": "2.4GHz",
+    "bluetooth": "BLE",
+    "hub_required": false,
+    "power_monitoring": true,
+    "polarized_n_pole_socket_required": true,
+    "homekit_enabled": false
+  },
+  "amazon_identity_evidence": [
+    "Manufacturer official normal JP model, not HomeKit version",
+    "Manufacturer official link refers to normal Plug Mini product; current Amazon listing unconfirmed"
+  ],
+  "official_sources_verified_20261113": [
+    "https://www.switchbot.jp/products/switchbot-plug-mini",
+    "https://www.switchbot.jp/pages/switchbot-plug-mini",
+    "https://prtimes.jp/main/html/rd/p/000000033.000057002.html"
+  ],
+  "current_amazon_stock_status": "UNVERIFIED; do not promise availability",
+  "ready_reason": "Not READY until canonical upstream ID registration; photo is NOT a gate."
 }
