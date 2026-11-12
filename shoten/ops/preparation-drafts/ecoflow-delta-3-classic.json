@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "IMAGE_AND_UPSTREAM_ID_REVIEW",
+  "status": "ID_REVIEW",
   "product_id": null,
   "id_policy": "Upstream data/products.json has IDs 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0012, 0013. No duplicate EcoFlow DELTA 3 Classic found in those records. No ID assigned; upstream ID allocation and approval are deferred to link-registration workflow.",
-  "formal_name": "EcoFlow DELTA 3 Classic (1024Wh)",
+  "formal_name": "EcoFlow DELTA 3 Classic（1024Wh）",
   "brand": "EcoFlow",
   "model": "DELTA 3 Classic",
   "category": "outdoor",
@@ -26,8 +26,8 @@
     "app_wifi_bluetooth": true
   },
   "editorial": {
-    "eyebrow": "1024Whの容量と定格1500W出力。停電への備えやアウトドアで使えるポータブル電源。",
-    "summary": "ACコンセント3口とUSB-C 2口、USB-A 1口を備え、家庭の非常用電源や屋外での機器利用を検討する人の比較候補。メーカー公表値で約12.1kg、AC充電は満充電まで約60分。",
+    "eyebrow": "1024Wh・定格1500W。停電時や屋外での電源を備えるEcoFlowのポータブル電源。",
+    "summary": "EcoFlow DELTA 3 Classicは容量1,024Wh、国内向け定格AC出力1,500Wのポータブル電源。ACコンセント3口、USB-C 2口、USB-A 1口を備え、停電対策や車でのアウトドア利用に役立ちます。メーカー公表の重量は約12.1kg、AC充電は約60分。X-Boost時の出力と定格出力を区別し、使う機器に必要な電力を確認して選びましょう。",
     "good_for": [
       "災害時にスマートフォンや小型家電の電源を備えたい人",
       "車で運べるアウトドア用電源を探す人",
@@ -39,14 +39,23 @@
       "定格容量の全量をAC機器へ取り出せるわけではない",
       "10ms切替を根拠に生命維持装置などに使えるとは説明しない",
       "実機使用・耐久性は未検証",
-      "販売価格・在庫は変動するため固定掲載しない"
+      "販売価格・在庫は変動するため固定掲載しない",
+      "Amazon側の在庫・販売価格は未確認。商品紹介では固定表示しない",
+      "本人の実使用経験は未確認"
     ],
     "comparison": {
       "battery_capacity": "1024Wh",
       "rated_output": "1500W",
       "weight": "約12.1kg",
       "charging": "AC満充電約60分（メーカー公表）"
-    }
+    },
+    "title": "EcoFlow DELTA 3 Classic（1024Wh）",
+    "tags": [
+      "防災",
+      "アウトドア",
+      "停電対策",
+      "ポータブル電源"
+    ]
   },
   "manufacturer_sources": [
     {
@@ -60,13 +69,12 @@
   "affiliate_url": null,
   "image_assets": [],
   "image_candidate_source": "https://jp.ecoflow.com/products/delta-3-classic",
-  "image_rights_status": "UNVERIFIED: EcoFlow official images are visible but no republication license or owner-provided original asset recorded; do not scrape/use as published images.",
+  "image_rights_status": "IMAGE_OPTIONAL_PENDING: no photo needed for content readiness",
   "image_alt_draft": "EcoFlow DELTA 3 Classic ポータブル電源本体",
   "publication_cta_enabled": false,
   "ready_for_affiliate_link": false,
   "remaining_preparation_gates": [
-    "Upstream product ID assignment without overwriting registered IDs",
-    "Licensed accurate product photo asset and verified image display"
+    "Formal canonical ID registration in noritap/AMAZON_COMMERCE_DATA_OS (external write outside current scope)"
   ],
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json",
   "checked_at": "2026-11-13",
@@ -78,5 +86,55 @@
     "amazon_inventory": "UNVERIFIED",
     "decision": "Do not mislabel Amazon availability from manufacturer's direct shop; refrain from fixed price or stock copy."
   },
-  "sources_last_checked": "2026-11-13"
+  "sources_last_checked": "2026-11-13",
+  "content_status": "CONTENT_READY",
+  "proposed_local_product_id": "RS-P0014",
+  "proposed_id_scope": "RESERVED_FOR_RECONCILIATION_ON_PREPARATION_BRANCH_ONLY_NOT_CANONICAL_UPSTREAM",
+  "id_reservation_evidence": {
+    "candidate": "RS-P0014",
+    "checked_upstream_ids": [
+      "RS-P0001",
+      "RS-P0002",
+      "RS-P0003",
+      "RS-P0004",
+      "RS-P0005",
+      "RS-P0006",
+      "RS-P0007",
+      "RS-P0012",
+      "RS-P0013"
+    ],
+    "github_default_branch_search": "NO_MATCH_FOUND",
+    "canonical_registered": false
+  },
+  "verified_manufacturer_model_code": "EF-DL3-C",
+  "canonical_category": "outdoor",
+  "image_status": "IMAGE_OPTIONAL_PENDING",
+  "approvedPhoto": null,
+  "gallery": [],
+  "manufacturer_specifications_verified": {
+    "capacity_wh": 1024,
+    "rated_output_jp_w": 1500,
+    "surge_jp_w": 3000,
+    "xboost_w": 2000,
+    "weight_kg_approx": 12.1,
+    "ports": {
+      "ac": 3,
+      "usb_c_100w": 1,
+      "usb_c_30w": 1,
+      "usb_a": 1
+    },
+    "charge_ac_approximately_min": 60,
+    "battery": "LFP"
+  },
+  "amazon_identity_evidence": [
+    "1024Wh, 1500W are EcoFlow Japan values",
+    "Amazon manufacturer press release identifies standalone unit, not bundled solar panel"
+  ],
+  "official_sources_verified_20261113": [
+    "https://jp.ecoflow.com/products/delta-3-classic",
+    "https://manuals.ecoflow.com/cn/product/delta-3-classic?lang=ja_JP",
+    "https://prtimes.jp/main/html/rd/p/000000254.000050601.html"
+  ],
+  "current_amazon_stock_status": "UNVERIFIED; do not promise availability",
+  "ready_reason": "Not READY until canonical upstream ID registration; photo is NOT a gate."
 }
