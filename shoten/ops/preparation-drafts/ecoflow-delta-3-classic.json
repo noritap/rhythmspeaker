@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "record_type": "PREPARATION_DRAFT",
-  "status": "AMAZON_AND_IMAGE_REVIEW",
+  "status": "IMAGE_AND_UPSTREAM_ID_REVIEW",
   "product_id": null,
   "id_policy": "Upstream data/products.json has IDs 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0012, 0013. No duplicate EcoFlow DELTA 3 Classic found in those records. No ID assigned; upstream ID allocation and approval are deferred to link-registration workflow.",
   "formal_name": "EcoFlow DELTA 3 Classic (1024Wh)",
@@ -55,8 +55,8 @@
       "checked_at": "2026-11-13"
     }
   ],
-  "amazon_product_page_url": null,
-  "amazon_url_review": "2026-11-13: Exact amazon.co.jp standalone DELTA 3 Classic (1024Wh) item page not verified. Search surfaced different DELTA variants and bundles, none accepted as match.",
+  "amazon_product_page_url": "https://www.amazon.co.jp/dp/B0G8DVFCPP",
+  "amazon_url_review": "VERIFIED_BY_MANUFACTURER_PUBLISHED_LINK: EcoFlow Technology Japan press release (2026-10) identifies DELTA 3 Classic 1024Wh 1500W standalone product and links to this Amazon Japan detail page. Amazon availability and current live product detail not independently confirmed.",
   "affiliate_url": null,
   "image_assets": [],
   "image_candidate_source": "https://jp.ecoflow.com/products/delta-3-classic",
@@ -65,11 +65,11 @@
   "publication_cta_enabled": false,
   "ready_for_affiliate_link": false,
   "remaining_preparation_gates": [
-    "Upstream product ID reservation without overwriting existing IDs",
-    "Exact Japanese Amazon product detail page for standalone model",
-    "Licensed product image asset + verified match and display"
+    "Upstream product ID assignment without overwriting registered IDs",
+    "Licensed accurate product photo asset and verified image display"
   ],
   "source_of_truth": "noritap/AMAZON_COMMERCE_DATA_OS data/products.json",
   "checked_at": "2026-11-13",
-  "notes": "Not a public catalog record. No main merge or production publication. Existing Anker Solix entries must not be silently repurposed."
+  "notes": "Not a public catalog record. No main merge or production publication. Existing Anker Solix entries must not be silently repurposed.",
+  "amazon_url_source": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html"
 }
