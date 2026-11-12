@@ -109,6 +109,12 @@ Current Unmerged Development:
 HOW TO BUILD:
 noritap/AI_OS_CREATION_RULES
 
+Shoten Subproject Canonical Rules:
+- shoten/ops/PRODUCT_OPERATIONS_V1.md (ASINは内部照合のみ・公開UI非表示)
+- shoten/ops/AFFILIATE_LINK_CHAT_WORKFLOW_V1.md (1商品をmain統合・本番公開まで実施)
+- 商品・紹介リンクの上流正本: noritap/AMAZON_COMMERCE_DATA_OS の実データ
+- Chat / Work / Codex を問わず商店作業開始時に上記正本を読む。ルールの複製や個別チャットの古い運用方針より最新main優先。
+
 Project-specific Development Rules:
 - README.md
 - docs/01_OFFICIAL_HP_PHASE1_PLAN.md
