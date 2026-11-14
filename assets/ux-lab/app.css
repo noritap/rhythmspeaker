@@ -280,3 +280,36 @@ body:has(main .portal-blog-feature) .portal-section .portal-tile:hover{
 body:has(main .portal-blog-feature) :is(.portal-quick-card,.portal-blog-grid a,.portal-purpose a,.portal-tile a):focus-visible{
   outline:3px solid #815b39;outline-offset:3px;
 }
+
+/* Ecosystem finishing pass: clearer hierarchy and comfortable touch targets. */
+body:has(main .portal-blog-feature) .portal-intro{padding-block:40px 36px}
+body:has(main .portal-blog-feature) .portal-intro h1{font-size:clamp(34px,4.4vw,58px);line-height:1.2;letter-spacing:-.035em;margin:8px 0 14px}
+body:has(main .portal-blog-feature) .portal-intro .portal-lead{font-size:clamp(14px,1.4vw,17px);line-height:1.7}
+body:has(main .portal-blog-feature) .portal-quick-grid{gap:14px}
+body:has(main .portal-blog-feature) .portal-quick-card{min-height:146px;padding:22px 24px;justify-content:space-between;align-items:stretch;border-radius:10px;transition:border-color .15s,box-shadow .15s,background .15s}
+body:has(main .portal-blog-feature) .portal-quick-card>strong{font-size:clamp(18px,2.1vw,26px);line-height:1.3}
+body:has(main .portal-blog-feature) .portal-quick-card>small{font-size:clamp(12px,1.15vw,14px);line-height:1.5;color:#514d47}
+body:has(main .portal-blog-feature) .portal-quick-card:hover{box-shadow:0 6px 20px #19191814}
+body:has(main .portal-blog-feature) .portal-blog-feature{border-radius:10px;padding:22px 24px}
+body:has(main .portal-blog-feature) .portal-blog-grid a{min-height:76px;border-radius:8px}
+body:has(main .portal-blog-feature) .portal-area .portal-purpose{gap:10px}
+body:has(main .portal-blog-feature) .portal-area .portal-purpose a{min-height:48px;border-radius:7px;font-weight:600}
+body:has(main .portal-blog-feature) .portal-section{border-top:1px solid #d8d2c8;padding-top:26px}
+body:has(main .portal-blog-feature) .portal-section>.portal-grid{gap:14px}
+body:has(main .portal-blog-feature) .portal-section .portal-tile{border-radius:9px;padding:18px 20px}
+body:has(main .portal-blog-feature) .portal-section .portal-tile .portal-main{min-height:66px}
+body:has(main .portal-blog-feature) .portal-section .portal-shortcuts a{line-height:1.55}
+@media(max-width:700px){
+ body:has(main .portal-blog-feature) .portal-intro{padding-block:30px 26px}
+ body:has(main .portal-blog-feature) .portal-quick-grid{gap:10px}
+ body:has(main .portal-blog-feature) .portal-quick-card{min-height:112px;padding:16px;gap:12px}
+ body:has(main .portal-blog-feature) .portal-quick-card>strong{font-size:clamp(16px,4.5vw,21px)}
+ body:has(main .portal-blog-feature) .portal-quick-card>small{font-size:12px}
+ body:has(main .portal-blog-feature) .portal-blog-feature{padding:16px}
+ body:has(main .portal-blog-feature) .portal-blog-grid{grid-template-columns:1fr}
+ body:has(main .portal-blog-feature) .portal-blog-grid a{min-height:56px}
+ body:has(main .portal-blog-feature) .portal-section{padding-top:22px}
+}
+@media(prefers-reduced-motion:reduce){
+ body:has(main .portal-blog-feature) .portal-quick-card{transition:none}
+}
