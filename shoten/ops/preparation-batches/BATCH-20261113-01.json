@@ -356,8 +356,8 @@
     },
     {
       "candidate_key": "owner-012",
-      "product_id": "RS-P0026",
-      "formal_name": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット",
+      "product_id": "RS-P0042",
+      "formal_name": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
@@ -382,24 +382,23 @@
         ]
       },
       "specifications": {
-        "net_weight_g_per_bag": 80,
-        "bags": 6,
-        "manuka_honey_per_bag_mg": 1000,
-        "mgo_quality": "MGO115+",
-        "jan": "4901351001721"
+        "net_weight_g_per_bag": 73,
+        "bags": 3,
+        "product_line": "Premium",
+        "asin": "B004YWAV3G"
       },
       "source_urls": [
-        "https://kanro.jp/collections/all/products/健康のど飴たたかうマヌカハニー-6袋セット"
+        "https://kanro.jp/products/14670973075824"
       ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "Food category is not an approved formal site root category"
+        "Food is not a formal root category in current shoten editorial.js"
       ],
       "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
       "publication_state": "PREPARATION_ONLY",
       "category_site_root_mapping": "food-proposed",
-      "owner_variant_note": "Manufacturer official pack resolves ambiguous '80g×6 or related lozenge' as 80g×6 throat candy; not pure manuka honey and owner exact purchased variant not independently confirmed.",
+      "owner_variant_note": "Exact 2025-05-16 Amazon order confirmation identifies Premium 3-pack. Do not conflate with regular 80g×6 RS-P0026.",
       "canonical_registered_in_upstream_main": true
     },
     {
