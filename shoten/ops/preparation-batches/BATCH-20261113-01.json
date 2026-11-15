@@ -19,8 +19,7 @@
   "status_distribution": {
     "AFFILIATE_LINK_ALREADY_RECEIVED": 2,
     "READY_FOR_AFFILIATE_LINK": 10,
-    "CATEGORY_REVIEW": 7,
-    "IDENTITY_REVIEW": 1
+    "CATEGORY_REVIEW": 8
   },
   "entries": [
     {
@@ -307,13 +306,13 @@
     },
     {
       "candidate_key": "owner-011",
-      "product_id": null,
-      "formal_name": "MCTオイル 1183mL",
+      "product_id": "RS-P0031",
+      "formal_name": "Sports Research オーガニック MCTオイル 1183mL（1本）",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "IDENTITY_REVIEW",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
       "amazon_candidate_secondary_url": null,
@@ -333,26 +332,27 @@
         ]
       },
       "specifications": {
-        "ingredient_source": "100% organic coconut oil",
+        "brand": "Sports Research",
         "volume_ml": 1183,
-        "owner_purchase_pack": "1 bottle per owner purchase detail"
+        "quantity": 1,
+        "ingredient_source": "organic coconut oil"
       },
       "source_urls": [
-        "https://www.amerilifevitamin.com/sports-research-organic-mct-oil-unflavored-40-oz.html",
-        "https://cdn.hellopharmacist.com/images/dsld/supplements/pdfs/326281.pdf"
+        "https://shopping.yahoo.co.jp/products/0c5d78af86",
+        "https://search.rakuten.co.jp/search/mall/%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81%2B%E3%82%AA%E3%83%BC%E3%82%AC%E3%83%8B%E3%83%83%E3%82%AFmct%E3%82%AA%E3%82%A4%E3%83%AB/"
       ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "Resolve single 1183mL bottle versus 2×20oz package discrepancy",
-        "Confirm current manufacturer label for the exact 1183mL variant",
-        "Food category mapping approval"
+        "Food is not a formal root category in current shoten editorial.js"
       ],
       "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
       "publication_state": "PREPARATION_ONLY",
       "brand_candidate": "Sports Research",
       "formal_name_candidate": "Organic MCT Oil 1183mL (owner purchase record: single bottle)",
-      "owner_variant_note": "Exact owner-provided product title recovered. Current third-party 40 fl oz source describes 2×20oz bottles, while owner record says 1×1183mL. Packaging mismatch remains unresolved; do not assign canonical ID or READY."
+      "owner_variant_note": "Owner record and multiple Japan retail listings confirm 1183mL single bottle; 2×20oz pack excluded. No medical/health claims.",
+      "category_site_root_mapping": "food-proposed",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-012",
@@ -985,7 +985,7 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 19,
+  "completed_content_ready_count": 20,
   "new_ready_count": 12,
   "candidate_id_map": [
     {
@@ -1017,31 +1017,29 @@
   "last_run": {
     "date": "2026-11-16",
     "new_upstream_ids": [
-      "RS-P0027",
-      "RS-P0028",
-      "RS-P0029",
-      "RS-P0030"
+      "RS-P0031"
     ],
-    "new_ready_ids": [
-      "RS-P0027"
+    "new_ready_ids": [],
+    "new_content_ready_ids": [
+      "RS-P0031"
     ],
     "ready_total": 12,
-    "content_ready_total": 19,
-    "category_review": 7,
-    "identity_review": 1,
+    "content_ready_total": 20,
+    "category_review": 8,
+    "identity_review": 0,
     "unresolved_total": 8,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/30",
-    "main_merge": "CONFIRMED",
-    "main_count": 26,
-    "personal_context_recovery": "Exact D.IIZOO khaki 4XL, NYANDELMO gray 100pcs/50 pairs/free size 40x15cm, ODE 1kg whole beans, Fonterra Anchor unsalted 5kg frozen recovered from prior owner-provided data; MCT pack discrepancy noted.",
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/31",
+    "upstream_main_merge": "CONFIRMED",
+    "main_count": 27,
     "checks": {
+      "main_reread": "PASS",
       "json_parse": "PASS",
-      "unique_candidate_keys": true,
-      "canonical_main_reread": "PASS",
-      "product_ids_unique": "PASS",
-      "existing_links_preserved": "PASS",
-      "public_catalog": "NOT_CHANGED",
+      "unique_ids": "PASS",
+      "owner_purchase_variant_recovered": "PASS",
+      "identity_review_remaining": 0,
+      "formal_category_approval": "PENDING",
       "catalog_validator": "NOT_EXECUTED"
-    }
+    },
+    "notes": "All 20 original priority batch rows now have exact product identity/content prepared; 12 are READY, 8 are held only by missing formal food/apparel category roots. MCT is exact 1183mL one bottle."
   }
 }
