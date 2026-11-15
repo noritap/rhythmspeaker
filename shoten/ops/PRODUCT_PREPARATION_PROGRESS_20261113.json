@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 27,
+    "upstream_product_records": 32,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 12,
+    "new_ready_for_affiliate_link": 13,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 20
+    "batch_preparation_rows": 25,
+    "new_content_ready_from_priority_batch": 25
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -187,39 +187,16 @@
     "photo_null_validator_change": "PRESENT_ON_WORK_BRANCH"
   },
   "active_batch": {
-    "batch_id": "BATCH-20261113-01",
-    "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
+    "batch_id": "BATCH-20261116-02",
+    "file": "shoten/ops/preparation-batches/BATCH-20261116-02.json",
     "target_count": 20,
-    "saved_rows": 20,
-    "new_ready": 12,
-    "content_ready_verified": 20,
-    "missing_critical": 8,
-    "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
-    "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
-    "qa": {
-      "json_parse": "PASS",
-      "entry_count": "PASS",
-      "unique_candidate_key": "PASS",
-      "required_fields": "PASS",
-      "official_catalog_compatibility": "NOT_TESTED_SEPARATE_CHAT",
-      "amazon_id_verification": "INCOMPLETE",
-      "manufacturer_specs": "PASS_FOR_2",
-      "amazon_url_mapping": "PASS_FOR_2",
-      "canonical_ids": "3_NEW_IDS_UPSTREAM_MAIN_VERIFIED",
-      "repo_write": "UPSTREAM_MAIN_3_ITEMS_MERGED"
-    },
-    "category_distribution": {
-      "home": 4,
-      "sound": 2,
-      "food-proposed": 6,
-      "apparel-proposed": 3,
-      "work-proposed": 3,
-      "outdoor": 2
-    },
-    "status": "TWELVE_READY_EIGHT_CATEGORY_REVIEW_ZERO_IDENTITY_REVIEW",
-    "new_content_ready_this_execution": 4,
-    "upstream_new_canonical_registered_this_execution": 1,
-    "unresolved_count": 8
+    "saved_rows": 5,
+    "new_ready": 1,
+    "content_ready_verified": 5,
+    "category_review": 4,
+    "identity_review": 0,
+    "unprocessed_slots": 15,
+    "status": "FIVE_SAVED_ONE_READY_FOUR_CATEGORY_REVIEW"
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -348,29 +325,33 @@
   },
   "latest_execution": {
     "date": "2026-11-16",
-    "batch": "BATCH-20261113-01",
+    "batch": "BATCH-20261116-02",
     "new_upstream_product_ids": [
-      "RS-P0031"
+      "RS-P0032",
+      "RS-P0033",
+      "RS-P0034",
+      "RS-P0035",
+      "RS-P0036"
     ],
-    "new_ready_ids": [],
-    "new_content_ready_ids": [
-      "RS-P0031"
+    "new_ready_ids": [
+      "RS-P0036"
     ],
-    "ready_total": 12,
-    "content_ready_total": 20,
-    "category_review": 8,
-    "identity_review": 0,
-    "upstream_total": 27,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/31",
+    "ready_total_across_preparation": 13,
+    "content_ready_total_across_preparation": 25,
+    "upstream_products_total": 32,
+    "category_review_in_batch02": 4,
+    "identity_review_in_batch02": 0,
+    "unprocessed_batch02_slots": 15,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/32",
     "checks": {
-      "upstream_main_refetch": "PASS",
+      "main_refetch": "PASS",
       "JSON": "PASS",
       "unique_ids": "PASS",
-      "identity_review_remaining": 0,
-      "food_apparel_category_approval": "PENDING",
+      "prior_records_unchanged": "PASS",
+      "duplicate_inventory_reconciled": "PASS",
       "catalog_validator": "NOT_EXECUTED"
     },
-    "note": "All 20 original priority batch candidates now have product identities and editorial content. Eight are held only because formal food/apparel roots are absent from active site taxonomy."
+    "notes": "Sawai Coffee bundle remains identity review due grinder bundle ambiguity. Owner-029 manuka candy is duplicate of RS-P0026. Food items remain category review."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
@@ -599,5 +580,16 @@
     "affiliate_links_changed": false,
     "upstream_master_changed": false,
     "next_trigger": "Written image reuse license, compliant Amazon API image provision, or owner-original product photos"
-  }
+  },
+  "completed_batches": [
+    {
+      "batch_id": "BATCH-20261113-01",
+      "saved_rows": 20,
+      "ready": 12,
+      "content_ready": 20,
+      "category_review": 8,
+      "identity_review": 0,
+      "status": "IDENTITY_AND_CONTENT_COMPLETE_CATEGORY_APPROVAL_PENDING"
+    }
+  ]
 }
