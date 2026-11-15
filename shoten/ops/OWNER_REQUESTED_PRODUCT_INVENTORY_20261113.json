@@ -77,17 +77,17 @@
       "product_name": "Shokz OpenFit Pro ホワイト",
       "origin_class": "C",
       "category_id_or_proposal": "sound",
-      "status": "AFFILIATE_RECEIVED_NEEDS_AMAZON_PAGE",
+      "status": "EXISTING_CANONICAL_LINK_RECEIVED",
       "photo_optional": true,
       "priority": 2
     },
     {
       "candidate_key": "owner-007",
-      "product_id": null,
+      "product_id": "RS-P0017",
       "product_name": "Shokz OpenDots 2 ブラック",
       "origin_class": "C",
       "category_id_or_proposal": "sound",
-      "status": "MANUFACTURER_SPEC_VERIFIED_AMAZON_URL_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 2
     },
@@ -170,41 +170,41 @@
     },
     {
       "candidate_key": "owner-015",
-      "product_id": null,
+      "product_id": "RS-P0020",
       "product_name": "SESAME 5 スマートロック",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "MODEL_SPEC_REVIEW",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-016",
-      "product_id": null,
+      "product_id": "RS-P0018",
       "product_name": "SESAME タッチ2 Pro",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "MODEL_SPEC_REVIEW",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-017",
-      "product_id": null,
+      "product_id": "RS-P0024",
       "product_name": "45W USB充電器",
       "origin_class": "A",
       "category_id_or_proposal": "work-proposed",
-      "status": "BRAND_MODEL_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-018",
-      "product_id": null,
+      "product_id": "RS-P0025",
       "product_name": "DVI-HDMI変換アダプター",
       "origin_class": "A",
       "category_id_or_proposal": "work-proposed",
-      "status": "BRAND_MODEL_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 1
     },
@@ -230,11 +230,11 @@
     },
     {
       "candidate_key": "owner-021",
-      "product_id": null,
+      "product_id": "RS-P0021",
       "product_name": "カジメイク 2203",
       "origin_class": "A",
       "category_id_or_proposal": "apparel-proposed",
-      "status": "MANUFACTURER_MODEL_MATCH_PENDING",
+      "status": "EXISTING_CANONICAL_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1
     },
@@ -261,41 +261,41 @@
     },
     {
       "candidate_key": "owner-024",
-      "product_id": null,
+      "product_id": "RS-P0023",
       "product_name": "N-VAN 車内フック",
       "origin_class": "C",
       "category_id_or_proposal": "outdoor",
-      "status": "MODEL_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 2
     },
     {
       "candidate_key": "owner-025",
-      "product_id": null,
+      "product_id": "RS-P0016",
       "product_name": "Anker Prime Charger 160W",
       "origin_class": "C",
       "category_id_or_proposal": "work-proposed",
-      "status": "MODEL_REVIEW",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 2
     },
     {
       "candidate_key": "owner-026",
-      "product_id": null,
+      "product_id": "RS-P0014",
       "product_name": "EcoFlow DELTA 3 Classic",
       "origin_class": "E",
       "category_id_or_proposal": "outdoor",
-      "status": "AMAZON_IDENTIFIED_ID_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 3
     },
     {
       "candidate_key": "owner-027",
-      "product_id": null,
+      "product_id": "RS-P0015",
       "product_name": "SwitchBot プラグミニ JP",
       "origin_class": "E",
       "category_id_or_proposal": "home",
-      "status": "AMAZON_IDENTIFIED_ID_PENDING",
+      "status": "EXISTING_CANONICAL_READY",
       "photo_optional": true,
       "priority": 3
     },
@@ -305,19 +305,21 @@
       "product_name": "Harney & Sons 各種その他フレーバー",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "FLAVORS_TO_SPLIT_ON_VERIFIED_PRODUCTS",
+      "status": "FLAVOR_VARIANT_PENDING",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "note": "Other HARNEY flavors are not duplicated until exact flavor and pack are known."
     },
     {
       "candidate_key": "owner-029",
-      "product_id": null,
+      "product_id": "RS-P0026",
       "product_name": "マヌカハニー のど飴",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "DUPLICATE_OF_RS-P0026",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット"
     },
     {
       "candidate_key": "owner-030",
@@ -325,57 +327,59 @@
       "product_name": "澤井珈琲",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "IDENTITY_REVIEW_BUNDLE",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product_candidate": "澤井珈琲 ソル・ルナ・テルス 1.2kg（400g×3・豆のまま）",
+      "note": "Official result currently shows a Melitta electric grinder bundle; confirm whether owner order included the grinder before canonical registration."
     },
     {
       "candidate_key": "owner-031",
-      "product_id": null,
+      "product_id": "RS-P0032",
       "product_name": "小豆",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-032",
-      "product_id": null,
+      "product_id": "RS-P0033",
       "product_name": "玄米",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-033",
-      "product_id": null,
+      "product_id": "RS-P0034",
       "product_name": "ブルーベリー",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-034",
-      "product_id": null,
+      "product_id": "RS-P0035",
       "product_name": "クリームチーズ",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1
     },
     {
       "candidate_key": "owner-035",
-      "product_id": null,
+      "product_id": "RS-P0036",
       "product_name": "トイレットペーパー",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_READY",
       "photo_optional": true,
       "priority": 1
     }
