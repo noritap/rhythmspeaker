@@ -12,7 +12,7 @@ SHA = "a" * 40
 def fixture(index=1):
     asin = f"TEST{index:06}"
     pid, lid, placement = f"RS-P{index:04}", f"test-link-{index}", f"test-place-{index}"
-    href = f"https://www.amazon.co.jp/dp/{asin}?tag=fixture-only"
+    href = f"https://www.amazon.co.jp/dp/{asin}?tag=fixture-only-22"
     product = {
         "product_id": pid, "asin": asin, "brand": "QA Fiction", "product_name": f"動作検証用 {index}",
         "marketplace": "amazon.co.jp", "publication_state": "APPROVED", "category_ids": ["cleaning"],
