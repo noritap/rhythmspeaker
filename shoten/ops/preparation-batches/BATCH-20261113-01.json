@@ -17,23 +17,23 @@
     "outdoor": 2
   },
   "status_distribution": {
-    "IDENTITY_REVIEW": 7,
-    "AFFILIATE_LINK_ALREADY_RECEIVED": 1,
+    "AFFILIATE_LINK_ALREADY_RECEIVED": 2,
     "READY_FOR_AFFILIATE_LINK": 9,
-    "CATEGORY_REVIEW": 3
+    "IDENTITY_REVIEW": 5,
+    "CATEGORY_REVIEW": 4
   },
   "entries": [
     {
       "candidate_key": "owner-005",
       "product_id": "RS-P0007",
-      "formal_name": "by Amazon とって付きごみ袋 45L 100枚",
+      "formal_name": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
       "owner_class": "A",
       "category": "home",
       "category_state": "EXISTING_ROOT_CATEGORY",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED",
+      "status": "AFFILIATE_LINK_ALREADY_RECEIVED",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": "https://www.amazon.co.jp/dp/B089TGWXZS",
       "approvedPhoto": null,
       "gallery": [],
@@ -50,17 +50,35 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "capacity_l": 45,
+        "count": 100,
+        "type": "半透明・取っ手付き・シャカシャカ",
+        "material": "HDPE (secondary source)",
+        "thickness_mm": 0.015,
+        "dimensions_mm": [
+          800,
+          400,
+          250
+        ]
+      },
+      "source_urls": [
+        "https://www.amazon-hikaku.com/b089tgwxzs/",
+        "https://note.com/naoki_is_village/n/n19400f5e80e0"
+      ],
       "previous_detail_draft": "shoten/ops/preparation-drafts/rs-p0007-handled-trash-bags.json",
       "remaining_gates": [
-        "Resolve exactly which 45L / 100-sheet package is owner-selected; manufacturer/retailer variant",
-        "Existing owner-issued affiliate link must be retained and checked in ③, not reissued"
+        "③ affiliate link ledger reconciliation; keep existing owner-supplied short link"
       ],
-      "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
+      "verified_at": "2026-11-16",
+      "ready_for_affiliate_link": true,
       "publication_state": "PREPARATION_ONLY",
-      "handoff_note": "Prior Amazon normal URL review no longer blocks ①; this remains on hold because exact package identity is not established."
+      "handoff_note": "Prior Amazon normal URL review no longer blocks ①; this remains on hold because exact package identity is not established.",
+      "affiliate_link_already_received": true,
+      "category_site_root_mapping": "home",
+      "source_quality": "SECONDARY_RETAIL_SUMMARY",
+      "owner_link_status": "OWNER_ATTESTED_DESTINATION; affiliate ledger PENDING, phase ③ must reconcile without asking owner to reissue",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-006",
@@ -318,15 +336,15 @@
     },
     {
       "candidate_key": "owner-012",
-      "product_id": null,
-      "formal_name": "マヌカハニー 80g×6（または関連のど飴）",
+      "product_id": "RS-P0026",
+      "formal_name": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
-      "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
+      "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
       "approvedPhoto": null,
       "gallery": [],
@@ -343,17 +361,26 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "net_weight_g_per_bag": 80,
+        "bags": 6,
+        "manuka_honey_per_bag_mg": 1000,
+        "mgo_quality": "MGO115+",
+        "jan": "4901351001721"
+      },
+      "source_urls": [
+        "https://kanro.jp/collections/all/products/健康のど飴たたかうマヌカハニー-6袋セット"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Food category is not an approved formal site root category"
       ],
-      "verified_at": "2026-11-13",
+      "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "category_site_root_mapping": "food-proposed",
+      "owner_variant_note": "Manufacturer official pack resolves ambiguous '80g×6 or related lozenge' as 80g×6 throat candy; not pure manuka honey and owner exact purchased variant not independently confirmed.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-013",
@@ -913,8 +940,8 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 13,
-  "new_ready_count": 10,
+  "completed_content_ready_count": 15,
+  "new_ready_count": 11,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
@@ -943,21 +970,29 @@
   },
   "current_rule_version": "v5.1_URL_OPTIONAL",
   "last_run": {
-    "date": "2026-11-13",
+    "date": "2026-11-16",
     "new_upstream_ids": [
-      "RS-P0024",
-      "RS-P0025"
+      "RS-P0026"
     ],
     "new_ready_ids": [
-      "RS-P0024",
-      "RS-P0025"
+      "RS-P0007"
     ],
-    "new_ready": 2,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/25",
+    "new_ready_this_execution": 1,
+    "ready_total": 11,
+    "content_ready_total": 15,
+    "category_review": 4,
+    "identity_review": 5,
+    "upstream_main_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/28",
     "upstream_main_merge": "CONFIRMED",
-    "upstream_main_count": 21,
-    "remaining_identity_review": 7,
-    "remaining_category_review": 3,
-    "verification": "JSON parse, unique canonical IDs, non-destructive pre-existing records, upstream main reread; site CTA test not run"
+    "main_count": 22,
+    "affiliate_link_note": "RS-P0007 short link already owner-attested; ledger remains PENDING for phase ③ metadata reconciliation; do not request a new link.",
+    "checks": {
+      "json_parse": "PASS",
+      "unique_candidate_keys": true,
+      "canonical_main_reread": "PASS",
+      "product_ids_unique": "PASS",
+      "secondary_sources_disclosed": "PASS",
+      "catalog_validator": "NOT_EXECUTED"
+    }
   }
 }
