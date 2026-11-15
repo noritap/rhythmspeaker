@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-13",
+  "updated_at": "2026-11-16",
   "source_policy": "shoten/ops/PRODUCT_PREPARATION_CHAT_V4.md",
   "reference_branch": "work/shoten-product-preparation-20261113",
   "counts": {
@@ -154,7 +154,7 @@
       "draft": "shoten/ops/preparation-drafts/shokz-opendots-2-black.json"
     }
   ],
-  "ready_policy": "Never mark READY if only editorial and product URL exist; require clear image rights, asset/display proof, canonical ID, exact identity, saved verified record.",
+  "ready_policy": "Photo is optional for READY_FOR_AFFILIATE_LINK. READY requires canonical unique product ID, exact product identity, manufacturer/specification and Amazon normal product URL evidence, approved category mapping, complete editorial fields, and saved/validated canonical record. Image rights review applies only when an image is actually attached. Track IMAGE_OPTIONAL_PENDING / IMAGE_SOURCE_FOUND / IMAGE_APPROVED / IMAGE_REGISTERED / IMAGE_VERIFIED independently. Photo readiness is not an affiliate-link or publication gate; publication continues to follow the separate main-branch release validator and its current image requirement until that policy is deliberately changed.",
   "next_best_action": "Next phase-1 call: process remaining batch items and new batch candidates in 20-product lots without pausing for each ID; finish canonical registration/READY during same call whenever authorized. Affiliate and site publication are separate chats.",
   "image_licensing_audit": {
     "verified_date": "2026-11-13",
@@ -737,5 +737,6 @@
     "affiliate_links_changed": false,
     "upstream_master_changed": false,
     "next_trigger": "Owner-provided original photographs or written brand/manufacturer permission for commercial reuse; do not download or rehost retail/Amazon product images without rights"
-  }
+  },
+  "audit_note_20261116": "Cross-chat audit: READY image requirement was incorrectly coupled to image rights/display proof. Photo is now optional at preparation/affiliate handoff; if attached, rights and identity must be checked. Do not change the separate production publication gate in this preparation branch."
 }
