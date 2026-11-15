@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 22,
+    "upstream_product_records": 26,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 11,
+    "new_ready_for_affiliate_link": 12,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 15
+    "new_content_ready_from_priority_batch": 19
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -191,9 +191,9 @@
     "file": "shoten/ops/preparation-batches/BATCH-20261113-01.json",
     "target_count": 20,
     "saved_rows": 20,
-    "new_ready": 11,
-    "content_ready_verified": 15,
-    "missing_critical": 9,
+    "new_ready": 12,
+    "content_ready_verified": 19,
+    "missing_critical": 8,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
     "qa": {
@@ -216,10 +216,10 @@
       "work-proposed": 3,
       "outdoor": 2
     },
-    "status": "ELEVEN_READY_FOUR_CATEGORY_REVIEW_FIVE_IDENTITY_REVIEW",
+    "status": "TWELVE_READY_SEVEN_CATEGORY_REVIEW_ONE_IDENTITY_REVIEW",
     "new_content_ready_this_execution": 4,
     "upstream_new_canonical_registered_this_execution": 1,
-    "unresolved_count": 9
+    "unresolved_count": 8
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -350,28 +350,30 @@
     "date": "2026-11-16",
     "batch": "BATCH-20261113-01",
     "new_upstream_product_ids": [
-      "RS-P0026"
+      "RS-P0027",
+      "RS-P0028",
+      "RS-P0029",
+      "RS-P0030"
     ],
     "new_ready_ids": [
-      "RS-P0007"
+      "RS-P0027"
     ],
-    "ready_total": 11,
-    "content_ready_total": 15,
-    "category_review": 4,
-    "identity_review": 5,
-    "unresolved_total": 9,
-    "upstream_products_total": 22,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/28",
+    "ready_total": 12,
+    "content_ready_total": 19,
+    "category_review": 7,
+    "identity_review": 1,
+    "unresolved_total": 8,
+    "upstream_total": 26,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/30",
     "checks": {
-      "upstream_main_reread": "PASS",
-      "json_parse": "PASS",
+      "main_reread": "PASS",
+      "JSON": "PASS",
       "unique_ids": "PASS",
-      "batch_20_rows": "PASS",
-      "existing_owner_link_preserved": "PASS",
-      "official_kanro_spec": "PASS",
+      "existing_records_preserved": "PASS",
+      "owner_variant_recovery": "PASS",
       "catalog_validator": "NOT_EXECUTED"
     },
-    "note": "P0007's owner-supplied short link destination is owner-attested; link ledger still PENDING for phase ③ reconciliation. P0026 is Kanro throat candy 80g x6, not pure manuka honey; food category pending."
+    "notes": "MCT remains unresolved due package discrepancy. Food and apparel category approval is the only gate for seven otherwise prepared products."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
