@@ -594,5 +594,148 @@
       "identity_review": 0,
       "status": "IDENTITY_AND_CONTENT_COMPLETE_CATEGORY_APPROVAL_PENDING"
     }
-  ]
+  ],
+  "image_batch_20261116_06": {
+    "date": "2026-11-16",
+    "target": 20,
+    "scope": "NEW_CANONICAL_PRODUCTS_IMAGE_SOURCE_IDENTITY_AND_RIGHTS_SCREEN",
+    "upstream_product_count": 33,
+    "upstream_asset_count": 0,
+    "new_product_ids": [
+      "RS-P0026",
+      "RS-P0027",
+      "RS-P0028",
+      "RS-P0029",
+      "RS-P0030",
+      "RS-P0031",
+      "RS-P0032",
+      "RS-P0033",
+      "RS-P0034",
+      "RS-P0035",
+      "RS-P0036",
+      "RS-P0037"
+    ],
+    "new_product_count": 12,
+    "product_sources_found": 8,
+    "identity_exact_or_plausible": 8,
+    "rights_verified": 0,
+    "images_registered": 0,
+    "images_verified": 0,
+    "records": [
+      {
+        "product_id": "RS-P0026",
+        "name": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://kanro.jp/collections/falsedoyi-falseri/products/%E5%81%A5%E5%BA%B7%E3%81%AE%E3%81%A9%E9%A3%B4%E3%81%9F%E3%81%9F%E3%81%8B%E3%81%86%E3%83%9E%E3%83%8C%E3%82%AB%E3%83%8F%E3%83%8B%E3%83%BC-6%E8%A2%8B%E3%82%BB%E3%83%83%E3%83%88",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Official Kanro page confirms 80g x 6 bags and product photo, but reuse permission for third-party affiliate shop not established"
+      },
+      {
+        "product_id": "RS-P0027",
+        "name": "使い捨てシューズカバー 100枚（50足）グレー 不織布",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://store.shopping.yahoo.co.jp/luana-shop01/l937381e91d.html",
+        "identity_match": "PARTIAL",
+        "rights_basis": null,
+        "reason": "Retailer listing visually/description-matches grey nonwoven 100 sheets, but brand/manufacturer SKU and image reuse rights are not established"
+      },
+      {
+        "product_id": "RS-P0028",
+        "name": "D.IIZOO D1128A スウェットパンツ カーキ 4XL",
+        "status": "IMAGE_HOLD",
+        "source": "https://store.shopping.yahoo.co.jp/jinichirosasaki/yb2404236b0y669e.html",
+        "identity_match": false,
+        "rights_basis": null,
+        "reason": "Search result does not verify the requested khaki 4XL variant; available source describes different/unclear color-size variant"
+      },
+      {
+        "product_id": "RS-P0029",
+        "name": "Anchor 無塩ブロックバター 5kg",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://www.anchorfoodprofessionals.com/jp/ja/our-products/butter/anchor-block-butter.html",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Official Anchor Food Professionals page confirms unsalted block butter 5kg and image; commercial reuse permission not established"
+      },
+      {
+        "product_id": "RS-P0030",
+        "name": "業務用 オーガニックコーヒー エチオピア 1kg 豆",
+        "status": "IMAGE_HOLD",
+        "source": null,
+        "identity_match": null,
+        "rights_basis": null,
+        "reason": "No unique manufacturer/brand/SKU or exact product-identical primary image source identified"
+      },
+      {
+        "product_id": "RS-P0031",
+        "name": "Sports Research オーガニック MCTオイル 1183mL",
+        "status": "IMAGE_HOLD",
+        "source": "https://pricecart.mzknolog.com/costco_product/26019/",
+        "identity_match": "PARTIAL",
+        "rights_basis": null,
+        "reason": "Secondary price archive indicates Sports Research and 1183mL but is not a primary product photo source or reuse license"
+      },
+      {
+        "product_id": "RS-P0032",
+        "name": "北海道産 小豆 1kg",
+        "status": "IMAGE_HOLD",
+        "source": "https://www.hakoyama.shop-pro.jp/?pid=155489284",
+        "identity_match": "PARTIAL",
+        "rights_basis": null,
+        "reason": "Generic commodity listing; package/brand identity is not uniquely established for this catalog product"
+      },
+      {
+        "product_id": "RS-P0033",
+        "name": "千葉県産 ふさこがね 玄米 30kg 令和8年産",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://www.hakoyama.shop-pro.jp/?pid=193382575",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Retailer page matches rice variety, brown rice, 30kg and 2026 crop; third-party product image reuse permission not established"
+      },
+      {
+        "product_id": "RS-P0034",
+        "name": "有機JAS 冷凍ワイルドブルーベリー 1kg×3袋",
+        "status": "IMAGE_HOLD",
+        "source": "https://www.horizonfarms.jp/products/fr400",
+        "identity_match": false,
+        "rights_basis": null,
+        "reason": "Official page depicts a 1kg bag; catalog item is a 3-bag set and packaging may vary, so exact set image not established"
+      },
+      {
+        "product_id": "RS-P0035",
+        "name": "よつ葉北海道十勝クリームチーズ 1kg",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://www.yotsuba.co.jp/product/c-cheese_12602.html",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Official Yotsuba page confirms 1kg commercial product and photo; reuse permission for third-party affiliate catalog not established"
+      },
+      {
+        "product_id": "RS-P0036",
+        "name": "牧製紙 業務用トイレットペーパー ダブル 30m 100ロール",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://www.rakuten.co.jp/maki-seishi/",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Manufacturer-operated store listing confirms exact 30m double 100-roll product; image republication license not established"
+      },
+      {
+        "product_id": "RS-P0037",
+        "name": "APMジャパン 養生テープ SY-001CL-5P 白 半透明 50mm×25m 5巻",
+        "status": "IMAGE_RIGHTS_REVIEW",
+        "source": "https://otokuban.jp/product/21015",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Exact model, 5-roll set, color and dimensions identified; source is not manufacturer permission and reuse rights not established"
+      }
+    ],
+    "rights_verified_this_batch": 0,
+    "prior_hold_conditions_reused": true,
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_master_changed": false,
+    "next_trigger": "Owner-provided original photographs or written brand/manufacturer permission for commercial reuse; do not download or rehost retail/Amazon product images without rights"
+  }
 }
