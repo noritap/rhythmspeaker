@@ -124,15 +124,16 @@
     },
     {
       "candidate_key": "owner-011",
-      "product_id": null,
+      "product_id": "RS-P0031",
       "product_name": "MCTオイル 1183mL",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "PACKAGING_DISCREPANCY_REVIEW",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1,
       "brand": "Sports Research",
-      "formal_product_candidate": "Organic MCT Oil 1183mL; 1 bottle per owner record"
+      "formal_product_candidate": "Organic MCT Oil 1183mL; 1 bottle per owner record",
+      "formal_product": "Sports Research オーガニック MCTオイル 1183mL 1本"
     },
     {
       "candidate_key": "owner-012",
