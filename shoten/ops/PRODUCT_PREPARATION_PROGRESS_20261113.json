@@ -550,5 +550,59 @@
     "affiliate_links_changed": false,
     "upstream_changed": false,
     "next_trigger": "Original owner photograph or commercial reuse approval from rights holder"
+  },
+  "image_batch_20261113_05": {
+    "date": "2026-11-16",
+    "target": 20,
+    "scope": "NEW_PRODUCT_SOURCE_AND_IMAGE_RIGHTS_CHECK",
+    "upstream_product_count": 21,
+    "upstream_asset_count": 0,
+    "new_product_ids": [
+      "RS-P0024",
+      "RS-P0025"
+    ],
+    "new_product_count": 2,
+    "image_source_found": 2,
+    "identity_checked": 2,
+    "rights_verified": 0,
+    "images_registered": 0,
+    "images_verified": 0,
+    "records": [
+      {
+        "product_id": "RS-P0024",
+        "name": "Anker Nano Charger (45W) ブラック B2692N11",
+        "status": "IMAGE_HOLD",
+        "source": "https://www.ankerjapan.com/products/b2692?variant=44925528375457",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "Anker Japan terms prohibit reproduction, republication including on another website, commercial reuse, modification and redistribution absent explicit permission"
+      },
+      {
+        "product_id": "RS-P0025",
+        "name": "ELECOM HDMIアダプター AD-DTH",
+        "status": "IMAGE_HOLD",
+        "source": "https://www.elecom.co.jp/products/AD-DTH.html",
+        "identity_match": true,
+        "rights_basis": null,
+        "reason": "ELECOM website terms state prior written permission is required to use/copy/transfer/sell site images and content"
+      }
+    ],
+    "rights_evidence": [
+      {
+        "brand": "Anker",
+        "source": "https://www.ankerjapan.com/pages/terms",
+        "finding": "Explicit restrictions on copying/reposting, commercial republication, modification and redistribution; written consent needed for commercial use"
+      },
+      {
+        "brand": "ELECOM",
+        "source": "https://www.elecom.co.jp/legal/",
+        "finding": "Images and other website content require prior written permission for use, reproduction or transfer"
+      }
+    ],
+    "prior_hold_conditions_unchanged": true,
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "upstream_master_changed": false,
+    "next_trigger": "Written image reuse license, compliant Amazon API image provision, or owner-original product photos"
   }
 }
