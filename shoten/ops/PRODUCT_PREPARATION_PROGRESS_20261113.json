@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 37,
+    "upstream_product_records": 39,
     "upstream_affiliate_link_records": 6,
     "new_ready_for_affiliate_link": 15,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 30,
-    "new_content_ready_from_priority_batch": 30
+    "batch_preparation_rows": 31,
+    "new_content_ready_from_priority_batch": 31
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -190,13 +190,13 @@
     "batch_id": "BATCH-20261116-02",
     "file": "shoten/ops/preparation-batches/BATCH-20261116-02.json",
     "target_count": 20,
-    "saved_rows": 10,
+    "saved_rows": 11,
     "new_ready": 3,
-    "content_ready_verified": 10,
-    "category_review": 7,
+    "content_ready_verified": 11,
+    "category_review": 8,
     "identity_review": 0,
-    "unprocessed_slots": 10,
-    "status": "TEN_SAVED_THREE_READY_SEVEN_CATEGORY_REVIEW"
+    "unprocessed_slots": 9,
+    "status": "ELEVEN_SAVED_THREE_READY_EIGHT_CATEGORY_REVIEW"
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -327,38 +327,36 @@
     "date": "2026-11-16",
     "batch": "BATCH-20261116-02",
     "new_upstream_product_ids": [
-      "RS-P0038",
-      "RS-P0039",
-      "RS-P0040",
-      "RS-P0041"
+      "RS-P0042",
+      "RS-P0043"
     ],
-    "new_ready_ids": [
-      "RS-P0041"
-    ],
-    "existing_variant_reconciled": [
-      "owner-009->RS-P0019"
+    "new_ready_ids": [],
+    "receipt_reconciliations": [
+      "Kanro Premium 73g×3 exact owner purchase",
+      "Jazz Dance 1994 Da Capo edition exact owner purchase"
     ],
     "ready_total_across_preparation": 15,
-    "content_ready_total_across_preparation": 30,
-    "upstream_products_total": 37,
-    "category_review_in_batch02": 7,
+    "content_ready_total_across_preparation": 31,
+    "upstream_products_total": 39,
+    "category_review_in_batch02": 8,
     "identity_review_in_batch02": 0,
-    "unprocessed_slots": 10,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/34",
+    "unprocessed_slots": 9,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/36",
     "checks": {
       "main_refetch": "PASS",
       "JSON": "PASS",
       "unique_ids": "PASS",
-      "prior_records_preserved": "PASS",
-      "exact_owner_variants": "PASS",
-      "no_duplicate_hot_cinnamon_id": "PASS",
-      "public_catalog_unchanged": true,
-      "affiliate_ledger_unchanged": true
+      "unique_asins": "PASS",
+      "owner_receipt_reconciliation": "PASS",
+      "P0026_P0042_distinguished": "PASS",
+      "affiliate_ledger_unchanged": true,
+      "public_catalog_unchanged": true
     },
     "remaining": [
       "Food category root approval",
-      "Industrial lighting exact brand/model not supplied",
-      "Other Harney flavors need exact purchase variants"
+      "Books/learning category root approval",
+      "Industrial lighting exact model not identified",
+      "Second item from 2025-10-16 Amazon receipt ASIN B0CH84V611 unresolved"
     ]
   },
   "execution_optimization_20261113": {
@@ -597,7 +595,8 @@
       "content_ready": 20,
       "category_review": 8,
       "identity_review": 0,
-      "status": "IDENTITY_AND_CONTENT_COMPLETE_CATEGORY_APPROVAL_PENDING"
+      "status": "IDENTITY_AND_CONTENT_COMPLETE_CATEGORY_APPROVAL_PENDING",
+      "notes": "owner-012 corrected to exact Kanro Premium 73g×3 (RS-P0042); regular 80g×6 P0026 remains distinct candidate."
     }
   ],
   "image_batch_20261116_06": {
