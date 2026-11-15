@@ -27,7 +27,7 @@ def fixture(index=1):
         "affiliate_links": {
             "link_id": lid, "product_id": pid, "surface_id": SURFACE_ID, "status": "VERIFIED",
             "verification_method": "manual", "verified_at": "2026-11-04", "generated_by": "SITESTRIPE",
-            "special_link": href, "tracking_id": "fixture-only",
+            "special_link": href, "tracking_id": "fixture-only-22",
         },
         "placements": {
             "placement_id": placement, "status": "APPROVED", "product_id": pid,
@@ -41,7 +41,7 @@ def fixture(index=1):
     }
 
 
-def setup_snapshot(root, *items, surface_url=SURFACE_URL, surface_tracking_id="fixture-only"):
+def setup_snapshot(root, *items, surface_url=SURFACE_URL, surface_tracking_id="fixture-only-22"):
     data = root / "data"
     data.mkdir(exist_ok=True)
     surface = {
@@ -60,7 +60,7 @@ class TestShotenCatalog(unittest.TestCase):
         self.addCleanup(directory.cleanup)
         self.root = Path(directory.name)
 
-    def run_projection(self, *items, limit=1, surface_url=SURFACE_URL, surface_tracking_id="fixture-only"):
+    def run_projection(self, *items, limit=1, surface_url=SURFACE_URL, surface_tracking_id="fixture-only-22"):
         rows = setup_snapshot(self.root, *items, surface_url=surface_url, surface_tracking_id=surface_tracking_id)
         return project(rows, self.root, self.root, SHA, limit)["products"]
 
@@ -95,7 +95,7 @@ class TestShotenCatalog(unittest.TestCase):
                      href.replace("fixture-only", "wrong"), href + "&access_token=bad",
                      "https://amzn.to/not-an-approved-url"):
             with self.subTest(link=link):
-                self.assertFalse(verified_special_link(link, asin, "fixture-only"))
+                self.assertFalse(verified_special_link(link, asin, "fixture-only-22"))
 
     def test_owner_attested_amazon_short_link(self):
         item = fixture()
