@@ -18,9 +18,9 @@
   },
   "status_distribution": {
     "AFFILIATE_LINK_ALREADY_RECEIVED": 2,
-    "READY_FOR_AFFILIATE_LINK": 9,
-    "IDENTITY_REVIEW": 5,
-    "CATEGORY_REVIEW": 4
+    "READY_FOR_AFFILIATE_LINK": 10,
+    "CATEGORY_REVIEW": 7,
+    "IDENTITY_REVIEW": 1
   },
   "entries": [
     {
@@ -164,13 +164,13 @@
     },
     {
       "candidate_key": "owner-008",
-      "product_id": null,
-      "formal_name": "ODE エチオピア コーヒー 1kg",
+      "product_id": "RS-P0030",
+      "formal_name": "ode 業務用 オーガニックコーヒー シングルオリジン エチオピア 1kg（豆のまま）",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "OPTIONAL_NOT_COLLECTED",
       "amazon_candidate_secondary_url": null,
@@ -189,18 +189,28 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "origin": "エチオピア",
+        "type": "シングルオリジン",
+        "organic": true,
+        "weight_kg": 1,
+        "grind": "豆のまま"
+      },
+      "source_urls": [
+        "https://shopping.yahoo.co.jp/search/ode/2498/",
+        "https://search.rakuten.co.jp/search/mall/%E3%82%A8%E3%83%81%E3%82%AA%E3%83%94%E3%82%A2%2B%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%E8%B1%86/562637/"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "Maker's exact Ethiopia single-origin 1kg specification and whole-bean/ground variant verification",
-        "Food category mapping approval",
-        "Upstream canonical ID registration"
+        "Food is not a formal root category in current shoten editorial.js"
       ],
-      "verified_at": "2026-11-13",
+      "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
       "publication_state": "PREPARATION_ONLY",
-      "handoff_note": "Secondary retail listing suggests ode organic Ethiopia 1kg whole beans, but no direct maker confirmation yet. Do not claim owner exact SKU."
+      "handoff_note": "Secondary retail listing suggests ode organic Ethiopia 1kg whole beans, but no direct maker confirmation yet. Do not claim owner exact SKU.",
+      "category_site_root_mapping": "food-proposed",
+      "owner_variant_note": "Exact product title and whole-bean 1kg variant recovered from owner-provided purchase text; roast/processing details not inferred.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-009",
@@ -303,7 +313,7 @@
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
       "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "content_status": "IDENTITY_REVIEW",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
       "amazon_candidate_secondary_url": null,
@@ -322,17 +332,27 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "ingredient_source": "100% organic coconut oil",
+        "volume_ml": 1183,
+        "owner_purchase_pack": "1 bottle per owner purchase detail"
+      },
+      "source_urls": [
+        "https://www.amerilifevitamin.com/sports-research-organic-mct-oil-unflavored-40-oz.html",
+        "https://cdn.hellopharmacist.com/images/dsld/supplements/pdfs/326281.pdf"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Resolve single 1183mL bottle versus 2×20oz package discrepancy",
+        "Confirm current manufacturer label for the exact 1183mL variant",
+        "Food category mapping approval"
       ],
-      "verified_at": "2026-11-13",
+      "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "brand_candidate": "Sports Research",
+      "formal_name_candidate": "Organic MCT Oil 1183mL (owner purchase record: single bottle)",
+      "owner_variant_note": "Exact owner-provided product title recovered. Current third-party 40 fl oz source describes 2×20oz bottles, while owner record says 1×1183mL. Packaging mismatch remains unresolved; do not assign canonical ID or READY."
     },
     {
       "candidate_key": "owner-012",
@@ -384,13 +404,13 @@
     },
     {
       "candidate_key": "owner-013",
-      "product_id": null,
-      "formal_name": "フォンテラ バター 5kg",
+      "product_id": "RS-P0029",
+      "formal_name": "ニュージーランド産 Anchor 無塩バター 5kg（冷凍）",
       "owner_class": "A",
       "category": "food-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
       "amazon_candidate_secondary_url": null,
@@ -409,27 +429,37 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
+      "specifications": {
+        "brand": "Anchor / Fonterra",
+        "origin": "ニュージーランド",
+        "salt": "無塩",
+        "weight_kg": 5,
+        "storage": "冷凍"
+      },
+      "source_urls": [
+        "https://www.fonterra.com/nz/en/our-stories/media/fonterra-invests-nzd-75-million-to-expand-butter-production-at-clandeboye.html",
+        "https://blife-dream.co.jp/wcshop/products/list?category_id=14"
+      ],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Food is not a formal root category in current shoten editorial.js"
       ],
-      "verified_at": "2026-11-13",
+      "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "category_site_root_mapping": "food-proposed",
+      "owner_variant_note": "Owner purchase history contains Anchor unsalted butter 5kg frozen. Separate 'Fonterra grass-fed butter 5kg' record may be a distinct SKU and is not merged.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-014",
-      "product_id": null,
-      "formal_name": "D.IIZOO D1128A パンツ",
+      "product_id": "RS-P0028",
+      "formal_name": "D.IIZOO D1128A ビッグシルエット スウェットパンツ カーキ 4XL",
       "owner_class": "A",
       "category": "apparel-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "CATEGORY_REVIEW",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
       "amazon_candidate_secondary_url": null,
@@ -448,17 +478,22 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
+      "specifications": {
+        "model": "D1128A",
+        "color": "カーキ",
+        "size": "4XL"
+      },
       "source_urls": [],
       "previous_detail_draft": null,
       "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+        "Apparel is not a formal root category in current shoten editorial.js"
       ],
-      "verified_at": "2026-11-13",
+      "verified_at": "2026-11-16",
       "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "publication_state": "PREPARATION_ONLY",
+      "category_site_root_mapping": "apparel-proposed",
+      "owner_variant_note": "Exact color and size recovered from owner-provided purchase file; no material or garment dimensions inferred.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-015",
@@ -704,13 +739,13 @@
     },
     {
       "candidate_key": "owner-022",
-      "product_id": null,
-      "formal_name": "NYANDELMO 靴カバー",
+      "product_id": "RS-P0027",
+      "formal_name": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
       "owner_class": "A",
       "category": "apparel-proposed",
       "category_state": "PROPOSED_CATEGORY_NOT_YET_ON_SITE",
-      "status": "IDENTITY_REVIEW",
-      "content_status": "EDITORIAL_DRAFTED_IDENTITY_PENDING",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
       "amazon_product_url": null,
       "amazon_product_url_status": "NOT_VERIFIED_EXACT_VARIANT",
       "amazon_candidate_secondary_url": null,
@@ -729,17 +764,27 @@
           "実使用レビューの追加は本人確認後"
         ]
       },
-      "specifications": {},
-      "source_urls": [],
-      "previous_detail_draft": null,
-      "remaining_gates": [
-        "正式商品IDの安全な確定",
-        "メーカー・製品仕様の確定",
-        "正式カテゴリ体系との整合"
+      "specifications": {
+        "color": "グレー",
+        "material": "不織布",
+        "size": "フリーサイズ",
+        "count": 100,
+        "pairs": 50,
+        "length_cm": 40,
+        "height_cm": 15
+      },
+      "source_urls": [
+        "https://store.shopping.yahoo.co.jp/zebrand-shop/2b995p5084.html"
       ],
-      "verified_at": "2026-11-13",
-      "ready_for_affiliate_link": false,
-      "publication_state": "PREPARATION_ONLY"
+      "previous_detail_draft": null,
+      "remaining_gates": [],
+      "verified_at": "2026-11-16",
+      "ready_for_affiliate_link": true,
+      "publication_state": "PREPARATION_ONLY",
+      "category_site_root_mapping": "home",
+      "category_mapping_reason": "使い捨て衛生・清掃消耗品として既存の「暮らし・掃除」に分類",
+      "owner_variant_note": "Exact variant recovered from owner-provided purchase detail: gray, nonwoven, 100 sheets/50 pairs, free size.",
+      "canonical_registered_in_upstream_main": true
     },
     {
       "candidate_key": "owner-024",
@@ -940,8 +985,8 @@
       "canonical_product_id": "RS-P0015"
     }
   ],
-  "completed_content_ready_count": 15,
-  "new_ready_count": 11,
+  "completed_content_ready_count": 19,
+  "new_ready_count": 12,
   "candidate_id_map": [
     {
       "candidate_key": "owner-026",
@@ -972,26 +1017,30 @@
   "last_run": {
     "date": "2026-11-16",
     "new_upstream_ids": [
-      "RS-P0026"
+      "RS-P0027",
+      "RS-P0028",
+      "RS-P0029",
+      "RS-P0030"
     ],
     "new_ready_ids": [
-      "RS-P0007"
+      "RS-P0027"
     ],
-    "new_ready_this_execution": 1,
-    "ready_total": 11,
-    "content_ready_total": 15,
-    "category_review": 4,
-    "identity_review": 5,
-    "upstream_main_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/28",
-    "upstream_main_merge": "CONFIRMED",
-    "main_count": 22,
-    "affiliate_link_note": "RS-P0007 short link already owner-attested; ledger remains PENDING for phase ③ metadata reconciliation; do not request a new link.",
+    "ready_total": 12,
+    "content_ready_total": 19,
+    "category_review": 7,
+    "identity_review": 1,
+    "unresolved_total": 8,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/30",
+    "main_merge": "CONFIRMED",
+    "main_count": 26,
+    "personal_context_recovery": "Exact D.IIZOO khaki 4XL, NYANDELMO gray 100pcs/50 pairs/free size 40x15cm, ODE 1kg whole beans, Fonterra Anchor unsalted 5kg frozen recovered from prior owner-provided data; MCT pack discrepancy noted.",
     "checks": {
       "json_parse": "PASS",
       "unique_candidate_keys": true,
       "canonical_main_reread": "PASS",
       "product_ids_unique": "PASS",
-      "secondary_sources_disclosed": "PASS",
+      "existing_links_preserved": "PASS",
+      "public_catalog": "NOT_CHANGED",
       "catalog_validator": "NOT_EXECUTED"
     }
   }
