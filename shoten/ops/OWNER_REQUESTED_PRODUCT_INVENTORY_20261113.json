@@ -93,13 +93,14 @@
     },
     {
       "candidate_key": "owner-008",
-      "product_id": null,
+      "product_id": "RS-P0030",
       "product_name": "ODE エチオピア コーヒー 1kg",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "VARIANT_MATCH_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "ode エチオピア 1kg 豆のまま"
     },
     {
       "candidate_key": "owner-009",
@@ -127,9 +128,11 @@
       "product_name": "MCTオイル 1183mL",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "BRAND_PENDING",
+      "status": "PACKAGING_DISCREPANCY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "brand": "Sports Research",
+      "formal_product_candidate": "Organic MCT Oil 1183mL; 1 bottle per owner record"
     },
     {
       "candidate_key": "owner-012",
@@ -144,23 +147,25 @@
     },
     {
       "candidate_key": "owner-013",
-      "product_id": null,
+      "product_id": "RS-P0029",
       "product_name": "フォンテラ バター 5kg",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_VARIANT_PENDING",
+      "status": "EXACT_ANCHOR_UNSALTED_5KG_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "Anchor 無塩バター 5kg 冷凍"
     },
     {
       "candidate_key": "owner-014",
-      "product_id": null,
+      "product_id": "RS-P0028",
       "product_name": "D.IIZOO D1128A パンツ",
       "origin_class": "A",
       "category_id_or_proposal": "apparel-proposed",
-      "status": "SIZE_COLOR_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "D.IIZOO D1128A カーキ 4XL"
     },
     {
       "candidate_key": "owner-015",
@@ -234,13 +239,14 @@
     },
     {
       "candidate_key": "owner-022",
-      "product_id": null,
+      "product_id": "RS-P0027",
       "product_name": "NYANDELMO 靴カバー",
       "origin_class": "A",
       "category_id_or_proposal": "apparel-proposed",
-      "status": "MODEL_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_READY",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "NYANDELMO 不織布シューズカバー グレー 100枚/50足 フリーサイズ"
     },
     {
       "candidate_key": "owner-023",
