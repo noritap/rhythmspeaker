@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 32,
+    "upstream_product_records": 33,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 13,
+    "new_ready_for_affiliate_link": 14,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 25,
-    "new_content_ready_from_priority_batch": 25
+    "batch_preparation_rows": 26,
+    "new_content_ready_from_priority_batch": 26
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -190,13 +190,13 @@
     "batch_id": "BATCH-20261116-02",
     "file": "shoten/ops/preparation-batches/BATCH-20261116-02.json",
     "target_count": 20,
-    "saved_rows": 5,
-    "new_ready": 1,
-    "content_ready_verified": 5,
+    "saved_rows": 6,
+    "new_ready": 2,
+    "content_ready_verified": 6,
     "category_review": 4,
     "identity_review": 0,
-    "unprocessed_slots": 15,
-    "status": "FIVE_SAVED_ONE_READY_FOUR_CATEGORY_REVIEW"
+    "unprocessed_slots": 14,
+    "status": "SIX_SAVED_TWO_READY_FOUR_CATEGORY_REVIEW"
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -327,31 +327,34 @@
     "date": "2026-11-16",
     "batch": "BATCH-20261116-02",
     "new_upstream_product_ids": [
-      "RS-P0032",
-      "RS-P0033",
-      "RS-P0034",
-      "RS-P0035",
-      "RS-P0036"
+      "RS-P0037"
     ],
     "new_ready_ids": [
-      "RS-P0036"
+      "RS-P0037"
     ],
-    "ready_total_across_preparation": 13,
-    "content_ready_total_across_preparation": 25,
-    "upstream_products_total": 32,
+    "ready_total_across_preparation": 14,
+    "content_ready_total_across_preparation": 26,
+    "upstream_products_total": 33,
     "category_review_in_batch02": 4,
     "identity_review_in_batch02": 0,
-    "unprocessed_batch02_slots": 15,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/32",
+    "unprocessed_slots": 14,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/33",
     "checks": {
       "main_refetch": "PASS",
       "JSON": "PASS",
       "unique_ids": "PASS",
       "prior_records_unchanged": "PASS",
-      "duplicate_inventory_reconciled": "PASS",
-      "catalog_validator": "NOT_EXECUTED"
+      "batch_rows": "PASS",
+      "affiliate_links_unchanged": true,
+      "public_catalog_unchanged": true
     },
-    "notes": "Sawai Coffee bundle remains identity review due grinder bundle ambiguity. Owner-029 manuka candy is duplicate of RS-P0026. Food items remain category review."
+    "remaining": [
+      "Food category root approval",
+      "Sawai coffee bundle composition",
+      "TENKOO&YOU fan light exact variant",
+      "Industrial lighting identity",
+      "HARNEY additional flavor identity"
+    ]
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
