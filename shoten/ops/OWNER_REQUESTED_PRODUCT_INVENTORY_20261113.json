@@ -104,23 +104,26 @@
     },
     {
       "candidate_key": "owner-009",
-      "product_id": null,
+      "product_id": "RS-P0019",
       "product_name": "HARNEY & SONS ホット・シナモン・スパイス",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "PACKAGE_VARIANT_PENDING",
+      "status": "PURCHASE_VARIANT_MAPPED_TO_EXISTING_CANONICAL",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "HARNEY & SONS Hot Cinnamon Sunset / Hot Cinnamon Spice HT Tin 20 sachets ×4",
+      "note": "Manufacturer confirms Sunset and Spice are the same tea. Keep one canonical product ID; owner purchased four tins, 20 sachets each."
     },
     {
       "candidate_key": "owner-010",
-      "product_id": null,
+      "product_id": "RS-P0039",
       "product_name": "HARNEY & SONS バニラ系紅茶",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "FLAVOR_VARIANT_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "HARNEY & SONS Vanilla Comoro HT Collection 20 sachets tin 40g decaf"
     },
     {
       "candidate_key": "owner-011",
@@ -220,11 +223,11 @@
     },
     {
       "candidate_key": "owner-020",
-      "product_id": null,
+      "product_id": "RS-P0041",
       "product_name": "シーリングファンライト",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "MODEL_VARIANT_REVIEW",
+      "status": "EXACT_VARIANT_RESOLVED_READY",
       "photo_optional": true,
       "priority": 1,
       "brand": "TENKOO&YOU",
@@ -235,7 +238,11 @@
         "白本体＋白羽根",
         "E26口金モデルと引掛シーリングモデル"
       ],
-      "remaining": "Exact color/socket/variant must be selected; no canonical ID assigned."
+      "remaining": "Exact color/socket/variant must be selected; no canonical ID assigned.",
+      "formal_product": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26 5枚羽根・角型引掛けソケット付き",
+      "model_number": null,
+      "color": null,
+      "note": "LW013/TANKAO is a different 3-blade model; do not map it."
     },
     {
       "candidate_key": "owner-021",
@@ -311,14 +318,15 @@
     },
     {
       "candidate_key": "owner-028",
-      "product_id": null,
+      "product_id": "RS-P0040",
       "product_name": "Harney & Sons 各種その他フレーバー",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "FLAVOR_VARIANT_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1,
-      "note": "Other HARNEY flavors are not duplicated until exact flavor and pack are known."
+      "note": "Other HARNEY flavors are not duplicated until exact flavor and pack are known.",
+      "formal_product": "HARNEY & SONS Chocolate Mint HT Collection 20 sachets tin 40g"
     },
     {
       "candidate_key": "owner-029",
@@ -333,16 +341,17 @@
     },
     {
       "candidate_key": "owner-030",
-      "product_id": null,
+      "product_id": "RS-P0038",
       "product_name": "澤井珈琲",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "IDENTITY_REVIEW_BUNDLE",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1,
       "formal_product_candidate": "澤井珈琲 ソル・ルナ・テルス 1.2kg（400g×3・豆のまま）",
-      "note": "Official result currently shows a Melitta electric grinder bundle; confirm whether owner order included the grinder before canonical registration.",
-      "remaining": "Official product search result includes Melitta electric grinder bundle; original owner purchase composition not yet reconciled."
+      "note": "Owner purchase history does not list a Melitta grinder. Exclude grinder bundle.",
+      "remaining": "Official product search result includes Melitta electric grinder bundle; original owner purchase composition not yet reconciled.",
+      "formal_product": "澤井珈琲 ソル・ルナ・テルス 1.2kg 400g×3 豆のまま"
     },
     {
       "candidate_key": "owner-031",
