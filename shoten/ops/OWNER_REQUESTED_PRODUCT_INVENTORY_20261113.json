@@ -67,7 +67,7 @@
       "product_name": "by Amazon とって付きごみ袋 45L 100枚",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "AFFILIATE_RECEIVED_NEEDS_IDENTITY",
+      "status": "AFFILIATE_RECEIVED_IDENTITY_PREPARED_LINK_RECONCILIATION_PENDING",
       "photo_optional": true,
       "priority": 1
     },
@@ -133,13 +133,14 @@
     },
     {
       "candidate_key": "owner-012",
-      "product_id": null,
+      "product_id": "RS-P0026",
       "product_name": "マヌカハニー 80g×6（または関連のど飴）",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "EXACT_ITEM_PENDING",
+      "status": "IDENTITY_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット"
     },
     {
       "candidate_key": "owner-013",
