@@ -41,12 +41,12 @@ def fixture(index=1):
     }
 
 
-def setup_snapshot(root, *items, surface_url=SURFACE_URL):
+def setup_snapshot(root, *items, surface_url=SURFACE_URL, surface_tracking_id="fixture-only"):
     data = root / "data"
     data.mkdir(exist_ok=True)
     surface = {
         "surface_id": SURFACE_ID, "url": surface_url, "amazon_registered_status": "CONFIRMED",
-        "publication_authorized": True, "disclosure_verified": True, "tracking_id": "fixture-only",
+        "publication_authorized": True, "disclosure_verified": True, "tracking_id": surface_tracking_id,
     }
     (data / "surfaces.json").write_text(json.dumps([surface]), encoding="utf-8")
     for name in ("products", "affiliate_links", "placements", "approvals"):
@@ -60,8 +60,8 @@ class TestShotenCatalog(unittest.TestCase):
         self.addCleanup(directory.cleanup)
         self.root = Path(directory.name)
 
-    def run_projection(self, *items, limit=1, surface_url=SURFACE_URL):
-        rows = setup_snapshot(self.root, *items, surface_url=surface_url)
+    def run_projection(self, *items, limit=1, surface_url=SURFACE_URL, surface_tracking_id="fixture-only"):
+        rows = setup_snapshot(self.root, *items, surface_url=surface_url, surface_tracking_id=surface_tracking_id)
         return project(rows, self.root, self.root, SHA, limit)["products"]
 
     def test_empty_does_not_emit_candidate_data(self):
@@ -114,6 +114,26 @@ class TestShotenCatalog(unittest.TestCase):
         item["affiliate_links"]["source_page_url"] = "https://www.amazon.co.jp/dp/WRONG00000"
         with self.assertRaisesRegex(ValueError, "Special Link"):
             self.run_projection(item)
+
+    def test_owner_short_links_keep_per_product_tracking_ids(self):
+        first, second = fixture(1), fixture(2)
+        for item, tracking_id in ((first, "noritap0a1-22"), (second, "rsshop-hatenablg-22")):
+            short = "https://link.amazon/" + ("B01BvACr5" if item is first else "B04tr6V2F")
+            item["affiliate_links"].update({
+                "special_link": short,
+                "generated_by": "SITESTRIPE",
+                "verification_method": (
+                    "OWNER_PROVIDED_SITESTRIPE_SHORT_LINK_AND_OWNER_CONFIRMED_PRODUCT_DESTINATION; "
+                    "TRACKING_ID_CONFIRMED_FROM_SITESTRIPE_SCREENSHOT"
+                ),
+                "source_page_url": None,
+                "tracking_id": tracking_id,
+            })
+            item["row"]["affiliate_url"] = short
+        rows = self.run_projection(first, second, limit=2, surface_tracking_id=None)
+        self.assertEqual([row["trackingId"] for row in rows], ["noritap0a1-22", "rsshop-hatenablg-22"])
+        self.assertTrue(all(row["ownerVerifiedShortLink"] for row in rows))
+        self.assertTrue(all(row["affiliateLinkKind"] == "AMAZON_OFFICIAL_SHORT" for row in rows))
 
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
