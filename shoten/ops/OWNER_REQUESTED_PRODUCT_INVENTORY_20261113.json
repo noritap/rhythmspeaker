@@ -224,9 +224,18 @@
       "product_name": "シーリングファンライト",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "MODEL_PENDING",
+      "status": "MODEL_VARIANT_REVIEW",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "brand": "TENKOO&YOU",
+      "formal_product_candidate": "シーリングファンライト 小型 6〜8畳 28W 3000lm E26 5枚羽根 DCモーター",
+      "model_candidate": "LW013 (not confirmed)",
+      "variant_conflicts": [
+        "白本体＋ブラウン羽根",
+        "白本体＋白羽根",
+        "E26口金モデルと引掛シーリングモデル"
+      ],
+      "remaining": "Exact color/socket/variant must be selected; no canonical ID assigned."
     },
     {
       "candidate_key": "owner-021",
@@ -251,13 +260,14 @@
     },
     {
       "candidate_key": "owner-023",
-      "product_id": null,
+      "product_id": "RS-P0037",
       "product_name": "APM 養生テープ",
       "origin_class": "A",
       "category_id_or_proposal": "home",
-      "status": "MODEL_PENDING",
+      "status": "EXACT_VARIANT_RESOLVED_READY",
       "photo_optional": true,
-      "priority": 1
+      "priority": 1,
+      "formal_product": "APMジャパン SY-001CL-5P 白半透明 50mm×25m 5巻"
     },
     {
       "candidate_key": "owner-024",
@@ -331,7 +341,8 @@
       "photo_optional": true,
       "priority": 1,
       "formal_product_candidate": "澤井珈琲 ソル・ルナ・テルス 1.2kg（400g×3・豆のまま）",
-      "note": "Official result currently shows a Melitta electric grinder bundle; confirm whether owner order included the grinder before canonical registration."
+      "note": "Official result currently shows a Melitta electric grinder bundle; confirm whether owner order included the grinder before canonical registration.",
+      "remaining": "Official product search result includes Melitta electric grinder bundle; original owner purchase composition not yet reconciled."
     },
     {
       "candidate_key": "owner-031",
