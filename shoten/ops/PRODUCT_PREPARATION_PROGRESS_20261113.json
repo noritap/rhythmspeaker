@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 26,
+    "upstream_product_records": 27,
     "upstream_affiliate_link_records": 6,
     "new_ready_for_affiliate_link": 12,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
     "batch_preparation_rows": 20,
-    "new_content_ready_from_priority_batch": 19
+    "new_content_ready_from_priority_batch": 20
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -192,7 +192,7 @@
     "target_count": 20,
     "saved_rows": 20,
     "new_ready": 12,
-    "content_ready_verified": 19,
+    "content_ready_verified": 20,
     "missing_critical": 8,
     "mode": "PHOTO_OPTIONAL; TWO_PRIORITY_CONTENT_READY",
     "branch_git_commit": "3974f5248bb038428da81e16b626fe2dfc39f8af",
@@ -216,7 +216,7 @@
       "work-proposed": 3,
       "outdoor": 2
     },
-    "status": "TWELVE_READY_SEVEN_CATEGORY_REVIEW_ONE_IDENTITY_REVIEW",
+    "status": "TWELVE_READY_EIGHT_CATEGORY_REVIEW_ZERO_IDENTITY_REVIEW",
     "new_content_ready_this_execution": 4,
     "upstream_new_canonical_registered_this_execution": 1,
     "unresolved_count": 8
@@ -350,30 +350,27 @@
     "date": "2026-11-16",
     "batch": "BATCH-20261113-01",
     "new_upstream_product_ids": [
-      "RS-P0027",
-      "RS-P0028",
-      "RS-P0029",
-      "RS-P0030"
+      "RS-P0031"
     ],
-    "new_ready_ids": [
-      "RS-P0027"
+    "new_ready_ids": [],
+    "new_content_ready_ids": [
+      "RS-P0031"
     ],
     "ready_total": 12,
-    "content_ready_total": 19,
-    "category_review": 7,
-    "identity_review": 1,
-    "unresolved_total": 8,
-    "upstream_total": 26,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/30",
+    "content_ready_total": 20,
+    "category_review": 8,
+    "identity_review": 0,
+    "upstream_total": 27,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/31",
     "checks": {
-      "main_reread": "PASS",
+      "upstream_main_refetch": "PASS",
       "JSON": "PASS",
       "unique_ids": "PASS",
-      "existing_records_preserved": "PASS",
-      "owner_variant_recovery": "PASS",
+      "identity_review_remaining": 0,
+      "food_apparel_category_approval": "PENDING",
       "catalog_validator": "NOT_EXECUTED"
     },
-    "notes": "MCT remains unresolved due package discrepancy. Food and apparel category approval is the only gate for seven otherwise prepared products."
+    "note": "All 20 original priority batch candidates now have product identities and editorial content. Eight are held only because formal food/apparel roots are absent from active site taxonomy."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
