@@ -4,7 +4,7 @@
   "created_at": "2026-11-16",
   "workflow": "OWNER_PURCHASED_PRODUCT_RECOVERY",
   "target_count": 20,
-  "saved_rows": 5,
+  "saved_rows": 6,
   "source_inventory": "shoten/ops/OWNER_REQUESTED_PRODUCT_INVENTORY_20261113.json",
   "policy_version": "v5.1_URL_OPTIONAL_AFFILIATE_LINK_CANONICAL",
   "entries": [
@@ -65,44 +65,63 @@
       "ready_for_affiliate_link": true,
       "site_root": "home",
       "remaining_gates": []
+    },
+    {
+      "candidate_key": "owner-023",
+      "product_id": "RS-P0037",
+      "formal_name": "APMジャパン SY-001CL-5P 貼ってはがせるエコノミー養生テープ 白（半透明）50mm×25m 5巻",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
+      "ready_for_affiliate_link": true,
+      "site_root": "home",
+      "specifications": {
+        "model": "SY-001CL-5P",
+        "jan": "4582336473926",
+        "width_mm": 50,
+        "length_m": 25,
+        "rolls": 5,
+        "color": "白（半透明）",
+        "thickness_mm": 0.14
+      },
+      "source_urls": [
+        "https://otokuban.jp/product/21015",
+        "https://store.shopping.yahoo.co.jp/mskshop371/1779597522-06.html"
+      ],
+      "remaining_gates": [],
+      "canonical_registered_in_upstream_main": true
     }
   ],
   "status_distribution": {
-    "READY_FOR_AFFILIATE_LINK": 1,
+    "READY_FOR_AFFILIATE_LINK": 2,
     "CATEGORY_REVIEW": 4
   },
-  "unprocessed_slots": 15,
+  "unprocessed_slots": 14,
   "next_priority_candidates": [
-    "owner-030 Sawai Coffee Sol/Luna/Tellus 1.2kg beans - official result includes a Melitta electric grinder bundle; exact purchase bundle needs reconciliation",
-    "owner-028 Harney & Sons other flavors - exact flavor/package not identified",
-    "owner-019 industrial lighting - exact model pending",
-    "owner-020 ceiling fan light - exact model pending",
-    "owner-023 APM masking tape - exact model pending"
+    "owner-030 Sawai Coffee Sol/Luna/Tellus 1.2kg beans - exact inclusion of Melitta electric grinder in original owner purchase bundle unresolved",
+    "owner-028 Harney & Sons other flavors - exact flavor/package unknown",
+    "owner-019 industrial lighting - exact model/brand unknown",
+    "owner-020 TENKOO&YOU ceiling fan light - color/socket/variant not confirmed; LW013 only a possible model"
   ],
   "duplicates_or_existing": [
     "owner-029 manuka throat candy overlaps RS-P0026; do not create a duplicate"
   ],
   "last_run": {
     "date": "2026-11-16",
-    "upstream_products_total": 32,
-    "new_ids": [
-      "RS-P0032",
-      "RS-P0033",
-      "RS-P0034",
-      "RS-P0035",
-      "RS-P0036"
+    "new_upstream_ids": [
+      "RS-P0037"
     ],
     "new_ready_ids": [
-      "RS-P0036"
+      "RS-P0037"
     ],
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/32",
-    "upstream_main_merge": "CONFIRMED",
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/33",
+    "main_merge": "CONFIRMED",
+    "main_count": 33,
     "checks": {
-      "json_parse": "PASS",
+      "JSON": "PASS",
       "unique_ids": "PASS",
-      "main_refetch": "PASS",
       "prior_records_unchanged": "PASS",
-      "affiliate_links_unchanged": true,
+      "main_refetch": "PASS",
+      "affiliate_ledger_unchanged": true,
       "public_catalog_unchanged": true
     }
   }
