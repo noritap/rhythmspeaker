@@ -140,14 +140,15 @@
     },
     {
       "candidate_key": "owner-012",
-      "product_id": "RS-P0026",
+      "product_id": "RS-P0042",
       "product_name": "マヌカハニー 80g×6（または関連のど飴）",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "IDENTITY_RESOLVED_CATEGORY_REVIEW",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
       "photo_optional": true,
       "priority": 1,
-      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット"
+      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
+      "note": "2025-05-16 Amazon order confirmation exact. P0026 regular 80g×6 is a separate candidate."
     },
     {
       "candidate_key": "owner-013",
@@ -330,14 +331,14 @@
     },
     {
       "candidate_key": "owner-029",
-      "product_id": "RS-P0026",
+      "product_id": "RS-P0042",
       "product_name": "マヌカハニー のど飴",
       "origin_class": "A",
       "category_id_or_proposal": "food-proposed",
-      "status": "DUPLICATE_OF_RS-P0026",
+      "status": "DUPLICATE_OF_RS-P0042",
       "photo_optional": true,
       "priority": 1,
-      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット"
+      "formal_product": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック"
     },
     {
       "candidate_key": "owner-030",
@@ -402,6 +403,18 @@
       "status": "EXACT_VARIANT_RESOLVED_READY",
       "photo_optional": true,
       "priority": 1
+    },
+    {
+      "candidate_key": "owner-receipt-20251016-001",
+      "product_id": "RS-P0043",
+      "product_name": "Jazz Dance: The Story of American Vernacular Dance",
+      "origin_class": "A",
+      "category_id_or_proposal": "books-proposed",
+      "status": "EXACT_VARIANT_RESOLVED_CATEGORY_REVIEW",
+      "photo_optional": true,
+      "priority": 1,
+      "source": "Amazon order confirmation 2025-10-16",
+      "formal_product": "Marshall & Jean Stearns, Da Capo Press 1994 edition, ISBN/ASIN 0306805537"
     }
   ]
 }
