@@ -176,6 +176,47 @@ def project(export_rows, source_dir, shop, source_sha, limit):
     return snapshot
 
 
+PRESERVE_FIELDS = (
+    "brand", "model", "formal_name", "tags", "eyebrow", "summary", "good",
+    "caution", "highlight", "date", "specs", "comparison", "reasons", "sources",
+    "approvedPhoto", "gallery", "imageSource", "studioIntro", "curationLabel",
+    "ownerConfirmedProductIdentity",
+)
+
+
+def preserve_enrichment(snapshot, output):
+    """Keep the reviewed public copy of already-published products.
+
+    The projection rebuilds every row from Commerce data, but the live
+    catalog rows carry hand-reviewed display copy (names, summaries, tags,
+    highlights, source labels, photos and gallery) that Commerce does not
+    hold. Without this merge a rebuild would silently rewrite live product
+    pages. Display fields are carried over only when the ASIN still matches,
+    so copy never leaks onto a different product identity. Functional fields
+    (href, trackingId, affiliateLinkKind, ownerVerifiedShortLink, category,
+    subcategory) always come from the fresh projection, so link or taxonomy
+    changes still flow through.
+    """
+    if not output.is_file():
+        return
+    try:
+        existing = read(output)
+    except (OSError, json.JSONDecodeError):
+        return
+    prior = {
+        row.get("product_id"): row
+        for row in existing.get("products", [])
+        if isinstance(row, dict)
+    }
+    for row in snapshot["products"]:
+        old = prior.get(row["product_id"])
+        if not old or old.get("asin") != row["asin"]:
+            continue
+        for field in PRESERVE_FIELDS:
+            if old.get(field) not in (None, "", [], {}):
+                row[field] = old[field]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--commerce", type=Path, required=True, help="Reviewed private Commerce main snapshot")
@@ -201,6 +242,7 @@ def main():
         subprocess.run([sys.executable, str(source / "scripts" / script)], cwd=source, check=True)
     rows = read(source / "exports" / (SURFACE_ID + ".json"))
     snapshot = project(rows, source, ROOT / "shoten", args.sha, args.limit)
+    preserve_enrichment(snapshot, args.output)
     payload = json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n"
     tmp = args.output.with_suffix(args.output.suffix + ".tmp")
     tmp.write_text(payload, encoding="utf-8")

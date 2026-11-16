@@ -44,7 +44,11 @@
       const snapshot = await response.json();
       if (snapshot.schema_version !== 1 || snapshot.surface !== 'rhythmspeaker-web' ||
           !Array.isArray(snapshot.products)) throw Error('Unsupported Shoten catalog');
-      products = snapshot.products.map(adapt);
+      products = snapshot.products.flatMap(row => {
+        try { return [adapt(row)]; } catch { return []; }
+      });
+      if (products.length && products.length < snapshot.products.length) loadState = 'PARTIAL';
+      if (snapshot.products.length && !products.length) throw Error('No valid Shoten catalog rows');
       if (new Set(products.map(p => p.id)).size !== products.length) throw Error('Duplicate Shoten product');
     } catch {
       products = [];
