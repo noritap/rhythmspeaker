@@ -756,5 +756,15 @@
     "verified_new_images": 0,
     "main_changed": false,
     "affiliate_links_changed": false
+  },
+  "image_permission_clarification_20261116": {
+    "date": "2026-11-16",
+    "attestation": "Owner states BOTH standard Amazon Associates usage and separately granted download/reupload authorization",
+    "rights_state": "OWNER_ATTESTED_SEPARATE_LICENSE_SCOPE_UNVERIFIED",
+    "intended_processing": "Use licensed image assets with product match and rights scope; use compliant URL reference when local reproduction rights cannot be matched",
+    "new_images_registered": 0,
+    "production_changed": false,
+    "affiliate_links_changed": false,
+    "branch": "work/shoten-product-preparation-20261113"
   }
 }
