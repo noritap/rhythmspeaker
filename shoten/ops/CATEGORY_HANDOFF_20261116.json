@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "record_type": "NONPUBLIC_CATEGORY_HANDOFF",
+  "date": "2026-11-16",
+  "source_policy": "phase ① only; actual official website taxonomy change reserved to phase ④",
+  "current_public_roots": [
+    "home",
+    "sound",
+    "outdoor"
+  ],
+  "proposed_public_roots": [
+    {
+      "id": "food",
+      "name": "食品・飲み物",
+      "scope": "coffee, tea, pantry, dairy, frozen items",
+      "product_ids": [
+        "RS-P0030",
+        "RS-P0019",
+        "RS-P0022",
+        "RS-P0031",
+        "RS-P0042",
+        "RS-P0029",
+        "RS-P0032",
+        "RS-P0033",
+        "RS-P0034",
+        "RS-P0035",
+        "RS-P0038",
+        "RS-P0039",
+        "RS-P0040"
+      ]
+    },
+    {
+      "id": "apparel",
+      "name": "衣料品・着るもの",
+      "scope": "pants, workwear",
+      "product_ids": [
+        "RS-P0028",
+        "RS-P0021"
+      ]
+    },
+    {
+      "id": "books",
+      "name": "本・学び",
+      "scope": "dance books and reference media",
+      "product_ids": [
+        "RS-P0043"
+      ]
+    }
+  ],
+  "pending_product_count": 16,
+  "items": [
+    {
+      "product_id": "RS-P0030",
+      "product_name": "ode 業務用 オーガニックコーヒー シングルオリジン エチオピア 1kg（豆のまま）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0019",
+      "product_name": "HARNEY & SONS Hot Cinnamon Spice Classic 20サシェ缶（40g）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0022",
+      "product_name": "HARNEY & SONS Vanilla Loose Leaf 112g",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0031",
+      "product_name": "Sports Research オーガニック MCTオイル 1183mL（1本）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0042",
+      "product_name": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0029",
+      "product_name": "ニュージーランド産 Anchor 無塩バター 5kg（冷凍）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0028",
+      "product_name": "D.IIZOO D1128A ビッグシルエット スウェットパンツ カーキ 4XL",
+      "proposal": "apparel-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0021",
+      "product_name": "カジメイク2203 ナイロンヤッケ ブラック M（2203-91-M）",
+      "proposal": "apparel-proposed",
+      "batch": "BATCH-20261113-01"
+    },
+    {
+      "product_id": "RS-P0032",
+      "product_name": "自然健康社 北海道産 小豆 1kg（乾燥豆・無添加）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0033",
+      "product_name": "令和8年産 千葉県産 ふさこがね 玄米 30kg（10kg×3袋）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0034",
+      "product_name": "HORIZON FARMS 有機JAS 冷凍ワイルドブルーベリー 1kg×3袋（カナダ産）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0035",
+      "product_name": "よつ葉北海道十勝クリームチーズ（B）1kg",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0038",
+      "product_name": "澤井珈琲 金と銀と銅の3種飲み比べ ソル・ルナ・テルス 1.2kg（400g×3袋・豆のまま）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0039",
+      "product_name": "HARNEY & SONS Vanilla Comoro HT Collection 20サシェ入り缶（40g・デカフェ）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0040",
+      "product_name": "HARNEY & SONS Chocolate Mint HT Collection 20サシェ入り缶（40g）",
+      "proposal": "food-proposed",
+      "batch": "BATCH-20261116-02"
+    },
+    {
+      "product_id": "RS-P0043",
+      "product_name": "Jazz Dance: The Story of American Vernacular Dance（Marshall & Jean Stearns／Da Capo Press 1994）",
+      "proposal": "books-proposed",
+      "batch": "BATCH-20261116-02"
+    }
+  ],
+  "phase1_readiness_status": "CATEGORY_REVIEW_NOT_READY",
+  "publication_actions_taken": false,
+  "affiliates_written": false,
+  "validation_done": [
+    "Cross-check 20-row batch 01 and 14-row batch 02",
+    "All held product_ids non-null",
+    "No duplicate product IDs",
+    "Count breakdown by proposed root"
+  ],
+  "release_gate": "Phase ④ must approve categories, add appropriate subcategories to shoten/editorial.js, validate adapter/catalog and affiliate links before publishing. Do not auto-promote these products to READY merely because mapping draft exists."
+}
