@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "090e9f3587f3380ab609cb01e2b227cab499f7cf",
+  "source_sha": "44ffb1d8d20663d8aeb8c1fc4f68dc093747ffd6",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -81,21 +81,25 @@
       "category": "sound",
       "subcategory": "wireless-headphones",
       "kind": "ワイヤレスヘッドホン",
-      "purpose": "focus",
       "tint": "blue",
-      "href": "https://link.amazon/B04tr6V2F",
-      "eyebrow": "約207gの軽量設計。ノイズキャンセリングONで最大50時間、OFFで最大75時間再生。",
-      "summary": "WH-CH720Nの後継モデル。折りたたみ式で持ち運びやすく、日常の音楽や仕事に使いやすいヘッドホン。",
-      "good": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
-      "caution": "再生時間は設定・音量・使用環境で変わります。装着感・音質・通話品質は実機未検証です。",
-      "highlight": "約207g・NC ON最大50時間／OFF最大75時間",
+      "purpose": "focus",
       "tags": [
         "古庄おすすめ",
         "ノイズキャンセリング",
         "軽量",
         "長時間再生"
       ],
+      "eyebrow": "約207gの軽量設計。ノイズキャンセリングONで最大50時間、OFFで最大75時間再生。",
+      "summary": "WH-CH720Nの後継モデル。折りたたみ式で持ち運びやすく、日常の音楽や仕事に使いやすいヘッドホン。",
+      "good": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
+      "caution": "再生時間は設定・音量・使用環境で変わります。装着感・音質・通話品質は実機未検証です。",
+      "highlight": "約207g・NC ON最大50時間／OFF最大75時間",
       "date": "2026-11-12",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
+        "主な仕様": "約207g・NC ON最大50時間／OFF最大75時間"
+      },
       "reasons": [
         "軽さとノイズキャンセリング、再生時間のバランスで選びたい人向け。"
       ],
@@ -105,17 +109,17 @@
           "label": "SONY公式製品情報"
         }
       ],
-      "curationLabel": "古庄おすすめ",
-      "ownerConfirmedProductIdentity": true,
-      "ownerVerifiedShortLink": true,
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "trackingId": "rsshop-hatenablg-22",
+      "href": "https://link.amazon/B04tr6V2F",
       "approvedPhoto": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
-      "comparison": {
-        "選ぶ基準": "通勤・移動中にノイズキャンセリングを使いたい人・充電頻度を抑えたい人・折りたたんで持ち運びたい人",
-        "主な仕様": "約207g・NC ON最大50時間／OFF最大75時間"
-      },
-      "specs": {},
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": "rsshop-hatenablg-22",
+      "gallery": [
+        {
+          "src": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+          "alt": "SONY WH-CH730N ブラックの商品写真"
+        }
+      ],
       "imageSource": {
         "source_name": "PB Tech product listing",
         "source_page": "https://www.pbtech.co.nz/product/HSTSNY01730/Sony-WH-CH730N-Wireless-Over-Ear-Noise-Cancelling",
@@ -124,12 +128,8 @@
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
       },
-      "gallery": [
-        {
-          "src": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
-          "alt": "SONY WH-CH730N ブラックの商品写真"
-        }
-      ]
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true
     },
     {
       "product_id": "RS-P0005",
@@ -140,20 +140,24 @@
       "category": "sound",
       "subcategory": "wireless-headphones",
       "kind": "ワイヤレスヘッドホン",
-      "purpose": "focus",
       "tint": "blue",
-      "href": "https://link.amazon/B0bxnL3vi",
-      "eyebrow": "音楽再生最大約60時間。ワイヤレスで音楽や作業用音声を楽しみたい人の候補。",
-      "summary": "メーカー公表の質量は216g。長い再生時間を重視する人に向く、シンプルなBluetoothヘッドホン。",
-      "good": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
-      "caution": "使用可能時間は条件で変わります。音質・装着感・遅延は実機未検証です。",
-      "highlight": "約216g・音楽再生最大約60時間",
+      "purpose": "focus",
       "tags": [
         "古庄おすすめ",
         "長時間再生",
         "ワイヤレス"
       ],
+      "eyebrow": "音楽再生最大約60時間。ワイヤレスで音楽や作業用音声を楽しみたい人の候補。",
+      "summary": "メーカー公表の質量は216g。長い再生時間を重視する人に向く、シンプルなBluetoothヘッドホン。",
+      "good": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
+      "caution": "使用可能時間は条件で変わります。音質・装着感・遅延は実機未検証です。",
+      "highlight": "約216g・音楽再生最大約60時間",
       "date": "2026-11-12",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
+        "主な仕様": "約216g・音楽再生最大約60時間"
+      },
       "reasons": [
         "長時間再生を重視する人の比較候補として選定。"
       ],
@@ -163,17 +167,17 @@
           "label": "audio-technica公式製品情報"
         }
       ],
-      "curationLabel": "古庄おすすめ",
-      "ownerConfirmedProductIdentity": true,
-      "ownerVerifiedShortLink": true,
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "trackingId": "rsshop-hatenablg-22",
+      "href": "https://link.amazon/B0bxnL3vi",
       "approvedPhoto": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
-      "comparison": {
-        "選ぶ基準": "長い再生時間を重視する人・ワイヤレスで音楽や作業用音声を聴きたい人",
-        "主な仕様": "約216g・音楽再生最大約60時間"
-      },
-      "specs": {},
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": "rsshop-hatenablg-22",
+      "gallery": [
+        {
+          "src": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+          "alt": "audio-technica ATH-M20xBT ブラックの商品写真"
+        }
+      ],
       "imageSource": {
         "source_name": "JB Hi-Fi product listing",
         "source_page": "https://www.jbhifi.com.au/products/audio-technica-ath-m20xbt-wireless-over-ear-headphones-black",
@@ -182,12 +186,8 @@
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
       },
-      "gallery": [
-        {
-          "src": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
-          "alt": "audio-technica ATH-M20xBT ブラックの商品写真"
-        }
-      ]
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true
     },
     {
       "product_id": "RS-P0012",
@@ -198,21 +198,25 @@
       "category": "sound",
       "subcategory": "wireless-headphones",
       "kind": "ワイヤレスヘッドホン",
-      "purpose": "focus",
       "tint": "blue",
-      "href": "https://link.amazon/B0ihtnUrW",
-      "eyebrow": "約183gの軽量設計。音楽再生最大70時間に対応するオンイヤーヘッドホン。",
-      "summary": "軽さと充電頻度の少なさを重視する人向け。アクティブノイズキャンセリングは非対応です。",
-      "good": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
-      "caution": "アクティブノイズキャンセリング非対応。オンイヤー方式の装着感は試着で確認してください。再生時間は使用環境で変わります。",
-      "highlight": "約183g・音楽再生最大70時間・ANC非対応",
+      "purpose": "focus",
       "tags": [
         "古庄おすすめ",
         "軽量",
         "長時間再生",
         "ANC非対応"
       ],
+      "eyebrow": "約183gの軽量設計。音楽再生最大70時間に対応するオンイヤーヘッドホン。",
+      "summary": "軽さと充電頻度の少なさを重視する人向け。アクティブノイズキャンセリングは非対応です。",
+      "good": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
+      "caution": "アクティブノイズキャンセリング非対応。オンイヤー方式の装着感は試着で確認してください。再生時間は使用環境で変わります。",
+      "highlight": "約183g・音楽再生最大70時間・ANC非対応",
       "date": "2026-11-12",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
+        "主な仕様": "約183g・音楽再生最大70時間・ANC非対応"
+      },
       "reasons": [
         "軽量性と長時間再生を重視する人の比較候補として選定。"
       ],
@@ -222,17 +226,17 @@
           "label": "Anker Japan公式製品情報"
         }
       ],
-      "curationLabel": "古庄おすすめ",
-      "ownerConfirmedProductIdentity": true,
-      "ownerVerifiedShortLink": true,
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "trackingId": "rsshop-hatenablg-22",
+      "href": "https://link.amazon/B0ihtnUrW",
       "approvedPhoto": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
-      "comparison": {
-        "選ぶ基準": "軽量な持ち運び用を探す人・充電頻度を抑えたい人",
-        "主な仕様": "約183g・音楽再生最大70時間・ANC非対応"
-      },
-      "specs": {},
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": "rsshop-hatenablg-22",
+      "gallery": [
+        {
+          "src": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+          "alt": "Soundcore H30i ブラックの商品写真"
+        }
+      ],
       "imageSource": {
         "source_name": "Lulu Hypermarket product listing; same H30i black model",
         "source_page": "https://gcc.luluhypermarket.com/en-ae/anker-soundcore-h30i-onear-wireless-headphone-black-a3012h11/p/2230666/",
@@ -241,12 +245,50 @@
         "owner_permission": "USER_CONFIRMED",
         "checked_at": "2026-11-13"
       },
-      "gallery": [
+      "curationLabel": "古庄おすすめ",
+      "ownerConfirmedProductIdentity": true
+    },
+    {
+      "product_id": "RS-P0013",
+      "asin": "B0G24BY2XS",
+      "brand": "Shokz",
+      "model": "OpenFit Pro ホワイト",
+      "formal_name": "Shokz OpenFit Pro ホワイト",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "耳を塞がない装着方式を選びたい人",
+        "運動や移動中も周囲の音を把握したい人",
+        "長時間再生とワイヤレス充電を重視する人"
+      ],
+      "eyebrow": "耳を塞がないオープンイヤー設計に、フォーカスモード（ノイズ低減）を搭載。周囲の気配を保ちながら音楽や通話を使いたい人向け。",
+      "summary": "耳を塞がないオープンイヤー設計に、フォーカスモード（ノイズ低減）を搭載。周囲の気配を保ちながら音楽や通話を使いたい人向け。",
+      "good": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生とワイヤレス充電を重視する人",
+      "caution": "オープンイヤー型のため密閉型ヘッドホンと聴こえ方が異なる・フォーカスモードの効果は耳の形状や環境で変わる・再生時間はフォーカスモードの有無で最大50時間／24時間と異なる・Amazon側の商品識別情報は所有者提供リンクに基づく",
+      "highlight": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生とワイヤレス充電を重視する人",
+      "date": "2026-11-12",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "耳を塞がない装着方式を選びたい人・運動や移動中も周囲の音を把握したい人・長時間再生とワイヤレス充電を重視する人",
+        "主な仕様": "耳を塞がないオープンイヤー設計に、フォーカスモード（ノイズ低減）を搭載。周囲の気配を保ちながら音楽や通話を使いたい人向け。"
+      },
+      "reasons": [
+        "耳を塞がないオープンイヤー設計に、フォーカスモード（ノイズ低減）を搭載。周囲の気配を保ちながら音楽や通話を使いたい人向け。"
+      ],
+      "sources": [
         {
-          "src": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
-          "alt": "Soundcore H30i ブラックの商品写真"
+          "url": "https://jp.shokz.com/products/openfit-pro",
+          "label": "商品情報の出典"
         }
-      ]
+      ],
+      "href": "https://link.amazon/B03mQWsds",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": "rsshop-hatenablg-22"
     }
   ]
 }

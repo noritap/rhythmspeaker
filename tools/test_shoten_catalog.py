@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from build_shoten_catalog import SURFACE_ID, SURFACE_URL, project, verified_special_link
+from build_shoten_catalog import SURFACE_ID, SURFACE_URL, preserve_enrichment, project, verified_special_link
 
 SHA = "a" * 40
 
@@ -146,6 +146,53 @@ class TestShotenCatalog(unittest.TestCase):
         self.assertIsNone(self.run_projection(item)[0]["approvedPhoto"])
         item["products"]["image"]["rights_evidence"] = "test-only evidence"
         self.assertEqual(self.run_projection(item)[0]["approvedPhoto"], asset)
+
+
+class TestPreserveEnrichment(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.output = Path(directory.name) / "catalog.json"
+
+    def write_existing(self, rows):
+        self.output.write_text(json.dumps({"products": rows}), encoding="utf-8")
+
+    def test_carries_enrichment_and_photo_for_same_identity(self):
+        self.write_existing([{
+            "product_id": "RS-P0001", "asin": "TEST000001",
+            "approvedPhoto": "./assets/products/sample.webp",
+            "gallery": [{"src": "./assets/products/sample.webp", "alt": "sample"}],
+            "curationLabel": "古庄おすすめ", "studioIntro": "studio",
+            "summary": "公開済みの校正済み紹介文", "tags": ["古庄おすすめ"],
+        }])
+        snapshot = {"products": [{
+            "product_id": "RS-P0001", "asin": "TEST000001", "approvedPhoto": None,
+            "summary": "上流の未校正テキスト", "tags": ["用途タグ"],
+            "href": "https://link.amazon/AbC123", "trackingId": "fixture-only-22",
+        }]}
+        preserve_enrichment(snapshot, self.output)
+        row = snapshot["products"][0]
+        self.assertEqual(row["approvedPhoto"], "./assets/products/sample.webp")
+        self.assertEqual(row["gallery"][0]["alt"], "sample")
+        self.assertEqual(row["curationLabel"], "古庄おすすめ")
+        self.assertEqual(row["studioIntro"], "studio")
+        self.assertEqual(row["summary"], "公開済みの校正済み紹介文")
+        self.assertEqual(row["tags"], ["古庄おすすめ"])
+        # Functional fields always come from the fresh projection.
+        self.assertEqual(row["href"], "https://link.amazon/AbC123")
+        self.assertEqual(row["trackingId"], "fixture-only-22")
+
+    def test_does_not_carry_across_identity_change(self):
+        self.write_existing([{
+            "product_id": "RS-P0001", "asin": "TEST000001",
+            "approvedPhoto": "./assets/products/sample.webp",
+            "gallery": [{"src": "./assets/products/sample.webp", "alt": "sample"}],
+        }])
+        snapshot = {"products": [{"product_id": "RS-P0001", "asin": "TEST000099", "approvedPhoto": None}]}
+        preserve_enrichment(snapshot, self.output)
+        row = snapshot["products"][0]
+        self.assertIsNone(row["approvedPhoto"])
+        self.assertNotIn("gallery", row)
 
 
 if __name__ == "__main__":
