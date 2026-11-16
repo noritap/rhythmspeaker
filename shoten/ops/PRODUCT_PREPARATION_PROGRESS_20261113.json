@@ -761,5 +761,20 @@
     "production_changed": false,
     "affiliate_links_changed": false,
     "branch": "work/shoten-product-preparation-20261113"
+  },
+  "image_batch_20261116_07": {
+    "batch_id": "IMAGE-BATCH-20261116-07",
+    "asset_batch_path": "shoten/ops/preparation-batches/IMAGE-BATCH-20261116-07.json",
+    "canonical_products_current": 45,
+    "selected_product_count": 20,
+    "previously_image_referenced_catalog_products": 4,
+    "upstream_assets_current": 0,
+    "owner_separate_license_claim": "OWNER_ATTESTED_SCOPE_NOT_MAPPED_TO_ASSETS",
+    "approved_source_images": 0,
+    "registered": 0,
+    "verified": 0,
+    "result": "BLOCKED_PENDING_ACTUAL_AUTHORIZED_IMAGE_ASSETS",
+    "main_changed": false,
+    "affiliate_link_changed": false
   }
 }
