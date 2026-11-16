@@ -4,7 +4,7 @@
   "created_at": "2026-11-16",
   "workflow": "OWNER_PURCHASED_PRODUCT_RECOVERY",
   "target_count": 20,
-  "saved_rows": 11,
+  "saved_rows": 14,
   "source_inventory": "shoten/ops/OWNER_REQUESTED_PRODUCT_INVENTORY_20261113.json",
   "policy_version": "v5.1_URL_OPTIONAL_AFFILIATE_LINK_CANONICAL",
   "entries": [
@@ -216,13 +216,96 @@
         "Books/learning is not a formal root category in current shoten editorial.js"
       ],
       "canonical_registered_in_upstream_main": true
+    },
+    {
+      "candidate_key": "discovery-20261116-01",
+      "product_id": "RS-P0044",
+      "formal_name": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セット",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
+      "ready_for_affiliate_link": true,
+      "site_root": "home",
+      "source_urls": [
+        "https://www.switchbot.jp/products/switchbot-hub3"
+      ],
+      "specifications": {
+        "dimensions_mm": [
+          126,
+          94,
+          38
+        ],
+        "weight_g": 190,
+        "wifi": "2.4GHz",
+        "included": "温湿度センサー搭載ケーブル"
+      },
+      "remaining_gates": [],
+      "amazon_product_url": null,
+      "amazon_url_status": "OPTIONAL_NOT_COLLECTED",
+      "owner_use_evidence": "NOT_CLAIMED",
+      "manufacturer_verified_at": "2026-11-16",
+      "canonical_registered_in_upstream_main": true
+    },
+    {
+      "candidate_key": "discovery-20261116-02",
+      "product_id": "RS-P0045",
+      "formal_name": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
+      "ready_for_affiliate_link": true,
+      "site_root": "home",
+      "source_urls": [
+        "https://www.switchbot.jp/products/switchbot-meter-pro"
+      ],
+      "specifications": {
+        "dimensions_mm": [
+          92,
+          79,
+          25
+        ],
+        "weight_g_with_batteries": 154,
+        "power": "単3電池×2",
+        "battery_life": "約1年"
+      },
+      "remaining_gates": [],
+      "amazon_product_url": null,
+      "amazon_url_status": "OPTIONAL_NOT_COLLECTED",
+      "owner_use_evidence": "NOT_CLAIMED",
+      "manufacturer_verified_at": "2026-11-16",
+      "canonical_registered_in_upstream_main": true
+    },
+    {
+      "candidate_key": "discovery-20261116-03",
+      "product_id": "RS-P0046",
+      "formal_name": "Shokz OpenRun Pro 2 ブラック・標準サイズ（USB-C充電）",
+      "status": "READY_FOR_AFFILIATE_LINK",
+      "content_status": "CONTENT_READY",
+      "ready_for_affiliate_link": true,
+      "site_root": "sound",
+      "source_urls": [
+        "https://jp.shokz.com/products/openrun-pro2",
+        "https://jp.shokz.com/collections/all"
+      ],
+      "specifications": {
+        "color": "ブラック",
+        "band": "標準サイズ",
+        "bluetooth": "5.3",
+        "weight_g": 30.3,
+        "playback_max_hours": 12,
+        "water_resistance": "IP55"
+      },
+      "remaining_gates": [],
+      "amazon_product_url": null,
+      "amazon_url_status": "OPTIONAL_NOT_COLLECTED",
+      "owner_use_evidence": "NOT_CLAIMED",
+      "manufacturer_verified_at": "2026-11-16",
+      "canonical_registered_in_upstream_main": true
     }
   ],
   "status_distribution": {
-    "READY_FOR_AFFILIATE_LINK": 3,
-    "CATEGORY_REVIEW": 8
+    "CATEGORY_REVIEW": 8,
+    "READY_FOR_AFFILIATE_LINK": 6
   },
-  "unprocessed_slots": 9,
+  "unprocessed_slots": 6,
   "next_priority_candidates": [
     "owner-019 industrial lighting - interest only, no confirmed brand/model/size",
     "owner-028 additional Harney flavors beyond Chocolate Mint - exact purchase flavor/package unknown",
@@ -235,26 +318,28 @@
   "last_run": {
     "date": "2026-11-16",
     "new_upstream_ids": [
-      "RS-P0042",
-      "RS-P0043"
+      "RS-P0044",
+      "RS-P0045",
+      "RS-P0046"
     ],
-    "new_ready_ids": [],
-    "receipt_reconciliations": [
-      "owner-012->RS-P0042 exact Kanro Premium 73g×3",
-      "owner-receipt-20251016-001->RS-P0043 Jazz Dance book"
+    "new_ready_ids": [
+      "RS-P0044",
+      "RS-P0045",
+      "RS-P0046"
     ],
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/36",
-    "main_merge": "CONFIRMED",
-    "main_count": 39,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/38",
+    "upstream_main_merge": "CONFIRMED",
+    "upstream_main_count": 42,
+    "new_manufacturer_verified": 3,
+    "excluded_candidate": "EcoFlow RIVER 3 Plus currently marked discontinued on official store; do not register as active recommendation",
     "checks": {
-      "JSON": "PASS",
+      "main_reread": "PASS",
+      "json_parse": "PASS",
       "unique_ids": "PASS",
-      "unique_asins": "PASS",
-      "main_refetch": "PASS",
-      "owner_receipt_identity": "PASS",
-      "category_holds_preserved": "PASS",
-      "affiliate_ledger_unchanged": true,
-      "public_catalog_unchanged": true
+      "old_product_records_unchanged": "PASS",
+      "affiliate_ledger_untouched": true,
+      "public_catalog_untouched": true,
+      "publication_validation": "NOT_EXECUTED"
     }
   },
   "resolved_existing_variants": [
