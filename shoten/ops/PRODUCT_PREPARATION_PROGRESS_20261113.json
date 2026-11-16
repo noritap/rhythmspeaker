@@ -742,5 +742,19 @@
     "upstream_master_changed": false,
     "next_trigger": "Owner-provided original photographs or written brand/manufacturer permission for commercial reuse; do not download or rehost retail/Amazon product images without rights"
   },
-  "audit_note_20261116": "Cross-chat audit: READY image requirement was incorrectly coupled to image rights/display proof. Photo is now optional at preparation/affiliate handoff; if attached, rights and identity must be checked. Do not change the separate production publication gate in this preparation branch."
+  "audit_note_20261116": "Cross-chat audit: READY image requirement was incorrectly coupled to image rights/display proof. Photo is now optional at preparation/affiliate handoff; if attached, rights and identity must be checked. Do not change the separate production publication gate in this preparation branch.",
+  "image_batch_20261116_owner_permission": {
+    "date": "2026-11-16",
+    "scope": "OWNER_PERMISSION_AND_AMAZON_COMPLIANT_IMAGE_ROUTING",
+    "canonical_products_seen": 39,
+    "upstream_assets_seen": 0,
+    "owner_statement": "アマゾンに載っている写真は掲載の許可を得ているので使ってよし",
+    "owner_attestation_recorded": true,
+    "source_document": "shoten/ops/PRODUCT_IMAGE_RIGHTS_AND_ALTERNATIVES_V1.md",
+    "pending": "Compliant Amazon-provided image URLs/API access and identity matches are not yet available in the inspected master; must not treat ordinary page download or rehosting as approved",
+    "registered_new_images": 0,
+    "verified_new_images": 0,
+    "main_changed": false,
+    "affiliate_links_changed": false
+  }
 }
