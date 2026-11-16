@@ -42,10 +42,24 @@ def validate(data, root=ASSET):
             errors.append(f"{prefix}: gallery must contain at most 5 images")
             photos = []
         approved = p.get("approvedPhoto")
-        if not isinstance(approved, str) or not approved.strip():
-            errors.append(f"{prefix}: approved product photo is required")
-        if approved and not any(item.get("src") == approved for item in photos if isinstance(item, dict)):
+        # Image-less, text-first publication is permitted; keep all affiliate and approval gates.
+        if approved is not None and (not isinstance(approved, str) or not approved.strip()):
+            errors.append(f"{prefix}: invalid approved product photo")
+        if approved and photos and not any(item.get("src") == approved for item in photos if isinstance(item, dict)):
             errors.append(f"{prefix}: approvedPhoto missing from gallery")
+        if approved:
+            if PATTERN.fullmatch(approved):
+                if not (root / approved).is_file():
+                    errors.append(f"{prefix}: missing approved image {approved}")
+            else:
+                remote = urlsplit(approved)
+                allowed_remote = remote.scheme == "https" and (
+                    (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
+                    (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
+                    (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
+                )
+                if not allowed_remote:
+                    errors.append(f"{prefix}: invalid approved image URL")
         for item in photos:
             if not isinstance(item, dict) or not isinstance(item.get("src"), str) or not isinstance(item.get("alt"), str) or not item["alt"].strip():
                 errors.append(f"{prefix}: invalid gallery item")
