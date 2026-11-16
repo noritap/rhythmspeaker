@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 39,
+    "upstream_product_records": 42,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 15,
+    "new_ready_for_affiliate_link": 18,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 31,
-    "new_content_ready_from_priority_batch": 31
+    "batch_preparation_rows": 34,
+    "new_content_ready_from_priority_batch": 34
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -190,13 +190,13 @@
     "batch_id": "BATCH-20261116-02",
     "file": "shoten/ops/preparation-batches/BATCH-20261116-02.json",
     "target_count": 20,
-    "saved_rows": 11,
-    "new_ready": 3,
-    "content_ready_verified": 11,
+    "saved_rows": 14,
+    "new_ready": 6,
+    "content_ready_verified": 14,
     "category_review": 8,
     "identity_review": 0,
-    "unprocessed_slots": 9,
-    "status": "ELEVEN_SAVED_THREE_READY_EIGHT_CATEGORY_REVIEW"
+    "unprocessed_slots": 6,
+    "status": "FOURTEEN_SAVED_SIX_READY_EIGHT_CATEGORY_REVIEW"
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -326,38 +326,38 @@
   "latest_execution": {
     "date": "2026-11-16",
     "batch": "BATCH-20261116-02",
-    "new_upstream_product_ids": [
-      "RS-P0042",
-      "RS-P0043"
+    "upstream_main_products_total": 42,
+    "new_canonical_product_ids": [
+      "RS-P0044",
+      "RS-P0045",
+      "RS-P0046"
     ],
-    "new_ready_ids": [],
-    "receipt_reconciliations": [
-      "Kanro Premium 73g×3 exact owner purchase",
-      "Jazz Dance 1994 Da Capo edition exact owner purchase"
+    "new_ready_product_ids": [
+      "RS-P0044",
+      "RS-P0045",
+      "RS-P0046"
     ],
-    "ready_total_across_preparation": 15,
-    "content_ready_total_across_preparation": 31,
-    "upstream_products_total": 39,
-    "category_review_in_batch02": 8,
-    "identity_review_in_batch02": 0,
-    "unprocessed_slots": 9,
-    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/36",
-    "checks": {
-      "main_refetch": "PASS",
-      "JSON": "PASS",
-      "unique_ids": "PASS",
-      "unique_asins": "PASS",
-      "owner_receipt_reconciliation": "PASS",
-      "P0026_P0042_distinguished": "PASS",
-      "affiliate_ledger_unchanged": true,
-      "public_catalog_unchanged": true
+    "total_ready_in_preparation_batches": 18,
+    "total_content_ready": 34,
+    "remaining_category_review": 16,
+    "category_breakdown": {
+      "food": 13,
+      "apparel": 2,
+      "books": 1
     },
-    "remaining": [
-      "Food category root approval",
-      "Books/learning category root approval",
-      "Industrial lighting exact model not identified",
-      "Second item from 2025-10-16 Amazon receipt ASIN B0CH84V611 unresolved"
-    ]
+    "upstream_merged_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/38",
+    "category_handoff": "shoten/ops/CATEGORY_HANDOFF_20261116.json",
+    "excluded_product": "EcoFlow RIVER 3 Plus official store marks discontinued",
+    "checks": {
+      "canonical_main_refetch": "PASS",
+      "unique_product_ids": "PASS",
+      "prior_39_records_unchanged": "PASS",
+      "json_and_batch_reparse": "PASS",
+      "category_handoff_count": "PASS",
+      "site_catalog_validator": "NOT_EXECUTED",
+      "production_publication": "NOT_IN_SCOPE"
+    },
+    "note": "Current readiness is 18 across existing 20-row batch plus 14-row batch 02. New products are third-party researched not owner-owned. No standard Amazon URL required; owner-issued affiliate links remain phase ③."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
