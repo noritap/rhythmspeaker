@@ -6,14 +6,14 @@
   "counts": {
     "target": 35,
     "main_catalog_products": 4,
-    "upstream_product_records": 42,
+    "upstream_product_records": 45,
     "upstream_affiliate_link_records": 6,
-    "new_ready_for_affiliate_link": 18,
+    "new_ready_for_affiliate_link": 21,
     "preparation_draft_files": 6,
     "hold_draft_files": 1,
     "owner_backlog_candidate_lines": 35,
-    "batch_preparation_rows": 34,
-    "new_content_ready_from_priority_batch": 34
+    "batch_preparation_rows": 37,
+    "new_content_ready_from_priority_batch": 37
   },
   "counting_note": "Categories and legacy ID gaps do not imply approved or READY product slots. Existing published four are not counted as new READY; upstream links are not automatically verified.",
   "products": [
@@ -190,13 +190,13 @@
     "batch_id": "BATCH-20261116-02",
     "file": "shoten/ops/preparation-batches/BATCH-20261116-02.json",
     "target_count": 20,
-    "saved_rows": 14,
-    "new_ready": 6,
-    "content_ready_verified": 14,
+    "saved_rows": 17,
+    "new_ready": 9,
+    "content_ready_verified": 17,
     "category_review": 8,
     "identity_review": 0,
-    "unprocessed_slots": 6,
-    "status": "FOURTEEN_SAVED_SIX_READY_EIGHT_CATEGORY_REVIEW"
+    "unprocessed_slots": 3,
+    "status": "SEVENTEEN_SAVED_NINE_READY_EIGHT_CATEGORY_REVIEW"
   },
   "priority_batch_20261113_01": {
     "target_items": [
@@ -326,38 +326,33 @@
   "latest_execution": {
     "date": "2026-11-16",
     "batch": "BATCH-20261116-02",
-    "upstream_main_products_total": 42,
-    "new_canonical_product_ids": [
-      "RS-P0044",
-      "RS-P0045",
-      "RS-P0046"
+    "source": "USER_REORDERABLE_DAILY_ESSENTIALS_PRIORITY",
+    "new_upstream_product_ids": [
+      "RS-P0047",
+      "RS-P0048",
+      "RS-P0049"
     ],
-    "new_ready_product_ids": [
-      "RS-P0044",
-      "RS-P0045",
-      "RS-P0046"
+    "new_ready_ids": [
+      "RS-P0047",
+      "RS-P0048",
+      "RS-P0049"
     ],
-    "total_ready_in_preparation_batches": 18,
-    "total_content_ready": 34,
-    "remaining_category_review": 16,
-    "category_breakdown": {
-      "food": 13,
-      "apparel": 2,
-      "books": 1
-    },
-    "upstream_merged_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/38",
-    "category_handoff": "shoten/ops/CATEGORY_HANDOFF_20261116.json",
-    "excluded_product": "EcoFlow RIVER 3 Plus official store marks discontinued",
+    "ready_total": 21,
+    "content_ready_total": 37,
+    "upstream_total": 45,
+    "category_review_total": 16,
+    "active_batch_remaining_slots": 3,
+    "upstream_pr": "https://github.com/noritap/AMAZON_COMMERCE_DATA_OS/pull/40",
+    "strategy": "shoten/ops/REPLENISHMENT_STAPLES_STRATEGY_20261116.md",
     "checks": {
-      "canonical_main_refetch": "PASS",
-      "unique_product_ids": "PASS",
-      "prior_39_records_unchanged": "PASS",
-      "json_and_batch_reparse": "PASS",
-      "category_handoff_count": "PASS",
+      "main_reread": "PASS",
+      "unique_ids": "PASS",
+      "prior_records_unchanged": "PASS",
+      "batch_reparse": "PASS",
       "site_catalog_validator": "NOT_EXECUTED",
-      "production_publication": "NOT_IN_SCOPE"
+      "production_changed": false
     },
-    "note": "Current readiness is 18 across existing 20-row batch plus 14-row batch 02. New products are third-party researched not owner-owned. No standard Amazon URL required; owner-issued affiliate links remain phase ③."
+    "next": "Complete three slots with verified consumables, then phase ④ to approve food/apparel/books roots. Avoid promising repeat purchases without sales evidence."
   },
   "execution_optimization_20261113": {
     "version": "v1.1",
