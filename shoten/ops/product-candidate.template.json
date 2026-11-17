@@ -27,20 +27,21 @@
   "photo_rights_confirmed": false,
   "article_url": "",
   "checked_at": "",
-  "notes": "v2.1: 80点以上でも必須適合・価格確認・情報鮮度・正式リンク・本人公開承認が必要。価格未確認は暫定評価。",
+  "notes": "v2.2 Amazon.co.jp限定: 80点以上でもAmazon掲載・購入可能性、必須適合・価格確認・情報鮮度・本人発行正式リンク・本人公開承認が必要。価格未確認は暫定評価。",
   "search_evidence": {
     "comparison_unit": "",
-    "comparison_scope": "",
+    "comparison_scope": "Amazon.co.jp only",
     "same_product_sellers": [],
     "equivalent_products": [],
     "amazon_total_price_jpy": null,
-    "other_store_total_price_jpy": null,
     "unit_price_jpy": null,
     "price_checked_at": "",
     "price_source_urls": [],
     "price_status": "UNVERIFIED",
     "compatibility_status": "UNVERIFIED",
     "quality_sources": [],
-    "uncertainties": []
+    "uncertainties": [],
+    "amazon_product_urls": [],
+    "amazon_listing_status": "UNVERIFIED"
   }
 }
