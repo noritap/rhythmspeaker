@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-11-18",
+  "purpose": "画像ソース候補の確認。公開カタログとは別データであり、登録済み商品画像ではない。",
+  "items": [
+    {
+      "product_id": "RS-P0014",
+      "product": "EcoFlow DELTA 3 Classic (1024Wh)",
+      "source_page": "https://jp.ecoflow.com/products/delta-3-classic",
+      "image_url": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
+      "source_owner": "EcoFlow Japan",
+      "identity_check": "メーカー公式ページの商品名・型番一致",
+      "permission_check": "画像の商店利用範囲は未検証",
+      "fetch_status": "FAILED",
+      "local_asset": null,
+      "publish_ready": false,
+      "alt": "EcoFlow DELTA 3 Classic ポータブル電源 本体"
+    },
+    {
+      "product_id": "RS-P0013",
+      "product": "Shokz OpenFit Pro ホワイト",
+      "source_page": "https://jp.shokz.com/products/openfit-pro",
+      "image_url": null,
+      "source_owner": "Shokz Japan",
+      "identity_check": "メーカー公式ページでホワイト色の販売確認",
+      "permission_check": "画像利用条件未検証",
+      "fetch_status": "NOT_ATTEMPTED",
+      "local_asset": null,
+      "publish_ready": false,
+      "alt": "Shokz OpenFit Pro ホワイト イヤホンと充電ケース"
+    }
+  ]
+}
