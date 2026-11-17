@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>月刊タップダンス｜全国の募集・公演・ワークショップ情報</title>
+<meta name="description" content="全国のタップダンス出演者募集、公演、ワークショップ情報を公式情報へのリンク付きで紹介します。">
+<link rel="canonical" href="https://noritap.github.io/rhythmspeaker/monthly-tapdance/">
+<link rel="icon" href="../logo.png">
+<style>
+:root{color-scheme:light;--ink:#171a1d;--muted:#59636d;--line:#d8dee3;--accent:#a12231;--bg:#f5f4f1}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+a{color:inherit}a:focus-visible,select:focus-visible{outline:3px solid #007f9d;outline-offset:3px}
+.skip{position:absolute;top:-80px;left:12px;background:#fff;padding:8px;z-index:10}.skip:focus{top:12px}
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:14px max(18px,calc((100vw - 1080px)/2));display:flex;align-items:center;gap:18px;justify-content:space-between}
+.topbar a{text-decoration:none;font-weight:700}.topbar small{font-size:12px;color:var(--muted)}
+.hero{background:#17202a;color:white;padding:64px 22px 60px}.wrap{max-width:1080px;margin:auto}.kicker{font-size:12px;letter-spacing:.13em;font-weight:700;color:#c4d1dc}
+h1{font-size:clamp(32px,5vw,56px);margin:10px 0 12px;line-height:1.25}.hero p{max-width:730px;margin:0;font-size:16px;color:#e0e5e8}
+main{max-width:1080px;margin:auto;padding:38px 18px 75px}h2{font-size:clamp(21px,3vw,27px);margin:0 0 14px}
+.intro{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap}.hint{font-size:13px;color:var(--muted)}
+.controls{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.controls label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;flex:1;min-width:180px}
+select{font:inherit;min-height:48px;padding:8px 12px;background:#fff;border:1px solid #aeb9c1;border-radius:7px;width:100%}
+#results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{background:#fff;border:1px solid var(--line);border-radius:11px;padding:22px;min-width:0;display:flex;flex-direction:column}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.tag{color:#82202b;background:#fff0f1;padding:3px 9px;border-radius:99px;font-weight:700}
+.card h3{font-size:20px;line-height:1.45;margin:13px 0 9px}.card p{margin:5px 0;color:#42494f;font-size:14px;overflow-wrap:anywhere}
+.card .source{margin-top:auto;padding-top:15px}.card .source a{display:inline-block;color:#85202d;font-weight:700;text-underline-offset:3px;overflow-wrap:anywhere}
+.notice{margin-top:26px;background:#fff;padding:20px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+.notice h2{font-size:18px}.notice p{margin:7px 0}.empty{grid-column:1/-1;background:#fff;padding:25px;border:1px solid var(--line);border-radius:8px}
+footer{border-top:1px solid var(--line);padding:25px 18px;background:#fff;color:var(--muted);font-size:13px}footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:650px){.hero{padding:45px 18px}.topbar{padding:12px 18px}#results{grid-template-columns:1fr}.controls{gap:9px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">本文へ移動</a>
+<header class="topbar"><a href="../">Rhythm Speaker <small>公式HP</small></a><a href="../ecosystem/">すべてのサービス</a></header>
+<section class="hero"><div class="wrap"><div class="kicker">RHYTHM SPEAKER MEDIA / TAP DANCE INFORMATION</div><h1>月刊タップダンス</h1><p>踊る人も、観る人も。全国のタップダンス出演者募集、公演、ワークショップ情報をつなぐWEB情報誌。</p></div></section>
+<main id="main">
+<section aria-labelledby="listing-title">
+<div class="intro"><div><h2 id="listing-title">タップダンス情報を探す</h2><div class="hint">公式情報を確認した公開情報から掲載しています。受付状況・内容はリンク先で再確認してください。</div></div><div id="count" class="hint" aria-live="polite"></div></div>
+<div class="controls">
+<label for="type">情報の種類<select id="type"><option value="all">すべて</option><option value="audition">出演者募集</option><option value="performance">公演・イベント</option><option value="workshop">ワークショップ</option></select></label>
+<label for="region">地域<select id="region"><option value="all">全国</option></select></label>
+</div>
+<div id="results" aria-live="polite"><p class="empty">イベント情報を読み込み中です。</p></div>
+</section>
+<section class="notice" aria-labelledby="policy-title"><h2 id="policy-title">情報の確認と掲載について</h2><p>開催内容、応募資格、募集締切、空き枠等は変更される場合があります。応募・予約の前に必ず主催者の公式案内をご確認ください。出演者募集情報は、タップダンス出演を保証するものではありません。</p><p>現在は編集部が確認した情報を掲載する試験版です。掲載の相談は <a href="https://lin.ee/zC5YLe7">Rhythm Speaker公式LINE</a> からお願いします。</p></section>
+</main>
+<footer><div class="wrap"><span>© Rhythm Speaker｜月刊タップダンス</span><a href="../">公式HPへ戻る</a></div></footer>
+<script>
+"use strict";
+const TYPES={audition:"出演者募集",performance:"公演・イベント",workshop:"ワークショップ"};
+const results=document.getElementById("results"),type=document.getElementById("type"),region=document.getElementById("region"),count=document.getElementById("count");
+let items=[];
+function node(tag,cls,value){const el=document.createElement(tag);if(cls)el.className=cls;if(value!==undefined)el.textContent=value;return el}
+function render(){
+ const today=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Tokyo",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+ const filtered=items.filter(e=>(type.value==="all"||e.type===type.value)&&(region.value==="all"||e.region===region.value)&&(!e.date||e.date>=today));
+ filtered.sort((a,b)=>(a.date||"9999-12-31").localeCompare(b.date||"9999-12-31"));
+ results.replaceChildren();count.textContent=filtered.length+"件掲載";
+ if(!filtered.length){results.append(node("p","empty","該当する情報はありません。条件を変えてご確認ください。"));return}
+ for(const e of filtered){
+  const card=node("article","card"),meta=node("div","meta"),tag=node("span","tag",TYPES[e.type]),reg=node("span","",e.region);
+  meta.append(tag,reg);card.append(meta,node("h3","",e.title),node("p","",e.date_label),node("p","",e.place),node("p","",e.summary));
+  const foot=node("p","source"),link=node("a","","公式情報を確認する");
+  link.href=e.source_url;link.target="_blank";link.rel="noopener noreferrer";
+  foot.append(link);card.append(foot,node("p","hint","情報確認日："+e.verified_at));results.append(card);
+ }
+}
+fetch("./events.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("fetch");return r.json()}).then(data=>{
+ if(data.schema_version!==1||!Array.isArray(data.items))throw Error("schema");
+ items=data.items.filter(e=>e.status==="information"&&TYPES[e.type]&&/^https:\/\//.test(e.source_url)&&typeof e.title==="string"&&typeof e.region==="string"&&typeof e.date_label==="string"&&typeof e.summary==="string");
+ const regions=[...new Set(items.map(e=>e.region))].sort();regions.forEach(r=>{const option=node("option","",r);option.value=r;region.append(option)});
+ type.addEventListener("change",render);region.addEventListener("change",render);render();
+}).catch(()=>{results.replaceChildren(node("p","empty","現在、情報を読み込めません。時間をおいて再度ご確認ください。"));count.textContent=""});
+</script>
+</body></html>
