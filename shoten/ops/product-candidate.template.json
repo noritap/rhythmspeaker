@@ -10,10 +10,12 @@
   "used_at_studio": false,
   "usage_evidence": "未使用・調査のみ",
   "score": {
-    "reader_value": 0,
+    "cost_performance": 0,
+    "quality_safety_fit": 0,
+    "customer_demand": 0,
+    "amazon_purchase_convenience": 0,
+    "repeat_purchase_revenue_potential": 0,
     "information_reliability": 0,
-    "purchase_intent": 0,
-    "originality": 0,
     "maintenance_efficiency": 0
   },
   "score_evidence": "",
@@ -25,5 +27,20 @@
   "photo_rights_confirmed": false,
   "article_url": "",
   "checked_at": "",
-  "notes": "採点80点以上でも必須検品と本人承認が必要"
+  "notes": "v2.1: 80点以上でも必須適合・価格確認・情報鮮度・正式リンク・本人公開承認が必要。価格未確認は暫定評価。",
+  "search_evidence": {
+    "comparison_unit": "",
+    "comparison_scope": "",
+    "same_product_sellers": [],
+    "equivalent_products": [],
+    "amazon_total_price_jpy": null,
+    "other_store_total_price_jpy": null,
+    "unit_price_jpy": null,
+    "price_checked_at": "",
+    "price_source_urls": [],
+    "price_status": "UNVERIFIED",
+    "compatibility_status": "UNVERIFIED",
+    "quality_sources": [],
+    "uncertainties": []
+  }
 }
