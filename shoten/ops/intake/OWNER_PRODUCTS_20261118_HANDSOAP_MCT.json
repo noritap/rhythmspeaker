@@ -1,0 +1,58 @@
+{
+  "schema_version": "shoten-product-intake-v1",
+  "created_at": "2026-11-18",
+  "source": "owner_provided",
+  "purpose": "candidate registration and affiliate-link handoff; NOT public catalog",
+  "status": "PENDING_UPSTREAM_MASTER_RECONCILIATION",
+  "products": [
+    {
+      "formal_name": "【業務用 大容量】キレイキレイ 薬用 泡ハンドソープ 4L シトラスフルーティの香り (医薬部外品) 詰め替え",
+      "brand": "ライオンハイジーン / キレイキレイ",
+      "category": "daily-consumables",
+      "subcategory": "foaming-hand-soap",
+      "quantity": "4L x 1",
+      "asin_from_owner_page": "B00ABV7NA8",
+      "model_from_owner_page": "BPGHA4*P",
+      "affiliate_url_owner_provided": "https://link.amazon/B0eZ6jUg8",
+      "link_verification_method": "OWNER_ATTESTED_DESTINATION",
+      "link_status": "OWNER_PROVIDED_NOT_INDEPENDENTLY_RESOLVED",
+      "owner_page_price_reference": {
+        "one_time_tax_included_jpy": 2156,
+        "subscription_tax_included_jpy": 1940,
+        "observation_date": "2026-11-18",
+        "not_for_fixed_public_display": true
+      },
+      "status": "CANDIDATE_LINK_RECEIVED",
+      "product_id": null,
+      "publication_approved": false,
+      "notes": "Owner-provided Amazon page identifies 4L foaming medicated soap; compare against existing IDs before assignment. Not yet published."
+    },
+    {
+      "formal_name": "【1183mL】スポーツリサーチ オーガニック MCTオイル 有機 ココナッツ由来100% ケト＆ビーガン Sports Research Organic MCT Oil（SPICEショップ限定掲載）",
+      "brand": "Sports Research (listing seller/brand display: SPICEショップ)",
+      "category": "food",
+      "subcategory": "mct-oil",
+      "quantity": "1183mL x 1",
+      "asin_from_owner_page": "B0BGJFZHRX",
+      "affiliate_url_owner_provided": "https://link.amazon/B00k2sLAi",
+      "link_verification_method": "OWNER_ATTESTED_DESTINATION",
+      "link_status": "OWNER_PROVIDED_NOT_INDEPENDENTLY_RESOLVED",
+      "owner_page_price_reference": {
+        "one_time_tax_included_jpy": 4580,
+        "observation_date": "2026-11-18",
+        "not_for_fixed_public_display": true
+      },
+      "owner_page_purchase_history": "3 purchases indicated in owner's supplied Amazon page; last purchase 2026-11-18",
+      "status": "CANDIDATE_LINK_RECEIVED_NEEDS_BRAND_LISTING_CHECK",
+      "product_id": null,
+      "publication_approved": false,
+      "notes": "Owner's listing shows brand SPICEショップ and producer name Sports Research. Check item identity and seller claims before formal catalog publication; do not imply clinical effects."
+    }
+  ],
+  "next_steps": [
+    "Reconcile against upstream product master by product name, ASIN and existing IDs",
+    "Carry owner-provided links to official link-verification workflow without requiring repetitive owner destination confirmation",
+    "Assign new ID only after master collision check and validation",
+    "Do not publish to shoten/catalog.json without usual approved publication gates"
+  ]
+}
