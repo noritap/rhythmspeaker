@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "dc03cef8529d5019feb2dbfcf42b7ee932f1f620",
+  "source_sha": "84396bc6242ac28eaf23067851a818ba30023cbe",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -843,6 +843,60 @@
         }
       ],
       "href": "https://link.amazon/B0g1dqXCC",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0007",
+      "asin": "B089TGWXZS",
+      "brand": "by Amazon",
+      "model": "ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
+      "formal_name": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "家庭やスタジオで45Lごみ袋を継続的に使う人",
+        "袋の口を結びやすい取っ手付きタイプを探している人"
+      ],
+      "eyebrow": "取っ手付きで結びやすい、45L・100枚入りの半透明ごみ袋。箱から取り出して日々のごみ捨てに使う消耗品。",
+      "summary": "45L容量・100枚入り。取っ手付きのため口を結びやすく、箱入りで保管・補充しやすいタイプ。",
+      "good": "家庭やスタジオで45Lごみ袋を継続的に使う人・袋の口を結びやすい取っ手付きタイプを探している人",
+      "caution": "確認できた二次情報では厚さ0.015mmの薄手タイプ。重量物・鋭利なごみには注意・寸法・厚さ・材質は販売ページの最新表記を購入前に確認",
+      "highlight": "家庭やスタジオで45Lごみ袋を継続的に使う人・袋の口を結びやすい取っ手付きタイプを探している人",
+      "date": "2026-11-18",
+      "specs": {
+        "容量": "45L",
+        "枚数": "100枚",
+        "タイプ": "半透明・取っ手付き"
+      },
+      "comparison": {
+        "選ぶ基準": "家庭やスタジオで45Lごみ袋を継続的に使う人・袋の口を結びやすい取っ手付きタイプを探している人",
+        "主な仕様": "45L容量・100枚入り。取っ手付きのため口を結びやすく、箱入りで保管・補充しやすいタイプ。"
+      },
+      "reasons": [
+        "45L容量・100枚入り。取っ手付きのため口を結びやすく、箱入りで保管・補充しやすいタイプ。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B089TGWXZS",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon-hikaku.com/b089tgwxzs/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://note.com/naoki_is_village/n/n19400f5e80e0",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0edk5RAw",
       "approvedPhoto": null,
       "gallery": [],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
