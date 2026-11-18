@@ -389,3 +389,13 @@ body { background: var(--edition-paper); }
 .shop-refreshed-date{font-size:.75rem;color:#526358}
 .shop-refreshed-category{margin-top:auto;font-size:.78rem;font-weight:700;color:#255d50}
 @media(max-width:720px){.shop-refreshed-picks{padding:1rem}.shop-refreshed-heading{align-items:start;flex-direction:column}.shop-refreshed-list{grid-template-columns:1fr}.shop-refreshed-item{gap:.3rem;padding:.85rem}}
+
+/* Homepage: show a changing published story before the long product listing. */
+.journal-update-strip{display:flex;align-items:center;gap:10px 15px;flex-wrap:wrap;margin:16px 0 22px;padding:13px 16px;background:#f3f7f1;border:1px solid #b9cfc0;border-left:4px solid #28604d;border-radius:10px;line-height:1.5}
+.journal-update-label{flex:none;font-weight:800;color:#fff;background:#285b48;padding:3px 9px;border-radius:4px;font-size:12px}
+.journal-update-date{flex:none;font-size:12px;color:#3c5949;font-variant-numeric:tabular-nums}
+.journal-update-copy{color:#30483d;font-size:14px}
+.journal-update-title{flex:1 1 240px;min-width:0;overflow-wrap:anywhere;font-size:15px;font-weight:700;color:#1d4635;text-decoration:underline;text-underline-offset:3px}
+.journal-update-more{margin-left:auto;white-space:nowrap;font-size:13px;font-weight:700;color:#24533f}
+.journal-update-strip a:focus-visible{outline:3px solid #276b54;outline-offset:3px}
+@media(max-width:600px){.journal-update-strip{align-items:flex-start;gap:7px 11px;padding:12px}.journal-update-title{flex-basis:100%;font-size:14px}.journal-update-more{margin-left:0}}
