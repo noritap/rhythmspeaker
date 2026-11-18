@@ -58,7 +58,7 @@
     for (const product of products) {
       product.relatedIds = products.filter(p => p.id !== product.id && p.category === product.category).map(p => p.id);
     }
-    const links = {'robot-vacuum':['RS-P0001'],'headphones':['RS-P0002','RS-P0005','RS-P0012','RS-P0013'],'portable-power':['RS-P0014']};
+    const links = {'daily-handsoap-4l':['RS-P0050'],'headphones-commute-choice':['RS-P0002','RS-P0005','RS-P0012'],'portable-power-first-check':['RS-P0014'],'smartplug-first-home':['RS-P0015'],'mct-oil-quantity-choice':['RS-P0031'],'robot-vacuum':['RS-P0001'],'headphones':['RS-P0002','RS-P0005','RS-P0012','RS-P0013'],'portable-power':['RS-P0014']};
     const articles = editorial.articles.map(a=>({...a,products:(links[a.id]||[]).filter(id=>products.some(p=>p.id===id))}));
     try {
       const res = await fetch('./blog-feed.json',{cache:'no-cache'});
