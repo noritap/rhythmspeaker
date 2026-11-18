@@ -173,6 +173,19 @@ class TestShotenCatalog(unittest.TestCase):
                 self.assertEqual((result["category"], result["subcategory"]),
                                  (expected_category, expected_subcategory))
 
+    def test_openrun_pro2_photo_style_art_is_local_and_disclosed(self):
+        root = Path(__file__).resolve().parents[1]
+        catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
+        row = next(p for p in catalog["products"] if p["product_id"] == "RS-P0046")
+        asset = "./assets/products/rs-p0046-shokz-openrun-pro2-black-editorial.svg"
+        self.assertEqual(row["approvedPhoto"], asset)
+        svg = (root / "shoten" / asset).read_text(encoding="utf-8")
+        self.assertIn('data:image/jpeg;base64,', svg)
+        self.assertTrue(row["gallery"])
+        self.assertIn("実物写真ではありません", row["gallery"][0]["alt"])
+        self.assertIs(row["imageSource"]["product_photo"], False)
+        self.assertEqual(row["href"], "https://link.amazon/B0hcXfgcs")
+
     def test_existing_openfit_illustration_preserved_in_live_catalog(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
