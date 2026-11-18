@@ -376,3 +376,16 @@ body { background: var(--edition-paper); }
 .journal-read-more{text-align:right;margin:1rem 0 0}
 .journal-read-more a{color:#234b40;text-underline-offset:3px;font-weight:700}
 @media(max-width:720px){.journal-latest-grid>.article-card{min-width:0}.journal-latest-grid .journal-slot-label{top:8px;left:8px}.journal-freshness{font-size:.8rem}}
+
+/* Recently checked product picks; dates show information checks, not publication dates. */
+.shop-refreshed-picks{margin:1.5rem 0 2.25rem;padding:1.25rem;border:1px solid #d8dfd6;border-radius:16px;background:#f7f8f4}
+.shop-refreshed-heading{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:1rem}
+.shop-refreshed-heading h2{font-size:clamp(1.15rem,2.7vw,1.55rem);margin:.25rem 0}
+.shop-refreshed-heading p:last-child{font-size:.88rem;color:#56635b}
+.shop-refreshed-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+.shop-refreshed-item{display:flex;flex-direction:column;gap:.55rem;padding:1rem;background:#fff;border:1px solid #e2e5de;border-radius:12px;color:#243f34;text-decoration:none;min-width:0;transition:border-color .15s ease}
+.shop-refreshed-item:hover,.shop-refreshed-item:focus-visible{border-color:#255d50;outline-offset:3px}
+.shop-refreshed-item strong{font-size:.94rem;line-height:1.55;overflow-wrap:anywhere}
+.shop-refreshed-date{font-size:.75rem;color:#526358}
+.shop-refreshed-category{margin-top:auto;font-size:.78rem;font-weight:700;color:#255d50}
+@media(max-width:720px){.shop-refreshed-picks{padding:1rem}.shop-refreshed-heading{align-items:start;flex-direction:column}.shop-refreshed-list{grid-template-columns:1fr}.shop-refreshed-item{gap:.3rem;padding:.85rem}}
