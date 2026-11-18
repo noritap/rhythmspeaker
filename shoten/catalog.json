@@ -347,25 +347,30 @@
         }
       ],
       "href": "https://link.amazon/B03EuZEVM",
-      "approvedPhoto": "./assets/products/rs-p0014-ecoflow-delta-3-classic-editorial.svg",
+      "approvedPhoto": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
       "gallery": [
         {
+          "src": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
+          "alt": "EcoFlow公式 DELTA 3 Classic（1024Wh）本体の商品写真"
+        },
+        {
           "src": "./assets/products/rs-p0014-ecoflow-delta-3-classic-editorial.svg",
-          "alt": "EcoFlow DELTA 3 Classic（1024Wh）のAI制作イメージ（実物の商品写真ではありません）"
+          "alt": "EcoFlow DELTA 3 Classic のAI制作イメージ（実物写真ではありません）"
         }
       ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "EcoFlow Japan official product photography",
+        "source_page": "https://jp.ecoflow.com/products/delta-3-classic",
+        "source_image_url": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
         "verified_model": "EcoFlow DELTA 3 Classic（1024Wh）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-18",
+        "hosting": "remote_official_cdn"
       }
     },
     {

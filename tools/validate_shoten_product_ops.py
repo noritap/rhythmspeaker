@@ -54,6 +54,7 @@ def validate(data, root=ASSET):
             else:
                 remote = urlsplit(approved)
                 allowed_remote = remote.scheme == "https" and (
+                    (remote.netloc == "jp.ecoflow.com" and remote.path == "/cdn/shop/files/D3C_1200_1200.png" and remote.query == "v=1780393161") or
                     (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
                     (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
                     (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
@@ -71,7 +72,8 @@ def validate(data, root=ASSET):
                 continue
             remote = urlsplit(src)
             allowed_remote = remote.scheme == "https" and (
-                (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
+                (remote.netloc == "jp.ecoflow.com" and remote.path == "/cdn/shop/files/D3C_1200_1200.png" and remote.query == "v=1780393161") or
+                    (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
                 (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
                 (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
             )
