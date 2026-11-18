@@ -51,7 +51,7 @@ def main():
         print("No changes")
         return
     payload={"schema_version":1,"source":FEED,"updated_at":dt.datetime.now(dt.timezone.utc).isoformat(),"entries":entries}
-    target.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+    target.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(f"Updated {len(entries)} blog entries")
 
 if __name__=="__main__":
