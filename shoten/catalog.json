@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "44ffb1d8d20663d8aeb8c1fc4f68dc093747ffd6",
+  "source_sha": "63edf2539d86122522d25aac2b65d9cc082e67bc",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -285,26 +285,189 @@
         }
       ],
       "href": "https://link.amazon/B03mQWsds",
-      "approvedPhoto": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
+      "approvedPhoto": null,
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": "rsshop-hatenablg-22",
-      "gallery": [
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0014",
+      "asin": "B0G8DVFCPP",
+      "brand": "EcoFlow",
+      "model": "DELTA 3 Classic（1024Wh）",
+      "formal_name": "EcoFlow DELTA 3 Classic（1024Wh）",
+      "category": "outdoor",
+      "subcategory": "ac-power",
+      "kind": "AC対応電源",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "停電に備えて電源を用意したい人",
+        "車で運べるアウトドア電源を探す人",
+        "AC機器とUSB機器をまとめて使いたい人"
+      ],
+      "eyebrow": "1024Wh・定格1500Wのポータブル電源。停電への備えや車で出かけるアウトドアに。",
+      "summary": "国内向け定格AC1500W、ACコンセント3口、USB-C 2口、USB-A 1口を備え、家庭での備えから屋外の機器利用まで用途を比較しやすいモデル。",
+      "good": "停電に備えて電源を用意したい人・車で運べるアウトドア電源を探す人・AC機器とUSB機器をまとめて使いたい人",
+      "caution": "約12.1kgのため徒歩移動には不向き・X-Boost 2000Wは全家電の正常動作を保証しない・実際に使える電力量は接続機器と変換損失で変わる・実使用は未検証、価格・Amazon在庫は変動する",
+      "highlight": "停電に備えて電源を用意したい人・車で運べるアウトドア電源を探す人・AC機器とUSB機器をまとめて使いたい人",
+      "date": "2026-11-13",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "停電に備えて電源を用意したい人・車で運べるアウトドア電源を探す人・AC機器とUSB機器をまとめて使いたい人",
+        "主な仕様": "国内向け定格AC1500W、ACコンセント3口、USB-C 2口、USB-A 1口を備え、家庭での備えから屋外の機器利用まで用途を比較しやすいモデル。"
+      },
+      "reasons": [
+        "国内向け定格AC1500W、ACコンセント3口、USB-C 2口、USB-A 1口を備え、家庭での備えから屋外の機器利用まで用途を比較しやすいモデル。"
+      ],
+      "sources": [
         {
-          "src": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
-          "alt": "Shokz OpenFit Pro ホワイトのAI制作イメージ画像（実物写真ではありません）"
+          "url": "https://jp.ecoflow.com/products/delta-3-classic",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000254.000050601.html",
+          "label": "商品情報の出典"
         }
       ],
-      "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
-        "verified_model": "Shokz OpenFit Pro ホワイト",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
-      }
+      "href": "https://link.amazon/B03EuZEVM",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0015",
+      "asin": "B09PYLWNGV",
+      "brand": "SwitchBot",
+      "model": "プラグミニ（JP）通常版 1個（W2001400）",
+      "formal_name": "SwitchBot プラグミニ（JP）通常版 1個（W2001400）",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スマホから対応家電の電源を管理したい人",
+        "家電の消費電力を見える化したい人",
+        "専用ハブなしでスマートホームを始めたい人"
+      ],
+      "eyebrow": "Wi-Fi 2.4GHz対応、ハブ不要のスマートプラグ。家電の電源操作と消費電力確認に。",
+      "summary": "100V・最大15A／1500W対応。スマートフォンから電源オン・オフ、スケジュール操作や電力使用状況の確認ができ、身近な家電からスマートホーム化を試しやすい。",
+      "good": "スマホから対応家電の電源を管理したい人・家電の消費電力を見える化したい人・専用ハブなしでスマートホームを始めたい人",
+      "caution": "N極対応コンセントが必要・1500W・15Aを超えない・自動復電が危険な機器や医療機器に使わない・5GHzのみのWi-Fi環境では利用できない・HomeKit対応版とは別商品・本人の実使用は未確認",
+      "highlight": "スマホから対応家電の電源を管理したい人・家電の消費電力を見える化したい人・専用ハブなしでスマートホームを始めたい人",
+      "date": "2026-11-13",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スマホから対応家電の電源を管理したい人・家電の消費電力を見える化したい人・専用ハブなしでスマートホームを始めたい人",
+        "主な仕様": "100V・最大15A／1500W対応。スマートフォンから電源オン・オフ、スケジュール操作や電力使用状況の確認ができ、身近な家電からスマートホーム化を試しやすい。"
+      },
+      "reasons": [
+        "100V・最大15A／1500W対応。スマートフォンから電源オン・オフ、スケジュール操作や電力使用状況の確認ができ、身近な家電からスマートホーム化を試しやすい。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.switchbot.jp/products/switchbot-plug-mini",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000033.000057002.html",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0fvPIBGJ",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0016",
+      "asin": "B0F2MRRKH7",
+      "brand": "Anker",
+      "model": "Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
+      "formal_name": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
+      "category": "sound",
+      "subcategory": "work-tools",
+      "kind": "仕事のデジタル道具",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "ノートPCとスマートフォンの充電器をまとめたい人",
+        "複数のUSB-C機器を持ち歩く人",
+        "充電状態を本体画面で把握したい人"
+      ],
+      "eyebrow": "USB-C 3ポート・合計最大160W、単ポート最大140W対応。ノートPCとスマートフォンをまとめて充電する人向け。",
+      "summary": "約220gのコンパクトボディ、タッチ式ディスプレイ、3ポートの出力自動配分で複数機器の充電を整理できる。",
+      "good": "ノートPCとスマートフォンの充電器をまとめたい人・複数のUSB-C機器を持ち歩く人・充電状態を本体画面で把握したい人",
+      "caution": "接続する機器・ケーブル・ポート数により充電速度と最大出力が変動する・USB-Cケーブルは別売り・充電中は本体が熱を帯びる場合がある・本人の実使用は未確認・公式HPのwork分類の掲載マッピングは未確定",
+      "highlight": "ノートPCとスマートフォンの充電器をまとめたい人・複数のUSB-C機器を持ち歩く人・充電状態を本体画面で把握したい人",
+      "date": "2026-11-13",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "ノートPCとスマートフォンの充電器をまとめたい人・複数のUSB-C機器を持ち歩く人・充電状態を本体画面で把握したい人",
+        "主な仕様": "約220gのコンパクトボディ、タッチ式ディスプレイ、3ポートの出力自動配分で複数機器の充電を整理できる。"
+      },
+      "reasons": [
+        "約220gのコンパクトボディ、タッチ式ディスプレイ、3ポートの出力自動配分で複数機器の充電を整理できる。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/a2687",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B09BW7hhk",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0050",
+      "asin": "B00ABV7NA8",
+      "brand": "ライオンハイジーン / キレイキレイ",
+      "model": "薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）",
+      "formal_name": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）",
+      "category": "home",
+      "subcategory": "hygiene",
+      "kind": "衛生・ハンドソープ",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "家庭で手洗い用品を定期補充したい人",
+        "スタジオや共用スペースで大容量を使いたい人"
+      ],
+      "eyebrow": "薬用泡ハンドソープの業務用4L詰め替え。家庭や共用スペースでの継続補充向け。",
+      "summary": "大容量・泡タイプ・継続利用される消耗品。本人提供のAmazon商品ページで4L・薬用・泡タイプを照合。",
+      "good": "家庭で手洗い用品を定期補充したい人・スタジオや共用スペースで大容量を使いたい人",
+      "caution": "泡タイプ専用容器を使用。液体タイプ容器には詰め替えない・4L容器の保管場所が必要・価格・送料・定期便割引は購入条件で変動するため固定表示しない・本人の実使用レビューは未記録",
+      "highlight": "家庭で手洗い用品を定期補充したい人・スタジオや共用スペースで大容量を使いたい人",
+      "date": "2026-11-18",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "家庭で手洗い用品を定期補充したい人・スタジオや共用スペースで大容量を使いたい人",
+        "主な仕様": "大容量・泡タイプ・継続利用される消耗品。本人提供のAmazon商品ページで4L・薬用・泡タイプを照合。"
+      },
+      "reasons": [
+        "大容量・泡タイプ・継続利用される消耗品。本人提供のAmazon商品ページで4L・薬用・泡タイプを照合。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B00ABV7NA8",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0eZ6jUg8",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     }
   ]
 }

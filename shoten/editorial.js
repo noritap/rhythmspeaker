@@ -29,6 +29,10 @@ window.SHOTEN_EDITORIAL = {
           "name": "ロボット掃除機"
         },
         {
+          "id": "daily-goods",
+          "name": "暮らしの道具・消耗品"
+        },
+        {
           "id": "hygiene",
           "name": "衛生・ハンドソープ"
         }
@@ -59,6 +63,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "wireless-headphones",
           "name": "ワイヤレスヘッドホン"
+        },
+        {
+          "id": "work-tools",
+          "name": "仕事のデジタル道具"
         }
       ]
     },
