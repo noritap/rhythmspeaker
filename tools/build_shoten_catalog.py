@@ -14,6 +14,8 @@ SURFACE_ID = "rhythmspeaker-web"
 SURFACE_URL = "https://noritap.github.io/rhythmspeaker/shoten/"
 CATEGORY_BY_TAG = {
     "cleaning": ("home", "robot-vacuums", "ロボット掃除機", "peach", "time"),
+    "hygiene": ("home", "hygiene", "衛生・ハンドソープ", "peach", "time"),
+    "oils": ("food", "oils", "食用オイル", "green", "carry"),
     "audio": ("sound", "wireless-headphones", "ワイヤレスヘッドホン", "blue", "focus"),
     "ac-power": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "dc-power": ("outdoor", "dc-power", "USB・DC電源", "green", "carry"),
