@@ -173,6 +173,16 @@ class TestShotenCatalog(unittest.TestCase):
                 self.assertEqual((result["category"], result["subcategory"]),
                                  (expected_category, expected_subcategory))
 
+    def test_existing_openfit_illustration_preserved_in_live_catalog(self):
+        root = Path(__file__).resolve().parents[1]
+        catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
+        row = next(p for p in catalog["products"] if p["product_id"] == "RS-P0013")
+        asset = "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg"
+        self.assertEqual(row["approvedPhoto"], asset)
+        self.assertTrue((root / "shoten" / asset).is_file())
+        self.assertTrue(any(item["src"] == asset for item in row["gallery"]))
+        self.assertEqual(row["imageSource"]["image_type"], "AI_GENERATED_EDITORIAL_ILLUSTRATION")
+
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
         asset = "./assets/products/sample.webp"
