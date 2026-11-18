@@ -347,11 +347,26 @@
         }
       ],
       "href": "https://link.amazon/B03EuZEVM",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0014-ecoflow-delta-3-classic-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0014-ecoflow-delta-3-classic-editorial.svg",
+          "alt": "EcoFlow DELTA 3 Classic（1024Wh）のAI制作イメージ（実物の商品写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "EcoFlow DELTA 3 Classic（1024Wh）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     },
     {
       "product_id": "RS-P0015",
@@ -394,11 +409,26 @@
         }
       ],
       "href": "https://link.amazon/B0fvPIBGJ",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0015-switchbot-plug-mini-jp-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0015-switchbot-plug-mini-jp-editorial.svg",
+          "alt": "SwitchBot プラグミニ（JP）通常版 1個（W2001400）のAI制作イメージ（実物の商品写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "SwitchBot プラグミニ（JP）通常版 1個（W2001400）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     },
     {
       "product_id": "RS-P0016",
