@@ -117,7 +117,7 @@
   // Show recently checked, already-published items; checked date is not a publication date.
   function refreshedPicksMarkup() {
     const recent = products.map((p,i)=>({p,i}))
-      .filter(({p})=>/^\\d{4}-\\d{2}-\\d{2}$/.test(p.date||''))
+      .filter(({p})=>/^\d{4}-\d{2}-\d{2}$/.test(p.date||''))
       .sort((a,b)=>b.p.date.localeCompare(a.p.date)||b.i-a.i)
       .slice(0,3);
     if (!recent.length) return '';
