@@ -39,6 +39,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "paper",
           "name": "ティッシュ・紙用品"
+        },
+        {
+          "id": "smart-home",
+          "name": "スマートホーム・家電操作"
         }
       ]
     },
