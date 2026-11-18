@@ -135,6 +135,28 @@ class TestShotenCatalog(unittest.TestCase):
         self.assertTrue(all(row["ownerVerifiedShortLink"] for row in rows))
         self.assertTrue(all(row["affiliateLinkKind"] == "AMAZON_OFFICIAL_SHORT" for row in rows))
 
+    def test_owner_provided_short_link_does_not_require_tracking_reverification(self):
+        item = fixture()
+        short = "https://link.amazon/B0fvPIBGJ"
+        item["affiliate_links"].update({
+            "status": "OWNER_PROVIDED",
+            "special_link": short,
+            "tracking_id": None,
+            "generated_by": None,
+            "verified_at": None,
+            "source_page_url": None,
+            "verification_method": "OWNER_SUPPLIED_OFFICIAL_AFFILIATE_SHORT_LINK_IN_CHAT; OWNER_ATTESTED_DESTINATION",
+        })
+        item["row"]["affiliate_url"] = short
+        rows = self.run_projection(item, surface_tracking_id=None)
+        self.assertEqual(rows[0]["href"], short)
+        self.assertEqual(rows[0]["affiliateLinkKind"], "AMAZON_OFFICIAL_SHORT")
+        self.assertTrue(rows[0]["ownerVerifiedShortLink"])
+        self.assertIsNone(rows[0]["trackingId"])
+        item["affiliate_links"]["special_link"] = "https://other.example.com/evil"
+        with self.assertRaisesRegex(ValueError, "Special Link"):
+            self.run_projection(item, surface_tracking_id=None)
+
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
         asset = "./assets/products/sample.webp"

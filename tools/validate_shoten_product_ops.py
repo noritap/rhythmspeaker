@@ -31,7 +31,7 @@ def validate(data, root=ASSET):
         try:
             u = urlsplit(href)
             query = parse_qs(u.query)
-            short = u.scheme == "https" and u.netloc == "link.amazon" and bool(re.fullmatch(r"/[A-Za-z0-9]+", u.path)) and not u.query and not u.fragment and p.get("affiliateLinkKind") == "AMAZON_OFFICIAL_SHORT" and p.get("ownerVerifiedShortLink") is True and bool(re.fullmatch(r"[A-Za-z0-9_-]+-22", p.get("trackingId", "")))
+            short = u.scheme == "https" and u.netloc == "link.amazon" and bool(re.fullmatch(r"/[A-Za-z0-9]+", u.path)) and not u.query and not u.fragment and p.get("affiliateLinkKind") == "AMAZON_OFFICIAL_SHORT" and p.get("ownerVerifiedShortLink") is True and (p.get("trackingId") is None or bool(re.fullmatch(r"[A-Za-z0-9_-]+-22", p.get("trackingId", ""))))
             direct = u.scheme == "https" and u.netloc in ("www.amazon.co.jp", "amazon.co.jp") and asin in u.path and len(query.get("tag", [])) == 1 and bool(query["tag"][0])
             if not (short or direct):
                 errors.append(f"{prefix}: unverified affiliate URL")
