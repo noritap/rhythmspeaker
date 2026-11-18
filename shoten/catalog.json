@@ -467,11 +467,26 @@
         }
       ],
       "href": "https://link.amazon/B09BW7hhk",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0016-anker-prime-charger-160w-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0016-anker-prime-charger-160w-editorial.svg",
+          "alt": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）のAI制作イラスト（実物の商品写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     },
     {
       "product_id": "RS-P0050",
@@ -509,11 +524,26 @@
         }
       ],
       "href": "https://link.amazon/B0eZ6jUg8",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0050-kireikirei-foam-4l-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0050-kireikirei-foam-4l-editorial.svg",
+          "alt": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）のAI制作イラスト（実物の商品写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     },
     {
       "product_id": "RS-P0031",
@@ -551,11 +581,26 @@
         }
       ],
       "href": "https://link.amazon/B00k2sLAi",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0031-sports-research-mct-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0031-sports-research-mct-editorial.svg",
+          "alt": "Sports Research オーガニック MCTオイル 1183mL（1本）のAI制作イラスト（実物の商品写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "Sports Research オーガニック MCTオイル 1183mL（1本）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     }
   ]
 }
