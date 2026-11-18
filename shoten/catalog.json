@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "63edf2539d86122522d25aac2b65d9cc082e67bc",
+  "source_sha": "5a7567e5ccf73930640f385ac08bafa317f140fe",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -479,6 +479,48 @@
         }
       ],
       "href": "https://link.amazon/B0eZ6jUg8",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0031",
+      "asin": "B0BGJFZHRX",
+      "brand": "Sports Research",
+      "model": "オーガニック MCTオイル 1183mL（1本）",
+      "formal_name": "Sports Research オーガニック MCTオイル 1183mL（1本）",
+      "category": "food",
+      "subcategory": "oils",
+      "kind": "食用オイル",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "大容量のMCTオイルを探している人",
+        "食用油として飲み物や料理に加える使い方を検討する人"
+      ],
+      "eyebrow": "スポーツリサーチ表記のオーガニックMCTオイル、1183mL入り。毎日の食用オイルを大容量で補充したい人向け。",
+      "summary": "本人がAmazonで繰り返し購入した1183mLのMCTオイル。ココナッツ由来・大容量の食用オイルとして紹介。",
+      "good": "大容量のMCTオイルを探している人・食用油として飲み物や料理に加える使い方を検討する人",
+      "caution": "医薬品・治療目的の商品ではない。健康効果を保証する表現をしない・摂取量・使用方法は現物ラベルに従う・ココナッツ由来原料を含むためアレルギー表示を確認・20oz×2本セットなど別構成の商品と混同しない・Amazon出品ページのブランド欄はSPICEショップ表記。商品名にSports Researchと記載。メーカー由来の認証・効果は未検証・商品説明・販売者・価格はAmazon購入時に確認",
+      "highlight": "大容量のMCTオイルを探している人・食用油として飲み物や料理に加える使い方を検討する人",
+      "date": "2026-11-18",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "大容量のMCTオイルを探している人・食用油として飲み物や料理に加える使い方を検討する人",
+        "主な仕様": "本人がAmazonで繰り返し購入した1183mLのMCTオイル。ココナッツ由来・大容量の食用オイルとして紹介。"
+      },
+      "reasons": [
+        "本人がAmazonで繰り返し購入した1183mLのMCTオイル。ココナッツ由来・大容量の食用オイルとして紹介。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0BGJFZHRX",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B00k2sLAi",
       "approvedPhoto": null,
       "gallery": [],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
