@@ -23,6 +23,7 @@ CATEGORY_BY_TAG = {
     "dc-power": ("outdoor", "dc-power", "USB・DC電源", "green", "carry"),
     "outdoor": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "life": ("home", "daily-goods", "暮らしの道具・消耗品", "peach", "time"),
+    "smart-home": ("home", "smart-home", "スマートホーム・家電操作", "peach", "time"),
     "work": ("sound", "work-tools", "仕事のデジタル道具", "blue", "focus"),
 }
 
