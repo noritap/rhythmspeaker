@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "a2214116c99fdd0bea6658dfdc14cf1a278d65a0",
+  "source_sha": "e739229913d158d6fffd77643e0eb9e89b270758",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -667,6 +667,98 @@
         "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
         "checked_at": "2026-11-18"
       }
+    },
+    {
+      "product_id": "RS-P0051",
+      "asin": "B0GK124ZKS",
+      "brand": "大王製紙（エリエール）",
+      "model": "エリエール i:na ソフトパックティシュー 150組×100パック（10パック×10・ケース販売）",
+      "formal_name": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×100パック（10パック×10・ケース販売）",
+      "category": "home",
+      "subcategory": "paper",
+      "kind": "ティッシュ・紙用品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スタジオ・店舗など使用量が多い場所",
+        "100パックを保管するスペースがある人"
+      ],
+      "eyebrow": "1パック150組のエリエール i:na ソフトパックを100パックまとめたケース販売。",
+      "summary": "スタジオ・職場・店舗などで消耗するティシューをケース単位でまとめ買いする候補。",
+      "good": "スタジオ・店舗など使用量が多い場所・100パックを保管するスペースがある人",
+      "caution": "販売単位・出品者・送料・在庫はAmazonの掲載画面で購入時に確認する・ソフトパック150組の製品。既存RS-P0047のボックス型220組×5箱とは別商品・本人の実使用レビューではない・Amazon商品ページの取得が制限されたため、商品名・入数・ASINは本人提供ページ情報を基準とする",
+      "highlight": "スタジオ・店舗など使用量が多い場所・100パックを保管するスペースがある人",
+      "date": "2026-11-18",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スタジオ・店舗など使用量が多い場所・100パックを保管するスペースがある人",
+        "主な仕様": "スタジオ・職場・店舗などで消耗するティシューをケース単位でまとめ買いする候補。"
+      },
+      "reasons": [
+        "スタジオ・職場・店舗などで消耗するティシューをケース単位でまとめ買いする候補。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0GK124ZKS",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0GK124ZKS?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=e1f867b5f34d7482fc46c78ca43d33cf",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0052",
+      "asin": "B0H71PYZYZ",
+      "brand": "大王製紙（エリエール）",
+      "model": "エリエール i:na ソフトパックティシュー 150組×20パック（10パック×2セット）",
+      "formal_name": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×20パック（10パック×2セット）",
+      "category": "home",
+      "subcategory": "paper",
+      "kind": "ティッシュ・紙用品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "家庭の定期的な補充",
+        "20パックのまとめ買いを検討する人"
+      ],
+      "eyebrow": "1パック150組のエリエール i:na ソフトパックを20パックまとめたセット。",
+      "summary": "家庭や小規模オフィスの補充用に、ケースより少ない20パック単位でまとめ買いできる候補。",
+      "good": "家庭の定期的な補充・20パックのまとめ買いを検討する人",
+      "caution": "販売単位・出品者・送料・在庫はAmazonの掲載画面で購入時に確認する・ソフトパック150組の製品。既存RS-P0047のボックス型220組×5箱とは別商品・本人の実使用レビューではない・Amazon商品ページの取得が制限されたため、商品名・入数・ASINは本人提供ページ情報を基準とする",
+      "highlight": "家庭の定期的な補充・20パックのまとめ買いを検討する人",
+      "date": "2026-11-18",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "家庭の定期的な補充・20パックのまとめ買いを検討する人",
+        "主な仕様": "家庭や小規模オフィスの補充用に、ケースより少ない20パック単位でまとめ買いできる候補。"
+      },
+      "reasons": [
+        "家庭や小規模オフィスの補充用に、ケースより少ない20パック単位でまとめ買いできる候補。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0H71PYZYZ",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0H71PYZYZ?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=f09d29373b88c70f897cdd8afebf0301",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
     }
   ]
 }
