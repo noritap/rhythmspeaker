@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "5a7567e5ccf73930640f385ac08bafa317f140fe",
+  "source_sha": "a2214116c99fdd0bea6658dfdc14cf1a278d65a0",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -601,6 +601,57 @@
         "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
         "checked_at": "2026-11-18"
       }
+    },
+    {
+      "product_id": "RS-P0046",
+      "asin": "B0D2W63XYY",
+      "brand": "Shokz",
+      "model": "OpenRun Pro 2 ブラック・標準サイズ（USB-C充電）",
+      "formal_name": "Shokz OpenRun Pro 2 ブラック・標準サイズ（USB-C充電）",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "ダンス練習やウォーキング中に周囲の音も聞きたい人",
+        "イヤホンの耳内装着が苦手な人",
+        "スポーツ向けの安定したフレーム形状を選びたい人"
+      ],
+      "eyebrow": "耳をふさがないスポーツ向けオープンイヤーイヤホン。ブラック・標準バンドサイズのモデル。",
+      "summary": "メーカー公表で最大12時間再生、Bluetooth 5.3、IP55の耐汗性能、約30.3g。USB-C充電に対応する。",
+      "good": "ダンス練習やウォーキング中に周囲の音も聞きたい人・イヤホンの耳内装着が苦手な人・スポーツ向けの安定したフレーム形状を選びたい人",
+      "caution": "IP55は水泳用の完全防水ではない・公称再生時間は使用状況で変わる・標準サイズとMiniサイズは別バリエーション。頭部サイズを確認する・本人の試聴・実使用レビューではない",
+      "highlight": "ダンス練習やウォーキング中に周囲の音も聞きたい人・イヤホンの耳内装着が苦手な人・スポーツ向けの安定したフレーム形状を選びたい人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "ダンス練習やウォーキング中に周囲の音も聞きたい人・イヤホンの耳内装着が苦手な人・スポーツ向けの安定したフレーム形状を選びたい人",
+        "主な仕様": "メーカー公表で最大12時間再生、Bluetooth 5.3、IP55の耐汗性能、約30.3g。USB-C充電に対応する。"
+      },
+      "reasons": [
+        "メーカー公表で最大12時間再生、Bluetooth 5.3、IP55の耐汗性能、約30.3g。USB-C充電に対応する。"
+      ],
+      "sources": [
+        {
+          "url": "https://jp.shokz.com/products/openrun-pro2",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://jp.shokz.com/collections/all",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0D2W63XYY",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0hcXfgcs",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     }
   ]
 }
