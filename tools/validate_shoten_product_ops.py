@@ -8,7 +8,7 @@ from urllib.parse import urlsplit, parse_qs
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "shoten/catalog.json"
 ASSET = ROOT / "shoten"
-PATTERN = re.compile(r"^\./assets/products/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif)$")
+PATTERN = re.compile(r"^\./assets/products/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif|svg)$")
 ID = re.compile(r"^RS-P\d{4,}$")
 ASIN = re.compile(r"^[A-Z0-9]{10}$")
 
