@@ -708,11 +708,26 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0GK124ZKS?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=e1f867b5f34d7482fc46c78ca43d33cf",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
+          "alt": "エリエール i:na ソフトパックティシュー 100パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_DIRECT",
       "ownerVerifiedShortLink": false,
-      "trackingId": "rsshop-hatenablg-22"
+      "trackingId": "rsshop-hatenablg-22",
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×100パック（10パック×10・ケース販売）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     },
     {
       "product_id": "RS-P0052",
@@ -754,11 +769,26 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0H71PYZYZ?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=f09d29373b88c70f897cdd8afebf0301",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
+          "alt": "エリエール i:na ソフトパックティシュー 20パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_DIRECT",
       "ownerVerifiedShortLink": false,
-      "trackingId": "rsshop-hatenablg-22"
+      "trackingId": "rsshop-hatenablg-22",
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×20パック（10パック×2セット）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     }
   ]
 }
