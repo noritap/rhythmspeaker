@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-17",
+  "items": [
+    {
+      "id": "toy-2026-stage",
+      "title": "豊洲場外マルシェ｜ステージ出演者募集",
+      "type": "audition",
+      "region": "東京都",
+      "place": "ミチノテラス豊洲（江東区）",
+      "date": null,
+      "date_label": "毎月開催（個別の募集枠は要確認）",
+      "deadline": null,
+      "organizer": "豊洲場外マルシェ運営実行委員会",
+      "summary": "主催者公式サイトでステージ出演者を募集。募集枠、出演条件、選考状況は必ず公式情報をご確認ください。",
+      "source_url": "https://www.toyosu-jyogai-marche.com/vender.html",
+      "verified_at": "2026-11-17",
+      "status": "information"
+    },
+    {
+      "id": "ktap-20261128",
+      "title": "タップダンススクールK タップショー VOL.25",
+      "type": "performance",
+      "region": "東京都",
+      "place": "中野区文化施設・小ホール",
+      "date": "2026-11-28",
+      "date_label": "2026年11月28日（土）14:30開演",
+      "deadline": null,
+      "organizer": "タップダンススクールK",
+      "summary": "入場無料のタップショー。会場・当日の案内は主催者および施設公式情報をご確認ください。",
+      "source_url": "https://www.naka-lab.jp/events/0346ceff-3c93-4d4b-8357-289929a1d8d7",
+      "verified_at": "2026-11-17",
+      "status": "information"
+    }
+  ]
+}
