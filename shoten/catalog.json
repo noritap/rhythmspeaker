@@ -285,25 +285,31 @@
         }
       ],
       "href": "https://link.amazon/B03mQWsds",
-      "approvedPhoto": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
+      "approvedPhoto": "https://jp.shokz.com/cdn/shop/files/openfit-pro-white-1_9f85b1d8-f0e5-4c73-988c-b4f029ac1219.webp?v=1775196197&width=900",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
         {
+          "src": "https://jp.shokz.com/cdn/shop/files/openfit-pro-white-1_9f85b1d8-f0e5-4c73-988c-b4f029ac1219.webp?v=1775196197&width=900",
+          "alt": "Shokz OpenFit Pro ホワイト のメーカー公式実物商品写真（ホワイト）"
+        },
+        {
           "src": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
-          "alt": "Shokz OpenFit Pro ホワイトのAI制作イメージ画像（実物写真ではありません）"
+          "alt": "Shokz OpenFit Pro ホワイト のAI制作イメージ（実物写真ではありません）"
         }
       ],
       "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Shokz Japan official product gallery",
+        "source_page": "https://jp.shokz.com/products/openfit-pro",
+        "source_image_url": "https://jp.shokz.com/cdn/shop/files/openfit-pro-white-1_9f85b1d8-f0e5-4c73-988c-b4f029ac1219.webp?v=1775196197&width=900",
         "verified_model": "Shokz OpenFit Pro ホワイト",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-18",
+        "hosting": "remote_official_cdn",
+        "delivery_status": "UNVERIFIED_HI_RES_VARIANT_BROWSER_FALLBACK"
       }
     },
     {
@@ -477,25 +483,31 @@
         }
       ],
       "href": "https://link.amazon/B09BW7hhk",
-      "approvedPhoto": "./assets/products/rs-p0016-anker-prime-charger-160w-editorial.svg",
+      "approvedPhoto": "https://www.ankerjapan.com/cdn/shop/files/A2687141.png?crop=center&height=900&v=1762316684&width=900",
       "gallery": [
         {
+          "src": "https://www.ankerjapan.com/cdn/shop/files/A2687141.png?crop=center&height=900&v=1762316684&width=900",
+          "alt": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41） のメーカー公式実物商品写真（シルバー）"
+        },
+        {
           "src": "./assets/products/rs-p0016-anker-prime-charger-160w-editorial.svg",
-          "alt": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）のAI制作イラスト（実物の商品写真ではありません）"
+          "alt": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41） のAI制作イメージ（実物写真ではありません）"
         }
       ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Anker Japan official product gallery",
+        "source_page": "https://www.ankerjapan.com/products/a2687",
+        "source_image_url": "https://www.ankerjapan.com/cdn/shop/files/A2687141.png?crop=center&height=900&v=1762316684&width=900",
         "verified_model": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-18",
+        "hosting": "remote_official_cdn",
+        "delivery_status": "UNVERIFIED_HI_RES_VARIANT_BROWSER_FALLBACK"
       }
     },
     {
