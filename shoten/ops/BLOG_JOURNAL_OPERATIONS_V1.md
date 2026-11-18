@@ -13,7 +13,7 @@
 - 製品紹介文の事実性、リンク・記事の公開許可は既存ゲートを遵守。ユーザー提供アフィリエイトリンクの転送先再検査はしない。
 
 ## 公開後に毎日行う自動作業
-1. GitHub Actions `shoten-blog-sync.yml` が06:30 JSTを目安にRSSを取得（GitHubの実行時刻遅延あり）。
+1. GitHub Actions `shoten-blog-sync.yml` が12:30 / 18:30 JSTを目安にRSSを取得（GitHubの実行時刻遅延あり）。
 2. `tools/sync_shoten_blog.py` が**公開済みの記事のみ**最大40件を解析。正規ドメイン/entry/以外を除外し、URLで重複排除。
 3. 記事本文に正式な商店商品URL `https://noritap.github.io/rhythmspeaker/shoten/#/product/RS-P0001` がある場合のみ、商品IDを関連付ける。製品名の曖昧な一致で自動関連付けしない。
 4. 変更がある場合だけブログスナップショットをcommitし、GitHub Pagesに反映。記事が0件/取得失敗なら**前回の正常スナップショットを維持**して失敗を記録。
