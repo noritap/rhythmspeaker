@@ -285,10 +285,26 @@
         }
       ],
       "href": "https://link.amazon/B03mQWsds",
-      "approvedPhoto": null,
+      "approvedPhoto": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": "rsshop-hatenablg-22"
+      "trackingId": "rsshop-hatenablg-22",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg",
+          "alt": "Shokz OpenFit Pro ホワイトのAI制作イメージ画像（実物写真ではありません）"
+        }
+      ],
+      "imageSource": {
+        "source_name": "Rhythm Speaker original editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "Shokz OpenFit Pro ホワイト",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
+      }
     }
   ]
 }
