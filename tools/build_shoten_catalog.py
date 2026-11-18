@@ -17,6 +17,7 @@ CATEGORY_BY_TAG = {
     "hygiene": ("home", "hygiene", "衛生・ハンドソープ", "peach", "time"),
     "paper": ("home", "paper", "ティッシュ・紙用品", "peach", "time"),
     "oils": ("food", "oils", "食用オイル", "green", "carry"),
+    "candy": ("food", "candy", "キャンディ・のど飴", "green", "carry"),
     "audio": ("sound", "wireless-headphones", "ワイヤレスヘッドホン", "blue", "focus"),
     "ac-power": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "dc-power": ("outdoor", "dc-power", "USB・DC電源", "green", "carry"),
