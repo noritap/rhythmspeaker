@@ -23,7 +23,7 @@
   let compare = [];
   try { const saved = JSON.parse(localStorage.getItem('rs-shop-compare-v1') || '[]'); if (Array.isArray(saved)) compare = [...new Set(saved)].filter(id => byId(id)).slice(0,3); } catch (_) {}
   if (!canCompare) compare = [];
-  const emptyFilters = () => ({q:'',category:'all',subcategory:'all',purpose:'all',verified:'all',sort:'editor'});
+  const emptyFilters = () => ({q:'',category:'all',subcategory:'all',purpose:'all',sort:'editor'});
   let filter = emptyFilters();
   let articleFilter = {q:'', category:'all'};
   let toastTimer;
@@ -114,10 +114,22 @@
       </div>
     </section>`;
   }
+  // Show recently checked, already-published items; checked date is not a publication date.
+  function refreshedPicksMarkup() {
+    const recent = products.map((p,i)=>({p,i}))
+      .filter(({p})=>/^\\d{4}-\\d{2}-\\d{2}$/.test(p.date||''))
+      .sort((a,b)=>b.p.date.localeCompare(a.p.date)||b.i-a.i)
+      .slice(0,3);
+    if (!recent.length) return '';
+    return `<section class="shop-refreshed-picks" aria-labelledby="shop-refreshed-title">
+      <div class="shop-refreshed-heading"><div><p class="eyebrow">RECENTLY CHECKED</p><h2 id="shop-refreshed-title">最近情報を確認した商品</h2><p>購入前の確認に役立つ、掲載中の商品からご紹介。</p></div><a href="#/products" class="text-link">すべての商品を見る →</a></div>
+      <div class="shop-refreshed-list">${recent.map(({p})=>`<a class="shop-refreshed-item" href="#/product/${encodeURIComponent(p.id)}"><span class="shop-refreshed-date">情報確認 ${esc(p.date)}</span><strong>${esc(p.formal_name)}</strong><span class="shop-refreshed-category">${esc(p.category_name)} <span aria-hidden="true">↗</span></span></a>`).join('')}</div>
+    </section>`;
+  }
   function listingMarkup(home=false) {
     const heading = home ? homeHeroMarkup() : `<div class="section-head"><div><p class="eyebrow">THE GOOD PICKS</p><h1>暮らしに合う、ひとつを。</h1></div><p>気になるものを見つけて、<br>違いをくらべてみよう。</p></div>${searchMarkup()}`;
     const selection = home ? `<div class="selection-head"><div><p class="eyebrow">EDITOR’S SELECTION</p><h2>タプ太郎の道具棚</h2></div><a class="selection-guide" href="#/about">${avatar}<span>案内役 <strong>リズムタプ太郎</strong></span><span aria-hidden="true">↗</span></a></div>` : '';
-    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label>照合 <select id="verified-filter"><option value="all">すべて</option><option value="verified">ASIN確認済み</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">商店のセレクト順</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
+    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${home?refreshedPicksMarkup():''}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">商店のセレクト順</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
   }
   // Editorial picks remain useful, but the newest published post must be visible on the homepage.
   const latestBlog = () => articles.filter(x=>x.externalUrl)
@@ -142,9 +154,7 @@
   }
   function setupListing() {
     setupSubcategories();
-    $('#verified-filter').value=filter.verified;
     $('#subcategory-filter').addEventListener('change',e=>{filter.subcategory=e.target.value;drawProducts();syncFilters();});
-    $('#verified-filter').addEventListener('change',e=>{filter.verified=e.target.value;drawProducts();syncFilters();});
     $('#purpose-filter').value=filter.purpose;
     $('#sort-filter').value=filter.sort;
     $('#search-form').addEventListener('submit', e => {
@@ -171,7 +181,7 @@
       const matches=terms.length?articles.filter(a=>(filter.category==='all'||a.category===filter.category)&&terms.every(t=>normalize(articleText(a)).includes(t))):[];
       related.innerHTML=terms.length?`<section class="search-reading"><h2>同じキーワードの読みもの <small>${matches.length}件</small></h2>${matches.length?matches.map(a=>`<a href="${a.externalUrl?esc(a.externalUrl):`#/article/${a.id}`}"${a.externalUrl?' target="_blank" rel="noopener noreferrer"':''}><span>${esc(a.type)}</span><b>${esc(a.title.replace('\n',''))}</b><span aria-hidden="true">→</span></a>`).join(''):'<p>一致する記事はありません。別のキーワードでも探せます。</p>'}<a class="text-link" href="#/articles?q=${encodeURIComponent(filter.q)}">読みものを検索する →</a></section>`:'';
     }
-    const active=filter.q||filter.category!=='all'||filter.purpose!=='all'||filter.subcategory!=='all'||filter.verified!=='all'||filter.sort!=='editor';
+    const active=filter.q||filter.category!=='all'||filter.purpose!=='all'||filter.subcategory!=='all'||filter.sort!=='editor';
     $('#active-filters').innerHTML=active?`<div class="active-filter-label"><span>絞り込み中${filter.q?'：'+esc(filter.q):''}</span><button data-action="reset-filters">すべて解除 ×</button></div>`:'';
   }
   function syncFilters() {
@@ -311,7 +321,7 @@
       case 'compare':openCompare(b);break;
       case 'close-compare':dialog.close();break;
       case 'category':filter.category=b.dataset.category;filter.subcategory='all';setupSubcategories();document.querySelectorAll('.category-tabs button').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',x===b);});drawProducts();syncFilters();break;
-      case 'reset-filters':filter=emptyFilters();$('#search-input').value='';setupSubcategories();$('#verified-filter').value='all';$('#purpose-filter').value='all';$('#sort-filter').value='editor';document.querySelectorAll('.category-tabs button').forEach(x=>{const active=x.dataset.category==='all';x.classList.toggle('active',active);x.setAttribute('aria-pressed',active);});drawProducts();syncFilters();$('#search-input').focus();break;
+      case 'reset-filters':filter=emptyFilters();$('#search-input').value='';setupSubcategories();$('#purpose-filter').value='all';$('#sort-filter').value='editor';document.querySelectorAll('.category-tabs button').forEach(x=>{const active=x.dataset.category==='all';x.classList.toggle('active',active);x.setAttribute('aria-pressed',active);});drawProducts();syncFilters();$('#search-input').focus();break;
       case 'article-filter':articleFilter.category=b.dataset.category;drawArticles();break;
       case 'reset-articles':articleFilter={q:'',category:'all'};$('#article-search-input').value='';drawArticles();break;
       case 'article-section':document.getElementById(b.dataset.section)?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});break;
