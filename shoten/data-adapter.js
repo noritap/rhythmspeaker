@@ -65,10 +65,10 @@
       if (res.ok) {
         const feed = await res.json();
         if (feed.schema_version===1 && Array.isArray(feed.entries)) {
-          for (const entry of feed.entries.slice(0,40).reverse()) {
+          for (const entry of feed.entries.slice(0,40)) {
             if (!entry || typeof entry.title!=='string' || !/^https:\/\/rhythmspeaker\.hatenablog\.com\/entry\//.test(entry.url)) continue;
             const ids = Array.isArray(entry.product_ids)?entry.product_ids.filter(id=>products.some(p=>p.id===id)):[];
-            articles.unshift({id:'hatena-'+encodeURIComponent(entry.url.split('/').pop()),category:products.find(p=>ids.includes(p.id))?.category||'all',type:'ブログ',title:entry.title,excerpt:entry.summary||'タプ太郎の毎日ブログで続きを読む。',time:3,art:'editor',products:ids,lead:'',sections:[],last_checked_at:entry.published||'',externalUrl:entry.url,feature:false});
+            articles.push({id:'hatena-'+encodeURIComponent(entry.url.split('/').pop()),category:products.find(p=>ids.includes(p.id))?.category||'all',type:'ブログ',title:entry.title,excerpt:entry.summary||'タプ太郎の毎日ブログで続きを読む。',time:3,art:'editor',products:ids,lead:'',sections:[],last_checked_at:entry.published||'',externalUrl:entry.url,feature:false});
           }
         }
       }
