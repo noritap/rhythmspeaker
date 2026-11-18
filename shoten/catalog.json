@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "7d459f383ebfd844de78b9fa19b2440dbd501361",
+  "source_sha": "ba3920d870771fa7cd1ee3c123b520439df5e37e",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -885,6 +885,57 @@
         }
       ],
       "href": "https://link.amazon/B0edk5RAw",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0044",
+      "asin": "B0DWDQYLXG",
+      "brand": "SwitchBot",
+      "model": "ハブ3（Hub 3）本体1台・標準付属品セット",
+      "formal_name": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セット",
+      "category": "home",
+      "subcategory": "smart-home",
+      "kind": "スマートホーム・家電操作",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "リモコンを集約したい人",
+        "エアコンや照明を手元で操作したい人",
+        "室内温湿度を確認しながらスマートホームを始めたい人"
+      ],
+      "eyebrow": "ダイヤルとカスタムボタンで対応家電を操作できるスマートリモコン。温湿度表示にも対応。",
+      "summary": "本体126×94×38mm、約190g。2.4GHz Wi-Fi・Bluetooth接続に対応し、付属ケーブルの温湿度センサーで室内環境を確認できる。",
+      "good": "リモコンを集約したい人・エアコンや照明を手元で操作したい人・室内温湿度を確認しながらスマートホームを始めたい人",
+      "caution": "赤外線家電の対応状況は型番によって異なる・Wi-Fiは2.4GHzに対応し、5GHzのみの環境では接続できない・すべてのMatter機器が無条件に操作できるわけではない・本人実使用の評価ではない",
+      "highlight": "リモコンを集約したい人・エアコンや照明を手元で操作したい人・室内温湿度を確認しながらスマートホームを始めたい人",
+      "date": "2026-11-16",
+      "specs": {
+        "本体寸法": "126×94×38mm",
+        "質量": "約190g",
+        "対応Wi-Fi": "2.4GHz"
+      },
+      "comparison": {
+        "選ぶ基準": "リモコンを集約したい人・エアコンや照明を手元で操作したい人・室内温湿度を確認しながらスマートホームを始めたい人",
+        "主な仕様": "本体126×94×38mm、約190g。2.4GHz Wi-Fi・Bluetooth接続に対応し、付属ケーブルの温湿度センサーで室内環境を確認できる。"
+      },
+      "reasons": [
+        "本体126×94×38mm、約190g。2.4GHz Wi-Fi・Bluetooth接続に対応し、付属ケーブルの温湿度センサーで室内環境を確認できる。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.switchbot.jp/products/switchbot-hub3",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0DWDQYLXG",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0dVuf9RI",
       "approvedPhoto": null,
       "gallery": [],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
