@@ -35,6 +35,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "hygiene",
           "name": "衛生・ハンドソープ"
+        },
+        {
+          "id": "paper",
+          "name": "ティッシュ・紙用品"
         }
       ]
     },
