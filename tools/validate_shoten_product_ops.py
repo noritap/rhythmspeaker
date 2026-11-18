@@ -54,6 +54,8 @@ def validate(data, root=ASSET):
             else:
                 remote = urlsplit(approved)
                 allowed_remote = remote.scheme == "https" and (
+                    (remote.netloc == "jp.shokz.com" and remote.path == "/cdn/shop/files/openfit-pro-white-1_9f85b1d8-f0e5-4c73-988c-b4f029ac1219.webp" and remote.query == "v=1775196197&width=900") or
+                    (remote.netloc == "www.ankerjapan.com" and remote.path == "/cdn/shop/files/A2687141.png" and remote.query == "crop=center&height=900&v=1762316684&width=900") or
                     (remote.netloc == "jp.ecoflow.com" and remote.path == "/cdn/shop/files/D3C_1200_1200.png" and remote.query == "v=1780393161") or
                     (remote.netloc == "www.switchbot.jp" and remote.path == "/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp" and remote.query == "v=1764836422") or
                     (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
@@ -73,7 +75,9 @@ def validate(data, root=ASSET):
                 continue
             remote = urlsplit(src)
             allowed_remote = remote.scheme == "https" and (
-                (remote.netloc == "jp.ecoflow.com" and remote.path == "/cdn/shop/files/D3C_1200_1200.png" and remote.query == "v=1780393161") or
+                (remote.netloc == "jp.shokz.com" and remote.path == "/cdn/shop/files/openfit-pro-white-1_9f85b1d8-f0e5-4c73-988c-b4f029ac1219.webp" and remote.query == "v=1775196197&width=900") or
+                    (remote.netloc == "www.ankerjapan.com" and remote.path == "/cdn/shop/files/A2687141.png" and remote.query == "crop=center&height=900&v=1762316684&width=900") or
+                    (remote.netloc == "jp.ecoflow.com" and remote.path == "/cdn/shop/files/D3C_1200_1200.png" and remote.query == "v=1780393161") or
                     (remote.netloc == "www.switchbot.jp" and remote.path == "/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp" and remote.query == "v=1764836422") or
                     (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
                 (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
