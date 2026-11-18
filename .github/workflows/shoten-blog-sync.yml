@@ -1,7 +1,7 @@
 name: Shoten published blog feed sync
 on:
   schedule:
-    - cron: '30 21 * * *' # 06:30 JST
+    - cron: '30 3,9 * * *' # 12:30 and 18:30 JST
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Test RSS parser
+        run: python3 -m unittest discover -s tests -p 'test_shoten_blog_sync.py'
       - name: Fetch published Hatena RSS
         run: python3 tools/sync_shoten_blog.py
       - name: Validate snapshot
