@@ -199,6 +199,13 @@ class TestShotenCatalog(unittest.TestCase):
             self.assertFalse(product["imageSource"]["product_photo"])
             self.assertEqual(product["imageSource"]["image_type"], "AI_GENERATED_EDITORIAL_ILLUSTRATION")
 
+    def test_candy_category_maps_to_food(self):
+        item = fixture(42)
+        item["products"]["category_ids"] = ["food", "candy"]
+        item["row"]["category_ids"] = ["food", "candy"]
+        product, = self.run_projection(item)
+        self.assertEqual((product["category"], product["subcategory"]), ("food", "candy"))
+
     def test_existing_openfit_illustration_preserved_in_live_catalog(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
