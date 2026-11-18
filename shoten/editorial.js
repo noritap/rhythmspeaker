@@ -53,6 +53,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "oils",
           "name": "食用オイル"
+        },
+        {
+          "id": "candy",
+          "name": "キャンディ・のど飴"
         }
       ]
     },
