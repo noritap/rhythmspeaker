@@ -1,0 +1,33 @@
+name: Shoten published blog feed sync
+on:
+  schedule:
+    - cron: '30 21 * * *' # 06:30 JST
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: shoten-blog-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch published Hatena RSS
+        run: python3 tools/sync_shoten_blog.py
+      - name: Validate snapshot
+        run: python3 -m json.tool shoten/blog-feed.json >/dev/null
+      - name: Commit changed feed only
+        run: |
+          if git diff --quiet -- shoten/blog-feed.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shoten/blog-feed.json
+          git commit -m "chore(shoten): refresh published blog journal"
+          git push
