@@ -84,7 +84,7 @@
     const cover = ['home','sound','outdoor'].map(id=>products.find(p=>p.category===id&&p.approvedPhoto)).filter(Boolean);
     const featureTopics = articles.filter(a=>a.feature).slice(0,3);
     return `<section class="shop-hero" aria-labelledby="shop-hero-title">
-      <div class="edition-line"><span>RHYTHM SPEAKER STORE JOURNAL</span><span>VOL. 001 <i>／</i> 暮らしの道具特集</span></div>
+      <div class="edition-line"><span>RHYTHM SPEAKER STORE JOURNAL</span><span>NEW PICKS <i>／</i> ${products.length}商品掲載中</span></div>
       <div class="shop-hero-copy">
         <p class="edition-kicker">${esc([...new Set(products.map(p=>p.category_name))].join("・"))}のセレクトショップ</p>
         <h1 id="shop-hero-title">暮らしに、いいもの<span>。</span><br>毎日に、いいリズム<span>。</span></h1>
