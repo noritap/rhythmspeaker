@@ -19,7 +19,7 @@
         !(directAffiliate || shortAffiliate)) {
       throw Error('Invalid Shoten catalog row');
     }
-    const validPhoto = value => value === 'https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161' || /^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif|svg)$/.test(value) || /^https:\/\/(?:www\.pbtech\.co\.nz\/imgprod\/|www\.jbhifi\.com\.au\/cdn\/shop\/products\/|bf1af2\.akinoncloudcdn\.com\/products\/)[A-Za-z0-9_./?=&%-]+$/.test(value);
+    const validPhoto = value => value === 'https://www.switchbot.jp/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp?v=1764836422' || value === 'https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161' || /^\.\/assets\/products\/[A-Za-z0-9_-]+\.(?:jpg|jpeg|png|webp|avif|svg)$/.test(value) || /^https:\/\/(?:www\.pbtech\.co\.nz\/imgprod\/|www\.jbhifi\.com\.au\/cdn\/shop\/products\/|bf1af2\.akinoncloudcdn\.com\/products\/)[A-Za-z0-9_./?=&%-]+$/.test(value);
     if (row.approvedPhoto !== null && !validPhoto(row.approvedPhoto)) throw Error('Invalid approved photo URL');
     if (row.gallery !== undefined && (!Array.isArray(row.gallery) || row.gallery.length > 5 || row.gallery.some(item => !item || typeof item.alt !== 'string' || !validPhoto(item.src)))) throw Error('Invalid product gallery');
     const purchase = {
