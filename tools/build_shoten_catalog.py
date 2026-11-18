@@ -157,7 +157,10 @@ def project(export_rows, source_dir, shop, source_sha, limit):
             raise ValueError("Commerce approval, identity or Special Link mismatch")
         used_ids.add(pid)
         used_asins.add(asin)
-        categories = {CATEGORY_BY_TAG[tag] for tag in row["category_ids"] if tag in CATEGORY_BY_TAG}
+        # Prefer an explicit specialist tag (e.g. hygiene) over generic life/work/outdoor.
+        selected = [tag for tag in row["category_ids"] if tag in CATEGORY_BY_TAG]
+        specialist = [tag for tag in selected if tag not in {"life", "work", "outdoor"}]
+        categories = {CATEGORY_BY_TAG[tag] for tag in (specialist or selected)}
         if len(categories) != 1:
             raise ValueError("Product needs one supported editorial category")
         category, subcategory, kind, tint, purpose = categories.pop()
