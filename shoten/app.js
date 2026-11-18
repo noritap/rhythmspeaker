@@ -9,7 +9,9 @@
   const byId = id => products.find(p => p.id === id);
   const core = window.CatalogCore;
   const displayMedia = p => p.approvedPhoto
-    ? {mode:'LOCAL_PHOTO',url:p.approvedPhoto,label:'商品画像'}
+    ? (p.imageSource?.image_type === 'AI_GENERATED_EDITORIAL_ILLUSTRATION'
+        ? {mode:'EDITORIAL_IMAGE',url:p.approvedPhoto,label:'AI制作イメージ（実物写真ではありません）'}
+        : {mode:'LOCAL_PHOTO',url:p.approvedPhoto,label:'商品写真'})
     : {mode:'ILLUSTRATION'};
   const commerceStatus = p => p.purchase.kind === 'AFFILIATE' ? '広告リンク確認済み' : '購入リンク確認中';
   const canCompare = products.length >= 2;
@@ -55,7 +57,7 @@
   const failedMedia=new Set();
   function productVisual(p,loading='lazy') {
     const m=displayMedia(p),photo=m.mode!=='ILLUSTRATION'&&!failedMedia.has(m.url);
-    const image=photo?`<img class="product-photo" src="${esc(m.url)}" alt="${esc(p.formal_name)}" data-product-photo="true" loading="${loading}" referrerpolicy="no-referrer">`:`<div class="photo-pending"><strong>${esc(p.name)}</strong><span>商品画像準備中</span></div>`;
+    const image=photo?`<img class="product-photo" src="${esc(m.url)}" alt="${esc(p.formal_name + (m.mode==='EDITORIAL_IMAGE' ? 'のAI制作イメージ（実物写真ではありません）' : 'の商品写真'))}" data-product-photo="true" loading="${loading}" referrerpolicy="no-referrer">`:`<div class="photo-pending"><strong>${esc(p.name)}</strong><span>商品画像準備中</span></div>`;
     return `<div class="product-media" data-product-media="${p.id}" data-mode="${photo?m.mode:'ILLUSTRATION'}" data-quality="${m.quality||''}">${image}</div>`;
   }
   function mediaLabel(p){const m=displayMedia(p);return m.mode==='ILLUSTRATION'||failedMedia.has(m.url)?'商品画像準備中':m.label;}
