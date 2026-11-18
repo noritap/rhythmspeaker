@@ -162,7 +162,7 @@ class TestShotenCatalog(unittest.TestCase):
             (14, ["outdoor", "disaster-prep"], "outdoor", "ac-power"),
             (15, ["life"], "home", "daily-goods"),
             (16, ["work"], "sound", "work-tools"),
-            (50, ["life", "consumables", "hygiene"], "home", "daily-goods"),
+            (50, ["life", "consumables", "hygiene"], "home", "hygiene"),
         ]
         for number, tags, expected_category, expected_subcategory in cases:
             with self.subTest(number=number):
