@@ -186,6 +186,19 @@ class TestShotenCatalog(unittest.TestCase):
         self.assertIs(row["imageSource"]["product_photo"], False)
         self.assertEqual(row["href"], "https://link.amazon/B0hcXfgcs")
 
+    def test_tissue_pack_visuals_are_separate_and_disclosed(self):
+        root = Path(__file__).resolve().parents[1]
+        rows = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))["products"]
+        targets = {p["product_id"]: p for p in rows if p["product_id"] in {"RS-P0051", "RS-P0052"}}
+        self.assertEqual(len(targets), 2)
+        self.assertNotEqual(targets["RS-P0051"]["approvedPhoto"], targets["RS-P0052"]["approvedPhoto"])
+        for product in targets.values():
+            local = root / "shoten" / product["approvedPhoto"]
+            self.assertTrue(local.is_file())
+            self.assertIn("実物写真", product["gallery"][0]["alt"])
+            self.assertFalse(product["imageSource"]["product_photo"])
+            self.assertEqual(product["imageSource"]["image_type"], "AI_GENERATED_EDITORIAL_ILLUSTRATION")
+
     def test_existing_openfit_illustration_preserved_in_live_catalog(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
