@@ -58,9 +58,21 @@
     for (const product of products) {
       product.relatedIds = products.filter(p => p.id !== product.id && p.category === product.category).map(p => p.id);
     }
-    const articles = editorial.articles.map(a => ({
-      ...a, products:a.feature ? products.filter(p => p.category === a.category).map(p => p.id) : []
-    }));
+    const links = {'robot-vacuum':['RS-P0001'],'headphones':['RS-P0002','RS-P0005','RS-P0012','RS-P0013'],'portable-power':['RS-P0014']};
+    const articles = editorial.articles.map(a=>({...a,products:(links[a.id]||[]).filter(id=>products.some(p=>p.id===id))}));
+    try {
+      const res = await fetch('./blog-feed.json',{cache:'no-cache'});
+      if (res.ok) {
+        const feed = await res.json();
+        if (feed.schema_version===1 && Array.isArray(feed.entries)) {
+          for (const entry of feed.entries.slice(0,40).reverse()) {
+            if (!entry || typeof entry.title!=='string' || !/^https:\/\/rhythmspeaker\.hatenablog\.com\/entry\//.test(entry.url)) continue;
+            const ids = Array.isArray(entry.product_ids)?entry.product_ids.filter(id=>products.some(p=>p.id===id)):[];
+            articles.unshift({id:'hatena-'+encodeURIComponent(entry.url.split('/').pop()),category:products.find(p=>ids.includes(p.id))?.category||'all',type:'ブログ',title:entry.title,excerpt:entry.summary||'タプ太郎の毎日ブログで続きを読む。',time:3,art:'editor',products:ids,lead:'',sections:[],last_checked_at:entry.published||'',externalUrl:entry.url,feature:false});
+          }
+        }
+      }
+    } catch (_) { /* Keep the curated articles available. */ }
     return {...editorial, products, articles, loadState};
   }
 
