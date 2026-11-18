@@ -27,6 +27,24 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "robot-vacuums",
           "name": "ロボット掃除機"
+        },
+        {
+          "id": "hygiene",
+          "name": "衛生・ハンドソープ"
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "食品・飲みもの",
+      "en": "FOOD & PANTRY",
+      "icon": "home",
+      "intro": "いつもの食生活に、選び方のヒントを。",
+      "color": "green",
+      "children": [
+        {
+          "id": "oils",
+          "name": "食用オイル"
         }
       ]
     },
