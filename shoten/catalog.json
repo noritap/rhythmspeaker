@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "e739229913d158d6fffd77643e0eb9e89b270758",
+  "source_sha": "dc03cef8529d5019feb2dbfcf42b7ee932f1f620",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -799,6 +799,55 @@
         "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
         "checked_at": "2026-11-18"
       }
+    },
+    {
+      "product_id": "RS-P0042",
+      "asin": "B004YWAV3G",
+      "brand": "カンロ",
+      "model": "健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
+      "formal_name": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
+      "category": "food",
+      "subcategory": "candy",
+      "kind": "のど飴・キャンディ",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "マヌカハニー配合のど飴をまとめてストックしたい人",
+        "個包装タイプのキャンディを持ち歩きたい人"
+      ],
+      "eyebrow": "カンロの「健康のど飴 たたかうマヌカハニープレミアム」。73g入りを3袋まとめたセット。",
+      "summary": "カンロ公式情報で1袋73g、ニュージーランド産MGO400+グレードのマヌカハニーを1袋に1,000mg配合するプレミアム仕様を確認。購入履歴の3個パックと容量が一致。",
+      "good": "マヌカハニー配合のど飴をまとめてストックしたい人・個包装タイプのキャンディを持ち歩きたい人",
+      "caution": "医薬品・治療目的の商品ではない。のどの症状への効果を保証しない・はちみつを含むため1歳未満の乳児には与えない・乳・大豆を含む。原材料とアレルギー表示を購入前に確認・73g×3個パック。通常品80g×6袋（RS-P0026）とは別商品・本人の実使用レビューは未記録",
+      "highlight": "マヌカハニー配合のど飴をまとめてストックしたい人・個包装タイプのキャンディを持ち歩きたい人",
+      "date": "2026-11-16",
+      "specs": {
+        "内容量": "73g×3袋",
+        "種類": "マヌカハニー配合のど飴"
+      },
+      "comparison": {
+        "選ぶ基準": "マヌカハニー配合のど飴をまとめてストックしたい人・個包装タイプのキャンディを持ち歩きたい人",
+        "主な仕様": "カンロ公式情報で1袋73g、ニュージーランド産MGO400+グレードのマヌカハニーを1袋に1,000mg配合するプレミアム仕様を確認。購入履歴の3個パックと容量が一致。"
+      },
+      "reasons": [
+        "カンロ公式情報で1袋73g、ニュージーランド産MGO400+グレードのマヌカハニーを1袋に1,000mg配合するプレミアム仕様を確認。購入履歴の3個パックと容量が一致。"
+      ],
+      "sources": [
+        {
+          "url": "https://kanro.jp/products/14670973075824",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://kanro.jp/collections/all/products/14670973075824",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0g1dqXCC",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     }
   ]
 }
