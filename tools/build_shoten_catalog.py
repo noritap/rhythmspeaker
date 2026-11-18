@@ -19,6 +19,9 @@ CATEGORY_BY_TAG = {
     "audio": ("sound", "wireless-headphones", "ワイヤレスヘッドホン", "blue", "focus"),
     "ac-power": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "dc-power": ("outdoor", "dc-power", "USB・DC電源", "green", "carry"),
+    "outdoor": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
+    "life": ("home", "daily-goods", "暮らしの道具・消耗品", "peach", "time"),
+    "work": ("sound", "work-tools", "仕事のデジタル道具", "blue", "focus"),
 }
 
 
