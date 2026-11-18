@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FEED = "https://rhythmspeaker.hatenablog.com/rss"
 BLOG_PREFIX = "https://rhythmspeaker.hatenablog.com/entry/"
-PRODUCT_PATTERN = re.compile(r"(?:https://noritap.github.io/rhythmspeaker/shoten/)?#/product/(RS-P\\d{4,})")
+PRODUCT_PATTERN = re.compile(r"(?:https://noritap.github.io/rhythmspeaker/shoten/)?#/product/(RS-P\d{4,})")
 TAG_RE = re.compile(r"<[^>]*>")
 
 def parse_feed(xml_bytes, valid_ids):
@@ -28,7 +28,7 @@ def parse_feed(xml_bytes, valid_ids):
         content = item.findtext("{http://purl.org/rss/1.0/modules/content/}encoded") or ""
         body = html.unescape(desc + " " + content)
         product_ids = sorted(set(PRODUCT_PATTERN.findall(body)) & valid_ids)
-        summary = re.sub(r"\\s+", " ", html.unescape(TAG_RE.sub(" ", desc))).strip()[:160]
+        summary = re.sub(r"\s+", " ", html.unescape(TAG_RE.sub(" ", desc))).strip()[:160]
         published = (item.findtext("pubDate") or "").strip()
         entries.append({"title":title[:180],"url":url,"summary":summary,"published":published,"product_ids":product_ids})
         if len(entries)>=40:
