@@ -364,3 +364,15 @@ body { background: var(--edition-paper); }
 .shoten-studio-story h2{font-size:clamp(1.3rem,3vw,1.85rem);line-height:1.4;margin:10px 0}
 .shoten-studio-story p:last-child{line-height:1.85;max-width:68ch}
 @media(max-width:480px){.shoten-gallery{gap:4px}.shoten-gallery-thumb{padding:2px}.shoten-studio-story{padding:18px}}
+
+/* Journal freshness: the latest published blog post is visibly different from static picks. */
+.journal-freshness{margin:.65rem 0 0;display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .8rem;font-size:.88rem;color:#526358}
+.journal-new-label,.journal-slot-label{display:inline-block;border-radius:3px;background:#2b5d4f;color:#fff;font-weight:700;letter-spacing:.035em;font-size:.75rem;padding:.32rem .65rem}
+.journal-article-total{color:#515b55;font-size:.83rem}
+.journal-latest-grid>.article-card{min-width:0;position:relative}
+.journal-latest-grid .journal-slot-label{position:absolute;z-index:2;top:12px;left:12px;box-shadow:0 2px 8px #0002}
+.journal-latest-grid>.article-card{height:100%}
+.journal-latest-grid>.article-card:first-child{border:2px solid #2b5d4f;border-radius:12px;overflow:hidden}
+.journal-read-more{text-align:right;margin:1rem 0 0}
+.journal-read-more a{color:#234b40;text-underline-offset:3px;font-weight:700}
+@media(max-width:720px){.journal-latest-grid>.article-card{min-width:0}.journal-latest-grid .journal-slot-label{top:8px;left:8px}.journal-freshness{font-size:.8rem}}
