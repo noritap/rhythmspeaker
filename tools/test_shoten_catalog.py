@@ -157,6 +157,22 @@ class TestShotenCatalog(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Special Link"):
             self.run_projection(item, surface_tracking_id=None)
 
+    def test_publication_categories_cover_release_first_daily_products(self):
+        cases = [
+            (14, ["outdoor", "disaster-prep"], "outdoor", "ac-power"),
+            (15, ["life"], "home", "daily-goods"),
+            (16, ["work"], "sound", "work-tools"),
+            (50, ["life", "consumables", "hygiene"], "home", "daily-goods"),
+        ]
+        for number, tags, expected_category, expected_subcategory in cases:
+            with self.subTest(number=number):
+                item = fixture(number)
+                item["products"]["category_ids"] = tags
+                item["row"]["category_ids"] = tags
+                result, = self.run_projection(item)
+                self.assertEqual((result["category"], result["subcategory"]),
+                                 (expected_category, expected_subcategory))
+
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
         asset = "./assets/products/sample.webp"
