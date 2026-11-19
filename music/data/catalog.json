@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "RHYTHM SPEAKER MUSIC official album HTML in noritap/rhythmspeaker main as of 2026-11-01",
   "external_links_verified": false,
-  "notes": "Existing tracks use legacy HTML video IDs; DISCO 001 individual video IDs/durations verified against YouTube Studio playlist on 2026-11-01. No BPM, release date or commercial rights inferred. DISCO 001 cover temporary; 2 bonus tracks mentioned in playlist but only #11 marked in video title.",
+  "notes": "Existing tracks use legacy HTML video IDs; DISCO 001 individual video IDs/durations verified against YouTube Studio playlist on 2026-11-01. No BPM, release date or commercial rights inferred. 2 bonus tracks mentioned in playlist but only #11 marked in video title.",
   "albums": [
     {
       "slug": "disco-001",
@@ -20,9 +20,9 @@
         "JAZZ-FUNK",
         "GOSPEL SOUL"
       ],
-      "image": "https://i.ytimg.com/vi/xt9ocm2flb8/hqdefault.jpg",
+      "image": "assets/images/albums/disco-001/disco-001_B_cover-published_1x1.webp",
       "playlist": "PLYhg5PoBQwxs",
-      "artworkStatus": "temporary",
+      "artworkStatus": "published",
       "playlist_url": "https://www.youtube.com/playlist?list=PLYhg5PoBQwxs",
       "album_url": "albums/disco-001/",
       "published": true,
@@ -586,9 +586,9 @@
         "JAZZ",
         "FUNK"
       ],
-      "image": "https://i.ytimg.com/vi/696Y1S6KX5Q/maxresdefault.jpg",
+      "image": "assets/images/albums/velvet-city-motion/velvet-city-motion_B_cover-published_1x1.webp",
       "playlist": "PLFSS051jwWDs",
-      "artworkStatus": "temporary",
+      "artworkStatus": "published",
       "playlist_url": "https://www.youtube.com/playlist?list=PLFSS051jwWDs",
       "album_url": "albums/velvet-city-motion/",
       "published": true,
