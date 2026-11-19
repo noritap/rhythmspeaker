@@ -10,13 +10,13 @@ The music/explorer.js progressive enhancement reads this catalog to update home 
 
 1. Enter track and album metadata in music/data/catalog.json. Never guess BPM or commercial rights.
 2. Register an individual youtube_id and youtube_url only after verifying the exact track video. Otherwise use playback=playlist, youtube_id=null, youtube_url=null. Playlist-only playback is not a direct jump to a specific track.
-3. Keep album art status accurate; VELVET CITY MOTION currently retains a temporary external visual.
+3. Set artworkStatus to published and point image to the local cover when official artwork is registered. Update the corresponding album page’s og:image.
 4. Run node tools/music_catalog_audit.cjs and review PR CI before merging.
 5. Check player behavior, fallback YouTube links, keyboard navigation, and mobile 320/375/390/430px in a browser.
 6. Independently verify video/playlist URLs. Current YouTube links were transcribed from legacy HTML, not reverified externally.
 
 ## Planned further evolution
 
-Current DISCO 001 intake (2026-11-01): 14 individual YouTube video IDs and durations confirmed from Studio; all 14 video visibility settings were unlisted when checked, while playlist was public. The representative image is temporary, album release date and commercial rights remain unverified, and only track 11 is independently labelled BONUS. Public Music listing does not change YouTube visibility.\n\nThe initial migration has a single runtime catalog but still contains independently authored no-JS HTML fallback and static social OGP tags. A static generator should eventually derive both from the canonical catalog. A new album currently also requires creating its stable fallback album page manually. Do not claim those operations have been automated.
+Current DISCO 001 intake (2026-11-01): 14 individual YouTube video IDs and durations confirmed from Studio; all 14 video visibility settings were unlisted when checked, while playlist was public. Album release date and commercial rights remain unverified, and only track 11 is independently labelled BONUS. Public Music listing does not change YouTube visibility.\n\nThe initial migration has a single runtime catalog but still contains independently authored no-JS HTML fallback and static social OGP tags. A static generator should eventually derive both from the canonical catalog. A new album currently also requires creating its stable fallback album page manually. Do not claim those operations have been automated.
 
 Preserve existing rights restrictions: avoid offering download, sale or license before individual work and account rights are verified.
