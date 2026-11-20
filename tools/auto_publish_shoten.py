@@ -14,7 +14,7 @@ Two groups are published:
            No ledger edits are made for these.
   NEW    - the only missing pieces are the records this workflow is
            delegated to create (product approval, placement, placement
-           approval). At most --limit (hard-capped at 3) per run.
+           approval). At most --limit (hard-capped at 10) per run.
 
 Anything else is reported as blocked with its reasons. Ledger anomalies
 (duplicate IDs, duplicate ASINs, dangling references) abort the run before
@@ -34,7 +34,7 @@ from datetime import date
 from pathlib import Path
 
 SURFACE_ID = "rhythmspeaker-web"
-MAX_DAILY_NEW = 3
+MAX_DAILY_NEW = 10
 # Missing items that this workflow is delegated to fix by creating records.
 RECORD_MISSING = {
     "product_publication_approval",
@@ -399,7 +399,7 @@ def main():
     parser.add_argument("--commerce", type=Path, help="Commerce ledger checkout")
     parser.add_argument("--catalog", type=Path, help="Current public shoten/catalog.json")
     parser.add_argument("--limit", type=int, default=MAX_DAILY_NEW,
-                        help="Max new standing-delegation approvals (hard cap 3)")
+                        help="Max new standing-delegation approvals (hard cap 10)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Evaluate only; never edit the ledger")
     parser.add_argument("--run-url", default="", help="Workflow run URL for evidence")
