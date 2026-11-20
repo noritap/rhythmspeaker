@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "ba3920d870771fa7cd1ee3c123b520439df5e37e",
+  "source_sha": "949f953b7be910da1f72906569086b07cb3e605c",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -936,6 +936,189 @@
         }
       ],
       "href": "https://link.amazon/B0dVuf9RI",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0020",
+      "asin": "B0C22W4Y5H",
+      "brand": "CANDY HOUSE",
+      "model": "SESAME 5 ブラック（国内向け通常版）",
+      "formal_name": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）",
+      "category": "home",
+      "subcategory": "smart-home",
+      "kind": "スマートホーム・家電操作",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "玄関の鍵をスマホで管理したい人",
+        "対応する指紋・暗証番号デバイスと組み合わせたい人",
+        "既存のサムターンを利用したい人"
+      ],
+      "eyebrow": "既存の鍵に取り付けて、スマートフォンによる施解錠を可能にするスマートロック。国内向けブラック版。",
+      "summary": "本体約140g、電池寿命1年以上、サムターンに合わせた調節や専用アダプターの選択が可能。SESAMEタッチ製品との組み合わせを検討できる。",
+      "good": "玄関の鍵をスマホで管理したい人・対応する指紋・暗証番号デバイスと組み合わせたい人・既存のサムターンを利用したい人",
+      "caution": "ドア・サムターン形状により取り付け条件が異なる・リモート操作には対応する別売り通信機器が必要・購入済みのカラーは未確認。ブラックは商店紹介用に選定したバリエーション・本人実使用レビューではない",
+      "highlight": "玄関の鍵をスマホで管理したい人・対応する指紋・暗証番号デバイスと組み合わせたい人・既存のサムターンを利用したい人",
+      "date": "2026-11-13",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "玄関の鍵をスマホで管理したい人・対応する指紋・暗証番号デバイスと組み合わせたい人・既存のサムターンを利用したい人",
+        "主な仕様": "本体約140g、電池寿命1年以上、サムターンに合わせた調節や専用アダプターの選択が可能。SESAMEタッチ製品との組み合わせを検討できる。"
+      },
+      "reasons": [
+        "本体約140g、電池寿命1年以上、サムターンに合わせた調節や専用アダプターの選択が可能。SESAMEタッチ製品との組み合わせを検討できる。"
+      ],
+      "sources": [
+        {
+          "url": "https://jp.candyhouse.co/apps/help-center",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0fOb4qjR",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0024",
+      "asin": "B0DPL9W68V",
+      "brand": "Anker",
+      "model": "Nano Charger (45W) ブラック（B2692N11）",
+      "formal_name": "Anker Nano Charger (45W) ブラック（B2692N11）",
+      "category": "sound",
+      "subcategory": "work-tools",
+      "kind": "仕事のデジタル道具",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "持ち歩く充電器を小型化したい人",
+        "USB-C充電対応端末の充電器を探す人"
+      ],
+      "eyebrow": "USB-C最大45W対応、約60gの小型急速充電器。USB-Cケーブル付属のブラックモデル。",
+      "summary": "USB-C 45W対応で軽量、約37×33×32mmの小型設計。スマートフォンや対応ノートPC向けに持ち歩きやすい。",
+      "good": "持ち歩く充電器を小型化したい人・USB-C充電対応端末の充電器を探す人",
+      "caution": "端末によって最大45Wで充電できない・USB-Cケーブルの規格・端末の充電規格を確認する・ブラックはメーカー製品から選定した掲載用バリエーション。本人の購入商品と同一かは未確認・実使用レビューではない",
+      "highlight": "持ち歩く充電器を小型化したい人・USB-C充電対応端末の充電器を探す人",
+      "date": "2026-11-13",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "持ち歩く充電器を小型化したい人・USB-C充電対応端末の充電器を探す人",
+        "主な仕様": "USB-C 45W対応で軽量、約37×33×32mmの小型設計。スマートフォンや対応ノートPC向けに持ち歩きやすい。"
+      },
+      "reasons": [
+        "USB-C 45W対応で軽量、約37×33×32mmの小型設計。スマートフォンや対応ノートPC向けに持ち歩きやすい。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/b2692",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B05jVDUly",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0037",
+      "asin": "B0F7XHCLX9",
+      "brand": "APMジャパン（APM Japan）",
+      "model": "貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）",
+      "formal_name": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "引っ越しや内装作業で養生テープを使う人",
+        "仮止め・梱包・工作・家庭内の整理に使いたい人",
+        "半透明で貼る場所の見た目を損ないにくいテープを探している人"
+      ],
+      "eyebrow": "APMジャパンの白（半透明）エコノミー養生テープ5巻セット。幅50mm・長さ25mで、仮止めや内装養生、引っ越し、家庭の整理などに使える万能タイプ。",
+      "summary": "型番SY-001CL-5P、JAN4582336473926、50mm×25m・5巻を照合。PETクロス＋PEラミネート＋アクリル系粘着剤の三層構造で、手で切りやすい仕様。",
+      "good": "引っ越しや内装作業で養生テープを使う人・仮止め・梱包・工作・家庭内の整理に使いたい人・半透明で貼る場所の見た目を損ないにくいテープを探している人",
+      "caution": "粘着力は中程度の万能タイプ。貼付面の材質・状態によっては糊残りや表面損傷が起こるため、目立たない場所で試す・長期間の屋外使用・高温多湿環境での使用は用途に応じて確認・本人の実使用レビューは未記録",
+      "highlight": "引っ越しや内装作業で養生テープを使う人・仮止め・梱包・工作・家庭内の整理に使いたい人・半透明で貼る場所の見た目を損ないにくいテープを探している人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "引っ越しや内装作業で養生テープを使う人・仮止め・梱包・工作・家庭内の整理に使いたい人・半透明で貼る場所の見た目を損ないにくいテープを探している人",
+        "主な仕様": "型番SY-001CL-5P、JAN4582336473926、50mm×25m・5巻を照合。PETクロス＋PEラミネート＋アクリル系粘着剤の三層構造で、手で切りやすい仕様。"
+      },
+      "reasons": [
+        "型番SY-001CL-5P、JAN4582336473926、50mm×25m・5巻を照合。PETクロス＋PEラミネート＋アクリル系粘着剤の三層構造で、手で切りやすい仕様。"
+      ],
+      "sources": [
+        {
+          "url": "https://otokuban.jp/product/21015",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://store.shopping.yahoo.co.jp/mskshop371/1779597522-06.html",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://shopping.yahoo.co.jp/product/j/4582336473926/compare.html",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B06geFAQZ",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0041",
+      "asin": "B0G8GCRCG7",
+      "brand": "TENKOO&YOU",
+      "model": "小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根",
+      "formal_name": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "6〜8畳程度の小さな部屋で照明と送風をまとめたい人",
+        "E26口金と引掛けシーリングの設置方式を確認して選びたい人",
+        "正逆回転とDCモーター搭載の小型ファンライトを探している人"
+      ],
+      "eyebrow": "照明とファンを一体化したTENKOO&YOUの小型シーリングファンライト。28W・3000lm、5枚羽根、E26口金と角型引掛けシーリングアダプターに対応するタイプ。",
+      "summary": "本人の購入記録にある6〜8畳・28W・3000lm・E26口金・5枚羽根・正逆回転・角型引掛けソケット付属の仕様を、Amazon掲載品を出典とする比較情報と販売ページで照合。",
+      "good": "6〜8畳程度の小さな部屋で照明と送風をまとめたい人・E26口金と引掛けシーリングの設置方式を確認して選びたい人・正逆回転とDCモーター搭載の小型ファンライトを探している人",
+      "caution": "天井側の配線器具・設置条件が適合するか購入前に必ず確認・E26口金用と引掛けシーリング用の付属アダプター・バリエーションを混同しない・本体色・羽根色と型番は本人記録で未特定のため断定しない・照明の明るさや送風の体感は部屋の広さ・天井高・設置条件で異なる・本人の実使用レビューは未記録",
+      "highlight": "6〜8畳程度の小さな部屋で照明と送風をまとめたい人・E26口金と引掛けシーリングの設置方式を確認して選びたい人・正逆回転とDCモーター搭載の小型ファンライトを探している人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "6〜8畳程度の小さな部屋で照明と送風をまとめたい人・E26口金と引掛けシーリングの設置方式を確認して選びたい人・正逆回転とDCモーター搭載の小型ファンライトを探している人",
+        "主な仕様": "本人の購入記録にある6〜8畳・28W・3000lm・E26口金・5枚羽根・正逆回転・角型引掛けソケット付属の仕様を、Amazon掲載品を出典とする比較情報と販売ページで照合。"
+      },
+      "reasons": [
+        "本人の購入記録にある6〜8畳・28W・3000lm・E26口金・5枚羽根・正逆回転・角型引掛けソケット付属の仕様を、Amazon掲載品を出典とする比較情報と販売ページで照合。"
+      ],
+      "sources": [
+        {
+          "url": "https://payid.jp/item/144360190",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://my-best.com/23738",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0cOiuT1N",
       "approvedPhoto": null,
       "gallery": [],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
