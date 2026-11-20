@@ -108,7 +108,13 @@ def normalize(event, calendar_id, key, approved, catalog):
     except ValueError:
         raise ValueError("Invalid timed lesson metadata") from None
     if a.date() != b.date() or b <= a:
-        raise ValueError("Invalid same-day lesson duration")
+        # Diagnostic only: lesson start/end are public projection data.
+        # Never include the title, Google event ID or calendar ID here.
+        kind = "cross-day" if a.date() != b.date() else "non-positive"
+        raise ValueError(
+            "Invalid same-day lesson duration "
+            f"kind={kind} start={a.isoformat()} end={b.isoformat()}"
+        )
     cls = raw_class.replace("🔰", "").strip().upper()
     if cls == "BAR":
         cls = "BAR METHOD"

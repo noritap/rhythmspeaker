@@ -198,6 +198,32 @@ class CalendarSyncContract(unittest.TestCase):
                 build([fixture(), fixture(id="bad-event", **change)],
                       "private-calendar", KEY, PEOPLE, {}, NOW)
 
+    def test_invalid_duration_error_identifies_only_datetime_and_kind(self):
+        cases = [
+            # Cross-day: ends after midnight on the next local date.
+            ({"dateTime": "2026-11-05T23:00:00+09:00"},
+             {"dateTime": "2026-11-06T00:30:00+09:00"}, "cross-day"),
+            # Non-positive: end equals start.
+            ({"dateTime": "2026-11-05T10:00:00+09:00"},
+             {"dateTime": "2026-11-05T10:00:00+09:00"}, "non-positive"),
+            # Non-positive: end before start.
+            ({"dateTime": "2026-11-05T11:00:00+09:00"},
+             {"dateTime": "2026-11-05T10:00:00+09:00"}, "non-positive"),
+        ]
+        for start, end, kind in cases:
+            with self.subTest(kind=kind, start=start, end=end):
+                with self.assertRaises(ValueError) as caught:
+                    normalize(fixture(start=start, end=end),
+                              "private-calendar-id", KEY, {}, PEOPLE)
+                message = str(caught.exception)
+                self.assertIn("Invalid same-day lesson duration", message)
+                self.assertIn(f"kind={kind}", message)
+                self.assertIn(start["dateTime"][:13], message)
+                self.assertIn(end["dateTime"][:13], message)
+                for secret in ["google-private-event-id", "private-calendar-id",
+                               "STEP", "SECRET_PRIVATE_DESCRIPTION"]:
+                    self.assertNotIn(secret, message)
+
     def test_dynamic_teacher_and_class_visibility(self):
         out, count = build([fixture(
             summary="STEP & 振付 | 60m | 古庄里好・MiFa-san | OPEN"
