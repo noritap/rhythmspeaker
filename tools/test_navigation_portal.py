@@ -69,9 +69,10 @@ class PortalContractTest(unittest.TestCase):
             )
             self.assertEqual(
                 re.findall(r'class="rs-menu-action rs-menu-action--(\w+)"', menu),
-                ['schedule', 'trial', 'rental', 'goods', 'wallet', 'line'],
+                ['schedule', 'trial', 'rental', 'goods', 'wallet', 'line', 'mail'],
             )
             self.assertIn('https://lin.ee/zC5YLe7', menu)
+            self.assertIn('mailto:taptaro@muse.ai', menu)
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
             self.assertIn('class="rs-menu-link rs-menu-link--broadcast"', menu)
