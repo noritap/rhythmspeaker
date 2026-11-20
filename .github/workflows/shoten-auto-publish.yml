@@ -1,0 +1,230 @@
+# =============================================================================
+# Shoten auto publish
+#
+# 役割：PRODUCT_OPERATIONS_V1 §8（常時委任による自動公開）の客観ゲートを
+# 満たした商品を、承認カードなしで GitHub 内で完結して本番公開する。
+#
+# 前提（OWNER_SETUP.md の初期設定が必要）：
+#   - Secrets: COMMERCE_REPO_TOKEN
+#       台帳リポジトリ noritap/AMAZON_COMMERCE_DATA_OS 専用の
+#       fine-grained PAT（Contents: Read and write のみ）
+#   - Variables: RS_SHOTEN_AUTO_PUBLISH_ENABLED
+#       'true' のときだけ実公開を行う（緊急停止スイッチ。
+#       class-calendar-sync.yml の RS_CALENDAR_SYNC_ENABLED と同じ方式）
+#
+# 安全側の既定：
+#   - スイッチが未設定/false の間、schedule ではジョブ自体が起動せず、
+#     手動実行で実公開（dry_run=false）を選んでも自動でドライランに落ちて
+#     正常終了する。secret 未登録の間は全ステップがスキップされ正常終了し、
+#     失敗 Issue も作られない（Issue は有効化後に失敗したときだけ）。
+#   - 1回の実行で常時委任により新規承認できるのは最大3件
+#     （tools/auto_publish_shoten.py 側でも hard cap）。既に承認記録が
+#     揃っている未公開商品（READY）は台帳を編集せず一緒に反映する。
+#
+# 配置の注意：生成器 tools/build_shoten_catalog.py は台帳チェックアウトが
+# サイトリポジトリの外にあることを要求するため、サイトは site/、
+# 台帳は commerce/ に並べてチェックアウトする。
+# =============================================================================
+
+name: Shoten auto publish
+
+on:
+  schedule:
+    # 07:00 JST = 22:00 UTC (previous day). GitHub Actions cron is UTC and
+    # scheduled starts are best effort; Muse daily ops verifies the run.
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "判定だけ行い、台帳・カタログを変更しない"
+        type: boolean
+        default: true
+      daily_limit:
+        description: "この実行で常時委任により新規承認する上限件数（最大3）"
+        type: number
+        default: 3
+
+# 自リポジトリへの書き込みはカタログと Issue のみ。
+# 台帳リポジトリへの書き込みは COMMERCE_REPO_TOKEN が担う。
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: shoten-auto-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    # schedule のときは有効化スイッチが必須。手動実行はドライラン確認用に
+    # スイッチ未設定でも開始できるが、実公開は mode ステップで止める。
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' ||
+       vars.RS_SHOTEN_AUTO_PUBLISH_ENABLED == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DAILY_LIMIT: ${{ inputs.daily_limit || 3 }}
+      REQUESTED_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || false }}
+    steps:
+      - name: Resolve run mode
+        id: mode
+        env:
+          ENABLED: ${{ vars.RS_SHOTEN_AUTO_PUBLISH_ENABLED }}
+          COMMERCE_REPO_TOKEN: ${{ secrets.COMMERCE_REPO_TOKEN }}
+        run: |
+          if [ -n "$COMMERCE_REPO_TOKEN" ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+            echo "COMMERCE_REPO_TOKEN is not registered; skipping all work."
+          fi
+          if [ "$ENABLED" = "true" ] && [ "$REQUESTED_DRY_RUN" != "true" ]; then
+            echo "dry_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "dry_run=true" >> "$GITHUB_OUTPUT"
+            if [ "$REQUESTED_DRY_RUN" = "false" ]; then
+              echo "Real publish requested but RS_SHOTEN_AUTO_PUBLISH_ENABLED is not 'true'; downgrading to a dry run."
+            fi
+          fi
+
+      - name: Checkout site repository
+        uses: actions/checkout@v4
+        with:
+          path: site
+          persist-credentials: true
+
+      - name: Checkout commerce ledger repository
+        if: steps.mode.outputs.active == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: noritap/AMAZON_COMMERCE_DATA_OS
+          path: commerce
+          token: ${{ secrets.COMMERCE_REPO_TOKEN }}
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # check_schemas.py（ゲート判定と生成器の両方が呼ぶ）に必要。
+      - name: Install schema validator dependency
+        if: steps.mode.outputs.active == 'true'
+        run: python -m pip install "jsonschema==4.23.0"
+
+      # --- ゲート判定と台帳記録 -------------------------------------------
+      # auto_publish_shoten.py は次を行う：
+      #   1. commerce/scripts/publication_readiness.py の判定を土台に
+      #      §8 ゲートを全て満たす未公開商品を抽出する
+      #      （READY＝記録済み未公開、新規承認は最大 DAILY_LIMIT 件）
+      #   2. 台帳の異常（ID衝突・不整合）を検知したら何も書かず異常終了
+      #   3. dry_run でなければ approvals / placements / products を更新し、
+      #      commerce/scripts/validate.py と check_schemas.py で検証
+      #   4. 結果（候補・公開予定・不足理由・catalog_limit）を
+      #      result.json に書く
+      - name: Evaluate gates and record approvals in the ledger
+        id: gate
+        if: steps.mode.outputs.active == 'true'
+        working-directory: site
+        run: |
+          ARGS=(--commerce ../commerce --catalog shoten/catalog.json
+                --limit "$DAILY_LIMIT" --result ../result.json
+                --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
+          if [ "${{ steps.mode.outputs.dry_run }}" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          python tools/auto_publish_shoten.py "${ARGS[@]}"
+          echo "publish_count=$(python -c "import json;print(json.load(open('../result.json'))['publish_count'])")" >> "$GITHUB_OUTPUT"
+          echo "ledger_changed=$(python -c "import json;print(str(json.load(open('../result.json'))['ledger_changed']).lower())")" >> "$GITHUB_OUTPUT"
+
+      - name: Show evaluation result
+        if: steps.mode.outputs.active == 'true'
+        run: cat result.json
+
+      # --- 台帳コミット（競合したら fail-closed） -------------------------
+      - name: Commit and push ledger updates
+        if: steps.gate.outputs.ledger_changed == 'true' && steps.mode.outputs.dry_run == 'false'
+        working-directory: commerce
+        run: bash ../site/tools/publish_shoten_ledger.sh
+
+      # --- カタログ再生成 --------------------------------------------------
+      # 生成器は台帳スナップショットの出所（repo/branch/SHA）を検証するので、
+      # 台帳 push 後の正確な HEAD SHA を渡す。--limit は生成器が投影する
+      # 全行数（＝ auto_publish_shoten.py が build_exports で数えた値）。
+      - name: Read the ledger snapshot SHA
+        id: ledger
+        if: steps.gate.outputs.publish_count != '0' && steps.mode.outputs.dry_run == 'false'
+        run: echo "sha=$(git -C commerce rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild catalog from the pinned ledger snapshot
+        if: steps.gate.outputs.publish_count != '0' && steps.mode.outputs.dry_run == 'false'
+        working-directory: site
+        run: |
+          LIMIT=$(python -c "import json;print(json.load(open('../result.json'))['catalog_limit'])")
+          python tools/build_shoten_catalog.py \
+            --commerce ../commerce \
+            --sha "${{ steps.ledger.outputs.sha }}" \
+            --limit "$LIMIT"
+
+      # --- 安全チェック（shoten-migration.yml と同一内容＋件数ガード） -----
+      - name: Validate catalog before publishing
+        if: steps.gate.outputs.publish_count != '0' && steps.mode.outputs.dry_run == 'false'
+        working-directory: site
+        run: |
+          python tools/test_shoten_catalog.py
+          python tools/test_shoten_photo_optional.py
+          python tools/validate_shoten_product_ops.py
+          for file in shoten/*.js; do node --check "$file" || exit 1; done
+          # 件数ガード：減っていないこと、増分が公開予定件数と一致すること、
+          # 既存の product_id が消えていないことを確認する
+          python tools/auto_publish_shoten.py \
+            --verify-catalog shoten/catalog.json \
+            --baseline ../result.json
+
+      # --- 本番反映 ---------------------------------------------------------
+      - name: Publish catalog to main
+        if: steps.gate.outputs.publish_count != '0' && steps.mode.outputs.dry_run == 'false'
+        working-directory: site
+        run: bash tools/publish_shoten_catalog.sh
+
+      # --- 失敗時の通知 ------------------------------------------------------
+      # 有効化されている場合に限り、止まった理由を Issue に残す
+      # （同日重複は作らない）。成功時はサマリのみで Issue は作らない。
+      - name: Open an issue on failure
+        if: failure() && vars.RS_SHOTEN_AUTO_PUBLISH_ENABLED == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TODAY=$(TZ=Asia/Tokyo date +%F)
+          TITLE="商店 自動公開の異常 ($TODAY)"
+          EXISTING=$(gh issue list --label shoten-auto-publish --state open \
+            --search "$TODAY in:title" --json number --jq '.[0].number // empty')
+          BODY=$(printf '自動公開ワークフローが異常で停止しました。\n\n- 実行: %s\n- 結果ファイル: result.json があれば実行サマリを参照\n\n台帳・カタログの反映状況は実行ログで確認してください。' "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID")
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "$BODY"
+          else
+            gh issue create --title "$TITLE" --label shoten-auto-publish --body "$BODY"
+          fi
+
+      - name: Write run summary
+        if: always()
+        run: |
+          echo "## Shoten auto publish" >> "$GITHUB_STEP_SUMMARY"
+          echo "- active: ${{ steps.mode.outputs.active }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- dry_run: ${{ steps.mode.outputs.dry_run }}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f result.json ]; then
+            python - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          r = json.load(open('result.json'))
+          print(f"- publish_count: {r['publish_count']}")
+          for p in r.get('published', []):
+              print(f"- published: {p}")
+          for p in r.get('blocked', []):
+              print(f"- blocked: {p}")
+          EOF
+          fi
