@@ -42,7 +42,7 @@ MENU_GROUPS = [
         ("グッズを買う", "https://rhythmspeaker.stores.jp/?all_items=true", "", "goods"),
         ("マイページ", "https://tips-app-seven.vercel.app/", "", "wallet"),
         ("お問い合わせ", "https://lin.ee/zC5YLe7", "", "line"),
-        ("メールで問い合わせ", "mailto:taptaro@muse.ai", "", "mail"),
+        ("メールで問い合わせ", "mailto:rhythmspeaker296@gmail.com", "", "mail"),
     ]),
     ("blogs", "タプ太郎の毎日ブログ", [
         ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
