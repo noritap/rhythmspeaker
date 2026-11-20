@@ -42,6 +42,7 @@ MENU_GROUPS = [
         ("グッズを買う", "https://rhythmspeaker.stores.jp/?all_items=true", "", "goods"),
         ("マイページ", "https://tips-app-seven.vercel.app/", "", "wallet"),
         ("お問い合わせ", "https://lin.ee/zC5YLe7", "", "line"),
+        ("メールで問い合わせ", "mailto:rhythmspeaker296@gmail.com", "", "mail"),
     ]),
     ("blogs", "タプ太郎の毎日ブログ", [
         ("タップダンスを学ぶ", "https://tapdance-rhythmspeaker.hatenablog.com/", "", "tapblog"),
@@ -74,6 +75,7 @@ ICON_PATHS = {
     "goods": '<path d="M4 8h16l1 13H3zM8 9V6a4 4 0 0 1 8 0v3"/>',
     "wallet": '<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',
     "line": '<path d="M21 11a9 8 0 0 1-9 8H9l-5 3 1-6a9 8 0 1 1 16-5Z"/>',
+    "mail": '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/>',
 }
 
 

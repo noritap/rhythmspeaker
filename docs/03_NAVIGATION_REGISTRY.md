@@ -37,7 +37,7 @@ Portal exception (PR #284 / #285, consolidated 2026-10-29):
 - Card primary links use article-bounded expanded hit areas, with independent shortcuts above them. Each purpose group has an h2; each service card has an h3. The top two priority actions are 初回体験 and レッスン日程. The menu opens without JavaScript; Escape dismissal is progressively enhanced.
 
 Primary CTA:
-- 初回体験 ¥1,000 / レッスン日程（公式LINEは予約・問い合わせの窓口として維持）
+- 初回体験 ¥1,000 / レッスン日程（公式LINEは予約・問い合わせの窓口として維持。メール rhythmspeaker296@gmail.com は問い合わせの代替窓口として共通メニュー・全サービス・アクセス・FAQに追加する）
 
 Supporting Surfaces:
 - RS Walletは新規客のPrimary CTAにしない
@@ -129,7 +129,7 @@ RS-NAV-2の元の10行き先を削除しない。ただし、右上メニュー�
 
 1. 最優先: `/schedule/`「レッスン日程」 / `/trial/`「初回体験 ¥1,000」
 2. 教室・レッスン: `/pricing/`, `/classes/`, `/instructors/`, `/workshops/`, `/access/`, `/rental/`
-3. 会員・お問い合わせ: RS Wallet / スタジオ公式LINE
+3. 会員・お問い合わせ: RS Wallet / スタジオ公式LINE / メールで問い合わせ
 4. その他: 教室トップ、教室紹介、FAQ、RSS、オリジナルグッズ、すべてのサービス
 
 現在のページへの自己リンクは原則省く。ただし、最優先の「レッスン日程」は /schedule/ 表示中も「よく使うメニュー」に残し、同一ページへのリンクには `aria-current="page"` を付ける（顧客が予約導線を見失わないため）。メニューをPC/モバイルで複製せず、単一の `nav.rs-menu-nav` を使用する。
@@ -172,3 +172,11 @@ RS-NAV-2の元の10行き先を削除しない。ただし、右上メニュー�
 - 初回体験は案内の `/trial/` に接続し、その先の `/trial/apply/` が申込画面。STORESの商品一覧と商店ブログの商品レビューは別の行き先。
 - `tools/navigation_sync.py` がレンタルを含む11ページの共通メニューを生成する。主要・案内カードは該当ページでも表示し、現在地には `aria-current="page"` を付ける。
 - 既存の開閉機構を使い、通常は2列、340px以下はカードを1列にする。メニュー内をスクロールでき、Escapeで閉じて開閉ボタンに戻る。
+
+## RS-NAV-4.1｜メールでのお問い合わせ追加（2026-11-21）
+
+- `tools/navigation_sync.py` の「主なサービス」グループに「メールで問い合わせ」→ `mailto:rhythmspeaker296@gmail.com` を追加する。既存の「お問い合わせ」（公式LINE）は残し、予約・問い合わせの主窓口として維持する。
+- `/access/` の連絡先にメールアドレスを追加し、`/faq/` に「メールでも問い合わせできますか」の案内を追加する。
+- すでに設定済みの場所は変更しない：`/ecosystem/` の「メールで問い合わせ」、`/trial/apply/` のメールで申し込むボタン。
+- レンタル予約・初回体験の予約確定フローは変更しない（スタジオからの返信で確定する流れのまま、LINE経由）。
+- メールはタプ太郎が一度受け取り、内容を整理して代表へ伝える。タプ太郎から勝手に返信・約束はしない。
