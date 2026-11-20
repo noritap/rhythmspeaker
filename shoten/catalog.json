@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "949f953b7be910da1f72906569086b07cb3e605c",
+  "source_sha": "a728828e8f2141d12b29f42496a17505f835bcc5",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -1119,6 +1119,48 @@
         }
       ],
       "href": "https://link.amazon/B0cOiuT1N",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0027",
+      "asin": "B0DD3X3L79",
+      "brand": "NYANDELMO",
+      "model": "使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
+      "formal_name": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "室内やスタジオに外履きの汚れを持ち込みたくない人",
+        "来客・清掃・作業場用の使い捨てカバーをまとめて用意したい人"
+      ],
+      "eyebrow": "靴の上から装着して床や室内を汚れから守る、グレーの使い捨て不織布シューズカバー。100枚・50足入りのフリーサイズ。",
+      "summary": "左右合計100枚（50足）入り。伸縮ゴムで靴にかぶせやすく、長さ約40cm・高さ約15cm。来客対応、清掃、スタジオや作業場などで使える消耗品。",
+      "good": "室内やスタジオに外履きの汚れを持ち込みたくない人・来客・清掃・作業場用の使い捨てカバーをまとめて用意したい人",
+      "caution": "不織布製で防水シューズカバーではない・フリーサイズのため靴の形状や大きさによって装着感が異なる・使い捨て前提。破損時は交換する・本人の実使用レビューは未記録",
+      "highlight": "室内やスタジオに外履きの汚れを持ち込みたくない人・来客・清掃・作業場用の使い捨てカバーをまとめて用意したい人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "室内やスタジオに外履きの汚れを持ち込みたくない人・来客・清掃・作業場用の使い捨てカバーをまとめて用意したい人",
+        "主な仕様": "左右合計100枚（50足）入り。伸縮ゴムで靴にかぶせやすく、長さ約40cm・高さ約15cm。来客対応、清掃、スタジオや作業場などで使える消耗品。"
+      },
+      "reasons": [
+        "左右合計100枚（50足）入り。伸縮ゴムで靴にかぶせやすく、長さ約40cm・高さ約15cm。来客対応、清掃、スタジオや作業場などで使える消耗品。"
+      ],
+      "sources": [
+        {
+          "url": "https://store.shopping.yahoo.co.jp/zebrand-shop/2b995p5084.html",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B06ymaXsB",
       "approvedPhoto": null,
       "gallery": [],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
