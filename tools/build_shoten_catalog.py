@@ -17,12 +17,23 @@ CATEGORY_BY_TAG = {
     "hygiene": ("home", "hygiene", "衛生・ハンドソープ", "peach", "time"),
     "paper": ("home", "paper", "ティッシュ・紙用品", "peach", "time"),
     "oils": ("food", "oils", "食用オイル", "green", "carry"),
+    "candy": ("food", "candy", "のど飴・キャンディ", "green", "carry"),
+    "tea": ("food", "tea-coffee", "お茶・コーヒー", "green", "carry"),
+    "coffee": ("food", "tea-coffee", "お茶・コーヒー", "green", "carry"),
+    "butter": ("food", "dairy", "バター・乳製品", "green", "carry"),
+    "dairy-cheese": ("food", "dairy", "バター・乳製品", "green", "carry"),
+    "beans": ("food", "pantry", "米・豆・食材", "green", "carry"),
+    "rice": ("food", "pantry", "米・豆・食材", "green", "carry"),
+    "frozen-fruit": ("food", "pantry", "米・豆・食材", "green", "carry"),
     "audio": ("sound", "wireless-headphones", "ワイヤレスヘッドホン", "blue", "focus"),
     "ac-power": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "dc-power": ("outdoor", "dc-power", "USB・DC電源", "green", "carry"),
     "outdoor": ("outdoor", "ac-power", "AC対応電源", "green", "carry"),
     "life": ("home", "daily-goods", "暮らしの道具・消耗品", "peach", "time"),
+    "smart-home": ("home", "smart-home", "スマートホーム・家電操作", "peach", "time"),
+    "apparel": ("home", "apparel", "服・ワークウェア", "peach", "time"),
     "work": ("sound", "work-tools", "仕事のデジタル道具", "blue", "focus"),
+    "books": ("sound", "books", "ダンス／音楽の本", "blue", "focus"),
 }
 
 
