@@ -399,3 +399,15 @@ body { background: var(--edition-paper); }
 .journal-update-more{margin-left:auto;white-space:nowrap;font-size:13px;font-weight:700;color:#24533f}
 .journal-update-strip a:focus-visible{outline:3px solid #276b54;outline-offset:3px}
 @media(max-width:600px){.journal-update-strip{align-items:flex-start;gap:7px 11px;padding:12px}.journal-update-title{flex-basis:100%;font-size:14px}.journal-update-more{margin-left:0}}
+
+.article-card { position: relative; }
+.article-card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.article-card:focus-within { outline: 2px solid #255d50; outline-offset: 4px; }
+.article-card:is(:hover,:focus-within) .article-read { text-decoration: underline; text-underline-offset: 3px; }
+.article-cover { position: relative; display: flex; background: #eee9df; overflow: hidden; aspect-ratio: 16 / 10; }
+.article-cover[hidden] { display: none; }
+.article-cover img { display: block; flex: 1 1 0; width: 0; min-width: 0; height: 100%; object-fit: cover; }
+.article-cover-products img { object-fit: contain; padding: 7%; }
+.article-cover-label { position: absolute; inset: auto 6px 6px auto; background: #fffdf6; color: #34352b; font-size: 10px; padding: 2px 5px; border-radius: 3px; }
+.magazine-grid .article-card:not(:first-child) .article-cover { aspect-ratio: 1.03; }
+.journal-slot-label { pointer-events: none; }
