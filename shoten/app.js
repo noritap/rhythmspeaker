@@ -15,9 +15,18 @@
     'RS-P0007': { title: '取っ手付き 半透明ごみ袋', size: '45L・100枚', image: 'rs-p0007-trash-bag-usage.webp' },
     'RS-P0050': { title: 'キレイキレイ 薬用泡ハンドソープ', size: '業務用4L・シトラスフルーティ', image: 'rs-p0050-handsoap-usage.webp' }
   };
+  const additionalUsageImages = {
+    'RS-P0042': 'rs-p0042-lozenge-usage.webp',
+    'RS-P0044': 'rs-p0044-hub-usage.webp',
+    'RS-P0020': 'rs-p0020-smart-lock-usage.webp',
+    'RS-P0024': 'rs-p0024-charger-usage.webp',
+    'RS-P0037': 'rs-p0037-masking-tape-usage.webp',
+    'RS-P0041': 'rs-p0041-fan-light-usage.webp',
+    'RS-P0027': 'rs-p0027-shoe-cover-usage.webp'
+  };
   const displayMedia = p => {
-    const usage = everydayCards[p.id];
-    const usageUrl = usage && './assets/products/' + usage.image;
+    const image = everydayCards[p.id]?.image || additionalUsageImages[p.id];
+    const usageUrl = image && './assets/products/' + image;
     const realPhoto = p.approvedPhoto && !/-editorial\.svg(?:$|\?)/.test(p.approvedPhoto)
       && p.imageSource?.image_type !== 'AI_GENERATED_EDITORIAL_ILLUSTRATION';
     if (usageUrl && !realPhoto && !failedMedia.has(usageUrl)) {
