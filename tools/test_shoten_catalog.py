@@ -199,6 +199,20 @@ class TestShotenCatalog(unittest.TestCase):
             self.assertFalse(product["imageSource"]["product_photo"])
             self.assertEqual(product["imageSource"]["image_type"], "AI_GENERATED_EDITORIAL_ILLUSTRATION")
 
+    def test_candy_category_maps_to_food(self):
+        item = fixture(42)
+        item["products"]["category_ids"] = ["food", "candy"]
+        item["row"]["category_ids"] = ["food", "candy"]
+        row, = self.run_projection(item)
+        self.assertEqual((row["category"], row["subcategory"]), ("food", "candy"))
+
+    def test_smart_home_category_preferred_to_generic_life(self):
+        item = fixture(44)
+        item["products"]["category_ids"] = ["life", "smart-home"]
+        item["row"]["category_ids"] = ["life", "smart-home"]
+        row, = self.run_projection(item)
+        self.assertEqual((row["category"], row["subcategory"]), ("home", "smart-home"))
+
     def test_openfit_official_image_with_local_editorial_fallback(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
