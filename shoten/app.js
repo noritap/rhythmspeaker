@@ -56,6 +56,31 @@
   }
   const avatar = `<span class="avatar" aria-hidden="true"><img src="${esc(brand.guide.avatar)}" alt="" width="64" height="64"></span>`;
   $('#parent-links').innerHTML=brand.parent_links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`).join('');
+  const originalArticleCovers = {
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/20/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045912.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/19/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045902.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/18/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045854.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/17/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045415.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/16/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045354.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/15/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045146.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/14/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045131.png",
+  "https://rhythmspeaker.hatenablog.com/entry/2026/11/13/070000": "https://cdn-ak.f.st-hatena.com/images/fotolife/r/rhythmspeaker/20261113/20261113045116.png"
+};
+  function articleCover(a) {
+    const original = a.externalUrl && originalArticleCovers[a.externalUrl.split('?')[0]];
+    const photos = original ? [{url:original,mode:'EDITORIAL_IMAGE'}] : a.products.map(byId)
+      .filter(Boolean).map(displayMedia).filter(media=>media.url).slice(0,2);
+    if (!photos.length) return articleArt(a);
+    const images = photos.map(({url})=>`<img src="${esc(url)}" alt="" loading="lazy" decoding="async" data-article-photo>`).join('');
+    return `<div class="article-cover ${original?'article-cover-original':'article-cover-products'}">${images}${photos.some(p=>p.mode==='EDITORIAL_IMAGE')?'<span class="article-cover-label">AIイメージ</span>':''}</div>`;
+  }
+  document.addEventListener('error',event=>{
+    const image=event.target;
+    if (!(image instanceof HTMLImageElement) || !image.hasAttribute('data-article-photo')) return;
+    const cover=image.closest('.article-cover');
+    image.remove();
+    if (!cover.querySelector('img')) cover.hidden=true;
+  },true);
   function articleArt(a) {
     const type = {clean:'vacuum-white',listen:'headphones-cream',power:'power-ac',editor:'headphones-black'}[a.art];
     return `<div class="article-art art-${a.art}"><span class="art-index">${{clean:'01',listen:'02',power:'03',editor:'04'}[a.art]}</span>${a.art==='editor'?`<div class="editor-symbol">${avatar}<span>HELLO,<br>GOOD CHOICES.</span></div>`:productArt(type)}<span class="art-caption">${{clean:'CLEAN YOUR SPACE.',listen:'FIND YOUR SOUND.',power:'TAKE YOUR POWER.',editor:'A NOTE FROM OUR STORE.'}[a.art]}</span></div>`;
@@ -83,7 +108,7 @@
   function articleCard(a, isLatest=false) {
     const href=a.externalUrl?esc(a.externalUrl):'#/article/'+encodeURIComponent(a.id);
     const external=a.externalUrl?' target="_blank" rel="noopener noreferrer"':'';
-    return `<article class="article-card${isLatest?' journal-is-latest':''}">${isLatest?'<span class="journal-slot-label">NEW ／ ブログ新着</span>':''}<a href="${href}"${external} class="article-image-link" aria-label="${esc(a.title.replace('\\n',''))}">${articleArt(a)}</a><div class="article-meta"><span>${esc(a.type)}</span><span>${a.externalUrl ? esc(readableDate(a.last_checked_at)) : `${a.time}分`}</span></div><h3><a href="${href}"${external}>${esc(a.title).replace('\\n','<br>')}</a></h3><p>${esc(a.excerpt)}</p><a class="text-link article-read" href="${href}"${external}>続きを読む ${arrow}</a></article>`;
+    return `<article class="article-card${isLatest?' journal-is-latest':''}">${isLatest?'<span class="journal-slot-label">NEW ／ ブログ新着</span>':''}<div class="article-image-link">${articleCover(a)}</div><div class="article-meta"><span>${esc(a.type)}</span><span>${a.externalUrl ? esc(readableDate(a.last_checked_at)) : `${a.time}分`}</span></div><h3><a class="article-card-link" href="${href}"${external}>${esc(a.title).replace('\\n','<br>')}</a></h3><p>${esc(a.excerpt)}</p><span class="text-link article-read" aria-hidden="true">記事を読む ${arrow}</span></article>`;
   }
   function searchMarkup() {
     return `<form id="search-form" role="search"><label class="search-box"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span class="sr-only">商品名・ブランド・用途で検索</span><input type="search" id="search-input" name="q" placeholder="商品名・ブランド・用途で探す" value="${esc(filter.q)}" autocomplete="off"></label><button type="submit" class="search-submit">検索</button></form>`;
