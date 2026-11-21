@@ -37,6 +37,7 @@
 
   async function loadShop() {
     let products = [];
+    let features = [];
     let loadState = 'READY';
     try {
       const response = await fetch('./catalog.json', {cache:'no-cache'});
@@ -50,6 +51,16 @@
       if (products.length && products.length < snapshot.products.length) loadState = 'PARTIAL';
       if (snapshot.products.length && !products.length) throw Error('No valid Shoten catalog rows');
       if (new Set(products.map(p => p.id)).size !== products.length) throw Error('Duplicate Shoten product');
+      features = (Array.isArray(snapshot.features) ? snapshot.features : []).flatMap(f => {
+        if (!f || typeof f.feature_id !== 'string' || typeof f.title !== 'string' || !Array.isArray(f.product_ids)) return [];
+        const ids = f.product_ids.filter(id => products.some(p => p.id === id));
+        if (!ids.length) return [];
+        return [{ feature_id: f.feature_id, title: f.title,
+          kind: typeof f.kind === 'string' ? f.kind : 'SALE',
+          label: typeof f.label === 'string' ? f.label : '',
+          intro: typeof f.intro === 'string' ? f.intro : '',
+          start_date: f.start_date, end_date: f.end_date, product_ids: ids }];
+      }).slice(0, 3);
     } catch {
       products = [];
       loadState = 'ERROR';
@@ -73,7 +84,7 @@
         }
       }
     } catch (_) { /* Keep the curated articles available. */ }
-    return {...editorial, products, articles, loadState};
+    return {...editorial, products, articles, features, loadState};
   }
 
   window.SHOTEN_READY = loadShop();

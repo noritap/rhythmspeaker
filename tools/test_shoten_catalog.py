@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from build_shoten_catalog import SURFACE_ID, SURFACE_URL, preserve_enrichment, project, verified_special_link
+from build_shoten_catalog import SURFACE_ID, SURFACE_URL, preserve_enrichment, project, project_features, verified_special_link
 
 SHA = "a" * 40
 
@@ -287,3 +287,59 @@ class TestPreserveEnrichment(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestShotenFeatures(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name)
+
+    def write_features(self, rows):
+        data = self.root / "data"
+        data.mkdir(exist_ok=True)
+        (data / "features.json").write_text(json.dumps(rows), encoding="utf-8")
+
+    def feature(self, **overrides):
+        row = {
+            "feature_id": "test-feature", "title": "テスト特集", "kind": "SALE",
+            "status": "ACTIVE", "label": "期間限定", "intro": "紹介文",
+            "start_date": "2020-01-01", "end_date": "2099-12-31",
+            "product_ids": ["RS-P0001"],
+        }
+        row.update(overrides)
+        return row
+
+    def test_missing_file_yields_no_features(self):
+        self.assertEqual(project_features(self.root, {"RS-P0001"}), [])
+
+    def test_active_feature_keeps_only_published_ids_in_order(self):
+        self.write_features([self.feature(product_ids=["RS-P0002", "RS-P9999", "RS-P0001", "RS-P0002"])])
+        out = project_features(self.root, {"RS-P0001", "RS-P0002"})
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["product_ids"], ["RS-P0002", "RS-P0001"])
+        self.assertEqual(out[0]["title"], "テスト特集")
+
+    def test_preparing_and_expired_features_are_skipped(self):
+        self.write_features([
+            self.feature(feature_id="prep", status="PREPARING"),
+            self.feature(feature_id="old", start_date="2020-01-01", end_date="2020-12-31"),
+        ])
+        self.assertEqual(project_features(self.root, {"RS-P0001"}), [])
+
+    def test_feature_with_no_published_products_is_skipped(self):
+        self.write_features([self.feature(product_ids=["RS-P9999"])])
+        self.assertEqual(project_features(self.root, {"RS-P0001"}), [])
+
+    def test_malformed_entries_do_not_break_projection(self):
+        self.write_features([{"feature_id": "broken"}, self.feature()])
+        out = project_features(self.root, {"RS-P0001"})
+        self.assertEqual([f["feature_id"] for f in out], ["test-feature"])
+
+    def test_snapshot_omits_features_key_when_none_active(self):
+        rows = setup_snapshot(self.root, fixture(1))
+        snapshot = project(rows, self.root, self.root, SHA, 1)
+        self.assertNotIn("features", snapshot)
+        self.write_features([self.feature()])
+        snapshot = project(rows, self.root, self.root, SHA, 1)
+        self.assertEqual(snapshot["features"][0]["product_ids"], ["RS-P0001"])

@@ -1,6 +1,6 @@
 (async () => {
   'use strict';
-  const { products, articles, categories, brand, loadState } = await window.SHOTEN_READY;
+  const { products, articles, categories, brand, loadState, features = [] } = await window.SHOTEN_READY;
   const main = document.querySelector('#main');
   const dialog = document.querySelector('#compare-dialog');
   const $ = s => document.querySelector(s);
@@ -193,6 +193,14 @@
       <div class="shop-refreshed-list">${recent.map(({p})=>`<a class="shop-refreshed-item" href="#/product/${encodeURIComponent(p.id)}"><span class="shop-refreshed-date">情報確認 ${esc(p.date)}</span><strong>${esc(p.formal_name)}</strong><span class="shop-refreshed-category">${esc(p.category_name)} <span aria-hidden="true">↗</span></span></a>`).join('')}</div>
     </section>`;
   }
+  function featuresMarkup() {
+    if (!Array.isArray(features) || !features.length) return '';
+    return features.map(f => {
+      const items = (f.product_ids || []).map(byId).filter(Boolean);
+      if (!items.length) return '';
+      return `<section class="shop-feature" aria-label="${esc(f.title)}"><div class="shop-feature-head"><div><p class="eyebrow">SPECIAL FEATURE</p><h2>${esc(f.title)}</h2></div>${f.label ? `<span class="shop-feature-label">${esc(f.label)}</span>` : ''}</div>${f.intro ? `<p class="shop-feature-intro">${esc(f.intro)}</p>` : ''}<div class="product-grid shop-feature-grid">${items.map((p, i) => productCard(p, i)).join('')}</div></section>`;
+    }).join('');
+  }
   function journalTopStrip() {
     const article=latestBlog();
     const total=articles.length;
@@ -205,7 +213,7 @@
   function listingMarkup(home=false) {
     const heading = home ? homeHeroMarkup()+journalTopStrip() : `<div class="section-head"><div><p class="eyebrow">THE GOOD PICKS</p><h1>暮らしに合う、ひとつを。</h1></div><p>気になるものを見つけて、<br>違いをくらべてみよう。</p></div>${searchMarkup()}`;
     const selection = home ? `<div class="selection-head"><div><p class="eyebrow">EDITOR’S SELECTION</p><h2>毎日使うものから探す</h2></div><a class="selection-guide" href="#/about">${avatar}<span>案内役 <strong>リズムタプ太郎</strong></span><span aria-hidden="true">↗</span></a></div>` : '';
-    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">日用品を優先</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><p id="show-all-products" hidden><a class="button outline" href="#/products">全${products.length}商品を見る ${arrow}</a></p><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
+    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${home ? featuresMarkup() : ''}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">日用品を優先</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><p id="show-all-products" hidden><a class="button outline" href="#/products">全${products.length}商品を見る ${arrow}</a></p><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
   }
   // Editorial picks remain useful, but the newest published post must be visible on the homepage.
   const blogByPublication = rows => rows.filter(a=>a.externalUrl)
