@@ -8,16 +8,16 @@
   const category = id => categories.find(c => c.id === id);
   const byId = id => products.find(p => p.id === id);
   const core = window.CatalogCore;
-  // When an official CDN photo fails, use the locally hosted editorial illustration.
-  // The label follows the displayed image, not the original catalog metadata.
+  // Prefer the approved photo; if its delivery fails, try another approved
+  // gallery image (typically a locally hosted editorial illustration).
   const displayMedia = p => {
     const candidates = [p.approvedPhoto, ...(Array.isArray(p.gallery) ? p.gallery.map(g => g.src) : [])];
-    const url = [...new Set(candidates)].find(src => src && !failedMedia.has(src));
+    const url = [...new Set(candidates)].find(src => typeof src === 'string' && src && !failedMedia.has(src));
     if (!url) return {mode:'ILLUSTRATION'};
-    const isEditorial = /-editorial\.svg(?:$|\?)/.test(url) ||
+    const editorial = /-editorial\.svg(?:$|\?)/.test(url) ||
       (url === p.approvedPhoto && p.imageSource?.image_type === 'AI_GENERATED_EDITORIAL_ILLUSTRATION');
-    return {mode:isEditorial?'EDITORIAL_IMAGE':'LOCAL_PHOTO',
-      url, label:isEditorial?'AI制作イメージ（実物写真ではありません）':'商品写真'};
+    return {mode:editorial?'EDITORIAL_IMAGE':'LOCAL_PHOTO',
+      url, label:editorial?'AI制作イメージ（実物写真ではありません）':'商品写真'};
   };
   const commerceStatus = p => p.purchase.kind === 'AFFILIATE' ? '広告リンク確認済み' : '購入リンク確認中';
   const canCompare = products.length >= 2;
@@ -263,6 +263,11 @@
     if (!hero) return;
     hero.src=button.dataset.gallerySrc;
     hero.alt=button.dataset.galleryAlt;
+    const editorial=/-editorial\.svg(?:$|\?)/.test(button.dataset.gallerySrc);
+    const caption=wrap.querySelector('[data-media-caption]');
+    if(caption)caption.textContent=editorial?'AI制作イメージ（実物写真ではありません）':'商品写真';
+    const media=wrap.querySelector('[data-product-media]');
+    if(media)media.dataset.mode=editorial?'EDITORIAL_IMAGE':'LOCAL_PHOTO';
     wrap.querySelectorAll('[data-gallery-src]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
   });
     function productPage(p) {
