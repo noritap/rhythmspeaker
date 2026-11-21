@@ -213,7 +213,7 @@ class TestShotenCatalog(unittest.TestCase):
         row, = self.run_projection(item)
         self.assertEqual((row["category"], row["subcategory"]), ("home", "smart-home"))
 
-    def test_openfit_official_image_with_local_editorial_fallback(self):
+    def test_existing_openfit_illustration_preserved_in_live_catalog(self):
         root = Path(__file__).resolve().parents[1]
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
         row = next(p for p in catalog["products"] if p["product_id"] == "RS-P0013")
