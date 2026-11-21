@@ -253,7 +253,7 @@ body { background: var(--edition-paper); }
   .catalog.home-catalog { margin-top: 12px; }
   .shop-hero {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "folio" "copy" "cover" "tools";
+    grid-template-areas: "folio" "copy" "tools" "cover";
     grid-template-rows: auto;
     gap: 10px;
     margin-bottom: 21px;
