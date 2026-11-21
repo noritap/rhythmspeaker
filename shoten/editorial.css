@@ -399,3 +399,42 @@ body { background: var(--edition-paper); }
 .journal-update-more{margin-left:auto;white-space:nowrap;font-size:13px;font-weight:700;color:#24533f}
 .journal-update-strip a:focus-visible{outline:3px solid #276b54;outline-offset:3px}
 @media(max-width:600px){.journal-update-strip{align-items:flex-start;gap:7px 11px;padding:12px}.journal-update-title{flex-basis:100%;font-size:14px}.journal-update-more{margin-left:0}}
+
+/* Front-page photography and story-specific editorial covers. */
+.edition-pick.home {
+  background: linear-gradient(158deg, #f5e9ce 52%, #ddbf8f 52%, #e6cfa7 80%, #d6b58a 80%);
+}
+.edition-pick.home .product-photo { object-position: 50% 63%; scale: 1.08; }
+.edition-pick.sound {
+  background: radial-gradient(ellipse at 75% 42%, #faf0e3 0 34%, #e6c9b5 35% 36%, #f0dccd 37%);
+}
+.edition-pick.outdoor {
+  background: repeating-linear-gradient(165deg, transparent 0 15px, #52685521 16px 17px), #d8e4d7;
+}
+@media (min-width: 721px) {
+  .edition-pick:is(.sound,.outdoor) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: center;
+    padding-top: 25px;
+  }
+  .edition-pick.sound .product-media { grid-column: 2; grid-row: 1; height: 100%; }
+  .edition-pick.sound .edition-pick-caption { grid-column: 1; grid-row: 1; }
+  .edition-pick.outdoor .product-media { height: 100%; }
+}
+.story-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55em;
+  aspect-ratio: 1.48;
+  overflow: hidden;
+  font: 700 clamp(20px, 3vw, 42px)/1 Georgia, serif;
+}
+.story-cover small { font-size: .42em; }
+.story-cover-tissue { background: #e9dcc6; color: #3c2b1c; }
+.story-cover-tissue span { display: grid; gap: .15em; padding: .25em; box-shadow: .12em .12em #b89468; background: #fff6e6; }
+.story-cover-tissue span + span { transform: translateY(-.22em); }
+.story-cover-soap { background: radial-gradient(circle at 66% 25%, #a3cbc1, #d6ebe2 52%, #b4d7cf); color: #163e3a; flex-direction: column; gap: .13em; }
+.story-cover-soap strong { font: 700 .38em/1.25 sans-serif; }
+.magazine-grid .article-card:not(:first-child) .story-cover { aspect-ratio: 1.03; }
