@@ -263,6 +263,11 @@
     if (!hero) return;
     hero.src=button.dataset.gallerySrc;
     hero.alt=button.dataset.galleryAlt;
+    const editorial=/-editorial\.svg(?:$|\?)/.test(button.dataset.gallerySrc);
+    const caption=wrap.querySelector('[data-media-caption]');
+    if(caption)caption.textContent=editorial?'AI制作イメージ（実物写真ではありません）':'商品写真';
+    const media=wrap.querySelector('[data-product-media]');
+    if(media)media.dataset.mode=editorial?'EDITORIAL_IMAGE':'LOCAL_PHOTO';
     wrap.querySelectorAll('[data-gallery-src]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
   });
     function productPage(p) {

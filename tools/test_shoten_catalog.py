@@ -218,10 +218,12 @@ class TestShotenCatalog(unittest.TestCase):
         catalog = json.loads((root / "shoten/catalog.json").read_text(encoding="utf-8"))
         row = next(p for p in catalog["products"] if p["product_id"] == "RS-P0013")
         asset = "./assets/products/rs-p0013-shokz-openfit-pro-white-editorial.svg"
-        self.assertEqual(row["approvedPhoto"], asset)
+        self.assertTrue(row["approvedPhoto"].startswith("https://jp.shokz.com/cdn/shop/files/"))
+        self.assertEqual(row["imageSource"]["image_type"], "OFFICIAL_PRODUCT_PHOTO")
+        self.assertEqual(row["gallery"][0]["src"], row["approvedPhoto"])
         self.assertTrue((root / "shoten" / asset).is_file())
-        self.assertTrue(any(item["src"] == asset for item in row["gallery"]))
-        self.assertEqual(row["imageSource"]["image_type"], "AI_GENERATED_EDITORIAL_ILLUSTRATION")
+        self.assertTrue(any(item["src"] == asset and "AI制作" in item["alt"] for item in row["gallery"]))
+        self.assertIn("UNVERIFIED", row["imageSource"]["delivery_status"])
 
     def test_unlicensed_photo_stays_out(self):
         item = fixture()
