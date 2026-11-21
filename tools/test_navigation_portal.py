@@ -72,7 +72,7 @@ class PortalContractTest(unittest.TestCase):
                 ['schedule', 'trial', 'rental', 'goods', 'wallet', 'line', 'mail'],
             )
             self.assertIn('https://lin.ee/zC5YLe7', menu)
-            self.assertIn('mailto:taptaro@muse.ai', menu)
+            self.assertIn('mailto:rhythmspeaker296@gmail.com', menu)
             self.assertIn('https://tips-app-seven.vercel.app/', menu)
             self.assertIn('https://rhythmspeaker.stores.jp/?all_items=true', menu)
             self.assertIn('class="rs-menu-link rs-menu-link--broadcast"', menu)
