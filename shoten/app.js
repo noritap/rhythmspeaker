@@ -57,6 +57,12 @@
   const avatar = `<span class="avatar" aria-hidden="true"><img src="${esc(brand.guide.avatar)}" alt="" width="64" height="64"></span>`;
   $('#parent-links').innerHTML=brand.parent_links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`).join('');
   function articleArt(a) {
+    if (a.id === 'elleair-tissue-20-vs-100') {
+      return '<div class="story-cover story-cover-tissue" aria-hidden="true"><span>20<small>パック</small></span><span>100<small>パック</small></span></div>';
+    }
+    if (a.id === 'daily-handsoap-4l') {
+      return '<div class="story-cover story-cover-soap" aria-hidden="true"><span>4<small>L</small></span><strong>詰め替え</strong></div>';
+    }
     const type = {clean:'vacuum-white',listen:'headphones-cream',power:'power-ac',editor:'headphones-black'}[a.art];
     return `<div class="article-art art-${a.art}"><span class="art-index">${{clean:'01',listen:'02',power:'03',editor:'04'}[a.art]}</span>${a.art==='editor'?`<div class="editor-symbol">${avatar}<span>HELLO,<br>GOOD CHOICES.</span></div>`:productArt(type)}<span class="art-caption">${{clean:'CLEAN YOUR SPACE.',listen:'FIND YOUR SOUND.',power:'TAKE YOUR POWER.',editor:'A NOTE FROM OUR STORE.'}[a.art]}</span></div>`;
   }
