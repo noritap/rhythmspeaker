@@ -83,7 +83,7 @@
   function articleCard(a, isLatest=false) {
     const href=a.externalUrl?esc(a.externalUrl):'#/article/'+encodeURIComponent(a.id);
     const external=a.externalUrl?' target="_blank" rel="noopener noreferrer"':'';
-    return `<article class="article-card${isLatest?' journal-is-latest':''}">${isLatest?'<span class="journal-slot-label">NEW ／ ブログ新着</span>':''}<a href="${href}"${external} class="article-image-link" aria-label="${esc(a.title.replace('\\n',''))}">${articleArt(a)}</a><div class="article-meta"><span>${esc(a.type)}</span><span>${a.time} min read</span></div><h3><a href="${href}"${external}>${esc(a.title).replace('\\n','<br>')}</a></h3><p>${esc(a.excerpt)}</p><a class="text-link article-read" href="${href}"${external}>続きを読む ${arrow}</a></article>`;
+    return `<article class="article-card${isLatest?' journal-is-latest':''}">${isLatest?'<span class="journal-slot-label">NEW ／ ブログ新着</span>':''}<a href="${href}"${external} class="article-image-link" aria-label="${esc(a.title.replace('\\n',''))}">${articleArt(a)}</a><div class="article-meta"><span>${esc(a.type)}</span><span>${a.externalUrl ? esc(readableDate(a.last_checked_at)) : `${a.time}分`}</span></div><h3><a href="${href}"${external}>${esc(a.title).replace('\\n','<br>')}</a></h3><p>${esc(a.excerpt)}</p><a class="text-link article-read" href="${href}"${external}>続きを読む ${arrow}</a></article>`;
   }
   function searchMarkup() {
     return `<form id="search-form" role="search"><label class="search-box"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg><span class="sr-only">商品名・ブランド・用途で検索</span><input type="search" id="search-input" name="q" placeholder="商品名・ブランド・用途で探す" value="${esc(filter.q)}" autocomplete="off"></label><button type="submit" class="search-submit">検索</button></form>`;
@@ -97,6 +97,12 @@
         <p class="edition-kicker">${esc([...new Set(products.map(p=>p.category_name))].join("・"))}のセレクトショップ</p>
         <h1 id="shop-hero-title">暮らしに、いいもの<span>。</span><br>毎日に、いいリズム<span>。</span></h1>
         <p class="shop-hero-description">掲載商品を、使う場面や目的から。タプ太郎と、自分に合う道具を探そう。</p>
+      </div>
+      <div class="edition-tools">
+        ${searchMarkup()}
+        <nav class="purpose-links" aria-label="目的から商品を探す">
+          ${[...new Set(products.map(p=>p.purpose))].map(id=>{const label={time:'家事を時短',focus:'音に集中',carry:'外出・備え'}[id];return label?`<a href="#/products?purpose=${id}">${label} <span aria-hidden="true">↗</span></a>`:'';}).join('')}
+        </nav>
       </div>
       ${cover.length?`<div class="edition-spread" aria-label="誌面のおすすめ商品">${cover.map((p,i)=>`<a class="edition-pick ${esc(p.category)}" href="#/product/${p.id}">
         <span class="edition-index" aria-hidden="true">0${i+1}</span>
@@ -112,12 +118,6 @@
           </span><span class="edition-arrow" aria-hidden="true">↗</span>
         </a>`).join('')}
       </div>`}
-      <div class="edition-tools">
-        ${searchMarkup()}
-        <nav class="purpose-links" aria-label="目的から商品を探す">
-          ${[...new Set(products.map(p=>p.purpose))].map(id=>{const label={time:'家事を時短',focus:'音に集中',carry:'外出・備え'}[id];return label?`<a href="#/products?purpose=${id}">${label} <span aria-hidden="true">↗</span></a>`:'';}).join('')}
-        </nav>
-      </div>
     </section>`;
   }
   // Show recently checked, already-published items; checked date is not a publication date.
@@ -144,11 +144,12 @@
   function listingMarkup(home=false) {
     const heading = home ? homeHeroMarkup()+journalTopStrip() : `<div class="section-head"><div><p class="eyebrow">THE GOOD PICKS</p><h1>暮らしに合う、ひとつを。</h1></div><p>気になるものを見つけて、<br>違いをくらべてみよう。</p></div>${searchMarkup()}`;
     const selection = home ? `<div class="selection-head"><div><p class="eyebrow">EDITOR’S SELECTION</p><h2>タプ太郎の道具棚</h2></div><a class="selection-guide" href="#/about">${avatar}<span>案内役 <strong>リズムタプ太郎</strong></span><span aria-hidden="true">↗</span></a></div>` : '';
-    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${home?refreshedPicksMarkup():''}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">商店のセレクト順</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
+    return `<section class="catalog section${home?' home-catalog':''}" id="catalog">${heading}${selection}<div class="category-tabs" role="group" aria-label="商品カテゴリ"><button data-action="category" data-category="all" aria-pressed="${filter.category==='all'}" class="${filter.category==='all'?'active':''}">すべて <small>${products.length}</small></button>${categories.filter(c=>products.some(p=>p.category===c.id)).map(c=>`<button data-action="category" data-category="${c.id}" aria-pressed="${filter.category===c.id}" class="${filter.category===c.id?'active':''}">${lineIcon(c.icon)}${c.name}<small>${products.filter(p=>p.category===c.id).length}</small></button>`).join('')}</div><div class="filter-row"><div class="result-count" id="result-count" role="status" aria-live="polite"></div><div class="selects" ${products.length<=1?'hidden':''}><label>小分類 <select id="subcategory-filter"></select></label><label>目的 <select id="purpose-filter"><option value="all">すべての目的</option><option value="time">家事の時短</option><option value="focus">集中したい</option><option value="carry">外出・備え</option></select></label><label><span class="sr-only">並び順</span><select id="sort-filter"><option value="editor">商店のセレクト順</option><option value="name">商品名順</option></select></label></div></div><div id="active-filters"></div><div class="product-grid" id="product-grid"></div><div id="matching-articles"></div><p class="catalog-footnote">掲載内容はメーカー公表仕様をもとにした紹介です。実機レビュー・販売ランキングではありません。<br>商品ごとの確認日はカードと詳細に記載しています。掲載画像は利用条件を確認した素材です。</p></section>`;
   }
   // Editorial picks remain useful, but the newest published post must be visible on the homepage.
-  const latestBlog = () => articles.filter(x=>x.externalUrl)
-    .sort((x,y)=>new Date(y.last_checked_at).getTime()-new Date(x.last_checked_at).getTime())[0];
+  const blogByPublication = rows => rows.filter(a=>a.externalUrl)
+    .sort((a,b)=>(Date.parse(b.last_checked_at)||0)-(Date.parse(a.last_checked_at)||0));
+  const latestBlog = () => blogByPublication(articles)[0];
   const readableDate = value => {
     const d = new Date(value);
     return Number.isNaN(d.getTime()) ? '' : new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(d);
@@ -158,7 +159,7 @@
     const recommended=articles.filter(x=>!x.externalUrl && x.feature).slice(0,latest?2:3);
     const displayed=latest?[latest,...recommended]:recommended;
     const updated=latest?readableDate(latest.last_checked_at):'';
-    main.innerHTML=`${listingMarkup(true)}<section class="journal section magazine-journal" aria-labelledby="journal-latest-title"><div class="section-head"><div><p class="eyebrow">THE STORE JOURNAL ／ 最新の読みもの</p><h2 id="journal-latest-title">新着記事と、お買いもののヒント。</h2><p class="journal-freshness">${latest?`<span class="journal-new-label">最新記事</span> ${esc(updated||'公開済み')} 更新`:'商店のおすすめ記事'} <span class="journal-article-total">全${articles.length}記事</span></p></div><a class="text-link" href="#/articles">すべての読みものを見る ${arrow}</a></div><div class="article-grid magazine-grid journal-latest-grid">${displayed.map((item,i)=>articleCard(item,i===0&&!!latest)).join('')}</div><p class="journal-read-more"><a href="#/articles">過去の記事や商品の選び方を見る ${arrow}</a></p></section><section class="guide-band"><div class="guide-band-symbol">${avatar}</div><div><p class="eyebrow">CURATED BY RHYTHM TAP TARO</p><h2>「いいかも」の、その先まで。</h2><p>いいところも、気になるところも。<br>自分に合う理由を見つけるお手伝いをします。</p></div><a href="#/about" class="button outline">この商店について ${arrow}</a></section>`;
+    main.innerHTML=`${listingMarkup(true)}<section class="journal section magazine-journal" aria-labelledby="journal-latest-title"><div class="section-head"><div><p class="eyebrow">THE STORE JOURNAL ／ 最新の読みもの</p><h2 id="journal-latest-title">新着記事と、お買いもののヒント。</h2><p class="journal-freshness">${latest?`<span class="journal-new-label">最新記事</span> ${esc(updated||'公開済み')} 更新`:'商店のおすすめ記事'} <span class="journal-article-total">全${articles.length}記事</span></p></div><a class="text-link" href="#/articles">すべての読みものを見る ${arrow}</a></div><div class="article-grid magazine-grid journal-latest-grid">${displayed.map((item,i)=>articleCard(item,i===0&&!!latest)).join('')}</div><p class="journal-read-more"><a href="#/articles">過去の記事や商品の選び方を見る ${arrow}</a></p></section>${refreshedPicksMarkup()}<section class="guide-band"><div class="guide-band-symbol">${avatar}</div><div><p class="eyebrow">CURATED BY RHYTHM TAP TARO</p><h2>「いいかも」の、その先まで。</h2><p>いいところも、気になるところも。<br>自分に合う理由を見つけるお手伝いをします。</p></div><a href="#/about" class="button outline">この商店について ${arrow}</a></section>`;
     setupListing();
   }
   function setupSubcategories() {
@@ -287,7 +288,8 @@
   function drawArticles(sync=true) {
     const terms=searchTerms(articleFilter.q);
     const rows=articles.filter(a=>(articleFilter.category==='all'||a.category===articleFilter.category)&&terms.every(t=>normalize(articleText(a)).includes(t)));
-    $('#journal-grid').innerHTML=rows.length?rows.filter(a=>!a.externalUrl).concat(rows.filter(a=>a.externalUrl)).map(articleCard).join(''):`<div class="empty-state"><h2>条件に合う記事はありませんでした。</h2><p>キーワードを短くするか、カテゴリを変えてみてください。</p><button class="button dark" data-action="reset-articles">条件をリセット</button></div>`;
+    const newest=latestBlog();
+    $('#journal-grid').innerHTML=rows.length?blogByPublication(rows).concat(rows.filter(a=>!a.externalUrl)).map(a=>articleCard(a,a===newest)).join(''):`<div class="empty-state"><h2>条件に合う記事はありませんでした。</h2><p>キーワードを短くするか、カテゴリを変えてみてください。</p><button class="button dark" data-action="reset-articles">条件をリセット</button></div>`;
     $('.article-result').textContent=`${rows.length}件の読みもの ／ 全${articles.length}件`;
     document.querySelectorAll('.article-filters button').forEach(b=>{const active=b.dataset.category===articleFilter.category;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
     $('#article-reset').hidden=!articleFilter.q&&articleFilter.category==='all';
