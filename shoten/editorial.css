@@ -411,3 +411,5 @@ body { background: var(--edition-paper); }
 .article-cover-label { position: absolute; inset: auto 6px 6px auto; background: #fffdf6; color: #34352b; font-size: 10px; padding: 2px 5px; border-radius: 3px; }
 .magazine-grid .article-card:not(:first-child) .article-cover { aspect-ratio: 1.03; }
 .journal-slot-label { pointer-events: none; }
+
+.product-card .product-image [data-usage-image] .product-photo { object-fit: cover; }

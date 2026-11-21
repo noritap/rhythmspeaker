@@ -10,7 +10,19 @@
   const core = window.CatalogCore;
   // Prefer the approved photo; if its delivery fails, try another approved
   // gallery image (typically a locally hosted editorial illustration).
+  const everydayCards = {
+    'RS-P0052': { title: 'エリエール i:na ソフトパックティシュー', size: '150組 × 20パック', image: 'rs-p0052-tissue-usage.webp' },
+    'RS-P0007': { title: '取っ手付き 半透明ごみ袋', size: '45L・100枚', image: 'rs-p0007-trash-bag-usage.webp' },
+    'RS-P0050': { title: 'キレイキレイ 薬用泡ハンドソープ', size: '業務用4L・シトラスフルーティ', image: 'rs-p0050-handsoap-usage.webp' }
+  };
   const displayMedia = p => {
+    const usage = everydayCards[p.id];
+    const usageUrl = usage && './assets/products/' + usage.image;
+    const realPhoto = p.approvedPhoto && !/-editorial\.svg(?:$|\?)/.test(p.approvedPhoto)
+      && p.imageSource?.image_type !== 'AI_GENERATED_EDITORIAL_ILLUSTRATION';
+    if (usageUrl && !realPhoto && !failedMedia.has(usageUrl)) {
+      return {mode:'EDITORIAL_IMAGE', url:usageUrl, scene:true, label:'AI使用イメージ（実物写真ではありません）'};
+    }
     const candidates = [p.approvedPhoto, ...(Array.isArray(p.gallery) ? p.gallery.map(g => g.src) : [])];
     const url = [...new Set(candidates)].find(src => typeof src === 'string' && src && !failedMedia.has(src));
     if (!url) return {mode:'ILLUSTRATION'};
@@ -68,11 +80,14 @@
 };
   function articleCover(a) {
     const original = a.externalUrl && originalArticleCovers[a.externalUrl.split('?')[0]];
-    const photos = original ? [{url:original,mode:'EDITORIAL_IMAGE'}] : a.products.map(byId)
+    const sceneId = {'elleair-tissue-20-vs-100':'RS-P0052','daily-handsoap-4l':'RS-P0050'}[a.id];
+    const sceneProduct = sceneId && byId(sceneId);
+    const scene = sceneProduct && displayMedia(sceneProduct);
+    const photos = scene?.scene ? [scene] : original ? [{url:original,mode:'EDITORIAL_IMAGE'}] : a.products.map(byId)
       .filter(Boolean).map(displayMedia).filter(media=>media.url).slice(0,2);
     if (!photos.length) return articleArt(a);
     const images = photos.map(({url})=>`<img src="${esc(url)}" alt="" loading="lazy" decoding="async" data-article-photo>`).join('');
-    return `<div class="article-cover ${original?'article-cover-original':'article-cover-products'}">${images}${photos.some(p=>p.mode==='EDITORIAL_IMAGE')?'<span class="article-cover-label">AIイメージ</span>':''}</div>`;
+    return `<div class="article-cover ${original||scene?.scene?'article-cover-original':'article-cover-products'}">${images}${photos.some(p=>p.mode==='EDITORIAL_IMAGE')?'<span class="article-cover-label">AIイメージ</span>':''}</div>`;
   }
   document.addEventListener('error',event=>{
     const image=event.target;
@@ -89,7 +104,7 @@
   function productVisual(p,loading='lazy') {
     const m=displayMedia(p),photo=m.mode!=='ILLUSTRATION';
     const image=photo?`<img class="product-photo" src="${esc(m.url)}" alt="${esc(p.formal_name + (m.mode==='EDITORIAL_IMAGE' ? 'のAI制作イメージ（実物写真ではありません）' : 'の商品写真'))}" data-product-photo="true" loading="${loading}" referrerpolicy="no-referrer">`:`<div class="photo-pending"><strong>${esc(p.name)}</strong><span>商品画像準備中</span></div>`;
-    return `<div class="product-media" data-product-media="${p.id}" data-mode="${photo?m.mode:'ILLUSTRATION'}" data-quality="${m.quality||''}">${image}</div>`;
+    return `<div class="product-media" data-product-media="${p.id}" data-mode="${photo?m.mode:'ILLUSTRATION'}" data-quality="${m.quality||''}"${m.scene?' data-usage-image="true"':''}>${image}</div>`;
   }
   function mediaLabel(p){const m=displayMedia(p);return m.mode==='ILLUSTRATION'?'商品画像準備中':m.label;}
   function restoreMedia(el,p) {
@@ -103,7 +118,7 @@
   const subcategoryName=p=>category(p.category).children.find(c=>c.id===p.subcategory)?.name||'';
   function productCard(p,index) {
     const selected=compare.includes(p.id);
-    return `<article class="product-card"><div class="product-image ${esc(p.tint)}"><a class="product-image-link" href="#/product/${p.id}"><span class="product-number">SELECT ${String(index+1).padStart(2,'0')}</span>${productVisual(p)}<span class="image-caption">${mediaLabel(p)}</span><span class="image-arrow" aria-hidden="true">↗</span></a></div><div class="product-info"><div class="card-meta"><span>${esc(subcategoryName(p))}</span>${p.curationLabel?`<span class="curator-badge">${esc(p.curationLabel)}</span>`:'' }<span>${commerceStatus(p)}</span></div><p class="product-copy">${esc(p.eyebrow)}</p><a class="product-title" href="#/product/${p.id}"><small>${esc(p.brand)}</small><h3>${esc(p.name)}</h3></a><p class="product-summary">${esc(p.summary)}</p><div class="product-spec">${esc(p.highlight)}</div><p class="verified-date">情報確認 ${esc(p.date)}</p><div class="card-bottom"><a href="#/product/${p.id}" class="text-link">商品詳細 ${arrow}</a>${p.purchase.kind==='AFFILIATE'&&p.purchase.href?`<a class="text-link amazon-card-link" href="${esc(p.purchase.href)}" target="_blank" rel="${esc(p.purchase.rel)}" referrerpolicy="no-referrer-when-downgrade" aria-label="${esc(p.name)}をAmazonで見る（広告）">Amazonで見る ${arrow}</a>`:''}${canCompare?`<button class="compare-add ${selected?'selected':''}" data-action="toggle-compare" data-id="${p.id}" aria-pressed="${selected}" aria-label="${esc(p.name)}を${selected?'比較から外す':'比較に追加'}"><span aria-hidden="true">${selected?'✓':'＋'}</span> ${selected?'比較中':'くらべる'}</button>`:''}</div></div></article>`;
+    return `<article class="product-card"><div class="product-image ${esc(p.tint)}"><a class="product-image-link" href="#/product/${p.id}"><span class="product-number">SELECT ${String(index+1).padStart(2,'0')}</span>${productVisual(p)}<span class="image-caption">${mediaLabel(p)}</span><span class="image-arrow" aria-hidden="true">↗</span></a></div><div class="product-info"><a class="product-title" href="#/product/${p.id}"><small>${esc(p.brand)}</small><h3>${esc(everydayCards[p.id]?.title || p.name)}</h3></a>${everydayCards[p.id]? `<p class="product-copy">${esc(everydayCards[p.id].size)}</p>` : ''}<div class="card-meta"><span>${esc(subcategoryName(p))}</span>${p.curationLabel?`<span class="curator-badge">${esc(p.curationLabel)}</span>`:'' }<span>${commerceStatus(p)}</span></div>${everydayCards[p.id]?'':`<p class="product-copy">${esc(p.eyebrow)}</p>`}<p class="product-summary">${esc(p.summary)}</p><div class="product-spec">${esc(p.highlight)}</div><p class="verified-date">情報確認 ${esc(p.date)}</p><div class="card-bottom"><a href="#/product/${p.id}" class="text-link">商品詳細 ${arrow}</a>${p.purchase.kind==='AFFILIATE'&&p.purchase.href?`<a class="text-link amazon-card-link" href="${esc(p.purchase.href)}" target="_blank" rel="${esc(p.purchase.rel)}" referrerpolicy="no-referrer-when-downgrade" aria-label="${esc(p.name)}をAmazonで見る（広告）">Amazonで見る ${arrow}</a>`:''}${canCompare?`<button class="compare-add ${selected?'selected':''}" data-action="toggle-compare" data-id="${p.id}" aria-pressed="${selected}" aria-label="${esc(p.name)}を${selected?'比較から外す':'比較に追加'}"><span aria-hidden="true">${selected?'✓':'＋'}</span> ${selected?'比較中':'くらべる'}</button>`:''}</div></div></article>`;
   }
   function articleCard(a, isLatest=false) {
     const href=a.externalUrl?esc(a.externalUrl):'#/article/'+encodeURIComponent(a.id);
