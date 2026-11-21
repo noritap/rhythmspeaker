@@ -41,3 +41,9 @@ Muse の日次開発タスク（dev-daily-ops、毎朝08:30ごろ）が参照す
 - 内容：デプロイ手順の検証と不足項目の洗い出しまで。本番への有効化は要確認に回す
 - リスク：低（準備のみ）
 - 状態：未着手
+
+### DEV-006 商店特集（features）のスキーマ検証追加
+- 対象：noritap/AMAZON_COMMERCE_DATA_OS（data/features.json と schemas/）
+- 内容：features.json のJSONスキーマを追加し、check_schemas.py で検証が通ることを確認する（追加のみ。生成器は特集対応済みで、スキーマが無くても動作に影響しない）
+- リスク：低
+- 状態：未着手
