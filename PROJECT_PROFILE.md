@@ -508,6 +508,7 @@ Phase 1 Production Page Set:
 
 Additional Published Content:
 - /rss/
+- /rental/ (production public rental landing and booking inquiry; prices in JPY; reservation confirmed by staff reply)
 
 Isolated Workshop Live Operations:
 - /workshops/
@@ -575,13 +576,13 @@ Future Scope / Not Phase 1:
 - /price/
 - /wallet/
 - /dance-park/
-- /rental/
 - /tap-hub/
 - /media/
 - /shop/
 - /contact/
 
 Operational Note:
+/rental/ は公開済みであり、旧Future Scope表記は履歴上のdriftだった。一般向けレンタルの料金は円建て。実際の公開ページと現行予約UIの価格・時間帯・申込条件を確認し、古いRS_STUDIO_OSのTIPS建て料金で一般向け告知を作成しない。予約空き枠は静的資料から推測しない。公開ページとProfileの内容が矛盾したらSOURCE DRIFTとして最小修正する。
 個別PR番号、branch名、latest commit SHA、今日の作業状況は
 PROJECT_PROFILEへ固定しない。
 Current Development StateはGitHub実体で確認する。
