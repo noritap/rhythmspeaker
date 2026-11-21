@@ -5,11 +5,12 @@ import json
 import re
 import subprocess
 import sys
-from datetime import date
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+JST = timezone(timedelta(hours=9))
 SURFACE_ID = "rhythmspeaker-web"
 SURFACE_URL = "https://noritap.github.io/rhythmspeaker/shoten/"
 CATEGORY_BY_TAG = {
@@ -202,7 +203,56 @@ def project(export_rows, source_dir, shop, source_sha, limit):
         })
     if len(snapshot["products"]) > limit:
         raise ValueError("Approved export exceeds the explicitly authorized publication count")
+    features = project_features(source_dir, used_ids)
+    if features:
+        snapshot["features"] = features
     return snapshot
+
+
+def project_features(source_dir, published_ids):
+    """Project ACTIVE, in-period shop features from the Commerce snapshot.
+
+    Features are decorative: a missing or malformed features.json must never
+    break the product pipeline, so bad entries are skipped with a warning.
+    Only product_ids that were actually projected (published) are kept, in
+    the order the feature defines. Dates are JST calendar dates.
+    """
+    path = source_dir / "data" / "features.json"
+    if not path.is_file():
+        return []
+    try:
+        rows = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"features.json unreadable, skipping features: {exc}", file=sys.stderr)
+        return []
+    if not isinstance(rows, list):
+        print("features.json is not a list, skipping features", file=sys.stderr)
+        return []
+    today = datetime.now(JST).date()
+    out = []
+    for row in rows:
+        try:
+            if not isinstance(row, dict) or row.get("status") != "ACTIVE":
+                continue
+            start = date.fromisoformat(row["start_date"])
+            end = date.fromisoformat(row["end_date"])
+            if not start <= today <= end:
+                continue
+            ids = []
+            for pid in row.get("product_ids") or []:
+                if pid in published_ids and pid not in ids:
+                    ids.append(pid)
+            if not ids:
+                continue
+            out.append({
+                "feature_id": str(row["feature_id"]), "title": str(row["title"]),
+                "kind": str(row.get("kind") or "SALE"), "label": str(row.get("label") or ""),
+                "intro": str(row.get("intro") or ""), "product_ids": ids,
+                "start_date": start.isoformat(), "end_date": end.isoformat(),
+            })
+        except (KeyError, TypeError, ValueError) as exc:
+            print(f"skipping malformed feature entry: {exc}", file=sys.stderr)
+    return out
 
 
 PRESERVE_FIELDS = (
