@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "7a9d129de3b5f0633bc7d31ea0da9eb5a0a012ff",
+  "source_sha": "b3d1151f0394633025052663489f7f37ac54f90a",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -1399,6 +1399,51 @@
         }
       ],
       "href": "https://link.amazon/B00yU3qCS",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0017",
+      "asin": "B0GQZ59MY5",
+      "brand": "Shokz",
+      "model": "OpenDots 2 ブラック（SKZ-EP-000069）",
+      "formal_name": "Shokz OpenDots 2 ブラック（SKZ-EP-000069）",
+      "category": "sound",
+      "subcategory": "wireless-headphones",
+      "kind": "ワイヤレスヘッドホン",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "日常の移動中に周囲の音を把握したい人",
+        "軽量なイヤーカフ型を選びたい人"
+      ],
+      "eyebrow": "Shokzのイヤーカフ型オープンイヤーイヤホン。片耳約6.4g、イヤホン単体で最大10時間、ケース併用で最大40時間再生。",
+      "summary": "Shokz公式情報でBassphere 2.0、Dolby Audio、左右の区別なく使える設計、最大40時間再生を確認。Amazon.co.jpのブラック・SKZ-EP-000069掲載情報と照合。",
+      "good": "日常の移動中に周囲の音を把握したい人・軽量なイヤーカフ型を選びたい人",
+      "caution": "周囲の音が聞こえる設計だが、使用環境によっては周囲の音や音楽が聞こえにくい場合がある・音漏れ・装着感は環境と耳の形によって異なる・IP57はイヤホン本体、充電ケースはIP54・本人の実使用レビューではない",
+      "highlight": "日常の移動中に周囲の音を把握したい人・軽量なイヤーカフ型を選びたい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "日常の移動中に周囲の音を把握したい人・軽量なイヤーカフ型を選びたい人",
+        "主な仕様": "Shokz公式情報でBassphere 2.0、Dolby Audio、左右の区別なく使える設計、最大40時間再生を確認。Amazon.co.jpのブラック・SKZ-EP-000069掲載情報と照合。"
+      },
+      "reasons": [
+        "Shokz公式情報でBassphere 2.0、Dolby Audio、左右の区別なく使える設計、最大40時間再生を確認。Amazon.co.jpのブラック・SKZ-EP-000069掲載情報と照合。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0GQZ59MY5",
+          "label": "Amazon商品情報"
+        },
+        {
+          "url": "https://jp.shokz.com/products/opendots-2",
+          "label": "Shokz公式製品情報"
+        }
+      ],
+      "href": "https://link.amazon/B05M37gyW",
       "approvedPhoto": null,
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
