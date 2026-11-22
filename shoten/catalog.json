@@ -855,11 +855,27 @@
         }
       ],
       "href": "https://link.amazon/B0g1dqXCC",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0042-lozenge-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0042-lozenge-usage.webp",
+          "alt": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パックのAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0007",
@@ -897,11 +913,27 @@
         }
       ],
       "href": "https://link.amazon/B0edk5RAw",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0007-trash-bag-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0007-trash-bag-usage.webp",
+          "alt": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚のAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0044",
@@ -948,11 +980,27 @@
         }
       ],
       "href": "https://link.amazon/B0dVuf9RI",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0044-hub-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0044-hub-usage.webp",
+          "alt": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セットのAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セット",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0020",
@@ -991,11 +1039,27 @@
         }
       ],
       "href": "https://link.amazon/B0fOb4qjR",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0020-smart-lock-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0020-smart-lock-usage.webp",
+          "alt": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）のAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0024",
@@ -1033,11 +1097,27 @@
         }
       ],
       "href": "https://link.amazon/B05jVDUly",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0024-charger-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0024-charger-usage.webp",
+          "alt": "Anker Nano Charger (45W) ブラック（B2692N11）のAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "Anker Nano Charger (45W) ブラック（B2692N11）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0037",
@@ -1084,11 +1164,27 @@
         }
       ],
       "href": "https://link.amazon/B06geFAQZ",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0037-masking-tape-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0037-masking-tape-usage.webp",
+          "alt": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）のAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0041",
@@ -1131,11 +1227,27 @@
         }
       ],
       "href": "https://link.amazon/B0cOiuT1N",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0041-fan-light-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0041-fan-light-usage.webp",
+          "alt": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根のAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     },
     {
       "product_id": "RS-P0027",
@@ -1173,11 +1285,27 @@
         }
       ],
       "href": "https://link.amazon/B06ymaXsB",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "./assets/products/rs-p0027-shoe-cover-usage.webp",
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0027-shoe-cover-usage.webp",
+          "alt": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズのAI制作イメージ（実物写真ではありません）"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "Rhythm Speaker original AI usage illustration",
+        "source_page": null,
+        "source_image_url": null,
+        "verified_model": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-22",
+        "hosting": "local_repository_asset"
+      }
     }
   ]
 }
