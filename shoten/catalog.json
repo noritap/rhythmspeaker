@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "e65063db4999d60b2bcec05a06d29f03c7873b8e",
+  "source_sha": "7a9d129de3b5f0633bc7d31ea0da9eb5a0a012ff",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -1354,6 +1354,55 @@
         "checked_at": "2026-11-22",
         "hosting": "local_repository_asset"
       }
+    },
+    {
+      "product_id": "RS-P0049",
+      "asin": "B0H4CXT863",
+      "brand": "花王",
+      "model": "アタック ZERO 2026年改良版 通常タイプ つめかえ用 1070g",
+      "formal_name": "花王 アタック ZERO 2026年改良版 通常タイプ つめかえ用 1070g",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "衣類用濃縮液体洗剤を定期補充する人",
+        "洗濯回数が多く詰替え用を買い置きしたい人"
+      ],
+      "eyebrow": "花王アタックZEROの2026年改良版・通常タイプ、詰替え1070g。日常の洗濯で補充需要がある洗剤。",
+      "summary": "2026年の改良版。花王公式の製品情報で通常タイプの詰替え用1070g、JAN 4901301466310を確認。Amazon.co.jpでも通常タイプ・1070gの掲載商品を照合。",
+      "good": "衣類用濃縮液体洗剤を定期補充する人・洗濯回数が多く詰替え用を買い置きしたい人",
+      "caution": "部屋干し・ドラム式専用とは別バリエーション。通常タイプであることを購入画面で確認する・アタックZEROのボトルへ詰め替えて使用する。従来ボトルは中身を使い切ってから詰め替える・用途外に使用せず、子供の手の届かない場所に保管する・本人の実使用レビューではない",
+      "highlight": "衣類用濃縮液体洗剤を定期補充する人・洗濯回数が多く詰替え用を買い置きしたい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "衣類用濃縮液体洗剤を定期補充する人・洗濯回数が多く詰替え用を買い置きしたい人",
+        "主な仕様": "2026年の改良版。花王公式の製品情報で通常タイプの詰替え用1070g、JAN 4901301466310を確認。Amazon.co.jpでも通常タイプ・1070gの掲載商品を照合。"
+      },
+      "reasons": [
+        "2026年の改良版。花王公式の製品情報で通常タイプの詰替え用1070g、JAN 4901301466310を確認。Amazon.co.jpでも通常タイプ・1070gの掲載商品を照合。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0H4CXT863",
+          "label": "Amazon商品情報"
+        },
+        {
+          "url": "https://www.kao-kirei.com/ja/item/khg/attack/4901301466310/",
+          "label": "花王公式製品情報"
+        },
+        {
+          "url": "https://www.kao.com/jp/newsroom/news/release/2026/20260311-001/",
+          "label": "花王公式ニュースリリース"
+        }
+      ],
+      "href": "https://link.amazon/B00yU3qCS",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     }
   ]
 }
