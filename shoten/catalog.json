@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "b3d1151f0394633025052663489f7f37ac54f90a",
+  "source_sha": "e7630fa11f3d5b28f85bcd57a5e7a0412aa205b3",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -372,6 +372,9 @@
       ],
       "href": "https://link.amazon/B03EuZEVM",
       "approvedPhoto": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://jp.ecoflow.com/cdn/shop/files/D3C_1200_1200.png?v=1780393161",
@@ -382,9 +385,6 @@
           "alt": "EcoFlow DELTA 3 Classic のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "EcoFlow Japan official product photography",
         "source_page": "https://jp.ecoflow.com/products/delta-3-classic",
@@ -439,6 +439,9 @@
       ],
       "href": "https://link.amazon/B0fvPIBGJ",
       "approvedPhoto": "https://www.switchbot.jp/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp?v=1764836422",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://www.switchbot.jp/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp?v=1764836422",
@@ -449,9 +452,6 @@
           "alt": "SwitchBot プラグミニのAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "SwitchBot Japan official product photography",
         "source_page": "https://www.switchbot.jp/products/switchbot-plug-mini",
@@ -502,6 +502,9 @@
       ],
       "href": "https://link.amazon/B09BW7hhk",
       "approvedPhoto": "https://www.ankerjapan.com/cdn/shop/files/A2687141.png?crop=center&height=900&v=1762316684&width=900",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://www.ankerjapan.com/cdn/shop/files/A2687141.png?crop=center&height=900&v=1762316684&width=900",
@@ -512,9 +515,6 @@
           "alt": "Anker Prime Charger (160W, 3 Ports) シルバー（A2687N41） のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Anker Japan official product gallery",
         "source_page": "https://www.ankerjapan.com/products/a2687",
@@ -565,6 +565,9 @@
       ],
       "href": "https://link.amazon/B0eZ6jUg8",
       "approvedPhoto": "https://m.media-amazon.com/images/I/41SkEFBSTIL._SL1200_.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://m.media-amazon.com/images/I/41SkEFBSTIL._SL1200_.jpg",
@@ -575,9 +578,6 @@
           "alt": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）のAI制作イラスト（実物の商品写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Amazon.co.jp product image",
         "source_page": "https://www.amazon.co.jp/dp/B00ABV7NA8",
@@ -624,6 +624,9 @@
       ],
       "href": "https://link.amazon/B00k2sLAi",
       "approvedPhoto": "./assets/products/rs-p0031-sports-research-mct-oil.png",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "./assets/products/rs-p0031-sports-research-mct-oil.png",
@@ -634,9 +637,6 @@
           "alt": "Sports Research オーガニック MCTオイル 1183mL（1本）のAI制作イラスト（実物の商品写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Owner provided photo",
         "source_page": "",
@@ -692,6 +692,9 @@
       ],
       "href": "https://link.amazon/B0hcXfgcs",
       "approvedPhoto": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
@@ -702,9 +705,6 @@
           "alt": "Shokz OpenRun Pro 2 ブラック・標準サイズのAI制作による写真風イメージ。実物写真ではありません"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Shokz Japan official product gallery",
         "source_page": "https://jp.shokz.com/products/openrun-pro2",
@@ -758,6 +758,9 @@
       ],
       "href": "https://www.amazon.co.jp/dp/B0GK124ZKS?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=e1f867b5f34d7482fc46c78ca43d33cf",
       "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22",
       "gallery": [
         {
           "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
@@ -768,9 +771,6 @@
           "alt": "エリエール i:na ソフトパックティシュー 100パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_DIRECT",
-      "ownerVerifiedShortLink": false,
-      "trackingId": "rsshop-hatenablg-22",
       "imageSource": {
         "source_name": "Elleair official product page",
         "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
@@ -824,6 +824,9 @@
       ],
       "href": "https://www.amazon.co.jp/dp/B0H71PYZYZ?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=f09d29373b88c70f897cdd8afebf0301",
       "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22",
       "gallery": [
         {
           "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
@@ -834,9 +837,6 @@
           "alt": "エリエール i:na ソフトパックティシュー 20パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_DIRECT",
-      "ownerVerifiedShortLink": false,
-      "trackingId": "rsshop-hatenablg-22",
       "imageSource": {
         "source_name": "Elleair official product page",
         "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
@@ -893,6 +893,9 @@
       ],
       "href": "https://link.amazon/B0g1dqXCC",
       "approvedPhoto": "https://cdn.shopify.com/s/files/1/0524/5412/9823/files/4423c6bf16d6660f41531deca253395a.jpg?v=1739780903",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://cdn.shopify.com/s/files/1/0524/5412/9823/files/4423c6bf16d6660f41531deca253395a.jpg?v=1739780903",
@@ -903,9 +906,6 @@
           "alt": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パックのAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Kanro official online shop",
         "source_page": "https://kanro.jp/products/14670973075824",
@@ -952,6 +952,9 @@
       ],
       "href": "https://link.amazon/B0edk5RAw",
       "approvedPhoto": "https://m.media-amazon.com/images/I/51JgEMxKryL._SL1200_.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://m.media-amazon.com/images/I/51JgEMxKryL._SL1200_.jpg",
@@ -962,9 +965,6 @@
           "alt": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Amazon.co.jp product image",
         "source_page": "https://www.amazon.co.jp/dp/B089TGWXZS",
@@ -1020,6 +1020,9 @@
       ],
       "href": "https://link.amazon/B0dVuf9RI",
       "approvedPhoto": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
@@ -1030,78 +1033,11 @@
           "alt": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セットのAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "SwitchBot Japan official product gallery",
         "source_page": "https://www.switchbot.jp/products/switchbot-hub3",
         "source_image_url": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
         "verified_model": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セット",
-        "image_type": "OFFICIAL_PRODUCT_PHOTO",
-        "product_photo": true,
-        "owner_permission": "OWNER_ATTESTED",
-        "checked_at": "2026-11-22",
-        "hosting": "remote_official_cdn"
-      }
-    },
-    {
-      "product_id": "RS-P0045",
-      "asin": "B0DBLDKVDW",
-      "brand": "SwitchBot",
-      "model": "温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
-      "formal_name": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
-      "category": "home",
-      "subcategory": "smart-home",
-      "kind": "スマートホーム・家電操作",
-      "tint": "peach",
-      "purpose": "time",
-      "tags": [
-        "スタジオや住居の湿度を確認したい人",
-        "季節の乾燥対策を考えている人",
-        "家族の部屋など複数地点の環境を把握したい人"
-      ],
-      "eyebrow": "大型表示で温度・湿度・快適指数・日時をまとめて確認できる室内向け温湿度計。",
-      "summary": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。",
-      "good": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
-      "caution": "天気予報・外出先からの通知等には別売りのSwitchBotハブが必要・2か所目の表示には別の対応温湿度計が必要・測定値は設置場所や環境の影響を受ける・本人の実使用レビューではない",
-      "highlight": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
-      "date": "2026-11-16",
-      "specs": {
-        "本体寸法": "92×79×25mm",
-        "質量": "約154g（電池込み）",
-        "電源": "単3電池×2",
-        "電池寿命": "約1年"
-      },
-      "comparison": {
-        "選ぶ基準": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
-        "主な仕様": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
-      },
-      "reasons": [
-        "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
-      ],
-      "sources": [
-        {
-          "url": "https://www.switchbot.jp/products/switchbot-meter-pro",
-          "label": "メーカー公式商品情報"
-        }
-      ],
-      "href": "https://link.amazon/B0h0t6tOJ",
-      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
-      "gallery": [
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
-          "alt": "SwitchBot 温湿度計Pro のメーカー公式実物商品写真"
-        }
-      ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
-      "imageSource": {
-        "source_name": "SwitchBot Japan official product gallery",
-        "source_page": "https://www.switchbot.jp/products/switchbot-meter-pro",
-        "source_image_url": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
-        "verified_model": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
         "image_type": "OFFICIAL_PRODUCT_PHOTO",
         "product_photo": true,
         "owner_permission": "OWNER_ATTESTED",
@@ -1147,6 +1083,9 @@
       ],
       "href": "https://link.amazon/B0fOb4qjR",
       "approvedPhoto": "https://m.media-amazon.com/images/I/51T3WjfxFNL._SL1200_.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://m.media-amazon.com/images/I/51T3WjfxFNL._SL1200_.jpg",
@@ -1157,9 +1096,6 @@
           "alt": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Amazon.co.jp product image",
         "source_page": "https://www.amazon.co.jp/dp/B0C22W4Y5H",
@@ -1206,6 +1142,9 @@
       ],
       "href": "https://link.amazon/B05jVDUly",
       "approvedPhoto": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/B2692N11.png?v=1747366967",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/B2692N11.png?v=1747366967",
@@ -1216,9 +1155,6 @@
           "alt": "Anker Nano Charger (45W) ブラック（B2692N11）のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Anker Japan official product gallery",
         "source_page": "https://www.ankerjapan.com/products/b2692",
@@ -1277,6 +1213,9 @@
       ],
       "href": "https://link.amazon/B06geFAQZ",
       "approvedPhoto": "https://tshop.r10s.jp/apmjapan/cabinet/ef/thumb/4582336471526.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://tshop.r10s.jp/apmjapan/cabinet/ef/thumb/4582336471526.jpg",
@@ -1287,9 +1226,6 @@
           "alt": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "APM Japan official Rakuten store",
         "source_page": "https://www.rakuten.co.jp/apmjapan/",
@@ -1341,6 +1277,9 @@
       ],
       "href": "https://link.amazon/B0cOiuT1N",
       "approvedPhoto": "https://m.media-amazon.com/images/I/512nn2gNfGL._SL1200_.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://m.media-amazon.com/images/I/512nn2gNfGL._SL1200_.jpg",
@@ -1351,9 +1290,6 @@
           "alt": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根のAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "Amazon.co.jp product image",
         "source_page": "https://www.amazon.co.jp/dp/B0G8GCRCG7",
@@ -1400,6 +1336,9 @@
       ],
       "href": "https://link.amazon/B06ymaXsB",
       "approvedPhoto": "https://monoaru.shop/cdn/shop/files/18a428d36b8e3cb042d6e6443a9d9178.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
       "gallery": [
         {
           "src": "https://monoaru.shop/cdn/shop/files/18a428d36b8e3cb042d6e6443a9d9178.jpg",
@@ -1410,9 +1349,6 @@
           "alt": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズのAI制作イメージ（実物写真ではありません）"
         }
       ],
-      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
-      "ownerVerifiedShortLink": true,
-      "trackingId": null,
       "imageSource": {
         "source_name": "monoaru.shop product image",
         "source_page": "https://monoaru.shop/",
@@ -1420,6 +1356,70 @@
         "verified_model": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
         "owner_permission": "OWNER_ATTESTED",
         "checked_at": "2026-11-22"
+      }
+    },
+    {
+      "product_id": "RS-P0045",
+      "asin": "B0DBLDKVDW",
+      "brand": "SwitchBot",
+      "model": "温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+      "formal_name": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+      "category": "home",
+      "subcategory": "smart-home",
+      "kind": "スマートホーム・家電操作",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スタジオや住居の湿度を確認したい人",
+        "季節の乾燥対策を考えている人",
+        "家族の部屋など複数地点の環境を把握したい人"
+      ],
+      "eyebrow": "大型表示で温度・湿度・快適指数・日時をまとめて確認できる室内向け温湿度計。",
+      "summary": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。",
+      "good": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+      "caution": "天気予報・外出先からの通知等には別売りのSwitchBotハブが必要・2か所目の表示には別の対応温湿度計が必要・測定値は設置場所や環境の影響を受ける・本人の実使用レビューではない",
+      "highlight": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+      "date": "2026-11-16",
+      "specs": {
+        "本体寸法": "92×79×25mm",
+        "質量": "約154g（電池込み）",
+        "電源": "単3電池×2",
+        "電池寿命": "約1年"
+      },
+      "comparison": {
+        "選ぶ基準": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+        "主な仕様": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
+      },
+      "reasons": [
+        "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.switchbot.jp/products/switchbot-meter-pro",
+          "label": "メーカー公式商品情報"
+        }
+      ],
+      "href": "https://link.amazon/B0h0t6tOJ",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+          "alt": "SwitchBot 温湿度計Pro のメーカー公式実物商品写真"
+        }
+      ],
+      "imageSource": {
+        "source_name": "SwitchBot Japan official product gallery",
+        "source_page": "https://www.switchbot.jp/products/switchbot-meter-pro",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+        "verified_model": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       }
     },
     {
@@ -1548,6 +1548,249 @@
         "owner_permission": "OWNER_ATTESTED",
         "checked_at": "2026-11-22",
         "hosting": "remote_official_cdn"
+      }
+    },
+    {
+      "product_id": "RS-P0054",
+      "asin": "B0F5W5NCPZ",
+      "brand": "フォンテラ",
+      "model": "業務用 グラスフェッドバター 5kg",
+      "formal_name": "フォンテラ 業務用 グラスフェッドバター 5kg",
+      "category": "food",
+      "subcategory": "dairy",
+      "kind": "バター・乳製品",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "パンや菓子作りでバターを大量に使う人",
+        "業務用5kgを小分け冷凍して使いたい人"
+      ],
+      "eyebrow": "ニュージーランドのフォンテラ社製、牧草飼育（グラスフェッド）の業務用バター5kg。",
+      "summary": "フォンテラはニュージーランドの乳業メーカーで、業務用ブランドAnchor Food Professionalsの5kgブロックは製菓・調理向けの大容量規格。グラスフェッド原料をうたう業務用バターとして選定。",
+      "good": "パンや菓子作りでバターを大量に使う人・業務用5kgを小分け冷凍して使いたい人",
+      "caution": "5kgの大容量。保存方法（冷蔵・冷凍）と小分けの手間を購入前に確認する・食塩の有無など仕様は購入先の表示で確認する・本人の実使用レビューではない",
+      "highlight": "パンや菓子作りでバターを大量に使う人・業務用5kgを小分け冷凍して使いたい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "パンや菓子作りでバターを大量に使う人・業務用5kgを小分け冷凍して使いたい人",
+        "主な仕様": "フォンテラはニュージーランドの乳業メーカーで、業務用ブランドAnchor Food Professionalsの5kgブロックは製菓・調理向けの大容量規格。グラスフェッド原料をうたう業務用バターとして選定。"
+      },
+      "reasons": [
+        "フォンテラはニュージーランドの乳業メーカーで、業務用ブランドAnchor Food Professionalsの5kgブロックは製菓・調理向けの大容量規格。グラスフェッド原料をうたう業務用バターとして選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.fonterra.com/jp/ja.html",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0F5W5NCPZ",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0gRlm0zS",
+      "approvedPhoto": "./assets/products/rs-p0054-fonterra-anchor-butter-5kg.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0054-fonterra-anchor-butter-5kg.jpg",
+          "alt": "フォンテラ 業務用グラスフェッドバター 5kg（Anchor FPブロック）の商品写真"
+        }
+      ],
+      "imageSource": {
+        "source_name": "販売店掲載の商品写真（Anchor FP 5kgブロック）",
+        "source_page": "https://store.shopping.yahoo.co.jp/blife/nz-6950.html",
+        "source_image_url": "./assets/products/rs-p0054-fonterra-anchor-butter-5kg.jpg",
+        "verified_model": "フォンテラ 業務用 グラスフェッドバター 5kg",
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "local_asset"
+      }
+    },
+    {
+      "product_id": "RS-P0055",
+      "asin": "B0852149LH",
+      "brand": "HARNEY & SONS",
+      "model": "ホットシナモンサンセット TINCAN サシェ20個入 4個セット（並行輸入品）",
+      "formal_name": "HARNEY & SONS ホットシナモンサンセット TINCAN サシェ20個入 4個セット（並行輸入品）",
+      "category": "food",
+      "subcategory": "tea-coffee",
+      "kind": "お茶・コーヒー",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "シナモン風味の紅茶が好きな人",
+        "まとめ買いで常備したい人"
+      ],
+      "eyebrow": "ハーニー&サンズのシナモンブレンド紅茶、缶入りサシェ20個の4個セット（並行輸入品）。",
+      "summary": "ホットシナモンサンセットはシナモン、オレンジピール、クローブを合わせたハーニー&サンズの定番ブレンド。缶入りサシェ20個入りの4個セットとして選定。",
+      "good": "シナモン風味の紅茶が好きな人・まとめ買いで常備したい人",
+      "caution": "並行輸入品。国内正規品とパッケージ表記が異なる場合がある・賞味期限と保管方法は購入先で確認する・本人の実使用レビューではない",
+      "highlight": "シナモン風味の紅茶が好きな人・まとめ買いで常備したい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "シナモン風味の紅茶が好きな人・まとめ買いで常備したい人",
+        "主な仕様": "ホットシナモンサンセットはシナモン、オレンジピール、クローブを合わせたハーニー&サンズの定番ブレンド。缶入りサシェ20個入りの4個セットとして選定。"
+      },
+      "reasons": [
+        "ホットシナモンサンセットはシナモン、オレンジピール、クローブを合わせたハーニー&サンズの定番ブレンド。缶入りサシェ20個入りの4個セットとして選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.harney.jp/products/hot-cinnamon-spice-classic",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.harney.com/products/hot-cinnamon-sunset-20-sachet-tin",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0852149LH",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B04uy6YvS",
+      "approvedPhoto": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
+          "alt": "HARNEY & SONS ホットシナモン TINCAN サシェ20個入の商品写真（缶単品・本商品は4個セット）"
+        }
+      ],
+      "imageSource": {
+        "source_name": "販売店掲載のメーカー商品写真（缶単品）",
+        "source_page": "https://www.chriscoffee.com/products/harney-tin-hot-cinnamon-spice-20-ct",
+        "source_image_url": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
+        "verified_model": "HARNEY & SONS ホットシナモンサンセット TINCAN サシェ20個入 4個セット（並行輸入品）",
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "local_asset"
+      }
+    },
+    {
+      "product_id": "RS-P0056",
+      "asin": "B0CP7P4RRQ",
+      "brand": "Hollyland",
+      "model": "Lark M2 ワイヤレスマイク USB Type-C（黒）",
+      "formal_name": "Hollyland Lark M2 ワイヤレスマイク USB Type-C（黒）",
+      "category": "sound",
+      "subcategory": "work-tools",
+      "kind": "仕事のデジタル道具",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "スマホでVlogやレッスン動画を撮る人",
+        "配信の声を聞き取りやすくしたい人"
+      ],
+      "eyebrow": "送信機が約9gの小型ワイヤレスマイク。USB Type-C受信機モデル（黒）。",
+      "summary": "Hollyland Lark M2は48kHz/24bit収音、最大300m転送、ノイズキャンセリングを備えたピンマイク。スマホやPCにType-C受信機を挿して使う構成で、撮影・配信の音声改善用に選定。",
+      "good": "スマホでVlogやレッスン動画を撮る人・配信の声を聞き取りやすくしたい人",
+      "caution": "接続端子はUSB Type-C。Lightning端子の機種では使えない・300mは見通しの良い環境での公称値。実際の距離は環境で変わる・本人の実使用レビューではない",
+      "highlight": "スマホでVlogやレッスン動画を撮る人・配信の声を聞き取りやすくしたい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スマホでVlogやレッスン動画を撮る人・配信の声を聞き取りやすくしたい人",
+        "主な仕様": "Hollyland Lark M2は48kHz/24bit収音、最大300m転送、ノイズキャンセリングを備えたピンマイク。スマホやPCにType-C受信機を挿して使う構成で、撮影・配信の音声改善用に選定。"
+      },
+      "reasons": [
+        "Hollyland Lark M2は48kHz/24bit収音、最大300m転送、ノイズキャンセリングを備えたピンマイク。スマホやPCにType-C受信機を挿して使う構成で、撮影・配信の音声改善用に選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.hollyland.com/product/lark-m2",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0CP7P4RRQ",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B07uxEo7B",
+      "approvedPhoto": "https://m.media-amazon.com/images/I/71enGNvpFyL._SL1200_.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "https://m.media-amazon.com/images/I/71enGNvpFyL._SL1200_.jpg",
+          "alt": "Hollyland Lark M2 ワイヤレスマイク USB Type-C（黒）の商品写真"
+        }
+      ],
+      "imageSource": {
+        "source_name": "Amazon掲載商品写真",
+        "source_page": "https://www.amazon.co.jp/dp/B0CP7P4RRQ",
+        "source_image_url": "https://m.media-amazon.com/images/I/71enGNvpFyL._SL1200_.jpg",
+        "verified_model": "Hollyland Lark M2 ワイヤレスマイク USB Type-C（黒）",
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
+      }
+    },
+    {
+      "product_id": "RS-P0057",
+      "asin": "B0DM5YP22D",
+      "brand": "Insta360",
+      "model": "Link 2 ブラック 4K Webカメラ",
+      "formal_name": "Insta360 Link 2 ブラック 4K Webカメラ",
+      "category": "sound",
+      "subcategory": "work-tools",
+      "kind": "仕事のデジタル道具",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "オンラインレッスンや配信で動きながら話す人",
+        "ビデオ会議の画質を上げたい人"
+      ],
+      "eyebrow": "1/2インチセンサーとジンバルを搭載した4K Webカメラ（ブラック）。",
+      "summary": "Insta360 Link 2はAI追跡とジェスチャー操作に対応し、配信やビデオ通話で話者を自動で追う。内蔵マイク付きで、レッスン配信や会議の画質・構図改善用に選定。",
+      "good": "オンラインレッスンや配信で動きながら話す人・ビデオ会議の画質を上げたい人",
+      "caution": "性能を活かすには対応アプリとUSB接続環境が必要・AI追跡の効き方は部屋の明るさや距離で変わる・本人の実使用レビューではない",
+      "highlight": "オンラインレッスンや配信で動きながら話す人・ビデオ会議の画質を上げたい人",
+      "date": "2026-11-22",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "オンラインレッスンや配信で動きながら話す人・ビデオ会議の画質を上げたい人",
+        "主な仕様": "Insta360 Link 2はAI追跡とジェスチャー操作に対応し、配信やビデオ通話で話者を自動で追う。内蔵マイク付きで、レッスン配信や会議の画質・構図改善用に選定。"
+      },
+      "reasons": [
+        "Insta360 Link 2はAI追跡とジェスチャー操作に対応し、配信やビデオ通話で話者を自動で追う。内蔵マイク付きで、レッスン配信や会議の画質・構図改善用に選定。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.insta360.com/product/insta360-link2",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0DM5YP22D",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0ih30OM4",
+      "approvedPhoto": "./assets/products/rs-p0057-insta360-link2.png",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "./assets/products/rs-p0057-insta360-link2.png",
+          "alt": "Insta360 Link 2 ブラック 4K Webカメラの商品写真"
+        }
+      ],
+      "imageSource": {
+        "source_name": "メーカー公式プレス画像（レビュー媒体掲載）",
+        "source_page": "https://horizonjumpers.com/insta360-link-2-review/",
+        "source_image_url": "./assets/products/rs-p0057-insta360-link2.png",
+        "verified_model": "Insta360 Link 2 ブラック 4K Webカメラ",
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "local_asset"
       }
     }
   ]
