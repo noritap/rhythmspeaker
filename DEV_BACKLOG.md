@@ -28,7 +28,8 @@ Muse の日次開発タスク（dev-daily-ops、毎朝08:30ごろ）が参照す
 - 対象：noritap/AMAZON_COMMERCE_DATA_OS PR #29（RS-P0027 のID衝突。main側の RS-P0027 は NYANDELMO シューズカバーで公開済み。PR側の EcoFlow RIVER 3 Plus を次の空きIDへ付け替える）
 - 内容：付け替え案と影響範囲の整理まで。台帳の変更とマージは要確認に回す
 - リスク：中（台帳データに触れる）
-- 状態：未着手
+- 状態：完了（下準備完了 2026-11-22。付け替え案：RIVER 3 Plus → RS-P0053／リンク RS-L0053、画像参照 rs-p0053-…。提案は上流PR #29 のコメントに記載。台帳の付け替えとマージは要確認）
+- 実施内容：最新main（商品48件）・全オープンPR・候補バッチ（discovery_queue.json）を再照合。欠番 RS-P0008〜P0011 は PR #9 が主張中のため不使用。ブランチは2026-11-15時点のbaseで商品23件しかなく、現状のまま統合すると main の後発変更（ASIN登録・公開化・NYANDELMO登録）が消えるためリベース必須と確認。画像ファイル rs-p0027-river3-plus-guide.svg は rhythmspeaker main に未存在のため要確認。
 
 ### DEV-004 音楽台帳のJSONスキーマ検証スクリプト
 - 対象：noritap/RHYTHM_SPEAKER_MUSIC_OS
