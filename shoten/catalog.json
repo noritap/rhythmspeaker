@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "a728828e8f2141d12b29f42496a17505f835bcc5",
+  "source_sha": "e65063db4999d60b2bcec05a06d29f03c7873b8e",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -1001,6 +1001,54 @@
         "checked_at": "2026-11-22",
         "hosting": "local_repository_asset"
       }
+    },
+    {
+      "product_id": "RS-P0045",
+      "asin": "B0DBLDKVDW",
+      "brand": "SwitchBot",
+      "model": "温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+      "formal_name": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+      "category": "home",
+      "subcategory": "smart-home",
+      "kind": "スマートホーム・家電操作",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スタジオや住居の湿度を確認したい人",
+        "季節の乾燥対策を考えている人",
+        "家族の部屋など複数地点の環境を把握したい人"
+      ],
+      "eyebrow": "大型表示で温度・湿度・快適指数・日時をまとめて確認できる室内向け温湿度計。",
+      "summary": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。",
+      "good": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+      "caution": "天気予報・外出先からの通知等には別売りのSwitchBotハブが必要・2か所目の表示には別の対応温湿度計が必要・測定値は設置場所や環境の影響を受ける・本人の実使用レビューではない",
+      "highlight": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+      "date": "2026-11-16",
+      "specs": {
+        "本体寸法": "92×79×25mm",
+        "質量": "約154g（電池込み）",
+        "電源": "単3電池×2",
+        "電池寿命": "約1年"
+      },
+      "comparison": {
+        "選ぶ基準": "スタジオや住居の湿度を確認したい人・季節の乾燥対策を考えている人・家族の部屋など複数地点の環境を把握したい人",
+        "主な仕様": "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
+      },
+      "reasons": [
+        "本体92×79×25mm、電池込み約154g。単3電池2本で約1年間使用でき、別の対応温湿度計と連携すると2か所の測定値を表示できる。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.switchbot.jp/products/switchbot-meter-pro",
+          "label": "メーカー公式商品情報"
+        }
+      ],
+      "href": "https://link.amazon/B0h0t6tOJ",
+      "approvedPhoto": null,
+      "gallery": [],
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     },
     {
       "product_id": "RS-P0020",
