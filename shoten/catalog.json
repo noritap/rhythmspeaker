@@ -669,8 +669,12 @@
         }
       ],
       "href": "https://link.amazon/B0hcXfgcs",
-      "approvedPhoto": "./assets/products/rs-p0046-shokz-openrun-pro2-black-editorial.svg",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
       "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
+          "alt": "Shokz OpenRun Pro 2 ブラック・標準サイズ のメーカー公式実物商品写真（ブラック）"
+        },
         {
           "src": "./assets/products/rs-p0046-shokz-openrun-pro2-black-editorial.svg",
           "alt": "Shokz OpenRun Pro 2 ブラック・標準サイズのAI制作による写真風イメージ。実物写真ではありません"
@@ -680,14 +684,15 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI editorial rendering",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Shokz Japan official product gallery",
+        "source_page": "https://jp.shokz.com/products/openrun-pro2",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
         "verified_model": "Shokz OpenRun Pro 2 ブラック・標準サイズ（USB-C充電）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       }
     },
     {
@@ -730,8 +735,12 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0GK124ZKS?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=e1f867b5f34d7482fc46c78ca43d33cf",
-      "approvedPhoto": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
+      "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
       "gallery": [
+        {
+          "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+          "alt": "エリエール i:na ソフトパックティシュー のメーカー公式実物商品写真（単品パック）"
+        },
         {
           "src": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
           "alt": "エリエール i:na ソフトパックティシュー 100パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
@@ -741,14 +750,15 @@
       "ownerVerifiedShortLink": false,
       "trackingId": "rsshop-hatenablg-22",
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Elleair official product page",
+        "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
+        "source_image_url": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
         "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×100パック（10パック×10・ケース販売）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       }
     },
     {
@@ -791,8 +801,12 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0H71PYZYZ?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=f09d29373b88c70f897cdd8afebf0301",
-      "approvedPhoto": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
+      "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
       "gallery": [
+        {
+          "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+          "alt": "エリエール i:na ソフトパックティシュー のメーカー公式実物商品写真（単品パック）"
+        },
         {
           "src": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
           "alt": "エリエール i:na ソフトパックティシュー 20パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
@@ -802,14 +816,15 @@
       "ownerVerifiedShortLink": false,
       "trackingId": "rsshop-hatenablg-22",
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Elleair official product page",
+        "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
+        "source_image_url": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
         "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×20パック（10パック×2セット）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       }
     },
     {
@@ -1044,11 +1059,27 @@
         }
       ],
       "href": "https://link.amazon/B0h0t6tOJ",
-      "approvedPhoto": null,
-      "gallery": [],
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+      "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+          "alt": "SwitchBot 温湿度計Pro のメーカー公式実物商品写真"
+        }
+      ],
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "imageSource": {
+        "source_name": "SwitchBot Japan official product gallery",
+        "source_page": "https://www.switchbot.jp/products/switchbot-meter-pro",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/SwitchBot_Pro.webp?v=1725430821",
+        "verified_model": "SwitchBot 温湿度計Pro（Meter Pro）本体1台・単3電池2本付属",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
+      }
     },
     {
       "product_id": "RS-P0020",
@@ -1399,10 +1430,27 @@
         }
       ],
       "href": "https://link.amazon/B00yU3qCS",
-      "approvedPhoto": null,
+      "approvedPhoto": "https://www.kao-kirei.com/content/dam/sites/kao/www-kao-kirei-com/jp/ja/item/khg/attack/25339211/GG01.jpg",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "https://www.kao-kirei.com/content/dam/sites/kao/www-kao-kirei-com/jp/ja/item/khg/attack/25339211/GG01.jpg",
+          "alt": "花王 アタックZERO つめかえ用 1070g のメーカー公式実物商品写真"
+        }
+      ],
+      "imageSource": {
+        "source_name": "Kao official product page",
+        "source_page": "https://www.kao-kirei.com/ja/item/khg/attack/4901301466310/",
+        "source_image_url": "https://www.kao-kirei.com/content/dam/sites/kao/www-kao-kirei-com/jp/ja/item/khg/attack/25339211/GG01.jpg",
+        "verified_model": "花王 アタック ZERO 2026年改良版 通常タイプ つめかえ用 1070g",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
+      }
     },
     {
       "product_id": "RS-P0017",
@@ -1444,10 +1492,27 @@
         }
       ],
       "href": "https://link.amazon/B05M37gyW",
-      "approvedPhoto": null,
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OPENDOTS12_da37349c-f2d4-4371-b7c6-f75ca63afb14.webp?v=1793171662",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
-      "trackingId": null
+      "trackingId": null,
+      "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OPENDOTS12_da37349c-f2d4-4371-b7c6-f75ca63afb14.webp?v=1793171662",
+          "alt": "Shokz OpenDots 2 ブラック のメーカー公式実物商品写真（ブラック）"
+        }
+      ],
+      "imageSource": {
+        "source_name": "Shokz Japan official product gallery",
+        "source_page": "https://jp.shokz.com/products/opendots-2",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OPENDOTS12_da37349c-f2d4-4371-b7c6-f75ca63afb14.webp?v=1793171662",
+        "verified_model": "Shokz OpenDots 2 ブラック（SKZ-EP-000069）",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
+      }
     }
   ]
 }
