@@ -43,6 +43,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "smart-home",
           "name": "スマートホーム・家電操作"
+        },
+        {
+          "id": "other",
+          "name": "その他"
         }
       ]
     },
@@ -61,6 +65,18 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "candy",
           "name": "のど飴・キャンディ"
+        },
+        {
+          "id": "dairy",
+          "name": "バター・乳製品"
+        },
+        {
+          "id": "tea-coffee",
+          "name": "お茶・コーヒー"
+        },
+        {
+          "id": "other",
+          "name": "その他"
         }
       ]
     },
@@ -79,6 +95,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "work-tools",
           "name": "仕事のデジタル道具"
+        },
+        {
+          "id": "other",
+          "name": "その他"
         }
       ]
     },
@@ -97,6 +117,10 @@ window.SHOTEN_EDITORIAL = {
         {
           "id": "dc-power",
           "name": "USB・DC電源"
+        },
+        {
+          "id": "other",
+          "name": "その他"
         }
       ]
     }

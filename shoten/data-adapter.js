@@ -6,7 +6,8 @@
 
   function adapt(row) {
     const category = editorial.categories.find(c => c.id === row.category);
-    const subcategory = category?.children.find(c => c.id === row.subcategory);
+    const subcategory = category?.children.find(c => c.id === row.subcategory) ||
+      category?.children.find(c => c.id === 'other');
     const link = core.safeURL(row.href, ['amazon.co.jp', 'www.amazon.co.jp']);
     const shortAffiliate = row.affiliateLinkKind === 'AMAZON_OFFICIAL_SHORT' &&
       row.ownerVerifiedShortLink === true &&
@@ -29,7 +30,7 @@
     return {
       ...row,
       id:row.product_id, canonicalId:row.product_id, name:row.model,
-      category_name:category.name, subcategory_name:subcategory.name, identity_state:'VERIFIED',
+      category_name:category.name, subcategory:subcategory.id, subcategory_name:subcategory.name, identity_state:'VERIFIED',
       master:{recommendation_reasons:row.reasons,sources:row.sources}, relatedIds:[], alternatives:[],
       source:row.sources[0].url, purchase
     };
