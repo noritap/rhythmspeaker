@@ -168,23 +168,30 @@
         }
       ],
       "href": "https://link.amazon/B0bxnL3vi",
-      "approvedPhoto": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+      "approvedPhoto": "https://www.audio-technica.co.jp/upload/contents/product/ATH-M20xBT/branch_3343_image_0.jpg?1667783402",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
+        {
+          "src": "https://www.audio-technica.co.jp/upload/contents/product/ATH-M20xBT/branch_3343_image_0.jpg?1667783402",
+          "alt": "audio-technica ATH-M20xBT のメーカー公式実物商品写真"
+        },
         {
           "src": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
           "alt": "audio-technica ATH-M20xBT ブラックの商品写真"
         }
       ],
       "imageSource": {
-        "source_name": "JB Hi-Fi product listing",
-        "source_page": "https://www.jbhifi.com.au/products/audio-technica-ath-m20xbt-wireless-over-ear-headphones-black",
-        "source_image_url": "https://www.jbhifi.com.au/cdn/shop/products/582754-Product-0-I-637793308359606281.jpg?v=1643694536",
+        "source_name": "audio-technica official product page",
+        "source_page": "https://www.audio-technica.co.jp/product/ATH-M20xBT",
+        "source_image_url": "https://www.audio-technica.co.jp/upload/contents/product/ATH-M20xBT/branch_3343_image_0.jpg?1667783402",
         "verified_model": "audio-technica ATH-M20xBT ブラック（国内正規品）",
-        "owner_permission": "USER_CONFIRMED",
-        "checked_at": "2026-11-13"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       },
       "curationLabel": "古庄おすすめ",
       "ownerConfirmedProductIdentity": true
@@ -227,23 +234,30 @@
         }
       ],
       "href": "https://link.amazon/B0ihtnUrW",
-      "approvedPhoto": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A3012-BLACK.jpg?v=1705288430",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A3012-BLACK.jpg?v=1705288430",
+          "alt": "Soundcore H30i ブラック のメーカー公式実物商品写真（ブラック）"
+        },
         {
           "src": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
           "alt": "Soundcore H30i ブラックの商品写真"
         }
       ],
       "imageSource": {
-        "source_name": "Lulu Hypermarket product listing; same H30i black model",
-        "source_page": "https://gcc.luluhypermarket.com/en-ae/anker-soundcore-h30i-onear-wireless-headphone-black-a3012h11/p/2230666/",
-        "source_image_url": "https://bf1af2.akinoncloudcdn.com/products/2024/09/19/31350/83d52791-6051-44ea-afcb-2fcc0a01882e_size3840_cropCenter.jpg",
+        "source_name": "Anker Japan (Soundcore) official product gallery",
+        "source_page": "https://www.ankerjapan.com/products/a3012",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/A3012-BLACK.jpg?v=1705288430",
         "verified_model": "Soundcore H30i ブラック（A3012Z11）",
-        "owner_permission": "USER_CONFIRMED",
-        "checked_at": "2026-11-13"
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22",
+        "hosting": "remote_official_cdn"
       },
       "curationLabel": "古庄おすすめ",
       "ownerConfirmedProductIdentity": true
@@ -995,8 +1009,12 @@
         }
       ],
       "href": "https://link.amazon/B0dVuf9RI",
-      "approvedPhoto": "./assets/products/rs-p0044-hub-usage.webp",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
       "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
+          "alt": "SwitchBot ハブ3 のメーカー公式実物商品写真"
+        },
         {
           "src": "./assets/products/rs-p0044-hub-usage.webp",
           "alt": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セットのAI制作イメージ（実物写真ではありません）"
@@ -1006,15 +1024,15 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "SwitchBot Japan official product gallery",
+        "source_page": "https://www.switchbot.jp/products/switchbot-hub3",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0522/2458/9999/files/Hub_3_JP_1600x1600_02_1x_1.webp?v=1794553182",
         "verified_model": "SwitchBot ハブ3（Hub 3）本体1台・標準付属品セット",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
         "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "hosting": "remote_official_cdn"
       }
     },
     {
@@ -1176,8 +1194,12 @@
         }
       ],
       "href": "https://link.amazon/B05jVDUly",
-      "approvedPhoto": "./assets/products/rs-p0024-charger-usage.webp",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/B2692N11.png?v=1747366967",
       "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/B2692N11.png?v=1747366967",
+          "alt": "Anker Nano Charger (45W) ブラック のメーカー公式実物商品写真（ブラック）"
+        },
         {
           "src": "./assets/products/rs-p0024-charger-usage.webp",
           "alt": "Anker Nano Charger (45W) ブラック（B2692N11）のAI制作イメージ（実物写真ではありません）"
@@ -1187,15 +1209,15 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Anker Japan official product gallery",
+        "source_page": "https://www.ankerjapan.com/products/b2692",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0508/4381/2001/files/B2692N11.png?v=1747366967",
         "verified_model": "Anker Nano Charger (45W) ブラック（B2692N11）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "image_type": "OFFICIAL_PRODUCT_PHOTO",
+        "product_photo": true,
+        "owner_permission": "OWNER_ATTESTED",
         "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "hosting": "remote_official_cdn"
       }
     },
     {
