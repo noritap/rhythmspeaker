@@ -623,8 +623,12 @@
         }
       ],
       "href": "https://link.amazon/B00k2sLAi",
-      "approvedPhoto": "./assets/products/rs-p0031-sports-research-mct-editorial.svg",
+      "approvedPhoto": "./assets/products/rs-p0031-sports-research-mct-oil.png",
       "gallery": [
+        {
+          "src": "./assets/products/rs-p0031-sports-research-mct-oil.png",
+          "alt": "Sports Research オーガニック MCTオイル 1183mL の実物商品写真（オーナー提供）"
+        },
         {
           "src": "./assets/products/rs-p0031-sports-research-mct-editorial.svg",
           "alt": "Sports Research オーガニック MCTオイル 1183mL（1本）のAI制作イラスト（実物の商品写真ではありません）"
@@ -634,14 +638,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Owner provided photo",
+        "source_page": "",
+        "source_image_url": "./assets/products/rs-p0031-sports-research-mct-oil.png",
         "verified_model": "Sports Research オーガニック MCTオイル 1183mL（1本）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
