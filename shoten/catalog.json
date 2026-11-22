@@ -110,23 +110,27 @@
         }
       ],
       "href": "https://link.amazon/B04tr6V2F",
-      "approvedPhoto": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+      "approvedPhoto": "https://www.jbhifi.co.nz/cdn/shop/files/483910-Product-2-I-639227435404227377.jpg?v=1787146806",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
+        {
+          "src": "https://www.jbhifi.co.nz/cdn/shop/files/483910-Product-2-I-639227435404227377.jpg?v=1787146806",
+          "alt": "SONY WH-CH730N ブラック の商品写真"
+        },
         {
           "src": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
           "alt": "SONY WH-CH730N ブラックの商品写真"
         }
       ],
       "imageSource": {
-        "source_name": "PB Tech product listing",
-        "source_page": "https://www.pbtech.co.nz/product/HSTSNY01730/Sony-WH-CH730N-Wireless-Over-Ear-Noise-Cancelling",
-        "source_image_url": "https://www.pbtech.co.nz/imgprod/H/S/HSTSNY01730.jpg?h=3430262929",
+        "source_name": "JB Hi-Fi NZ product image",
+        "source_page": "https://www.jbhifi.co.nz/products/sony-wh-ch730n-wireless-noise-cancelling-over-ear-headphones",
+        "source_image_url": "https://www.jbhifi.co.nz/cdn/shop/files/483910-Product-2-I-639227435404227377.jpg?v=1787146806",
         "verified_model": "SONY WH-CH730N ブラック",
-        "owner_permission": "USER_CONFIRMED",
-        "checked_at": "2026-11-13"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       },
       "curationLabel": "古庄おすすめ",
       "ownerConfirmedProductIdentity": true
@@ -560,8 +564,12 @@
         }
       ],
       "href": "https://link.amazon/B0eZ6jUg8",
-      "approvedPhoto": "./assets/products/rs-p0050-kireikirei-foam-4l-editorial.svg",
+      "approvedPhoto": "https://m.media-amazon.com/images/I/41SkEFBSTIL._SL1200_.jpg",
       "gallery": [
+        {
+          "src": "https://m.media-amazon.com/images/I/41SkEFBSTIL._SL1200_.jpg",
+          "alt": "キレイキレイ 薬用泡ハンドソープ 業務用4L の商品写真（Amazon掲載画像）"
+        },
         {
           "src": "./assets/products/rs-p0050-kireikirei-foam-4l-editorial.svg",
           "alt": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）のAI制作イラスト（実物の商品写真ではありません）"
@@ -571,14 +579,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original editorial illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Amazon.co.jp product image",
+        "source_page": "https://www.amazon.co.jp/dp/B00ABV7NA8",
+        "source_image_url": "https://m.media-amazon.com/images/I/41SkEFBSTIL._SL1200_.jpg",
         "verified_model": "ライオンハイジーン / キレイキレイ 薬用泡ハンドソープ 業務用4L シトラスフルーティの香り（医薬部外品・詰め替え）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-18"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -884,8 +890,12 @@
         }
       ],
       "href": "https://link.amazon/B0g1dqXCC",
-      "approvedPhoto": "./assets/products/rs-p0042-lozenge-usage.webp",
+      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0524/5412/9823/files/4423c6bf16d6660f41531deca253395a.jpg?v=1739780903",
       "gallery": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0524/5412/9823/files/4423c6bf16d6660f41531deca253395a.jpg?v=1739780903",
+          "alt": "カンロ 健康のど飴 たたかうマヌカハニープレミアム のメーカー公式商品写真（単品パウチ）"
+        },
         {
           "src": "./assets/products/rs-p0042-lozenge-usage.webp",
           "alt": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パックのAI制作イメージ（実物写真ではありません）"
@@ -895,15 +905,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Kanro official online shop",
+        "source_page": "https://kanro.jp/products/14670973075824",
+        "source_image_url": "https://cdn.shopify.com/s/files/1/0524/5412/9823/files/4423c6bf16d6660f41531deca253395a.jpg?v=1739780903",
         "verified_model": "カンロ 健康のど飴 たたかうマヌカハニープレミアム 73g×3個パック",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -942,8 +949,12 @@
         }
       ],
       "href": "https://link.amazon/B0edk5RAw",
-      "approvedPhoto": "./assets/products/rs-p0007-trash-bag-usage.webp",
+      "approvedPhoto": "https://m.media-amazon.com/images/I/51JgEMxKryL._SL1200_.jpg",
       "gallery": [
+        {
+          "src": "https://m.media-amazon.com/images/I/51JgEMxKryL._SL1200_.jpg",
+          "alt": "by Amazon ごみ袋 半透明 とって付き 45L 100枚 の商品写真（Amazon掲載画像）"
+        },
         {
           "src": "./assets/products/rs-p0007-trash-bag-usage.webp",
           "alt": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚のAI制作イメージ（実物写真ではありません）"
@@ -953,15 +964,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Amazon.co.jp product image",
+        "source_page": "https://www.amazon.co.jp/dp/B089TGWXZS",
+        "source_image_url": "https://m.media-amazon.com/images/I/51JgEMxKryL._SL1200_.jpg",
         "verified_model": "by Amazon ごみ袋 半透明 とって付き シャカシャカタイプ 45L 100枚",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -1136,8 +1144,12 @@
         }
       ],
       "href": "https://link.amazon/B0fOb4qjR",
-      "approvedPhoto": "./assets/products/rs-p0020-smart-lock-usage.webp",
+      "approvedPhoto": "https://m.media-amazon.com/images/I/51T3WjfxFNL._SL1200_.jpg",
       "gallery": [
+        {
+          "src": "https://m.media-amazon.com/images/I/51T3WjfxFNL._SL1200_.jpg",
+          "alt": "CANDY HOUSE SESAME 5 ブラック の商品写真（Amazon掲載画像）"
+        },
         {
           "src": "./assets/products/rs-p0020-smart-lock-usage.webp",
           "alt": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）のAI制作イメージ（実物写真ではありません）"
@@ -1147,15 +1159,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Amazon.co.jp product image",
+        "source_page": "https://www.amazon.co.jp/dp/B0C22W4Y5H",
+        "source_image_url": "https://m.media-amazon.com/images/I/51T3WjfxFNL._SL1200_.jpg",
         "verified_model": "CANDY HOUSE SESAME 5 ブラック（国内向け通常版）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -1265,8 +1274,12 @@
         }
       ],
       "href": "https://link.amazon/B06geFAQZ",
-      "approvedPhoto": "./assets/products/rs-p0037-masking-tape-usage.webp",
+      "approvedPhoto": "https://tshop.r10s.jp/apmjapan/cabinet/ef/thumb/4582336471526.jpg",
       "gallery": [
+        {
+          "src": "https://tshop.r10s.jp/apmjapan/cabinet/ef/thumb/4582336471526.jpg",
+          "alt": "APMジャパン 貼ってはがせるエコノミー養生テープ 5個セット の商品写真（メーカー公式ストア画像）"
+        },
         {
           "src": "./assets/products/rs-p0037-masking-tape-usage.webp",
           "alt": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）のAI制作イメージ（実物写真ではありません）"
@@ -1276,15 +1289,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "APM Japan official Rakuten store",
+        "source_page": "https://www.rakuten.co.jp/apmjapan/",
+        "source_image_url": "https://tshop.r10s.jp/apmjapan/cabinet/ef/thumb/4582336471526.jpg",
         "verified_model": "APMジャパン（APM Japan） 貼ってはがせるエコノミー養生テープ 万能タイプ 白（半透明）50mm×25m 5個セット（SY-001CL-5P）",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -1328,8 +1338,12 @@
         }
       ],
       "href": "https://link.amazon/B0cOiuT1N",
-      "approvedPhoto": "./assets/products/rs-p0041-fan-light-usage.webp",
+      "approvedPhoto": "https://m.media-amazon.com/images/I/512nn2gNfGL._SL1200_.jpg",
       "gallery": [
+        {
+          "src": "https://m.media-amazon.com/images/I/512nn2gNfGL._SL1200_.jpg",
+          "alt": "TENKOO&YOU 小型シーリングファンライト の商品写真（Amazon掲載画像）"
+        },
         {
           "src": "./assets/products/rs-p0041-fan-light-usage.webp",
           "alt": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根のAI制作イメージ（実物写真ではありません）"
@@ -1339,15 +1353,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "Amazon.co.jp product image",
+        "source_page": "https://www.amazon.co.jp/dp/B0G8GCRCG7",
+        "source_image_url": "https://m.media-amazon.com/images/I/512nn2gNfGL._SL1200_.jpg",
         "verified_model": "TENKOO&YOU 小型シーリングファンライト 6〜8畳 28W 3000lm E26口金・角型引掛けソケット付き 5枚羽根",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
@@ -1386,8 +1397,12 @@
         }
       ],
       "href": "https://link.amazon/B06ymaXsB",
-      "approvedPhoto": "./assets/products/rs-p0027-shoe-cover-usage.webp",
+      "approvedPhoto": "https://monoaru.shop/cdn/shop/files/18a428d36b8e3cb042d6e6443a9d9178.jpg",
       "gallery": [
+        {
+          "src": "https://monoaru.shop/cdn/shop/files/18a428d36b8e3cb042d6e6443a9d9178.jpg",
+          "alt": "NYANDELMO 使い捨てシューズカバー グレー の商品写真"
+        },
         {
           "src": "./assets/products/rs-p0027-shoe-cover-usage.webp",
           "alt": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズのAI制作イメージ（実物写真ではありません）"
@@ -1397,15 +1412,12 @@
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "imageSource": {
-        "source_name": "Rhythm Speaker original AI usage illustration",
-        "source_page": null,
-        "source_image_url": null,
+        "source_name": "monoaru.shop product image",
+        "source_page": "https://monoaru.shop/",
+        "source_image_url": "https://monoaru.shop/cdn/shop/files/18a428d36b8e3cb042d6e6443a9d9178.jpg",
         "verified_model": "NYANDELMO 使い捨てシューズカバー 100枚（50足）入り グレー 不織布 フリーサイズ",
-        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
-        "product_photo": false,
-        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
-        "checked_at": "2026-11-22",
-        "hosting": "local_repository_asset"
+        "owner_permission": "OWNER_ATTESTED",
+        "checked_at": "2026-11-22"
       }
     },
     {
