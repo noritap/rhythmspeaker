@@ -1654,23 +1654,23 @@
         }
       ],
       "href": "https://link.amazon/B04uy6YvS",
-      "approvedPhoto": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
+      "approvedPhoto": "./assets/products/rs-p0055-harney-hot-cinnamon-sunset-4pack.jpg",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "gallery": [
         {
-          "src": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
-          "alt": "HARNEY & SONS ホットシナモン TINCAN サシェ20個入の商品写真（缶単品・本商品は4個セット）"
+          "src": "./assets/products/rs-p0055-harney-hot-cinnamon-sunset-4pack.jpg",
+          "alt": "HARNEY & SONS ホットシナモンサンセット TINCAN サシェ20個入 4個セットの商品写真"
         }
       ],
       "imageSource": {
-        "source_name": "販売店掲載のメーカー商品写真（缶単品）",
-        "source_page": "https://www.chriscoffee.com/products/harney-tin-hot-cinnamon-spice-20-ct",
-        "source_image_url": "./assets/products/rs-p0055-harney-hot-cinnamon-tin.jpg",
+        "source_name": "オーナー提供の商品写真（オレンジ缶・4個セット）",
+        "source_page": "https://www.amazon.co.jp/dp/B0852149LH",
+        "source_image_url": "./assets/products/rs-p0055-harney-hot-cinnamon-sunset-4pack.jpg",
         "verified_model": "HARNEY & SONS ホットシナモンサンセット TINCAN サシェ20個入 4個セット（並行輸入品）",
         "owner_permission": "OWNER_ATTESTED",
-        "checked_at": "2026-11-22",
+        "checked_at": "2026-11-24",
         "hosting": "local_asset"
       }
     },
