@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
   "source": "https://rhythmspeaker.hatenablog.com/rss",
-  "updated_at": "2026-11-22T11:50:21.524573+00:00",
+  "updated_at": "2026-11-23T13:30:06.163508+00:00",
   "entries": [
+    {
+      "title": "Macで保存したファイルが見つからない｜SpotlightとFinderの使い分け",
+      "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/23/070000?utm_source=feed",
+      "summary": "月曜連載｜タプ太郎のガジェット研究所 SpotlightとFinderで保存ファイルを探す。AI生成の説明用イメージです。実物の写真や検証・指導の記録ではありません。 覚えている手がかりで入口を選ぶ 名前の一部が分かる → Spotlight 直近で開いたことを覚えている → Finderの「最近の項目」 こんにちは、",
+      "published": "Mon, 23 Nov 2026 07:00:00 +0900",
+      "product_ids": []
+    },
     {
       "title": "明日の自分に、手がかりを一つ残す｜タプ太郎の週刊ベスト発見 11月22日号",
       "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/22/070000?utm_source=feed",
