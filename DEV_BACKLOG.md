@@ -35,7 +35,8 @@ Muse の日次開発タスク（dev-daily-ops、毎朝08:30ごろ）が参照す
 - 対象：noritap/RHYTHM_SPEAKER_MUSIC_OS
 - 内容：catalog 配下の台帳JSONに対するスキーマ検証スクリプトを追加し、既存台帳で合格することを確認する（追加のみ、既存ファイルは変更しない）
 - リスク：低
-- 状態：未着手
+- 状態：完了（2026-11-23 PR #33 マージ済み、merge commit 6820d959）
+- 実施内容：scripts/validate_catalog_json.py を追加。マニフェスト（12曲）・ソース台帳（24行）・テイク登録（24件）の型・形式・相互参照を検証し、既存台帳で合格。壊したコピーでの陰性テスト9件も検出を確認。リポジトリ内に既存テスト・CIなし。
 
 ### DEV-005 rs-calendar-watchdog の本番設定の下準備
 - 対象：noritap/rhythmspeaker tools/calendar-watchdog/
