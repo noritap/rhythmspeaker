@@ -10,7 +10,7 @@ try{for(const width of [320,375,390,430,1280,1440,1920]){
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),width+route+' overflow');
  assert.equal(await page.locator('main img').evaluateAll(images=>images.filter(i=>i.complete&&i.naturalWidth===0).length),0);
  }
- await page.goto(base+'#discover');await page.getByRole('searchbox').fill('Steady Hands');await page.waitForFunction(()=>document.querySelector('#count').textContent==='1 / 52 曲');
+ await page.goto(base+'#discover');await page.getByRole('searchbox').fill('Steady Hands');await page.waitForFunction(()=>document.querySelector('#count').textContent==='1 / 64 曲');
  await page.locator('[data-play-track]').click();await page.locator('#listen-player-slot iframe').waitFor();
  assert.equal(await page.locator('#yt').getAttribute('href'),'https://youtu.be/5b8VhqLYnls');
  await page.locator('#next').click();assert.equal(await page.locator('#now-record h2').innerText(),'Saturday Shoes');
