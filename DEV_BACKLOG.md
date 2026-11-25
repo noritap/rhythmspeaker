@@ -42,7 +42,8 @@ Muse の日次開発タスク（dev-daily-ops、毎朝08:30ごろ）が参照す
 - 対象：noritap/rhythmspeaker tools/calendar-watchdog/
 - 内容：デプロイ手順の検証と不足項目の洗い出しまで。本番への有効化は要確認に回す
 - リスク：低（準備のみ）
-- 状態：未着手
+- 状態：完了（下準備完了 2026-11-25。検証レポート PR #605 マージ済み、merge commit 6164cb61）
+- 実施内容：現行 main（cc0ee31）でオフラインテストを再実行し全件合格（worker.test.mjs 17件、`node --check`、stale contract）。デプロイワークフローと DEPLOYMENT.md の照合、wrangler.jsonc の契約検証（Worker名・入口・workers_dev:false・Cron */15・秘密情報なし）も合格。公開JSONは main・Pages とも 2026-11-25T08:52:15+09:00 で一致し正常。デプロイワークフローは未実行（0 runs）。新規の注意点として、E. デプロイ済み Cloudflare コードは PR #332（App 認証）より古いこと、F. 復旧 dispatch が publish まで届くには RS_CALENDAR_SYNC_ENABLED と RS_OPEN_CLASSES_APPROVED がともに true であることを記録。90分しきい値と定期同期（1日4回）の間隔の食い違い、GitHub App・Worker Secrets・通知 Webhook の未設定は引き続き要確認。Issue #328 は G1 BLOCKED のまま。
 
 ### DEV-006 商店特集（features）のスキーマ検証追加
 - 対象：noritap/AMAZON_COMMERCE_DATA_OS（data/features.json と schemas/）
