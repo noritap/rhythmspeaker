@@ -8,7 +8,8 @@
       "ayako-000",
       "ayako-001",
       "ayako-002",
-      "ayako-003"
+      "ayako-003",
+      "ayako-004"
     ],
     "official_url": "https://ayatap.amebaownd.com/",
     "instagram_url": "https://www.instagram.com/ayako_ukawa",
@@ -30,7 +31,8 @@
       "ayako-000",
       "ayako-001",
       "ayako-002",
-      "ayako-003"
+      "ayako-003",
+      "ayako-004"
     ],
     "official_url": "https://noritap.github.io/furusho-official/",
     "portrait_url": "../tap-dance-instructor-furusho-noritaka.jpg",
@@ -88,5 +90,15 @@
     "portrait_position": "50% 18%",
     "portrait_url": "./assets/people/moa-imai-portrait.jpg",
     "portrait_permission_basis": "ユーザーが2026-11-01にRSBN人物カードへの写真差し替えを明示依頼"
+  },
+  {
+    "id": "tomoyuki-hamamoto",
+    "name": "濱元智行",
+    "name_en": "Tomoyuki Hamamoto",
+    "role": "Percussionist / Guest",
+    "episode_ids": [
+      "ayako-004"
+    ],
+    "portrait_fallback_url": "https://i.ytimg.com/vi/A06na3GDwKU/maxresdefault.jpg"
   }
 ]
