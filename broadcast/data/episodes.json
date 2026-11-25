@@ -281,5 +281,104 @@
       }
     ],
     "event_id": null
+  },
+  {
+    "id": "ayako-004",
+    "program": "ayako-no-heya",
+    "episode_number": 4,
+    "title": "【特別編】濱元智行 × 宇川彩子｜アラブ打楽器「レク」と9拍子タップ即興",
+    "guest_ids": [
+      "tomoyuki-hamamoto"
+    ],
+    "published": "2026-11-16",
+    "duration": "29:26",
+    "youtube_id": "A06na3GDwKU",
+    "youtube_url": "https://youtu.be/A06na3GDwKU",
+    "thumbnail_url": "https://i.ytimg.com/vi/A06na3GDwKU/maxresdefault.jpg",
+    "summary": "パーカッショニストの濱元智行さんを迎え、アラブ打楽器「レク」の音色と奏法、変拍子と微分音の魅力を掘り下げます。「あやこのインプロ講座 プチ」では9拍子で即興タップに挑みます。",
+    "topics": [
+      "improvisation",
+      "odd-meter",
+      "riq",
+      "percussion"
+    ],
+    "chapters": [
+      {
+        "time": "00:00",
+        "seconds": 0,
+        "label": "オープニング・ゲスト紹介｜濱元智行"
+      },
+      {
+        "time": "01:02",
+        "seconds": 62,
+        "label": "音や金時との出会い、ガムランからアラブ音楽へ"
+      },
+      {
+        "time": "02:16",
+        "seconds": 136,
+        "label": "ボイラー室の店長を引き受けた経緯"
+      },
+      {
+        "time": "03:40",
+        "seconds": 220,
+        "label": "店長業務とミュージシャン活動"
+      },
+      {
+        "time": "05:15",
+        "seconds": 315,
+        "label": "ボイラー室の魅力とスタッフとの関係"
+      },
+      {
+        "time": "06:21",
+        "seconds": 381,
+        "label": "アラブ打楽器「レク」の紹介"
+      },
+      {
+        "time": "08:20",
+        "seconds": 500,
+        "label": "レクの実演｜多彩な音色と奏法"
+      },
+      {
+        "time": "10:30",
+        "seconds": 630,
+        "label": "タップダンスとパーカッションの共通点"
+      },
+      {
+        "time": "11:43",
+        "seconds": 703,
+        "label": "アラブ音楽の魅力｜変拍子と微分音"
+      },
+      {
+        "time": "15:48",
+        "seconds": 948,
+        "label": "5拍子・7拍子とリズムの捉え方"
+      },
+      {
+        "time": "20:45",
+        "seconds": 1245,
+        "label": "パーカッションユニット「パカボ」"
+      },
+      {
+        "time": "21:48",
+        "seconds": 1308,
+        "label": "店長と演奏者、二つの顔"
+      },
+      {
+        "time": "25:00",
+        "seconds": 1500,
+        "label": "アラブリズムとタップダンスの共鳴"
+      },
+      {
+        "time": "26:01",
+        "seconds": 1561,
+        "label": "あやこのインプロ講座 プチ｜9拍子即興セッション"
+      },
+      {
+        "time": "27:52",
+        "seconds": 1672,
+        "label": "パカボのライブ告知・エンディング"
+      }
+    ],
+    "event_id": null
   }
 ]

@@ -4,7 +4,7 @@
   "scope": "Exact content-addressed protected HTML revisions only; immutable SHA-256 baseline remains unchanged. SEO changes do not alter booking, data, scripts, or authentication.",
   "blobSha1": {
     "broadcast/index.html": "463099986911202c3d45931a40d4e1e92b1d2190",
-    "broadcast/programs/ayako-no-heya/index.html": "d442ffc8b094ac6e4e498d99f6b478bb3f7c1718",
+    "broadcast/programs/ayako-no-heya/index.html": "710d8984cd54eabac5da4728f376d19d67a7c581",
     "classes/bar-method/index.html": "2348561f1167b8fd68b2110b5dc3d1cec3ea93cb",
     "classes/hiit/index.html": "3b5446e0041d44799f1872b84a9a2e1779963ca3",
     "classes/isolation/index.html": "ba855b14f233080e4f7571469826f87ac3d9e9f6",

@@ -105,7 +105,7 @@
       article.className = 'person-card';
       const role = document.createElement('div');
       role.className = 'person-role';
-      role.textContent = `EP.${String(episode.episode_number).padStart(2,'0')} GUEST / TAP DANCER`;
+      role.textContent = `EP.${String(episode.episode_number).padStart(2,'0')} GUEST / ${(person.role || 'Tap Dancer').split(' / ')[0].toUpperCase()}`;
       const name = document.createElement('h3');
       name.append(document.createTextNode(person.name + ' '));
       if (person.name_en) {
