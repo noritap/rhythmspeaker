@@ -745,6 +745,179 @@
         }
       ],
       "story": "<p class=\"eyebrow\">ALBUM STORY</p><h2>朝から、夜の終わりまで。</h2><p>朝の空気、仕事前の集中、週末の高揚、夕暮れ、バーの静けさ、帰り道。1日の中にある小さな場面を、それぞれ違うグルーヴで切り取ったAlbumです。</p><p>Rhodes、Electric Bass、Gospel Piano、Hammond Organ、Vibraphone、Funk Guitar、Percussion、Disco Stringsなど、Trackごとに主役を変えながら都市の温度をつないでいきます。</p>"
+    },
+    {
+      "slug": "tap-jazz-training-01",
+      "id": "RSM-ALB-005",
+      "title": "TAP JAZZ TRAINING 01",
+      "order": 5,
+      "description": "ジャズのグルーヴでタップダンスの基礎を鍛える、練習のためのトレーニングアルバム全12曲。ウォーキングベースのリズムからアップテンポまで、レッスンや自主練習のBGMに。",
+      "story": "<p class=\"eyebrow\">ALBUM STORY</p><h2>踏むためのジャズを、12曲。</h2><p>スイングするウォーキングベース、ピアノ、ブラシのドラム。スローなポケット感の曲から、アップテンポのドライヴまで、タップダンスの基礎練習に寄り添う伴奏として作ったトレーニングアルバムです。</p><p>4バーの掛け合い、ウォーキング、クイックな会話のようなフレーズ。練習の段階と気分に合わせて、好きな曲から踏み始められます。</p><p>RHYTHM SPEAKER MUSICの音楽方針に沿って、AI音楽制作ツールを活用して制作しています。</p>",
+      "tags": [
+        "JAZZ",
+        "TAP",
+        "TRAINING",
+        "BGM",
+        "SWING"
+      ],
+      "image": "assets/images/albums/tap-jazz-training-01/tap-jazz-training-01_B_cover-published_1x1.webp",
+      "playlist": "PLGIPvkXsbIq4",
+      "artworkStatus": "published",
+      "playlist_url": "https://www.youtube.com/playlist?list=PLGIPvkXsbIq4",
+      "album_url": "albums/tap-jazz-training-01/",
+      "published": true,
+      "release_date": null,
+      "rights": {
+        "commercial_use": "unverified",
+        "download": "disabled",
+        "licensing": "disabled"
+      },
+      "tracks": [
+        {
+          "id": "tap-jazz-training-01-01",
+          "number": 1,
+          "title": "Slow Pocket",
+          "youtube_id": "BVyQRFWPQb4",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/BVyQRFWPQb4",
+          "bpm": null,
+          "duration_seconds": 360,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-02",
+          "number": 2,
+          "title": "Easy Walk",
+          "youtube_id": "Aj7s4jrErNU",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/Aj7s4jrErNU",
+          "bpm": null,
+          "duration_seconds": 280,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-03",
+          "number": 3,
+          "title": "Sunny Steps",
+          "youtube_id": "Tf6gmDyC1m4",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/Tf6gmDyC1m4",
+          "bpm": null,
+          "duration_seconds": 254,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-04",
+          "number": 4,
+          "title": "Midtown Step",
+          "youtube_id": "enE9fdoxuIE",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/enE9fdoxuIE",
+          "bpm": null,
+          "duration_seconds": 305,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-05",
+          "number": 5,
+          "title": "Walking Shoes",
+          "youtube_id": "IP_UOX7ANnM",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/IP_UOX7ANnM",
+          "bpm": null,
+          "duration_seconds": 230,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-06",
+          "number": 6,
+          "title": "Four-Bar Talk",
+          "youtube_id": "FMH1Bn0wgRs",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/FMH1Bn0wgRs",
+          "bpm": null,
+          "duration_seconds": 266,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-07",
+          "number": 7,
+          "title": "Blue Pocket",
+          "youtube_id": "56-p2BVFTKM",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/56-p2BVFTKM",
+          "bpm": null,
+          "duration_seconds": 302,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-08",
+          "number": 8,
+          "title": "Jump Line",
+          "youtube_id": "ivp3R51Vl0I",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/ivp3R51Vl0I",
+          "bpm": null,
+          "duration_seconds": 359,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-09",
+          "number": 9,
+          "title": "Quick Conversation",
+          "youtube_id": "zsx5IsAXcE4",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/zsx5IsAXcE4",
+          "bpm": null,
+          "duration_seconds": 360,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-10",
+          "number": 10,
+          "title": "Flying Eights",
+          "youtube_id": "imAfqTmMTLQ",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/imAfqTmMTLQ",
+          "bpm": null,
+          "duration_seconds": 280,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-11",
+          "number": 11,
+          "title": "Uptempo Driver",
+          "youtube_id": "34gssb7uEes",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/34gssb7uEes",
+          "bpm": null,
+          "duration_seconds": 359,
+          "genre_tags": [],
+          "notes": null
+        },
+        {
+          "id": "tap-jazz-training-01-12",
+          "number": 12,
+          "title": "Last Chorus",
+          "youtube_id": "TRB6vW-0MmE",
+          "playback": "video",
+          "youtube_url": "https://youtu.be/TRB6vW-0MmE",
+          "bpm": null,
+          "duration_seconds": 271,
+          "genre_tags": [],
+          "notes": null
+        }
+      ]
     }
   ]
 }

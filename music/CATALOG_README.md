@@ -2,7 +2,7 @@
 
 ## Implementation
 
-Canonical catalog: music/data/catalog.json. Current baseline: four albums, 52 tracks.
+Canonical catalog: music/data/catalog.json. Current baseline: five albums, 64 tracks.
 
 The music/explorer.js progressive enhancement reads this catalog to update home album cards, album track lists, track search, theme filters and user-initiated YouTube embed playback. Static page content remains as a no-JavaScript fallback. Existing album URLs are preserved.
 
