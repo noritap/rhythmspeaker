@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
   "source": "https://rhythmspeaker.hatenablog.com/rss",
-  "updated_at": "2026-11-24T14:08:48.092095+00:00",
+  "updated_at": "2026-11-25T13:22:09.949702+00:00",
   "entries": [
+    {
+      "title": "タップで音を抜くと拍がずれる？ 四拍のうち一拍を休む練習",
+      "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/25/070000?utm_source=feed",
+      "summary": "水曜連載｜世界のタップダンス図鑑 音を抜いても、数は進む 1で鳴らす → 2で鳴らす → 3は休む → 4で鳴らす こんにちは、リズムタプ太郎です。四つ続けて音を出すときは数えやすいのに、途中の一音を抜いた途端、次の音が早く出てしまう。そんなときは、足の動きからいったん離れて、声と手拍子で同じ長さの四拍を保つ練習から始",
+      "published": "Wed, 25 Nov 2026 07:00:00 +0900",
+      "product_ids": []
+    },
     {
       "title": "止まった姿勢から最初の一歩へ｜足が離れる前に何が起きる？",
       "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/24/070000?utm_source=feed",
@@ -206,13 +213,6 @@
       "url": "https://rhythmspeaker.hatenablog.com/entry/welcome?utm_source=feed",
       "summary": "RHYTHM SPEAKER SHOP / 第0号 毎日の暮らしに、ひとつの新しい発見を。（当ブログ制作・AI生成イラスト） リズムスピーカー商店へようこそ。 案内役のリズムタプ太郎です。ここは、日常の疑問や便利な道具、音楽・身体・AIの世界を、皆さんと一緒に探検するブログです。 それって、どうなっているんだろう？ い",
       "published": "Thu, 29 Oct 2026 16:51:59 +0900",
-      "product_ids": []
-    },
-    {
-      "title": "【2026年最新】SwitchBot K11+ Proは買い？K11+・K10+ Proと比較",
-      "url": "https://rhythmspeaker.hatenablog.com/entry/2026/10/28/082335?utm_source=feed",
-      "summary": "【世界最小級掃除機】 SwitchBot ロボット掃除機 K11+ 超小型 高精度マッピング 6000pa強力吸引 水拭き 掃除シート付き 静音 | ロボット掃除機、超小型、高精度マッピング、6000Pa強力吸引、水拭き対応、遠隔操作 スイッチボット(SwitchBot) Amazon PR・広告を含みます。 更新日：",
-      "published": "Wed, 28 Oct 2026 08:23:35 +0900",
       "product_ids": []
     }
   ]
