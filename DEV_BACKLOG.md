@@ -49,4 +49,5 @@ Muse の日次開発タスク（dev-daily-ops、毎朝08:30ごろ）が参照す
 - 対象：noritap/AMAZON_COMMERCE_DATA_OS（data/features.json と schemas/）
 - 内容：features.json のJSONスキーマを追加し、check_schemas.py で検証が通ることを確認する（追加のみ。生成器は特集対応済みで、スキーマが無くても動作に影響しない）
 - リスク：低
-- 状態：未着手
+- 状態：完了（2026-11-26 上流PR #69 マージ済み、merge commit 08e7e70a）
+- 実施内容：schemas/features.schema.json を追加。必須項目（feature_id／title／status／start_date／end_date／product_ids）、status は PREPARING／ACTIVE のみ、日付は YYYY-MM-DD 形式、product_ids は RS-P0000 形式・重複なし、未知項目は拒否。kind／label／intro／note は任意項目（生成器が既定値を使うため）。check_schemas.py はファイル名から自動で拾うため変更不要。現行 features.json（ブラックフライデー特集1件）で検証合格（issues: 0）。陰性テスト7件もすべて検出を確認。追加のみで生成器・本番表示・既存データの変更なし。
