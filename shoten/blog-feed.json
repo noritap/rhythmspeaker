@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
   "source": "https://rhythmspeaker.hatenablog.com/rss",
-  "updated_at": "2026-11-25T13:22:09.949702+00:00",
+  "updated_at": "2026-11-26T13:00:26.131835+00:00",
   "entries": [
+    {
+      "title": "AIで作った手順書、初めての人も使える？ 最初の一手から試す確認メモ",
+      "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/26/070000?utm_source=feed",
+      "summary": "木曜連載｜AIと暮らす未来実験室 手順書は、読んでから一度動かす 始める場所 → 一つずつの操作 → 終わった目印 こんにちは、リズムタプ太郎です。AIで作った手順書は、見出しも番号も整っているのに、いざ使うと「どこを開けばいいの？」と手が止まることがあります。文章として分かることと、迷わず操作できることを分けて確かめ",
+      "published": "Thu, 26 Nov 2026 07:00:00 +0900",
+      "product_ids": []
+    },
     {
       "title": "タップで音を抜くと拍がずれる？ 四拍のうち一拍を休む練習",
       "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/25/070000?utm_source=feed",
@@ -206,13 +213,6 @@
       "url": "https://rhythmspeaker.hatenablog.com/entry/ai-blog-automation-mac-mini-01?utm_source=feed",
       "summary": "木曜連載｜AIと暮らす未来実験室 #01 2026年10月29日｜実験・開発記録 小さなMac miniを、未来の編集室へ。AI生成のイメージ画像です。実際の運用環境を撮影した写真ではありません。 こんにちは、リズムタプ太郎です。木曜日は「AIと暮らす未来実験室」。 AIを使えば、ブログの記事を毎日作って、公開まで任せ",
       "published": "Thu, 29 Oct 2026 17:31:03 +0900",
-      "product_ids": []
-    },
-    {
-      "title": "はじめまして、リズムスピーカー商店です。毎日ひとつ、新しい発見を。",
-      "url": "https://rhythmspeaker.hatenablog.com/entry/welcome?utm_source=feed",
-      "summary": "RHYTHM SPEAKER SHOP / 第0号 毎日の暮らしに、ひとつの新しい発見を。（当ブログ制作・AI生成イラスト） リズムスピーカー商店へようこそ。 案内役のリズムタプ太郎です。ここは、日常の疑問や便利な道具、音楽・身体・AIの世界を、皆さんと一緒に探検するブログです。 それって、どうなっているんだろう？ い",
-      "published": "Thu, 29 Oct 2026 16:51:59 +0900",
       "product_ids": []
     }
   ]
