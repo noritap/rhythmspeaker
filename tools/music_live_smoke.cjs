@@ -21,10 +21,10 @@ const check=async(p,fn)=>{
 };
 (async()=>{
  await check('/music/',b=>b.includes('Digital Record Lounge')&&b.includes('./app.js')&&b.includes('#discover'));
- await check('/music/data/catalog.json',b=>{const j=JSON.parse(b);return j.albums?.length===4&&j.albums.reduce((n,a)=>n+a.tracks.length,0)===52&&j.albums.some(a=>a.slug==='disco-001'&&a.tracks.length===14&&a.tracks.every(t=>/^[A-Za-z0-9_-]{11}$/.test(t.youtube_id)))});
+ await check('/music/data/catalog.json',b=>{const j=JSON.parse(b);return j.albums?.length===6&&j.albums.reduce((n,a)=>n+a.tracks.length,0)===76&&j.albums.some(a=>a.slug==='disco-001'&&a.tracks.length===14&&a.tracks.every(t=>/^[A-Za-z0-9_-]{11}$/.test(t.youtube_id)))});
  await check('/music/app.js',b=>b.includes('www.youtube.com/embed/')&&b.includes('refreshLounge'));
- for(const slug of ['disco-001','tap-dance-in-suspense','saa-ittemiyouka','velvet-city-motion']){
+ for(const slug of ['disco-001','tap-dance-in-suspense','saa-ittemiyouka','velvet-city-motion','tap-jazz-training-01','warm-hands-quiet-groove-01']){
   await check('/music/albums/'+slug+'/',b=>b.includes('./app.js')&&b.includes('rsm-initial-route'));
  }
- console.log('MUSIC GITHUB PAGES LIVE SMOKE PASS: 4 albums / 52 tracks / DISCO 001');
+ console.log('MUSIC GITHUB PAGES LIVE SMOKE PASS: 6 albums / 76 tracks');
 })().catch(e=>{console.error(e);process.exitCode=1});

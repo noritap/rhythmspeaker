@@ -26,8 +26,8 @@ for(const a of data.albums){
   total++;
  }
 }
-assert.equal(total,64,'expected 64 tracks across 5 albums');
-assert.equal(direct,45,'expected 45 verified direct-video IDs');
+assert.equal(total,76,'expected 76 tracks across 6 albums');
+assert.equal(direct,57,'expected 57 verified direct-video IDs');
 const disco=data.albums.find(a=>a.slug==='disco-001');
 assert(disco&&disco.id==='RSM-ALB-004'&&disco.tracks.length===14,'DISCO 001 catalog missing');
 assert(disco.tracks.every(t=>t.youtube_id&&t.duration_seconds>0),'DISCO 001 individual videos/durations required');
