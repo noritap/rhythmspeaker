@@ -691,30 +691,25 @@
         }
       ],
       "href": "https://link.amazon/B0hcXfgcs",
-      "approvedPhoto": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
+      "approvedPhoto": "./assets/products/rs-p0046-shokz-openrun-pro2-black-editorial.svg",
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null,
       "gallery": [
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
-          "alt": "Shokz OpenRun Pro 2 ブラック・標準サイズ のメーカー公式実物商品写真（ブラック）"
-        },
         {
           "src": "./assets/products/rs-p0046-shokz-openrun-pro2-black-editorial.svg",
           "alt": "Shokz OpenRun Pro 2 ブラック・標準サイズのAI制作による写真風イメージ。実物写真ではありません"
         }
       ],
       "imageSource": {
-        "source_name": "Shokz Japan official product gallery",
-        "source_page": "https://jp.shokz.com/products/openrun-pro2",
-        "source_image_url": "https://cdn.shopify.com/s/files/1/0271/5389/1376/files/OpenRunPro2-BK-1_ae75bb98-1cfe-4424-890d-b20a483e4d50.webp?v=1724745657",
+        "source_name": "Rhythm Speaker original AI editorial rendering",
+        "source_page": null,
+        "source_image_url": null,
         "verified_model": "Shokz OpenRun Pro 2 ブラック・標準サイズ（USB-C充電）",
-        "image_type": "OFFICIAL_PRODUCT_PHOTO",
-        "product_photo": true,
-        "owner_permission": "OWNER_ATTESTED",
-        "checked_at": "2026-11-22",
-        "hosting": "remote_official_cdn"
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
       }
     },
     {
@@ -757,30 +752,25 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0GK124ZKS?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=e1f867b5f34d7482fc46c78ca43d33cf",
-      "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+      "approvedPhoto": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
       "affiliateLinkKind": "AMAZON_DIRECT",
       "ownerVerifiedShortLink": false,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
-        {
-          "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
-          "alt": "エリエール i:na ソフトパックティシュー のメーカー公式実物商品写真（単品パック）"
-        },
         {
           "src": "./assets/products/rs-p0051-elleair-ina-100pack-editorial.svg",
           "alt": "エリエール i:na ソフトパックティシュー 100パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
         }
       ],
       "imageSource": {
-        "source_name": "Elleair official product page",
-        "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
-        "source_image_url": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+        "source_name": "Rhythm Speaker original AI editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
         "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×100パック（10パック×10・ケース販売）",
-        "image_type": "OFFICIAL_PRODUCT_PHOTO",
-        "product_photo": true,
-        "owner_permission": "OWNER_ATTESTED",
-        "checked_at": "2026-11-22",
-        "hosting": "remote_official_cdn"
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
       }
     },
     {
@@ -823,30 +813,25 @@
         }
       ],
       "href": "https://www.amazon.co.jp/dp/B0H71PYZYZ?linkCode=sl2&tag=rsshop-hatenablg-22&linkId=f09d29373b88c70f897cdd8afebf0301",
-      "approvedPhoto": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+      "approvedPhoto": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
       "affiliateLinkKind": "AMAZON_DIRECT",
       "ownerVerifiedShortLink": false,
       "trackingId": "rsshop-hatenablg-22",
       "gallery": [
-        {
-          "src": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
-          "alt": "エリエール i:na ソフトパックティシュー のメーカー公式実物商品写真（単品パック）"
-        },
         {
           "src": "./assets/products/rs-p0052-elleair-ina-20pack-editorial.svg",
           "alt": "エリエール i:na ソフトパックティシュー 20パックのAI制作写真風イメージ（実物写真・実際の梱包個数を示す写真ではありません）"
         }
       ],
       "imageSource": {
-        "source_name": "Elleair official product page",
-        "source_page": "https://www.elleair.jp/product/detail/elleair_ina_tissue_softpack",
-        "source_image_url": "https://www.elleair.jp/_var/images/product/tissue/img/4902011717037_2024.jpg",
+        "source_name": "Rhythm Speaker original AI editorial illustration",
+        "source_page": null,
+        "source_image_url": null,
         "verified_model": "大王製紙（エリエール） エリエール i:na ソフトパックティシュー 150組×20パック（10パック×2セット）",
-        "image_type": "OFFICIAL_PRODUCT_PHOTO",
-        "product_photo": true,
-        "owner_permission": "OWNER_ATTESTED",
-        "checked_at": "2026-11-22",
-        "hosting": "remote_official_cdn"
+        "image_type": "AI_GENERATED_EDITORIAL_ILLUSTRATION",
+        "product_photo": false,
+        "owner_permission": "OWNER_AUTHORIZED_GENERATED_IMAGES",
+        "checked_at": "2026-11-18"
       }
     },
     {
