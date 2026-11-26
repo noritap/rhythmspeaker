@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "e7630fa11f3d5b28f85bcd57a5e7a0412aa205b3",
+  "source_sha": "9c3015f649dd9266a60ff131beab9ae6cb4bbcc5",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -1777,6 +1777,236 @@
         "checked_at": "2026-11-22",
         "hosting": "local_asset"
       }
+    },
+    {
+      "product_id": "RS-P0018",
+      "asin": "B0C232GL4Q",
+      "brand": "CANDY HOUSE",
+      "model": "SESAMEタッチPro（CR123A電池対応）",
+      "formal_name": "CANDY HOUSE SESAMEタッチPro（CR123A電池対応）",
+      "category": "home",
+      "subcategory": "smart-home",
+      "kind": "スマートホーム・家電操作",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スマホなしで玄関を解錠したい人",
+        "家族や子どもと解錠手段を使い分けたい人",
+        "対応するSESAME本体をすでに使っている人"
+      ],
+      "eyebrow": "指紋・ICカード・暗証番号の3通りでSESAMEを解錠できるタッチパッド。スマホを取り出さずに出入りしたい玄関向け。",
+      "summary": "指紋100枚、ICカード1000枚（FeliCa／MIFARE対応）、暗証番号100通り（最大16桁）の登録に対応。SuicaやPASMOなど手持ちのカードをそのまま鍵にでき、施錠ボタンとLEDバックライトも備える。",
+      "good": "スマホなしで玄関を解錠したい人・家族や子どもと解錠手段を使い分けたい人・対応するSESAME本体をすでに使っている人",
+      "caution": "スマートロック本体（SESAME）は別途必要・SESAMEタッチ2Proとは別モデル。SesameOS3・EVERING・充電式電池には非対応で、電源はCR123A電池式・対応するセサミの機種を購入前に確認する・本人の実使用感ではない",
+      "highlight": "スマホなしで玄関を解錠したい人・家族や子どもと解錠手段を使い分けたい人・対応するSESAME本体をすでに使っている人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スマホなしで玄関を解錠したい人・家族や子どもと解錠手段を使い分けたい人・対応するSESAME本体をすでに使っている人",
+        "主な仕様": "指紋100枚、ICカード1000枚（FeliCa／MIFARE対応）、暗証番号100通り（最大16桁）の登録に対応。SuicaやPASMOなど手持ちのカードをそのまま鍵にでき、施錠ボタンとLEDバックライトも備える。"
+      },
+      "reasons": [
+        "指紋100枚、ICカード1000枚（FeliCa／MIFARE対応）、暗証番号100通り（最大16桁）の登録に対応。SuicaやPASMOなど手持ちのカードをそのまま鍵にでき、施錠ボタンとLEDバックライトも備える。"
+      ],
+      "sources": [
+        {
+          "url": "https://jp.candyhouse.co/products/sesame-touch-pro",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0C232GL4Q",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B043tPa29",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0023",
+      "asin": "B0C3QYWMDL",
+      "brand": "ノーブランド（汎用品）",
+      "model": "ユーティリティフック 10個セット 丸型 M6ビス付き（Dリング・汎用カーゴフック）",
+      "formal_name": "ノーブランド（汎用品） ユーティリティフック 10個セット 丸型 M6ビス付き（Dリング・汎用カーゴフック）",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "軽バンやワンボックスの荷室を整理したい人",
+        "荷掛けポイントの数を増やしたい人",
+        "カヤック・カヌーなどの固定ポイントを探している人"
+      ],
+      "eyebrow": "M6ビスで取り付ける汎用ユーティリティフック10個セット。軽バンやワンボックスの荷室に、荷掛けポイントを増やすためのパーツ。",
+      "summary": "フック10個とM6ネジ10個のセット。丸型のDリング形状で、ネットやハンガーを掛ける使い方ができる。プラスドライバーで締めるだけの取り付けで、複数箇所にまとめて付けられる。",
+      "good": "軽バンやワンボックスの荷室を整理したい人・荷掛けポイントの数を増やしたい人・カヤック・カヌーなどの固定ポイントを探している人",
+      "caution": "Honda純正品ではない汎用品・耐荷重は販売ページで未確認。重い荷物の固定には使わない・取り付けにはM6ネジが使える穴や下穴加工が必要な場合がある・走行中は荷物を固定し、視界を妨げない・本人の実使用感ではない",
+      "highlight": "軽バンやワンボックスの荷室を整理したい人・荷掛けポイントの数を増やしたい人・カヤック・カヌーなどの固定ポイントを探している人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "軽バンやワンボックスの荷室を整理したい人・荷掛けポイントの数を増やしたい人・カヤック・カヌーなどの固定ポイントを探している人",
+        "主な仕様": "フック10個とM6ネジ10個のセット。丸型のDリング形状で、ネットやハンガーを掛ける使い方ができる。プラスドライバーで締めるだけの取り付けで、複数箇所にまとめて付けられる。"
+      },
+      "reasons": [
+        "フック10個とM6ネジ10個のセット。丸型のDリング形状で、ネットやハンガーを掛ける使い方ができる。プラスドライバーで締めるだけの取り付けで、複数箇所にまとめて付けられる。"
+      ],
+      "sources": [
+        {
+          "url": "https://item.rakuten.co.jp/donzstore/b0c3qywmdl/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0C3QYWMDL",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0fj5Vlr3",
+      "approvedPhoto": "./assets/products/rs-p0023-utility-hook-10set.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0025",
+      "asin": "B0F5VBRWH8",
+      "brand": "ELECOM",
+      "model": "USB Type-C - HDMI変換アダプター ECAD-CHDMIQGM4",
+      "formal_name": "ELECOM USB Type-C - HDMI変換アダプター ECAD-CHDMIQGM4",
+      "category": "sound",
+      "subcategory": "work-tools",
+      "kind": "仕事のデジタル道具",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "スマホやノートPCの画面をテレビ・モニターに映したい人",
+        "出先でプロジェクターや外部ディスプレイに接続する人",
+        "ケーブル約15cmの短いアダプターを持ち歩きたい人"
+      ],
+      "eyebrow": "USB Type-Cポートの映像をHDMIディスプレイへ出力する変換アダプター。最大4K/60Hz対応で、ドライバー不要。",
+      "summary": "IC搭載のアクティブタイプで、画面複製と画面拡張に対応。HDCP1.4／2.2対応で音声出力も可能。ノートPCやスマートフォンの画面をテレビやモニターへそのまま映せる。",
+      "good": "スマホやノートPCの画面をテレビ・モニターに映したい人・出先でプロジェクターや外部ディスプレイに接続する人・ケーブル約15cmの短いアダプターを持ち歩きたい人",
+      "caution": "出力側の機器がDisplayPort Alt Mode対応であることが必要・HDMIからUSB Type-Cへの逆変換はできない・HDMIケーブルは別途必要・スマートフォン・タブレットでは画面拡張に対応しない機種がある・本人の実使用感ではない",
+      "highlight": "スマホやノートPCの画面をテレビ・モニターに映したい人・出先でプロジェクターや外部ディスプレイに接続する人・ケーブル約15cmの短いアダプターを持ち歩きたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スマホやノートPCの画面をテレビ・モニターに映したい人・出先でプロジェクターや外部ディスプレイに接続する人・ケーブル約15cmの短いアダプターを持ち歩きたい人",
+        "主な仕様": "IC搭載のアクティブタイプで、画面複製と画面拡張に対応。HDCP1.4／2.2対応で音声出力も可能。ノートPCやスマートフォンの画面をテレビやモニターへそのまま映せる。"
+      },
+      "reasons": [
+        "IC搭載のアクティブタイプで、画面複製と画面拡張に対応。HDCP1.4／2.2対応で音声出力も可能。ノートPCやスマートフォンの画面をテレビやモニターへそのまま映せる。"
+      ],
+      "sources": [
+        {
+          "url": "https://shop.elecom.co.jp/category/USBCABLE/4549550381055.html",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0F5VBRWH8",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B0d51xtee",
+      "approvedPhoto": "./assets/products/rs-p0025-elecom-ecad-chdmiqgm4.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0036",
+      "asin": "B009PIKTRC",
+      "brand": "牧製紙",
+      "model": "業務用トイレットペーパー シングル 100m 無包装 60ロール",
+      "formal_name": "牧製紙 業務用トイレットペーパー シングル 100m 無包装 60ロール",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "スタジオや事業所などトイレットペーパーの使用量が多い場所",
+        "交換・補充の頻度と包装ごみを減らしたい人",
+        "再生紙100%の業務用製品を探している人"
+      ],
+      "eyebrow": "牧製紙の業務用トイレットペーパー。シングル100m・無包装60ロールで、交換と補充の回数を減らしたい場所向け。",
+      "summary": "1ロール100mの2倍巻きで、50m巻なら120ロール分が60ロールに収まる。再生紙100%・無香料・無漂白、個包装がないため包装ごみが出ない。紙幅114mm・ミシン目ありの仕様をメーカー直営店で確認。",
+      "good": "スタジオや事業所などトイレットペーパーの使用量が多い場所・交換・補充の頻度と包装ごみを減らしたい人・再生紙100%の業務用製品を探している人",
+      "caution": "60ロール・約14kgの大容量で保管スペースが必要・シングル巻き。ダブルとは厚み・使い心地が異なる・紙幅114mmの規格を既存ホルダーで確認・本人の使用感レビューは未記録",
+      "highlight": "スタジオや事業所などトイレットペーパーの使用量が多い場所・交換・補充の頻度と包装ごみを減らしたい人・再生紙100%の業務用製品を探している人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スタジオや事業所などトイレットペーパーの使用量が多い場所・交換・補充の頻度と包装ごみを減らしたい人・再生紙100%の業務用製品を探している人",
+        "主な仕様": "1ロール100mの2倍巻きで、50m巻なら120ロール分が60ロールに収まる。再生紙100%・無香料・無漂白、個包装がないため包装ごみが出ない。紙幅114mm・ミシン目ありの仕様をメーカー直営店で確認。"
+      },
+      "reasons": [
+        "1ロール100mの2倍巻きで、50m巻なら120ロール分が60ロールに収まる。再生紙100%・無香料・無漂白、個包装がないため包装ごみが出ない。紙幅114mm・ミシン目ありの仕様をメーカー直営店で確認。"
+      ],
+      "sources": [
+        {
+          "url": "https://item.rakuten.co.jp/maki-seishi/unpacked100ms60/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B009PIKTRC",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B00c0mpTp",
+      "approvedPhoto": "./assets/products/rs-p0036-makiseishi-single-100m-60rolls.jpg",
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0048",
+      "asin": "B0GG3DCFF3",
+      "brand": "花王",
+      "model": "キュキュット クリア除菌 業務用 4.5L（グレープフルーツの香り）",
+      "formal_name": "花王 キュキュット クリア除菌 業務用 4.5L（グレープフルーツの香り）",
+      "category": "home",
+      "subcategory": "daily-goods",
+      "kind": "暮らしの道具・消耗品",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "店舗や事務所など洗い物の量が多いキッチン",
+        "洗剤の買い足し・詰め替え頻度を減らしたい人",
+        "まな板・スポンジの除菌まで1本で済ませたい人"
+      ],
+      "eyebrow": "キュキュット クリア除菌の業務用4.5L。食器洗いの量が多いキッチン向けの大容量ボトル。",
+      "summary": "花王プロフェッショナル公式で確認した業務用サイズ。原液使用・弱酸性で、スポンジやまな板の除菌にも使える。グレープフルーツの香り。専用の小分け容器へ詰め替えて使う運用が前提で、買い足しの頻度を減らせる。",
+      "good": "店舗や事務所など洗い物の量が多いキッチン・洗剤の買い足し・詰め替え頻度を減らしたい人・まな板・スポンジの除菌まで1本で済ませたい人",
+      "caution": "業務用4.5L・約5.1kgで、家庭のシンク下には大きすぎる場合がある・小分け用の計量容器やボトルが別途必要・除菌・ウイルス除去はすべての菌・ウイルスに対する保証ではない・小児の手が届かない場所に保管し、用途外に使わない・本人の実使用レビューではない",
+      "highlight": "店舗や事務所など洗い物の量が多いキッチン・洗剤の買い足し・詰め替え頻度を減らしたい人・まな板・スポンジの除菌まで1本で済ませたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "店舗や事務所など洗い物の量が多いキッチン・洗剤の買い足し・詰め替え頻度を減らしたい人・まな板・スポンジの除菌まで1本で済ませたい人",
+        "主な仕様": "花王プロフェッショナル公式で確認した業務用サイズ。原液使用・弱酸性で、スポンジやまな板の除菌にも使える。グレープフルーツの香り。専用の小分け容器へ詰め替えて使う運用が前提で、買い足しの頻度を減らせる。"
+      },
+      "reasons": [
+        "花王プロフェッショナル公式で確認した業務用サイズ。原液使用・弱酸性で、スポンジやまな板の除菌にも使える。グレープフルーツの香り。専用の小分け容器へ詰め替えて使う運用が前提で、買い足しの頻度を減らせる。"
+      ],
+      "sources": [
+        {
+          "url": "https://pro.kao.com/jp/products/kps02/4901301360489/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0GG3DCFF3",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B08dp2iM7",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
     }
   ]
 }
