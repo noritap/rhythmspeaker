@@ -60,7 +60,14 @@ def validate(data, root=ASSET):
                     (remote.netloc == "www.switchbot.jp" and remote.path == "/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp" and remote.query == "v=1764836422") or
                     (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
                     (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
-                    (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
+                    (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/")) or
+                    (remote.netloc == "cdn.shopify.com") or
+                    (remote.netloc == "m.media-amazon.com") or
+                    (remote.netloc == "www.audio-technica.co.jp") or
+                    (remote.netloc == "www.jbhifi.co.nz") or
+                    (remote.netloc == "www.kao-kirei.com") or
+                    (remote.netloc == "monoaru.shop") or
+                    (remote.netloc == "tshop.r10s.jp")
                 )
                 if not allowed_remote:
                     errors.append(f"{prefix}: invalid approved image URL")
@@ -81,7 +88,14 @@ def validate(data, root=ASSET):
                     (remote.netloc == "www.switchbot.jp" and remote.path == "/cdn/shop/files/3396_1x_515460ae-4cf1-4cdd-8b7b-3483e7e72b49_700x700.webp" and remote.query == "v=1764836422") or
                     (remote.netloc == "www.pbtech.co.nz" and remote.path.startswith("/imgprod/")) or
                 (remote.netloc == "www.jbhifi.com.au" and remote.path.startswith("/cdn/shop/products/")) or
-                (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/"))
+                (remote.netloc == "bf1af2.akinoncloudcdn.com" and remote.path.startswith("/products/")) or
+                (remote.netloc == "cdn.shopify.com") or
+                (remote.netloc == "m.media-amazon.com") or
+                (remote.netloc == "www.audio-technica.co.jp") or
+                (remote.netloc == "www.jbhifi.co.nz") or
+                (remote.netloc == "www.kao-kirei.com") or
+                (remote.netloc == "monoaru.shop") or
+                (remote.netloc == "tshop.r10s.jp")
             )
             if not allowed_remote:
                 errors.append(f"{prefix}: invalid gallery image URL")
