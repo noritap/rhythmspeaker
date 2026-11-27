@@ -357,6 +357,7 @@ body { background: var(--edition-paper); }
 
 /* RS-P0001: product gallery and studio-use introduction */
 .shoten-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:12px 0 4px;width:100%}
+.shoten-gallery + [data-media-caption]{position:static;overflow-wrap:anywhere}
 .shoten-gallery-thumb{padding:3px;border:2px solid transparent;border-radius:9px;background:#fff;cursor:pointer;min-width:0;aspect-ratio:1}
 .shoten-gallery-thumb[aria-pressed="true"],.shoten-gallery-thumb:focus-visible{border-color:#255d50;outline-offset:2px}
 .shoten-gallery-thumb img{width:100%;height:100%;object-fit:contain;border-radius:5px}
