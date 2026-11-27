@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "90ac69bf2f60945f617e5801e87927deaca1c768",
+  "source_sha": "85d3de23bd0b1be388fe879e9aa41257fccb3c5a",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -2463,6 +2463,48 @@
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null
+    },
+    {
+      "product_id": "RS-P0043",
+      "asin": "0306805537",
+      "brand": "Da Capo Press",
+      "model": "Jazz Dance: The Story of American Vernacular Dance（Marshall & Jean Stearns／1994年版）",
+      "formal_name": "Da Capo Press Jazz Dance: The Story of American Vernacular Dance（Marshall & Jean Stearns／1994年版）",
+      "category": "sound",
+      "subcategory": "books",
+      "kind": "ダンス／音楽の本",
+      "tint": "blue",
+      "purpose": "focus",
+      "tags": [
+        "ジャズダンスやアメリカのダンス文化史を学びたい人",
+        "タップダンスの歴史的背景を調べたいダンサー・指導者",
+        "英語の専門書を読み、参考文献やフィルモグラフィーまで確認したい人"
+      ],
+      "eyebrow": "Marshall and Jean Stearnsによる、アメリカのヴァナキュラー・ダンスとジャズダンスの歴史を扱う英語書籍。1994年Da Capo Press版。",
+      "summary": "タップダンスを含むアメリカのジャズダンス文化・歴史を学ぶための基礎資料候補。Brenda Bufalinoによる新しい序文・後書きを加えた版。",
+      "good": "ジャズダンスやアメリカのダンス文化史を学びたい人・タップダンスの歴史的背景を調べたいダンサー・指導者・英語の専門書を読み、参考文献やフィルモグラフィーまで確認したい人",
+      "caution": "英語書籍。日本語訳ではない・1994年版。最新の研究書・入門書ではない・中古・輸入版の状態や版を購入前に確認・本人の読了・内容レビューは未記録",
+      "highlight": "ジャズダンスやアメリカのダンス文化史を学びたい人・タップダンスの歴史的背景を調べたいダンサー・指導者・英語の専門書を読み、参考文献やフィルモグラフィーまで確認したい人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "ジャズダンスやアメリカのダンス文化史を学びたい人・タップダンスの歴史的背景を調べたいダンサー・指導者・英語の専門書を読み、参考文献やフィルモグラフィーまで確認したい人",
+        "主な仕様": "タップダンスを含むアメリカのジャズダンス文化・歴史を学ぶための基礎資料候補。Brenda Bufalinoによる新しい序文・後書きを加えた版。"
+      },
+      "reasons": [
+        "タップダンスを含むアメリカのジャズダンス文化・歴史を学ぶための基礎資料候補。Brenda Bufalinoによる新しい序文・後書きを加えた版。"
+      ],
+      "sources": [
+        {
+          "url": "https://ci.nii.ac.jp/ncid/BA36091679",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/0306805537?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
     }
   ],
   "features": [
