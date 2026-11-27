@@ -33,6 +33,8 @@ on:
     # 07:00 JST = 22:00 UTC (previous day). GitHub Actions cron is UTC and
     # scheduled starts are best effort; Muse daily ops verifies the run.
     - cron: "0 22 * * *"
+    # Backup: 08:00 JST = 23:00 UTC (previous day). Scheduled starts have been observed firing several hours late.
+    - cron: "0 23 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -197,6 +199,7 @@ jobs:
       # （同日重複は作らない）。成功時はサマリのみで Issue は作らない。
       - name: Open an issue on failure
         if: failure() && vars.RS_SHOTEN_AUTO_PUBLISH_ENABLED == 'true'
+        working-directory: site
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
