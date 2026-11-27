@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "surface": "rhythmspeaker-web",
-  "source_sha": "9c3015f649dd9266a60ff131beab9ae6cb4bbcc5",
+  "source_sha": "90ac69bf2f60945f617e5801e87927deaca1c768",
   "products": [
     {
       "product_id": "RS-P0001",
@@ -2007,6 +2007,478 @@
       "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
       "ownerVerifiedShortLink": true,
       "trackingId": null
+    },
+    {
+      "product_id": "RS-P0003",
+      "asin": "B0D5XGP6CW",
+      "brand": "Anker",
+      "model": "Solix C300",
+      "formal_name": "Anker Solix C300",
+      "category": "outdoor",
+      "subcategory": "ac-power",
+      "kind": "AC対応電源",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "停電・防災用に小型のポータブル電源を備えたい人",
+        "スマホやノートPCなど複数台をまとめて充電したい人",
+        "キャンプや車中泊で小型家電も使いたい人"
+      ],
+      "eyebrow": "288Wh・約4.1kgの小型ポータブル電源。AC出力は定格300W（瞬間最大600W）、USB-Cは最大140W出力で、付属ストラップで肩にかけて持ち運べるAnker Solix C300。",
+      "summary": "Anker Japan公式製品情報で、容量288Wh、合計8ポート（AC・USB-C・USB-A・シガーソケット）、AC充電で最短約68分の充電を確認。停電時のスマホ・ノートPCの充電や小型家電への給電に使える、家庭の防災備蓄とアウトドアの両方に置きやすいサイズ。",
+      "good": "停電・防災用に小型のポータブル電源を備えたい人・スマホやノートPCなど複数台をまとめて充電したい人・キャンプや車中泊で小型家電も使いたい人",
+      "caution": "容量は288Wh。消費電力の大きい家電の長時間使用には向かない・AC出力は定格300Wまで。使う機器の消費電力を事前に確認する必要がある・本人の実使用レビューは未記録",
+      "highlight": "停電・防災用に小型のポータブル電源を備えたい人・スマホやノートPCなど複数台をまとめて充電したい人・キャンプや車中泊で小型家電も使いたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "停電・防災用に小型のポータブル電源を備えたい人・スマホやノートPCなど複数台をまとめて充電したい人・キャンプや車中泊で小型家電も使いたい人",
+        "主な仕様": "Anker Japan公式製品情報で、容量288Wh、合計8ポート（AC・USB-C・USB-A・シガーソケット）、AC充電で最短約68分の充電を確認。停電時のスマホ・ノートPCの充電や小型家電への給電に使える、家庭の防災備蓄とアウトドアの両方に置きやすいサイズ。"
+      },
+      "reasons": [
+        "Anker Japan公式製品情報で、容量288Wh、合計8ポート（AC・USB-C・USB-A・シガーソケット）、AC充電で最短約68分の充電を確認。停電時のスマホ・ノートPCの充電や小型家電への給電に使える、家庭の防災備蓄とアウトドアの両方に置きやすいサイズ。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/a1722",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://prtimes.jp/main/html/rd/p/000000509.000016775.html",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0D5XGP6CW?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0004",
+      "asin": "B0DKF1HCFF",
+      "brand": "eufy by Anker",
+      "model": "Omni C20",
+      "formal_name": "eufy by Anker Omni C20",
+      "category": "home",
+      "subcategory": "robot-vacuums",
+      "kind": "ロボット掃除機",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "吸引と水拭きを1台で済ませたい人",
+        "ゴミ捨てやモップ洗いの手間を減らしたい人",
+        "家具の下など低いスペースにも入れる薄型モデルを探している人"
+      ],
+      "eyebrow": "吸引と水拭きを1台で行い、ゴミ収集・モップ洗浄・乾燥まで全自動ステーションが担うロボット掃除機。最大7000Paの吸引力と加圧式デュアル回転モップを搭載したeufy Omni C20。",
+      "summary": "Anker Japan公式の販売情報で、最大7000Paの吸引力、回転加圧式デュアルモップ、全自動クリーニングステーション（ゴミ収集・モップ洗浄・乾燥）、本体高さ約8.5cmの薄型設計、ダストバッグ容量3.1Lを確認。日々の掃除の手間を減らしたい家庭向け。",
+      "good": "吸引と水拭きを1台で済ませたい人・ゴミ捨てやモップ洗いの手間を減らしたい人・家具の下など低いスペースにも入れる薄型モデルを探している人",
+      "caution": "全自動ステーションの設置スペースが必要・ダストバッグ等の消耗品の交換が必要・本人の実使用レビューは未記録",
+      "highlight": "吸引と水拭きを1台で済ませたい人・ゴミ捨てやモップ洗いの手間を減らしたい人・家具の下など低いスペースにも入れる薄型モデルを探している人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "吸引と水拭きを1台で済ませたい人・ゴミ捨てやモップ洗いの手間を減らしたい人・家具の下など低いスペースにも入れる薄型モデルを探している人",
+        "主な仕様": "Anker Japan公式の販売情報で、最大7000Paの吸引力、回転加圧式デュアルモップ、全自動クリーニングステーション（ゴミ収集・モップ洗浄・乾燥）、本体高さ約8.5cmの薄型設計、ダストバッグ容量3.1Lを確認。日々の掃除の手間を減らしたい家庭向け。"
+      },
+      "reasons": [
+        "Anker Japan公式の販売情報で、最大7000Paの吸引力、回転加圧式デュアルモップ、全自動クリーニングステーション（ゴミ収集・モップ洗浄・乾燥）、本体高さ約8.5cmの薄型設計、ダストバッグ容量3.1Lを確認。日々の掃除の手間を減らしたい家庭向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/t2280",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0DKF1HCFF?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0006",
+      "asin": "B0D5YGDYVX",
+      "brand": "Anker",
+      "model": "Solix C300 DC",
+      "formal_name": "Anker Solix C300 DC",
+      "category": "outdoor",
+      "subcategory": "ac-power",
+      "kind": "AC対応電源",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "AC家電は使わず、スマホ・ノートPC・カメラ等の充電が中心の人",
+        "防災用に小型の予備電源を持ちたい人",
+        "車内やアウトドアでUSB機器をまとめて充電したい人"
+      ],
+      "eyebrow": "ACポートを持たないUSB・DC専用の288Whポータブル電源。約12cm四方の小型ボディに合計7ポート・最大300W出力を備えたAnker Solix C300 DC。",
+      "summary": "Anker Japan公式製品情報で、容量288Wh、USB-C・USB-A・シガーソケットの合計7ポートから最大300W出力、USB-Cは最大140W出力を確認。AC家電を使わない前提でモバイル機器の充電に絞った分、小型にまとまっている。",
+      "good": "AC家電は使わず、スマホ・ノートPC・カメラ等の充電が中心の人・防災用に小型の予備電源を持ちたい人・車内やアウトドアでUSB機器をまとめて充電したい人",
+      "caution": "ACポート非搭載。AC電源が必要な家電には使えない・容量は288Wh。機器ごとの充電回数の目安は事前に確認が必要・本人の実使用レビューは未記録",
+      "highlight": "AC家電は使わず、スマホ・ノートPC・カメラ等の充電が中心の人・防災用に小型の予備電源を持ちたい人・車内やアウトドアでUSB機器をまとめて充電したい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "AC家電は使わず、スマホ・ノートPC・カメラ等の充電が中心の人・防災用に小型の予備電源を持ちたい人・車内やアウトドアでUSB機器をまとめて充電したい人",
+        "主な仕様": "Anker Japan公式製品情報で、容量288Wh、USB-C・USB-A・シガーソケットの合計7ポートから最大300W出力、USB-Cは最大140W出力を確認。AC家電を使わない前提でモバイル機器の充電に絞った分、小型にまとまっている。"
+      },
+      "reasons": [
+        "Anker Japan公式製品情報で、容量288Wh、USB-C・USB-A・シガーソケットの合計7ポートから最大300W出力、USB-Cは最大140W出力を確認。AC家電を使わない前提でモバイル機器の充電に絞った分、小型にまとまっている。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.ankerjapan.com/products/A1726",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0D5YGDYVX?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0019",
+      "asin": "B000PGQQFC",
+      "brand": "HARNEY & SONS",
+      "model": "Hot Cinnamon Spice ティーバッグ 50袋入り箱（型番16-0002）",
+      "formal_name": "HARNEY & SONS Hot Cinnamon Spice ティーバッグ 50袋入り箱（型番16-0002）",
+      "category": "food",
+      "subcategory": "tea-coffee",
+      "kind": "お茶・コーヒー",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "スパイスティーを日常的に飲む人",
+        "ティーバッグを大容量でストックしたい人"
+      ],
+      "eyebrow": "シナモン、オレンジピール、クローブの香りが広がるスパイスティー。ティーバッグ50袋入りの箱タイプ。Hot Cinnamon SpiceとHot Cinnamon Sunsetは同じブレンドで、パッケージ表記が異なる。",
+      "summary": "メーカー公式情報で、紅茶に3種のシナモン、オレンジピール、クローブをブレンドした看板フレーバーであることを確認。50袋入りの箱で、缶入り20サシェ版より大容量のまとめ買い向け。",
+      "good": "スパイスティーを日常的に飲む人・ティーバッグを大容量でストックしたい人",
+      "caution": "カフェインを含む（メーカー公式では1杯あたり40〜60mg）・香料を使用・缶入り20サシェ版（HT Tin）とは別形態。容器・容量を取り違えない・本人の購入記録にあるのは20サシェ入り缶で、50袋入り箱の実使用レビューではない・当初は20サシェ缶を掲載していたが、本人のリンク先商品（50袋入り箱）へ変更した",
+      "highlight": "スパイスティーを日常的に飲む人・ティーバッグを大容量でストックしたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "スパイスティーを日常的に飲む人・ティーバッグを大容量でストックしたい人",
+        "主な仕様": "メーカー公式情報で、紅茶に3種のシナモン、オレンジピール、クローブをブレンドした看板フレーバーであることを確認。50袋入りの箱で、缶入り20サシェ版より大容量のまとめ買い向け。"
+      },
+      "reasons": [
+        "メーカー公式情報で、紅茶に3種のシナモン、オレンジピール、クローブをブレンドした看板フレーバーであることを確認。50袋入りの箱で、缶入り20サシェ版より大容量のまとめ買い向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.harney.com/products/hot-cinnamon-spice-bag-of-50-sachets",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B000PGQQFC",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.com/dp/B000PGQQFC",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B01fWy4es",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0021",
+      "asin": "B00I8AZMHU",
+      "brand": "カジメイク",
+      "model": "2205 ポリエステルヤッケ",
+      "formal_name": "カジメイク 2205 ポリエステルヤッケ",
+      "category": "home",
+      "subcategory": "apparel",
+      "kind": "服・ワークウェア",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "軽作業時の汚れを避けたい人",
+        "薄手で持ち歩きやすい作業用上着を探す人"
+      ],
+      "eyebrow": "作業中の泥・風・汚れから体をガードする、頭から被るタイプのポリエステル100％ヤッケ。はっ水加工つき（防水仕様ではない）。",
+      "summary": "メーカー公表仕様でポリエステル100％（タフタ）・はっ水加工を確認できる作業用ヤッケ。前立てからの風の侵入を防ぐ被りデザインで、軽作業の汚れよけとして選びやすい。",
+      "good": "軽作業時の汚れを避けたい人・薄手で持ち歩きやすい作業用上着を探す人",
+      "caution": "防水仕様ではなく、レインウェアとしては使用できない（メーカー明記）。はっ水加工のみ・リンク先掲載の色・サイズは未確認。購入前に販売ページで色・サイズを確認する・本人の実使用レビューではない・当初掲載の2203 ナイロンヤッケとは別モデル。本人のリンク先商品（2205）へ変更した",
+      "highlight": "軽作業時の汚れを避けたい人・薄手で持ち歩きやすい作業用上着を探す人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "軽作業時の汚れを避けたい人・薄手で持ち歩きやすい作業用上着を探す人",
+        "主な仕様": "メーカー公表仕様でポリエステル100％（タフタ）・はっ水加工を確認できる作業用ヤッケ。前立てからの風の侵入を防ぐ被りデザインで、軽作業の汚れよけとして選びやすい。"
+      },
+      "reasons": [
+        "メーカー公表仕様でポリエステル100％（タフタ）・はっ水加工を確認できる作業用ヤッケ。前立てからの風の侵入を防ぐ被りデザインで、軽作業の汚れよけとして選びやすい。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.monotaro.com/p/4550/3062/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.kajimeiku.co.jp/",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B00rLbHhT",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0026",
+      "asin": "B0BBH4LNVC",
+      "brand": "カンロ",
+      "model": "健康のど飴 たたかうマヌカハニー 80g×6袋セット",
+      "formal_name": "カンロ 健康のど飴 たたかうマヌカハニー 80g×6袋セット",
+      "category": "food",
+      "subcategory": "candy",
+      "kind": "のど飴・キャンディ",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "マヌカハニー入りのど飴をまとめて購入したい人",
+        "個包装ではなく袋入りキャンディをストックしたい人"
+      ],
+      "eyebrow": "マヌカハニーを配合した80g入りの健康のど飴6袋セット。ジッパー付き袋で、日常の持ち歩きやストックに向くキャンディ。",
+      "summary": "メーカー公式情報で80g/袋・6袋セット・JANコードを確認できる。ニュージーランド産MGO115+品質のマヌカハニーを1袋あたり1,000mg配合。",
+      "good": "マヌカハニー入りのど飴をまとめて購入したい人・個包装ではなく袋入りキャンディをストックしたい人",
+      "caution": "純粋なマヌカハニーではなく、はちみつ配合のキャンディ・はちみつを含むため1歳未満の乳児には与えない・原材料・アレルギー表示を購入前に確認・医薬品や治療目的の商品として紹介しない・本人の実使用レビューではない・健康のど飴たたかうマヌカハニープレミアム73g×3個とは別商品・別規格（RS-P0042）。混同しない",
+      "highlight": "マヌカハニー入りのど飴をまとめて購入したい人・個包装ではなく袋入りキャンディをストックしたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "マヌカハニー入りのど飴をまとめて購入したい人・個包装ではなく袋入りキャンディをストックしたい人",
+        "主な仕様": "メーカー公式情報で80g/袋・6袋セット・JANコードを確認できる。ニュージーランド産MGO115+品質のマヌカハニーを1袋あたり1,000mg配合。"
+      },
+      "reasons": [
+        "メーカー公式情報で80g/袋・6袋セット・JANコードを確認できる。ニュージーランド産MGO115+品質のマヌカハニーを1袋あたり1,000mg配合。"
+      ],
+      "sources": [
+        {
+          "url": "https://kanro.jp/collections/all/products/%E5%81%A5%E5%BA%B7%E3%81%AE%E3%81%A9%E9%A3%B4%E3%81%9F%E3%81%9F%E3%81%8B%E3%81%86%E3%83%9E%E3%83%8C%E3%82%AB%E3%83%8F%E3%83%8B%E3%83%BC-6%E8%A2%8B%E3%82%BB%E3%83%83%E3%83%88",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B0BBH4LNVC",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://my-best.com/4766",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B09bvuHeG",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0028",
+      "asin": "B0FC6Q6HSQ",
+      "brand": "D.IIZOO",
+      "model": "ビッグシルエット スウェットパンツ D1128A カーキ 4XL",
+      "formal_name": "D.IIZOO ビッグシルエット スウェットパンツ D1128A カーキ 4XL",
+      "category": "home",
+      "subcategory": "apparel",
+      "kind": "服・ワークウェア",
+      "tint": "peach",
+      "purpose": "time",
+      "tags": [
+        "ゆとりのあるシルエットのパンツを探している人",
+        "練習着や普段着にワイドパンツを使いたい人"
+      ],
+      "eyebrow": "D.IIZOOのD1128Aビッグシルエット・スウェットパンツ。本人の購入記録で確認できたカーキ・4XLのバリエーション。",
+      "summary": "ゆったりしたワイドシルエットのスウェットパンツ。ダンスや日常のリラックスウェアとして、サイズ感と裾のシルエットを確認して選びたいモデル。",
+      "good": "ゆとりのあるシルエットのパンツを探している人・練習着や普段着にワイドパンツを使いたい人",
+      "caution": "4XL・カーキは本人購入記録に基づく。サイズ表は販売ページで再確認する・生地混率・寸法・洗濯表示は現行販売ページで未照合・本人の着用感・耐久性レビューは未記録",
+      "highlight": "ゆとりのあるシルエットのパンツを探している人・練習着や普段着にワイドパンツを使いたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "ゆとりのあるシルエットのパンツを探している人・練習着や普段着にワイドパンツを使いたい人",
+        "主な仕様": "ゆったりしたワイドシルエットのスウェットパンツ。ダンスや日常のリラックスウェアとして、サイズ感と裾のシルエットを確認して選びたいモデル。"
+      },
+      "reasons": [
+        "ゆったりしたワイドシルエットのスウェットパンツ。ダンスや日常のリラックスウェアとして、サイズ感と裾のシルエットを確認して選びたいモデル。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.amazon.co.jp/dp/B0BNHHK1HK",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.desertcart.jp/products/766007364-ビッグシルエット-スウェットパンツ-トラックパンツ-ロングパンツ-ジョガーパンツ-メンズ-バギーパンツ-スポーツ-太め-ダンス",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B003LFdtx",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    },
+    {
+      "product_id": "RS-P0034",
+      "asin": "B08PJWFWVS",
+      "brand": "HORIZON FARMS",
+      "model": "有機JAS 冷凍ワイルドブルーベリー 1kg×3袋（カナダ産・野生種）",
+      "formal_name": "HORIZON FARMS 有機JAS 冷凍ワイルドブルーベリー 1kg×3袋（カナダ産・野生種）",
+      "category": "food",
+      "subcategory": "pantry",
+      "kind": "米・豆・食材",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "冷凍ブルーベリーを常備したい人",
+        "ヨーグルトやスムージー、製菓に使いたい人",
+        "野生種の小粒ブルーベリーを選びたい人"
+      ],
+      "eyebrow": "カナダ産の有機JAS認証・冷凍ワイルドブルーベリー。1kg袋を3袋、合計3kgでまとめたセット。",
+      "summary": "HORIZON FARMS公式商品FR400で、野生種・カナダ産・有機JAS・冷凍・1kg袋を確認。3パックセットの選択肢がある。",
+      "good": "冷凍ブルーベリーを常備したい人・ヨーグルトやスムージー、製菓に使いたい人・野生種の小粒ブルーベリーを選びたい人",
+      "caution": "冷凍便で届き、-18℃以下で保存・1袋1kg。3袋セットは合計3kg・自然由来のため粒の大きさにばらつきがある・本人の味・食感の実使用レビューは未記録",
+      "highlight": "冷凍ブルーベリーを常備したい人・ヨーグルトやスムージー、製菓に使いたい人・野生種の小粒ブルーベリーを選びたい人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "冷凍ブルーベリーを常備したい人・ヨーグルトやスムージー、製菓に使いたい人・野生種の小粒ブルーベリーを選びたい人",
+        "主な仕様": "HORIZON FARMS公式商品FR400で、野生種・カナダ産・有機JAS・冷凍・1kg袋を確認。3パックセットの選択肢がある。"
+      },
+      "reasons": [
+        "HORIZON FARMS公式商品FR400で、野生種・カナダ産・有機JAS・冷凍・1kg袋を確認。3パックセットの選択肢がある。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.horizonfarms.jp/products/fr400",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B08PJWFWVS",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B08PJWFWVS?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0038",
+      "asin": "B0CML45FXJ",
+      "brand": "澤井珈琲",
+      "model": "金と銀と銅の3種飲み比べ ソル・ルナ・テルス 1.2kg（400g×3袋・豆のまま）",
+      "formal_name": "澤井珈琲 金と銀と銅の3種飲み比べ ソル・ルナ・テルス 1.2kg（400g×3袋・豆のまま）",
+      "category": "food",
+      "subcategory": "tea-coffee",
+      "kind": "お茶・コーヒー",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "3種類のコーヒーブレンドを飲み比べたい人",
+        "豆のまま購入し、挽き目を自分で調整したい人",
+        "400g袋を複数ストックしたい人"
+      ],
+      "eyebrow": "澤井珈琲の「金・銀・銅」シリーズから、ソル・ルナ・テルスを各400gずつ詰めた1.2kgの飲み比べセット。豆のままの購入バリエーション。",
+      "summary": "澤井珈琲公式店の販売情報で、ソル・ルナ・テルス各400g、合計1.2kg、豆のままの選択肢を確認。異なるブレンドを飲み比べたい人向け。",
+      "good": "3種類のコーヒーブレンドを飲み比べたい人・豆のまま購入し、挽き目を自分で調整したい人・400g袋を複数ストックしたい人",
+      "caution": "1.2kgの大容量。開封後は密閉・冷所保管など販売元の保存案内に従う・本人の購入記録ではMelitta電動ミルはセットに含まれていない・現在の販売ページに別の3種セットもあるため、ソル・ルナ・テルスの組み合わせを確認して購入する・本人の味・香りレビューは未記録",
+      "highlight": "3種類のコーヒーブレンドを飲み比べたい人・豆のまま購入し、挽き目を自分で調整したい人・400g袋を複数ストックしたい人",
+      "date": "2026-11-16",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "3種類のコーヒーブレンドを飲み比べたい人・豆のまま購入し、挽き目を自分で調整したい人・400g袋を複数ストックしたい人",
+        "主な仕様": "澤井珈琲公式店の販売情報で、ソル・ルナ・テルス各400g、合計1.2kg、豆のままの選択肢を確認。異なるブレンドを飲み比べたい人向け。"
+      },
+      "reasons": [
+        "澤井珈琲公式店の販売情報で、ソル・ルナ・テルス各400g、合計1.2kg、豆のままの選択肢を確認。異なるブレンドを飲み比べたい人向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://item.rakuten.co.jp/sawaicoffee-tea/gldslvbrz/",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://store.shopping.yahoo.co.jp/sawaicoffee/gldslvbrz.html",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://www.amazon.co.jp/dp/B0CML45FXJ?linkCode=sl2&tag=rsshop-hatenablg-22",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_DIRECT",
+      "ownerVerifiedShortLink": false,
+      "trackingId": "rsshop-hatenablg-22"
+    },
+    {
+      "product_id": "RS-P0039",
+      "asin": "B000R32F6M",
+      "brand": "HARNEY & SONS",
+      "model": "Vanilla Comoro バニラ・コモロ HT Collection 20サシェ入り缶（40g・デカフェ）",
+      "formal_name": "HARNEY & SONS Vanilla Comoro バニラ・コモロ HT Collection 20サシェ入り缶（40g・デカフェ）",
+      "category": "food",
+      "subcategory": "tea-coffee",
+      "kind": "お茶・コーヒー",
+      "tint": "green",
+      "purpose": "carry",
+      "tags": [
+        "バニラの香りがある紅茶を探している人",
+        "デカフェの紅茶を選びたい人",
+        "茶葉の計量をせずサシェで淹れたい人"
+      ],
+      "eyebrow": "HARNEY & SONSのデカフェ紅茶「Vanilla Comoro」。HT Collectionの缶入り20サシェ、合計40g。",
+      "summary": "HARNEY & SONS国内公式ページで、20サシェ入り缶・40g・デカフェ・天然バニラ風味を確認。カフェインを控えたい時間帯に紅茶を楽しみたい人向け。",
+      "good": "バニラの香りがある紅茶を探している人・デカフェの紅茶を選びたい人・茶葉の計量をせずサシェで淹れたい人",
+      "caution": "カフェイン除去処理済み。完全なカフェインゼロと断定しない・本人の購入記録はHT Collectionの20サシェ入り缶・Loose Leaf 112g（RS-P0022）とは別商品形態・本人の実使用レビューは未記録",
+      "highlight": "バニラの香りがある紅茶を探している人・デカフェの紅茶を選びたい人・茶葉の計量をせずサシェで淹れたい人",
+      "date": "2026-11-27",
+      "specs": {},
+      "comparison": {
+        "選ぶ基準": "バニラの香りがある紅茶を探している人・デカフェの紅茶を選びたい人・茶葉の計量をせずサシェで淹れたい人",
+        "主な仕様": "HARNEY & SONS国内公式ページで、20サシェ入り缶・40g・デカフェ・天然バニラ風味を確認。カフェインを控えたい時間帯に紅茶を楽しみたい人向け。"
+      },
+      "reasons": [
+        "HARNEY & SONS国内公式ページで、20サシェ入り缶・40g・デカフェ・天然バニラ風味を確認。カフェインを控えたい時間帯に紅茶を楽しみたい人向け。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.harney.jp/products/vanilla-comoro",
+          "label": "商品情報の出典"
+        },
+        {
+          "url": "https://www.amazon.co.jp/dp/B000R32F6M",
+          "label": "商品情報の出典"
+        }
+      ],
+      "href": "https://link.amazon/B090OQfDG",
+      "approvedPhoto": null,
+      "affiliateLinkKind": "AMAZON_OFFICIAL_SHORT",
+      "ownerVerifiedShortLink": true,
+      "trackingId": null
+    }
+  ],
+  "features": [
+    {
+      "feature_id": "black-friday-2026",
+      "title": "ブラックフライデー特集",
+      "kind": "SALE",
+      "label": "11/27 先行セール開始",
+      "intro": "年に一度の大型セールに合わせた特集です。掲載商品は、セール開始後にAmazonの公開情報で対象を確認できたものだけを載せます。価格は変動するため、Amazonの商品ページでご確認ください。",
+      "product_ids": [
+        "RS-P0014",
+        "RS-P0024",
+        "RS-P0016"
+      ],
+      "start_date": "2026-11-27",
+      "end_date": "2026-12-07"
     }
   ]
 }
