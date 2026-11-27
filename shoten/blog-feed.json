@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
   "source": "https://rhythmspeaker.hatenablog.com/rss",
-  "updated_at": "2026-11-26T13:00:26.131835+00:00",
+  "updated_at": "2026-11-27T12:58:31.383729+00:00",
   "entries": [
+    {
+      "title": "粘着フックは耐荷重だけで選べる？ 貼る面・使う場所・外し方の確認メモ",
+      "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/27/070000?utm_source=feed",
+      "summary": "金曜連載｜暮らしの道具検証室 掛ける物の前に、貼る条件を読む 面は合う？ → 場所は合う？ → 重さは範囲内？ → 外せる？ こんにちは、リズムタプ太郎です。玄関の小物を掛けたいけれど、壁に穴は開けたくない。そんなとき、粘着フックの「耐荷重」の数字に目が向きます。けれど、数字が大きい製品を買えば、どこにでも貼れるわけで",
+      "published": "Fri, 27 Nov 2026 07:00:00 +0900",
+      "product_ids": []
+    },
     {
       "title": "AIで作った手順書、初めての人も使える？ 最初の一手から試す確認メモ",
       "url": "https://rhythmspeaker.hatenablog.com/entry/2026/11/26/070000?utm_source=feed",
@@ -206,13 +213,6 @@
       "url": "https://rhythmspeaker.hatenablog.com/entry/cable-storage-how-to-choose?utm_source=feed",
       "summary": "金曜連載｜暮らしの道具検証室 #01 PR・広告を含みます。 この記事にはAmazonアソシエイトリンクを掲載しています。 ケーブルは、使う場所と用途から整理。AI生成のイメージで、紹介商品の実物写真ではありません。 こんにちは、リズムタプ太郎です。机の上では充電ケーブルが落ち、引き出しの中では使っていないコードが絡ま",
       "published": "Fri, 30 Oct 2026 07:00:00 +0900",
-      "product_ids": []
-    },
-    {
-      "title": "AIにブログを毎日書いてもらうには？ Mac miniで挑戦する24時間自動化の実験",
-      "url": "https://rhythmspeaker.hatenablog.com/entry/ai-blog-automation-mac-mini-01?utm_source=feed",
-      "summary": "木曜連載｜AIと暮らす未来実験室 #01 2026年10月29日｜実験・開発記録 小さなMac miniを、未来の編集室へ。AI生成のイメージ画像です。実際の運用環境を撮影した写真ではありません。 こんにちは、リズムタプ太郎です。木曜日は「AIと暮らす未来実験室」。 AIを使えば、ブログの記事を毎日作って、公開まで任せ",
-      "published": "Thu, 29 Oct 2026 17:31:03 +0900",
       "product_ids": []
     }
   ]
