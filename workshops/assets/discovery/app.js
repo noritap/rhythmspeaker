@@ -1,5 +1,5 @@
 import {todayJst,formatDate,discover,shiftMonth} from './domain.js';
-import {esc,card,calendar,emptyResults} from './components.js?v=20261127-1';
+import {esc,card,calendar,emptyResults} from './components.js?v=20261128-1';
 const $=s=>document.querySelector(s);
 const datasets={public:[]};
 const thisMonth=()=>todayJst().slice(0,7);
@@ -21,7 +21,11 @@ function focusResults(){
 function updateCandidates(){const names=[...new Set(datasets[state.source].map(e=>e.instructor))];$('#instructors').innerHTML=names.map(n=>`<option value="${esc(n)}"></option>`).join('')}
 function render(){
  const [y,m]=state.month.split('-').map(Number);$('#monthTitle').textContent=`${y}年 ${m}月`;
- $('#calendar').innerHTML=calendar(state.month,allMatching(),state.date,todayJst());
+ const today=todayJst();
+ const matching=allMatching();
+ const firstEvent=matching.find(event=>event.date.startsWith(state.month))?.date;
+ const tabDate=state.date||(today.startsWith(state.month)?today:firstEvent)||state.month+'-01';
+ $('#calendar').innerHTML=calendar(state.month,matching,state.date,today,tabDate);
  const selected=discover(datasets[state.source],options());
  $('#showResults').hidden=!state.date||!selected.length;$('#showResults').textContent=`この日の${selected.length}件を見る ↓`;
  $('#resultTitle').textContent=state.date?formatDate(state.date):state.view==='list'?(state.past?'これまでの開催記録':'すべての開催予定'):`${m}月の${state.past?'開催記録':'ワークショップ'}`;
@@ -39,8 +43,40 @@ $('#search').addEventListener('input',e=>{state.query=e.target.value;render()});
 $('#clearTeacher').onclick=()=>{clear('query');$('#search').focus()};$('#clearDate').onclick=()=>{clear('date');$('#monthTitle').focus()};$('#reset').onclick=()=>{clear();$('#search').focus()};
 $('#showResults').onclick=focusResults;
 $('#chips').onclick=e=>{const b=e.target.closest('[data-clear]');if(b){const type=b.dataset.clear;clear(type);(type==='query'?$('#search'):$('#monthTitle')).focus()}};
-$('#calendar').onclick=e=>{const b=e.target.closest('[data-date]');if(b){const d=b.dataset.date;state.date=state.date===d?'':d;render();document.querySelector(`[data-date="${d}"]`)?.focus()}};
-$('#calendar').onkeydown=e=>{const b=e.target.closest('[data-date]');if(!b)return;const buttons=[...$('#calendar').querySelectorAll('button')],i=buttons.indexOf(b),map={ArrowLeft:i-1,ArrowRight:i+1,ArrowUp:i-7,ArrowDown:i+7,Home:0,End:buttons.length-1};if(e.key in map){e.preventDefault();buttons[Math.max(0,Math.min(buttons.length-1,map[e.key]))].focus()}};
+const calendarPanel=$('#calendar');
+const focusDay=date=>calendarPanel.querySelector(`[data-date="${date}"]`)?.focus();
+calendarPanel.addEventListener('focusin',event=>{
+ const day=event.target.closest('[data-date]');
+ if(!day)return;
+ const previous=calendarPanel.querySelector('[tabindex="0"]');
+ if(previous)previous.tabIndex=-1;
+ day.tabIndex=0;
+});
+calendarPanel.onclick=event=>{
+ const date=event.target.closest('[data-date]')?.dataset.date;
+ if(!date)return;
+ state.date=state.date===date?'':date;
+ render();
+ focusDay(date);
+};
+calendarPanel.onkeydown=event=>{
+ const button=event.target.closest('[data-date]');
+ if(!button||event.altKey||event.ctrlKey||event.metaKey)return;
+ const date=new Date(button.dataset.date+'T00:00:00Z');
+ const weekday=(date.getUTCDay()+6)%7;
+ const movement={ArrowLeft:-1,ArrowRight:1,ArrowUp:-7,ArrowDown:7,Home:-weekday,End:6-weekday};
+ if(!Object.hasOwn(movement,event.key))return;
+ event.preventDefault();
+ date.setUTCDate(date.getUTCDate()+movement[event.key]);
+ const nextDate=date.toISOString().slice(0,10);
+ const month=nextDate.slice(0,7);
+ if(month!==state.month){
+  state.month=month;
+  state.date='';
+  render();
+ }
+ focusDay(nextDate);
+};
 for(const [id,n]of[['prev',-1],['next',1]])$('#'+id).onclick=()=>{state.month=shiftMonth(state.month,n);state.date='';render()};
 $('#nearest').onclick=()=>{nearestMonth();render()};
 for(const [id,past]of[['upcoming',false],['past',true]])$('#'+id).onclick=()=>showPeriod(past);
