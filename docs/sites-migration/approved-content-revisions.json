@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350. 2026-11-05: owner issued sitewide UX/UI redesign v3.0 authorizing low-risk visitor-facing copy and CTA simplification with production safety gates. STEP-specific redundant CTA/foundation copy was changed only in classes/step/index.html and pinned to this exact Git blob; pre-existing workshop/booking/financial operations, immutable baseline, and allowedPaths are unchanged. Release still depends on PR CI and six-width browser QA. The STEP 390px accessibility QA additionally identified a low-contrast summary label; the fix is in the already-allowed STEP HTML only while the protected hero-photo.css stays identical to baseline. Full STEP 2.1AA light-surface contrast fixes for section kickers and level numbers/tags, within the same HTML blob, are included in this updated exact pin. Final STEP accessibility reduction also removes three decorative level numbers and their redundant English level tags. They were not needed to distinguish the Japanese level headings. Last STEP AA fix targets only the two public primary application CTAs on pale backgrounds with dark burgundy.",
+  "approvedReason": "Keep prior owner-approved broadcast content revisions. 2026-11-02 owner expressly requested Sitewide Journey UX 3VC implementation and production for visitor-facing HTML; changes are pinned to the exact Git blobs below. Public trial help, class and instructor schedule handoff, workshop search self-link only. No private calendar, booking DB, Supabase Auth/RLS, secrets, or payment changes; see PR #335. 2026-11-03: owner requested RSS #015 full show publication; the six RSS updates in PR #338 are pinned to their exact blobs. 2026-11-04: owner authorized scored >=90 revenue-UX improvements with tested production release; the protected Nov 22 workshop landing copy and list/booking links are repaired to defer to the live Workshop Manager detail. This exact approved Git blob is pinned without changing the immutable baseline or any booking/Auth/DB logic; PR #350. 2026-11-05: owner issued sitewide UX/UI redesign v3.0 authorizing low-risk visitor-facing copy and CTA simplification with production safety gates. STEP-specific redundant CTA/foundation copy was changed only in classes/step/index.html and pinned to this exact Git blob; pre-existing workshop/booking/financial operations, immutable baseline, and allowedPaths are unchanged. Release still depends on PR CI and six-width browser QA. The STEP 390px accessibility QA additionally identified a low-contrast summary label; the fix is in the already-allowed STEP HTML only while the protected hero-photo.css stays identical to baseline. Full STEP 2.1AA light-surface contrast fixes for section kickers and level numbers/tags, within the same HTML blob, are included in this updated exact pin. Final STEP accessibility reduction also removes three decorative level numbers and their redundant English level tags. They were not needed to distinguish the Japanese level headings. Last STEP AA fix targets only the two public primary application CTAs on pale backgrounds with dark burgundy. 2026-11-28: owner requested production release of the tested workshop discovery improvements in PR #616. Pin the three public discovery files to their exact reviewed blobs.",
   "allowedPaths": [
     "broadcast/data/episodes.json",
     "broadcast/data/people.json",
@@ -19,6 +19,8 @@
     "instructors/sasasa/index.html",
     "trial/apply/index.html",
     "workshops/index.html",
+    "workshops/assets/discovery/components.js",
+    "workshops/assets/discovery/app.js",
     "rss/data.json",
     "rss/program-data.json",
     "rss/015/program.json",
@@ -44,7 +46,7 @@
     "instructors/niu/index.html": "e79d8577cf7a14ee4005d8d28dc9bc8b53e766dc",
     "instructors/okudaira/index.html": "1ed945617eab79793b8ed9390198536523a78cfa",
     "instructors/sasasa/index.html": "6f168f54fc6b6641fb5e04027f2bd6b43fd77ea8",
-    "workshops/index.html": "a329c2d1f25b7dbf9746006cfb60ac06dc02fc2f",
+    "workshops/index.html": "65994d99b3c53329687f420467666817a5b51153",
     "rss/data.json": "09c8d1861a7509670f9eeb70082eb863f4a37bd9",
     "rss/program-data.json": "9143df0adbd99823fe10688c3135a50895154592",
     "rss/015/program.json": "cec8edac99951d28a99ea79192978437315611c4",
@@ -52,6 +54,8 @@
     "rss/app.js": "16712066944b493b8d9a1647e48fcc62f44e8452",
     "rss/theater.js": "d2d9a397f3a03986f1e59aa6650b9a1f235d9054",
     "rss/index.html": "405204d582cb536f68d6ddccd2f4cd5f2a2ced0b",
-    "workshops/sakaida-koji-20261122.html": "3a12cf7f8c1c5208be1618e6593417a8a3bf080c"
+    "workshops/sakaida-koji-20261122.html": "3a12cf7f8c1c5208be1618e6593417a8a3bf080c",
+    "workshops/assets/discovery/app.js": "bfd991ce3a2f42aa322699cd5bc07d8300f3a81d",
+    "workshops/assets/discovery/components.js": "3a1883afafd341bf039e90c5fb50ab5d0a65e9b6"
   }
 }
