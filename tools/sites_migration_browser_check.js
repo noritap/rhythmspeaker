@@ -53,7 +53,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
   assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
   const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
-  assert.equal(await topCards.count(), 6);
+  assert.equal(await topCards.count(), 7);
   const panel = await menu.boundingBox();
   for (const card of await topCards.all()) {
     const box = await card.boundingBox();
