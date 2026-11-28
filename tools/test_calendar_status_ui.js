@@ -61,7 +61,7 @@ assert.match(source, /cf-visually-hidden/);
 assert.match(source, /<h2 id="cf-find-title" tabindex="-1">開催日を選ぶ<\/h2>/);
 assert.match(staticPage, /初回体験 ¥1,000/);
 assert.doesNotMatch(staticPage, /掲載中のクラスは開講が決定しています|予約の流れ|JOIN A CLASS|REQUEST A LESSON/);
-assert.match(staticPage, /class-finder\.js\?v=20261105opentime1/);
+assert.match(staticPage, /src="\.\.\/assets\/ux-lab\/class-finder\.js\?v=[a-z0-9-]+"/i);
 assert.match(source, /data-cf-mode="request"/);
 assert.match(source, /view:'calendar',mode:'join'/);
 assert.match(source, /date:cfToday\(\)/);

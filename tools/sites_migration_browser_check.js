@@ -37,7 +37,7 @@ for(const width of [320,375,390,430,768,1024,1440]){
   assert.equal(await menu.locator('.rs-menu-link--music').count(),1);
   assert.equal(await menu.locator('a[href="https://tapdance-rhythmspeaker.hatenablog.com/"]').count(),1);
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.hatenablog.com/"]').count(),1);
-  assert.equal(await menu.locator('.rs-menu-action').count(),6);
+  assert.equal(await menu.locator('.rs-menu-action').count(),7);
   assert.equal(await menu.locator('.rs-menu-link--ecosystem[aria-current="page"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
   assert.equal(await menu.locator('a[href$="schedule/"]').count(),1);
@@ -46,13 +46,14 @@ for(const width of [320,375,390,430,768,1024,1440]){
   assert.equal(await menu.locator('a[href="https://rhythmspeaker.stores.jp/?all_items=true"]').count(),1);
   assert.equal(await menu.locator('a[href="https://tips-app-seven.vercel.app/"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-action--goods').count(),1);
+  assert.equal(await menu.locator('.rs-menu-action--mail[href^="mailto:"]').count(),1);
   assert.equal(await menu.locator('.rs-menu-link--rss').count(),1);
   assert.equal(await menu.locator('.rs-menu-group--quick').evaluate(el=>el.getBoundingClientRect().top)
       <await menu.locator('.rs-menu-group--lessons').evaluate(el=>el.getBoundingClientRect().top),true);
   assert(await menu.evaluate(el=>el.getBoundingClientRect().height<=window.innerHeight-50),'menu fits within viewport');
   assert(await page.locator('html').evaluate(el=>el.scrollWidth<=el.clientWidth),width+' header menu horizontal overflow');
   const topCards = menu.locator('.rs-menu-group--quick a, .rs-menu-group--services a');
-  assert.equal(await topCards.count(), 6);
+  assert.equal(await topCards.count(), 7);
   const panel = await menu.boundingBox();
   for (const card of await topCards.all()) {
     const box = await card.boundingBox();
@@ -93,7 +94,7 @@ for (const route of ['', 'schedule/', 'trial/', 'rental/', 'access/']) {
     const toggle = page.locator('#menu-button');
     const menu = page.locator('#menu');
     await toggle.click();
-    assert.equal(await menu.locator('.rs-menu-action').count(),6);
+    assert.equal(await menu.locator('.rs-menu-action').count(),7);
     assert.equal(await menu.locator('.rs-menu-group--blogs a').count(),2);
     assert(await menu.evaluate(el=>el.scrollWidth<=el.clientWidth && el.getBoundingClientRect().bottom<=innerHeight));
     await page.keyboard.press('Escape');

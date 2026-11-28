@@ -23,6 +23,25 @@ function fixture(){const v=structuredClone(source);v.lastSuccessfulSyncAt='2026-
    await page.route('**/data/class-sessions.public.json*',async r=>{requests++;if(hold)await new Promise(resolve=>release=resolve);if(fail)return r.abort();await r.fulfill({json:payload});});
    const contactRequests=[];await context.route('https://lin.ee/**',r=>{contactRequests.push(r.request().url());return r.abort();});
    await page.goto(base+'schedule/');await page.locator('[data-cf-detail]').first().waitFor();
+   if (width === 320) {
+     const trialLink = page.getByRole('link', {name: '初回体験を申し込む →', exact: true});
+     await trialLink.scrollIntoViewIfNeeded();
+     assert(await trialLink.evaluate(link => {
+       const {x, y, width, height} = link.getBoundingClientRect();
+       const center = document.elementFromPoint(x + width / 2, y + height / 2);
+       return link.getClientRects().length === 1 && link.contains(center);
+     }), 'trial link has one clickable area at 320px');
+     assert(await page.locator('html').evaluate(html => html.scrollWidth <= html.clientWidth), 'schedule overflows at 320px');
+
+     await trialLink.click();
+     await page.waitForURL(new URL('trial/apply/', base).href);
+     await page.goBack();
+     await trialLink.press('Enter');
+     await page.waitForURL(new URL('trial/apply/', base).href);
+     await page.goBack();
+     await page.locator('[data-cf-detail]').first().waitFor();
+     report.scenarios.push('320px trial link opens the form from its center and with Enter');
+   }
    if(width===390){
      // Calendar-only primary journey, alternate enquiry and rolling two-month limits.
      assert.equal(await page.locator('[data-cf-mode="join"]').isHidden(),true);
